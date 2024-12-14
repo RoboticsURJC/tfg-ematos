@@ -25,10 +25,6 @@ while True:
       print("Not capture")
       break
 
-    # Show original frame
-    cv2.imshow("Original", frame)
-
-
     # Predict with the model
     results = model(frame)  # predict on camera video
 
