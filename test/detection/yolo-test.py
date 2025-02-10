@@ -3,7 +3,7 @@ import cv2
 from facenet_pytorch import MTCNN
 import torch
 
-# Load a pretrained model
+# ppue a pretrained model
 model = YOLO("yolo11n.pt")
 model.info()
 
