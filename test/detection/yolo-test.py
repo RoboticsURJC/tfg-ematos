@@ -26,7 +26,7 @@ while True:
       break
 
     # Predict with the model
-    results = model(frame)  # predict on camera video
+    results = model(frame)
 
     # Extract bounding boxes,labels and confidence
     boxes = results[0].boxes
@@ -38,10 +38,10 @@ while True:
       if cls == 0 and conf > 0.7:  # label 0 is person
         x1, y1, x2, y2 = map(int, box.xyxy[0]) 
 
-        # get only the person bounding
+#         # get only the person bounding
         person_region = frame[y1:y2, x1:x2]
 
-        # use MTCNN to dectect the faces
+#         # use MTCNN to dectect the faces
         faces, probs = mtcnn.detect(person_region, landmarks=False)
 
         if faces is not None:
@@ -49,6 +49,10 @@ while True:
             fx1, fy1, fx2, fy2 = map(int, face)
             cv2.rectangle(frame, (x1 + fx1, y1 + fy1), (x1 + fx2, y1 + fy2), (0, 0, 255), 2)
             cv2.putText(frame, "Face", (x1 + fx1, y1 + fy1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
+
+
+            face_region = person_region[fy1:fy2, fx1:fx2]
+            face_resized = cv2.resize(face_region, (160, 160))
 
 
         label = f"{model.names[cls]} {conf:.2f}"  # Get class name and confidence
@@ -61,7 +65,6 @@ while True:
     if cv2.waitKey(1) & 0xFF == ord('q'):
       break
     
-
 
 # free the camera and close windows
 cap.release()
