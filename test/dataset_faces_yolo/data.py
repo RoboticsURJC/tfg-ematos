@@ -1,12 +1,14 @@
 import yaml
 
 data = {
-    'path': '/home/elisa/uni/tfg-ematos/test/dataset_faces_yolo',  
-    'train': 'images/train',  
-    'val': 'images/val',  
+    'path': '/home/elisa/uni/tfg-ematos/test/dataset_faces_yolo/dataset',  
+    'train': 'images/train-pro',  
+    'val': 'images/val-pro', 
+    'test': 'images/test-pro',
     'names': {
-        0: 'Elisa',
-        1: 'Adri'
+        0: 'Adri',
+        1: 'Elisa',
+        2: 'Will'
     }
 }
 
