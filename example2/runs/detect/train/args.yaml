@@ -1,7 +1,7 @@
 task: detect
 mode: train
 model: yolov8s.pt
-data: /home/elisa/uni/tfg-ematos/example2/Cars-detection/data.yaml
+data: /home/elisa/uni/tfg-ematos/example2/dataset.yaml
 epochs: 100
 time: null
 patience: 100
