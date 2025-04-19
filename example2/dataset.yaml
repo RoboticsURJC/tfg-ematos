@@ -1,9 +1,0 @@
-# Número de clases en el dataset
-nc: 1  
-
-names: ["coche"]  # Lista de nombres de las clases
-
-# Rutas a los conjuntos de datos (cambia estas rutas según la ubicación de tus datos)
-train: /home/elisa/uni/tfg-ematos/example2/division/train  # Carpeta con imágenes de entrenamiento
-val: /home/elisa/uni/tfg-ematos/example2/division/val  # Carpeta con imágenes de validación
-test: /home/elisa/uni/tfg-ematos/example2/division/test  # (Opcional) Carpeta con imágenes de prueba

@@ -72,6 +72,20 @@ while True:
         bottom *= 4
         left *= 4
         
+        # Aumentamos el tamaño del rectángulo (escala mayor a 1)
+        scale_factor = 1.5  # Ajusta este valor para hacer el rectángulo más grande
+        width = right - left
+        height = bottom - top
+        
+        # Calculamos el nuevo tamaño del rectángulo
+        new_width = int(width * scale_factor)
+        new_height = int(height * scale_factor)
+        
+        # Recálculo de las nuevas coordenadas para hacer el rectángulo más grande
+        left = max(0, left - (new_width - width) // 2)
+        right = left + new_width
+        top = max(0, top - (new_height - height) // 2)
+        
         if (name == "Unknown"):
             color = (0, 0, 255)
         else:
