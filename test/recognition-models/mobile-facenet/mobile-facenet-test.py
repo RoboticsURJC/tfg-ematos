@@ -74,16 +74,15 @@ def recognize_face(embedding, known_faces_dict, threshold=0.5):
     best_score = -1
     for name, embeddings in known_faces_dict.items():
         for e in embeddings:
-            if embedding.shape != e.shape:
-                print(f"Warning: Formas no coinciden: embedding {embedding.shape}, e {e.shape}")
-                continue
             score = cosine_similarity(embedding, e)
+            print(f"Compare with {name}: score = {score:.3f}")
             if score > best_score:
                 best_score = score
                 best_match = name
     if best_score > threshold:
         return best_match, best_score
     else:
+        print(f"Nonone win {threshold}. Better score: {best_score:.3f}")
         return None, best_score
     
 while True:
@@ -111,7 +110,7 @@ while True:
 
     
     for i in range(len(confidences)):
-        if confidences[i] > 0.6:
+        if confidences[i] > 0.75:
             print(f"Person Detect {i}")
           
             ymin, xmin, ymax, xmax = detections[i][:4]
@@ -134,6 +133,8 @@ while True:
 
             # get face frame
             face_img = frame[y1:y2, x1:x2]
+            print(f"Face img shape: {face_img.shape}")
+
             embedding = get_embedding(face_img)
 
             person_name, score = recognize_face(embedding, known_faces_dict, threshold=0.5)
@@ -142,9 +143,9 @@ while True:
             cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
             cv2.putText(frame, label, (x1, y1-10),
                         cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0,255,0), 2)
-
-            
-    cv2.imshow("Recognitiom", frame)
+        
+                        
+    cv2.imshow("Recognition", frame)
     if cv2.waitKey(1) == ord('q'):
         break
 
