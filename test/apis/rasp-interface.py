@@ -38,7 +38,7 @@ class MainWindow(QMainWindow):
         super().__init__()
 
         self.setWindowTitle("WaLLeli")
-        self.statusBar().showMessage("Ready")
+        self.statusBar().showMessage("      Ready    ")
 
         self.toolbar = QToolBar()
         self.addToolBar(self.toolbar)
