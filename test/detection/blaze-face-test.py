@@ -15,7 +15,7 @@ output_details = interpreter.get_output_details()
 input_shape = input_details[0]['shape']
 
 picam2 = Picamera2()
-picam2.preview_configuration.main.size = (640, 480)
+picam2.preview_configuration.main.size =  (1280, 720)
 picam2.preview_configuration.main.format = "RGB888"
 picam2.configure("preview")
 picam2.start()
@@ -24,6 +24,7 @@ picam2.start()
 while True:
 
     frame = picam2.capture_array()
+    frame = cv2.flip(frame, 1)
     h, w, _ = frame.shape
 
     img_resized = cv2.resize(frame, (input_shape[2], input_shape[1]))
@@ -43,12 +44,10 @@ while True:
     detections = interpreter.get_tensor(output_details[0]['index'])[0]
     confidences = interpreter.get_tensor(output_details[1]['index'])[0]
 
-    print(f"Confidences: {confidences}")
-    print(f"Detections: {detections}")
     
     for i in range(len(confidences)):
         if confidences[i] > 0.6:
-            print(f"Face Detect")
+            print(f"Person Detect {i}")
             ymin, xmin, ymax, xmax = detections[i][:4]
             ymin = max(0.0, min(1.0, ymin))
             xmin = max(0.0, min(1.0, xmin))
@@ -59,7 +58,7 @@ while True:
             cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
 
     cv2.imshow("Detection", frame)
-    if cv2.waitKey(1) == 27:
+    if cv2.waitKey(1) == ord('q'):
         break
 
 cv2.destroyAllWindows()
