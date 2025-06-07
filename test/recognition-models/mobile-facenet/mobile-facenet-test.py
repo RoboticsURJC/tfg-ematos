@@ -42,7 +42,7 @@ picam2.configure("preview")
 picam2.start()
 
 # load known faces embeddings
-with open('known_faces.pkl', 'rb') as f:
+with open('known_faces_192.pkl', 'rb') as f:
     known_face_names, known_face_encodings = pickle.load(f)
 
 known_faces_dict = {}
