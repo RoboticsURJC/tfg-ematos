@@ -4,8 +4,6 @@ import numpy as np
 import tflite_runtime.interpreter as tflite
 from picamera2 import Picamera2, Preview
 from numpy.linalg import norm
-import matplotlib.pyplot as plt
-import pandas as pd
 
 # Load TFLite model and allocate tensors for detection and recogniton.
 try:
@@ -72,139 +70,82 @@ def get_embedding(face_img):
     embedding = embedding / np.linalg.norm(embedding)
     return embedding
 
-def recognize_face(embedding, known_faces_dict, threshold=0.5):
+def recognize_face(embedding, known_faces_dict, threshold):
     best_match = None
     best_score = -1
     for name, embeddings in known_faces_dict.items():
         for e in embeddings:
             score = cosine_similarity(embedding, e)
-            #print(f"Compare with {name}: score = {score:.3f}")
             if score > best_score:
                 best_score = score
                 best_match = name
-    if best_score > 0.75:
+    if best_score > threshold:
         return best_match, best_score
-    elif best_score > 0.6:
-        return "Desconocido (pero se parece a...)", best_score
     else:
         return None, best_score
 
+while True:
 
-# def comparar_similitudes_emb_light(known_faces_dict, exportar_csv=False, umbral_parecido=0.6, mostrar_heatmap=False):
-#     nombres = list(known_faces_dict.keys())
-#     num_personas = len(nombres)
-#     matriz = np.zeros((num_personas, num_personas))
+    frame = picam2.capture_array()
+    frame = cv2.flip(frame, 1)
+    h, w, _ = frame.shape
 
-#     for i in range(num_personas):
-#         for j in range(i, num_personas):
-#             if i == j:
-#                 matriz[i][j] = 0.0
-#             else:
-#                 embeddings_i = known_faces_dict[nombres[i]]
-#                 embeddings_j = known_faces_dict[nombres[j]]
+    img_resized = cv2.resize(frame, (input_shape_detector[2], input_shape_detector[1]))
 
-#                 distancias = [np.linalg.norm(e1 - e2) for e1 in embeddings_i for e2 in embeddings_j]
-#                 promedio = np.mean(distancias)
-#                 matriz[i][j] = matriz[j][i] = promedio
+    # Convert the image to numpy array
+    input_data = np.expand_dims(img_resized.astype(np.float32), axis=0)
 
-#     df = pd.DataFrame(matriz, index=nombres, columns=nombres)
+    # normalize 
+    input_data = input_data / 255.0
 
-#     if exportar_csv:
-#         df.to_csv("distancias_embeddings.csv")
-#         print("✅ CSV guardado como 'distancias_embeddings.csv'")
+    # Set the tensor to point to the input to be inferred 
+    detector.set_tensor(input_details_detector[0]['index'], input_data)
 
-#     print("\n🔗 Posibles personas parecidas (distancia < {:.2f}):".format(umbral_parecido))
-#     for i in range(num_personas):
-#         for j in range(i + 1, num_personas):
-#             if matriz[i][j] < umbral_parecido:
-#                 print(f"✅ {nombres[i]} ↔ {nombres[j]} → distancia = {matriz[i][j]:.3f}")
+    # run the inference
+    detector.invoke()
 
-#     if mostrar_heatmap:
-#         try:
-#             fig, ax = plt.subplots(figsize=(10, 8))
-#             cax = ax.matshow(matriz, cmap="RdYlGn_r")
-#             plt.xticks(range(num_personas), nombres, rotation=90)
-#             plt.yticks(range(num_personas), nombres)
-#             plt.colorbar(cax, label="Distancia promedio")
-#             plt.title("Similitud entre personas (menos = más parecidos)")
-#             plt.tight_layout()
-#             plt.show()
-#         except Exception as e:
-#             print("No se pudo mostrar el heatmap:", e)
-
-#     return df
-
-
-# comparar_similitudes_emb_light(known_faces_dict, exportar_csv=True, umbral_parecido=0.5, mostrar_heatmap=False)
-
-print("\n--- Similitud entre embeddings conocidos ---")
-for i in range(len(known_face_encodings)):
-    for j in range(i+1, len(known_face_encodings)):
-        sim = cosine_similarity(known_face_encodings[i], known_face_encodings[j])
-        print(f"Similitud entre {known_face_names[i]} y {known_face_names[j]}: {sim:.4f}")
-
-# while True:
-
-#     frame = picam2.capture_array()
-#     frame = cv2.flip(frame, 1)
-#     h, w, _ = frame.shape
-
-#     img_resized = cv2.resize(frame, (input_shape_detector[2], input_shape_detector[1]))
-
-#     # Convert the image to numpy array
-#     input_data = np.expand_dims(img_resized.astype(np.float32), axis=0)
-
-#     # normalize 
-#     input_data = input_data / 255.0
-
-#     # Set the tensor to point to the input to be inferred 
-#     detector.set_tensor(input_details_detector[0]['index'], input_data)
-
-#     # run the inference
-#     detector.invoke()
-
-#     detections = detector.get_tensor(output_details_detector[0]['index'])[0]
-#     confidences = detector.get_tensor(output_details_detector[1]['index'])[0]
+    detections = detector.get_tensor(output_details_detector[0]['index'])[0]
+    confidences = detector.get_tensor(output_details_detector[1]['index'])[0]
 
    
     
-#     for i in range(len(confidences)):
-#         if confidences[i] > 0.75:
-#             #print(f"Person Detect {i}")
+    for i in range(len(confidences)):
+        if confidences[i] > 0.75:
+            #print(f"Person Detect {i}")
           
-#             ymin, xmin, ymax, xmax = detections[i][:4]
-#             ymin, xmin = max(0, ymin), max(0, xmin)
-#             ymax, xmax = min(1, ymax), min(1, xmax)
-#             x1, y1 = int(xmin * w), int(ymin * h)
-#             x2, y2 = int(xmax * w), int(ymax * h)
+            ymin, xmin, ymax, xmax = detections[i][:4]
+            ymin, xmin = max(0, ymin), max(0, xmin)
+            ymax, xmax = min(1, ymax), min(1, xmax)
+            x1, y1 = int(xmin * w), int(ymin * h)
+            x2, y2 = int(xmax * w), int(ymax * h)
 
-#             # Validar y ordenar coords
-#             x1, x2 = sorted([x1, x2])
-#             y1, y2 = sorted([y1, y2])
+            # Validar y ordenar coords
+            x1, x2 = sorted([x1, x2])
+            y1, y2 = sorted([y1, y2])
 
-#             x1 = max(0, min(x1, w - 1))
-#             x2 = max(0, min(x2, w - 1))
-#             y1 = max(0, min(y1, h - 1))
-#             y2 = max(0, min(y2, h - 1))
+            x1 = max(0, min(x1, w - 1))
+            x2 = max(0, min(x2, w - 1))
+            y1 = max(0, min(y1, h - 1))
+            y2 = max(0, min(y2, h - 1))
 
-#             if (x2 - x1) < 10 or (y2 - y1) < 10:
-#                 continue
+            if (x2 - x1) < 10 or (y2 - y1) < 10:
+                continue
 
-#             # get face frame
-#             face_img = frame[y1:y2, x1:x2]
-#             #print(f"Face img shape: {face_img.shape}")
+            # get face frame
+            face_img = frame[y1:y2, x1:x2]
+            #print(f"Face img shape: {face_img.shape}")
 
-#             embedding = get_embedding(face_img)
+            embedding = get_embedding(face_img)
 
-#             person_name, score = recognize_face(embedding, known_faces_dict, threshold=0.75)
-#             label = f"{person_name} ({score:.2f})" if person_name else "Unknown"
-#             print(f"You are: {label}")
-#             cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
-#             cv2.putText(frame, label, (x1, y1-10),
-#                         cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0,255,0), 2)
+            person_name, score = recognize_face(embedding, known_faces_dict, 0.75)
+            label = f"{person_name} ({score:.2f})" if person_name else "Unknown"
+            print(f"You are: {label}")
+            cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
+            cv2.putText(frame, label, (x1, y1-10),
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0,255,0), 2)
                         
-#     cv2.imshow("Recognition", frame)
-#     if cv2.waitKey(1) == ord('q'):
-#         break
+    cv2.imshow("Recognition", frame)
+    if cv2.waitKey(1) == ord('q'):
+        break
 
-# cv2.destroyAllWindows()
+cv2.destroyAllWindows()
