@@ -2,6 +2,7 @@
 
 # it will proccess the faces and identify the persons
 
+import os
 from flask import Flask, request, jsonify
 import face_recognition
 import numpy as np
@@ -41,5 +42,38 @@ def recognize():
 
     return jsonify({"recognized": results})
 
+@app.route("/register", methods=["POST"])
+def register():
+    data = request.get_json()
+    name = data["name"]
+    images = data["images"]  # lista de fotos en base64
+    person_folder = f"known_persons/{name}"
+    os.makedirs(person_folder, exist_ok=True)
+    
+    new_encodings = []
+    for idx, img_str in enumerate(images):
+        img_data = base64.b64decode(img_str)
+        nparr = np.frombuffer(img_data, np.uint8)
+        frame = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+        rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        face_encs = face_recognition.face_encodings(rgb_frame)
+        if face_encs:
+            new_encodings.append(face_encs[0])
+        # guardar imagen en disco
+        cv2.imwrite(f"{person_folder}/{name}_{idx+1}.jpg", frame)
+    
+    # actualizar base de datos
+    known_face_names.extend([name]*len(new_encodings))
+    known_face_encodings.extend(new_encodings)
+    
+    # guardar pickle actualizado
+    with open("known_faces.pkl", "wb") as f:
+        pickle.dump((known_face_names, known_face_encodings), f)
+
+    return jsonify({"status": "ok"})
+
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
+    
+    

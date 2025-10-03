@@ -67,6 +67,36 @@ class ClientApp:
                 self.result_label.config(text="Error en el servidor")
         except requests.exceptions.RequestException:
             self.result_label.config(text="No se pudo conectar al servidor")
+            
+    def start_registration(self):
+      from tkinter import simpledialog, messagebox
+
+      name = simpledialog.askstring("Registrar persona", "Introduce el nombre de la persona:")
+      if not name:
+          return
+
+      images = []
+      for i in range(3):  # capturar 3 fotos como ejemplo
+          messagebox.showinfo("Registro", f"Prepararse para foto {i+1}")
+          frame = self.current_frame
+          if frame is not None:
+              _, buffer = cv2.imencode('.jpg', frame)
+              img_str = base64.b64encode(buffer).decode("utf-8")
+              images.append(img_str)
+          else:
+              messagebox.showerror("Error", "No hay frame de cámara disponible")
+      
+      # enviar al servidor
+      try:
+          response = requests.post(f"{SERVER_URL}/register",
+                                  json={"name": name, "images": images}, timeout=10)
+          if response.ok:
+              messagebox.showinfo("Registro", f"{name} registrado correctamente")
+          else:
+              messagebox.showerror("Error", "No se pudo registrar la persona en el servidor")
+      except requests.exceptions.RequestException:
+          messagebox.showerror("Error", "No se pudo conectar al servidor")
+
 
 # Ejecutar aplicación
 root = Tk()
