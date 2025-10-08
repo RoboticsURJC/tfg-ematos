@@ -9,13 +9,17 @@ import numpy as np
 import pickle
 import cv2
 import base64
+import tempfile
+import shutil
 
 app = Flask(__name__)
 
-# load known faces
-with open("known_faces.pkl", "rb") as f:
-    known_face_names, known_face_encodings = pickle.load(f)
-
+# load "database"
+if os.path.exists("known_faces.pkl"):
+    with open("known_faces.pkl", "rb") as f:
+        known_face_names, known_face_encodings = pickle.load(f)
+else:
+    known_face_names, known_face_encodings = [], []
 
 @app.route("/recognize", methods=["POST"])
 def recognize():
@@ -47,8 +51,7 @@ def register():
     data = request.get_json()
     name = data["name"]
     images = data["images"]  # lista de fotos en base64
-    person_folder = f"known_persons/{name}"
-    os.makedirs(person_folder, exist_ok=True)
+    os.makedirs(f"known_persons/{name}", exist_ok=True)
     
     new_encodings = []
     for idx, img_str in enumerate(images):
@@ -59,18 +62,21 @@ def register():
         face_encs = face_recognition.face_encodings(rgb_frame)
         if face_encs:
             new_encodings.append(face_encs[0])
-        # guardar imagen en disco
-        cv2.imwrite(f"{person_folder}/{name}_{idx+1}.jpg", frame)
+            # save imgs
+            cv2.imwrite(f"known_persons/{name}/{name}_{idx+1}.jpg", frame)
     
-    # actualizar base de datos
-    known_face_names.extend([name]*len(new_encodings))
-    known_face_encodings.extend(new_encodings)
-    
-    # guardar pickle actualizado
-    with open("known_faces.pkl", "wb") as f:
-        pickle.dump((known_face_names, known_face_encodings), f)
-
-    return jsonify({"status": "ok"})
+    if new_encodings:
+        known_face_names.extend([name]*len(new_encodings))
+        known_face_encodings.extend(new_encodings)
+        tmp = tempfile.mktemp()
+        with open(tmp, "wb") as f:
+            pickle.dump((known_face_names, known_face_encodings), f)
+        shutil.move(tmp, "known_faces.pkl")
+        
+    return jsonify({
+        "status": "ok",
+        "message": f"{name} registrado con {len(new_encodings)} imágenes válidas"
+    })
 
 
 if __name__ == "__main__":
