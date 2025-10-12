@@ -8,6 +8,7 @@ import cv2
 import numpy as np
 import face_recognition
 from flask import Flask, request, jsonify
+import time
 
 app = Flask(__name__)
 
@@ -134,6 +135,19 @@ def register():
         "message": f"{name} registrado con {len(new_encodings)} imágenes válidas"
     })
 
+
+@app.route("/latency", methods=["GET"])
+def latency():
+    start = time.time()
+    # Simula procesamiento mínimo
+    _ = sum(range(100))
+    end = time.time()
+    latency_ms = (end - start) * 1000
+    return jsonify({
+        "status": "ok",
+        "latency_ms": latency_ms
+    })
+    
 
 # =====================
 # Run
