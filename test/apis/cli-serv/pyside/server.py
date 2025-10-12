@@ -16,8 +16,8 @@ app = Flask(__name__)
 # Configuración inicial
 # =====================
 
-DATA_PATH = "/home/eli/tfg-ematos/test/apis/known_faces.pkl"
-PEOPLE_DIR = "/home/eli/tfg-ematos/test/apis/known_persons"
+DATA_PATH = "/home/elisa/uni/tfg-ematos/test/apis/cli-serv/known_faces.pkl"
+PEOPLE_DIR = "/home/elisa/uni/tfg-ematos/test/apis/known_persons"
 os.makedirs(PEOPLE_DIR, exist_ok=True)
 
 

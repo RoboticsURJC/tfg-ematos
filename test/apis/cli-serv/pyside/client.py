@@ -1,17 +1,15 @@
-# client_qt.py
 import sys
 import base64
 import json
 import requests
 import cv2
 from picamera2 import Picamera2
-from PySide6.QtWidgets import (
+from PyQt5.QtWidgets import (
     QApplication, QWidget, QLabel, QPushButton, QVBoxLayout,
     QMessageBox, QInputDialog
 )
-from PySide6.QtGui import QImage, QPixmap
-from PySide6.QtCore import QTimer
-
+from PyQt5.QtGui import QImage, QPixmap
+from PyQt5.QtCore import QTimer, Qt
 
 # Cargar configuración
 with open("config.json") as f:
@@ -31,8 +29,12 @@ class ClientApp(QWidget):
         self.current_frame = None
 
         # UI
-        self.image_label = QLabel(alignment=0x84)  # centrar
-        self.result_label = QLabel("", alignment=0x84)
+        self.image_label = QLabel()
+        self.image_label.setAlignment(Qt.AlignCenter)
+
+        self.result_label = QLabel("")
+        self.result_label.setAlignment(Qt.AlignCenter)
+
         self.login_btn = QPushButton("🔑 Iniciar sesión")
         self.register_btn = QPushButton("🧍 Registrar usuario")
 
@@ -114,4 +116,4 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     client = ClientApp()
     client.show()
-    sys.exit(app.exec())
+    sys.exit(app.exec_())  # En PyQt5 es exec_() con guion bajo
