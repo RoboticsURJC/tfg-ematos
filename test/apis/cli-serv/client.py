@@ -66,7 +66,7 @@ class ClientApp:
         img_str = base64.b64encode(buffer).decode("utf-8")
 
         try:
-            response = requests.post(SERVER_URL, json={"image": img_str}, timeout=5)
+            response = requests.post(f"{SERVER_URL}/recognize", json={"image": img_str}, timeout=5)
             if response.ok:
                 names = response.json().get("recognized", [])
                 self.result_label.config(text=f"Reconocidos: {', '.join(names)}")
