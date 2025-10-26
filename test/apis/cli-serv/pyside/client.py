@@ -60,8 +60,9 @@ class ClientApp(QWidget):
             frame = cv2.flip(frame, 1)
             rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
             h, w, ch = rgb.shape
-            img = QImage(rgb.data, w, h, ch * w, QImage.Format_RGB888)
-            self.image_label.setPixmap(QPixmap.fromImage(img).scaled(640, 480))
+            img = QImage(rgb.data, w, h, rgb.strides[0], QImage.Format_RGB888)
+            pixmap = QPixmap.fromImage(img).scaled(640, 480, Qt.KeepAspectRatio)
+            self.image_label.setPixmap(pixmap)
             self.current_frame = frame
 
     def capture_and_send(self):
