@@ -16,9 +16,15 @@ app = Flask(__name__)
 # Configuración inicial
 # =====================
 
-DATA_PATH = "/home/elisa/uni/tfg-ematos/test/apis/cli-serv/known_faces.pkl"
-PEOPLE_DIR = "/home/elisa/uni/tfg-ematos/test/apis/known_persons"
-os.makedirs(PEOPLE_DIR, exist_ok=True)
+# DATA_PATH = "/home/elisa/uni/tfg-ematos/test/apis/cli-serv/known_faces.pkl"
+# PEOPLE_DIR = "/home/elisa/uni/tfg-ematos/test/apis/known_persons"
+
+curr_dir = os.path.dirname(__file__)
+data_path = os.path.join(curr_dir, "..", "..", "known_faces.pkl")
+people_path = os.path.join(curr_dir, "..", "..", "known_persons")
+
+
+os.makedirs(people_path, exist_ok=True)
 
 
 # =====================
@@ -27,8 +33,8 @@ os.makedirs(PEOPLE_DIR, exist_ok=True)
 
 def load_known_faces():
     """Carga los rostros conocidos desde el archivo pickle."""
-    if os.path.exists(DATA_PATH):
-        with open(DATA_PATH, "rb") as f:
+    if os.path.exists(data_path):
+        with open(data_path, "rb") as f:
             return pickle.load(f)
     return [], []
 
@@ -38,7 +44,7 @@ def save_known_faces(names, encodings):
     tmp = tempfile.mktemp()
     with open(tmp, "wb") as f:
         pickle.dump((names, encodings), f)
-    shutil.move(tmp, DATA_PATH)
+    shutil.move(tmp, data_path)
 
 
 # =====================
@@ -104,7 +110,7 @@ def register():
     if not name:
         return jsonify({"error": "El nombre no puede estar vacío"}), 400
 
-    person_dir = os.path.join(PEOPLE_DIR, name)
+    person_dir = os.path.join(people_path, name)
     os.makedirs(person_dir, exist_ok=True)
 
     new_encodings = []

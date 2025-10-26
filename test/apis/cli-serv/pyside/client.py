@@ -2,6 +2,7 @@ import sys
 import base64
 import json
 import requests
+import os
 import cv2
 from picamera2 import Picamera2
 from PyQt5.QtWidgets import (
@@ -11,8 +12,12 @@ from PyQt5.QtWidgets import (
 from PyQt5.QtGui import QImage, QPixmap
 from PyQt5.QtCore import QTimer, Qt
 
+
 # Cargar configuración
-with open("config.json") as f:
+curr_dir = os.path.dirname(__file__)
+config_path = os.path.join(curr_dir, "..", "config.json")
+
+with open(config_path) as f:
     config = json.load(f)
 SERVER_URL = config["server_url"]
 

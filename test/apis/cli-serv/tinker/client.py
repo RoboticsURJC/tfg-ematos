@@ -6,12 +6,15 @@ from tkinter import Tk, Label, Button
 from PIL import Image, ImageTk
 from picamera2 import Picamera2
 import cv2
+import os
 
 # Cargar configuración
-with open("config.json") as f:
+curr_dir = os.path.dirname(__file__)
+config_path = os.path.join(curr_dir, "..", "config.json")
+
+with open(config_path) as f:
     config = json.load(f)
 SERVER_URL = config["server_url"]
-
 
 class ClientApp:
     def __init__(self, window):
