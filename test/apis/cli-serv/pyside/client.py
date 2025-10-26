@@ -28,6 +28,9 @@ class ClientApp(QWidget):
         super().__init__()
         self.setWindowTitle("Face Client")
         self.setFixedSize(640, 520)
+        
+        # Fondo de la ventana
+        self.setStyleSheet("background-color: #f0f0f0;")  # gris claro
 
         # Inicializar cámara
         self.picam2 = Picamera2()
@@ -37,12 +40,42 @@ class ClientApp(QWidget):
         # UI
         self.image_label = QLabel()
         self.image_label.setAlignment(Qt.AlignCenter)
+        self.image_label.setStyleSheet("""
+            border: 2px solid #333;
+            border-radius: 10px;
+            background-color: #222;  /* fondo mientras llega la imagen */
+        """)
 
         self.result_label = QLabel("")
         self.result_label.setAlignment(Qt.AlignCenter)
+        self.result_label.setStyleSheet("font-size: 16px; font-weight: bold; color: #333;")
+
 
         self.login_btn = QPushButton("🔑 Iniciar sesión")
         self.register_btn = QPushButton("🧍 Registrar usuario")
+        
+        # Estilo de botones
+        button_style = """
+            QPushButton {
+                background-color: #4CAF50;
+                color: white;
+                border-radius: 10px;
+                padding: 10px;
+                font-size: 14px;
+            }
+            QPushButton:hover {
+                background-color: #45a049;
+            }
+            QPushButton:pressed {
+                background-color: #3e8e41;
+            }
+        """
+        self.login_btn.setStyleSheet(button_style)
+        self.register_btn.setStyleSheet(button_style)
+        
+        layout.setContentsMargins(20, 20, 20, 20)
+        layout.setSpacing(15)
+        
 
         layout = QVBoxLayout()
         layout.addWidget(self.image_label)
