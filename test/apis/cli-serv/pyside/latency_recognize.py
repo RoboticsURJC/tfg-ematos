@@ -18,7 +18,7 @@ SERVER_URL = config["server_url"]
 ENDPOINT = f"{SERVER_URL}/recognize"
 
 # Carpeta con varias imágenes de prueba
-test_images_dir = os.path.join(curr_dir, "..", "..", "test_images")
+test_images_dir = os.path.join(curr_dir, "test_images")
 image_files = [f for f in os.listdir(test_images_dir) if f.lower().endswith(".jpg")]
 
 # Configuración de la prueba

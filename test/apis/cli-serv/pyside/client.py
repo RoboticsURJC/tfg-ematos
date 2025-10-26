@@ -83,8 +83,20 @@ class ClientApp(QWidget):
             response = requests.post(f"{SERVER_URL}/recognize", json={"image": img_str}, timeout=5)
             if response.ok:
                 names = response.json().get("recognized", [])
+                
                 if names:
-                    self.result_label.setText(f"Reconocido: {', '.join(names)}")
+                    
+                    if "Desconocido" in names:
+                        QMessageBox.warning(self, 
+                                            "Inicio de sesion fallida", 
+                                            "No se pudo inicar sesion: Usuario Desconocido.")
+                        
+                        self.result_label.setText("Incio de sesion fallida")
+                    
+                    else:
+
+                        self.result_label.setText(f"Bienvenido {', '.join(names)}!")
+                    
                 else:
                     self.result_label.setText("No se reconoció ningún rostro")
             else:
@@ -98,7 +110,7 @@ class ClientApp(QWidget):
             return
 
         images = []
-        for i in range(3):
+        for i in range(5):
             QMessageBox.information(self, "Registro", f"Prepárate para la foto {i + 1}")
             frame = self.current_frame
             if frame is not None:
