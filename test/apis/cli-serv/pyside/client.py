@@ -71,7 +71,6 @@ class ClientApp(QWidget):
             self.image_label.setPixmap(pixmap)
             self.current_frame = frame
     
-    
     def capture_and_send(self):
         if self.current_frame is None:
             self.result_label.setText("Cámara no lista")
