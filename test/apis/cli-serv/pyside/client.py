@@ -60,38 +60,18 @@ class ClientApp(QWidget):
         self.timer.timeout.connect(self.update_frame)
         self.timer.start(30)
 
-    # def update_frame(self):
-    #     frame = self.picam2.capture_array()
-    #     if frame is not None:
-    #         frame = cv2.flip(frame, 1)
-    #         rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-    #         h, w, ch = rgb.shape
-    #         img = QImage(rgb.data, w, h, rgb.strides[0], QImage.Format_RGB888)
-    #         pixmap = QPixmap.fromImage(img).scaled(640, 480, Qt.KeepAspectRatio)
-    #         self.image_label.setPixmap(pixmap)
-    #         self.current_frame = frame
-    
     def update_frame(self):
         frame = self.picam2.capture_array()
         if frame is not None:
-            frame = cv2.flip(frame, 1)
-
-            # Aseguramos que el frame sea continuo en memoria
-            frame = np.ascontiguousarray(frame)
-
-            # Convertir correctamente a RGB para mostrar
-            rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-
+            rgb = cv2.flip(frame, 1)
+            # rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
             h, w, ch = rgb.shape
-            bytes_per_line = ch * w
-
-            img = QImage(rgb.data, w, h, bytes_per_line, QImage.Format_RGB888)
+            img = QImage(rgb.data, w, h, rgb.strides[0], QImage.Format_RGBA8888)
             pixmap = QPixmap.fromImage(img).scaled(640, 480, Qt.KeepAspectRatio)
             self.image_label.setPixmap(pixmap)
-
-            # Guardamos el frame original (BGR) para enviar al servidor
             self.current_frame = frame
-
+    
+    
     def capture_and_send(self):
         if self.current_frame is None:
             self.result_label.setText("Cámara no lista")
