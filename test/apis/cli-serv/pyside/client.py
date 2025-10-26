@@ -8,7 +8,8 @@ import cv2
 from picamera2 import Picamera2
 from PyQt5.QtWidgets import (
     QApplication, QWidget, QLabel, QPushButton, QVBoxLayout,
-    QMessageBox, QInputDialog
+    QMessageBox, QInputDialog, QDialog, QLineEdit
+
 )
 from PyQt5.QtGui import QImage, QPixmap
 from PyQt5.QtCore import QTimer, Qt
@@ -21,6 +22,35 @@ config_path = os.path.join(curr_dir, "..", "config.json")
 with open(config_path) as f:
     config = json.load(f)
 SERVER_URL = config["server_url"]
+
+
+
+# ----- Diálogo de registro -----
+class RegistrationDialog(QDialog):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setWindowTitle("Registro de Usuario")
+        self.setFixedSize(400, 200)
+        self.setStyleSheet("background-color: #34495e; color: white; font-family: Arial;")
+        layout = QVBoxLayout()
+        self.name_input = QLineEdit()
+        self.name_input.setPlaceholderText("Nombre del usuario")
+        layout.addWidget(QLabel("Introduce el nombre del usuario:"))
+        layout.addWidget(self.name_input)
+        self.register_btn = QPushButton("Registrar")
+        layout.addWidget(self.register_btn)
+        self.setLayout(layout)
+        self.registered_name = None
+        self.register_btn.clicked.connect(self.try_register)
+
+        def try_register(self):
+            name = self.name_input.text().strip()
+            if not name:
+                QMessageBox.warning(self, "Error", "El nombre no puede estar vacío")
+                return
+            self.registered_name = name
+            self.accept()  # cierra el diálogo con éxito
+
 
 
 class ClientApp(QWidget):
@@ -141,10 +171,13 @@ class ClientApp(QWidget):
         except requests.exceptions.RequestException:
             self.result_label.setText("No se pudo conectar al servidor")
 
+    
+    
     def start_registration(self):
-        name, ok = QInputDialog.getText(self, "Registro", "Introduce el nombre del usuario:")
-        if not ok or not name:
-            return
+        dialog = RegistrationDialog(self)
+        if dialog.exec_() != QDialog.Accepted:
+            return  # el usuario canceló
+        name = dialog.registered_name
 
         images = []
         for i in range(5):
@@ -166,6 +199,7 @@ class ClientApp(QWidget):
                 QMessageBox.warning(self, "Error", "El usuario no pudo registrarse en el servidor")
         except requests.exceptions.RequestException:
             QMessageBox.critical(self, "Error", "No se pudo conectar al servidor")
+
 
 
 if __name__ == "__main__":
