@@ -2,3 +2,5 @@ config.json
 /home/eli/tfg-ematos/test/apis/known_faces.pkl
 /home/eli/tfg-ematos/test/apis/known_persons
 /home/eli/tfg-ematos/test/recognition-models/face-recognition/known_persons
+/home/elisa/uni/tfg-ematos/test/apis/known_faces.pkl
+/home/elisa/uni/tfg-ematos/test/apis/known_persons
