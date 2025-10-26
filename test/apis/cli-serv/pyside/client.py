@@ -30,7 +30,7 @@ class ClientApp(QWidget):
         self.setFixedSize(640, 520)
         
         # Fondo de la ventana
-        self.setStyleSheet("background-color: #f0f0f0;")  # gris claro
+        self.setStyleSheet("background-color: #2c3e50;")  # gris claro
 
         # Inicializar cámara
         self.picam2 = Picamera2()
@@ -54,14 +54,15 @@ class ClientApp(QWidget):
         self.login_btn = QPushButton("🔑 Iniciar sesión")
         self.register_btn = QPushButton("🧍 Registrar usuario")
         
-        # Estilo de botones
+        # Estilo de botones font-weith: bold (negrita); 
         button_style = """
             QPushButton {
                 background-color: #4CAF50;
                 color: white;
                 border-radius: 10px;
                 padding: 10px;
-                font-size: 14px;
+                font-size: 18px;
+                font-weight: bold; 
             }
             QPushButton:hover {
                 background-color: #45a049;
@@ -73,11 +74,10 @@ class ClientApp(QWidget):
         self.login_btn.setStyleSheet(button_style)
         self.register_btn.setStyleSheet(button_style)
         
-        layout.setContentsMargins(20, 20, 20, 20)
-        layout.setSpacing(15)
-        
 
         layout = QVBoxLayout()
+        layout.setContentsMargins(20, 20, 20, 20)
+        layout.setSpacing(15)
         layout.addWidget(self.image_label)
         layout.addWidget(self.login_btn)
         layout.addWidget(self.register_btn)
@@ -106,6 +106,7 @@ class ClientApp(QWidget):
     
     def capture_and_send(self):
         if self.current_frame is None:
+            self.result_label.setStyleSheet("color: white; font-weight: bold")
             self.result_label.setText("Cámara no lista")
             return
 
@@ -124,15 +125,18 @@ class ClientApp(QWidget):
                                             "Inicio de sesion fallida", 
                                             "No se pudo inicar sesion: Usuario Desconocido.")
                         
+                        self.result_label.setStyleSheet("color: white; font-weight: bold")
                         self.result_label.setText("Incio de sesion fallida")
                     
                     else:
-
+                        self.result_label.setStyleSheet("color: white; font-weight: bold")
                         self.result_label.setText(f"Bienvenido {', '.join(names)}!")
                     
                 else:
+                    self.result_label.setStyleSheet("color: white; font-weight: bold")
                     self.result_label.setText("No se reconoció ningún rostro")
             else:
+                self.result_label.setStyleSheet("color: white; font-weight: bold")
                 self.result_label.setText("Error del servidor")
         except requests.exceptions.RequestException:
             self.result_label.setText("No se pudo conectar al servidor")
