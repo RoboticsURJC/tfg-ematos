@@ -43,13 +43,13 @@ class RegistrationDialog(QDialog):
         self.registered_name = None
         self.register_btn.clicked.connect(self.try_register)
 
-        def try_register(self):
-            name = self.name_input.text().strip()
-            if not name:
-                QMessageBox.warning(self, "Error", "El nombre no puede estar vacío")
-                return
-            self.registered_name = name
-            self.accept()  # cierra el diálogo con éxito
+    def try_register(self):
+        name = self.name_input.text().strip()
+        if not name:
+            QMessageBox.warning(self, "Error", "El nombre no puede estar vacío")
+            return
+        self.registered_name = name
+        self.accept()  # cierra el diálogo con éxito
 
 
 
