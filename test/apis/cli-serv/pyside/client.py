@@ -165,19 +165,25 @@ class ClientApp(QWidget):
             self.result_label.setStyleSheet("color: white; font-weight: bold")
             self.result_label.setText("Cámara no lista")
             return
-
-        # Mostrar barra de progreso
+        
+        # Reiniciar progreso
         self.progress.setVisible(True)
         self.progress.setValue(0)
-        self.result_label.setStyleSheet("color: #00ffff; font-weight: bold;")
-        self.result_label.setText("🔍 Analizando rostro...")
+        self.progress_value = 0
+
+        # Si existe timer,  detenerlo
+        if hasattr(self, "progress_timer") and self.progress_timer.isActive():
+            self.progress_timer.stop()
 
         # Animación de progreso mientras se procesa
         self.progress_timer = QTimer()
-        self.progress_value = 0
         self.progress_timer.timeout.connect(self.animate_progress)
         self.progress_timer.start(100)
-            
+       
+        self.result_label.setStyleSheet("color: #00ffff; font-weight: bold;")
+        self.result_label.setText("Analizando rostro...")
+
+    
         # Reducir tamaño y comprimir imagen
         frame_resized = cv2.resize(self.current_frame, (320, 240))
         _, buffer = cv2.imencode(".jpg", frame_resized, [cv2.IMWRITE_JPEG_QUALITY, 70])
@@ -187,7 +193,7 @@ class ClientApp(QWidget):
         if not hasattr(self, "session"):
             self.session = requests.Session()
         
-
+        
         try:
             response = requests.post(f"{SERVER_URL}/recognize", json={"image": img_str}, timeout=5)
             self.progress_timer.stop()

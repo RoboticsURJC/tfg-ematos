@@ -25,7 +25,7 @@ txt_file = f"results/latencies_{date_time}.txt"
 csv_file = f"results/latencies_{date_time}.csv"
 
 # === INICIO ===
-print(f"\n📡 Midiendo latencia hacia: {SERVER_URL}/latency durante {DURATION//60} min...\n")
+print(f"\nMidiendo latencia hacia: {SERVER_URL}/latency durante {DURATION//60} min...\n")
 
 with open(txt_file, "w") as f:
     f.write(f"Latency measurements towards {SERVER_URL}/latency\n")
@@ -64,7 +64,7 @@ with open(txt_file, "w") as f:
     # === RESULTADOS ===
     f.write("\nFinal results:\n")
 
-print("\n📊 Resultados finales:")
+print("\nResultados finales:")
 if latencies:
     avg = statistics.mean(latencies)
     maximo = max(latencies)
@@ -103,4 +103,4 @@ if latencies:
     plt.show()
 
 else:
-    print("⚠️ No se recibieron respuestas válidas.")
+    print("No se recibieron respuestas válidas.")
