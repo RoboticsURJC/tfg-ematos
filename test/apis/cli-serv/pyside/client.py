@@ -8,7 +8,7 @@ import cv2
 from picamera2 import Picamera2
 from PyQt5.QtWidgets import (
     QApplication, QWidget, QLabel, QPushButton, QVBoxLayout,
-    QMessageBox, QInputDialog, QDialog, QLineEdit
+    QMessageBox, QInputDialog, QDialog, QLineEdit, QProgressBar
 
 )
 from PyQt5.QtGui import QImage, QPixmap
@@ -80,6 +80,25 @@ class ClientApp(QWidget):
         self.result_label.setAlignment(Qt.AlignCenter)
         self.result_label.setStyleSheet("font-size: 16px; font-weight: bold; color: #333;")
 
+        
+        # Barra de progreso
+        self.progress = QProgressBar()
+        self.progress.setVisible(False)
+        self.progress.setStyleSheet("""
+            QProgressBar {
+                border: 2px solid #4CAF50;
+                border-radius: 5px;
+                text-align: center;
+                color: white;
+                font-weight: bold;
+            }
+            QProgressBar::chunk {
+                background-color: #4CAF50;
+                width: 10px;
+                margin: 1px;
+                border-radius: 3px;
+            }
+        """)
 
         self.login_btn = QPushButton("🔑 Iniciar sesión")
         self.register_btn = QPushButton("🧍 Registrar usuario")
@@ -109,6 +128,7 @@ class ClientApp(QWidget):
         layout.setContentsMargins(20, 20, 20, 20)
         layout.setSpacing(15)
         layout.addWidget(self.image_label)
+        layout.addWidget(self.progress)
         layout.addWidget(self.login_btn)
         layout.addWidget(self.register_btn)
         layout.addWidget(self.result_label)
@@ -134,6 +154,11 @@ class ClientApp(QWidget):
             self.image_label.setPixmap(pixmap)
             self.current_frame = frame
     
+    def animate_progress(self):
+        """Simula una barra de carga suave mientras se procesa"""
+        self.progress_value = (self.progress_value + 5) % 105
+        self.progress.setValue(self.progress_value)
+    
     
     def capture_and_send(self):
         if self.current_frame is None:
@@ -141,10 +166,18 @@ class ClientApp(QWidget):
             self.result_label.setText("Cámara no lista")
             return
 
+        # Mostrar barra de progreso
+        self.progress.setVisible(True)
+        self.progress.setValue(0)
         self.result_label.setStyleSheet("color: #00ffff; font-weight: bold;")
-        self.result_label.setText("Reconociendo rostro...")
-        QApplication.processEvents()
-        
+        self.result_label.setText("🔍 Analizando rostro...")
+
+        # Animación de progreso mientras se procesa
+        self.progress_timer = QTimer()
+        self.progress_value = 0
+        self.progress_timer.timeout.connect(self.animate_progress)
+        self.progress_timer.start(100)
+            
         # Reducir tamaño y comprimir imagen
         frame_resized = cv2.resize(self.current_frame, (320, 240))
         _, buffer = cv2.imencode(".jpg", frame_resized, [cv2.IMWRITE_JPEG_QUALITY, 70])
@@ -157,41 +190,38 @@ class ClientApp(QWidget):
 
         try:
             response = requests.post(f"{SERVER_URL}/recognize", json={"image": img_str}, timeout=5)
+            self.progress_timer.stop()
+            self.progress.setVisible(False)
             
-            if not response.ok:
-                raise Exception("Error del servidor")
-                
-            names = response.json().get("recognized", [])
-                
-            if names:
-                
-                if "Desconocido" in names:
-                    QMessageBox.warning(self, 
-                                        "Inicio de sesion fallida", 
-                                        "No se pudo inicar sesion: Usuario Desconocido.")
+            if  response.ok:
+                names = response.json().get("recognized", [])      
+                if names:
+                    if "Desconocido" in names:
+                        QMessageBox.warning(self, 
+                                            "Inicio de sesion fallida", 
+                                            "No se pudo inicar sesion: Usuario Desconocido.")
+                        
+                        self.result_label.setStyleSheet("color: white; font-weight: bold")
+                        self.result_label.setText("Incio de sesion fallida")
                     
-                    self.result_label.setStyleSheet("color: white; font-weight: bold")
-                    self.result_label.setText("Incio de sesion fallida")
-                
+                    else:
+                        self.result_label.setStyleSheet("color: white; font-weight: bold")
+                        self.result_label.setText(f"Bienvenido {', '.join(names)}!")
+                        
                 else:
                     self.result_label.setStyleSheet("color: white; font-weight: bold")
-                    self.result_label.setText(f"Bienvenido {', '.join(names)}!")
-                    
-            else:
-                self.result_label.setStyleSheet("color: white; font-weight: bold")
-                self.result_label.setText("No se reconoció ningún rostro")
-     
-        except requests.exceptions.Timeout:
-            self.result_label.setStyleSheet("color: #ff5555; font-weight: bold;")
-            self.result_label.setText("Servidor tardó demasiado")
-        except requests.exceptions.RequestException:
-            self.result_label.setStyleSheet("color: #ff5555; font-weight: bold;")
-            self.result_label.setText("Error de conexión")
-        except Exception as e:
-            self.result_label.setStyleSheet("color: #ff5555; font-weight: bold;")
-            self.result_label.setText(str(e))
+                    self.result_label.setText("No se reconoció ningún rostro")
 
-    
+            else:
+                self.result_label.setStyleSheet("color: #ff5555; font-weight: bold;")
+                self.result_label.setText("Error del servidor")
+            
+        except requests.exceptions.RequestException:
+            self.progress_timer.stop()
+            self.progress.setVisible(False)
+            self.result_label.setStyleSheet("color: #ff5555; font-weight: bold;")
+            self.result_label.setText("No se pudo conectar al servidor")
+
     
     def start_registration(self):
         dialog = RegistrationDialog(self)
