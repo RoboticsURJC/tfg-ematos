@@ -134,42 +134,61 @@ class ClientApp(QWidget):
             self.image_label.setPixmap(pixmap)
             self.current_frame = frame
     
+    
     def capture_and_send(self):
         if self.current_frame is None:
             self.result_label.setStyleSheet("color: white; font-weight: bold")
             self.result_label.setText("Cámara no lista")
             return
 
-        _, buffer = cv2.imencode(".jpg", self.current_frame)
+        self.result_label.setStyleSheet("color: #00ffff; font-weight: bold;")
+        self.result_label.setText("Reconociendo rostro...")
+        
+        _# Reducir tamaño y comprimir imagen
+        frame_resized = cv2.resize(self.current_frame, (320, 240))
+        _, buffer = cv2.imencode(".jpg", frame_resized, [cv2.IMWRITE_JPEG_QUALITY, 70])
         img_str = base64.b64encode(buffer).decode("utf-8")
+        
+        # Mantener conexión persistente
+        if not hasattr(self, "session"):
+            self.session = requests.Session()
+        
 
         try:
             response = requests.post(f"{SERVER_URL}/recognize", json={"image": img_str}, timeout=5)
-            if response.ok:
-                names = response.json().get("recognized", [])
+            
+            if not response.ok:
+                raise Exception("Error del servidor")
                 
-                if names:
+            names = response.json().get("recognized", [])
+                
+            if names:
+                
+                if "Desconocido" in names:
+                    QMessageBox.warning(self, 
+                                        "Inicio de sesion fallida", 
+                                        "No se pudo inicar sesion: Usuario Desconocido.")
                     
-                    if "Desconocido" in names:
-                        QMessageBox.warning(self, 
-                                            "Inicio de sesion fallida", 
-                                            "No se pudo inicar sesion: Usuario Desconocido.")
-                        
-                        self.result_label.setStyleSheet("color: white; font-weight: bold")
-                        self.result_label.setText("Incio de sesion fallida")
-                    
-                    else:
-                        self.result_label.setStyleSheet("color: white; font-weight: bold")
-                        self.result_label.setText(f"Bienvenido {', '.join(names)}!")
-                    
+                    self.result_label.setStyleSheet("color: white; font-weight: bold")
+                    self.result_label.setText("Incio de sesion fallida")
+                
                 else:
                     self.result_label.setStyleSheet("color: white; font-weight: bold")
-                    self.result_label.setText("No se reconoció ningún rostro")
+                    self.result_label.setText(f"Bienvenido {', '.join(names)}!")
+                    
             else:
                 self.result_label.setStyleSheet("color: white; font-weight: bold")
-                self.result_label.setText("Error del servidor")
+                self.result_label.setText("No se reconoció ningún rostro")
+     
+        except requests.exceptions.Timeout:
+            self.result_label.setStyleSheet("color: #ff5555; font-weight: bold;")
+            self.result_label.setText("Servidor tardó demasiado")
         except requests.exceptions.RequestException:
-            self.result_label.setText("No se pudo conectar al servidor")
+            self.result_label.setStyleSheet("color: #ff5555; font-weight: bold;")
+            self.result_label.setText("Error de conexión")
+        except Exception as e:
+            self.result_label.setStyleSheet("color: #ff5555; font-weight: bold;")
+            self.result_label.setText(str(e))
 
     
     
