@@ -143,8 +143,9 @@ class ClientApp(QWidget):
 
         self.result_label.setStyleSheet("color: #00ffff; font-weight: bold;")
         self.result_label.setText("Reconociendo rostro...")
+        QApplication.processEvents()
         
-        _# Reducir tamaño y comprimir imagen
+        # Reducir tamaño y comprimir imagen
         frame_resized = cv2.resize(self.current_frame, (320, 240))
         _, buffer = cv2.imencode(".jpg", frame_resized, [cv2.IMWRITE_JPEG_QUALITY, 70])
         img_str = base64.b64encode(buffer).decode("utf-8")
