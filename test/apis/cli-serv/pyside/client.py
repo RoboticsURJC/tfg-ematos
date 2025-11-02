@@ -8,9 +8,10 @@ import cv2
 from picamera2 import Picamera2
 from PyQt5.QtWidgets import (
     QApplication, QWidget, QLabel, QPushButton, QVBoxLayout,
-    QMessageBox, QDialog, QLineEdit, QProgressBar
+    QMessageBox, QDialog, QLineEdit, QProgressBar, 
+    QGraphicsDropShadowEffect
 )
-from PyQt5.QtGui import QImage, QPixmap
+from PyQt5.QtGui import QImage, QPixmap, QColor, QFont
 from PyQt5.QtCore import (
     QTimer, Qt, QThread, pyqtSignal, QPropertyAnimation, 
     QEasingCurve, QRect)
@@ -97,17 +98,89 @@ class RegistrationDialog(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setWindowTitle("Registro de Usuario")
-        self.setFixedSize(400, 200)
-        self.setStyleSheet("background-color: #34495e; color: white; font-family: Arial;")
+        self.setFixedSize(420, 230)
+        self.setModal(True)
+        self.setWindowFlags(Qt.Dialog | Qt.WindowTitleHint | Qt.CustomizeWindowHint)
 
+        # Fondo con degradado suave
+        self.setStyleSheet("""
+        QDialog {
+            background-color: qlineargradient(
+                x1:0, y1:0, x2:1, y2:1,
+                stop:0 #1f2c3a,
+                stop:1 #34495e
+            );
+            border-radius: 14px;
+        }
+
+        QLabel {
+            color: #ecf0f1;
+            font-family: 'Segoe UI', Arial;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            padding: 4px;
+        }
+
+        QLineEdit {
+            background-color: rgba(255, 255, 255, 0.15);
+            color: #ecf0f1;
+            border: 2px solid #2980b9;
+            border-radius: 8px;
+            padding: 8px;
+            font-size: 15px;
+            selection-background-color: #3498db;
+        }
+
+        QLineEdit:focus {
+            border: 2px solid #1abc9c;
+            background-color: rgba(255, 255, 255, 0.25);
+        }
+
+        QPushButton {
+            background-color: #27ae60;
+            color: white;
+            border-radius: 10px;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        QPushButton:hover {
+            background-color: #2ecc71;
+        }
+
+        QPushButton:pressed {
+            background-color: #1e8449;
+        }
+        """)
+
+        # Layout
         layout = QVBoxLayout()
+        layout.setContentsMargins(30, 25, 30, 25)
+        layout.setSpacing(15)
+
+        # Título
+        title_label = QLabel("Registro de nuevo usuario")
+        title_label.setAlignment(Qt.AlignCenter)
+        title_label.setFont(QFont("Segoe UI", 17, QFont.Bold))
+        layout.addWidget(title_label)
+
+        # Campo de nombre
         self.name_input = QLineEdit()
-        self.name_input.setPlaceholderText("Nombre del usuario")
-        layout.addWidget(QLabel("Introduce el nombre del usuario:"))
+        self.name_input.setPlaceholderText("Introduce el nombre del usuario")
         layout.addWidget(self.name_input)
 
+        # Botón de registrar
         self.register_btn = QPushButton("Registrar")
         layout.addWidget(self.register_btn)
+
+        # Sombra sutil al botón
+        shadow = QGraphicsDropShadowEffect()
+        shadow.setBlurRadius(25)
+        shadow.setColor(QColor(0, 0, 0, 180))
+        shadow.setOffset(0, 3)
+        self.register_btn.setGraphicsEffect(shadow)
 
         self.setLayout(layout)
         self.registered_name = None
@@ -116,7 +189,8 @@ class RegistrationDialog(QDialog):
     def try_register(self):
         name = self.name_input.text().strip()
         if not name:
-            QMessageBox.warning(self, "Error", "El nombre no puede estar vacío")
+            from PyQt5.QtWidgets import QMessageBox
+            QMessageBox.warning(self, "Error", "Por favor, introduce un nombre válido.")
             return
         self.registered_name = name
         self.accept()
