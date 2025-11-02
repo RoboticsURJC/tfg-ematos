@@ -470,9 +470,9 @@ class ClientApp(QWidget):
             cancelled["state"] = True
             capture_popup.close()
             msg_cancel = QMessageBox(self)
-            msg_cancel.setIcon(QMessageBox.information)
             msg_cancel.setWindowTitle("Registro cancelado")
             msg_cancel.setText("El registro fue cancelado por el usuario.")
+            msg_cancel.setIcon(QMessageBox.Information)
             msg_cancel.setStyleSheet( """
                 QMessageBox {
                     background-color: #2c3e50;
@@ -499,7 +499,7 @@ class ClientApp(QWidget):
                     background-color: #1e8449;
                 }
                 """)
-
+            msg_cancel.exec_()
             # QMessageBox.information(self, "Registro cancelado", "El registro fue cancelado por el usuario.")
 
         cancel_btn.clicked.connect(cancel_process)
@@ -546,9 +546,41 @@ class ClientApp(QWidget):
                     data = response.json() if response.ok else {}
 
                     if response.ok and data.get("status") == "ok":
-                        QMessageBox.information(
-                            self, "Registro exitoso", f"Usuario {name} registrado con éxito"
-                        )
+                        msg_ok = QMessageBox(self)
+                        msg_ok.setIcon(QMessageBox.Information)
+                        msg_ok.setWindowTitle("Registro exitoso")
+                        msg_ok.setText(f"Usuario {name} registrado con éxito")
+                        msg_ok.setStyleSheet( """
+                            QMessageBox {
+                                background-color: #2c3e50;
+                                color: white;
+                                font-family: 'Segoe UI';
+                                font-size: 14px;
+                                border-radius: 10px;
+                                font-weight: bold;
+                            } 
+                            QMessageBox QLabel {
+                                color: #ecf0f1;
+                            }
+                            QPushButton {
+                                background-color: #27ae60;
+                                color: white;
+                                border-radius: 6px;
+                                padding: 6px 12px;
+                                font-weight: bold;
+                            }
+                            QPushButton:hover {
+                                background-color: #2ecc71;
+                            }
+                            QPushButton:pressed {
+                                background-color: #1e8449;
+                            }
+                            """)
+                        # QMessageBox.information(
+                        #     self, "Registro exitoso", f"Usuario {name} registrado con éxito"
+                        # )
+                        msg_ok.exec_()
+
                     else:
                         msg = data.get("message", "Error desconocido al registrar el usuario.")
                         QMessageBox.warning(self, "Error en registro", msg)
