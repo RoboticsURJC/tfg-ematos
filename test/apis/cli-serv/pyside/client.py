@@ -175,6 +175,12 @@ class ClientApp(QWidget):
         layout.addWidget(self.login_btn)
         layout.addWidget(self.register_btn)
         layout.addWidget(self.result_label)
+        layout.setStretch(0,1)
+        layout.setStretch(1,0)
+        layout.setStretch(2,0)
+        layout.setStretch(3,0)
+        layout.setStretch(4,0)
+
         self.setLayout(layout)
 
         # Conectar botones
@@ -204,7 +210,7 @@ class ClientApp(QWidget):
             return
 
         # Ventana emergente de progreso
-        self.progress_popup = ProgressPopup("Analizando rostro...")
+        self.progress_popup = ProgressPopup("Iniciando sesión...")
         self.progress_popup.show()
 
         # Reducir y codificar imagen
