@@ -245,11 +245,13 @@ class ClientApp(QWidget):
         self.result_label.setStyleSheet("color: #ff5555; font-weight: bold;")
         self.result_label.setText(message)
         
-    def add_hover_animation(button):
+    def add_hover_animation(self, button):
         """Agrega una animación sutil de agrandamiento al pasar el mouse."""
-        base_rect = button.geometry()
+        base_rect = None
 
         def on_enter(event):
+            nonlocal base_rect
+            base_rect = button.geometry()
             anim = QPropertyAnimation(button, b"geometry")
             anim.setDuration(120)
             anim.setEasingCurve(QEasingCurve.InOutQuad)
@@ -259,13 +261,14 @@ class ClientApp(QWidget):
             button._anim = anim  # guardar referencia para evitar GC
 
         def on_leave(event):
-            anim = QPropertyAnimation(button, b"geometry")
-            anim.setDuration(120)
-            anim.setEasingCurve(QEasingCurve.InOutQuad)
-            anim.setStartValue(button.geometry())
-            anim.setEndValue(base_rect)
-            anim.start()
-            button._anim = anim
+            if base_rect:
+                anim = QPropertyAnimation(button, b"geometry")
+                anim.setDuration(120)
+                anim.setEasingCurve(QEasingCurve.InOutQuad)
+                anim.setStartValue(button.geometry())
+                anim.setEndValue(base_rect)
+                anim.start()
+                button._anim = anim
 
         button.enterEvent = on_enter
         button.leaveEvent = on_leave
