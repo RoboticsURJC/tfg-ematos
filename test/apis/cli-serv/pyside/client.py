@@ -469,7 +469,38 @@ class ClientApp(QWidget):
         def cancel_process():
             cancelled["state"] = True
             capture_popup.close()
-            QMessageBox.information(self, "Registro cancelado", "El registro fue cancelado por el usuario.")
+            msg_cancel = QMessageBox(self)
+            msg_cancel.setIcon(QMessageBox.information)
+            msg_cancel.setWindowTitle("Registro cancelado")
+            msg_cancel.setText("El registro fue cancelado por el usuario.")
+            msg_cancel.setStyleSheet( """
+                QMessageBox {
+                    background-color: #2c3e50;
+                    color: white;
+                    font-family: 'Segoe UI';
+                    font-size: 14px;
+                    border-radius: 10px;
+                    font-weight: bold;
+                } 
+                QMessageBox QLabel {
+                    color: #ecf0f1;
+                }
+                QPushButton {
+                    background-color: #27ae60;
+                    color: white;
+                    border-radius: 6px;
+                    padding: 6px 12px;
+                    font-weight: bold;
+                }
+                QPushButton:hover {
+                    background-color: #2ecc71;
+                }
+                QPushButton:pressed {
+                    background-color: #1e8449;
+                }
+                """)
+
+            # QMessageBox.information(self, "Registro cancelado", "El registro fue cancelado por el usuario.")
 
         cancel_btn.clicked.connect(cancel_process)
         
