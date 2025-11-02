@@ -11,7 +11,9 @@ from PyQt5.QtWidgets import (
     QMessageBox, QDialog, QLineEdit, QProgressBar
 )
 from PyQt5.QtGui import QImage, QPixmap
-from PyQt5.QtCore import QTimer, Qt, QThread, pyqtSignal
+from PyQt5.QtCore import (
+    QTimer, Qt, QThread, pyqtSignal, QPropertyAnimation, 
+    QEasingCurve, QRect)
 
 
 # ----- Cargar configuración -----
@@ -243,7 +245,31 @@ class ClientApp(QWidget):
         self.result_label.setStyleSheet("color: #ff5555; font-weight: bold;")
         self.result_label.setText(message)
         
+    def add_hover_animation(button):
+        """Agrega una animación sutil de agrandamiento al pasar el mouse."""
+        base_rect = button.geometry()
 
+        def on_enter(event):
+            anim = QPropertyAnimation(button, b"geometry")
+            anim.setDuration(120)
+            anim.setEasingCurve(QEasingCurve.InOutQuad)
+            anim.setStartValue(button.geometry())
+            anim.setEndValue(base_rect.adjusted(-3, -3, 3, 3))
+            anim.start()
+            button._anim = anim  # guardar referencia para evitar GC
+
+        def on_leave(event):
+            anim = QPropertyAnimation(button, b"geometry")
+            anim.setDuration(120)
+            anim.setEasingCurve(QEasingCurve.InOutQuad)
+            anim.setStartValue(button.geometry())
+            anim.setEndValue(base_rect)
+            anim.start()
+            button._anim = anim
+
+        button.enterEvent = on_enter
+        button.leaveEvent = on_leave
+    
     def start_registration(self):
         dialog = RegistrationDialog(self)
         if dialog.exec_() != QDialog.Accepted:
@@ -256,92 +282,88 @@ class ClientApp(QWidget):
         capture_popup.setFixedSize(420, 250)
         capture_popup.setModal(True)
         capture_popup.setWindowFlags(
-        Qt.Dialog | Qt.WindowTitleHint | Qt.CustomizeWindowHint
+            Qt.Dialog | Qt.WindowTitleHint | Qt.CustomizeWindowHint
         )
-        # capture_popup.setStyleSheet("""
-        #     background-color: #2c3e50;
-        #     color: white;
-        #     font-family: Arial;
-        #     font-size: 14px;
-        # """)
+
         capture_popup.setStyleSheet("""
-        QDialog {
-            background-color: qlineargradient(
-                x1:0, y1:0, x2:1, y2:1,
-                stop:0 #1e2a38,
-                stop:1 #2c3e50
-            );
-            border-radius: 15px;
-        }
+            QDialog {
+                background-color: qlineargradient(
+                    x1:0, y1:0, x2:1, y2:1,
+                    stop:0 #1e2a38,
+                    stop:1 #2c3e50
+                );
+                border-radius: 15px;
+            }
 
-        QLabel {
-            color: #ecf0f1;
-            font-family: 'Segoe UI', Arial;
-            font-size: 15px;
-            font-weight: bold;
-            padding: 6px;
-            text-align: center;
-        }
+            QLabel {
+                color: #ecf0f1;
+                font-family: 'Segoe UI', Arial;
+                font-size: 15px;
+                font-weight: bold;
+                padding: 6px;
+                text-align: center;
+            }
 
-        QProgressBar {
-            border: 2px solid #27ae60;
-            border-radius: 8px;
-            text-align: center;
-            color: #ecf0f1;
-            font-weight: bold;
-            height: 18px;
-            background-color: rgba(255,255,255,0.1);
-        }
+            QProgressBar {
+                border: 2px solid #27ae60;
+                border-radius: 8px;
+                text-align: center;
+                color: #ecf0f1;
+                font-weight: bold;
+                height: 18px;
+                background-color: rgba(255,255,255,0.1);
+            }
 
-        QProgressBar::chunk {
-            background-color: #2ecc71;
-            border-radius: 6px;
-        }
+            QProgressBar::chunk {
+                background-color: #2ecc71;
+                border-radius: 6px;
+            }
 
-        QPushButton {
-            background-color: #3498db;
-            color: white;
-            border-radius: 10px;
-            padding: 10px;
-            font-weight: bold;
-            font-size: 14px;
-            margin: 4px 12px;
-            transition: all 0.3s ease;
-        }
+            QPushButton {
+                background-color: #3498db;
+                color: white;
+                border-radius: 10px;
+                padding: 10px;
+                font-weight: bold;
+                font-size: 14px;
+                margin: 4px 12px;
+            }
 
-        QPushButton:hover {
-            background-color: #2980b9;
-            transform: scale(1.05);
-        }
+            QPushButton:hover {
+                background-color: #2980b9;
+            }
 
-        QPushButton:pressed {
-            background-color: #1f618d;
-        }
+            QPushButton:pressed {
+                background-color: #1f618d;
+            }
 
-        QPushButton#cancel {
-            background-color: #e74c3c;
-        }
+            QPushButton#cancel {
+                background-color: #e74c3c;
+            }
 
-        QPushButton#cancel:hover {
-            background-color: #c0392b;
-        }
+            QPushButton#cancel:hover {
+                background-color: #c0392b;
+            }
         """)
-        
 
         layout = QVBoxLayout()
         layout.setContentsMargins(20, 20, 20, 20)
         layout.setSpacing(10)
 
-        label = QLabel("Prepárate para la primera foto")
+        label = QLabel("Prepárate para la primera foto 📸")
         label.setAlignment(Qt.AlignCenter)
 
         progress = QProgressBar()
         progress.setMaximum(5)
         progress.setValue(0)
 
-        take_btn = QPushButton("Tomar foto 1/5")
+        take_btn = QPushButton("Hacer foto")
         cancel_btn = QPushButton("Cancelar registro")
         cancel_btn.setObjectName("cancel")
+
+        # 💫 Añadimos animaciones de hover reales
+        self.add_hover_animation(take_btn)
+        self.add_hover_animation(cancel_btn)
 
         layout.addWidget(label)
         layout.addWidget(progress)
@@ -367,12 +389,10 @@ class ClientApp(QWidget):
 
             current_photo = len(images) + 1
 
-            # Mensaje previo a la captura
             label.setText(f"Preparando para capturar foto {current_photo}/5...")
             QApplication.processEvents()
-            QTimer.singleShot(800, lambda: capture(current_photo))  # pequeño retardo visual
+            QTimer.singleShot(800, lambda: capture(current_photo))
 
-        
         def capture(current_photo):
             if self.current_frame is not None:
                 _, buffer = cv2.imencode(".jpg", self.current_frame)
@@ -416,8 +436,9 @@ class ClientApp(QWidget):
                     QMessageBox.critical(
                         self, "Error de conexión", "No se pudo conectar al servidor."
                     )
-            take_btn.clicked.connect(take_photo)
-        
+
+        take_btn.clicked.connect(take_photo)
+
 
 # ----- Ejecutar aplicación -----
 if __name__ == "__main__":
