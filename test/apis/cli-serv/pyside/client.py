@@ -427,7 +427,7 @@ class ClientApp(QWidget):
         layout.setContentsMargins(20, 20, 20, 20)
         layout.setSpacing(10)
 
-        label = QLabel("Prepárate para la primera foto 📸")
+        label = QLabel("Prepárate para la primera foto")
         label.setAlignment(Qt.AlignCenter)
 
         progress = QProgressBar()
@@ -447,6 +447,20 @@ class ClientApp(QWidget):
         layout.addWidget(take_btn)
         layout.addWidget(cancel_btn)
         capture_popup.setLayout(layout)
+        
+        # 🔹 Calcular posición del popup al lado derecho de la ventana principal
+        main_geo = self.geometry()
+        popup_x = main_geo.x() + main_geo.width() + 20
+        popup_y = main_geo.y() + 80
+
+        # 🔹 Evitar que se salga de la pantalla (por si el usuario tiene monitor pequeño)
+        screen = QApplication.primaryScreen().availableGeometry()
+        if popup_x + capture_popup.width() > screen.width():
+            popup_x = main_geo.x() - capture_popup.width() - 20  # Mover a la izquierda si no cabe
+
+        capture_popup.move(popup_x, popup_y)
+
+
         capture_popup.show()
 
         images = []
@@ -502,7 +516,7 @@ class ClientApp(QWidget):
 
                     if response.ok and data.get("status") == "ok":
                         QMessageBox.information(
-                            self, "Registro exitoso", f"Usuario {name} registrado con éxito ✅"
+                            self, "Registro exitoso", f"Usuario {name} registrado con éxito"
                         )
                     else:
                         msg = data.get("message", "Error desconocido al registrar el usuario.")
