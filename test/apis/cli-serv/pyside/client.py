@@ -253,64 +253,95 @@ class ClientApp(QWidget):
         # --- Ventana emergente de registro ---
         capture_popup = QDialog(self)
         capture_popup.setWindowTitle("Registro de Usuario")
-        capture_popup.setFixedSize(400, 220)
-        capture_popup.setStyleSheet("""
-            background-color: #2c3e50;
-            color: white;
-            font-family: Arial;
-            font-size: 14px;
-        """)
+        capture_popup.setFixedSize(420, 250)
         capture_popup.setModal(True)
+        capture_popup.setWindowFlags(
+        Qt.Dialog | Qt.WindowTitleHint | Qt.CustomizeWindowHint
+        )
+        # capture_popup.setStyleSheet("""
+        #     background-color: #2c3e50;
+        #     color: white;
+        #     font-family: Arial;
+        #     font-size: 14px;
+        # """)
+        capture_popup.setStyleSheet("""
+        QDialog {
+            background-color: qlineargradient(
+                x1:0, y1:0, x2:1, y2:1,
+                stop:0 #1e2a38,
+                stop:1 #2c3e50
+            );
+            border-radius: 15px;
+        }
+
+        QLabel {
+            color: #ecf0f1;
+            font-family: 'Segoe UI', Arial;
+            font-size: 15px;
+            font-weight: bold;
+            padding: 6px;
+            text-align: center;
+        }
+
+        QProgressBar {
+            border: 2px solid #27ae60;
+            border-radius: 8px;
+            text-align: center;
+            color: #ecf0f1;
+            font-weight: bold;
+            height: 18px;
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        QProgressBar::chunk {
+            background-color: #2ecc71;
+            border-radius: 6px;
+        }
+
+        QPushButton {
+            background-color: #3498db;
+            color: white;
+            border-radius: 10px;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 14px;
+            margin: 4px 12px;
+            transition: all 0.3s ease;
+        }
+
+        QPushButton:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+
+        QPushButton:pressed {
+            background-color: #1f618d;
+        }
+
+        QPushButton#cancel {
+            background-color: #e74c3c;
+        }
+
+        QPushButton#cancel:hover {
+            background-color: #c0392b;
+        }
+        """)
+        
 
         layout = QVBoxLayout()
+        layout.setContentsMargins(20, 20, 20, 20)
+        layout.setSpacing(10)
+
         label = QLabel("Prepárate para la primera foto")
         label.setAlignment(Qt.AlignCenter)
 
         progress = QProgressBar()
         progress.setMaximum(5)
         progress.setValue(0)
-        progress.setStyleSheet("""
-            QProgressBar {
-                border: 2px solid #4CAF50;
-                border-radius: 5px;
-                text-align: center;
-                color: white;
-                font-weight: bold;
-            }
-            QProgressBar::chunk {
-                background-color: #4CAF50;
-                border-radius: 3px;
-            }
-        """)
 
         take_btn = QPushButton("Tomar foto 1/5")
-        take_btn.setStyleSheet("""
-            QPushButton {
-                background-color: #4CAF50;
-                color: white;
-                border-radius: 8px;
-                padding: 10px;
-                font-weight: bold;
-                font-size: 14px;
-            }
-            QPushButton:hover {
-                background-color: #45a049;
-            }
-        """)
-
         cancel_btn = QPushButton("Cancelar registro")
-        cancel_btn.setStyleSheet("""
-            QPushButton {
-                background-color: #e74c3c;
-                color: white;
-                border-radius: 8px;
-                padding: 8px;
-                font-weight: bold;
-            }
-            QPushButton:hover {
-                background-color: #c0392b;
-            }
-        """)
+        cancel_btn.setObjectName("cancel")
 
         layout.addWidget(label)
         layout.addWidget(progress)
