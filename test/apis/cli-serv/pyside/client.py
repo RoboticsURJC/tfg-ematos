@@ -27,6 +27,59 @@ with open(config_path) as f:
 SERVER_URL = config["server_url"]
 
 
+def show_message(parent, mtype, title, text):
+    """
+    Muestra un QMessageBox personalizado según el tipo.
+    Tipos válidos: info, warning, error, success.
+    """
+    msg = QMessageBox(parent)
+    msg.setWindowTitle(title)
+    msg.setText(text)
+    msg.setStandardButtons(QMessageBox.Ok)
+
+    # ---- Configurar según tipo ----
+    styles = {
+        "info":    {"icon": QMessageBox.Information, "color": "#3498db"},
+        "warning": {"icon": QMessageBox.Warning,     "color": "#f1c40f"},
+        "error":   {"icon": QMessageBox.Critical,    "color": "#ca4233"},
+        "success": {"icon": QMessageBox.Information, "color": "#2ecc71"},
+    }
+
+    style = styles.get(mtype, styles["info"])
+    msg.setIcon(style["icon"])
+
+    # ---- Estilo visual (tema oscuro elegante) ----
+    msg.setStyleSheet(f"""
+        QMessageBox {{
+            background-color: #2c3e50;
+            color: white;
+            font-family: 'Segoe UI';
+            font-size: 14px;
+            border-radius: 12px;
+            padding: 10px;
+        }}
+        QMessageBox QLabel {{
+            color: #ecf0f1;
+            font-weight: bold;
+        }}
+        QPushButton {{
+            background-color: {style["color"]};
+            color: white;
+            border-radius: 8px;
+            padding: 8px 14px;
+            font-weight: bold;
+        }}
+        QPushButton:hover {{
+            background-color: {QColor(style["color"]).lighter(120).name()};
+        }}
+        QPushButton:pressed {{
+            background-color: {QColor(style["color"]).darker(150).name()};
+        }}
+    """)
+
+    msg.exec_()
+
+
 # ----- Hilo de trabajo para reconocimiento -----
 class Worker(QThread):
     result_signal = pyqtSignal(dict)
@@ -306,7 +359,8 @@ class ClientApp(QWidget):
         names = data.get("recognized", [])
         if names:
             if "Desconocido" in names:
-                QMessageBox.warning(self, "Inicio fallido", "Usuario desconocido.")
+                # QMessageBox.warning(self, "Inicio fallido", "Usuario desconocido.")
+                show_message(self, "warning", "Inicio fallido", "Usuario desconocido." )
                 self.result_label.setText("Inicio fallido")
             else:
                 self.result_label.setText(f"Bienvenid@ {', '.join(names)}!")
@@ -469,39 +523,8 @@ class ClientApp(QWidget):
         def cancel_process():
             cancelled["state"] = True
             capture_popup.close()
-            msg_cancel = QMessageBox(self)
-            msg_cancel.setWindowTitle("Registro cancelado")
-            msg_cancel.setText("El registro fue cancelado por el usuario.")
-            msg_cancel.setIcon(QMessageBox.Information)
-            msg_cancel.setStyleSheet( """
-                QMessageBox {
-                    background-color: #2c3e50;
-                    color: white;
-                    font-family: 'Segoe UI';
-                    font-size: 14px;
-                    border-radius: 10px;
-                    font-weight: bold;
-                } 
-                QMessageBox QLabel {
-                    color: #ecf0f1;
-                }
-                QPushButton {
-                    background-color: #27ae60;
-                    color: white;
-                    border-radius: 6px;
-                    padding: 6px 12px;
-                    font-weight: bold;
-                }
-                QPushButton:hover {
-                    background-color: #2ecc71;
-                }
-                QPushButton:pressed {
-                    background-color: #1e8449;
-                }
-                """)
-            msg_cancel.exec_()
-            # QMessageBox.information(self, "Registro cancelado", "El registro fue cancelado por el usuario.")
-
+            show_message(self, "info", "Registro cancelado", "El registro fue cancelado por el usuario.")
+           
         cancel_btn.clicked.connect(cancel_process)
         
         def take_photo():
@@ -523,7 +546,8 @@ class ClientApp(QWidget):
                 progress.setValue(current_photo)
                 label.setText(f"Foto {current_photo} capturada correctamente.")
             else:
-                QMessageBox.critical(self, "Error", "No se pudo capturar la imagen.")
+                # QMessageBox.critical(self, "Error", "No se pudo capturar la imagen.")
+                show_message(self, "error", "Error", "No se pudo capturar la imagen.")
                 capture_popup.close()
                 return
 
@@ -546,50 +570,24 @@ class ClientApp(QWidget):
                     data = response.json() if response.ok else {}
 
                     if response.ok and data.get("status") == "ok":
-                        msg_ok = QMessageBox(self)
-                        msg_ok.setIcon(QMessageBox.Information)
-                        msg_ok.setWindowTitle("Registro exitoso")
-                        msg_ok.setText(f"Usuario {name} registrado con éxito")
-                        msg_ok.setStyleSheet( """
-                            QMessageBox {
-                                background-color: #2c3e50;
-                                color: white;
-                                font-family: 'Segoe UI';
-                                font-size: 14px;
-                                border-radius: 10px;
-                                font-weight: bold;
-                            } 
-                            QMessageBox QLabel {
-                                color: #ecf0f1;
-                            }
-                            QPushButton {
-                                background-color: #27ae60;
-                                color: white;
-                                border-radius: 6px;
-                                padding: 6px 12px;
-                                font-weight: bold;
-                            }
-                            QPushButton:hover {
-                                background-color: #2ecc71;
-                            }
-                            QPushButton:pressed {
-                                background-color: #1e8449;
-                            }
-                            """)
+                        show_message(self, "success", "Registro exitoso", f"Usuario {name} registrado con éxito")
                         # QMessageBox.information(
                         #     self, "Registro exitoso", f"Usuario {name} registrado con éxito"
                         # )
-                        msg_ok.exec_()
+                        
 
                     else:
                         msg = data.get("message", "Error desconocido al registrar el usuario.")
-                        QMessageBox.warning(self, "Error en registro", msg)
+                        # QMessageBox.warning(self, "Error en registro", msg)
+                        show_message(self, "warning","Error en registro", msg)
 
                 except requests.exceptions.RequestException:
                     capture_popup.close()
-                    QMessageBox.critical(
-                        self, "Error de conexión", "No se pudo conectar al servidor."
-                    )
+                    # QMessageBox.critical(
+                    #     self, "Error de conexión", "No se pudo conectar al servidor."
+                    # )
+                    show_message(self, "error", "Error de conexión", "No se pudo conectar al servidor.")
+
 
         take_btn.clicked.connect(take_photo)
 
