@@ -39,10 +39,10 @@ def show_message(parent, mtype, title, text):
 
     # ---- Configurar según tipo ----
     styles = {
-        "info":    {"icon": QMessageBox.Information, "color": "#3498db"},
-        "warning": {"icon": QMessageBox.Warning,     "color": "#f1c40f"},
+        "info":    {"icon": QMessageBox.Information, "color": "#78bbe7"},
+        "warning": {"icon": QMessageBox.Warning,     "color": "#e6c955"},
         "error":   {"icon": QMessageBox.Critical,    "color": "#ca4233"},
-        "success": {"icon": QMessageBox.Information, "color": "#2ecc71"},
+        "success": {"icon": QMessageBox.Information, "color": "#59f59a"},
     }
 
     style = styles.get(mtype, styles["info"])
@@ -283,10 +283,16 @@ class ClientApp(QWidget):
                 background-color: #4CAF50;
                 color: white;
                 border-radius: 10px;
+            
                 padding: 10px;
                 font-size: 18px;
                 font-weight: bold;
             }
+            QPushButton:focus {
+                outline: none;
+                border: none;
+            }
+
             QPushButton:hover {
                 background-color: #45a049;
             }
