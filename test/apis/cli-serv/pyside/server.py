@@ -150,7 +150,7 @@ def register():
             cv2.imwrite(os.path.join(person_dir, f"{name}_{i+1}.jpg"), frame)
 
     if not new_encodings:
-        log("❌ No se detectaron rostros válidos en las imágenes.", "\033[91m")         
+        log("No se detectaron rostros válidos en las imágenes.", "\033[91m")         
         return jsonify({"status": "error", "message": "No se detectaron rostros válidos"})
 
     known_face_names.extend([name] * len(new_encodings))

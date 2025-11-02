@@ -242,6 +242,7 @@ class ClientApp(QWidget):
         self.progress_popup.close()
         self.result_label.setStyleSheet("color: #ff5555; font-weight: bold;")
         self.result_label.setText(message)
+        
 
     def start_registration(self):
         dialog = RegistrationDialog(self)
@@ -249,27 +250,143 @@ class ClientApp(QWidget):
             return
         name = dialog.registered_name
 
+        # --- Ventana emergente de registro ---
+        capture_popup = QDialog(self)
+        capture_popup.setWindowTitle("Registro de Usuario")
+        capture_popup.setFixedSize(400, 220)
+        capture_popup.setStyleSheet("""
+            background-color: #2c3e50;
+            color: white;
+            font-family: Arial;
+            font-size: 14px;
+        """)
+        capture_popup.setModal(True)
+
+        layout = QVBoxLayout()
+        label = QLabel("Prepárate para la primera foto")
+        label.setAlignment(Qt.AlignCenter)
+
+        progress = QProgressBar()
+        progress.setMaximum(5)
+        progress.setValue(0)
+        progress.setStyleSheet("""
+            QProgressBar {
+                border: 2px solid #4CAF50;
+                border-radius: 5px;
+                text-align: center;
+                color: white;
+                font-weight: bold;
+            }
+            QProgressBar::chunk {
+                background-color: #4CAF50;
+                border-radius: 3px;
+            }
+        """)
+
+        take_btn = QPushButton("Tomar foto 1/5")
+        take_btn.setStyleSheet("""
+            QPushButton {
+                background-color: #4CAF50;
+                color: white;
+                border-radius: 8px;
+                padding: 10px;
+                font-weight: bold;
+                font-size: 14px;
+            }
+            QPushButton:hover {
+                background-color: #45a049;
+            }
+        """)
+
+        cancel_btn = QPushButton("Cancelar registro")
+        cancel_btn.setStyleSheet("""
+            QPushButton {
+                background-color: #e74c3c;
+                color: white;
+                border-radius: 8px;
+                padding: 8px;
+                font-weight: bold;
+            }
+            QPushButton:hover {
+                background-color: #c0392b;
+            }
+        """)
+
+        layout.addWidget(label)
+        layout.addWidget(progress)
+        layout.addWidget(take_btn)
+        layout.addWidget(cancel_btn)
+        capture_popup.setLayout(layout)
+        capture_popup.show()
+
         images = []
-        for i in range(5):
-            QMessageBox.information(self, "Registro", f"Prepárate para la foto {i + 1}")
-            frame = self.current_frame
-            if frame is not None:
-                _, buffer = cv2.imencode(".jpg", frame)
-                img_str = base64.b64encode(buffer).decode("utf-8")
-                images.append(img_str)
-            else:
-                QMessageBox.critical(self, "Error", "No se pudo capturar el frame")
+        cancelled = {"state": False}
+        
+        def cancel_process():
+            cancelled["state"] = True
+            capture_popup.close()
+            QMessageBox.information(self, "Registro cancelado", "El registro fue cancelado por el usuario.")
+
+        cancel_btn.clicked.connect(cancel_process)
+        
+        def take_photo():
+            if cancelled["state"]:
+                capture_popup.close()
                 return
 
-        try:
-            response = requests.post(f"{SERVER_URL}/register", json={"name": name, "images": images}, timeout=10)
-            if response.ok:
-                QMessageBox.information(self, "Registro", f"Usuario {name} registrado con éxito ✅")
-            else:
-                QMessageBox.warning(self, "Error", "El usuario no pudo registrarse en el servidor")
-        except requests.exceptions.RequestException:
-            QMessageBox.critical(self, "Error", "No se pudo conectar al servidor")
+            current_photo = len(images) + 1
 
+            # Mensaje previo a la captura
+            label.setText(f"Preparando para capturar foto {current_photo}/5...")
+            QApplication.processEvents()
+            QTimer.singleShot(800, lambda: capture(current_photo))  # pequeño retardo visual
+
+        
+        def capture(current_photo):
+            if self.current_frame is not None:
+                _, buffer = cv2.imencode(".jpg", self.current_frame)
+                img_str = base64.b64encode(buffer).decode("utf-8")
+                images.append(img_str)
+                progress.setValue(current_photo)
+                label.setText(f"Foto {current_photo} capturada correctamente.")
+            else:
+                QMessageBox.critical(self, "Error", "No se pudo capturar la imagen.")
+                capture_popup.close()
+                return
+
+            if current_photo < 5:
+                next_photo = current_photo + 1
+                take_btn.setText(f"Tomar foto {next_photo}/5")
+                label.setText(f"Prepárate para la foto {next_photo}/5")
+            else:
+                take_btn.setEnabled(False)
+                label.setText("Subiendo imágenes al servidor...")
+                QApplication.processEvents()
+
+                try:
+                    response = requests.post(
+                        f"{SERVER_URL}/register",
+                        json={"name": name, "images": images},
+                        timeout=15
+                    )
+                    capture_popup.close()
+                    data = response.json() if response.ok else {}
+
+                    if response.ok and data.get("status") == "ok":
+                        QMessageBox.information(
+                            self, "Registro exitoso", f"Usuario {name} registrado con éxito ✅"
+                        )
+                    else:
+                        msg = data.get("message", "Error desconocido al registrar el usuario.")
+                        QMessageBox.warning(self, "Error en registro", msg)
+
+                except requests.exceptions.RequestException:
+                    capture_popup.close()
+                    QMessageBox.critical(
+                        self, "Error de conexión", "No se pudo conectar al servidor."
+                    )
+            take_btn.clicked.connect(take_photo)
+        
 
 # ----- Ejecutar aplicación -----
 if __name__ == "__main__":
