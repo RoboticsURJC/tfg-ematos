@@ -1,4 +1,4 @@
-# server.py 
+# server.py — versión mejorada
 import os
 import base64
 import pickle
