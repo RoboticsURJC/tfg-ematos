@@ -15,17 +15,11 @@ with open(config_path) as f:
     config = json.load(f)
 
 SERVER_URL = config["server_url"]
-DURATION = 300  # segundos totales de prueba (opcional, se puede ignorar si usamos todas las imágenes)
-INTERVAL = 0.5  # intervalo entre pruebas en segundos
+DURATION = 300  # segundos totales (5 min)
+INTERVAL = 1    # intervalo entre pruebas en segundos
 latencies = []
 
-# === PREPARAR ARCHIVOS ===
-os.makedirs("results", exist_ok=True)
-date_time = datetime.now().strftime("%Y%m%d_%H%M%S")
-txt_file = f"results/latencies_{date_time}.txt"
-csv_file = f"results/latencies_{date_time}.csv"
-
-# === CARPETA DE TEST ===
+# === CARPETA DE IMÁGENES DE PRUEBA ===
 test_folder = os.path.join(curr_dir, "test_images")
 image_files = [f for f in os.listdir(test_folder) if f.lower().endswith((".jpg", ".jpeg", ".png"))]
 
@@ -33,14 +27,25 @@ if not image_files:
     print("No se encontraron imágenes en la carpeta test_images")
     exit(1)
 
-# === INICIO ===
-print(f"\nMidiendo latencia hacia: {SERVER_URL}/recognize para {len(image_files)} imágenes...\n")
+# === PREPARAR RESULTADOS ===
+os.makedirs("results", exist_ok=True)
+date_time = datetime.now().strftime("%Y%m%d_%H%M%S")
+txt_file = f"results/latencies_{date_time}.txt"
+csv_file = f"results/latencies_{date_time}.csv"
+
+print(f"\nMidiendo latencia hacia: {SERVER_URL}/recognize durante {DURATION//60} min...\n")
+
+start_time = time.time()
+iteration = 0
 
 with open(txt_file, "w") as f:
     f.write(f"Latency measurements towards {SERVER_URL}/recognize\n")
     f.write(f"Start Date: {date_time}\n\n")
 
-    for idx, img_name in enumerate(image_files, start=1):
+    while time.time() - start_time < DURATION:
+        iteration += 1
+        # Elegimos una imagen aleatoria de test para enviar
+        img_name = image_files[iteration % len(image_files)]
         img_path = os.path.join(test_folder, img_name)
         with open(img_path, "rb") as img_file:
             img_b64 = base64.b64encode(img_file.read()).decode("utf-8")
@@ -55,24 +60,26 @@ with open(txt_file, "w") as f:
             t1 = time.time()
 
             if r.ok:
-                latency = (t1 - t0) * 1000
+                latency = (t1 - t0) * 1000  # en ms
                 latencies.append(latency)
 
                 avg_10 = statistics.mean(latencies[-10:]) if len(latencies) >= 10 else statistics.mean(latencies)
                 color = "\033[92m" if latency < 500 else ("\033[93m" if latency < 1500 else "\033[91m")
-                print(f"{color}[{idx}/{len(image_files)}] {img_name} - {latency:.2f} ms (avg10={avg_10:.1f})\033[0m")
-                f.write(f"{img_name},{latency:.2f} ms\n")
+
+                print(f"{color}[{iteration}] {img_name} - {latency:.2f} ms (avg10={avg_10:.1f})\033[0m")
+                f.write(f"{datetime.now().strftime('%H:%M:%S')},{img_name},{latency:.2f}\n")
+
             else:
-                print(f"\033[91m❌ Error en la respuesta del servidor para {img_name}\033[0m")
-                f.write(f"{img_name},Error\n")
+                print(f"\033[91m❌ Error en la respuesta para {img_name}\033[0m")
+                f.write(f"{datetime.now().strftime('%H:%M:%S')},{img_name},Error\n")
 
         except requests.exceptions.RequestException:
             print(f"\033[91m⚠️ Fallo de conexión para {img_name}\033[0m")
-            f.write(f"{img_name},Connection failure\n")
+            f.write(f"{datetime.now().strftime('%H:%M:%S')},{img_name},Connection failure\n")
 
         time.sleep(INTERVAL)
 
-# === RESULTADOS ===
+# === RESULTADOS FINALES ===
 if latencies:
     avg = statistics.mean(latencies)
     maximo = max(latencies)
@@ -92,7 +99,8 @@ if latencies:
     with open(csv_file, "w") as c:
         c.write("image,latency_ms\n")
         for i, val in enumerate(latencies):
-            c.write(f"{image_files[i]},{val}\n")
+            img_name = image_files[i % len(image_files)]
+            c.write(f"{img_name},{val}\n")
 
     # Gráfico
     plt.figure(figsize=(10, 4))
