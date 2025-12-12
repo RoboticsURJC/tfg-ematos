@@ -5,6 +5,8 @@ import json
 import os
 import matplotlib.pyplot as plt
 from datetime import datetime
+import base64
+import cv2
 
 # === CONFIGURACIÓN ===
 curr_dir = os.path.dirname(__file__)
@@ -24,18 +26,29 @@ date_time = datetime.now().strftime("%Y%m%d_%H%M%S")
 txt_file = f"results/latencies_{date_time}.txt"
 csv_file = f"results/latencies_{date_time}.csv"
 
+# === IMAGEN DE PRUEBA ===
+# Puedes usar cualquier imagen pequeña de prueba
+test_image_path = os.path.join(curr_dir, "test_face.jpg")
+with open(test_image_path, "rb") as f:
+    img_bytes = f.read()
+test_image_b64 = base64.b64encode(img_bytes).decode("utf-8")
+
 # === INICIO ===
-print(f"\nMidiendo latencia hacia: {SERVER_URL}/latency durante {DURATION//60} min...\n")
+print(f"\nMidiendo latencia hacia: {SERVER_URL}/recognize durante {DURATION//60} min...\n")
 
 with open(txt_file, "w") as f:
-    f.write(f"Latency measurements towards {SERVER_URL}/latency\n")
+    f.write(f"Latency measurements towards {SERVER_URL}/recognize\n")
     f.write(f"Start Date: {date_time}\n\n")
 
     start = time.time()
     while time.time() - start < DURATION:
         try:
             t0 = time.time()
-            r = requests.get(f"{SERVER_URL}/latency", timeout=3)
+            r = requests.post(
+                f"{SERVER_URL}/recognize",
+                json={"image": test_image_b64},
+                timeout=5
+            )
             t1 = time.time()
 
             if r.ok:
@@ -45,12 +58,9 @@ with open(txt_file, "w") as f:
                 # Promedio móvil (últimos 10)
                 avg_10 = statistics.mean(latencies[-10:]) if len(latencies) >= 10 else statistics.mean(latencies)
 
-                # Colores: verde <500ms, amarillo <1500ms, rojo >=1500ms
                 color = "\033[92m" if latency < 500 else ("\033[93m" if latency < 1500 else "\033[91m")
-
                 print(f"{color}{datetime.now().strftime('%H:%M:%S')} - {latency:.2f} ms (avg10={avg_10:.1f})\033[0m")
                 f.write(f"{datetime.now().strftime('%H:%M:%S')} - {latency:.2f} ms\n")
-
             else:
                 print("\033[91m❌ Error en la respuesta del servidor\033[0m")
                 f.write(f"{datetime.now().strftime('%H:%M:%S')} - Error in response\n")
@@ -61,9 +71,9 @@ with open(txt_file, "w") as f:
 
         time.sleep(INTERVAL)
 
-    # === RESULTADOS ===
     f.write("\nFinal results:\n")
 
+# === RESULTADOS ===
 print("\nResultados finales:")
 if latencies:
     avg = statistics.mean(latencies)
@@ -94,7 +104,7 @@ if latencies:
     plt.axhline(avg, color='orange', linestyle='--', label=f"Promedio {avg:.1f} ms")
     plt.axhline(maximo, color='red', linestyle=':', label=f"Máximo {maximo:.1f} ms")
     plt.axhline(minimo, color='green', linestyle=':', label=f"Mínimo {minimo:.1f} ms")
-    plt.title(f"Latencia hacia {SERVER_URL}")
+    plt.title(f"Latencia hacia {SERVER_URL}/recognize")
     plt.xlabel("Muestras")
     plt.ylabel("ms")
     plt.legend()
