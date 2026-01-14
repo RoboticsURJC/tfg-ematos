@@ -26,10 +26,9 @@ display.fill(0x000000)
 
 emociones = ["feliz", "triste", "sorprendido", "guiño", "enojado"]
 
-def dibujar_ojos_cejas_mov(emocion, parpado_ratio=0.0, ceja_offset=0):
+def dibujar_ojos_parpadeo_cejas(emocion, parpado_ratio=0.0, ceja_offset=0):
     """
-    Ojos huecos, borde grueso, parpadeo centrado, cejas moviéndose solo arriba del ojo
-    ceja_offset: desplazamiento vertical de cejas para simular movimiento
+    Ojos grandes huecos, parpadeo real (doblando ojo), cejas moviéndose solo encima.
     """
     img = Image.new("RGB", (display.width, display.height), "black")
     draw = ImageDraw.Draw(img)
@@ -37,7 +36,6 @@ def dibujar_ojos_cejas_mov(emocion, parpado_ratio=0.0, ceja_offset=0):
     grosor_borde = 16
     margen_ceja = 35
     
-    # Centro de la pantalla
     centro_x = display.width // 2
     centro_y = display.height // 2
     radio_ojo = 40
@@ -57,55 +55,61 @@ def dibujar_ojos_cejas_mov(emocion, parpado_ratio=0.0, ceja_offset=0):
         centro_y + radio_ojo
     )
     
-    # Dibujar ojos huecos
+    # Dibujar ojo hueco
     draw.ellipse(ojo_izq, outline="white", width=grosor_borde)
     draw.ellipse(ojo_der, outline="white", width=grosor_borde)
     
-    # Parpadeo centrado
+    # Parpadeo real: doblando ojo desde arriba y abajo
     if parpado_ratio > 0:
-        delta = int(radio_ojo * parpado_ratio)
-        draw.line(
-            (ojo_izq[0]+grosor_borde//2, centro_y - delta,
-             ojo_izq[2]-grosor_borde//2, centro_y - delta),
-            fill="black", width=grosor_borde
-        )
-        draw.line(
-            (ojo_der[0]+grosor_borde//2, centro_y - delta,
-             ojo_der[2]-grosor_borde//2, centro_y - delta),
-            fill="black", width=grosor_borde
-        )
+        # Altura de “cerrado” parcial
+        alto_ojo = ojo_izq[3] - ojo_izq[1]
+        delta = int(alto_ojo * parpado_ratio / 2)
+        # Párpado superior
+        draw.rectangle((ojo_izq[0]+grosor_borde//2, ojo_izq[1],
+                        ojo_izq[2]-grosor_borde//2, ojo_izq[1]+delta),
+                        fill="black")
+        draw.rectangle((ojo_der[0]+grosor_borde//2, ojo_der[1],
+                        ojo_der[2]-grosor_borde//2, ojo_der[1]+delta),
+                        fill="black")
+        # Párpado inferior
+        draw.rectangle((ojo_izq[0]+grosor_borde//2, ojo_izq[3]-delta,
+                        ojo_izq[2]-grosor_borde//2, ojo_izq[3]),
+                        fill="black")
+        draw.rectangle((ojo_der[0]+grosor_borde//2, ojo_der[3]-delta,
+                        ojo_der[2]-grosor_borde//2, ojo_der[3]),
+                        fill="black")
     
-    # Cejas moviéndose solo encima de los ojos
+    # Cejas moviéndose solo encima del ojo, sin cruzar
     ceja_y_base = ojo_izq[1] - margen_ceja
     ceja_altura = ceja_y_base + 20
     
-    # Ajuste de offset para movimiento natural
-    ceja_y = ceja_y_base - ceja_offset  # sube o baja
-    ceja_altura += -ceja_offset
+    # Aplicar offset limitado: cejas no pueden entrar en ojo
+    ceja_offset = min(ceja_offset, margen_ceja-5)
+    ceja_y = ceja_y_base - ceja_offset
+    ceja_altura_mod = ceja_altura - ceja_offset
     
     if emocion == "feliz":
-        draw.arc((ojo_izq[0], ceja_y, ojo_izq[2], ceja_altura), start=0, end=180, fill="white", width=5)
-        draw.arc((ojo_der[0], ceja_y, ojo_der[2], ceja_altura), start=0, end=180, fill="white", width=5)
+        draw.arc((ojo_izq[0], ceja_y, ojo_izq[2], ceja_altura_mod), start=0, end=180, fill="white", width=5)
+        draw.arc((ojo_der[0], ceja_y, ojo_der[2], ceja_altura_mod), start=0, end=180, fill="white", width=5)
     elif emocion == "triste":
-        draw.arc((ojo_izq[0], ceja_y, ojo_izq[2], ceja_altura), start=180, end=360, fill="white", width=5)
-        draw.arc((ojo_der[0], ceja_y, ojo_der[2], ceja_altura), start=180, end=360, fill="white", width=5)
+        draw.arc((ojo_izq[0], ceja_y, ojo_izq[2], ceja_altura_mod), start=180, end=360, fill="white", width=5)
+        draw.arc((ojo_der[0], ceja_y, ojo_der[2], ceja_altura_mod), start=180, end=360, fill="white", width=5)
     elif emocion == "sorprendido":
-        draw.arc((ojo_izq[0], ceja_y, ojo_izq[2], ceja_altura), start=0, end=180, fill="white", width=5)
-        draw.arc((ojo_der[0], ceja_y, ojo_der[2], ceja_altura), start=0, end=180, fill="white", width=5)
+        draw.arc((ojo_izq[0], ceja_y, ojo_izq[2], ceja_altura_mod), start=0, end=180, fill="white", width=5)
+        draw.arc((ojo_der[0], ceja_y, ojo_der[2], ceja_altura_mod), start=0, end=180, fill="white", width=5)
     elif emocion == "enojado":
-        draw.arc((ojo_izq[0], ceja_y, ojo_izq[2], ceja_altura), start=180, end=360, fill="white", width=5)
-        draw.arc((ojo_der[0], ceja_y, ojo_der[2], ceja_altura), start=180, end=360, fill="white", width=5)
+        draw.arc((ojo_izq[0], ceja_y, ojo_izq[2], ceja_altura_mod), start=180, end=360, fill="white", width=5)
+        draw.arc((ojo_der[0], ceja_y, ojo_der[2], ceja_altura_mod), start=180, end=360, fill="white", width=5)
     elif emocion == "guiño":
         draw.line((ojo_izq[0], ojo_izq[3]-10, ojo_izq[2], ojo_izq[3]-10), fill="white", width=8)
-        draw.arc((ojo_der[0], ceja_y, ojo_der[2], ceja_altura), start=0, end=180, fill="white", width=5)
+        draw.arc((ojo_der[0], ceja_y, ojo_der[2], ceja_altura_mod), start=0, end=180, fill="white", width=5)
     
     display.image(img)
 
 # Animación principal
 while True:
     emocion_actual = random.choice(emociones)
-    for ratio in [0.0, 0.0, 0.2, 0.4, 0.2, 0.0]:  # parpadeo suave
-        # Movimiento de cejas: offset aleatorio pequeño para naturalidad
-        ceja_offset = random.randint(0, 8)  # suben o bajan 0-8 píxeles
-        dibujar_ojos_cejas_mov(emocion_actual, parpado_ratio=ratio, ceja_offset=ceja_offset)
+    for ratio in [0.0, 0.2, 0.5, 0.8, 0.5, 0.2, 0.0]:  # parpadeo más real
+        ceja_offset = random.randint(0, 10)  # movimiento natural, limitado
+        dibujar_ojos_parpadeo_cejas(emocion_actual, parpado_ratio=ratio, ceja_offset=ceja_offset)
         time.sleep(0.15)
