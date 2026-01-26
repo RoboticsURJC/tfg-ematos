@@ -112,4 +112,4 @@ while True:
     for ratio in [0.0, 0.2, 0.5, 0.8, 0.5, 0.2, 0.0]:  # parpadeo más real
         ceja_offset = random.randint(0, 10)  # movimiento natural, limitado
         dibujar_ojos_parpadeo_cejas(emocion_actual, parpado_ratio=ratio, ceja_offset=ceja_offset)
-        time.sleep(0.15)
+        time.sleep(0.02)
