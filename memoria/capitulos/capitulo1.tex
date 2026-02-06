@@ -32,7 +32,7 @@ La robótica es un campo multidisciplinar que surge de la intersección de la ci
 
 Pero, ¿qué es un robot? 
 
-\vspace{0.5cm}
+\vspace{0.2cm}
 
 Un robot es una máquina programable capaz de realizar tareas de forma autónoma o semiautónoma.
 
@@ -44,14 +44,12 @@ Sus orígenes pueden remontarse a las antiguas civilicaciones del Antiguo Egipto
 
 \begin{figure} [h!]
   \begin{center}
-    \includegraphics[width=8cm]{figs/Da-Vinci}
+    \includegraphics[width=7cm]{figs/Da-Vinci}
   \end{center}
   \caption{\textit{Automa Cavaliere} de Leonardo Da Vinci}
   \label{fig:Da-Vinci}
 \end{figure}\
 
-
-\vspace{0.5cm}
 
 No obstante, no fue hasta 1921 donde se acuñó por primera vez el concepto de robot, en la obra de  teatro llamada  “R.U.R: ROBOTS UNIVERSALES ROSSUM”  del dramaturgo checo Karel Capek. Con el paso del tiempo, este término acabaría dando nombre a toda una ingeniería: la robótica.  \cite{iniciorob}
 
@@ -69,9 +67,6 @@ A apartir de ese momento aparecieron nuevos robots en otros sectores, permitiend
 
 
 
-En los textos puedes poner palabras en \textit{cursiva}, para aquellas expresiones en sentido \textit{figurado}, palabras como \textit{robota}, que está fuera del diccionario castellano, o bien para resaltar palabras de una colección: \textit{(a)} es la primera letra del abecedario, \textit{(b)} es la segunda, etc.\\
-
-Al poner las dos líneas del anterior párrafo, este aparecerá separado del anterior. Si no las pongo, los párrafos aparecerán pegados. Sigue el criterio que consideres más oportuno.
 
 
 
@@ -94,7 +89,6 @@ El origen de los robots industriales se remonta al desarrollo de \textit{Unimate
   \label{fig:Unimate}
 \end{figure}\
 
-\vspace{0.5cm}
 
 La introducción de \textit{Unimate} impulsó el desarrollo de nuevos robots industriales permitiendo la optimización de procesos.
 Además, favoreció la expansión del uso de la robótica en otros sectores, como la robótica de servicio.
@@ -229,8 +223,73 @@ En muchos casos, estos robots no solo prestan apoyo funcional, sino que también
 \subsection{Robótica Social}
 \label{sec:subseccion}
 
-La robótica social es un área en expansión que se caracteriza por la interacción con las personas.
-A diferencia de otros campos de la robótica que se centran en la automatización de tareas, este tipo de robots requieren otro tipo de enfoque pues el objetivo final es una interacción fluida entre el sistema y la persona.
+La robótica social es un área en expansión que se caracteriza por la interacción directa con las personas.
+A diferencia de otros ámbitos de la robótica, centrados principalmente en la automatización de tareas, este tipo de robots requiere un enfoque distinto ya que su objetivo principal lograr una interacción fluida y natural entre el sistema y el usuario.~\ref{fig:pepper}.
+
+\vspace{0.2cm}
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=8cm]{figs/pepper}
+  \end{center}
+  \caption{\textit{Pepper} de SoftBank Corp}
+  \label{fig:pepper}
+\end{figure}\
+
+
+Esta tecnología tiene diversas aplicaciones en la actualidad.
+
+\vspace{0.2cm}
+
+En el ámbito de la eduación, la robótica social permite un apredizaje más interactivo, favoreciendo la comprensión de conceptos complejos.~\ref{fig:eduacion}.
+
+\vspace{0.2cm}
+
+\begin{figure}[ht!]
+	\centering
+	\begin{minipage}{0.3\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/owi}
+		\caption*{\centering OWI 535}
+	\end{minipage}
+	\hspace{1cm}
+	\begin{minipage}{0.3\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/bee}
+		\caption*{\centering Bee Bot }
+	\end{minipage}
+	\caption{Robots Eduactivos}
+	\label{fig:eduacion}
+\end{figure}
+
+
+Estos robots ofrecen una experiencia de aprendizaje personalizada, adaptandose a las necesesidades y ritmo de cada estudiante. 
+
+\vspace{0.5cm}
+
+Por otro lado, también pueden desempeñar un papel importante en el ámbito sanitario, especialmente en las intervenciones terapéuticas~\ref{fig:nuka}.
+Los robots sociales pueden ayudar a personas con capacidades funcionales reducidas o necesidades especiales a desarrollar habilidades, así como brindar apoyo emocional. \cite{social}
+
+
+\vspace{0.2cm}
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=7cm]{figs/nuka}
+  \end{center}
+  \caption{\textit{Nuka} deTakanori Shibata}
+  \label{fig:nuka}
+\end{figure}\
+
+
+\vspace{0.5cm}
+
+Por último, los robot sociales también se han hecho hueco en el ambito del entretenimiento, donde se emplean como herramientas lúdicas e interactivas. 
+
+\vspace{0.5cm}
+
+Todas estas aplicaciones tienen un factor común: la necesidad de una interacción fluida y natural entre humano y robot. Este factor ha dado lugar a un estudio conocido como Interacción Humano-Robot (HRI).
+
 
 
 
@@ -238,6 +297,74 @@ A diferencia de otros campos de la robótica que se centran en la automatizació
 
 \section{Interacción Humano-Robot (HRI)}
 \label{sec:segundaseccion}
+
+La Interacción Humano-Robot\textit{(Human Robot Interaction, HRI)} fue definida por Michael A. Goodrich and Alan C. Schultz como un campo de estudio dedicado a 
+comprender, diseñar y evaluar sistemas robóticos para su uso por o junto con humanos. \cite{hri}
+
+\vspace{0.5cm}
+
+El desarrollo de la HRI se vio favorecida por la aparación de las arquitecturas híbridas, las cuales combinan comportamientos reactivos, que proveen capacidades fundamentales a los robots, con niveles más alto de razonamiento cognitivo. Esta combinación permite una interacción más compleja y natural con los humanos.~\ref{fig:kismet}
+
+
+\vspace{0.2cm}
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=7cm]{figs/kismet}
+  \end{center}
+  \caption{\textit{Kismet} de Cynthia Breazeal}
+  \label{fig:kismet}
+\end{figure}\
+
+
+En las primeras etapas, la investigación en HRI se centró en los aspectos relacionados con la movilidad. Sin embargo, con el tiempo, se buscó que el robot tuviera comportamientos más natuarales y sociales, con el objetivo de mejorar la interacción entre el robot y la persona. \cite{hri2}
+
+\vspace{0.5cm}
+
+En este contexto surge Kismet~\ref{fig:kismet}, un robot desarrollado en el Instituto de Massachusetts de Tecnología (MIT) a finales de los años 90. Este sistema marcó un hito en la robótica social al demostrar la capacidad de diseñar robots capaces de percibir, procesar y expresar emociones.
+
+\vspace{0.5cm}
+
+No obstante, a medida que los robots incorporan comportamientos cada más expresivos y rasgos similares  a la apariencia y aspecto humano, surgen nuevos retos en la interacción humano-robot.
+Aunque estos avances puedan favorecer la aceptación del sistema también pueden provocar rechazo en las personas.
+
+\vspace{0.5cm}
+
+Este fenómeno se conoce como Valle Inquitante(\textit{Uncanny Valley})~\ref{fig:inqu}, término acuñado por el profesor Masahiro Mori. Esta hipotesis plantea que, a medida que los robots adquieren una apariencia cada vez más similar a la humana, la respuesta emocional de las personas hacia ellos tiende a ser más positiva. Sin embargo, cuando el grado de semejanza es excesivo, se produce una reacción negativa como el rechazo o la incomodidad. 
+
+\vspace{0.2cm}
+
+\begin{figure}[ht!]
+	\centering
+	\begin{minipage}{0.4\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/Uncanny-valley}
+		\caption*{\centering Geminoid F de Hiroshi Ishiguro}
+	\end{minipage}
+	\hspace{2cm}
+	\begin{minipage}{0.4\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/Uncanny-valley-grafica}
+		\caption*{\centering Foto sacada de Wikipedia }
+	\end{minipage}
+	\caption{Uncanny Valley}
+	\label{fig:inqu}
+\end{figure}
+
+Se han propuesto diversas hipótesis para el fenómeno del Valle Inquietante. Una de las más extendidas tiene origen biológico y evolutivo, según el cual el cerebro humano es capaz de percibir sutiles diferencias en aquello que aparenta ser humano. Aunque el robot presente una apariencia muy similar a la humana, pequeñas diferencias en el movimiento, la expresión facial, o la coordinación pueden activar mecanismos de alerta para protegernos de lo que podría ser una potencial amenaza.\cite{hri3}
+
+\vspace{0.5cm}
+
+Otra teoría relaciona este fenómeno con la  falta de coherencia entre la apariencia antropomórfica del robot y su comportamiento real. Esta discrepancia provoca que el sistema sea percibido como casi humano pero no lo suficiente, provocando falta de empatía e incluso rechazo.
+
+\vspace{0.5cm}
+
+Este efecto resulta especialmente relevante en el diseño de robots sociales, donde la apariencia y el comportamiento juegan un papel fundamental en la percepción del usuario.
+
+\vspace{0.5cm}
+
+Para lograr una interacción humano-robot natural y fluida, el robot debe de ser capaz de percibir e interpretar el entorno que lo rodea. En este contexto, la visión artificial desempeña un papel muy importante, ya que permite al robot analizar su entorno, reconocer rostros, expresiones faciales y reaccionar de manera coherente durante la interacción.
+
 
 
 \section{Vision Artificial}
