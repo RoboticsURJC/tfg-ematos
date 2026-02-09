@@ -370,20 +370,198 @@ Para lograr una interacción humano-robot natural y fluida, el robot debe de ser
 \section{Vision Artificial}
 \label{sec:segundaseccion}
 
+La visión artificial es la disciplina encargada de obtener, procesar, analizar información visual provemiente de imágenes y vídeos . Estos procesos pueden realizarse en tiempo real o de manera diferida dependiendo de su aplicación.
+
+\vspace{0.5cm}
+
+Aunque su uso se ha extendido a lo largo de los años, sus orígenes se remontan a la década de 1960, cuando Lawrence Roberts publicó \textit{Percepción mecánica de sólidos tridimensionales}. Este trabajo implulsó una gran cantidad de investigación en el laboratorio de inteligencia artificial del MIT y otras instituciones, donde se analizaban la visión por computadora aplicada al reconocimiento de bloques y objetos simples. 
+
+\vspace{0.2cm}
+
+En la actulidad, la visión artificial cuenta con multitud de aplicaciones en diversos ámbitos, entre los que destancan ~\ref{fig:vision}:
+
+\begin{itemize}
+	\item \textit{Agricultura}. Permite evaluar la maduración de la fruta para la cosecha y detectar imperfecciones para su selección.
+	\item \textit{Seguridad}. Sistemas de vigilancia y control de tráfico utilizan algoritmos de visión artificial, por ejemplo para reconocer matrículas o monitorizar vehículos en carretera.
+	\item \textit{Metrología}. Facilita mediciones precisas y automáticas de piezas y objetos en procesos industriales.
+	\item \textit{Sanidad}. Se emplea para la extracción automática de datos y análisis de imágenes médicas, reduciendo la carga administrativa y mejorando la precisión de diagnósticos.
+\end{itemize}
+
+
+\vspace{0.2cm}
+
+\begin{figure}[ht!]
+	\centering
+	\begin{minipage}{0.4\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/radar}
+		\caption*{\centering Radar}
+	\end{minipage}
+	\hspace{2cm}
+	\begin{minipage}{0.4\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/robot-apple}
+		\caption*{\centering \textit{Robot Apple Harvester} }
+	\end{minipage}
+	\caption{Sistemas con Visión Artificial}
+	\label{fig:vision}
+\end{figure}
+
+Para que un robot pueda interactuar con su entorno y con las personas de forma natural, no basta con percibirlos, es necesario que pueda reconocer patrones, identificar rostros y adaptarse al comportamiento del usuario. 
+
+\vspace{0.2cm}
+
+En este contexto, el \textit{Machine Learning} proporciona los métodos y algoritmos que permiten al robot aprender de los datos visuales y tomar decisiones. 
+
+
 
 \section{Machine Learning}
 \label{sec:segundaseccion}
+
+En los tiempos que corren, las nuevas tecnologías están cada vez más presentes en nuestra sociedad, transformando la forma en que trabajamos, aprendemos e interactuamos.
+En esta época de cambios surge la Inteligencia Artificicial (IA) como disciplina, dedicada a dotar a la maquina de capacidades asociadas normalmente con los humanos como el razonamiento, aprendizaje o la capacidade de tomar decisiones.
+
+\vspace{0.5cm}
+
+Una de las ramas más relevantes de la IA es el \textit{Machine Learning}, centrado en algoritmos capaces de identificar patrones y elaborar predicciones o tomar decisiones basadas en ellos. Este enfoce permite que los sistemas aprendan de la experiencia y se adapten a situaciones sin necesidad de programación explícita.
+
+\vspace{0.5cm}
+
+El proceso de aprendizaje automático consta de una serie de etapas fundamentales~\ref{fig:ML}.
+
+\begin{itemize}
+	\item \textit{Recolección de datos}. Para obtener un comportamiento adecuado del sistema es importante contar con datos representativos y de calidad. Aunque la cantidad de datos es importante, resulta necesario encontrar un equilibrio entre cantidad y calidad.
+	\item \textit{Preparación de datos}. Los datos pueden contener ruido, valores incompletos o inconsistencias, lo que puede dar lugar a resultados engañosos. Por ello, es necesario preparar minuciosamente los datos antes de su utilización.
+	\item \textit{Elección del modelo}. Existen multitud de modelos de aprendizaje automático, y su elección depende del objetivodel problema. Entre ellos se encuentran algoritmos de clasificación, predicción, regresión lineal, entre otros muchos.
+	\item \textit{Entrenamiento del modelo}. En esta etapa, el modelo aprende a partir de un conjunto de datos de entrenamiento para ajustar los hiperparámetros y aproximarse al resultado esperado.
+	\item \textit{Evaluación del modelo}. Se comparan las predicciones obtenidas con los valores reales mediante métricas específicas, con el objetivo de medir el rendimiento y la precisión del modelo ya entrenado.
+	\item \textit{Ajuste de hiperparámetros (\textit{Parameter Tuning}) }. En función de los resultados obtenidos durante la etapa de evalución, se ajustan los hiperparámetros del modelo y se repite el proceso de entrenamiento para mejorar el rendimiento.
+	\item \textit{Predicción}. Finalmente, el modelo entrenado se utiliza con nuevos datos, no vistos previamente, para generar predicciones o tomar decisiones, dando paso al final del aprendizaje.
+\end{itemize}
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=5.5cm]{figs/ML}
+  \end{center}
+  \caption{Imagen generada por Inteligencia Artificial}
+  \label{fig:ML}
+\end{figure}\
+
+Existen diferentes enfoques dentro del aprendizaje autómatico, que se clasifican en función del modelo de entrenamiento que usan.
+
+
+\subsection{Aprendizaje supervisado}
+\label{sec:subseccion}
+
+El aprendizaje supervisado parte de la premisa de asociar datos de entradas con salidas conocidas. 
+En este enfoque, el modelo se entrena a partir de conjuntos de datos previamente etiquetados, lo que permite aprender una relación entre las entradas y salidas esperadas.
+
+\vspace{0.5cm}
+
+Entre los algoritmos más utilizados en el aprendizaje supervisado se encuentran la regresión logística, \textit{K-Nearest Neighbors (KNN)} o los árboles de decisión.~\ref{fig:supervisado}
+
+\vspace{0.2cm}
+
+\begin{figure}[ht!]
+	\centering
+	\begin{minipage}{0.4\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/regresion}
+		\caption*{\centering Regresión Logística}
+	\end{minipage}
+	\hspace{2cm}
+	\begin{minipage}{0.4\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/tree}
+		\caption*{Árbol de decisiones}
+	\end{minipage}
+	\caption{Algoritmos de aprendizaje supervisado}
+	\label{fig:supervisado}
+\end{figure}
+
+
+\vspace{0.5cm}
+
+El uso del aprendizaje supervisado está ampliamente extendido en la actualidad, ya que ofrece buenos resultadosen problemas donde se dispone de datos etiquetados.
+
+\vspace{0.5cm}
+
+El aprendizaje supervisado es usado con regularidad en el campo de la visión artificial, concretamente en tareas de reconocimiento y clasificiación de imágenes, como la detección y el reconocimiento facial.
+
+\vspace{0.5cm}
+
+Otra aplicación a resaltar de este tipo de aprendizaje es la conversión de voz a texto, donde los modelos se entrenan a partir de entradas de audio previamente etiquetadas para reconocer patrones del habla y trasnscribirlos a lenguaje escrito.
+
+
+
+\subsection{Aprendizaje no supervisado}
+\label{sec:subseccion}
+
+El aprendizaje no supervisado se basa en el uso datos no etiquetados con el objetivo de identificar patrones.
+A diferencia del aprendizaje supervisado, no se conoce la salida de antemano, por lo que el algoritmo aprende sin intervención, agrupando y organizando los datos en función de sus características.
+
+\vspace{0.5cm}
+
+Entre los algoritmos más utilizados en el aprendizaje no supervisado se encuentran los métodos de agrupamiento (\textit{clustering}), \textit{K-Means}, o la reducción de dimensionalidad.~\ref{fig:no-supervisado}
+
+\vspace{0.2cm}
+
+\begin{figure}[ht!]
+	\centering
+	\begin{minipage}{0.4\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/cluster}
+		\caption*{\centering Agrupamiento}
+	\end{minipage}
+	\hspace{2cm}
+	\begin{minipage}{0.4\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/reduccion}
+		\caption*{Reducción de dimensionalidad}
+	\end{minipage}
+	\caption{Algoritmos de aprendizaje no supervisado}
+	\label{fig:no-supervisado}
+\end{figure}
+
+
+Las apliaciones del aprendizaje no supervisado son muy diversas. Un ejemplo omún es la segmentación de clientes, utilizada para entender comportamientos  y ofrecer servicios o contenidos personalizados.
+
+\vspace{0.5cm}
+
+Asimismo, este tipo de aprendizaje se emplea en el análisis de secuencias genómicas,  permitiendo identifiicar patrones genéticos, marcadores comunes o posibles mutaciones dentro de una población.
+ 
+
+\subsection{Aprendizaje por refuerzo}
+\label{sec:subseccion}
+
+El aprendizaje por refuerzo es un enfoque en el que el sistema aprende a través de la interacción con el entorno, basandose en un proceso de prueba y error. En este método, el agente recibe \textit{feedback} del entorno en forma de recompensas o penalizaciones, en función de las acciones realizadas.
+
+\vspace{0.5cm}
+
+El obetivo es mejor el rendimiento a lo largo del tiempo, aprendiendo qué acciones realizar en las diferentes situaciones para obtener una mayor recompensa.~\ref{fig:refuerzo}
+
+\vspace{0.2cm}
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=7cm]{figs/refuerzo}
+  \end{center}
+  \caption{Concepto de Aprendizaje por refuerzo}
+  \label{fig:refuerzo}
+\end{figure}\
+
+
+
+\section{Deeep Learning}
+\label{sec:segundaseccion}
+
 
 \section{Robótica de bajo coste}
 \label{sec:segundaseccion}
 
 
-\section{Deep Learning}
-\label{sec:segundaseccion}
 
 
-
-No olvides incluir imágenes y referenciarlas, como la Figura \ref{fig:roomba}.
 
 
 Ni tampoco olvides de poner las URLs como notas al pie. Por ejemplo, si hablo de la Robocup\footnote{\url{http://www.robocup.org}}.
@@ -403,24 +581,13 @@ Para hablar de números, mételos en el entorno \textit{math} de \LaTeX, por eje
 
 Cuando describas una colección, usa \texttt{itemize} para ítems o \texttt{enumerate} para enumerados. Por ejemplo:
 
-\begin{itemize}
- \item \textit{Entorno de simulación.} Hemos usado dos entornos de simulación: uno en 3D y otro en 2D.
- \item \textit{Entornos reales.} Dentro del campus, hemos realizado experimentos en Biblioteca y en el edificio de Gestión.
-\end{itemize}\
 
 \begin{enumerate}
  \item Primer elemento de la colección.
  \item Segundo elemento de la colección.
 \end{enumerate}\
 
-\paragraph{Referencias bibliográficas}
-\label{sec:referencias}
 
-Cita, sobre todo en este capítulo, referencias bibliográficas que respalden tu argumento. Para citarlas basta con poner la instrucción \verb|\cite| con el identificador de la cita. Por ejemplo: libros como \cite{vega12e}, artículos como \cite{vega19b}, URLs como \cite{vega19a}, tesis como \cite{vega18b}, congresos como \cite{vega18a}, u otros trabajos fin de grado como \cite{vega08b}.
-
-Las referencias, con todo su contenido, están recogidas en el fichero \texttt{bibliografia.bib}. El contenido de estas referencias está en formato \texttt{BibTex}. Este formato se puede obtener en muchas ocasiones directamente, desde plataformas como \texttt{Google Scholar} u otros repositorios de recursos científicos.
-
-Existen numerosos estilos para reflejar una referencia bibliográfica. El estilo establecido por defecto en este documento es APA, que es uno de los estilos más comunes, pero lo puedes modificar en el archivo \texttt{memoria.tex}; concretamente, cambiando el campo \verb|apalike| a otro en la instrucción \verb|\bibliographystyle{apalike}|. 
 
 \
 
