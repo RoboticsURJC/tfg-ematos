@@ -4,17 +4,17 @@
 
 \begin{flushright}
 \begin{minipage}[]{10cm}
-\emph{ La mayor aventura es la que nos espera. Hoy y mañana aún no se han dicho. Las posibilidades, los cambios son todos vuestros por hacer. El molde de su vida en sus manos está para romper.}\\
+\emph{Al crear, lo único difícil es empezar: una brizna de hierba no es más fácil de hacer que un roble.}\\
 \end{minipage}\\
 
-J.R.R. Tolkien, \textit{El Hobbit}\\
+James Russell Lowell\\
 \end{flushright}
 
 \vspace{1cm}
 
 
-La robótica ha ido evolucionando a pasos agigantados en la última mitad del siglo XX; sin embargo, ya apuntaba maneras desde mucho antes. 
-En la actulidad, la integración de la inteligenia artificial y el aprendizaje automático está impulsando la robótica hacia nuevas posibilidades.  
+La robótica ha ido evolucionando a pasos agigantados en la última mitad del siglo XX.
+En la actulidad, la integración de la Inteligenia Artificial (IA) y el aprendizaje automático está impulsando la robótica hacia nuevas posibilidades.  
 
 \vspace{0.5cm}
 
@@ -23,51 +23,44 @@ La irrupción de modelos avanzados de IA está potenciando el desarrollo de una 
 
 \vspace{0.5cm}
 
-En el siguiente capítulo se presenta la definicón de robot,  los distintos tipos de robots existentes y algunas de sus principales aplicaciones en la sociedad con el objetivo comprender las bases de este Trabajo de Fin de Grado.\\
+En la sección 1.1 se presenta la definicón de robot,  los distintos tipos de robots existentes y algunas de sus principales aplicaciones en la sociedad.\\
 
 \section{La robótica}
 \label{sec:La robótica} % etiqueta para luego referenciar esta sección
 
-La robótica es un campo multidisciplinar que surge de la intersección de la ciencia, la ingeniería y la tecnología. Se dedica al estudio, diseño, construcción e implementación de robots. 
-
-
-Pero, ¿qué es un robot? 
-
-\vspace{0.2cm}
-
-Un robot es una máquina programable capaz de realizar tareas de forma autónoma o semiautónoma.
+La robótica es un campo multidisciplinar que surge de la unión de la ciencia, la ingeniería y la tecnología. Se dedica al estudio, diseño, construcción e implementación de robots. 
+Un robot puede definirse como una máquina programable capaz de realizar tareas de forma autónoma o semiautónoma.
 
 \vspace{0.5cm}
 
-Sus orígenes pueden remontarse a las antiguas civilicaciones del Antiguo Egipto, que ya desarrollaban modelos matemáticos muy avanzados y construyeron automatismos muy sofisticados, como el reloj de agua. Siglos más tarde, Leonardo da Vinci diseñó el \textit{Automa Cavaliere}~\ref{fig:Da-Vinci} , considerado uno de los primeros robots humanoides de la historia. 
+Los orígenes de la robótica se remontan a las antiguas civilicaciones del Antiguo Egipto, que ya desarrollaban modelos matemáticos muy avanzados y construyeron automatismos muy sofisticados, como el reloj de agua (Figura \ref{fig:origen} a). Siglos más tarde, Leonardo da Vinci diseñó el \textit{Automa Cavaliere} (Figura \ref{fig:origen} b) , considerado uno de los primeros robots humanoides de la historia. 
 
 \vspace{0.2cm}
 
-\begin{figure} [h!]
-  \begin{center}
-    \includegraphics[width=7cm]{figs/Da-Vinci}
-  \end{center}
-  \caption{\textit{Automa Cavaliere} de Leonardo Da Vinci}
-  \label{fig:Da-Vinci}
-\end{figure}\
+  \begin{figure}[H]
+    \begin{center}
+      \subcapcentertrue
+      \subfigure[Reloj de agua (imágen generada por IA)]{\includegraphics[width=61mm]{figs/reloj-agua}}
+      \hspace{3mm}
+      \subfigure[\textit{Automa Cavaliere} de Leonardo Da Vinci]{\includegraphics[width=62mm]{figs/Da-Vinci}}
+    \end{center}
+    \caption{Primeros sistemas robóticos conocidos}
+    \label{fig:origen}
+  \end{figure}
 
-No obstante, no fue hasta 1921 donde se acuñó por primera vez el concepto de robot, en la obra de  teatro llamada  “R.U.R: ROBOTS UNIVERSALES ROSSUM”  del dramaturgo checo Karel Capek.
 
+No obstante, no fue hasta 1921 donde se acuñó por primera vez el término de \textit{robot}, en la obra de  teatro llamada  \textit{R.U.R: ROBOTS UNIVERSALES ROSSUM}  del dramaturgo checo Karel Capek.
 Con el paso del tiempo, este término acabaría dando nombre a toda una ingeniería: la robótica.  \cite{iniciorob}
 
 \vspace{0.5cm}
 
-El siglo XX ha supuesto un antes y después en la robótica: en apenas unas décadas, se pasó  de mecanismos que realizaban tareas repetitivas a sistemas complejos y autónomos. Gracias al desarrollo de la robótica moderna, el escritor de ciencia ficción Isaac Asimov publicó \textit{Yo Robot}, obra en la que aparecen las conocidas \textit{leyes de la robótica}, las cuales limitan el funcionamiento y aplicaciones de los robot para evitar que supongan una amenaza para la humanidad.
+El siglo XX ha supuesto un antes y después en la robótica: en apenas unas décadas, se pasó  de mecanismos que realizaban tareas repetitivas a sistemas complejos y autónomos. Gracias al desarrollo de la robótica moderna, el escritor de ciencia ficción Isaac Asimov publicó \textit{Yo Robot}, obra en la que aparecen las conocidas \textit{Leyes de la robótica}, las cuales limitan el funcionamiento y aplicaciones de los robot para evitar que supongan una amenaza para la humanidad.
 
 \vspace{0.5cm}
 
-En el año 1961 la compañía estadounidense  \textit{Unimation} desarrolló el primer robot industrial programable, marcando un hito en la automatozación industrial.
-A apartir de ese momento aparecieron nuevos robots en otros sectores, permitiendo automatizar ámbitos y tareas que hasta entonces eran inimaginables.
-
+En las siguientes secciones se describen algunos de los tipos de robots presentes en la sociedad actual, como los robots de servicio, sociales y asistenciales, entre otros.
  
-
-
-
+\vspace{0.5cm}
 
 
 
@@ -79,7 +72,7 @@ La robótica industrial es la rama de la ingeniería que se encarga del diseño,
 
 \vspace{0.5cm}
 
-El origen de los robots industriales se remonta al desarrollo de \textit{Unimate}~\ref{fig:Unimate}, patentado por George Devol en 1961.
+El origen de los robots industriales se remonta al desarrollo de \textit{Unimate}\footnote{https://unimaterobotica.com/} (Figura \ref{fig:Unimate}), patentado por George Devol en 1961.
 
 \vspace{0.2cm}
 
@@ -87,12 +80,29 @@ El origen de los robots industriales se remonta al desarrollo de \textit{Unimate
   \begin{center}
     \includegraphics[width=8cm]{figs/Unimate}
   \end{center}
-  \caption{\textit{Unimate} de George Devol}
+  \caption{\textit{Unimate}, de George Devol}
   \label{fig:Unimate}
 \end{figure}\
 
 
-La introducción de \textit{Unimate} impulsó el desarrollo de nuevos robots industriales permitiendo la optimización de procesos.
+La introducción de \textit{Unimate} impulsó el desarrollo de nuevos robots industriales, como los robots colaborativos desarollados por empresas como ABB\footnote{https://new.abb.com/products/robotics/es/robots} (Figura \ref{fig:industria} a) y los robots \textit{SCARA (Selective Compliance Assembly Robot Arm)} fabricados por compañías como Yamaha\footnote{https://global.yamaha-motor.com/business/robot/lineup/ykxg/}  (Figura \ref{fig:industria} b), lo que permitió optimizar los procesos industriales.
+
+
+\vspace{0.2cm}
+
+  \begin{figure}[H]
+    \begin{center}
+      \subcapcentertrue
+      \subfigure[YuMi® - IRB 14000]{\includegraphics[width=50mm]{figs/yumi}}
+      \hspace{22mm}
+      \subfigure[Orbit type YK350TW/YK500TW]{\includegraphics[width=50mm]{figs/orbit}}
+    \end{center}
+    \caption{Robots industriales}
+    \label{fig:industria}
+  \end{figure}
+
+
+
 Además, favoreció la expansión del uso de la robótica en otros sectores, como la robótica de servicio.
 
 \vspace{0.5cm}
@@ -107,15 +117,15 @@ Pero, ¿cómo se define un robot de servicio?
 
 \vspace{0.5cm}
 
-Según la\textit{ Federación internacional de Robótica} un robot de servicio se define como\textit{ robot de uso personal o profesional que realiza tareas útiles para humanos o equipos} \cite{ISO8373}.
+Según la\textit{ Federación internacional de Robótica}\footnote{https://ifr.org/} un robot de servicio se define como\textit{ robot de uso personal o profesional que realiza tareas útiles para humanos o equipos} \cite{ISO8373}.
 
 \vspace{0.5cm}
 
-Las aplicaciones de los robots de servicio son muy amplias y abarcan campos muy diversos como la agricultura, la construcción, la logística, la defensa o la medicina, entre muchos otros.
+Las aplicaciones de los robots de servicio son muy amplias y abarcan campos muy diversos, como la agricultura, la construcción, la logística, la defensa o la medicina, entre muchos otros.
 
 \vspace{0.5cm}
 
-En el ámbito de la medicina destaca el robot Da Vinci~\ref{fig:Robot-Medicina}, un sistema quirúrgico controlado por un cirujano, que permite mejorar las capacidades del profesional durante las intervenciones. Este sistema contribuye a aumentar la precisión, reduciendo así los temblores o movimientos involuntarios que pueda tener el cirujano. Además, el robot viene equipado con múltiples cámaras que proporcionan una visión más detallada del área a intervenir.
+En el ámbito de la medicina destaca el robot Da Vinci (Figura \ref{fig:Robot-Medicina}), un sistema quirúrgico controlado por un cirujano, que permite mejorar las capacidades del profesional durante las intervenciones. Este sistema contribuye a aumentar la precisión, reduciendo así los temblores o movimientos involuntarios que pueda tener el cirujano. Además, el robot viene equipado con múltiples cámaras que proporcionan una visión más detallada del área a intervenir.
 
 
 \vspace{0.2cm}
@@ -124,7 +134,7 @@ En el ámbito de la medicina destaca el robot Da Vinci~\ref{fig:Robot-Medicina},
   \begin{center}
     \includegraphics[width=8cm]{figs/Robot-Medicina}
   \end{center}
-  \caption{\textit{Robot Da Vinci} de George Devol}
+  \caption{\textit{Robot Da Vinci}, de George Devol}
   \label{fig:Robot-Medicina}
 \end{figure}\
 
@@ -134,69 +144,48 @@ La incorporación de estas nuevas tecnologías en el campo de la medicina supone
 \vspace{0.5cm}
 
 Otra de las aplicaciones más extendidas de la robótica de servicio son los robots de limpieza. Estos robots se caracterizan por su capacidad de navegación autónoma, basada en la generación de mapas internos que les permiten desplazarse de forma eficiente y evitar obstáculos. 
+Existe una amplia variedad de modelos en el mercado, desarrolladas por compañías como iRobot\footnote{https://www.irobot.es/} (Figura \ref{fig:limpieza} a) o Ecovan\footnote{https://www.ecovacs.com/es} (Figura \ref{fig:limpieza} b), que incorporan distintos niveles de tecnología y funcionalidades. 
 
 \vspace{0.2cm}
 
-Existe una amplia variedad de modelos en el mercado, que incorporan distintos niveles de tecnología y funcionalidades. ~\ref{fig:limpieza}
+  \begin{figure}[H]
+    \begin{center}
+      \subcapcentertrue
+      \subfigure[Roomba-j7]{\includegraphics[width=50mm]{figs/Roomba-j7}}
+      \hspace{22mm}
+      \subfigure[Ecovacs Deebot OZMO N8 PRO+]{\includegraphics[width=50mm]{figs/Ecovacs}}
+    \end{center}
+    \caption{Robots de limpieza}
+    \label{fig:limpieza}
+  \end{figure}
 
-
-\begin{figure}[ht!]
-	\centering
-	\begin{minipage}{0.3\linewidth}
-		\centering
-		\includegraphics[width=\linewidth]{figs/Roomba-j7}
-		\caption*{\centering Roomba-j7 }
-	\end{minipage}
-	\hspace{3cm}
-	\begin{minipage}{0.3\linewidth}
-		\centering
-		\includegraphics[width=\linewidth]{figs/Ecovacs}
-		\caption*{\centering Ecovacs Deebot OZMO N8 PRO+}
-	\end{minipage}
-	\caption{Robots de limpieza}
-	\label{fig:limpieza}
-\end{figure}
-
-\vspace{0.5cm}
 
 Dentro de la robótica de servicio, la logística constituye uno de los ámbitos en los que estos sistemas han experimentado un mayor desarrollo.
 Los robots logísticos se emplean en tareas como el transporte de mercancias dentro de almacenes, optimizanzo los procesos, reduciendo los costes logísticos y aumentando la productividad.
 
 \vspace{0.5cm}
 
-Existen principalmente dos tipos de robots logísticos: los robots móviles autónomos (AMR) y los vehículo de guiado automático (AGV).~\ref{fig:logistica}. 
+Existen principalmente dos tipos de robots logísticos: los robots móviles autónomos (AMR)\footnote{https://www.mecalux.es/} (Figura \ref{fig:logistica} a) y los vehículo de guiado automático (AGV)\footnote{https://agvrobotics.es/} (Figura \ref{fig:logistica} b). 
 
 \vspace{0.2cm}
 
-\begin{figure}[ht!]
-	\centering
-	\begin{minipage}{0.4\linewidth}
-		\centering
-		\includegraphics[width=\linewidth]{figs/AMR}
-		\caption*{\centering AMR }
-	\end{minipage}
-	\hspace{2cm}
-	\begin{minipage}{0.4\linewidth}
-		\centering
-		\includegraphics[width=\linewidth]{figs/AGV}
-		\caption*{\centering AGV }
-	\end{minipage}
-	\caption{Robots Logistíca}
-	\label{fig:logistica}
-\end{figure}
+  \begin{figure}[H]
+    \begin{center}
+      \subcapcentertrue
+      \subfigure[AMR 1500 Pallet Lifter]{\includegraphics[width=60mm]{figs/AMR}}
+      \hspace{22mm}
+      \subfigure[AGV ]{\includegraphics[width=60mm]{figs/AGV}}
+    \end{center}
+    \caption{Robots de Logistíca}
+    \label{fig:logistica}
+  \end{figure}
 
-
-\vspace{0.2cm}
 
 Los AMR ofrecen una mayor flexibilidad, ya que utilizan un sistema de mapeado en tiempo real siendo así posible evitar obstáculos de forma inteligente, mientras que los AGV siguen rutas fijas y predefinidas.
 
 \vspace{0.5cm}
 
-Por último, cabe destacar la aplicación de la robótica de servicio en el ámbito asistencial.
-
-\vspace{0.2cm}
-
-Se trata de un campo que ha experimentado un notable desarrollo en los últimos años, debido a la creciente demanda social derivada del envejecimiento de la población y del aumento de personas en situación de dependencia.~\ref{fig:kuka}. 
+Por último, cabe destacar la aplicación de la robótica de servicio en el ámbito asistencia, un campo que ha experimentado un notable desarrollo en los últimos años debido a la creciente demanda social derivada del envejecimiento de la población y del aumento de personas en situación de dependencia. Un ejemplo de este tipo de robots es ROBERT, desarrollado por la compañía danesa \textit{Life Science Robotics}\footnote{https://www.lifescience-robotics.com/} (Figura \ref{fig:kuka}). 
 
 \vspace{0.2cm}
 
@@ -204,7 +193,7 @@ Se trata de un campo que ha experimentado un notable desarrollo en los últimos 
   \begin{center}
     \includegraphics[width=8cm]{figs/kuka}
   \end{center}
-  \caption{\textit{ROBERT®} de Life Science Robotics}
+  \caption{\textit{ROBERT®}, de Life Science Robotics}
   \label{fig:kuka}
 \end{figure}\
 
@@ -214,62 +203,47 @@ Estos robots están diseñados para apoyar a personas mayores o dependientes en 
 \vspace{0.2cm}
 
 El uso de estos sistemas favorece la autonomía de la persona, ayuda al control de su salud y reduce el sentimiento de soledad. 
-
-\vspace{0.2cm}
-
-En muchos casos, estos robots no solo prestan apoyo funcional, sino que también buscan interactuar con las personas de manera más cercana, estableciendo una relación humano-robot. Este tipo de interacción dio lugar a una rama específica de la robótica denominada robótica social.
+En muchos casos, estos robots no solo prestan apoyo funcional, sino que también buscan interactuar con las personas de manera más cercana, estableciendo una relación humano-robot. Este tipo de interacción ha dado lugar a una rama específica de la robótica conocida como robótica social.
 
 
-
+\vspace{0.5cm}
 
 \subsection{Robótica Social} 
 \label{sec:Robótica Social}
 
 La robótica social es un área en expansión que se caracteriza por la interacción directa con las personas.
-A diferencia de otros ámbitos de la robótica, centrados principalmente en la automatización de tareas, este tipo de robots requiere un enfoque distinto, ya que su objetivo principal lograr una interacción fluida y natural entre el sistema y el usuario.~\ref{fig:pepper}.
+A diferencia de otros ámbitos de la robótica, centrados principalmente en la automatización de tareas, este tipo de robots como el Pepper de \textit{SoftBank Robotics}\footnote{https://www.softbankrobotics.com/} (Figura \ref{fig:pepper}), requiere un enfoque distinto, ya que su objetivo principal lograr una interacción fluida y natural entre el sistema y el usuario.
 
 \vspace{0.2cm}
 
 \begin{figure} [h!]
   \begin{center}
-    \includegraphics[width=5cm]{figs/pepper}
+    \includegraphics[width=6cm]{figs/pepper}
   \end{center}
-  \caption{\textit{Pepper} de SoftBank Corp}
+  \caption{\textit{Pepper}, de \textit{SoftBank Robotics}}
   \label{fig:pepper}
 \end{figure}\
 
 
-Esta tecnología tiene diversas aplicaciones en la actualidad.
-
-\vspace{0.2cm}
-
-En el ámbito de la eduación, la robótica social permite un apredizaje más interactivo, favoreciendo la comprensión de conceptos complejos.~\ref{fig:eduacion}.
-
-\vspace{0.2cm}
-
-\begin{figure}[ht!]
-	\centering
-	\begin{minipage}{0.3\linewidth}
-		\centering
-		\includegraphics[width=\linewidth]{figs/owi}
-		\caption*{\centering OWI 535}
-	\end{minipage}
-	\hspace{1cm}
-	\begin{minipage}{0.3\linewidth}
-		\centering
-		\includegraphics[width=\linewidth]{figs/bee}
-		\caption*{\centering Bee Bot }
-	\end{minipage}
-	\caption{Robots Eduactivos}
-	\label{fig:eduacion}
-\end{figure}
-
-
+Esta tecnología tiene diversas aplicaciones en la actualidad. Por ejemplo, en el ámbito de la eduación, la robótica social permite un apredizaje más interactivo, favoreciendo la comprensión de conceptos complejos. Ejemplos de este robots se encuentran Bee Bot (Figura \ref{fig:eduacion} a) de la empresa británica TTS Group\footnote{https://www.tts-group.co.uk/programmable-robots/bee-bot/?srsltid=AfmBOoqWRK6mklOyDS1-v2x0iodZU5EapgSx7ERiS1XcRp87WLBetqfy} el cual ayuda a los niños pequeños a aprender conceptos básicos de programación; y OWI 535 (Figura \ref{fig:eduacion} b), creado por OWI Inc\footnote{https://owirobot.com/robot-kits/?srsltid=AfmBOopkaUwORToq60GVbi7tLzf-vIib6PMYAY3umIXSIIugSkrGy2WY} destinado a un público mayor, con el objetivo de enseñar fundamentos básicos de electrónica, mecánica y robótica.
 Estos robots ofrecen una experiencia de aprendizaje personalizada, adaptandose a las necesesidades y ritmo de cada estudiante. 
 
-\vspace{0.5cm}
+\vspace{0.2cm}
 
-Por otro lado, también pueden desempeñar un papel importante en el ámbito sanitario, especialmente en las intervenciones terapéuticas~\ref{fig:nuka}.
+  \begin{figure}[H]
+    \begin{center}
+      \subcapcentertrue
+      \subfigure[Bee Bot]{\includegraphics[width=55mm]{figs/bee}}
+      \hspace{22mm}
+      \subfigure[OWI 535]{\includegraphics[width=55mm]{figs/owi}}
+    \end{center}
+    \caption{Robots Eduactivos}
+    \label{fig:eduacion}
+  \end{figure}
+
+
+
+Por otro lado, también pueden desempeñar un papel importante en el ámbito sanitario, especialmente en las intervenciones terapéuticas, como el robot Nuka (Figura \ref{fig:nuka}).
 Los robots sociales pueden ayudar a personas con capacidades funcionales reducidas o necesidades especiales a desarrollar habilidades, así como brindar apoyo emocional. \cite{social}
 
 
@@ -279,33 +253,41 @@ Los robots sociales pueden ayudar a personas con capacidades funcionales reducid
   \begin{center}
     \includegraphics[width=7cm]{figs/nuka}
   \end{center}
-  \caption{\textit{Nuka} deTakanori Shibata}
+  \caption{\textit{Nuka}, de Takanori Shibata}
   \label{fig:nuka}
 \end{figure}\
 
 
-\vspace{0.5cm}
+Por último, los robot sociales también se han hecho hueco en el ambito del entretenimiento, donde se emplean como herramientas lúdicas e interactivas como por ejemplo Sony Aibo(Figura \ref{fig:entretenimiento}), una mascota robótica diseñada por Sony\footnote{https://us.aibo.com/}.
 
-Por último, los robot sociales también se han hecho hueco en el ambito del entretenimiento, donde se emplean como herramientas lúdicas e interactivas. 
+\vspace{0.2cm}
 
-\vspace{0.5cm}
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=16cm]{figs/aibo}
+  \end{center}
+  \caption{\textit{Aibo}, de Sony}
+  \label{fig:entretenimiento}
+\end{figure}\
+
+
 
 Todas estas aplicaciones comparten un elemento en común: la necesidad de una interacción fluida y natural entre humano y robot. Para comprender, diseñar y evaluar estas interacciones, ha surgido un campo de estudio específico denominado Interacción Humano-Robot (HRI).
 
 
 
 
-
+\vspace{0.5cm}
 
 \section{Interacción Humano-Robot (HRI)}
 \label{sec:segundaseccion}
 
-La Interacción Humano-Robot\textit{(Human Robot Interaction, HRI)} fue definida por Michael A. Goodrich and Alan C. Schultz como un campo de estudio dedicado a 
-comprender, diseñar y evaluar sistemas robóticos para su uso por o junto con humanos. \cite{hri}
+La Interacción Humano-Robot \textit{(Human Robot Interaction, HRI)} se define en \cite{hri} como un campo de estudio dedicado a 
+comprender, diseñar y evaluar sistemas robóticos para su uso por o junto con humanos. 
 
 \vspace{0.5cm}
 
-En las primeras etapas, la investigación en HRI se centró en los aspectos relacionados con la movilidad. Sin embargo, con el tiempo, se buscó que el robot tuviera comportamientos más natuarales y sociales, con el objetivo de mejorar la interacción entre el robot y la persona. \cite{hri2}s.
+En las primeras etapas, la investigación en HRI se centró en los aspectos relacionados con la movilidad. Sin embargo, con el tiempo, se buscó que el robot tuviera comportamientos más natuarales y sociales, con el objetivo de mejorar la interacción entre el robot y la persona \cite{hri2}.
 
 
 \vspace{0.2cm}
@@ -314,110 +296,97 @@ En las primeras etapas, la investigación en HRI se centró en los aspectos rela
   \begin{center}
     \includegraphics[width=7cm]{figs/kismet}
   \end{center}
-  \caption{\textit{Kismet} de Cynthia Breazeal}
+  \caption{\textit{Kismet}, de Cynthia Breazeal}
   \label{fig:kismet}
 \end{figure}\
 
 
-En este contexto surge Kismet~\ref{fig:kismet}, un robot desarrollado en el Instituto de Massachusetts de Tecnología (MIT) a finales de los años 90. Este sistema marcó un hito en la robótica social al demostrar la capacidad de diseñar robots capaces de percibir, procesar y expresar emociones.
+En este contexto surge Kismet (Figura \ref{fig:kismet}), un robot desarrollado en el Instituto de \textit{Massachusetts Institute of Technology (MIT)}\footnote{https://www.mit.edu/} a finales de los años 90. Este sistema marcó un hito en la robótica social al demostrar la capacidad de diseñar robots capaces de percibir, procesar y expresar emociones.
 
 \vspace{0.5cm}
 
-No obstante, a medida que los robots incorporan comportamientos cada más expresivos y rasgos similares  a la apariencia y aspecto humano, surgen nuevos retos en la interacción humano-robot.
+No obstante, a medida que los robots incorporan comportamientos cada vez más expresivos y rasgos similares  a la apariencia y aspecto humano, surgen nuevos retos en la interacción humano-robot.
 Aunque estos avances puedan favorecer la aceptación del sistema, también pueden provocar rechazo en las personas.
-
-\vspace{0.5cm}
-
-Este fenómeno se conoce como Valle Inquitante(\textit{Uncanny Valley})~\ref{fig:inqu}, término acuñado por el profesor Masahiro Mori. Esta hipotesis plantea que, a medida que los robots adquieren una apariencia cada vez más similar a la humana, la respuesta emocional de las personas hacia ellos tiende a ser más positiva. Sin embargo, cuando el grado de semejanza es excesivo, se produce una reacción negativa como el rechazo o la incomodidad. 
+Este fenómeno se conoce como Valle Inquitante(\textit{Uncanny Valley}) (Figura \ref{fig:inqu}), término acuñado por el profesor Masahiro Mori. Esta hipotesis plantea que, a medida que los robots adquieren una apariencia más similar a la humana, la respuesta emocional de las personas hacia ellos tiende a ser más positiva. Sin embargo, cuando el grado de semejanza es excesivo, se produce una reacción negativa como el rechazo o la incomodidad. 
 
 \vspace{0.2cm}
+
 
 \begin{figure}[ht!]
 	\centering
 	\begin{minipage}{0.4\linewidth}
 		\centering
 		\includegraphics[width=\linewidth]{figs/Uncanny-valley}
-		\caption*{\centering Geminoid F de Hiroshi Ishiguro}
+		\caption*{\centering Geminoid-DK y Schärfe, de Hiroshi Ishiguro}
 	\end{minipage}
 	\hspace{2cm}
-	\begin{minipage}{0.4\linewidth}
+	\begin{minipage}{0.3\linewidth}
 		\centering
 		\includegraphics[width=\linewidth]{figs/Uncanny-valley-grafica}
-		\caption*{\centering Foto sacada de Wikipedia }
+		\caption*{\centering Gráfica Valle Inquientante (Imágen obtenida de Wikipedia) }
 	\end{minipage}
 	\caption{Uncanny Valley}
 	\label{fig:inqu}
 \end{figure}
 
-Se han propuesto diversas hipótesis para el fenómeno del Valle Inquietante. Una de las más extendidas tiene origen biológico y evolutivo, según el cual el cerebro humano es capaz de percibir sutiles diferencias en aquello que aparenta ser humano. Aunque el robot presente una apariencia muy similar a la humana, pequeñas diferencias en el movimiento, la expresión facial, o la coordinación pueden activar mecanismos de alerta para protegernos de lo que podría ser una potencial amenaza.\cite{hri3}
+Se han propuesto diversas hipótesis para el fenómeno del Valle Inquietante. Una de las más extendidas tiene origen biológico y evolutivo, según el cual el cerebro humano es capaz de percibir sutiles diferencias en aquello que aparenta ser humano. Aunque el robot presente una apariencia muy similar a la humana, pequeñas diferencias en el movimiento, la expresión facial, o la coordinación pueden activar mecanismos de alerta para protegernos de lo que podría ser una potencial amenaza \cite{hri3}.
 
 \vspace{0.5cm}
 
-Otra teoría relaciona este fenómeno con la  falta de coherencia entre la apariencia antropomórfica del robot y su comportamiento real. Esta discrepancia provoca que el sistema sea percibido como casi humano pero no lo suficiente, provocando falta de empatía e incluso rechazo.
-
-\vspace{0.5cm}
-
+Otra teoría, mencionado en el articulo de Martínez, relaciona este fenómeno con la falta de coherencia entre la apariencia antropomórfica del robot y su comportamiento real. Esta discrepancia provoca que el sistema sea percibido como casi humano pero no lo suficiente, provocando falta de empatía e incluso rechazo.
 Este efecto resulta especialmente relevante en el diseño de robots sociales, donde la apariencia y el comportamiento juegan un papel fundamental en la percepción del usuario.
 
 \vspace{0.5cm}
 
-Para lograr una interacción humano-robot natural y fluida, el robot debe de ser capaz de percibir e interpretar el entorno que lo rodea. En este contexto, la visión artificial desempeña un papel muy importante, ya que permite al robot analizar su entorno, reconocer rostros, expresiones faciales y reaccionar de manera coherente durante la interacción.
+Para lograr una interacción humano-robot natural y fluida, el robot debe ser capaz de percibir e interpretar el entorno que lo rodea. En este contexto, la visión artificial desempeña un papel muy importante, ya que permite al robot analizar su entorno, reconocer rostros, expresiones faciales y reaccionar de manera coherente durante la interacción.
 
-
+\vspace{0.5cm}
 
 \section{Vision Artificial}
 \label{sec:Vision Artificial}
 
-La visión artificial es la disciplina encargada de obtener, procesar, analizar información visual provemiente de imágenes y vídeos . Estos procesos pueden realizarse en tiempo real o de manera diferida dependiendo de su aplicación.
+La visión artificial es la disciplina encargada de obtener, procesar y analizar información visual provemiente de imágenes y vídeos . Estos procesos pueden realizarse en tiempo real o de manera diferida dependiendo de su aplicación.
 
 \vspace{0.5cm}
 
-Aunque su uso se ha extendido a lo largo de los años, sus orígenes se remontan a la década de 1960, cuando Lawrence Roberts publicó \textit{Percepción mecánica de sólidos tridimensionales}. Este trabajo implulsó una gran cantidad de investigación en el laboratorio de inteligencia artificial del MIT y otras instituciones, donde se analizaban la visión por computadora aplicada al reconocimiento de bloques y objetos simples. 
+Aunque su uso se ha extendido a lo largo de los años, sus orígenes se remontan a la década de 1960, cuando Lawrence Roberts publicó \textit{Percepción mecánica de sólidos tridimensionales} \cite{visionbook}. Este trabajo implulsó una gran cantidad de investigación en el laboratorio de inteligencia artificial del MIT y otras instituciones, donde se analizaban la visión por computadora aplicada al reconocimiento de bloques y objetos simples. 
 
-\vspace{0.2cm}
+\vspace{0.5cm}
 
-En la actulidad, la visión artificial cuenta con multitud de aplicaciones en diversos ámbitos, entre los que destancan ~\ref{fig:vision}:
+En la actulidad, la visión artificial cuenta con multitud de aplicaciones en diversos ámbitos, entre los que destancan:
 
 \begin{itemize}
-	\item \texttt{Agricultura}. Permite evaluar la maduración de la fruta para la cosecha y detectar imperfecciones para su selección.
-	\item \texttt{Seguridad}. Sistemas de vigilancia y control de tráfico utilizan algoritmos de visión artificial, por ejemplo para reconocer matrículas o monitorizar vehículos en carretera.
+	\item \texttt{Agricultura}. Permite evaluar la maduración de la fruta para la cosecha  (Figura \ref{fig:vision} a) como FFRobot de FFRobotics\footnote{https://www.ffrobotics.com/} y detectar imperfecciones para su selección.
+	\item \texttt{Seguridad}. Sistemas de vigilancia y control de tráfico utilizan algoritmos de visión artificial; por ejemplo, para reconocer matrículas o monitorizar vehículos en carretera  (Figura \ref{fig:vision} b).
 	\item \texttt{Metrología}. Facilita mediciones precisas y automáticas de piezas y objetos en procesos industriales.
 	\item \texttt{Sanidad}. Se emplea para la extracción automática de datos y análisis de imágenes médicas, reduciendo la carga administrativa y mejorando la precisión de diagnósticos.
 \end{itemize}
 
-
 \vspace{0.2cm}
 
-\begin{figure}[ht!]
-	\centering
-	\begin{minipage}{0.4\linewidth}
-		\centering
-		\includegraphics[width=\linewidth]{figs/radar}
-		\caption*{\centering Radar}
-	\end{minipage}
-	\hspace{2cm}
-	\begin{minipage}{0.4\linewidth}
-		\centering
-		\includegraphics[width=\linewidth]{figs/robot-apple}
-		\caption*{\centering \textit{Robot Apple Harvester} }
-	\end{minipage}
-	\caption{Sistemas con Visión Artificial}
-	\label{fig:vision}
-\end{figure}
+  \begin{figure}[H]
+    \begin{center}
+      \subcapcentertrue
+      %\subfigure[Radar]{\includegraphics[width=55mm]{figs/radar}}
+      \subfigure[Radar]{\includegraphics[height=40mm]{figs/radar}}
+      \hspace{22mm}
+      \subfigure[FFRobot]{\includegraphics[width=60mm]{figs/ffrobot}}
+    \end{center}
+    \caption{Sistemas con Visión Artificial}
+    \label{fig:vision}
+  \end{figure}
+
 
 Para que un robot pueda interactuar con su entorno y con las personas de forma natural, no basta con percibirlos, es necesario que pueda reconocer patrones, identificar rostros y adaptarse al comportamiento del usuario. 
-
-\vspace{0.2cm}
-
 En este contexto, el \textit{Machine Learning} proporciona los métodos y algoritmos que permiten al robot aprender de los datos visuales y tomar decisiones. 
 
-
+\vspace{0.5cm}
 
 \section{Machine Learning}
 \label{sec:segundaseccion}
 
-En los tiempos que corren, las nuevas tecnologías están cada vez más presentes en nuestra sociedad, transformando la forma en que trabajamos, aprendemos e interactuamos.
-En esta época de cambios surge la Inteligencia Artificicial (IA) como disciplina, dedicada a dotar a la máquina de capacidades asociadas normalmente con los humanos como el razonamiento, aprendizaje o la capacidade de tomar decisiones.
+Hoy en día, las nuevas tecnologías están cada vez más presentes en nuestra sociedad, transformando la forma en que trabajamos, aprendemos e interactuamos.
+En esta época de cambios surge la IA como disciplina, dedicada a dotar a la máquina de capacidades asociadas normalmente con los humanos, como el razonamiento, aprendizaje o la capacidad de tomar decisiones.
 
 \vspace{0.5cm}
 
@@ -425,72 +394,57 @@ Una de las ramas más relevantes de la IA es el \textit{Machine Learning}, centr
 
 \vspace{0.5cm}
 
-El proceso de aprendizaje automático consta de una serie de etapas fundamentales~\ref{fig:ML}.
+El proceso de aprendizaje automático consta de una serie de etapas (Figura \ref{fig:ML}) fundamentales.
 
-\begin{itemize}
+\begin{enumerate}
 	\item \texttt{Recolección de datos}. Para obtener un comportamiento adecuado del sistema es importante contar con datos representativos y de calidad. Aunque la cantidad de datos es importante, resulta necesario encontrar un equilibrio entre cantidad y calidad.
 	\item \texttt{Preparación de datos}. Los datos pueden contener ruido, valores incompletos o inconsistencias, lo que puede dar lugar a resultados engañosos. Por ello, es necesario preparar minuciosamente los datos antes de su utilización.
-	\item \texttt{Elección del modelo}. Existen multitud de modelos de aprendizaje automático, y su elección depende del objetivodel problema. Entre ellos se encuentran algoritmos de clasificación, predicción, regresión lineal, entre otros muchos.
+	\item \texttt{Elección del modelo}. Existen multitud de modelos de aprendizaje automático, y su elección depende del objetivo del problema. Entre ellos se encuentran algoritmos de clasificación, predicción, regresión lineal, entre otros muchos.
 	\item \texttt{Entrenamiento del modelo}. En esta etapa, el modelo aprende a partir de un conjunto de datos de entrenamiento para ajustar los hiperparámetros y aproximarse al resultado esperado.
 	\item \texttt{Evaluación del modelo}. Se comparan las predicciones obtenidas con los valores reales mediante métricas específicas, con el objetivo de medir el rendimiento y la precisión del modelo ya entrenado.
 	\item \texttt{Ajuste de hiperparámetros (\textit{Parameter Tuning}) }. En función de los resultados obtenidos durante la etapa de evalución, se ajustan los hiperparámetros del modelo y se repite el proceso de entrenamiento para mejorar el rendimiento.
 	\item \texttt{Predicción}. Finalmente, el modelo entrenado se utiliza con nuevos datos, no vistos previamente, para generar predicciones o tomar decisiones, dando paso al final del aprendizaje.
-\end{itemize}
+\end{enumerate}
 
 \begin{figure} [h!]
   \begin{center}
-    \includegraphics[width=5.5cm]{figs/ML}
+    \includegraphics[width=7cm]{figs/ML}
   \end{center}
-  \caption{Imagen generada por Inteligencia Artificial}
+  \caption{Etapas del aprendizaje automático (Imagen generada por IA)}
   \label{fig:ML}
 \end{figure}\
 
-Existen diferentes enfoques dentro del aprendizaje autómatico, que se clasifican en función del modelo de entrenamiento que usan.
+Existen diferentes enfoques dentro del aprendizaje autómatico, que se clasifican en función del modelo de entrenamiento que usan. A continuación, se describen los principales tipos.
 
+\vspace{0.5cm}
 
 \subsection{Aprendizaje supervisado}
 \label{sec:Aprendizaje supervisado}
 
 El aprendizaje supervisado parte de la premisa de asociar datos de entradas con salidas conocidas. 
 En este enfoque, el modelo se entrena a partir de conjuntos de datos previamente etiquetados, lo que permite aprender una relación entre las entradas y salidas esperadas.
-
-\vspace{0.5cm}
-
-Entre los algoritmos más utilizados en el aprendizaje supervisado se encuentran la regresión logística, \textit{K-Nearest Neighbors (KNN)} o los árboles de decisión.~\ref{fig:supervisado}
+Entre los algoritmos más utilizados en el aprendizaje supervisado se encuentran la regresión logística, \textit{K-Nearest Neighbors (KNN)} (Figura \ref{fig:supervisado} a) o los árboles de decisión (Figura \ref{fig:supervisado} b).
+El uso del aprendizaje supervisado está ampliamente extendido en la actualidad, ya que ofrece buenos resultadosen problemas donde se dispone de datos etiquetados.
 
 \vspace{0.2cm}
 
-\begin{figure}[ht!]
-	\centering
-	\begin{minipage}{0.4\linewidth}
-		\centering
-		\includegraphics[width=\linewidth]{figs/regresion}
-		\caption*{\centering Regresión Logística}
-	\end{minipage}
-	\hspace{2cm}
-	\begin{minipage}{0.4\linewidth}
-		\centering
-		\includegraphics[width=\linewidth]{figs/tree}
-		\caption*{Árbol de decisiones}
-	\end{minipage}
-	\caption{Algoritmos de aprendizaje supervisado}
-	\label{fig:supervisado}
-\end{figure}
+  \begin{figure}[H]
+    \begin{center}
+      \subcapcentertrue
+      \subfigure[\textit{K-Nearest Neighbors (KNN)}]{\includegraphics[width=60mm]{figs/regresion}}
+      \hspace{22mm}
+      \subfigure[Árbol de decisiones]{\includegraphics[width=60mm]{figs/tree}}
+    \end{center}
+    \caption{Algoritmos de aprendizaje supervisadol}
+    \label{fig:supervisado}
+  \end{figure}
 
 
-\vspace{0.5cm}
-
-El uso del aprendizaje supervisado está ampliamente extendido en la actualidad, ya que ofrece buenos resultadosen problemas donde se dispone de datos etiquetados.
-
-\vspace{0.5cm}
 
 El aprendizaje supervisado es usado con regularidad en el campo de la visión artificial, concretamente en tareas de reconocimiento y clasificiación de imágenes, como la detección y el reconocimiento facial.
-
-\vspace{0.5cm}
-
 Otra aplicación a resaltar de este tipo de aprendizaje es la conversión de voz a texto, donde los modelos se entrenan a partir de entradas de audio previamente etiquetadas para reconocer patrones del habla y trasnscribirlos a lenguaje escrito.
 
-
+\vspace{0.5cm}
 
 \subsection{Aprendizaje no supervisado}
 \label{sec:Aprendizaje no supervisado}
@@ -500,76 +454,65 @@ A diferencia del aprendizaje supervisado, no se conoce la salida de antemano, po
 
 \vspace{0.5cm}
 
-Entre los algoritmos más utilizados en el aprendizaje no supervisado se encuentran los métodos de agrupamiento (\textit{clustering}), \textit{K-Means}, o la reducción de dimensionalidad.~\ref{fig:no-supervisado}
-
-\vspace{0.2cm}
-
-\begin{figure}[ht!]
-	\centering
-	\begin{minipage}{0.4\linewidth}
-		\centering
-		\includegraphics[width=\linewidth]{figs/cluster}
-		\caption*{\centering Agrupamiento}
-	\end{minipage}
-	\hspace{2cm}
-	\begin{minipage}{0.4\linewidth}
-		\centering
-		\includegraphics[width=\linewidth]{figs/reduccion}
-		\caption*{Reducción de dimensionalidad}
-	\end{minipage}
-	\caption{Algoritmos de aprendizaje no supervisado}
-	\label{fig:no-supervisado}
-\end{figure}
-
-
-Las apliaciones del aprendizaje no supervisado son muy diversas. Un ejemplo común es la segmentación de clientes, utilizada para entender comportamientos  y ofrecer servicios o contenidos personalizados.
-
-\vspace{0.5cm}
-
-Asimismo, este tipo de aprendizaje se emplea en el análisis de secuencias genómicas,  permitiendo identifiicar patrones genéticos, marcadores comunes o posibles mutaciones dentro de una población.
- 
-
-\subsection{Aprendizaje por refuerzo}
-\label{sec:Aprendizaje por refuerzo}
-
-El aprendizaje por refuerzo es un enfoque en el que el sistema aprende a través de la interacción con el entorno, basandose en un proceso de prueba y error. En este método, el agente recibe \textit{feedback} del entorno en forma de recompensas o penalizaciones, en función de las acciones realizadas.
-
-\vspace{0.5cm}
-
-El obetivo es mejor el rendimiento a lo largo del tiempo, aprendiendo qué acciones realizar en las diferentes situaciones para obtener una mayor recompensa.~\ref{fig:refuerzo}
+Entre los algoritmos más utilizados en el aprendizaje no supervisado se encuentran los métodos de agrupamiento (\textit{clustering}), \textit{K-Means} (Figura \ref{fig:no-supervisado}), o la reducción de dimensionalidad.
 
 \vspace{0.2cm}
 
 \begin{figure} [h!]
   \begin{center}
-    \includegraphics[width=7cm]{figs/refuerzo}
+    \includegraphics[width=15cm]{figs/k-means}
   \end{center}
-  \caption{Concepto de Aprendizaje por refuerzo}
+  \caption{\textit{K-Means}}
+  \label{fig:no-supervisado}
+\end{figure}\
+
+
+Las apliaciones del aprendizaje no supervisado son muy diversas. Un ejemplo común es la segmentación de clientes, utilizada para entender comportamientos  y ofrecer servicios o contenidos personalizados.
+Asimismo, este tipo de aprendizaje se emplea en el análisis de secuencias genómicas,  permitiendo identifiicar patrones genéticos, marcadores comunes o posibles mutaciones dentro de una población.
+ 
+\vspace{0.5cm}
+
+\subsection{Aprendizaje por refuerzo}
+\label{sec:Aprendizaje por refuerzo}
+
+El aprendizaje por refuerzo es un enfoque en el que el sistema aprende a través de la interacción con el entorno, basandose en un proceso de prueba y error (Figura \ref{fig:refuerzo}). En este método, el agente recibe \textit{feedback} del entorno en forma de recompensas o penalizaciones, en función de las acciones realizadas.
+El obetivo es mejor el rendimiento a lo largo del tiempo, aprendiendo qué acciones realizar en las diferentes situaciones para obtener una mayor recompensa.
+
+\vspace{0.2cm}
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=9cm]{figs/refuerzo2}
+  \end{center}
+  \caption{Concepto de Aprendizaje por refuerzo (Imágen generada por IA)}
   \label{fig:refuerzo}
 \end{figure}\
 
-Para abordar tareas más complejas y de mayor precisión, surge el \textit{Deep Learning}, una rama de la Inteligencia Artificial y del aprendizaje supervisado.
+Para abordar tareas más complejas y de mayor precisión surge el \textit{Deep Learning}, una rama de la IA y del aprendizaje supervisado.
+
+\vspace{0.5cm}
 
 \section{Deeep Learning}
 \label{sec:Deeep Learning}
 
-El \textit{Deep Learning} o aprendizaje profundo, es un subcampo de la Inteligencia Artificial que se centra en el diseño y entrenamiento de redes neuronales con múltiples capas, inspiradas en el funcionamiento del cerebro humano.
+El \textit{Deep Learning} o aprendizaje profundo, es un subcampo de IA que se centra en el diseño y entrenamiento de redes neuronales con múltiples capas, inspiradas en el funcionamiento del cerebro humano.
 
-\vspace{0.2cm}
+\vspace{0.5cm}
 
 Su uso más extendido se encuentra en aplicaciones de visión artificial, para el reconocimiento de voz y procesamiento de lenguaje natural.
 
-\vspace{0.2cm}
+\vspace{0.5cm}
 
 Aunque el aprendizaje profundo ha supuesto un gran avance para los sistemas actuales, también presenta ciertas limitaciones.
-La mayoría de equipos usan la arquitectura Von Neumann~\ref{fig:Von-Neumann}, una estructura basada en en una unidad de procesamiento y una memoria central que almacena tanto los datos como las instrucciones.
+La mayoría de equipos usan la arquitectura Von Neumann (Figura \ref{fig:Von-Neumann}), una estructura basada en en una unidad de procesamiento y una memoria central que almacena tanto los datos como las instrucciones.
 
-\vspace{0.2cm}
+\vspace{0.5cm}
 
 Esta arquitectura tiene ventajas, como la posibilidad de compartir memoria entre instrucciones y datos. Sin embargo, al estar la CPU y la memoria separadas, los datos deben viajar a través de un bus. En aplicaciones de aprendizaje profundo, donde la cantidad de datos a procesar aumenta de forma exponencial, este diseño provoca un consumo elevado de energía y un incremento de los costes, tanto económicos como mediambiantales, ya que un mayor número de equipos requiere más recursos y agua  para su refrigeración.
 
-Por todo ello, surge la necesidad de buscar sistemas más económicos y sostenibles, capaces de realizar tareas similares pero con un menor impacto en el medio ambiente y la economía.
+\vspace{0.5cm}
 
+Por todo ello, surge la necesidad de buscar sistemas más económicos y sostenibles, capaces de realizar tareas similares pero con un menor impacto en el medio ambiente y la economía. Este enfoque se conoce como robótica de bajo coste.
 
 \vspace{0.2cm}
 
@@ -587,11 +530,11 @@ Por todo ello, surge la necesidad de buscar sistemas más económicos y sostenib
 \section{Robótica de bajo coste}
 \label{sec:Robótica de bajo coste}
 
-Como se ha comentado anteriormente, las limitaciones del hardware tradicional y alto cosumo energético asocido a los algoritmos de Inteligencia Artificial hace que surja la necesidad de soluciones más económicas y sostenibles, objetivo principal de la robótica de bajo coste.
+Como se ha comentado anteriormente, las limitaciones del hardware tradicional y alto cosumo energético asocido a los algoritmos de IA hace que surja la necesidad de soluciones más económicas y sostenibles, objetivo principal de la robótica de bajo coste.
 
-\vspace{0.2cm}
+\vspace{0.5cm}
 
-Gracias a la robotica de bajo coste, este tipo de proyectos está al alcance de cualquiera, ya que resultan más asequibles para el público en general~\ref{fig:bajo-coste}.
+Gracias a la robotica de bajo coste, este tipo de proyectos está al alcance de cualquiera, ya que resultan más asequibles para el público en general (Figura \ref{fig:bajo-coste}).
 
 
 \vspace{0.2cm}
@@ -605,14 +548,15 @@ Gracias a la robotica de bajo coste, este tipo de proyectos está al alcance de 
 \end{figure}\
 
 
-La existencia de sistemas como la Raspberry Pi permite desarrollar sistemas capaces de realizar tareas complejas, aunque con ciertas limitaciones. Esto abre la puerta a multitud de aplicaciones en distintos ámbitos como la eduación o la investigación.
+La existencia de placas computacionales como la Raspberry Pi permite desarrollar sistemas capaces de realizar tareas complejas, aunque con ciertas limitaciones. Esto abre la puerta a multitud de aplicaciones en distintos ámbitos como la eduación o la investigación.
+
+
+\vspace{1.5cm}
+
+En este proyecto se presenta un sistema que, mediante Visión Artificial, Machine Learning y Deep Learning, es capaz de reconocer personas e interactuar con ellas de forma fluida. Además, incorpora una serie de juegos interactivos con el propósito  de estimular cognitivamente a las personas mayores.
+
 
 \vspace{0.5cm}
 
-En este proyecto se presenta un sistema que mediante Visión Artificial, Machine Learning y Deep Learning es capaz de reconocer personas e interactuar con ellas de una forma relativamente fluida. Además, incorpora una serie de juegos interactivos con el propósito  de estimular cognitivamente a las personas mayores.
-
-
-\vspace{0.5cm}
-
-En los capítulos siguientes se presentarán los obetivos de este trabajo, las plataformas de desarrollo utilizadas para el desarrollo del proyecto, así como el diseño y la estructura del sistema. Por último, se expondrán las conclusiones obtenidas tras la investigación y la realización del proyecto.
+En los siguientes capítulos se presentan el estado del arte, los objetivos de este trabajo, las plataformas de desarrollo utilizadas para el desarrollo del proyecto, así como el diseño y la estructura del sistema. Por último, se expondrán las conclusiones obtenidas tras la investigación y la realización del proyecto.
 
