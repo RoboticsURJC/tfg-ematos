@@ -11,24 +11,112 @@ Victor Hugo, Los miserables\\
 
 \vspace{1cm}
 
-En este capítulo se presentan algunas de las investigaciones y trabajos más destacados en el desarrollo de robots asistenciales, especialmente aquellos centrados en el cuidado de personas mayores mediante el uso de IA.
+En este capítulo se presentan algunas de las investigaciones y trabajos más destacados en el desarrollo de robots asistenciales (Figura \ref{fig:maxi})\footnote{https://futuravive.com/robots-profesionales/robots-residencias}, especialmente aquellos centrados en el cuidado de personas mayores mediante el uso de IA.
 
-\vspace{0.5cm}
+\vspace{0.2cm}
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=9cm]{figs/maxi}
+  \end{center}
+  \caption{Robot HelperBot Maxi}
+  \label{fig:maxi}
+\end{figure}\
+
 
 El aumento de la población envejecida, de personas con capacidades reducidas y la escasez de cuidadores han generado la necesidad de desarrollar soluciones tecnológicas orientadas a mejorar la calidad de vida de estos colectivos. Tal como se recoge en \cite{s21062212}, las discapacidades como la reducción de movilidad pueden provocar una pérdida significativa de la autonomía personal. En este contexto, la incorporación de dispositivos con los que el paciente pueda interactuar y que pueda controlar de manera autónoma contribuye a reforzar su independencia y bienestar.
 
 \vspace{0.5cm}
 
+En el artículo citado se propone una nueva arquitectura que integra entornos de asistencia inteligentes basados en \textit{Internet of Thing (IoT)} y sistemas robóticos, junto con un nuevo sistema de interacción multimodal que combina control táctil, seguimiento ocular, gestos, voz y control de realidad aumentada.
+El sistema tiene como objetivo el control de diferentes elementos de una habitación, permitiendo cierto grado de personalización por parte de los pacientes y posibilitando, además, la monitorización remota por parte de los profesionales sanitarios.
 
-Por otro lado, en \cite{KARAMI2024105409} se aborda también la complejidad asociada al cuidado de pacientes con enfermedades neurodegenerativas, como el Alzheimer. Estos pacientes requieren cuidados especializados y continuos, por lo que los robots asistenciales constituyen una herramienta de gran utilidad para apoyar tanto a los pacientes como a sus cuidadores.
+\vspace{0.5cm}
+
+El núcleo del estudio es un sistema que permite a los pacientes controlar su entorno (Figura \ref{fig:assist}) de  formas distintas, adaptándose a diversas necesidades físicas:
+
+\begin{itemize}
+	\item \texttt{Control táctil}: mediante una Tablet.
+	\item \texttt{Control por gestos}: a través del reconocimiento de movimientos de las extremidades.
+	\item \texttt{Control por voz}: Mediante comandos preprogramados.
+\end{itemize}
+
+\vspace{0.2cm}
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=10cm]{figs/assist}
+  \end{center}
+  \caption{Prototipo de robot mencionado en el artículo}
+  \label{fig:assist}
+\end{figure}\
+
+
+Este tipo de arquitecturas ponen de manifiesto la importancia de diseñar sistemas adaptables y centrados en el usuario.
 
 \vspace{0.5cm}
 
 
-Asimismo, en \cite{designs6060125} se destaca la dificultad de encontrar soluciones rentables que permitan suplir la falta de profesionales cualificados, así como los beneficios potenciales del uso de robots asistenciales. Además, se subraya la importancia de adoptar un enfoque ético, centrado en la persona, que permita abordar de manera fiable sus necesidades sociales, emocionales y físicas, respetando su dignidad y privacidad. En esta línea, el diseño y el uso de los robots asistenciales sociales(SAR) deben orientarse a apoyar a los cuidadores como herramientas complementarias, en lugar de sustituir su labor \cite{integrative}.
+Por otro lado, en \cite{KARAMI2024105409} se aborda también la complejidad asociada al cuidado de pacientes con enfermedades neurodegenerativas, como el Alzheimer. Estos pacientes requieren cuidados especializados y continuos, por lo que los robots asistenciales constituyen una herramienta de gran utilidad para apoyar tanto a los pacientes como a sus cuidadores (Figura \ref{fig:kompai}) de la empresa Kompai\footnote{https://www.kompairobotics.com}
+
+\vspace{0.2cm}
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=6cm]{figs/kompai}
+  \end{center}
+  \caption{Robot asistencial Kompai}
+  \label{fig:kompai}
+\end{figure}\
+
+
+Asimismo, en \cite{designs6060125} se destaca la dificultad de encontrar soluciones rentables que permitan suplir la falta de profesionales cualificados, así como los beneficios potenciales del uso de robots asistenciales. Además, se subraya la importancia de adoptar un enfoque ético, centrado en la persona, que permita abordar de manera fiable sus necesidades sociales, emocionales y físicas, respetando su dignidad y privacidad. En esta línea, el diseño y el uso de los robots asistenciales sociales (SAR) deben orientarse a apoyar a los cuidadores como herramientas complementarias, en lugar de sustituir su labor \cite{integrative}.
 
 
 \vspace{0.5cm}
+
+
+En relación con la estimulación cognitiva, en \cite{Damayanti2022} se analiza el impacto de los juegos digitales como herramienta terapéutica para adultos mayores con \textit{Mild Cognitive Impairment (MCI)}. El MCI constituye un estado previo a enfermedades neurodegenerativas como el Alzheimer o la demencia. El deterioro cognitivo asociado no solo afecta a la memoria, sino también al estado de ánimo, la autonomía y el rol social de la persona, pudiendo generar ansiedad y pérdida de autoestima.
+
+\vspace{0.5cm}
+
+Los autores fundamentan su propuesta en la terapia de reminiscencia, una intervención psicológica, no farmacológica empleada habitualmente en el tratamiento de la demencia, que consiste en estimular la memoria mediante la evocación y el intercambio de recuerdos personales. Su objetivo principal es mejorar el bienestar emocional y reforzar la autoestima del paciente. A partir de este enfoque, el artículo presenta el desarrollo de \textit{EmoGame} (Figura \ref{fig:emo}), una aplicación móvil que combina juegos de memoria, melodías musicales y elementos de nostalgia con fines terapéuticos.
+
+\vspace{0.2cm}
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=8cm]{figs/emo}
+  \end{center}
+  \caption{Home de Aplicación EmoGame}
+  \label{fig:emo}
+\end{figure}\
+
+
+Los resultados obtenidos muestran mejoras tanto en el rendimiento cognitivo como en el estado emocional de los participantes, evidenciando el potencial de los juegos digitales terapéuticos como herramienta de intervención temprana en el deterioro cognitivo leve.
+
+\vspace{0.5cm}
+
+En \cite{Rashid2023}, se analiza el impacto del uso del robot asistencial PARO\footnote{http://www.parorobots.com/} (Figura \ref{fig:paro}) en los pacientes con demencia. Se resalta que PARO puede reducir el sentimiento de soledad, ansiedad, agitación, depresión y apatía en los pacientes. Estas intervenciones aprovechan la interacción humano-robot para generar estímulos sensoriales y emocionales, ofreciendo beneficios similares a los de la terapia asistida con animales, pero sin los riesgos asociados a alergias o lesiones
+
+
+\vspace{0.2cm}
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=7cm]{figs/paro}
+  \end{center}
+  \caption{Robot PARO}
+  \label{fig:paro}
+\end{figure}\
+
+
+En conjunto, estos artículos muestran como la robótica asistencial combina tecnología, HRI y terapias cognitivas para mejorar la calidad de vida de las personas mayores con deterioro cognitivo.
+
+
+
+
+
 
 
 
