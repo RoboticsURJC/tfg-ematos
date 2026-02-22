@@ -4,6 +4,7 @@ import datetime
 import threading
 import queue
 import json
+import subprocess
 import sounddevice as sd
 import vosk
 
@@ -30,11 +31,10 @@ display = ili9341.ILI9341(
     width=320,
     height=240,
 )
-
 display.fill(0x000000)
 
 # =====================
-# ---------------- EXPRESIONES ----------------
+# ---------------- EXPRESIONES CON PUPILAS ----------------
 # =====================
 EXPRESIONES = {
     "feliz":     {"boca": "sonrisa", "cejas": "arriba"},
@@ -46,9 +46,6 @@ EXPRESIONES = {
     "pensando":  {"boca": "neutral", "cejas": "arriba"},
 }
 
-# =====================
-# ---------------- DIBUJAR CARA ----------------
-# =====================
 emocion_forzada = None
 emocion_forzada_hasta = 0
 
@@ -121,91 +118,96 @@ def dibujar_cara(expresion="feliz", ojos_abiertos=True):
         draw.line((cx-25, boca_y, cx+25, boca_y), fill="white", width=4)
     elif estado["boca"] == "sorpresa":
         draw.ellipse((cx-10, boca_y-10, cx+10, boca_y+10), outline="white", width=4)
+    elif estado["boca"] == "abierta":
+        draw.ellipse((cx-12, boca_y-12, cx+12, boca_y+12), outline="white", width=4)
 
     display.image(img)
 
 # =====================
-# ---------------- COMANDOS / RECORDATORIOS ----------------
+# ---------------- TTS (PIPER) ----------------
 # =====================
-recordatorios = []
+MODELO_PIPER = "/home/eli/tfg-ematos/test/interaction/es_ES-sharvard-medium.onnx"
+robot_hablando = False
+cache_tts = {}
 
-def revisar_recordatorios():
-    while True:
-        ahora = datetime.datetime.now()
-        for r in recordatorios[:]:
-            if ahora >= r["time"]:
-                print("⏰ RECORDATORIO:", r["text"])
-                poner_cara("sorpresa", 2)
-                recordatorios.remove(r)
-        time.sleep(1)
+def hablar(texto):
+    global robot_hablando
+    robot_hablando = True
+    poner_cara("hablando", duracion=len(texto)*0.06 + 0.5)
 
-threading.Thread(target=revisar_recordatorios, daemon=True).start()
+    wav = f"/tmp/{hash(texto)}.wav"
+    if texto not in cache_tts:
+        subprocess.run(
+            ["piper", "--model", MODELO_PIPER, "--output_file", wav, texto],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL
+        )
+        cache_tts[texto] = wav
 
-def procesar_texto(texto):
+    subprocess.run(["aplay", cache_tts[texto]], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    robot_hablando = False
+
+# =====================
+# ---------------- RESPUESTAS ----------------
+# =====================
+cola_comandos = queue.Queue()
+
+def responder(texto):
     texto = texto.lower()
-    print("🧠 Detectado:", texto)
+    print("🧠", texto)
 
-    if "hora" in texto:
-        ahora = datetime.datetime.now().strftime("%H:%M")
-        print("🕒 Son las", ahora)
-        poner_cara("neutral", 2)
-
-    elif "recuérdame en" in texto:
-        try:
-            palabras = texto.split()
-            minutos = int(palabras[palabras.index("en")+1])
-            momento = datetime.datetime.now() + datetime.timedelta(minutes=minutos)
-            recordatorios.append({
-                "time": momento,
-                "text": f"Han pasado {minutos} minutos"
-            })
-            print(f"📝 Recordatorio en {minutos} minutos")
-            poner_cara("pensando", 2)
-        except:
-            print("❌ No entendí el tiempo")
-            poner_cara("triste", 2)
-
-    elif "hola" in texto:
-        print("👋 ¡Hola!")
+    if "hola" in texto:
         poner_cara("feliz", 2)
-
+        hablar("Hola, aquí estoy")
+    elif "hora" in texto:
+        ahora = datetime.datetime.now().strftime("%H:%M")
+        poner_cara("pensando", 2)
+        hablar(f"Son las {ahora}")
     elif "gracias" in texto:
-        print("😊 De nada!")
         poner_cara("guino", 2)
+        hablar("De nada")
+    else:
+        poner_cara("pensando", 2)
+        hablar("No entendí eso")
+
+def hilo_respuestas():
+    while True:
+        responder(cola_comandos.get())
+
+threading.Thread(target=hilo_respuestas, daemon=True).start()
 
 # =====================
-# ---------------- VOSK AUDIO ----------------
+# ---------------- VOSK ----------------
 # =====================
 q_audio = queue.Queue()
 
 def audio_callback(indata, frames, time_, status):
-    if status:
-        print(status)
-    q_audio.put(bytes(indata))
+    if not robot_hablando:
+        q_audio.put(bytes(indata))
 
 model = vosk.Model("/home/eli/tfg-ematos/test/voice/vosk-model-small-es-0.42")
 rec = vosk.KaldiRecognizer(model, 16000)
 
 # =====================
-# ---------------- LOOP CARA + ESCUCHA ----------------
+# ---------------- LOOP PRINCIPAL ----------------
 # =====================
 emocion_actual = random.choice(list(EXPRESIONES.keys()))
 proximo_cambio = time.time() + random.uniform(2,4)
 proximo_parpadeo = time.time() + random.uniform(3,5)
 
-with sd.RawInputStream(
+with sd.InputStream(
     samplerate=48000,
     blocksize=8000,
     dtype='int16',
     channels=1,
-    device=2,   # tu micro AB13X
+    device=2,
     callback=audio_callback
 ):
-    print("🤖 Robot activo: escucha y reacciona")
+    print("🤖 Robot activo")
     while True:
         ahora = time.time()
 
-        # --------------- CARA ---------------
+        # ----------- EMOCIÓN -----------
         if emocion_forzada and ahora < emocion_forzada_hasta:
             emocion = emocion_forzada
         else:
@@ -215,6 +217,7 @@ with sd.RawInputStream(
                 emocion_actual = random.choice(list(EXPRESIONES.keys()))
                 proximo_cambio = ahora + random.uniform(2,4)
 
+        # ----------- PARPADEO -----------
         if ahora > proximo_parpadeo:
             dibujar_cara(emocion, ojos_abiertos=False)
             time.sleep(0.12)
@@ -222,13 +225,14 @@ with sd.RawInputStream(
 
         dibujar_cara(emocion, ojos_abiertos=True)
 
-        # --------------- VOSK ---------------
-        if not q_audio.empty():
+        # ----------- VOZ VOSK -----------
+        while not q_audio.empty():
             data = q_audio.get()
             data_16k = data[::3]  # 48k -> 16k
             if rec.AcceptWaveform(data_16k):
-                result = json.loads(rec.Result())
-                if result["text"]:
-                    procesar_texto(result["text"])
+                res = json.loads(rec.Result())
+                texto = res.get("text", "").strip()
+                if texto:
+                    cola_comandos.put(texto)
 
-        time.sleep(0.05)
+        time.sleep(0.03)
