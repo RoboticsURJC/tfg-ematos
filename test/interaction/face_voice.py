@@ -163,6 +163,10 @@ def responder(texto):
         ahora = datetime.datetime.now().strftime("%H:%M")
         poner_cara("pensando", 2)
         hablar(f"Son las {ahora}")
+    elif "me llamo" in texto:
+        poner_cara("pensando", 2)
+        hablar(f"Emcantado! Estoy aquí para ayudarte")
+
     elif "gracias" in texto:
         poner_cara("guino", 2)
         hablar("De nada")
