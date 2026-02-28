@@ -1,40 +1,52 @@
-import RPi.GPIO as GPIO
+import pigpio
 import time
 
-GPIO.setmode(GPIO.BCM)
+IN1 = 5
+IN2 = 6
 
-IN1 = 20
-IN2 = 21
 
-GPIO.setup(IN1, GPIO.OUT)
-GPIO.setup(IN2, GPIO.OUT)
+# IN1 = 20
+# IN2 = 21
 
-# Pines de 1000 Hz
-pwm1 = GPIO.PWM(IN1, 1000)
-# pwm2 = GPIO.PWM(IN2, 1000)
+pi = pigpio.pi()
 
-pwm1.start(0)
-# pwm2.start(0)
+if not pi.connected:
+    print("No se pudo conectar a pigpio")
+    exit()
+
+# Configurar como salida
+pi.set_mode(IN1, pigpio.OUTPUT)
+pi.set_mode(IN2, pigpio.OUTPUT)
+
+def motor_adelante(velocidad=128, tiempo=3):
+    """
+    velocidad: 0–255
+    tiempo: segundos
+    """
+    pi.write(IN2, 0)                     # Dirección
+    pi.set_PWM_dutycycle(IN1, velocidad) # PWM real
+    time.sleep(tiempo)
+    parar()
+
+def motor_atras(velocidad=128, tiempo=3):
+    pi.write(IN1, 0)
+    pi.set_PWM_dutycycle(IN2, velocidad)
+    time.sleep(tiempo)
+    parar()
+
+def parar():
+    pi.set_PWM_dutycycle(IN1, 0)
+    pi.set_PWM_dutycycle(IN2, 0)
 
 try:
+    print("Probando motor adelante...")
+    motor_adelante(60, 3)
 
+    time.sleep(1)
 
-    
-    time.sleep(10)
-
-    print("Motor adelante")
-    pwm1.ChangeDutyCycle(20)
-    # pwm1.ChangeDutyCycle()
-    time.sleep(3)
-
-    print("Motor más rápido")
-    pwm1.ChangeDutyCycle(60)
-    # pwm1.ChangeDutyCycle()
-    time.sleep(3)
-
-    print("Motor parar")
-    pwm1.ChangeDutyCycle(0)
-    # pwm1.ChangeDutyCycle()
+    print("Probando motor atrás...")
+    motor_atras(60, 3)
 
 finally:
-    GPIO.cleanup()
+    parar()
+    pi.stop()
