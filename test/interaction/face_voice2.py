@@ -33,15 +33,13 @@ display = ili9341.ILI9341(
 )
 
 # =====================
-# VARIABLES
+# VARIABLES GLOBALES
 # =====================
 robot_hablando = False
-estado_texto = "ESCUCHANDO..."
+estado_texto = "Escuchando..."
+
 cola_comandos = queue.Queue()
 q_audio = queue.Queue()
-
-proximo_parpadeo = time.time() + random.uniform(3, 6)
-parpadeo_fin = 0
 
 try:
     font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 16)
@@ -49,7 +47,7 @@ except:
     font = ImageFont.load_default()
 
 # =====================
-# DIBUJAR CARA
+# DIBUJAR CARA + TEXTO
 # =====================
 def dibujar_cara(expresion="feliz", ojos_abiertos=True):
     img = Image.new("RGB", (display.width, display.height), "black")
@@ -57,82 +55,48 @@ def dibujar_cara(expresion="feliz", ojos_abiertos=True):
 
     cx = display.width // 2
     cy = display.height // 2 - 30
-    radio = 35
-    sep = 75
 
-    # =====================
+    radio = 35
+    sep = 70
+
     # OJOS
-    # =====================
     if ojos_abiertos:
-        # Contorno
         draw.ellipse((cx-sep-radio, cy-radio, cx-sep+radio, cy+radio), outline="white", width=4)
         draw.ellipse((cx+sep-radio, cy-radio, cx+sep+radio, cy+radio), outline="white", width=4)
 
         # Pupilas
-        draw.ellipse((cx-sep-10, cy-10, cx-sep+10, cy+10), fill="white")
-        draw.ellipse((cx+sep-10, cy-10, cx+sep+10, cy+10), fill="white")
+        draw.ellipse((cx-sep-8, cy-8, cx-sep+8, cy+8), fill="white")
+        draw.ellipse((cx+sep-8, cy-8, cx+sep+8, cy+8), fill="white")
 
-        # ✨ BRILLO FIJO
-        draw.ellipse((cx-sep+8, cy-18, cx-sep+16, cy-10), fill="white")
-        draw.ellipse((cx+sep+8, cy-18, cx+sep+16, cy-10), fill="white")
-
-        draw.ellipse((cx-sep-15, cy+5, cx-sep-10, cy+10), fill="white")
-        draw.ellipse((cx+sep-15, cy+5, cx+sep-10, cy+10), fill="white")
-
+        # Brillo
+        draw.ellipse((cx-sep+10, cy-15, cx-sep+18, cy-7), fill="white")
+        draw.ellipse((cx+sep+10, cy-15, cx+sep+18, cy-7), fill="white")
     else:
-        # Ojos cerrados (pestañeo)
-        draw.line((cx-sep-radio, cy, cx-sep+radio, cy), fill="white", width=5)
-        draw.line((cx+sep-radio, cy, cx+sep+radio, cy), fill="white", width=5)
+        draw.line((cx-sep-radio, cy, cx-sep+radio, cy), fill="white", width=4)
+        draw.line((cx+sep-radio, cy, cx+sep+radio, cy), fill="white", width=4)
 
-    # =====================
-    # CEJAS
-    # =====================
-    if expresion == "feliz":
-        draw.line((cx-sep-20, cy-radio-15, cx-sep+20, cy-radio-25), fill="white", width=4)
-        draw.line((cx+sep-20, cy-radio-25, cx+sep+20, cy-radio-15), fill="white", width=4)
-
-    elif expresion == "triste":
-        draw.line((cx-sep-20, cy-radio-25, cx-sep+20, cy-radio-10), fill="white", width=4)
-        draw.line((cx+sep-20, cy-radio-10, cx+sep+20, cy-radio-25), fill="white", width=4)
-
-    elif expresion == "enfadado":
-        draw.line((cx-sep-20, cy-radio-10, cx-sep+20, cy-radio-30), fill="white", width=4)
-        draw.line((cx+sep-20, cy-radio-30, cx+sep+20, cy-radio-10), fill="white", width=4)
-
-    elif expresion == "sorpresa":
-        draw.line((cx-sep-20, cy-radio-35, cx-sep+20, cy-radio-35), fill="white", width=4)
-        draw.line((cx+sep-20, cy-radio-35, cx+sep+20, cy-radio-35), fill="white", width=4)
-
-    else:
-        draw.line((cx-sep-20, cy-radio-20, cx-sep+20, cy-radio-20), fill="white", width=4)
-        draw.line((cx+sep-20, cy-radio-20, cx+sep+20, cy-radio-20), fill="white", width=4)
-
-    # =====================
     # BOCA
-    # =====================
-    boca_y = cy + 75
-
+    boca_y = cy + 70
     if robot_hablando:
-        apertura = random.randint(10, 18)
+        apertura = random.randint(8, 18)
         draw.ellipse((cx-15, boca_y-apertura, cx+15, boca_y+apertura), outline="white", width=4)
     else:
         draw.arc((cx-30, boca_y-10, cx+30, boca_y+20), 0, 180, fill="white", width=4)
 
-    # =====================
-    # TEXTO INFERIOR
-    # =====================
+    # TEXTO ESTADO
     draw.rectangle((0, 200, 320, 240), fill="black")
     draw.text((10, 210), estado_texto[:35], font=font, fill="white")
 
     display.image(img)
 
 # =====================
-# TTS
+# TTS PICOTTS
 # =====================
 def hablar(texto):
     global robot_hablando, estado_texto
+
     robot_hablando = True
-    estado_texto = "HABLANDO..."
+    estado_texto = "Hablando..."
 
     def reproducir():
         global robot_hablando, estado_texto
@@ -146,10 +110,11 @@ def hablar(texto):
     threading.Thread(target=reproducir, daemon=True).start()
 
 # =====================
-# RESPUESTA
+# RESPUESTAS
 # =====================
 def responder(texto):
     global estado_texto
+
     print("🎤 Escuchado:", texto)
     estado_texto = "Procesando..."
 
@@ -196,6 +161,9 @@ threading.Thread(target=hilo_vosk, daemon=True).start()
 # =====================
 # LOOP PRINCIPAL
 # =====================
+proximo_parpadeo = time.time() + random.uniform(3, 5)
+parpadeo_fin = 0
+
 with sd.InputStream(
     samplerate=48000,
     blocksize=4000,
