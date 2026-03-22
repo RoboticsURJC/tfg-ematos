@@ -32,7 +32,8 @@ possibilites = {
 def generate_word_list():
     """Lee las palabras desde el archivo words.txt"""
     try:
-        with open(r"/home/elisa/uni/tfg-ematos/test/games/sopa_de_letras/words.txt", "r", encoding="utf-8") as file:
+        with open(r"/home/eli/tfg-ematos/test/games/sopa_de_letras/words.txt", "r", encoding="utf-8") as file:
+        # with open(r"/home/elisa/uni/tfg-ematos/test/games/sopa_de_letras/words.txt", "r", encoding="utf-8") as file:
             words_list = []
             for line in file.readlines():
                 word = line.strip().upper()

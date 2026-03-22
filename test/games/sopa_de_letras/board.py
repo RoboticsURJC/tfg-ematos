@@ -77,6 +77,7 @@ glow_surf = None
 clouds = []
 flowers = []
 letter_cache = {}
+victory_sound = None
 
 # Botones
 btn_easy = None
@@ -241,8 +242,15 @@ def cache_letters():
 
 def init_game_resources():
     """Inicializa recursos."""
-    global gradient_surf
+    global gradient_surf, victory_sound
     
+    try:
+        victory_sound = pygame.mixer.Sound("/home/eli/tfg-ematos/test/games/sopa_de_letras/mixkit-fairy-cartoon-success-voice-344.wav")
+        print("[OK] Sonido de victoria cargado")
+    except Exception as e:
+        print(f"[WARN] No se pudo cargarr sonido: {e}")
+
+
     if not init_screen():
         return False
     
@@ -583,6 +591,9 @@ def show_victory_screen():
     congrats_text = font_small.render("¡Felicidades!", True, (100, 100, 100))
     screen.blit(congrats_text, (SCREEN_W//2 - congrats_text.get_width()//2, SCREEN_H//2 + 20))
     
+    if victory_sound:
+        victory_sound.play()
+
     pygame.display.flip()
     pygame.time.delay(1500)
     
