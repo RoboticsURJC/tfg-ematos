@@ -3,28 +3,95 @@
 
 \begin{flushright}
 \begin{minipage}[]{10cm}
-\emph{Quizás algún fragmento de libro inspirador...}\\
+\emph{El éxito es la suma de pequeños esfuerzos repetidos día tras día.}\\
 \end{minipage}\\
 
-Autor, \textit{Título}\\
+Robert Collier\\
 \end{flushright}
 
 \vspace{1cm}
 
-Escribe aquí un párrafo explicando brevemente lo que vas a contar en este capítulo. En este capítulo lo ideal es explicar cuáles han sido los objetivos que te has fijado conseguir con tu trabajo, qué requisitos ha de respetar el resultado final, y cómo lo has llevado a cabo; esto es, cuál ha sido tu plan de trabajo.\\
+Una vez establecido el marco contextual en los capítulos anteriores, en este capítulo se presentan los objetivos que se han marcado, así como los requisitos necesarios para su desarrollo.
+Además, se describe la metodología empleada y plan de trabajo que se ha llevado a cabo.\\
 
 \section{Descripción del problema}
 \label{sec:descripcion}
+El incremento de la población envejecida con deterioro cognitivo ha generado una creciente necesidad de atención y cuidados especializados, recursos que no siempre están disponibles ni se adaptan a las necesidades de los usuarios. Esta falta de atención continua e individualizada tiene como consecuencia la dificultad de mantener sus capacidades cognitivas y una adecuada calidad de vida.
 
-Cuenta aquí el objetivo u objetivos generales y, a continuación, concrétalos mediante objetivos específicos.
+Esta situación no solo afecta a la calidad de vida de los usuarios, sino que también supone una carga para su entorno cercano y sus cuidadores, evidenciando así la necesidad de soluciones de apoyo.
+
+\vspace{0.2cm}
+
+En este contexto, el presente proyecto plantea el desarrollo de un robot de bajo coste orientado a apoyar a estas personas en su vida diaria, contribuyendo al mantenimiento de sus funciones cognitivas mediante juegos interactivos de estimulación. Asimismo, el robot proporciona una compañía activa que ayuda a mitigar la sensación de soledad y abandono que pueden llegar a experimentar, mediante la incorporación de la interaccion por voz basada en modelos de lenguaje.
+
+La solución propuesta se plantea como un complemento a la atención tradicional, con el objetivo de reducir la carga de los cuidadores y fomentar la independencia del usuario.
+
+Con el fin de alcanzar este objetivo principal, se han establecido los siguientes subobjetivos:
+
+
+\begin{enumerate}
+	\item Investigar las soluciones existentes que cumplan con las caracteríticas y objetivos establecidos.
+	\item Explorar distintas estrategias para desarrollar juegos interactivos y la interfaz de usuario con potencia computacinal limitada.
+	\item Estudiar y seleccionar componentes hardware y software de bajo coste disponibles en el mercado para el desarrollo del robot.
+	\item Diseñar el modelo físico del robot usando herramientas de software libre como CAD (Computer-Aided Design).
+	\item Hacer uso de impresora 3D para poder materializar las piezas del robot.
+	\item Configurar la comunicación y conectividad del sistema para asegurar un funcionamiento correcto.
+	\item Probar distintos algoritmos de reconocimiento facial.
+	\item Investigar la eficacia de LLMs según las necesidades.
+	\item Integrar todos los compontes software en sistema funcional.
+    \item Realizar pruebas en un entorno real.
+\end{enumerate}
+
+
 
 \section{Requisitos}
 \label{sec:requisitos}
 
-Describe los requisitos que ha de cumplir tu trabajo.
+Una vez los subobjetivos están establecidos, se deberán cumplir los siguientes requisitos para un correcto funcionamiento:
+
+\begin{enumerate}
+	\item El sistema debe ejecutar algoritmos de bajo coste computacional para poder funcionar en una Raspberry Pi 4.
+	\item Las librerías y software utilizado deben ser compatibles con Raspberry Pi 4.
+	\item Los componentes hardware deben ser económicos, asequibles y de bajo coste.
+	\item Las piezas diseñadas para el robot deben poder imprimirse en cualquier impresora 3D estándar.
+	\item El robot debe ser estable y capaz de desplazarse en una mesa sin caerse.
+	\item El peso total de los componentes debe ser suficientemente bajo para garantizar que el robot pueda mantenerse de pie.
+\end{enumerate}
+
 
 \section{Competencias}
 \label{sec:competencias}
+
+A continuación se describen las competencias que se han empleado y adquirido a lo largo del desarrollo de este proyecto.
+
+\vspace{0.2cm}
+
+\subsection{Competencias generales adquiridas}
+
+Las competencias adquiridas en el desarrollo del proyecto y descritas en la guía docente de la asignatura de Trabajo Fin de Grado, son las siguientes:
+
+\begin{enumerate}
+	\item CB2. Que los estudiantes sepan aplicar sus conocimientos a su trabajo o vocación de una forma profesional y posean las competencias que suelen demostrarse por medio de la elaboración y defensa de argumentos y la resolución de problemas dentro de su área de estudio.
+	\item CB4. Que los estudiantes puedan transmitir información, ideas, problemas y soluciones a un público tanto especializado como no especializado.
+\end{enumerate}
+
+
+\subsection{Competencias empleadas}
+Las competencias empleadas para el desarrollo del proyecto y descritas en la guía docente de la asignaturas del grado, son las siguientes:
+
+\begin{enumerate}
+	\item \textit{Mecatrónica:} CE32. Capacidad de diseñar y construir robots móviles.
+	\item \textit{Aprendizaje automático:} CE27. Capacidad de construir sistemas capaces de resolver problemas a partir de información no estructurada proporcionada por ejemplos o por la experiencia.
+	\item \textit{Visión artificial:} CE25. Capacidad de conocer y aplicar métodos de extracción de información a partir de la información percibida por cámaras y sensores 3D al desarrollo de aplicaciones en robots y sistemas inteligentes.
+	\item \textit{Redes de ordenadores para robots y máquinas inteligentes:} CE10. Capacidad de diseñar y programar sistemas en red aplicando conceptos de arquitectura de red, protocolos e interfaces de comunicaciones.
+	\item \textit{Sistemas empotrados y de tiempo real:} CE23. Capacidad de analizar y planificar sistemas críticos y de tiempo real. CE24. Capacidad de programar y desplegar aplicaciones en microcontroladores y procesadores no convencionales atendiendo a sus características y los recursos disponibles.
+	\item \textit{Sistemas operativos:} CE17. Capacidad de analizar las características, funcionalidades y estructura de los Sistemas Operativos, así como ser capaz de programar aplicaciones que hacen uso de sus recursos.
+	\item \textit{Sensores y actuadores:} CE12. Capacidad de diseñar robots y sistemas inteligentes atendiendo a los elementos de sensorización y actuación más adecuados dependiendo de la aplicación, los requerimientos del sistema y las condiciones del entorno.
+	\item \textit{Arquitectura software para robots:} CE9. Capacidad de conocer y manejar los sistemas y las herramientas de las que dispone para su gestión y programación.
+	\item \textit{Evolución y futuro de la robótica:} CE1. Capacidad para analizar la evolución de la Ingeniería Robótica y ser capaz de identificar sus aplicaciones, oportunidades de emprendimiento y su impacto en el futuro.
+\end{enumerate}
+
+
 
 Enumera las competencias generales adquiridas y empleadas. Es decir, las que consideres que has adquirido durante la realización de tu TFG (las podrás encontrar en la guía docente de la asignatura TFG), así como las que creas que has adquirido en las distintas asignaturas del grado (descritas en sus respectivas guías docentes) y que has empleado para llevarlo a cabo.
  
