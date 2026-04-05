@@ -3,12 +3,167 @@
 
 \begin{flushright}
 \begin{minipage}[]{10cm}
-\emph{Quizás algún fragmento de libro inspirador...}\\
+\emph{El mundo no es sino un lienzo para nuestra imaginación}\\
 \end{minipage}\\
 
-Autor, \textit{Título}\\
+Henry David Thoreau\\
 \end{flushright}
 
 \vspace{1cm}
 
-Escribe aquí un párrafo explicando brevemente lo que vas a contar en este capítulo. En este capítulo, explica qué has usado a nivel hardware y software para poder desarrollar tu trabajo: librerías, sistemas operativos, plataformas, entornos de desarrollo, etc.
+
+\section{Hardware}
+\label{sec:hardware}
+
+En esta sección se describen los componentes físicos que se han utilizado en el desarrollo del proyecto, prestando especial atención a su precio, priorizando piezas \textit{low-cost}.
+
+
+\subsection{Raspberry Pi 4}
+
+La Raspberry Pi (Figura \ref{fig:raspberry}) es una microcomputadora de bajo coste y tamaño reducido, muy útil para proyectos educativos, de electrónica y de robótica, como el presente proyecto.
+
+\vspace{0.2cm}
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=9cm]{figs/raspberry}
+  \end{center}
+  \caption{\textit{Raspberry Pi 4}, Fundación Raspberry Pi}
+  \label{fig:raspberry}
+\end{figure}\
+
+
+Cuenta con 40 pines GPIO \textit{(General Purpose Input/Output)}, que permiten la conexión de diversos componentes, como motores, sensores o LEDs.
+
+Los diferentes tipos de pines (Figura \ref{fig:pines}) son:
+
+\begin{itemize}
+	\item \texttt{GND}.Se usa para cerrar el circuito eléctrico, asegurando un funcionamiento correcto y estable.
+	Los pines GND de la placa son: 6,9,14,20,25,30,34 y 39.
+
+	\item \texttt{5V}. Se usa para alimentar a los componentes conectados directamente desde la placa con 5 voltios.
+	Los pines 5V de la placa son: 2 y 4.
+
+	\item \texttt{3.3V}. Se usa para alimentar a los componentes conectados directamente desde la placa con 3.3 voltios.
+	Los pines 5V de la placa son: 1 y 17.
+
+    \item \texttt{I2C (Inter-Integrated Circuit)}.Bus de comunicación que permite conectar la Raspberry con dispositivos externos.
+    Los pines I2C de la placa son: 3 (SDA) y 5 (SCL).
+
+    \item \texttt{SPI (Serial Peripheral Interface)}. Bus de comunicación serial de alta velocidad.
+    Los pines SPI de la placa son: 19 (MOSI), 21 (MISO), 23 (SCLK), 24 (CE0) y 26 (CE1).
+
+    \item \texttt{UART (Universal Asynchronous Receiver-Transmitter)}.Se usa para la comunicación serial entre la placa y otros dispositivos.
+    Los pines PWD de la placa son: 8 (TDX) y 10 (RDX).
+
+    \item \texttt{PWM (Pulse Width Modulation)}.Se usa para simular salidas analógicas usando pines digitales.
+    Los pines PWD de la placa son: 12, 32, 33 y 35.
+
+    \item \texttt{GPIO}. Pines de proposito general para entrada/salida digital.
+
+\end{itemize}
+
+
+Además, dispone de una ranura para tarjeta MicroSD, que permite la instalación de un
+sistema operativo y el almacenimiento de datos.
+
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=12cm]{figs/pines}
+  \end{center}
+  \caption{Diagrama de pines Raspberry Pi 4}
+  \label{fig:pines}
+\end{figure}\
+
+
+\subsection{Raspberry PiCamera}
+
+La Raspberry PiCamera Module V2 (Figura \ref{fig:picamera}) es módulo equipado con un sensor Sony IMX219 de 8 megapíxeles, capaz de capturar vídeos en resoluciones de 1080p30, 720p60 y 640x480p90.
+
+\vspace{0.2cm}
+
+El módulo tiene un tamaño de 25mm x 23mm x 9mm con un peso de 3 gramos. El carácter compacto y ligero lo hace ideal para proyectos de robótica.
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=7cm]{figs/picamera}
+  \end{center}
+  \caption{Raspberry PiCamera}
+  \label{fig:picamera}
+\end{figure}\
+
+
+\subsection{Pantalla táctil}
+
+Para posibilitar la interacción del usuario con el robot, se ha utilizado una pantalla táctil capacitiva de 10 pulgadas, equipada con altavoces integrados y compatible con la Raspberry Pi. La pantalla tiene una resolución de 1080x600 píxeles, lo que permite una visualización clara de la interfaz del robot.
+
+\vspace{0.2cm}
+
+La elección de esta pantalla se basó en sus dimensiones y resolución, que facilitan una visualización accesible y cómoda para personas mayores.
+
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=7cm]{figs/pantalla}
+  \end{center}
+  \caption{LAFVIN Pantalla táctil }
+  \label{fig:pantalla}
+\end{figure}\
+
+
+\subsection{LCD}
+
+Para proporcionar el robot una interfaz más amigable, se ha utilizado el módulo ILI9488. Este módulo, de 2.4 pulgadas, perimite mostrar imágenes a color, lo que añade  expresividad al robot.
+
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=7cm]{figs/lcd}
+  \end{center}
+  \caption{Módulo ILI9488}
+  \label{fig:lcd}
+\end{figure}\
+
+
+\subsection{Micrófono USB}
+
+
+
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=7cm]{figs/micro}
+  \end{center}
+  \caption{Micrófono USB}
+  \label{fig:micro}
+\end{figure}\
+
+
+
+\subsection{Multímetro}
+
+\subsection{Sensor infrarojo}
+
+\subsection{Controlador L298N}
+
+\subsection{Motores}
+
+\subsection{Rueda loca}
+
+\subsection{Sensor ultrasonido}
+
+\subsection{Botón}
+
+\subsection{Router}
+
+\subsection{Ordenador principal}
+
+\subsection{Led}
+
+
+
+
+\section{Software}
+\label{sec:software}
+
