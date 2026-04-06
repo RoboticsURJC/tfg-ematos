@@ -128,12 +128,20 @@ Para proporcionar el robot una interfaz más amigable, se ha utilizado el módul
 
 \subsection{Micrófono USB}
 
+Para capturar el audio se ha utilizado un micrófono\ref{fig:micro} de tipo lavalier con clip, de tamaño reducido y de fácil integración en el sistema.
 
+\vspace{0.2cm}
+
+El micrófono es compatible con la Raspberry Pi mediante conexión USB, lo que facilita su instalación, ya que no requiere hardware adicional.
+
+\vspace{0.2cm}
+
+Se eligió este modelo debido a su flexibilidad de colocación, permitiendo situarlo en distintas zonas del robot para una buena captación del sonido.
 
 
 \begin{figure} [h!]
   \begin{center}
-    \includegraphics[width=7cm]{figs/micro}
+    \includegraphics[width=6cm]{figs/micro}
   \end{center}
   \caption{Micrófono USB}
   \label{fig:micro}
@@ -143,24 +151,138 @@ Para proporcionar el robot una interfaz más amigable, se ha utilizado el módul
 
 \subsection{Multímetro}
 
+Para comprobar el correcto funcionamiento de los componentes y sus conexiones, se ha utilizado un multímetro (Figura \ref{fig:multi}). Este instrumento permite medir el voltaje, facilitando la verificación de la alimentación y la detección de fallos en el circuito.
+
+\vspace{0.2cm}
+
+Su uso ha resultado primordial durante el montaje y prueba del sistema, asegurando un correcto funcionamiento del mismo.
+
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=6cm]{figs/multi}
+  \end{center}
+  \caption{ANENG-multímetro Digital SZ308}
+  \label{fig:multi}
+\end{figure}\
+
+
 \subsection{Sensor infrarojo}
+
+Para evitar que el robot se caiga de superficies elevadas, como una mesa, se han usado dos sensores infrarrojos (Figura \ref{fig:infra}).
+Estos sensores permiten detectar la ausencia de superficie mediante la emisión y recepción de luz infrarroja.
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=6cm]{figs/infra}
+  \end{center}
+  \caption{Sensor infrarrojo reflectante TCRT5000}
+  \label{fig:infra}
+\end{figure}\
+
 
 \subsection{Controlador L298N}
 
+La Raspberry Pi no puede alimentar directamente a los motores debido a las limitaciones de corriente de los pines GPIO. Por ello, se hace uso de una placa controladora L298N (Figura \ref{fig:control}) para gestionar la alimentación y el control de los motores.
+
+Este controlador permite accionar dos motores, con la posibilidad de controlar su velocidad y dirección. Además, puede ser alimentado con tensiones de hasta 26V.
+
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=5cm]{figs/control}
+  \end{center}
+  \caption{Módulo de placa controladora L298N}
+  \label{fig:control}
+\end{figure}\
+
+
+
 \subsection{Motores}
+
+Para el movimiento del robot se han usado motores de corriente continua (DC) compatible con el controlador L298N. Estos motores funcionan con un rango de voltaje de 6 a 12V  y permiten el control de velocidad y dirección mediante señales PWM desde la Raspberry Pi.
+
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=6cm]{figs/rueda}
+  \end{center}
+  \caption{Motor eléctrico de CC 3-6V}
+  \label{fig:rueda}
+\end{figure}\
+
 
 \subsection{Rueda loca}
 
+Para aumentar la estabilidad y movilidad del robot se ha incorporado una rueda loca (Figura \ref{fig:loca}). Esta rueda puede girar en todas las direcciones, permitiendo que el robot tenga mayor maniobralidad.
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=4cm]{figs/loca}
+  \end{center}
+  \caption{Rueda loca}
+  \label{fig:loca}
+\end{figure}\
+
+
 \subsection{Sensor ultrasonido}
+
+Para evitar que el robot se acerque demasiado al usuario o al borde de una superficie elevada, se ha utilizado un sensor ultrasonido (Figura \ref{fig:distancia}. Este sensor mide la distancia a los obstáculos mediante la emisión y recepción de ondas ultrasónicas, permitiendo al robot mantener una distancia segura.
+
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=7cm]{figs/distancia}
+  \end{center}
+  \caption{Sensor ultrasonido}
+  \label{fig:distancia}
+\end{figure}\
 
 \subsection{Botón}
 
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=5cm]{figs/boton}
+  \end{center}
+  \caption{Interruptor de botón}
+  \label{fig:boton}
+\end{figure}\
+
 \subsection{Router}
 
-\subsection{Ordenador principal}
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=7cm]{figs/router}
+  \end{center}
+  \caption{MERCUSYS AX3000}
+  \label{fig:router}
+\end{figure}\
+
 
 \subsection{Led}
 
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=4cm]{figs/led}
+  \end{center}
+  \caption{LED}
+  \label{fig:led}
+\end{figure}\
+
+
+\subsection{Ordenador principal}
+
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=8cm]{figs/pc}
+  \end{center}
+  \caption{Victus by HP Laptop 16-e0xxx}
+  \label{fig:pc}
+\end{figure}\
 
 
 
