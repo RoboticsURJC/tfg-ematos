@@ -35,7 +35,7 @@ La Raspberry Pi (Figura \ref{fig:raspberry}) es una microcomputadora de bajo cos
 
 Cuenta con 40 pines GPIO \textit{(General Purpose Input/Output)}, que permiten la conexión de diversos componentes, como motores, sensores o LEDs.
 
-Los diferentes tipos de pines (Figura \ref{fig:pines}) son:
+Los diferentes tipos de pines son:
 
 \begin{itemize}
 	\item \texttt{GND}.Se usa para cerrar el circuito eléctrico, asegurando un funcionamiento correcto y estable.
@@ -68,15 +68,6 @@ Además, dispone de una ranura para tarjeta MicroSD, que permite la instalación
 sistema operativo y el almacenimiento de datos.
 
 
-\begin{figure} [h!]
-  \begin{center}
-    \includegraphics[width=12cm]{figs/pines}
-  \end{center}
-  \caption{Diagrama de pines Raspberry Pi 4}
-  \label{fig:pines}
-\end{figure}\
-
-
 \subsection{Raspberry PiCamera}
 
 La Raspberry PiCamera Module V2 (Figura \ref{fig:picamera}) es módulo equipado con un sensor Sony IMX219 de 8 megapíxeles, capaz de capturar vídeos en resoluciones de 1080p30, 720p60 y 640x480p90.
@@ -87,7 +78,7 @@ El módulo tiene un tamaño de 25mm x 23mm x 9mm con un peso de 3 gramos. El car
 
 \begin{figure} [h!]
   \begin{center}
-    \includegraphics[width=7cm]{figs/picamera}
+    \includegraphics[width=6cm]{figs/picamera}
   \end{center}
   \caption{Raspberry PiCamera}
   \label{fig:picamera}
@@ -102,6 +93,7 @@ Para posibilitar la interacción del usuario con el robot, se ha utilizado una p
 
 La elección de esta pantalla se basó en sus dimensiones y resolución, que facilitan una visualización accesible y cómoda para personas mayores.
 
+\vspace{0.2cm}
 
 \begin{figure} [h!]
   \begin{center}
@@ -116,10 +108,11 @@ La elección de esta pantalla se basó en sus dimensiones y resolución, que fac
 
 Para proporcionar el robot una interfaz más amigable, se ha utilizado el módulo ILI9488. Este módulo, de 2.4 pulgadas, perimite mostrar imágenes a color, lo que añade  expresividad al robot.
 
+\vspace{0.2cm}
 
 \begin{figure} [h!]
   \begin{center}
-    \includegraphics[width=7cm]{figs/lcd}
+    \includegraphics[width=5cm]{figs/lcd}
   \end{center}
   \caption{Módulo ILI9488}
   \label{fig:lcd}
@@ -138,10 +131,11 @@ El micrófono es compatible con la Raspberry Pi mediante conexión USB, lo que f
 
 Se eligió este modelo debido a su flexibilidad de colocación, permitiendo situarlo en distintas zonas del robot para una buena captación del sonido.
 
+\vspace{0.2cm}
 
 \begin{figure} [h!]
   \begin{center}
-    \includegraphics[width=6cm]{figs/micro}
+    \includegraphics[width=4cm]{figs/micro}
   \end{center}
   \caption{Micrófono USB}
   \label{fig:micro}
@@ -157,10 +151,11 @@ Para comprobar el correcto funcionamiento de los componentes y sus conexiones, s
 
 Su uso ha resultado primordial durante el montaje y prueba del sistema, asegurando un correcto funcionamiento del mismo.
 
+\vspace{0.2cm}
 
 \begin{figure} [h!]
   \begin{center}
-    \includegraphics[width=6cm]{figs/multi}
+    \includegraphics[width=5cm]{figs/multi}
   \end{center}
   \caption{ANENG-multímetro Digital SZ308}
   \label{fig:multi}
@@ -174,7 +169,7 @@ Estos sensores permiten detectar la ausencia de superficie mediante la emisión 
 
 \begin{figure} [h!]
   \begin{center}
-    \includegraphics[width=6cm]{figs/infra}
+    \includegraphics[width=4cm]{figs/infra}
   \end{center}
   \caption{Sensor infrarrojo reflectante TCRT5000}
   \label{fig:infra}
@@ -187,6 +182,10 @@ La Raspberry Pi no puede alimentar directamente a los motores debido a las limit
 
 Este controlador permite accionar dos motores, con la posibilidad de controlar su velocidad y dirección. Además, puede ser alimentado con tensiones de hasta 26V.
 
+% https://es.aliexpress.com/item/1005007480563572.html?spm=a2g0o.order_list.order_list_main.83.2528194dLqSNZz&gatewayAdapt=glo2esp#nav-description
+
+\vspace{0.2cm}
+
 
 \begin{figure} [h!]
   \begin{center}
@@ -197,10 +196,43 @@ Este controlador permite accionar dos motores, con la posibilidad de controlar s
 \end{figure}\
 
 
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Características básicas} & \textbf{Descripción}\\
+\hline
+Dimensiones & 43mm × 43mm × 27mm \\
+\hline
+Voltaje lógico & 5V\\
+\hline
+Corriente lógica & 0mA a 36mA\\
+\hline
+Peso & 30g\\
+\hline
+Voltaje de conducción & 5V - 35V\\
+\hline
+Corriente de conducción & 2A\\
+\hline
+Almacenamiento & 512 GB SSD\\
+\hline
+Potencia & 25W \\
+
+\hline
+\end{tabular}
+\caption{Especificaciones técnicas de controlador L298N}
+\label{cuadro:pc}
+\end{center}
+\end{table}
+
+
+
 
 \subsection{Motores}
 
 Para el movimiento del robot se han usado motores de corriente continua (DC) compatible con el controlador L298N. Estos motores funcionan con un rango de voltaje de 6 a 12V  y permiten el control de velocidad y dirección mediante señales PWM desde la Raspberry Pi.
+
+\vspace{0.2cm}
 
 
 \begin{figure} [h!]
@@ -216,6 +248,8 @@ Para el movimiento del robot se han usado motores de corriente continua (DC) com
 
 Para aumentar la estabilidad y movilidad del robot se ha incorporado una rueda loca (Figura \ref{fig:loca}). Esta rueda puede girar en todas las direcciones, permitiendo que el robot tenga mayor maniobralidad.
 
+\vspace{0.2cm}
+
 \begin{figure} [h!]
   \begin{center}
     \includegraphics[width=4cm]{figs/loca}
@@ -229,6 +263,7 @@ Para aumentar la estabilidad y movilidad del robot se ha incorporado una rueda l
 
 Para evitar que el robot se acerque demasiado al usuario o al borde de una superficie elevada, se ha utilizado un sensor ultrasonido (Figura \ref{fig:distancia}. Este sensor mide la distancia a los obstáculos mediante la emisión y recepción de ondas ultrasónicas, permitiendo al robot mantener una distancia segura.
 
+\vspace{0.2cm}
 
 \begin{figure} [h!]
   \begin{center}
@@ -240,10 +275,14 @@ Para evitar que el robot se acerque demasiado al usuario o al borde de una super
 
 \subsection{Botón}
 
+Para permitir la interacción con el robot se ha utilizado un pulsador (Figura \ref{fig:boton}).Este botón se conecta directamente a los pines GPIO de la Raspberry Pi, permitiendo al usuario iniciar el robot de manera sencilla.
+
+\vspace{0.2cm}
+
 
 \begin{figure} [h!]
   \begin{center}
-    \includegraphics[width=5cm]{figs/boton}
+    \includegraphics[width=3cm]{figs/boton}
   \end{center}
   \caption{Interruptor de botón}
   \label{fig:boton}
@@ -251,18 +290,66 @@ Para evitar que el robot se acerque demasiado al usuario o al borde de una super
 
 \subsection{Router}
 
+Los problemas de conexión a la red pueden provocar fallos en los servicios de cliente-servidor del robot. Para minimizar estos problemas se ha utilizado un router inalámbrico (Figura \ref{fig:router}).
+
+%
+% \footnote{https://www.amazon.es/gp/product/B09X6XHD6Q/ref=ox_sc_act_image_1?smid=A2W41ZI14BNH21&th=1}
+
+\vspace{0.2cm}
+
+Este dispositivo permite configurar redes locales (LAN) y gestionar direcciones MAC, facilitando la creación de una red propia para el proyecto. Gracias a ello, se asegura que la Raspberry Pi y otros dispositivos externos puedan comunicarse de forma estable. El router consta de las especificaciones descritas en el Cuadro \ref{cuadro:router}.
+
+
+\vspace{0.2cm}
+
 
 \begin{figure} [h!]
   \begin{center}
-    \includegraphics[width=7cm]{figs/router}
+    \includegraphics[width=6cm]{figs/router}
   \end{center}
   \caption{MERCUSYS AX3000}
   \label{fig:router}
 \end{figure}\
 
 
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Características básicas} & \textbf{Descripción}\\
+\hline
+Características del producto & WPS \\
+\hline
+Clase de banda de frecuencia & 	Banda Doble \\
+\hline
+Estándar Comunicación Inalámbrica & 802.11ax \\
+\hline
+Sistema operativo & RouterOS\\
+\hline
+Ancho de banda del puerto LAN & 1000 Mbps\\
+\hline
+Número de antenas & 4\\
+\hline
+Generación del wifi & Wi-Fi 6\\
+\hline
+Tipo de red del router & dual band \\
+\hline
+Frecuencia & 160 MHz \\
+
+
+\hline
+\end{tabular}
+\caption{Especificaciones técnicas de MERCUSYS AX3000}
+\label{cuadro:router}
+\end{center}
+\end{table}
+
+
 \subsection{Led}
 
+Para indicar de forma visual el estado del robot (encendido, apagado o reiniciando) se ha añadido un LED (Figura \ref{fig:led})
+
+\vspace{0.2cm}
 
 \begin{figure} [h!]
   \begin{center}
@@ -275,17 +362,133 @@ Para evitar que el robot se acerque demasiado al usuario o al borde de una super
 
 \subsection{Ordenador principal}
 
+Para desarrollar este proyecto ha sido necesario utilizar un ordenador principal para poder usar algoritmos más complejos que la Raspberry no puede soportar como por ejemplo un reconocimiento facial optimo o el uso de llm fluido.
+Se ha utilizado un Victus 16-e0xxx (Figura \ref{fig:pc}) cuyas especificaciones se describen en el Cuadro \ref{cuadro:pc}.
+
+
+\vspace{0.2cm}
 
 \begin{figure} [h!]
   \begin{center}
     \includegraphics[width=8cm]{figs/pc}
   \end{center}
-  \caption{Victus by HP Laptop 16-e0xxx}
+  \caption{Victus 16-e0xxx}
   \label{fig:pc}
 \end{figure}\
+
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Características básicas} & \textbf{Descripción}\\
+\hline
+Dimensiones & 370 mm × 260 mm × 23.5 mm \\
+\hline
+Peso & 	2.46 kg \\
+\hline
+Batería & 70 Wh \\
+\hline
+Procesador (CPU) & AMD Ryzen 5000 series\\
+\hline
+Tarjeta gráfica (GPU) & GeForce RTX 3050\\
+\hline
+Memoria RAM & 16 GB\\
+\hline
+Almacenamiento & 512 GB SSD\\
+\hline
+Sistema operativo & Windows 11 y Ubunto 22.4 \\
+
+\hline
+\end{tabular}
+\caption{Especificaciones técnicas de Victus 16-e0xxx}
+\label{cuadro:pc}
+\end{center}
+\end{table}
+
 
 
 
 \section{Software}
 \label{sec:software}
+
+En está sección se describirán las diferentes herramientas software que se han empleado a lo largo del desarrollo del proyecto.
+
+
+\subsection{Sistema Operativo}
+
+El sistema operativo elegido para la Raspberry es Debian 12, una versión estable y reciente, lanzada en 2023. Esta distribución se ha seleccionado por su compatibilidad con la Raspberry Pi y, sobre todo, por la versión de Python que incorpora por defecto (Python 3.11), la cual es compatible con las librerías utilizadas para el desarrollo del proyecto.Además, permite la ejecución de interfaces gráficas y herramientas necesarias para la interacción del robot.
+Se probó a utilizar Ubuntu 20.04; sin embargo, no disponía de interfaz gráfica, lo cual resulta un aspecto importante en este trabajo.
+
+\vspace{0.2cm}
+
+Por otro lado, el portátil utilizado para el desarrollo cuenta con Ubuntu 22.04 LTS (Long Term Support), una versión estable y ampliamente utilizada en entornos de desarrollo, lo que garantiza compatibilidad y fiabilidad.
+
+
+
+\subsection{FreeCAD}
+
+Para el modelado del diseño 3D se ha utilizado la herramienta de código abierto y gratuita FreeCAD (Figura \ref{fig:freecad}).
+
+Esta herramienta permite crear modelos paramétricos en 2D y 3D, lo facilita la modificación del diseño mediante el ajuste de dimensiones y restricciones sin la necesidad de rehacer el modelo completo. Su interfaz permite trabajar con bocetos que posteriormente se transforman en objetos de 3 dimensiones mediante operaciones como la extrusión o revolución.
+Además cuenta con diversos entornos de trabajo (\textit{workbenches}) que amplían sus funcionaliades en función del diseño.
+
+\vspace{0.2cm}
+
+Es compatible con una variedad de formatos como DAE, DXF o STL, siendo este último el formato más utilizado para la impresión 3D.
+
+
+\vspace{0.2cm}
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=8cm]{figs/freecad}
+  \end{center}
+  \caption{Logotipo de FreeCAD 1.0}
+  \label{fig:freecad}
+\end{figure}\
+
+
+\subsection{Python}
+
+Python es un lenguaje de programación de alto nivel, interpretado y orientado a objetos, ampliamente utilizado en la comunidad de programadores debido a su sencillez y legibilidad.
+Al ser un lenguaje interpretado, el código es ejecutado por un intérprete en tiempo de ejecución, lo que facilita su desarrollo y depuración.
+
+\vspace{0.2cm}
+
+Python cuenta con una amplia biblioteca estándar y un ecosistema de bibliotecas externas, lo que permite el desarrollo de múltiples tipos de aplicaciones, como   aprendizaje automático (TensorFlow, Pandas, PyTorch), o computación científica (math, NumPy), entre otros.
+
+\vspace{0.2cm}
+
+Debido a su sencillez y gran variedad de aplicaciones que permite desarrollar, este lenguaje ha sido utilizado en el proyecto.
+
+
+\subsection{OpenCV}
+
+OpenCV\footnote{https://opencv.org/} (Figura \ref{opencv}) es una biblioteca libre y de código abierto diseñada para visión artificial y procesamiento de imágenes.
+
+Fue lanzada en el año 1999 por Intel y desde entonces, se ha convertido en una de las herramientas más utilizadas y robustas del campo de visión por computador.
+
+\vspace{0.2cm}
+
+Esta biblioteca permite realizar tareas como la captura y procesamiento de imágenes, así como la  detección de objetos.
+
+
+\vspace{0.2cm}
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=8cm]{figs/opencv}
+  \end{center}
+  \caption{Logotipo de FreeCAD 1.0}
+  \label{fig:opencv}
+\end{figure}\
+
+
+\subsection{LLM}
+
+
+\subsection{Bibliotecas externas}
+
+
 

@@ -22,7 +22,7 @@ Esta situación no solo afecta a la calidad de vida de los usuarios, sino que ta
 
 \vspace{0.2cm}
 
-En este contexto, el presente proyecto plantea el desarrollo de un robot de bajo coste orientado a apoyar a estas personas en su vida diaria, contribuyendo al mantenimiento de sus funciones cognitivas mediante juegos interactivos de estimulación. Asimismo, el robot proporciona una compañía activa que ayuda a mitigar la sensación de soledad y abandono que pueden llegar a experimentar, mediante la incorporación de la interaccion por voz basada en modelos de lenguaje.
+En este contexto, el presente proyecto plantea el desarrollo de un robot de bajo coste orientado a apoyar a estas personas en su vida diaria, contribuyendo al mantenimiento de sus funciones cognitivas mediante juegos interactivos de estimulación. Asimismo, el robot proporciona una compañía activa que ayuda a mitigar la sensación de soledad y abandono que pueden llegar a experimentar, mediante la incorporación de la interacción por voz basada en modelos de lenguaje.
 
 La solución propuesta se plantea como un complemento a la atención tradicional, con el objetivo de reducir la carga de los cuidadores y fomentar la independencia del usuario.
 
@@ -30,15 +30,15 @@ Con el fin de alcanzar este objetivo principal, se han establecido los siguiente
 
 
 \begin{enumerate}
-	\item Investigar las soluciones existentes que cumplan con las caracteríticas y objetivos establecidos.
-	\item Explorar distintas estrategias para desarrollar juegos interactivos y la interfaz de usuario con potencia computacinal limitada.
+	\item Investigar las soluciones existentes que cumplan con las características y objetivos establecidos.
+	\item Explorar distintas estrategias para desarrollar juegos interactivos y la interfaz de usuario que no requieran un alto coste computacional.
 	\item Estudiar y seleccionar componentes hardware y software de bajo coste disponibles en el mercado para el desarrollo del robot.
 	\item Diseñar el modelo físico del robot usando herramientas de software libre como CAD (Computer-Aided Design).
 	\item Hacer uso de impresora 3D para poder materializar las piezas del robot.
 	\item Configurar la comunicación y conectividad del sistema para asegurar un funcionamiento correcto.
 	\item Probar distintos algoritmos de reconocimiento facial.
 	\item Investigar la eficacia de LLMs según las necesidades.
-	\item Integrar todos los compontes software en sistema funcional.
+	\item Integrar todos los componentes software en sistema funcional.
     \item Realizar pruebas en un entorno real.
 \end{enumerate}
 
@@ -54,7 +54,7 @@ Una vez los subobjetivos están establecidos, se deberán cumplir los siguientes
 	\item Las librerías y software utilizado deben ser compatibles con Raspberry Pi 4.
 	\item Los componentes hardware deben ser económicos, asequibles y de bajo coste.
 	\item Las piezas diseñadas para el robot deben poder imprimirse en cualquier impresora 3D estándar.
-	\item El robot debe ser estable y capaz de desplazarse en una mesa sin caerse.
+	\item El robot debe ser estable y capaz de desplazarse en una superficie elevada sin caerse.
 	\item El peso total de los componentes debe ser suficientemente bajo para garantizar que el robot pueda mantenerse de pie.
 \end{enumerate}
 
@@ -72,7 +72,7 @@ Las competencias adquiridas en el desarrollo del proyecto y descritas en la guí
 
 \begin{enumerate}
 	\item \textit{CB2}. Que los estudiantes sepan aplicar sus conocimientos a su trabajo o vocación de una forma profesional y posean las competencias que suelen demostrarse por medio de la elaboración y defensa de argumentos y la resolución de problemas dentro de su área de estudio.
-	\item textit{CB4}. Que los estudiantes puedan transmitir información, ideas, problemas y soluciones a un público tanto especializado como no especializado.
+	\item \textit{CB4}. Que los estudiantes puedan transmitir información, ideas, problemas y soluciones a un público tanto especializado como no especializado.
 \end{enumerate}
 
 
@@ -91,9 +91,6 @@ Las competencias empleadas para el desarrollo del proyecto y descritas en la gu�
 	\item \textit{Evolución y futuro de la robótica:} CE1. Capacidad para analizar la evolución de la Ingeniería Robótica y ser capaz de identificar sus aplicaciones, oportunidades de emprendimiento y su impacto en el futuro.
 \end{enumerate}
 
-
-
-Enumera las competencias generales adquiridas y empleadas. Es decir, las que consideres que has adquirido durante la realización de tu TFG (las podrás encontrar en la guía docente de la asignatura TFG), así como las que creas que has adquirido en las distintas asignaturas del grado (descritas en sus respectivas guías docentes) y que has empleado para llevarlo a cabo.
  
 \section{Metodología}
 \label{sec:metodologia}
@@ -103,15 +100,27 @@ Para el desarrollo del proyecto se ha seguido un plan incremental, basado en sub
 
 \vspace{0.2cm}
 
-Se han mantenido diversos frentes de trabajo abiertos de manera simultánea, permitiendo avanzar tanto en el área hardware y software. El desarrollo se ha llevado a cabo mediante ciclos de diseño, implementación y prueba, permitiendo comparar diferentes soluciones para un mismo problema y seleccionar la más optima.
+La gestión del código fuente y el control de versiones se ha realizado usando la plataforma Github\footnote{https://github.com/}, lo cual ha permitido mantener una estructura organizada del código.
+El código del proyecto se encuentra alojado en un repositorio público\footnote{https://github.com/RoboticsURJC/tfg-ematos}, donde se han ido integrando de forma progresiva las distintas implementaciones, pruebas y mejoras realizadas a lo largo del desarrollo.
+Asimismo, se ha utilizado la sección de wiki del repositorio para documentar tanto los avances alcanzados como los problemas encontrados y las soluciones adoptadas.
+
+El uso de Github ha permitido seguir una metodología de desarrollo iterativa e incremental (Figura \ref{fig:incremento}), basada en la división del trabajo en pequeños bloques funcionales. Cada uno de estos bloques sigue un ciclo de desarrollo similar que incluye las fases de planificación, análisis, diseño, implementación y pruebas.
+Gracias a este enfoque,se ha sido posible abordar de forma progresiva los diferentes aspectos del robot, permitiendo además avanzar en paralelo en distintos módulos.
 
 \vspace{0.2cm}
 
-Para la gestión del código y el control de versiones se ha utilizado la plataforma Github\footnote{https://github.com/}, gracias a lo cual se ha mantenido una estructura organizada del código. En la wiki se han plasmado los avances semana a semana detallando también los problemas que han ido surgiendo y las soluciones encontradas.
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=12cm]{figs/incremento}
+  \end{center}
+  \caption{Método incremental e iterativo}
+  \label{fig:incremento}
+\end{figure}\
+
 
 \vspace{0.2cm}
 
-Además, se han realizado reuniones semanales con el tutor del TFG, tanto de forma presencial como mediante Microsoft Teams, para hacer seguimiento de los avances conseguidos y/o resolver dudas.
+Además, se han realizado reuniones semanales con el tutor del TFG, tanto de forma presencial como mediante Microsoft Teams, para hacer seguimiento de los avances conseguidos y resolver las dudas surgidas durante el desarrollo.
 
 
 
@@ -119,7 +128,7 @@ Además, se han realizado reuniones semanales con el tutor del TFG, tanto de for
 \section{Plan de trabajo}
 \label{sec:plantrabajo}
 
-Qué agenda has seguido. Si has ido manteniendo reuniones semanales, cumplimentando objetivos parciales, si has ido afinando poco a poco un producto final completo, etc.
+\vspace{0.2cm}
 
 El desarrollo de este proyecto ha constado de diversas etapas, que se describen a continuación:
 
@@ -128,10 +137,13 @@ El desarrollo de este proyecto ha constado de diversas etapas, que se describen 
 	\item \textit{Investigación del estado del arte:} Esta primera etapa se ha centrado en la búsqueda de soluciones existentes al problema planteado. Para ello,  se han consultado plataformas como Google Scholar\footnote{https://scholar.google.es/} y diversos artículos científicos.
 	\item \textit{Investigación del hardware a utilizar:} Una vez encontrada una solución factible, se buscaron componentes \textit{hardware} \textit{low-cost}, compatibles con las soluciones identificadas.
 	\item \textit{Investigación del software a utilizar:} Tras decidir el \textit{hardware} a utilizar, se procedió a seleccionar herramientas \textit{software} compatibles con dicho \textit{hardware} y que no requirieran un elevado coste computacional.
-	\item \textit{Diseño del modelo del robot:} Tras definir el diseño del robot, se realizaron prototipos en cartón con el obejtivo de comprobar medidas y dimensiones. Una vez validado el diseño, se llevó a cabo el modelado 3D de las piezas mediante la herramienta FreeCAD.
+	\item \textit{Diseño del modelo del robot:} Tras definir el diseño del robot, se realizaron prototipos en cartón con el objetivo de comprobar medidas y dimensiones. Una vez validado el diseño, se llevó a cabo el modelado 3D de las piezas mediante la herramienta FreeCAD.
 	\item \textit{Impresión de las piezas 3D:} Una vez finalizado el diseño, se procedió a la impresión de las piezas.
-	\item \textit{Implementación del software:}
-	\item \textit{Sensores y actuadores:}
+	\item \textit{Implementación del software:} El desarrollo del \textit{software} se dividió en subtareas, permitiendo la implementación de las distintas funcionalidades del sistema.
+	\item \textit{Prueba del software:} Tras implementar las diferentes parte del \textit{software}, se realizaron pruebas funcionales del sistema completo.
+	\item \textit{Prueba del hardware:} Una vez impresas las piezas del robot, se procedió a comprobar el funcionamiento del \textit{hardware} en un entorno real.
+	\item \textit{Prueba del sistema final:}  Finalmente, se integraron todos los componentes y se realizaron pruebas del sistema completo, corrigiendo los fallos encontrados.
+
 \end{enumerate}
 
 
