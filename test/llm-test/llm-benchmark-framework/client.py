@@ -2,110 +2,155 @@ import requests
 import time
 import json
 import os
+from pathlib import Path
+from datetime import datetime
+
+# =========================
+# CONFIG
+# =========================
+PC_URL = "http://192.168.1.:8000/generate"
+
+timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+OUTPUT_FILE = f"results_rpi_{timestamp}.json"
+
+REQUEST_TIMEOUT = 60
 
 
-PC_URL = "http://192.168.1.X:8000/generate"
+# =========================
+# FIND PROMPTS
+# =========================
+def find_prompts_file(filename="prompts.json", start_dir="."):
+    start_path = Path(start_dir).resolve()
+
+    for path in start_path.rglob(filename):
+        return str(path)
+
+    return None
 
 
-def run_benchmark(prompts, model="gpt"):
-    """
-    Ejecuta benchmark contra el servidor PC.
-    
-    Args:
-        prompts (list[str]): lista de prompts
-        model (str): nombre del modelo en el server
-    
-    Returns:
-        list[dict]: resultados estructurados
-    """
+def load_prompts():
+    path = find_prompts_file()
 
+    if not path:
+        print(" No se encontró prompts.json")
+        exit(1)
+
+    print(f" Usando prompts desde: {path}")
+
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+# =========================
+# BENCHMARK CORE
+# =========================
+def run_benchmark(prompts, model="llama"):
     results = []
 
-    for p in prompts:
-        start = time.time()
+    for i, prompt in enumerate(prompts):
+        print(f"➡️ [{i+1}/{len(prompts)}] {prompt[:60]}...")
 
         try:
+            t0 = time.perf_counter()
+
             r = requests.post(
                 PC_URL,
                 json={
                     "model": model,
-                    "prompt": p
+                    "prompt": prompt
                 },
-                timeout=60
+                timeout=REQUEST_TIMEOUT
             )
 
+            t1 = time.perf_counter()
+
+            total_latency = t1 - t0
+
+            # HTTP error
+            if r.status_code != 200:
+                results.append({
+                    "id": i,
+                    "model": model,
+                    "prompt": prompt,
+                    "status": "HTTP_ERROR",
+                    "http_code": r.status_code,
+                    "latency_total": total_latency
+                })
+                print(f" HTTP {r.status_code}")
+                continue
+
             data = r.json()
-            total_latency = time.time() - start
 
             results.append({
+                "id": i,
                 "model": model,
-                "prompt": p,
-                "latency_total": total_latency,
+                "prompt": prompt,
+                "output": data.get("output"),
+                "status": data.get("status"),
                 "server_latency": data.get("latency"),
-                "response": data.get("output"),
-                "status": "OK"
+                "latency_total": total_latency,
+                "timestamp": time.time()
             })
 
-        except Exception as e:
+            if data.get("status") != "OK":
+                print(f" Status: {data.get('status')}")
+
+        except requests.exceptions.RequestException as e:
             results.append({
+                "id": i,
                 "model": model,
-                "prompt": p,
+                "prompt": prompt,
+                "status": "CONNECTION_ERROR",
+                "error": str(e),
                 "latency_total": None,
-                "server_latency": None,
-                "response": None,
-                "status": "ERROR",
-                "error": str(e)
+                "timestamp": time.time()
             })
+
+            print(f" Error conexión: {e}")
+
+        time.sleep(0.3)
 
     return results
 
 
-def run_from_json(prompts_path, model="gpt"):
-    """
-    Ejecuta benchmark leyendo prompts desde un JSON
-    y guarda automáticamente resultados en fichero.
-    """
-
-    # --- cargar prompts ---
-    with open(prompts_path, "r", encoding="utf-8") as f:
-        prompts = json.load(f)
-
-    # --- ejecutar benchmark ---
-    results = run_benchmark(prompts, model=model)
-
-    # --- guardar resultados ---
-    timestamp = int(time.time())
-    output_file = f"results_{model}_{timestamp}.json"
-
-    with open(output_file, "w", encoding="utf-8") as f:
+# =========================
+# SAVE
+# =========================
+def save_results(results):
+    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
 
-    print(f"✔ Resultados guardados en {output_file}")
-
-    return results
+    print(f"\n Resultados guardados en: {OUTPUT_FILE}")
 
 
-# -----------------------------
-# ejecución directa
-# -----------------------------
-if __name__ == "__main__":
-
-    # ejemplo: prompts en archivo JSON
-    prompts_file = "prompts.json"
-
-    if not os.path.exists(prompts_file):
-        print(" No existe prompts.json")
-        exit(1)
-
-    results = run_from_json(prompts_file, model="gpt")
-
-    # resumen rápido en consola
-    ok_results = [r for r in results if r["status"] == "OK"]
+# =========================
+# SUMMARY
+# =========================
+def print_summary(results):
+    ok = [r for r in results if r.get("status") == "OK"]
 
     print("\n RESUMEN")
-    print(f"Total requests: {len(results)}")
-    print(f"OK: {len(ok_results)}")
+    print(f"Total: {len(results)}")
+    print(f"OK: {len(ok)}")
 
-    if ok_results:
-        avg_latency = sum(r["latency_total"] for r in ok_results) / len(ok_results)
-        print(f"Latencia media: {avg_latency:.3f}s")
+    if ok:
+        avg_total = sum(r["latency_total"] for r in ok) / len(ok)
+        avg_server = sum(r.get("server_latency", 0) for r in ok) / len(ok)
+
+        print(f"Latencia total media: {avg_total:.3f}s")
+        print(f" Latencia server media: {avg_server:.3f}s")
+
+
+# =========================
+# MAIN
+# =========================
+if __name__ == "__main__":
+    prompts = load_prompts()
+
+    model = "llama"  # cambia aquí fácilmente
+
+    results = run_benchmark(prompts, model=model)
+
+    save_results(results)
+
+    print_summary(results)

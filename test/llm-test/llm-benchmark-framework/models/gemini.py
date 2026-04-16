@@ -16,18 +16,11 @@ class GeminiModel(LLMModel):
                     model="models/gemini-flash-latest",
                     contents=prompt
                 )
-
-                return response.text, {}
-
+                return response.text
             except Exception as e:
-                msg = str(e)
-
-                # rate limit
-                if "429" in msg:
-                    wait = 10 * (attempt + 1)
-                    time.sleep(wait)
+                if "429" in str(e):
+                    time.sleep(10 * (attempt + 1))
                     continue
-
                 raise e
 
-        return None, {"error": "Gemini failed after retries"}
+        return "ERROR"

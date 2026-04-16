@@ -15,4 +15,4 @@ class GPTAzure(LLMModel):
             model="gpt-4o-mini",
             messages=[{"role": "user", "content": prompt}]
         )
-        return r.choices[0].message.content, {}
+        return r.choices[0].message.content
