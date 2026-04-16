@@ -1,13 +1,10 @@
-# server.py (en el PC)
-
 from fastapi import FastAPI
 import time
 
-app = FastAPI()
-
-# importa tus modelos reales
 from models.gpt_azure import GPTAzure
 from models.groq_llama import GroqLlama
+
+app = FastAPI()
 
 models = {
     "gpt": GPTAzure(),
@@ -22,7 +19,7 @@ def generate(payload: dict):
     model = models[model_name]
 
     start = time.time()
-    output = model.generate(prompt)  # tu lógica actual
+    output = model.generate(prompt)
     latency = time.time() - start
 
     return {
