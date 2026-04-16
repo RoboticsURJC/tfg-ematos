@@ -478,7 +478,7 @@ Esta biblioteca permite realizar tareas como la captura y procesamiento de imág
 
 \begin{figure} [h!]
   \begin{center}
-    \includegraphics[width=8cm]{figs/opencv}
+    \includegraphics[width=4cm]{figs/opencv}
   \end{center}
   \caption{Logotipo de FreeCAD 1.0}
   \label{fig:opencv}
@@ -490,5 +490,14 @@ Esta biblioteca permite realizar tareas como la captura y procesamiento de imág
 
 \subsection{Bibliotecas externas}
 
+Además de las herramientas anteriormente descritas, se han utilizado otras de propósito general.
+
+La biblioteca \textit{face\_recognition} se ha utilizado para la detección  y reconocimiento facial en imágenes. Para la comunicación cliente-servidor se ha empleado \textit{base64} para la codificación y envío de imágenes, \textit{flask} para el desarrollo de una API encargada de gestionar rutas URL y manejar las solicitudes HTTP (GET y POST), y \textit{requests} para realizar peticiones al servidor.
+
+Por otro lado, para el almacenamiento de los rostros reconocidos se ha utilizado la biblioteca \textit{pickle}. Para la creación de la interfaz gráfica se ha empleado \textit{PyQt5}, mientras que el desarrollo de los juegos interactivos se ha realizado con \textit{pygame}.
+
+Para el uso del LCD se han utilizado las bibliotecas \textit{adafruit\_rgb\_display}, \textit{digitalio}, \textit{busio} y \textit{board}.
+
+Finalmente para la reproducción de audio se ha utilizado \textit{vosk}.
 
 
