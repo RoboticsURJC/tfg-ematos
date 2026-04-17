@@ -164,7 +164,7 @@ import os
 from pathlib import Path
 from datetime import datetime
 
-PC_URL = "http://192.168.1.X:8000/generate"  
+PC_URL = "http://192.168.1.96:8000/generate"  
 
 timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 OUTPUT_FILE = f"results_rpi_{timestamp}.json"
@@ -268,7 +268,7 @@ def save(results):
 if __name__ == "__main__":
     prompts = json.load(open(find_prompts_file()))
 
-    model = "gemini"   # o gpt, llama, groq
+    model = "gemini"   # o gemini, gpt, llama, groq
 
     results = run_benchmark(prompts, model)
 

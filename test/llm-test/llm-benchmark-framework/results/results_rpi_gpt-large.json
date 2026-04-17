@@ -1,0 +1,226 @@
+[
+  {
+    "id": 0,
+    "model": "gpt",
+    "prompt": "Hoy me siento un poco solo, ¿puedes hablar conmigo un rato?",
+    "status": "OK",
+    "output": [
+      "¡Por supuesto! Estoy aquí para conversar. ¿Qué te gustaría hablar?",
+      {
+        "provider": "azure"
+      }
+    ],
+    "server_latency": 3.3987700939178467,
+    "latency_total": 3.5413624249999884,
+    "http_code": 200,
+    "timestamp": 1776418574.552264
+  },
+  {
+    "id": 1,
+    "model": "gpt",
+    "prompt": "Cuéntame algo interesante para entretenerme",
+    "status": "OK",
+    "output": [
+      "Claro, aquí tienes un dato curioso: ¿sabías que los pulpos tienen tres corazones? Dos de estos corazones bombean sangre a las branquias, donde se oxigena, y el tercero bombea la sangre oxigenada al resto del cuerpo. Además, su sangre es de color azul debido a la presencia de hemocianina, un compuesto que transporta oxígeno y es más eficiente en ambientes de baja temperatura y oxígeno, como las profundidades del océano.\n\nLos pulpos son criaturas fascinantes, no solo por su biología, sino también por su inteligencia. Pueden resolver problemas complejos, usar herramientas y tienen la capacidad de cambiar de color y textura para camuflarse. ¡Son realmente seres sorprendentes! ¿Te gustaría saber más sobre otro tema?",
+      {
+        "provider": "azure"
+      }
+    ],
+    "server_latency": 3.252417802810669,
+    "latency_total": 3.6443821010002466,
+    "http_code": 200,
+    "timestamp": 1776418578.697407
+  },
+  {
+    "id": 2,
+    "model": "gpt",
+    "prompt": "¿Te acuerdas de lo que te dije ayer sobre mi nieta?",
+    "status": "OK",
+    "output": [
+      "Lo siento, pero no tengo la capacidad de recordar conversaciones pasadas. Sin embargo, estaré encantado de ayudarte con lo que necesites hoy. ¿Qué te gustaría contarme sobre tu nieta?",
+      {
+        "provider": "azure"
+      }
+    ],
+    "server_latency": 2.2445600032806396,
+    "latency_total": 2.579562790000182,
+    "http_code": 200,
+    "timestamp": 1776418581.7774038
+  },
+  {
+    "id": 3,
+    "model": "gpt",
+    "prompt": "Hazme reír un poco",
+    "status": "OK",
+    "output": [
+      "¡Claro! Aquí tienes un chiste:\n\n¿Por qué los pájaros no usan Facebook?\n\n¡Porque ya tienen Twitter! \n\nY un juego de palabras:\n\n— ¡Camarero! ¡Este filete tiene muchos nervios!\n— Normal, es la primera vez que se lo comen.\n\nEspero que al menos te haya sacado una sonrisa. ¡Si quieres más, solo dime!",
+      {
+        "provider": "azure"
+      }
+    ],
+    "server_latency": 2.1366991996765137,
+    "latency_total": 2.3579986119998466,
+    "http_code": 200,
+    "timestamp": 1776418584.6367428
+  },
+  {
+    "id": 4,
+    "model": "gpt",
+    "prompt": "¿Qué podríamos hacer hoy para que el día sea mejor?",
+    "status": "OK",
+    "output": [
+      "¡Hay muchas cosas que podemos hacer para que el día sea mejor! Aquí tienes algunas ideas:\n\n1. **Practica la gratitud**: Tómate un momento para reflexionar sobre las cosas por las que estás agradecido. Escribirlas puede ayudar a mejorar tu estado de ánimo.\n\n2. **Sal a caminar**: La actividad física y el aire fresco pueden hacer maravillas para tu bienestar. Un paseo corto puede ser revitalizante.\n\n3. **Dedica tiempo a un hobby**: Ya sea leer, pintar, tocar un instrumento o cualquier otra actividad que disfrutes, dedicar tiempo a tus pasiones puede ser muy gratificante.\n\n4. **Conéctate con alguien**: Llama o manda un mensaje a un amigo o familiar. Hablar con alguien que aprecias puede elevar tu ánimo.\n\n5. **Meditación o mindfulness**: Practicar la meditación o ejercicios de respiración puede ayudarte a calmar la mente y encontrar mayor claridad.\n\n6. **Haz algo amable por alguien**: Un acto de bondad, grande o pequeño, no solo beneficia a la otra persona, sino que también puede hacerte sentir bien a ti.\n\n7. **Escucha música**: La música tiene el poder de mejorar tu estado de ánimo. Escucha tus canciones favoritas y disfruta del momento.\n\n8. **Cocina algo delicioso**: Preparar una buena comida puede ser una experiencia terapéutica y satisfactoria.\n\n9. **Establece pequeñas metas**: Anota algunas tareas que te gustaría completar hoy. Cumplir con ellas puede darte una sensación de logro.\n\n10. **Desconéctate un rato**: Tomar un descanso de las redes sociales y las pantallas puede ayudarte a sentirte más presente y menos abrumado.\n\nElige una o varias de estas ideas y ¡haz de tu día uno mejor!",
+      {
+        "provider": "azure"
+      }
+    ],
+    "server_latency": 5.9415504932403564,
+    "latency_total": 6.4640791300003,
+    "http_code": 200,
+    "timestamp": 1776418591.6010964
+  },
+  {
+    "id": 5,
+    "model": "gpt",
+    "prompt": "Estoy preocupado porque no duermo bien últimamente",
+    "status": "OK",
+    "output": [
+      "Lamento escuchar que no estás durmiendo bien. La falta de sueño puede afectar tu salud física y mental. Aquí hay algunas recomendaciones que podrían ayudarte a mejorar la calidad de tu sueño:\n\n1. **Establece una rutina de sueño**: Intenta acostarte y levantarte a la misma hora todos los días, incluso los fines de semana.\n\n2. **Crea un ambiente propicio para dormir**: Asegúrate de que tu habitación esté oscura, tranquila y a una temperatura cómoda. Considera usar cortinas opacas o una máquina de ruido blanco si es necesario.\n\n3. **Limita el uso de pantallas**: La luz azul de los dispositivos electrónicos puede interferir con tu sueño. Intenta evitar las pantallas al menos una hora antes de acostarte.\n\n4. **Evita la cafeína y las comidas pesadas**: Trata de no consumir cafeína o alimentos pesados en las horas previas a dormir.\n\n5. **Haz ejercicio regularmente**: La actividad física puede ayudarte a dormir mejor, pero evita hacer ejercicio intenso justo antes de acostarte.\n\n6. **Practica la relajación**: Técnicas como la meditación, la respiración profunda o el yoga pueden ayudar a calmar tu mente antes de dormir.\n\n7. **Evita las siestas largas**: Si sientes la necesidad de dormir durante el día, procura que las siestas sean breves y no demasiado cercanas a la hora de dormir.\n\nSi después de probar estas estrategias no notas mejora, considerar hablar con un profesional de la salud puede ser útil para descartar problemas subyacentes. ¡Espero que encuentres una solución pronto!",
+      {
+        "provider": "azure"
+      }
+    ],
+    "server_latency": 5.3177220821380615,
+    "latency_total": 5.85033150199979,
+    "http_code": 200,
+    "timestamp": 1776418597.951853
+  },
+  {
+    "id": 6,
+    "model": "gpt",
+    "prompt": "Me siento triste sin motivo, ¿qué hago?",
+    "status": "OK",
+    "output": [
+      "Lamento que te sientas así. A veces, la tristeza puede aparecer sin razón aparente. Aquí hay algunas sugerencias que podrían ayudarte:\n\n1. **Habla con alguien**: Compartir tus sentimientos con un amigo o familiar puede ser reconfortante.\n   \n2. **Escribe tus pensamientos**: Llevar un diario puede ayudarte a procesar lo que sientes.\n\n3. **Haz ejercicio**: La actividad física puede mejorar tu estado de ánimo gracias a la liberación de endorfinas.\n\n4. **Practica la atención plena**: Técnicas de meditación o mindfulness pueden ayudarte a gestionar tus emociones y a sentirte más presente.\n\n5. **Conéctate con la naturaleza**: Pasar tiempo al aire libre puede ser revitalizante.\n\n6. **Establece una rutina**: Tener una estructura puede ayudarte a sentirte más en control.\n\n7. **Busca actividades que disfrutes**: Dedicar tiempo a tus hobbies puede distraerte y mejorar tu estado de ánimo.\n\nSi estos sentimientos persisten o se intensifican, considera hablar con un profesional de la salud mental. No estás solo y hay ayuda disponible.",
+      {
+        "provider": "azure"
+      }
+    ],
+    "server_latency": 3.8835067749023438,
+    "latency_total": 5.437507151999853,
+    "http_code": 200,
+    "timestamp": 1776418603.8898754
+  },
+  {
+    "id": 7,
+    "model": "gpt",
+    "prompt": "Hoy ha sido un mal día…",
+    "status": "OK",
+    "output": [
+      "Lamento que estés pasando por un mal día. Si quieres, estoy aquí para escucharte. A veces hablar de lo que te preocupa puede ayudar. ¿Qué ha pasado?",
+      {
+        "provider": "azure"
+      }
+    ],
+    "server_latency": 1.941584825515747,
+    "latency_total": 2.1620912809999027,
+    "http_code": 200,
+    "timestamp": 1776418606.5523274
+  },
+  {
+    "id": 8,
+    "model": "gpt",
+    "prompt": "Tengo miedo de caerme otra vez",
+    "status": "OK",
+    "output": [
+      "Es completamente normal sentir miedo después de haber tenido una caída o una experiencia negativa. Tomarte el tiempo para procesar esos sentimientos puede ser muy útil. Aquí hay algunas sugerencias que podrían ayudarte a manejar ese miedo:\n\n1. **Reflexiona sobre la caída:** Trata de entender qué ocurrió y si hubo circunstancias específicas que contribuyeron. Esto puede ayudarte a evitar situaciones similares en el futuro.\n\n2. **Habla de tus miedos:** Compartir tus sentimientos con alguien de confianza puede hacer que te sientas más apoyado y menos solo en tu miedo.\n\n3. **Practica la atención plena:** Técnicas de mindfulness o meditación pueden ayudarte a centrarte en el presente y reducir la ansiedad relacionada con el futuro.\n\n4. **Progresivamente enfrenta el miedo:** Si es posible, intenta exponerte poco a poco a la situación que te causa miedo, comenzando con pasos pequeños y manejables.\n\n5. **Recuerda que es parte del proceso:** Todos enfrentamos miedos y desafíos. Con el tiempo y la práctica, es posible superar esos temores.\n\nSi deseas hablar más sobre lo que te preocupa, aquí estoy para ayudarte.",
+      {
+        "provider": "azure"
+      }
+    ],
+    "server_latency": 3.883502244949341,
+    "latency_total": 4.218989729999976,
+    "http_code": 200,
+    "timestamp": 1776418611.271683
+  },
+  {
+    "id": 9,
+    "model": "gpt",
+    "prompt": "¿Qué puedo cenar hoy con lo que tengo en casa?",
+    "status": "OK",
+    "output": [
+      "Claro, puedo ayudarte con eso. Para sugerirte una cena, necesitaría saber qué ingredientes tienes en casa. ¿Puedes decirme qué alimentos tienes disponibles?",
+      {
+        "provider": "azure"
+      }
+    ],
+    "server_latency": 1.4268240928649902,
+    "latency_total": 1.9516256239999166,
+    "http_code": 200,
+    "timestamp": 1776418613.7237952
+  },
+  {
+    "id": 10,
+    "model": "gpt",
+    "prompt": "¿Qué tiempo hace hoy? ¿Debería salir?",
+    "status": "OK",
+    "output": [
+      "Lo siento, pero no tengo acceso a información en tiempo real como el clima actual. Te recomendaría que revises una aplicación de clima en tu teléfono o en línea para saber cómo está el tiempo hoy. Si el tiempo es agradable, ¡podría ser un buen día para salir! Asegúrate de vestirte de acuerdo a las condiciones climáticas y disfruta de tu día.",
+      {
+        "provider": "azure"
+      }
+    ],
+    "server_latency": 2.0407323837280273,
+    "latency_total": 2.1617648150004243,
+    "http_code": 200,
+    "timestamp": 1776418616.385843
+  },
+  {
+    "id": 11,
+    "model": "gpt",
+    "prompt": "Me duele el pecho, ¿qué hago?",
+    "status": "OK",
+    "output": [
+      "Lamentablemente, no soy un médico, pero si sientes dolor en el pecho, es importante que tomes este síntoma en serio. Aquí hay algunas recomendaciones generales:\n\n1. **Consulta a un profesional**: Si el dolor es intenso, persistente o se acompaña de otros síntomas como dificultad para respirar, sudoración, mareos, náuseas o dolor que irradia hacia el brazo izquierdo, la mandíbula o la espalda, busca atención médica de inmediato.\n\n2. **Descansa**: Si el dolor es leve y no tienes otros síntomas graves, trata de descansar y evitar el esfuerzo físico.\n\n3. **Evalúa el dolor**: Intenta identificar si hay algo que desencadene el dolor, como actividad física, estrés o la ingesta de ciertos alimentos.\n\n4. **Llama a emergencias si es necesario**: Si estás muy preocupado, no dudes en llamar a los servicios de emergencia para recibir orientación.\n\nEl dolor en el pecho puede tener muchas causas, desde problemas cardíacos hasta problemas digestivos o ansiedad. Solo un profesional de la salud puede brindarte un diagnóstico adecuado.",
+      {
+        "provider": "azure"
+      }
+    ],
+    "server_latency": 4.599268913269043,
+    "latency_total": 4.825447289999829,
+    "http_code": 200,
+    "timestamp": 1776418621.7116127
+  },
+  {
+    "id": 12,
+    "model": "gpt",
+    "prompt": "Creo que me he tomado mal la medicación",
+    "status": "OK",
+    "output": [
+      "Lamento que te sientas así. Es muy importante que hables con un profesional de la salud si sientes que has tomado mal la medicación. Ellos podrán guiarte sobre qué hacer a continuación. Si experimentas síntomas preocupantes o un cambio en tu salud, busca ayuda médica de inmediato. ¡Cuídate!",
+      {
+        "provider": "azure"
+      }
+    ],
+    "server_latency": 2.0376882553100586,
+    "latency_total": 2.1616216900001746,
+    "http_code": 200,
+    "timestamp": 1776418624.3734736
+  },
+  {
+    "id": 13,
+    "model": "gpt",
+    "prompt": "Estoy mareado",
+    "status": "OK",
+    "output": [
+      "Lamento que te sientas así. El mareo puede ser causado por diversas razones, como deshidratación, falta de comida, estrés o problemas de salud. Aquí hay algunos pasos que podrías considerar:\n\n1. **Siéntate o acuéstate**: Evita moverte demasiado para no empeorar la sensación de mareo.\n2. **Bebe agua**: La deshidratación puede contribuir al mareo, así que asegúrate de estar bien hidratado.\n3. **Comer algo ligero**: Si no has comido en un tiempo, un snack ligero puede ayudar.\n4. **Respira profundamente**: Tómate un momento para respirar profundamente y relajarte.\n5. **Evita luces brillantes o ruidos fuertes**: Busca un lugar tranquilo y con poca luz.\n\nSi el mareo persiste o empeora, es importante que consultes a un médico para descartar cualquier problema de salud. ¡Espero que te sientas mejor pronto!",
+      {
+        "provider": "azure"
+      }
+    ],
+    "server_latency": 4.091492414474487,
+    "latency_total": 4.314627570000084,
+    "http_code": 200,
+    "timestamp": 1776418629.1884243
+  }
+]
