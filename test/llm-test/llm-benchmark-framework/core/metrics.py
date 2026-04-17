@@ -1,5 +1,43 @@
 import statistics
 
+##
+# @file metrics.py
+# @brief Cálculo de métricas agregadas para resultados de benchmarking de modelos LLM.
+#
+
+##
+# @brief Calcula estadísticas por modelo a partir de resultados de ejecución.
+#
+# Esta función procesa una lista de resultados de inferencia de modelos LLM,
+# filtrando ejecuciones correctas y agrupando métricas por modelo.
+#
+# Se calculan métricas como:
+# - Latencia media, mínima, máxima y desviación estándar
+# - Número de peticiones válidas
+# - Tokens medios, totales y tokens por segundo (si están disponibles)
+#
+# @param results Lista de diccionarios con resultados de ejecución.
+#        Cada elemento debe contener al menos:
+#        - "model": nombre del modelo
+#        - "status": estado de ejecución ("OK" para válidos)
+#        - "latency_total": tiempo total de inferencia
+#        - "tokens_total": número de tokens generados (opcional)
+#
+# @return dict Diccionario con estadísticas agregadas por modelo.
+#         Estructura:
+#         {
+#             model_name: {
+#                 "avg_latency": float,
+#                 "min_latency": float,
+#                 "max_latency": float,
+#                 "std_latency": float,
+#                 "num_requests": int,
+#                 "avg_tokens": float (opcional),
+#                 "total_tokens": int (opcional),
+#                 "tokens_per_sec": float (opcional)
+#             }
+#         }
+#
 def compute_stats(results):
     stats = {}
 
@@ -51,7 +89,7 @@ def compute_stats(results):
             total_tokens = sum(tokens)
             avg_tokens = total_tokens / len(tokens)
 
-            # tokens por segundo (clave 🔥)
+            # tokens por segundo (clave )
             tokens_per_sec = total_tokens / sum(latencies) if sum(latencies) > 0 else 0
 
             result.update({

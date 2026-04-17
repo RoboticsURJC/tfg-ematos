@@ -2,7 +2,37 @@ import matplotlib.pyplot as plt
 from core.storage import load_results
 from core.metrics import compute_stats
 
+##
+# @file plots.py
+# @brief Generación de visualizaciones para el análisis de benchmarks de modelos LLM.
+#
+# Este módulo construye un dashboard gráfico utilizando Matplotlib para comparar
+# el rendimiento de distintos modelos en términos de latencia, throughput y carga.
+#
 
+##
+# @brief Genera un dashboard de métricas de rendimiento de modelos LLM.
+#
+# Esta función crea una figura con 4 subgráficos que permiten comparar:
+# - Latencia media por modelo
+# - Tokens generados por segundo
+# - Número de peticiones procesadas
+# - Comparación de latencia mínima y máxima
+#
+# @param stats Diccionario de estadísticas por modelo generado por compute_stats().
+#        Estructura esperada:
+#        {
+#            model_name: {
+#                "avg_latency": float,
+#                "min_latency": float,
+#                "max_latency": float,
+#                "num_requests": int,
+#                "tokens_per_sec": float (opcional)
+#            }
+#        }
+#
+# @return None
+#
 def plot_metrics(stats):
     models = list(stats.keys())
 
@@ -44,6 +74,12 @@ def plot_metrics(stats):
     plt.show()
 
 
+##
+# @brief Punto de entrada del script de visualización.
+#
+# Carga los resultados almacenados, calcula estadísticas agregadas
+# y genera el dashboard de comparación de modelos.
+#
 if __name__ == "__main__":
     results = load_results()
     stats = compute_stats(results)

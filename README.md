@@ -1,13 +1,26 @@
-# tfg-ematos
-Reposotorio del Trabajo Fin de Grado de Elisa Matos, en la wiki podrás encontrar los detalles [wiki](https://github.com/RoboticsURJC/tfg-ematos/wiki).
+# TRABAJO DE FIN DE GRADO ELISA MATOS 
 
-# IMPORANTE
+## 🧠 ESTIMULACIÓN COGNITIVA PARA PERSONAS MAYORES MEDIANTE UN ROBOT HUMANOIDE DE BAJO COSTE 
 
-- Raspberry Pi OS tiene por defecto python 3.11.
+<br>
 
-- Google coral es compatible con versiones de python 3.6 - 3.9
+<img width="653" height="214" alt="logo" src="https://github.com/user-attachments/assets/e7dc7091-1681-443b-8a8e-35d8848d3251" />
 
-- La picamera no se puede instalar en un entorno virtual.
+<br>
+<br>
 
-Por lo que tienes que asegurarte al principio de todo de trabajar en un sistema que sea compatible tanto para la picamera como para la google coral.
+
+## 🎯 OBJETIVOS DEL TRABAJO 
+
+Este trabajo se centra en:
+
+- 💰 Desarrollo de una solución accesible y de bajo coste.
+- 🤖 Uso de un robot humanoide para la interacción humano-robot.
+- 🤔 Implementación de actividades cognitivas (memoria, atención, etc.).
+
+## 📚 DOCUMENTACIÓN 
+Toda la documentación detallada (desarrollo, experimentos y resultados) está disponible en la Wiki:
+
+**[Ver wiki del proyecto](https://github.com/RoboticsURJC/tfg-ematos/wiki)**.
+
 
