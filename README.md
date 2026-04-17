@@ -1,4 +1,10 @@
-# tfg-ematos
+# ROJAZZ
+
+<br>
+
+<img width="653" height="214" alt="logo" src="https://github.com/user-attachments/assets/e7dc7091-1681-443b-8a8e-35d8848d3251" />
+
+
 Reposotorio del Trabajo Fin de Grado de Elisa Matos, en la wiki podrás encontrar los detalles [wiki](https://github.com/RoboticsURJC/tfg-ematos/wiki).
 
 # IMPORANTE
