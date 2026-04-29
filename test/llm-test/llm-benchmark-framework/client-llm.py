@@ -2,6 +2,7 @@ import requests
 import time
 import json
 import os
+from bs4 import BeautifulSoup
 import logging
 from pathlib import Path
 from datetime import datetime
@@ -263,7 +264,15 @@ def chat_loop():
                 response = ask_model(prompt)
 
                 output = response.get("output", "")
-                latency = time.perf_counter() - start
+
+                if isinstance(output, list):
+                    output = " ".join(map(str, output))
+
+                if output is None: 
+                    output = ""
+
+                if not isinstance(output, str):
+                    output = str(output)
 
             except Exception as e:
                 logger.error(f"LLM ERROR: {e}")
@@ -308,8 +317,9 @@ def chat_loop():
             # =====================================================
             print(f"\n {output}\n")
 
+            
+
             logger.info(f"FINAL: {output}")
-            logger.info(f"LATENCY: {latency:.3f}s")
             logger.info("-" * 60)
 
         # =========================================================
