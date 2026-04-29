@@ -197,135 +197,132 @@ def handle_tool(intent, user_text):
 # antes de consultar al modelo o a internet.
 #
 def chat_loop():
-    print("\n Chat con herramientas + LLM + web fallback")
+    """
+    @brief Bucle principal del asistente conversacional robusto.
+
+    Integra:
+    - Herramientas locales (hora, clima)
+    - LLM (Groq / Llama 3.3)
+    - Fallback web
+    - Manejo de errores para evitar caídas
+    """
+
+    print("\n Chat inteligente activo (seguro + resiliente)")
     print("Escribe 'exit' para salir\n")
 
     while True:
-        
-        ##
-        # @brief Entrada del usuario en tiempo real
-        #
-        prompt = input(" Tú: ")
 
-        ##
-        # @brief Condición de salida del bucle
-        #
-        if prompt.lower() in ["exit", "quit"]:
-            logger.info("Chat finalizado")
-            break
+        try:
+            # =====================================================
+            # 1. INPUT USUARIO
+            # =====================================================
+            prompt = input(" Tú: ")
 
-        # =====================================================
-        # 1. ROUTER DE INTENCIONES (NUEVO)
-        # =====================================================
-        ##
-        # @brief Clasifica la intención del usuario
-        #
-        # Posibles valores:
-        #   - time
-        #   - weather
-        #   - llm (por defecto)
-        #
-        intent = mapeo_acciones(prompt)
+            if prompt.lower() in ["exit", "quit"]:
+                logger.info("Chat finalizado")
+                break
 
-        tool_output = None
+            # =====================================================
+            # 2. ROUTER DE INTENCIONES
+            # =====================================================
+            intent = mapeo_acciones(prompt)
 
-        # =====================================================
-        # 2. HERRAMIENTAS LOCALES (hora, clima, llamadas)
-        # =====================================================
-        
-        ##
-        # @brief Respuesta mediante herramientas deterministas
-        #
-        # Estas herramientas no dependen del LLM y son instantáneas.
-        #
-        
-        if intent == "time":
-            tool_output = get_current_time()
+            # =====================================================
+            # 3. HERRAMIENTAS LOCALES (seguras)
+            # =====================================================
+            tool_output = None
 
-        elif intent == "weather":
-            tool_output = get_weather("Madrid")
+            if intent == "time":
+                try:
+                    tool_output = get_current_time()
+                except Exception as e:
+                    logger.error(f"TIME TOOL ERROR: {e}")
+                    tool_output = "No pude obtener la hora ahora mismo."
 
-        ##
-        # @brief Si se ejecuta una herramienta, se devuelve directamente
-        #
-        if tool_output:
-            print(f"\n {tool_output}\n")
+            elif intent == "weather":
+                try:
+                    tool_output = get_weather("Madrid")
+                except Exception as e:
+                    logger.error(f"WEATHER TOOL ERROR: {e}")
+                    tool_output = "No pude obtener el clima ahora mismo."
+
+            # Si hay herramienta → responder directo
+            if tool_output:
+                print(f"\n {tool_output}\n")
+                logger.info(f"USER: {prompt}")
+                logger.info(f"TOOL: {tool_output}")
+                logger.info("-" * 60)
+                continue
+
+            # =====================================================
+            # 4. LLAMADA AL MODELO (LLM)
+            # =====================================================
+            try:
+                start = time.perf_counter()
+
+                response = ask_model(prompt)
+
+                output = response.get("output", "")
+                latency = time.perf_counter() - start
+
+            except Exception as e:
+                logger.error(f"LLM ERROR: {e}")
+                output = ""
+
             logger.info(f"USER: {prompt}")
-            logger.info(f"TOOL RESPONSE: {tool_output}")
-            logger.info("-" * 60)
-            continue
+            logger.info(f"AI: {output}")
 
-        # =====================================================
-        # 3. CONSULTA AL MODELO LLM
-        # =====================================================
+            # =====================================================
+            # 5. FALLBACK WEB SI FALLA O ES DÉBIL
+            # =====================================================
+            needs_web = (
+                not output
+                or "no sé" in output.lower()
+                or "no tengo información" in output.lower()
+                or len(output) < 10
+            )
 
-        ##
-        # @brief Llamada al modelo de lenguaje principal
-        #
-        # Usa Groq (Llama 3.3) como backend principal.
-        #
-        start = time.perf_counter()
-        response = ask_model(prompt)
-        output = response.get("output", "")
-        latency = time.perf_counter() - start
+            if needs_web:
+                try:
+                    logger.info("Activando búsqueda web...")
 
-        logger.info(f"USER: {prompt}")
-        logger.info(f"AI: {output}")
+                    web_data = web_search(prompt)
 
-        # =====================================================
-        # 4. DETECCIÓN DE DESCONOCIMIENTO
-        # =====================================================
-
-        ##
-        # @brief Detecta si el modelo no tiene suficiente información
-        #
-        # Si ocurre, se activa el fallback a búsqueda web.
-        #
-        needs_web = (
-            not output
-            or "no sé" in output.lower()
-            or "no tengo información" in output.lower()
-            or len(output) < 10
-        )
-
-        # =====================================================
-        # 5. FALLBACK WEB
-        # =====================================================
-
-        ##
-        # @brief Enriquecimiento con información de internet
-        #
-        # Se utiliza si el modelo no puede responder correctamente.
-        #
-        if needs_web:
-            logger.info("Activando búsqueda web...")
-
-            web_data = web_search(prompt)
-
-            if web_data:
-                enriched_prompt = f"""
-                            Usa esta información para responder de forma clara y en español:
+                    if web_data:
+                        enriched_prompt = f"""
+                            Usa esta información para responder en español de forma clara y sencilla:
 
                             {web_data}
 
                             Pregunta: {prompt}
                             """
 
-                response = ask_model(enriched_prompt)
-                output = response.get("output", "")
+                        response = ask_model(enriched_prompt)
+                        output = response.get("output", output)
 
-        ## =====================================================
-        # 6. SALIDA FINAL
-        # =====================================================
+                except Exception as e:
+                    logger.error(f"WEB FALLBACK ERROR: {e}")
 
-        ##
-        # @brief Respuesta final mostrada al usuario
-        #
-        print(f"\n {output}\n")
+            # =====================================================
+            # 6. SALIDA FINAL
+            # =====================================================
+            print(f"\n {output}\n")
 
-        logger.info(f"FINAL RESPONSE: {output}")
-        logger.info(f"LATENCY: {latency:.3f}s")
-        logger.info("-" * 60)
+            logger.info(f"FINAL: {output}")
+            logger.info(f"LATENCY: {latency:.3f}s")
+            logger.info("-" * 60)
+
+        # =========================================================
+        # 7. CATCH GLOBAL (evita que el programa muera)
+        # =========================================================
+        except KeyboardInterrupt:
+            print("\n Saliendo...")
+            logger.info("Interrupción por usuario")
+            break
+
+        except Exception as e:
+            logger.error(f"FATAL ERROR LOOP: {e}")
+            print(" Ha ocurrido un error, pero sigo funcionando...")
 
 
 # =========================================================
