@@ -5,7 +5,7 @@ import logging
 import os
 from datetime import datetime
 
-
+# lanzar con uvicorn server-llm:app --reload
 
 app = FastAPI()
 
