@@ -1,0 +1,6 @@
+2026-04-29 20:18:52,685 [INFO] FaceServer: Base de datos facial cargada correctamente
+2026-04-29 20:18:52,770 [INFO] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.96:5000
+2026-04-29 20:18:52,770 [INFO] werkzeug: [33mPress CTRL+C to quit[0m

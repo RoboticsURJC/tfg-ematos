@@ -1,9 +1,12 @@
+from datetime import datetime
 import sys
 import base64
 import json
 import requests
 import os
 import cv2
+import logging
+
 
 from PyQt5.QtWidgets import (
     QApplication, QWidget, QLabel, QPushButton, QVBoxLayout,
@@ -16,6 +19,30 @@ from PyQt5.QtCore import (
     QEasingCurve
 )
 
+
+# ==================================================
+# LOGGING CONFIG
+# ==================================================
+LOG_DIR = os.path.join(os.path.dirname(__file__), "logs")
+os.makedirs(LOG_DIR, exist_ok=True)
+
+
+log_file = os.path.join(
+    LOG_DIR,
+    f"client_{datetime.now().strftime('%Y-%m-%d')}.log"
+)
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+    handlers=[
+        logging.FileHandler(log_file, encoding="utf-8"),
+        logging.StreamHandler()  
+    ]
+)
+
+logger = logging.getLogger("FaceClient")
+
 # ----- Cargar configuración -----
 ## @brief Cargar configuración desde archivo JSON
 curr_dir = os.path.dirname(__file__)
@@ -26,6 +53,7 @@ with open(config_path) as f:
 
 ## @brief URL del servidor backend
 SERVER_URL = config["server_url"]
+logger.info(f"Servidor configurado en: {SERVER_URL}")
 
 
 
@@ -42,6 +70,8 @@ def show_message(parent, mtype, title, text):
     @param text Contenido
     """
     
+    logger.info(f"UI MESSAGE -> {mtype}: {title} - {text}")
+
     msg = QMessageBox(parent)
     msg.setWindowTitle(title)
     msg.setText(text)
@@ -106,16 +136,23 @@ class Worker(QThread):
     def run(self):
         """@brief Ejecuta la petición HTTP."""
         try:
+
+            logger.info("Enviando imagen al servidor (recognize)...")
+
             response = requests.post(
                 f"{self.server_url}/recognize",
                 json={"image": self.image_b64},
                 timeout=5
             )
             if response.ok:
+                logger.info("Respuesta recibida correctamente")
                 self.result_signal.emit(response.json())
             else:
+                logger.error(f"Error servidor: {response.status_code}")
                 self.error_signal.emit("Error del servidor")
-        except:
+                
+        except Exception as e:
+            logger.error(f"Fallo conexión: {e}")
             self.error_signal.emit("No se pudo conectar al servidor")
 
 
@@ -130,6 +167,9 @@ class ProgressPopup(QDialog):
     """
     def __init__(self, message="Procesando..."):
         super().__init__()
+        
+        logger.info("Mostrando popup de progreso")
+
         self.setWindowTitle("Analizando rostro")
         self.setFixedSize(350, 120)
         self.setStyleSheet("""
@@ -289,15 +329,20 @@ class ClientApp(QWidget):
         self.setFixedSize(640, 520)
         self.setStyleSheet("background-color: #2c3e50;")
 
+        logger.info("Inicializando aplicación...")
+
         # -------- Cámara USB --------
         ## @brief Inicializa cámara con OpenCV
         self.cap = cv2.VideoCapture(0, cv2.CAP_V4L2)
         
         if not self.cap.isOpened():
+            logger.error("No se pudo abrir la cámara USB")
             raise RuntimeError("No se pudo abrir la cámara USB")
 
         self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
         self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+
+        logger.info("Cámara USB inicializada correctamente")
 
         self.current_frame = None
 
@@ -374,6 +419,7 @@ class ClientApp(QWidget):
         """
         ret, frame = self.cap.read()
         if not ret:
+            logger.warning("Frame no recibido de cámara")
             return
 
         rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
@@ -401,10 +447,17 @@ class ClientApp(QWidget):
         """
         @brief Captura frame actual y lo envía al servidor.
         """
+        
+        logger.info("Captura para login iniciada")
+
         if self.current_frame is None:
+            logger.warning("Cámara no lista")
             self.result_label.setText("Cámara no lista")
             return
 
+        popup = ProgressPopup("Login...")
+        popup.show()
+        
         self.progress_popup = ProgressPopup("Iniciando sesión...")
         self.progress_popup.show()
 
@@ -421,6 +474,7 @@ class ClientApp(QWidget):
         """@brief Maneja respuesta del servidor."""
 
         self.progress_popup.close()
+        logger.info(f"Resultado: {data}")
 
         names = data.get("recognized", [])
         if names:
@@ -435,7 +489,8 @@ class ClientApp(QWidget):
 
     def on_recognition_error(self, message):
         """@brief Maneja errores."""
-        
+        logger.error(f"Error reconocimiento: {message}")
+
         self.progress_popup.close()
         self.result_label.setStyleSheet("color: #ff5555; font-weight: bold;")
         self.result_label.setText(message)
@@ -483,6 +538,9 @@ class ClientApp(QWidget):
 
         @note Usa self.current_frame actualizado desde OpenCV (VideoCapture).
         """
+        
+        logger.info("Inicio de registro de usuario")
+
         
         # ---------------------------
         # 1. Pedir nombre de usuario
@@ -633,6 +691,9 @@ class ClientApp(QWidget):
             @brief Prepara la captura con pequeño delay para UX.
             """
             
+            logger.info("Preparando camara para tomar foto")
+
+            
             if cancelled["state"]:
                 capture_popup.close()
                 return
@@ -655,6 +716,9 @@ class ClientApp(QWidget):
 
             @param current_photo Número de foto actual.
             """
+            
+            logger.info("Capturando imagen")
+
         
             if self.current_frame is not None:
                 _, buffer = cv2.imencode(".jpg", self.current_frame)
@@ -665,6 +729,8 @@ class ClientApp(QWidget):
             else:
                 # QMessageBox.critical(self, "Error", "No se pudo capturar la imagen.")
                 show_message(self, "error", "Error", "No se pudo capturar la imagen.")
+                logger.error("No se pudo capturar la imagen.")
+
                 capture_popup.close()
                 return
 
@@ -674,9 +740,11 @@ class ClientApp(QWidget):
             if current_photo < 5:
                 next_photo = current_photo + 1
                 take_btn.setText(f"Tomar foto {next_photo}/5")
+                logger.info(f"Tomar foto {next_photo}/5")
                 label.setText(f"Prepárate para la foto {next_photo}/5")
             else:
                 take_btn.setEnabled(False)
+                logger.info("Subiendo imágenes al servidor...")
                 label.setText("Subiendo imágenes al servidor...")
                 QApplication.processEvents()
                 
@@ -694,22 +762,17 @@ class ClientApp(QWidget):
 
                     if response.ok and data.get("status") == "ok":
                         show_message(self, "success", "Registro exitoso", f"Usuario {name} registrado con éxito")
-                        # QMessageBox.information(
-                        #     self, "Registro exitoso", f"Usuario {name} registrado con éxito"
-                        # )
-                        
+                        logger.info(f"Registro exitoso", f"Usuario {name} registrado con éxito")
 
                     else:
                         msg = data.get("message", "Error desconocido al registrar el usuario.")
-                        # QMessageBox.warning(self, "Error en registro", msg)
+                        logger.warning("Error desconocido al registrar el usuario.")
                         show_message(self, "warning","Error en registro", msg)
 
                 except requests.exceptions.RequestException:
                     capture_popup.close()
-                    # QMessageBox.critical(
-                    #     self, "Error de conexión", "No se pudo conectar al servidor."
-                    # )
                     show_message(self, "error", "Error de conexión", "No se pudo conectar al servidor.")
+                    logger.error("Error de conexión, no se pudo conectar al servidor. ")
 
 
         take_btn.clicked.connect(take_photo)
@@ -717,6 +780,9 @@ class ClientApp(QWidget):
 
 # ----- Ejecutar aplicación -----
 if __name__ == "__main__":
+    
+    logger.info(f"Iniciando API....")
+
     app = QApplication(sys.argv)
     client = ClientApp()
     client.show()
