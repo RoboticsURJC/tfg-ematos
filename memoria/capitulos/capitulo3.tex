@@ -11,22 +11,20 @@ Robert Collier\\
 
 \vspace{1cm}
 
-Una vez establecido el marco contextual en los capítulos anteriores, en este capítulo se presentan los objetivos que se han marcado, así como los requisitos necesarios para su desarrollo.
-Además, se describe la metodología empleada y plan de trabajo que se ha llevado a cabo.\\
+Una vez establecido el marco contextual en los capítulos anteriores, en este capítulo se presentan los objetivos que se han marcado en este proyecto, así como los requisitos necesarios para su desarrollo.
+Además, se describe la metodología empleada y el plan de trabajo que se ha llevado a cabo.\\
 
 \section{Descripción del problema}
 \label{sec:descripcion}
-El incremento de la población envejecida con deterioro cognitivo ha generado una creciente necesidad de atención y cuidados especializados, recursos que no siempre están disponibles ni se adaptan a las necesidades de los usuarios. Esta falta de atención continua e individualizada tiene como consecuencia la dificultad de mantener sus capacidades cognitivas y una adecuada calidad de vida.
+El incremento de la población envejecida con deterioro cognitivo ha generado una creciente necesidad de atención y cuidados especializados, recursos que no siempre están disponibles ni se adaptan a las necesidades de los usuarios. Esta falta de atención continua e individualizada tiene como consecuencia la dificultad para mantener sus capacidades cognitivas y una adecuada calidad de vida.
 
 Esta situación no solo afecta a la calidad de vida de los usuarios, sino que también supone una carga para su entorno cercano y sus cuidadores, evidenciando así la necesidad de soluciones de apoyo.
 
 \vspace{0.2cm}
 
-En este contexto, el presente proyecto plantea el desarrollo de un robot de bajo coste orientado a apoyar a estas personas en su vida diaria, contribuyendo al mantenimiento de sus funciones cognitivas mediante juegos interactivos de estimulación. Asimismo, el robot proporciona una compañía activa que ayuda a mitigar la sensación de soledad y abandono que pueden llegar a experimentar, mediante la incorporación de la interacción por voz basada en modelos de lenguaje.
+En este contexto, el presente proyecto plantea el desarrollo de un robot de bajo coste orientado a ayudar a estas personas en su vida diaria, contribuyendo al mantenimiento de sus funciones cognitivas mediante juegos interactivos de estimulación. Asimismo, el robot proporciona una compañía activa a los usuarios, ayudando a mitigar la sensación de soledad y abandono mediante la interacción por voz basada en modelos de lenguaje.
 
-La solución propuesta se plantea como un complemento a la atención tradicional, con el objetivo de reducir la carga de los cuidadores y fomentar la independencia del usuario.
-
-Con el fin de alcanzar este objetivo principal, se han establecido los siguientes subobjetivos:
+La solución propuesta se plantea como un complemento a la atención personal tradicional, con el objetivo de reducir la carga de los cuidadores y fomentar la independencia del usuario. Con el fin de alcanzar este objetivo principal, se han establecido los siguientes subobjetivos:
 
 
 \begin{enumerate}
@@ -37,21 +35,21 @@ Con el fin de alcanzar este objetivo principal, se han establecido los siguiente
 	\item Hacer uso de impresora 3D para poder materializar las piezas del robot.
 	\item Configurar la comunicación y conectividad del sistema para asegurar un funcionamiento correcto.
 	\item Probar distintos algoritmos de reconocimiento facial.
-	\item Investigar la eficacia de LLMs según las necesidades.
-	\item Integrar todos los componentes software en sistema funcional.
+	\item Investigar la eficacia de las LLMs (Large Language Models) según las necesidades.
+	\item Integrar todos los componentes software en un sistema funcional.
     \item Realizar pruebas en un entorno real.
 \end{enumerate}
 
 
 
 \section{Requisitos}
-\label{sec:requisitos}
+\label{sec:Requisitos}
 
-Una vez los subobjetivos están establecidos, se deberán cumplir los siguientes requisitos para un correcto funcionamiento:
+Una vez establecidos los subobjetivos, se deberán cumplir los siguientes requisitos:
 
 \begin{enumerate}
 	\item El sistema debe ejecutar algoritmos de bajo coste computacional para poder funcionar en una Raspberry Pi 4.
-	\item Las librerías y software utilizado deben ser compatibles con Raspberry Pi 4.
+	\item Las librerías y software utilizados deben ser compatibles con Raspberry Pi 4.
 	\item Los componentes hardware deben ser económicos, asequibles y de bajo coste.
 	\item Las piezas diseñadas para el robot deben poder imprimirse en cualquier impresora 3D estándar.
 	\item El robot debe ser estable y capaz de desplazarse en una superficie elevada sin caerse.
@@ -66,13 +64,15 @@ A continuación se describen las competencias que se han empleado y adquirido a 
 
 \vspace{0.2cm}
 
-\subsection{Competencias generales adquiridas}
+\subsection{Competencias adquiridas}
 
 Las competencias adquiridas en el desarrollo del proyecto y descritas en la guía docente de la asignatura de Trabajo Fin de Grado, son las siguientes:
 
 \begin{enumerate}
 	\item \textit{CB2}. Que los estudiantes sepan aplicar sus conocimientos a su trabajo o vocación de una forma profesional y posean las competencias que suelen demostrarse por medio de la elaboración y defensa de argumentos y la resolución de problemas dentro de su área de estudio.
 	\item \textit{CB4}. Que los estudiantes puedan transmitir información, ideas, problemas y soluciones a un público tanto especializado como no especializado.
+	\item \textit{CB5}. Que los estudiantes hayan desarrollado aquellas habilidades de aprendizaje necesarias para emprender estudios posteriores con un alto grado de autonomía.
+	\item \textit{CB5}. Desarrollo de las capacidades adecuadas para realizar un ejercicio original individual (o excepcionalmente colectivo), presentarlo y defenderlo ante un tribunal universitario, consistente en un proyecto en el ámbito de las tecnologías específicas del campo de la Robótica de naturaleza profesional en el que se sinteticen e integren las competencias adquiridas en las enseñanzas.
 \end{enumerate}
 
 
@@ -96,16 +96,12 @@ Las competencias empleadas para el desarrollo del proyecto y descritas en la gu�
 \label{sec:metodologia}
 
 
-Para el desarrollo del proyecto se ha seguido un plan incremental, basado en subobjetivos.
+Para el desarrollo del proyecto se ha seguido un plan incremental basado en subobjetivos.
 
-\vspace{0.2cm}
-
-La gestión del código fuente y el control de versiones se ha realizado usando la plataforma Github\footnote{https://github.com/}, lo cual ha permitido mantener una estructura organizada del código.
-El código del proyecto se encuentra alojado en un repositorio público\footnote{https://github.com/RoboticsURJC/tfg-ematos}, donde se han ido integrando de forma progresiva las distintas implementaciones, pruebas y mejoras realizadas a lo largo del desarrollo.
-Asimismo, se ha utilizado la sección de wiki del repositorio para documentar tanto los avances alcanzados como los problemas encontrados y las soluciones adoptadas.
+La gestión del código fuente y el control de versiones se ha llevado a cabo mediante un repositorio público de Github\footnote{https://github.com/RoboticsURJC/tfg-ematos}, donde se han ido integrando de forma progresiva las distintas implementaciones. Además, en su wiki correspondiente\footnote{https://github.com/RoboticsURJC/tfg-ematos/wiki} se encuentran las pruebas, problemas, soluciones y mejoras realizadas a lo largo del desarrollo del proyecto.
 
 El uso de Github ha permitido seguir una metodología de desarrollo iterativa e incremental (Figura \ref{fig:incremento}), basada en la división del trabajo en pequeños bloques funcionales. Cada uno de estos bloques sigue un ciclo de desarrollo similar que incluye las fases de planificación, análisis, diseño, implementación y pruebas.
-Gracias a este enfoque,se ha sido posible abordar de forma progresiva los diferentes aspectos del robot, permitiendo además avanzar en paralelo en distintos módulos.
+Gracias a este enfoque se ha sido posible abordar de forma progresiva los diferentes aspectos del robot, permitiendo además avanzar en paralelo en distintos módulos.
 
 \vspace{0.2cm}
 
@@ -135,7 +131,7 @@ El desarrollo de este proyecto ha constado de diversas etapas, que se describen 
 
 \begin{enumerate}
 	\item \textit{Investigación del estado del arte:} Esta primera etapa se ha centrado en la búsqueda de soluciones existentes al problema planteado. Para ello,  se han consultado plataformas como Google Scholar\footnote{https://scholar.google.es/} y diversos artículos científicos.
-	\item \textit{Investigación del hardware a utilizar:} Una vez encontrada una solución factible, se buscaron componentes \textit{hardware} \textit{low-cost}, compatibles con las soluciones identificadas.
+	\item \textit{Investigación del hardware a utilizar:} Una vez encontrada una solución factible, se buscaron componentes \textit{hardware} \textit{low-cost}, compatibles con los objetivos planteados.
 	\item \textit{Investigación del software a utilizar:} Tras decidir el \textit{hardware} a utilizar, se procedió a seleccionar herramientas \textit{software} compatibles con dicho \textit{hardware} y que no requirieran un elevado coste computacional.
 	\item \textit{Diseño del modelo del robot:} Tras definir el diseño del robot, se realizaron prototipos en cartón con el objetivo de comprobar medidas y dimensiones. Una vez validado el diseño, se llevó a cabo el modelado 3D de las piezas mediante la herramienta FreeCAD.
 	\item \textit{Impresión de las piezas 3D:} Una vez finalizado el diseño, se procedió a la impresión de las piezas.

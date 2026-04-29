@@ -1,47 +1,37 @@
 import sys
 import base64
 import json
+import numpy as np
 import requests
 import os
 import cv2
-
+from picamera2 import Picamera2
 from PyQt5.QtWidgets import (
     QApplication, QWidget, QLabel, QPushButton, QVBoxLayout,
-    QMessageBox, QDialog, QLineEdit, QProgressBar,
+    QMessageBox, QDialog, QLineEdit, QProgressBar, 
     QGraphicsDropShadowEffect
 )
 from PyQt5.QtGui import QImage, QPixmap, QColor, QFont
 from PyQt5.QtCore import (
-    QTimer, Qt, QThread, pyqtSignal, QPropertyAnimation,
-    QEasingCurve
-)
+    QTimer, Qt, QThread, pyqtSignal, QPropertyAnimation, 
+    QEasingCurve, QRect)
+
 
 # ----- Cargar configuración -----
-## @brief Cargar configuración desde archivo JSON
 curr_dir = os.path.dirname(__file__)
 config_path = os.path.join(curr_dir, "..", "config.json")
 
 with open(config_path) as f:
     config = json.load(f)
 
-## @brief URL del servidor backend
 SERVER_URL = config["server_url"]
 
 
-
-# --------------------------------------------------
-# MENSAJES UI
-# --------------------------------------------------
 def show_message(parent, mtype, title, text):
     """
-    @brief Muestra un mensaje personalizado.
-
-    @param parent Widget padre
-    @param mtype Tipo: info, warning, error, success
-    @param title Título
-    @param text Contenido
+    Muestra un QMessageBox personalizado según el tipo.
+    Tipos válidos: info, warning, error, success.
     """
-    
     msg = QMessageBox(parent)
     msg.setWindowTitle(title)
     msg.setText(text)
@@ -92,9 +82,6 @@ def show_message(parent, mtype, title, text):
 
 # ----- Hilo de trabajo para reconocimiento -----
 class Worker(QThread):
-    """
-    @brief Hilo para enviar imágenes al servidor sin bloquear la UI.
-    """
     result_signal = pyqtSignal(dict)
     error_signal = pyqtSignal(str)
 
@@ -104,7 +91,6 @@ class Worker(QThread):
         self.image_b64 = image_b64
 
     def run(self):
-        """@brief Ejecuta la petición HTTP."""
         try:
             response = requests.post(
                 f"{self.server_url}/recognize",
@@ -115,19 +101,12 @@ class Worker(QThread):
                 self.result_signal.emit(response.json())
             else:
                 self.error_signal.emit("Error del servidor")
-        except:
+        except requests.exceptions.RequestException:
             self.error_signal.emit("No se pudo conectar al servidor")
 
 
-
-# --------------------------------------------------
-# POPUP PROGRESO
-# --------------------------------------------------
-
+# ----- Ventana emergente de progreso -----
 class ProgressPopup(QDialog):
-    """
-    @brief Ventana de carga mientras se procesa la imagen.
-    """
     def __init__(self, message="Procesando..."):
         super().__init__()
         self.setWindowTitle("Analizando rostro")
@@ -169,9 +148,6 @@ class ProgressPopup(QDialog):
 
 # ----- Diálogo de registro -----
 class RegistrationDialog(QDialog):
-    """
-    @brief Diálogo para introducir el nombre del usuario.
-    """
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setWindowTitle("Registro de Usuario")
@@ -264,8 +240,6 @@ class RegistrationDialog(QDialog):
         self.register_btn.clicked.connect(self.try_register)
 
     def try_register(self):
-        """@brief Valida el nombre introducido."""
-
         name = self.name_input.text().strip()
         if not name:
             from PyQt5.QtWidgets import QMessageBox
@@ -275,33 +249,20 @@ class RegistrationDialog(QDialog):
         self.accept()
 
 
-# --------------------------------------------------
-# APP PRINCIPAL
-# --------------------------------------------------
+# ----- Aplicación principal -----
 class ClientApp(QWidget):
-    """
-    @brief Aplicación principal de reconocimiento facial.
-    """
-    
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Face Client")
         self.setFixedSize(640, 520)
         self.setStyleSheet("background-color: #2c3e50;")
 
-        # -------- Cámara USB --------
-        ## @brief Inicializa cámara con OpenCV
-        self.cap = cv2.VideoCapture(0, cv2.CAP_V4L2)
-        
-        if not self.cap.isOpened():
-            raise RuntimeError("No se pudo abrir la cámara USB")
-
-        self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
-        self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
-
+        # Inicializar cámara
+        self.picam2 = Picamera2()
+        self.picam2.start()
         self.current_frame = None
 
-        # -------- UI --------
+        # Widgets
         self.image_label = QLabel()
         self.image_label.setAlignment(Qt.AlignCenter)
         self.image_label.setStyleSheet("""
@@ -339,8 +300,6 @@ class ClientApp(QWidget):
                 background-color: #3e8e41;
             }
         """
-        
-        # -------- Eventos --------
         self.login_btn.setStyleSheet(button_style)
         self.register_btn.setStyleSheet(button_style)
 
@@ -363,68 +322,50 @@ class ClientApp(QWidget):
         self.login_btn.clicked.connect(self.capture_and_send)
         self.register_btn.clicked.connect(self.start_registration)
 
-        # -------- Timer --------
+        # Refresco de cámara
         self.timer = QTimer()
         self.timer.timeout.connect(self.update_frame)
         self.timer.start(30)
 
     def update_frame(self):
-        """
-        @brief Captura y muestra un frame de la cámara USB.
-        """
-        ret, frame = self.cap.read()
-        if not ret:
-            return
-
-        rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        rgb = cv2.flip(rgb, 1)
-
-        h, w, ch = rgb.shape
-        img = QImage(rgb.data, w, h, rgb.strides[0], QImage.Format_RGB888)
-        
-        pixmap = QPixmap.fromImage(img).scaled(
-            self.image_label.width(),
-            self.image_label.height(),
-            Qt.IgnoreAspectRatio,
-            Qt.SmoothTransformation
-        )
-
-        self.image_label.setPixmap(pixmap)
-
-        ## Guardamos frame original para enviar
-        self.current_frame = frame
-
-
-    # ---------------- LOGIN ----------------
+        frame = self.picam2.capture_array()
+        if frame is not None:
+            rgb = cv2.flip(frame, 1)
+            h, w, ch = rgb.shape
+            img = QImage(rgb.data, w, h, rgb.strides[0], QImage.Format_RGBA8888)
+            pixmap = QPixmap.fromImage(img).scaled(self.image_label.width(), self.image_label.height(), 
+                                                   Qt.IgnoreAspectRatio, Qt.SmoothTransformation)
+            self.image_label.setPixmap(pixmap)
+            self.current_frame = frame
 
     def capture_and_send(self):
-        """
-        @brief Captura frame actual y lo envía al servidor.
-        """
         if self.current_frame is None:
+            self.result_label.setStyleSheet("color: white; font-weight: bold")
             self.result_label.setText("Cámara no lista")
             return
 
+        # Ventana emergente de progreso
         self.progress_popup = ProgressPopup("Iniciando sesión...")
         self.progress_popup.show()
 
+        # Reducir y codificar imagen
         frame_resized = cv2.resize(self.current_frame, (320, 240))
         _, buffer = cv2.imencode(".jpg", frame_resized, [cv2.IMWRITE_JPEG_QUALITY, 70])
         img_str = base64.b64encode(buffer).decode("utf-8")
 
+        # Lanzar hilo
         self.worker = Worker(SERVER_URL, img_str)
         self.worker.result_signal.connect(self.on_recognition_result)
         self.worker.error_signal.connect(self.on_recognition_error)
         self.worker.start()
 
     def on_recognition_result(self, data):
-        """@brief Maneja respuesta del servidor."""
-
         self.progress_popup.close()
 
         names = data.get("recognized", [])
         if names:
             if "Desconocido" in names:
+                # QMessageBox.warning(self, "Inicio fallido", "Usuario desconocido.")
                 show_message(self, "warning", "Inicio fallido", "Usuario desconocido." )
                 self.result_label.setText("Inicio fallido")
             else:
@@ -434,8 +375,6 @@ class ClientApp(QWidget):
         self.result_label.setStyleSheet("color: white; font-weight: bold")
 
     def on_recognition_error(self, message):
-        """@brief Maneja errores."""
-        
         self.progress_popup.close()
         self.result_label.setStyleSheet("color: #ff5555; font-weight: bold;")
         self.result_label.setText(message)
@@ -468,33 +407,13 @@ class ClientApp(QWidget):
         button.enterEvent = on_enter
         button.leaveEvent = on_leave
     
-    
-    # ---------------- REGISTRO ----------------
-    
     def start_registration(self):
-        """
-        @brief Flujo completo de registro de usuario mediante captura de imágenes desde cámara USB.
-
-        Este método:
-        - Solicita el nombre del usuario.
-        - Abre un popup interactivo.
-        - Captura 5 imágenes desde la cámara USB.
-        - Envía las imágenes al servidor para registrar el rostro.
-
-        @note Usa self.current_frame actualizado desde OpenCV (VideoCapture).
-        """
-        
-        # ---------------------------
-        # 1. Pedir nombre de usuario
-        # ---------------------------
         dialog = RegistrationDialog(self)
         if dialog.exec_() != QDialog.Accepted:
             return
         name = dialog.registered_name
 
-        # ---------------------------
-        # 2. Crear ventana de captura
-        # ---------------------------
+        # --- Ventana emergente de registro ---
         capture_popup = QDialog(self)
         capture_popup.setWindowTitle("Registro de Usuario")
         capture_popup.setFixedSize(420, 250)
@@ -579,7 +498,7 @@ class ClientApp(QWidget):
         cancel_btn = QPushButton("Cancelar registro")
         cancel_btn.setObjectName("cancel")
 
-        # Añadimos animaciones de hover reales
+        # 💫 Añadimos animaciones de hover reales
         self.add_hover_animation(take_btn)
         self.add_hover_animation(cancel_btn)
 
@@ -589,12 +508,12 @@ class ClientApp(QWidget):
         layout.addWidget(cancel_btn)
         capture_popup.setLayout(layout)
         
-        # Calcular posición del popup al lado derecho de la ventana principal
+        # 🔹 Calcular posición del popup al lado derecho de la ventana principal
         main_geo = self.geometry()
         popup_x = main_geo.x() + main_geo.width() + 20
         popup_y = main_geo.y() + 80
 
-        # Evitar que se salga de la pantalla (por si el usuario tiene monitor pequeño)
+        # 🔹 Evitar que se salga de la pantalla (por si el usuario tiene monitor pequeño)
         screen = QApplication.primaryScreen().availableGeometry()
         if popup_x + capture_popup.width() > screen.width():
             popup_x = main_geo.x() - capture_popup.width() - 20  # Mover a la izquierda si no cabe
@@ -603,36 +522,18 @@ class ClientApp(QWidget):
 
 
         capture_popup.show()
-        
-        # ---------------------------
-        # 3. Variables de control
-        # ---------------------------
+
         images = []
         cancelled = {"state": False}
         
-        
-        # ---------------------------
-        # 4. Cancelar proceso
-        # ---------------------------
         def cancel_process():
-            """
-            @brief Cancela el registro en curso.
-            """
             cancelled["state"] = True
             capture_popup.close()
             show_message(self, "info", "Registro cancelado", "El registro fue cancelado por el usuario.")
            
         cancel_btn.clicked.connect(cancel_process)
         
-        
-        # ---------------------------
-        # 5. Botón tomar foto
-        # ---------------------------
         def take_photo():
-            """
-            @brief Prepara la captura con pequeño delay para UX.
-            """
-            
             if cancelled["state"]:
                 capture_popup.close()
                 return
@@ -641,21 +542,9 @@ class ClientApp(QWidget):
 
             label.setText(f"Preparando para capturar foto {current_photo}/5...")
             QApplication.processEvents()
-            
-            # Delay para dar tiempo al usuario a colocarse
             QTimer.singleShot(800, lambda: capture(current_photo))
 
-        
-        # ---------------------------
-        # 6. Captura de imagen
-        # ---------------------------
         def capture(current_photo):
-            """
-            @brief Captura una imagen desde la cámara USB.
-
-            @param current_photo Número de foto actual.
-            """
-        
             if self.current_frame is not None:
                 _, buffer = cv2.imencode(".jpg", self.current_frame)
                 img_str = base64.b64encode(buffer).decode("utf-8")
@@ -668,9 +557,6 @@ class ClientApp(QWidget):
                 capture_popup.close()
                 return
 
-            # ---------------------------
-            # 7. Siguiente foto o envío
-            # ---------------------------
             if current_photo < 5:
                 next_photo = current_photo + 1
                 take_btn.setText(f"Tomar foto {next_photo}/5")
@@ -679,10 +565,7 @@ class ClientApp(QWidget):
                 take_btn.setEnabled(False)
                 label.setText("Subiendo imágenes al servidor...")
                 QApplication.processEvents()
-                
-                # ---------------------------
-                # 8. Enviar al servidor
-                # ---------------------------
+
                 try:
                     response = requests.post(
                         f"{SERVER_URL}/register",
