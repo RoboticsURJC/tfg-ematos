@@ -1,0 +1,116 @@
+import requests
+import time
+import json
+import os
+from pathlib import Path
+from datetime import datetime
+
+PC_URL = "http://192.168.1.96:8000/generate"  
+
+timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+OUTPUT_FILE = f"results_rpi_{timestamp}.json"
+
+TIMEOUT = 90  #  importante para Gemini/GPT
+# =========================
+# FIND PROMPTS
+# =========================
+def find_prompts_file(filename="prompts.json", start_dir="."):
+    start_path = Path(start_dir).resolve()
+# 
+    for path in start_path.rglob(filename):
+        return str(path)
+# 
+    return None
+# 
+# 
+def load_prompts():
+    path = find_prompts_file()
+# 
+    if not path:
+        print(" No se encontró prompts.json")
+        exit(1)
+# 
+    print(f" Usando prompts desde: {path}")
+# 
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
+# 
+def run_benchmark(prompts, model="llama"):
+    results = []
+
+    for i, prompt in enumerate(prompts):
+        print(f" [{i+1}/{len(prompts)}] {prompt[:60]}...")
+
+        try:
+            t0 = time.perf_counter()
+
+            r = requests.post(
+                PC_URL,
+                json={"model": model, "prompt": prompt},
+                timeout=TIMEOUT
+            )
+
+            t1 = time.perf_counter()
+
+            #  si el server devuelve error igual lo capturamos
+            try:
+                data = r.json()
+            except Exception:
+                data = {"status": "INVALID_JSON"}
+
+            results.append({
+                "id": i,
+                "model": model,
+                "prompt": prompt,
+                "status": data.get("status", "UNKNOWN"),
+                "output": data.get("output"),
+                "server_latency": data.get("latency"),
+                "latency_total": t1 - t0,
+                "http_code": r.status_code,
+                "timestamp": time.time()
+            })
+
+            if r.status_code != 200:
+                print(f" HTTP {r.status_code}")
+
+            if data.get("status") != "OK":
+                print(f" MODEL ERROR: {data.get('status')}")
+
+        except requests.exceptions.Timeout:
+            print("TIMEOUT")
+            results.append({
+                "id": i,
+                "model": model,
+                "prompt": prompt,
+                "status": "TIMEOUT"
+            })
+
+        except requests.exceptions.ConnectionError as e:
+            print("🔌 CONNECTION ERROR")
+            results.append({
+                "id": i,
+                "model": model,
+                "status": "CONNECTION_ERROR",
+                "error": str(e)
+            })
+
+        time.sleep(0.5)
+
+    return results
+
+
+def save(results):
+    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+        json.dump(results, f, indent=2, ensure_ascii=False)
+
+    print(f"\n Guardado en {OUTPUT_FILE}")
+
+
+if __name__ == "__main__":
+    prompts = json.load(open(find_prompts_file()))
+
+    model = "gemini"   # o gemini, gpt, llama, groq
+
+    results = run_benchmark(prompts, model)
+
+    save(results)

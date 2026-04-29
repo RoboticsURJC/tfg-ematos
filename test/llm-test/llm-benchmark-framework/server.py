@@ -1,8 +1,39 @@
 from fastapi import FastAPI
 import time
 import traceback
+import logging
+import os
+from datetime import datetime
+
+
 
 app = FastAPI()
+
+# =========================================================
+# LOGGING SETUP
+# =========================================================
+
+LOG_DIR = os.path.join(os.path.dirname(__file__), "logs")
+os.makedirs(LOG_DIR, exist_ok=True)
+
+log_file = os.path.join(
+    LOG_DIR,
+    f"llm_api_{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.log"
+)
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s | %(levelname)s | %(message)s",
+    handlers=[
+        logging.FileHandler(log_file, encoding="utf-8"),
+        logging.StreamHandler()
+    ]
+)
+
+logger = logging.getLogger("llm-api")
+
+logger.info(" API iniciada correctamente")
+
 
 ##
 # @file api_server.py
@@ -32,6 +63,9 @@ models = {
     "gemini": GeminiModel()
 }
 
+logger.info(f"Modelos cargados: {list(models.keys())}")
+
+
 ##
 # @brief Endpoint raíz de la API.
 #
@@ -59,15 +93,22 @@ def root():
 def generate(payload: dict):
     model_name = payload.get("model")
     prompt = payload.get("prompt")
+    
+    logger.info(f"Request recibido | model={model_name} | prompt_len={len(prompt) if prompt else 0}")
+
 
     # validaciones básicas
     if model_name not in models:
+        logger.warning(f"Modelo inválido: {model_name}")
+
         return {
             "status": "ERROR",
             "error": f"Modelo '{model_name}' no disponible"
         }
 
     if not prompt:
+        logger.warning("Prompt vacío recibido")
+
         return {
             "status": "ERROR",
             "error": "Prompt vacío"
@@ -79,9 +120,11 @@ def generate(payload: dict):
         start = time.time()
 
         output = model.generate(prompt)
-        print("MODELS DISPONIBLES:", models.keys(), flush=True)
 
         latency = time.time() - start
+        
+        logger.info(f"OK | model={model_name} | latency={latency:.3f}s")
+
 
         return {
             "status": "OK",
@@ -91,6 +134,10 @@ def generate(payload: dict):
         }
 
     except Exception as e:
+        
+        logger.error(f"ERROR en modelo {model_name}: {str(e)}")
+        logger.error(traceback.format_exc())
+
         # nunca romper el server
         return {
             "status": "ERROR",
