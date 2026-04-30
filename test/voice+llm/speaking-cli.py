@@ -16,6 +16,8 @@ Autor: Elisa Matos
 # IMPORTS
 # =========================================================
 
+import re
+
 import requests
 import time
 import json
@@ -437,6 +439,39 @@ def procesar_texto(texto):
 # TTS
 # =========================================================
 
+def limpiar_texto(texto: str) -> str:
+    
+    """
+    @brief Elimina formato Markdown para que la voz suene natural.
+    @param texto Texto del usuario.
+    @return Respuesta generada "limpia".
+    """
+
+    # Quitar negrita y cursiva
+    text = re.sub(r"\*\*(.*?)\*\*", r"\1", texto)
+    text = re.sub(r"\*(.*?)\*", r"\1", texto)
+
+    # Quitar lista tipo "- " 
+    # text = re.sub(r"^\s*-\s+", "", texto, flags=re.MULTILINE)
+
+    # Quitar encabezados 
+    text = re.sub(r"#+\s*", "", texto)
+
+    # Quitar saltos excesivos    
+    text = re.sub(r"\n+", ". ", texto)
+
+    # Quitar símbolos raros
+    text = texto.replace(r"`", "")
+
+    #  Convertir listas a frases
+    text = texto.replace("- ", "y ")
+
+    # Eliminar enumeraciones rigidas    
+    text = re.sub(r"\d+\.\s*", "", texto)
+
+    return texto.strip()
+
+   
 def hablar(texto):
     global robot_hablando, estado_texto
 
@@ -446,7 +481,9 @@ def hablar(texto):
     def _run():
         global robot_hablando, estado_texto
 
-        subprocess.run(["pico2wave", "-l=es-ES", "-w=/tmp/voz.wav", texto],
+        texto_limpio = limpiar_texto(texto)
+
+        subprocess.run(["pico2wave", "-l=es-ES", "-w=/tmp/voz.wav", texto_limpio],
                        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         subprocess.run(["aplay", "/tmp/voz.wav"],
                        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
@@ -553,7 +590,7 @@ if __name__ == "__main__":
 
     with sd.InputStream(
         samplerate=48000,   # 🔥 antes 16000 → ERROR
-        blocksize=4000,
+        blocksize=8000,
         dtype='int16',
         channels=1,
         device=2,  # (puedes mejorar esto luego)
