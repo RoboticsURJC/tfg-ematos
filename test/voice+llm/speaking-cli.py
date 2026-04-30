@@ -345,12 +345,14 @@ def construir_prompt(usuario, mensaje):
 
     return prompt
 
+
 def ask_model(prompt):
     """
     @brief Llama al modelo LLM del servidor.
     @param prompt Texto a enviar al modelo.
     @return Respuesta generada por el modelo (string).
     """
+
     try:
         r = requests.post(
             PC_URL,
@@ -358,7 +360,15 @@ def ask_model(prompt):
             timeout=TIMEOUT
         )
         data = r.json()
-        return data.get("output", "")
+
+        output = data.get("output", "")
+
+        
+        if isinstance(output, list):
+            output = output[0]
+
+        return str(output)
+
     except Exception as e:
         logger.error(f"LLM ERROR: {e}")
         return ""
