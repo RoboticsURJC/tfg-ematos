@@ -22,7 +22,7 @@ from PIL import Image, ImageDraw, ImageFont
 SERVER_IP = "192.168.1.96"  # IP del PC con Vicuna
 SERVER_URL = f"http://{SERVER_IP}:5000/conversar"
 
-VOSK_MODEL_PATH = "/home/eli/tfg-ematos/test/voice/vosk-model-small-es-0.42"
+VOSK_MODEL_PATH = "/home/elisa/tfg-ematos/test/voice/vosk-model-small-es-0.42"
 
 # =====================
 # DISPLAY
