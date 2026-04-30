@@ -204,7 +204,7 @@ with sd.InputStream(
     device=2,
     callback=audio_callback
 ):
-    print("🤖 Cliente activo")
+    print(" Cliente activo")
     while True:
         ahora = time.time()
         if ahora > proximo_parpadeo:
