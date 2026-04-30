@@ -447,27 +447,16 @@ def limpiar_texto(texto: str) -> str:
     @return Respuesta generada "limpia".
     """
 
-    # Quitar negrita y cursiva
-    text = re.sub(r"\*\*(.*?)\*\*", r"\1", texto)
-    text = re.sub(r"\*(.*?)\*", r"\1", texto)
+    texto = re.sub(r"\*\*(.*?)\*\*", r"\1", texto)
+    texto = re.sub(r"\*(.*?)\*", r"\1", texto)
 
-    # Quitar lista tipo "- " 
-    # text = re.sub(r"^\s*-\s+", "", texto, flags=re.MULTILINE)
+    texto = re.sub(r"#+\s*", "", texto)
+    texto = re.sub(r"\d+\.\s*", "", texto)
 
-    # Quitar encabezados 
-    text = re.sub(r"#+\s*", "", texto)
+    texto = re.sub(r"^\s*-\s+", " ", texto, flags=re.MULTILINE)
 
-    # Quitar saltos excesivos    
-    text = re.sub(r"\n+", ". ", texto)
-
-    # Quitar símbolos raros
-    text = texto.replace(r"`", "")
-
-    #  Convertir listas a frases
-    text = texto.replace("- ", "y ")
-
-    # Eliminar enumeraciones rigidas    
-    text = re.sub(r"\d+\.\s*", "", texto)
+    texto = texto.replace("`", "")
+    texto = re.sub(r"\n+", ". ", texto)
 
     return texto.strip()
 
@@ -477,6 +466,7 @@ def hablar(texto):
 
     robot_hablando = True
     estado_texto = "Hablando..."
+    
 
     def _run():
         global robot_hablando, estado_texto
@@ -514,7 +504,7 @@ def audio_callback(indata, frames, time_, status):
     """
     
     if status:
-        print("⚠️ Audio status:", status)
+        print("Audio status:", status)
 
     if not robot_hablando:
         q_audio.put(bytes(indata))
@@ -535,7 +525,7 @@ def hilo_vosk():
     while True:
         data = q_audio.get()
 
-        # 🔥 Convertir 48kHz → 16kHz (rápido y suficiente)
+        #  Convertir 48kHz → 16kHz (rápido y suficiente)
         data_16k = data[::3]
 
         if rec.AcceptWaveform(data_16k):
@@ -543,7 +533,7 @@ def hilo_vosk():
             texto = res.get("text", "").strip()
 
             if texto:
-                print("🧠 Texto:", texto)
+                print("Texto:", texto)
                 estado_texto = f"Escuchado: {texto}"
                 cola_comandos.put(texto)
 
@@ -568,7 +558,8 @@ def hilo_respuestas():
         texto = cola_comandos.get()
 
         estado_texto = "Pensando..."
-
+        dibujar_cara(ojos_abiertos=True)  
+        
         try:
             respuesta = procesar_texto(texto)
         except Exception as e:
@@ -585,11 +576,12 @@ def hilo_respuestas():
 
 if __name__ == "__main__":
 
+    
     threading.Thread(target=hilo_vosk, daemon=True).start()
     threading.Thread(target=hilo_respuestas, daemon=True).start()
 
     with sd.InputStream(
-        samplerate=48000,   # 🔥 antes 16000 → ERROR
+        samplerate=48000,   #  antes 16000 → ERROR
         blocksize=8000,
         dtype='int16',
         channels=1,
@@ -601,15 +593,22 @@ if __name__ == "__main__":
         print("Asistente con memoria activo")
 
         while True:
-          ahora = time.time()
-          if ahora > proximo_parpadeo:
-              dibujar_cara(ojos_abiertos=False)
-              parpadeo_fin = ahora + 0.12
-              proximo_parpadeo = ahora + random.uniform(4, 8)
+            
+            global puntos
 
-          if parpadeo_fin and ahora > parpadeo_fin:
-              dibujar_cara(ojos_abiertos=True)
-              parpadeo_fin = 0
+            if estado_texto.startswith("Pensando"):
+                puntos = (puntos + 1) % 4
+                estado_texto = "Pensando" + "." * puntos
+                
+            ahora = time.time()
+            if ahora > proximo_parpadeo:
+                dibujar_cara(ojos_abiertos=False)
+                parpadeo_fin = ahora + 0.12
+                proximo_parpadeo = ahora + random.uniform(4, 8)
 
-          dibujar_cara(ojos_abiertos=True)
-          time.sleep(0.03)
+            if parpadeo_fin and ahora > parpadeo_fin:
+                dibujar_cara(ojos_abiertos=True)
+                parpadeo_fin = 0
+
+            dibujar_cara(ojos_abiertos=True)
+            time.sleep(0.03)
