@@ -25,7 +25,6 @@ import logging
 from pathlib import Path
 from datetime import datetime
 import random
-import datetime
 import threading
 import queue
 import subprocess
@@ -64,7 +63,7 @@ os.makedirs(LOG_DIR, exist_ok=True)
 
 log_filename = os.path.join(
     LOG_DIR,
-    datetime.datetime.now().strftime("asistente_%Y-%m-%d_%H-%M-%S.log")
+    datetime.now().strftime("asistente_%Y-%m-%d_%H-%M-%S.log")
 )
 
 logging.basicConfig(
@@ -413,7 +412,7 @@ def procesar_texto(texto):
     memoria.setdefault(USUARIO_ACTUAL, []).append({
         "user": texto,
         "bot": respuesta,
-        "time": datetime.datetime.now().isoformat()
+        "time": datetime.now().isoformat()
     })
 
     guardar_memoria(memoria)
@@ -467,6 +466,9 @@ def audio_callback(indata, frames, time_, status):
     @param status Estado del stream de audio.
     """
     
+    if status:
+        print("⚠️ Audio status:", status)
+
     if not robot_hablando:
         q_audio.put(bytes(indata))
         
@@ -481,19 +483,24 @@ def hilo_vosk():
     Cuando detecta una frase válida, la envía a la cola de comandos.
     """
     
+    global estado_texto
+
     while True:
-        while not q_audio.empty():
-            data = q_audio.get()
+        data = q_audio.get()
 
-            if rec.AcceptWaveform(data):
-                res = json.loads(rec.Result())
-                texto = res.get("text", "").strip()
+        # 🔥 Convertir 48kHz → 16kHz (rápido y suficiente)
+        data_16k = data[::3]
 
-                if texto:
-                    logger.info(f"VOSK: {texto}")
-                    cola_comandos.put(texto)
+        if rec.AcceptWaveform(data_16k):
+            res = json.loads(rec.Result())
+            texto = res.get("text", "").strip()
 
-        time.sleep(0.01)
+            if texto:
+                print("🧠 Texto:", texto)
+                estado_texto = f"Escuchado: {texto}"
+                cola_comandos.put(texto)
+
+        time.sleep(0.005)
         
         
 # =========================================================
@@ -535,12 +542,15 @@ if __name__ == "__main__":
     threading.Thread(target=hilo_respuestas, daemon=True).start()
 
     with sd.InputStream(
-        samplerate=16000,
+        samplerate=48000,   # 🔥 antes 16000 → ERROR
         blocksize=4000,
         dtype='int16',
         channels=1,
+        device=2,  # (puedes mejorar esto luego)
         callback=audio_callback
     ):
+
+
         print("Asistente con memoria activo")
 
         while True:
