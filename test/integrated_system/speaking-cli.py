@@ -101,12 +101,12 @@ LOG_DIR = "logs"
 # =========================================================
 
 curr_dir = os.path.dirname(__file__)
-config_path = os.path.join(curr_dir, "config.json")
+config_path = os.path.join(curr_dir, "config copy.json")
 
 with open(config_path, "r", encoding="utf-8") as f:
     config = json.load(f)
 
-PC_URL = config["pc_url"]
+PC_URL = config["server_url"]
 
 TIMEOUT = 90
 
@@ -581,6 +581,10 @@ if __name__ == "__main__":
     threading.Thread(target=hilo_vosk, daemon=True).start()
     threading.Thread(target=hilo_respuestas, daemon=True).start()
 
+    logger.info(f"Arrancando sistema para {USUARIO_ACTUAL}")
+    logger.info(f"config_path: {config_path}")
+    logger.info(f"url: {SERVER_URL}")
+
     # Saludo personalizado al inicio
     historial = memoria.get(USUARIO_ACTUAL, [])
     if historial:
@@ -603,8 +607,6 @@ if __name__ == "__main__":
 
         while True:
             
-            global puntos
-
             if estado_texto.startswith("Pensando"):
                 puntos = (puntos + 1) % 4
                 estado_texto = "Pensando" + "." * puntos

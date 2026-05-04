@@ -1,4 +1,5 @@
 from datetime import datetime
+import subprocess
 import sys
 import base64
 import json
@@ -46,7 +47,7 @@ logger = logging.getLogger("FaceClient")
 # ----- Cargar configuración -----
 ## @brief Cargar configuración desde archivo JSON
 curr_dir = os.path.dirname(__file__)
-config_path = os.path.join(curr_dir, "..", "config.json")
+config_path = os.path.join(curr_dir, "config.json")
 
 with open(config_path) as f:
     config = json.load(f)
@@ -327,6 +328,7 @@ class ClientApp(QWidget):
         super().__init__()
         self.setWindowTitle("Face Client")
         self.setFixedSize(640, 520)
+        self.proceso_asistente = None
         self.setStyleSheet("background-color: #2c3e50;")
 
         logger.info("Inicializando aplicación...")
@@ -472,9 +474,25 @@ class ClientApp(QWidget):
 
     def iniciar_asistente(self, usuario):
         """Lanza el proceso del asistente con el usuario reconocido."""
-        import subprocess
-        subprocess.Popen(["python3", "asistente_robotico.py", usuario])
-        
+        if self.proceso_asistente and self.proceso_asistente.poll() is None:
+            self.proceso_asistente.terminate()
+
+        self.proceso_asistente = subprocess.Popen(["python3", 
+                          "test/integrated_system/speaking-cli.py", usuario])
+
+    def closeEvent(self, event):
+        """ @brief Cierra el asistente al cerrar la app"""
+
+        if self.proceso_asistente and self.proceso_asistente.poll() is None:
+            self.proceso_asistente.terminate()
+            self.proceso_asistente.wait()
+
+        if self.cap.isOpened():
+            self.cap.release()
+
+        event.accept()
+
+
     def on_recognition_result(self, data):
         """@brief Maneja respuesta del servidor."""
 
@@ -482,13 +500,19 @@ class ClientApp(QWidget):
         logger.info(f"Resultado: {data}")
 
         names = data.get("recognized", [])
-        if names and  "Desconocido" not in names:
+
+        if not names: 
+            self.result_label.setText("No se reconocio ningun rostro")
+
+        elif "Desconocido"  in names:
+            show_message(self, "warning", "Inicio fallido", "Usuario desconocido.")
+            self.result_label.setText("Inicio fallido")
+
+        else:
             usuario = names[0]
             self.result_label.setText(f"Bienvenid@ {', '.join(names)}!")
-            
             self.iniciar_asistente(usuario)
-        else:
-            show_message(self, "warning", "Inicio fallido", "Usuario desconocido.")
+
         self.result_label.setStyleSheet("color: white; font-weight: bold")
 
     def on_recognition_error(self, message):
@@ -786,7 +810,6 @@ class ClientApp(QWidget):
 if __name__ == "__main__":
     
     logger.info(f"Iniciando API....")
-
     app = QApplication(sys.argv)
     client = ClientApp()
     client.show()
