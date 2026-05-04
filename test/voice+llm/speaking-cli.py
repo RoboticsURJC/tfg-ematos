@@ -91,6 +91,14 @@ SERVER_URL = f"http://{SERVER_IP}:8000/generate"
 
 VOSK_MODEL_PATH = "/home/elisa/tfg-ematos/test/voice/vosk-model-small-es-0.42"
 
+WAKE_WORD = "rojazz"
+FRASES_HUMANAS = [
+    "Claro ",
+    "Déjame pensar un momento...",
+    "Buena pregunta",
+    "A ver...",
+    "Te cuento"
+]
 
 MEMORY_FILE = "memoria_usuarios.json"
 LOG_DIR = "logs"
@@ -162,6 +170,10 @@ estado_texto = "Escuchando..."
 cola_comandos = queue.Queue()
 q_audio = queue.Queue()
 
+modo_conversacion = False
+ultimo_trigger = 0
+robot_activado = False
+
 proximo_parpadeo = time.time() + random.uniform(3, 6)
 parpadeo_fin = 0
 
@@ -189,7 +201,7 @@ display = ili9341.ILI9341(
 )
 
 
-def dibujar_cara(ojos_abiertos=True):
+def dibujar_cara(ojos_abiertos=True, activado=False):
     img = Image.new("RGB", (display.width, display.height), "black")
     draw = ImageDraw.Draw(img)
 
@@ -210,12 +222,16 @@ def dibujar_cara(ojos_abiertos=True):
         # Brillo fijo
         draw.ellipse((cx-sep+8, cy-18, cx-sep+16, cy-10), fill="white")
         draw.ellipse((cx+sep+8, cy-18, cx+sep+16, cy-10), fill="white")
-        # draw.ellipse((cx-sep-15, cy+5, cx-sep-10, cy+10), fill="white")
-        # draw.ellipse((cx+sep-15, cy+5, cx+sep-10, cy+10), fill="white")
+    
     else:
         draw.line((cx-sep-radio, cy, cx-sep+radio, cy), fill="white", width=5)
         draw.line((cx+sep-radio, cy, cx+sep+radio, cy), fill="white", width=5)
-
+    
+    if activado:
+        # ojos más "vivos"
+        draw.ellipse((cx-sep-radio, cy-radio, cx-sep+radio, cy+radio), outline="cyan", width=4)
+        draw.ellipse((cx+sep-radio, cy-radio, cx+sep+radio, cy+radio), outline="cyan", width=4)
+    
     # Boca
     boca_y = cy + 75
     if robot_hablando:
@@ -266,6 +282,36 @@ def web_search(query):
 # =========================================================
 # ACCIONES DEFINIDAS
 # =========================================================
+
+def humanizar(respuesta):
+    """
+    @brief Genera un inicio de frase aleatoria para para inciar la conversacion.
+
+    @param respuesta Respuesta generada.
+    @return Respuesta generada + la frase humizada.
+    """
+    
+    if random.random() < 0.7:
+        inicio = random.choice(FRASES_HUMANAS)
+        return f"{inicio} {respuesta}"
+
+    return respuesta
+
+def activar(texto):
+    """
+    @brief Detecta si tiene que estar escuchando el robot.
+
+    @param text Texto de entrada.
+    @return Booleano si tiene que escuchar o no.
+    """
+    
+    texto = texto.lower()
+
+    if WAKE_WORD in texto:
+        limpio = texto.replace(WAKE_WORD, "").strip()
+        return True, limpio
+    
+    return False, ""
 
 def get_current_time():
     """
@@ -427,6 +473,9 @@ def procesar_texto(texto):
         "time": datetime.now().isoformat()
     })
 
+    # HUMANIZAR RESPUESTA
+    respuesta = humanizar(respuesta)
+
     guardar_memoria(memoria)
 
     logger.info(f"BOT: {respuesta}")
@@ -520,7 +569,7 @@ def hilo_vosk():
     Cuando detecta una frase válida, la envía a la cola de comandos.
     """
     
-    global estado_texto
+    global estado_texto, modo_conversacion, ultimo_trigger, robot_activado
 
     while True:
         data = q_audio.get()
@@ -534,8 +583,31 @@ def hilo_vosk():
 
             if texto:
                 print("Texto:", texto)
-                estado_texto = f"Escuchado: {texto}"
-                cola_comandos.put(texto)
+                
+                activo, texto_limpio = activar(texto)
+                
+                if activo:
+                    modo_conversacion = True
+                    robot_activado = True
+                    ultimo_trigger = time.time()
+
+                    estado_texto = "Te escucho"
+                                    
+                    if texto_limpio:
+                        cola_comandos.put(texto_limpio)
+                        
+                        
+                elif modo_conversacion:
+                    cola_comandos.put(texto)
+                    ultimo_trigger = time.time()  # refresca timeout  
+            
+                else:
+                    estado_texto = "Di 'Rojazz' para activarme"
+                    
+        if modo_conversacion and (time.time() - ultimo_trigger > 10):
+            modo_conversacion = False
+            robot_activado = False
+            estado_texto = "En reposo..."
 
         time.sleep(0.005)
         
@@ -558,7 +630,6 @@ def hilo_respuestas():
         texto = cola_comandos.get()
 
         estado_texto = "Pensando..."
-        dibujar_cara(ojos_abiertos=True)  
         
         try:
             respuesta = procesar_texto(texto)
@@ -599,16 +670,18 @@ if __name__ == "__main__":
             if estado_texto.startswith("Pensando"):
                 puntos = (puntos + 1) % 4
                 estado_texto = "Pensando" + "." * puntos
-                
+            
+            
+            # Parpadeo
             ahora = time.time()
             if ahora > proximo_parpadeo:
-                dibujar_cara(ojos_abiertos=False)
+                dibujar_cara(ojos_abiertos=False, activado=robot_activado)
                 parpadeo_fin = ahora + 0.12
                 proximo_parpadeo = ahora + random.uniform(4, 8)
 
             if parpadeo_fin and ahora > parpadeo_fin:
-                dibujar_cara(ojos_abiertos=True)
+                dibujar_cara(ojos_abiertos=True, activado=robot_activado)
                 parpadeo_fin = 0
 
-            dibujar_cara(ojos_abiertos=True)
+            dibujar_cara(ojos_abiertos=True, activado=robot_activado)
             time.sleep(0.03)
