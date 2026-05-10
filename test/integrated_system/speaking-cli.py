@@ -116,6 +116,7 @@ OUTPUT_FILE = f"results_rpi_{timestamp}.json"
 TIMEOUT = 90  #  importante para Gemini/GPT
 
 
+
 # =========================================================
 # MEMORIA PERSISTENTE
 # =========================================================
@@ -156,7 +157,7 @@ memoria = cargar_memoria()
 
 robot_hablando = False
 estado_texto = "Escuchando..."
-puntos = 0          
+puntos = 0   
 
 cola_comandos = queue.Queue()
 q_audio = queue.Queue()
@@ -490,6 +491,15 @@ def hablar(texto):
 model = vosk.Model(VOSK_MODEL_PATH)
 rec = vosk.KaldiRecognizer(model, 16000)
 
+def encontrar_micro(nombre_clave):
+    dispositivos = sd.query_devices()
+
+    for i, d in enumerate(dispositivos):
+        if d["max_input_channels"] > 0 and nombre_clave.lower() in d["name"].lower():
+            return i
+    
+    return None
+
 def audio_callback(indata, frames, time_, status):
     """
     @brief Callback de entrada de audio en tiempo real.
@@ -592,13 +602,15 @@ if __name__ == "__main__":
     else:
         hablar(f"Hola {USUARIO_ACTUAL}, soy tu asistente. ¿En qué te puedo ayudar?")
         
-        
+    micro_id = encontrar_micro("AB13X")
+    print(micro_id)
+
     with sd.InputStream(
         samplerate=48000,   #  antes 16000 → ERROR
         blocksize=8000,
         dtype='int16',
         channels=1,
-        device=2,  # (puedes mejorar esto luego)
+        device=micro_id, 
         callback=audio_callback
     ):
 
