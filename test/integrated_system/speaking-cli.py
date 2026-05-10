@@ -158,6 +158,7 @@ memoria = cargar_memoria()
 robot_hablando = False
 estado_texto = "Escuchando..."
 puntos = 0   
+proceso_audio = None
 
 cola_comandos = queue.Queue()
 q_audio = queue.Queue()
@@ -463,23 +464,65 @@ def limpiar_texto(texto: str) -> str:
 
    
 def hablar(texto):
-    global robot_hablando, estado_texto
-
-    robot_hablando = True
-    estado_texto = "Hablando..."
     
+    """
+    @brief Reproduce una frase en voz mediante síntesis TTS.
+
+    Esta función genera audio a partir de texto usando pico2wave y
+    lo reproduce mediante aplay. Se ejecuta en un hilo separado para
+    no bloquear el sistema principal.
+
+    Flujo:
+    - Limpia el texto de formato innecesario
+    - Genera un archivo de audio temporal (/tmp/voz.wav)
+    - Reproduce el audio con el sistema
+    - Actualiza el estado del robot durante la reproducción
+
+    @param texto Texto que se desea convertir a voz.
+    @return None
+    """
+
+    global robot_hablando
+    global estado_texto
+    global proceso_audio
+
+    estado_texto = "Preparando voz..."
 
     def _run():
-        global robot_hablando, estado_texto
+
+        global robot_hablando
+        global estado_texto
+        global proceso_audio
 
         texto_limpio = limpiar_texto(texto)
 
-        subprocess.run(["pico2wave", "-l=es-ES", "-w=/tmp/voz.wav", texto_limpio],
-                       stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        subprocess.run(["aplay", "/tmp/voz.wav"],
-                       stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        # Generar audio
+        subprocess.run(
+            [
+                "pico2wave",
+                "-l=es-ES",
+                "-w=/tmp/voz.wav",
+                texto_limpio
+            ],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL
+        )
+
+        # Ahora sí empieza a hablar
+        robot_hablando = True
+        estado_texto = "Hablando..."
+
+        proceso_audio = subprocess.Popen(
+            ["aplay", "/tmp/voz.wav"],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL
+        )
+
+        proceso_audio.wait()
+
         robot_hablando = False
         estado_texto = "Escuchando..."
+        proceso_audio = None
 
     threading.Thread(target=_run, daemon=True).start()
     
@@ -492,6 +535,15 @@ model = vosk.Model(VOSK_MODEL_PATH)
 rec = vosk.KaldiRecognizer(model, 16000)
 
 def encontrar_micro(nombre_clave):
+    """
+    @brief Encuentra micro 
+
+    Este método recibe un nombre clave para buscarlo en la lista 
+    de dispositivos conectados.
+
+    @param nombre_clave Nombre del dispositivo a buscar.
+    """
+    
     dispositivos = sd.query_devices()
 
     for i, d in enumerate(dispositivos):
@@ -499,6 +551,24 @@ def encontrar_micro(nombre_clave):
             return i
     
     return None
+
+def detener_voz():
+    
+    """
+    @brief Detiene la locución del robot.
+
+    Este método detiene al robot si está hablando
+
+    """
+    
+    global robot_hablando, estado_texto, proceso_audio
+    
+    if proceso_audio is not None:
+       proceso_audio.terminate() 
+       proceso_audio = None
+       
+    robot_hablando = False
+    estado_texto = "Escuchando..."
 
 def audio_callback(indata, frames, time_, status):
     """
@@ -516,8 +586,7 @@ def audio_callback(indata, frames, time_, status):
     if status:
         print("Audio status:", status)
 
-    if not robot_hablando:
-        q_audio.put(bytes(indata))
+    q_audio.put(bytes(indata))
         
         
 def hilo_vosk():
@@ -556,10 +625,24 @@ def hilo_vosk():
 
 def hilo_respuestas():
     """
-    @brief Hilo principal de generación de respuestas.
+        @brief Hilo principal de procesamiento de comandos de voz.
 
-    Extrae texto reconocido de la cola, lo procesa mediante el sistema
-    inteligente (tools + LLM + memoria) y genera una respuesta hablada.
+        Este hilo ejecuta un bucle infinito que consume texto reconocido
+        desde una cola, interpreta comandos del usuario y genera respuestas
+        mediante el sistema de procesamiento del asistente.
+
+        Funciones principales:
+        - Extrae texto de la cola de comandos de voz
+        - Detecta órdenes de parada (ej: "calla", "para", "silencio")
+        - Cancela la reproducción de voz si se solicita
+        - Procesa el texto mediante el sistema inteligente (NLP/LLM)
+        - Genera y reproduce la respuesta en voz
+
+        El hilo funciona de forma continua y asíncrona, manteniendo el
+        flujo conversacional del asistente activo en tiempo real.
+
+        @note Este hilo es bloqueante internamente pero debe ejecutarse
+            en un thread separado.
     """
     
     global estado_texto
@@ -567,8 +650,20 @@ def hilo_respuestas():
     while True:
         texto = cola_comandos.get()
 
+        texto_lower = texto.lower()
+
+        # COMANDOS DE PARADA
+        if any(x in texto_lower for x in [
+            "calla",
+            "para",
+            "silencio",
+            "cállate"
+        ]):
+            detener_voz()
+            continue
+
         estado_texto = "Pensando..."
-        
+            
         try:
             respuesta = procesar_texto(texto)
         except Exception as e:
