@@ -5,36 +5,26 @@ import os
 
 from app.core.assistant import procesar_texto
 from app.llm.client import LLMClient
-
 from app.voice.stt_vosk import VoskSTT
-from app.voice.audio_stream import start_stream
 from app.voice.tts import TTS
-
 from app.ui.display import FaceDisplay
+
+logger = logging.getLogger("engine")
 
 
 class AssistantEngine:
 
     def __init__(self, config_path=None):
 
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+
         if config_path is None:
-
-            base_dir = os.path.dirname(
-                os.path.abspath(__file__)
-            )
-
-            config_path = os.path.join(
-                base_dir,
-                "..",
-                "config",
-                "config.json"
-            )
+            config_path = os.path.join(base_dir, "..", "config", "config.json")
 
         with open(config_path, "r", encoding="utf-8") as f:
             self.config = json.load(f)
 
         self.SERVER_URL = self.config["server"]["llm_url"]
-        self.DEFAULT_USER = self.config["system"]["default_user"]
 
         self.llm = LLMClient(
             server_url=self.SERVER_URL,
@@ -50,16 +40,20 @@ class AssistantEngine:
         self.user = None
 
     # =========================
-    # LOGIN EVENT
+    # USER LOGIN
     # =========================
     def on_user(self, user: str):
 
         self.user = user
 
         self.display.set_estado(f"Hola {user}")
+
         self.tts.speak(f"Hola {user}, sistema activado")
 
+        # VOZ
         threading.Thread(target=self._start_voice, daemon=True).start()
+
+        # DISPLAY físico
         threading.Thread(target=self._start_display, daemon=True).start()
 
     # =========================
@@ -69,12 +63,16 @@ class AssistantEngine:
 
         def on_speech(text):
 
-            self.display.set_estado(f"Entendiendo: {text}")
+            self.display.set_estado(f"Procesando: {text}")
 
-            respuesta = procesar_texto(self.user, text)
+            #  LLM REAL
+            respuesta = self.llm.generate(text)
 
-            self.display.set_estado("Hablando...")
+            if not respuesta:
+                respuesta = procesar_texto(self.user, text)
+
             self.display.set_hablando(True)
+            self.display.set_estado("Hablando...")
 
             self.tts.speak(respuesta)
 
@@ -84,7 +82,10 @@ class AssistantEngine:
         self.stt.listen_loop(on_speech)
 
     # =========================
-    # DISPLAY
+    # DISPLAY THREAD
     # =========================
     def _start_display(self):
-        self.display.start()
+        try:
+            self.display.start()
+        except Exception as e:
+            logger.exception(f"Error display: {e}")
