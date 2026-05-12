@@ -1,179 +1,79 @@
-import time
-import random
 import json
 import threading
+import os
 
-import board
-import busio
-import digitalio
+from app.core.assistant import procesar_texto
+from app.llm.client import LLMClient
 
-from PIL import Image, ImageDraw, ImageFont
-from adafruit_rgb_display import ili9341
+from app.voice.stt_vosk import VoskSTT
+from app.voice.audio_stream import start_stream
+from app.voice.tts import TTS
+from app.ui.display import FaceDisplay
 
 
-class FaceDisplay:
+class AssistantEngine:
 
     def __init__(self, config_path=None):
 
-        if config_path:
-            with open(config_path) as f:
-                self.config = json.load(f)
-        else:
-            self.config = {}
+        if config_path is None:
+            base_dir = os.path.dirname(os.path.abspath(__file__))
+            config_path = os.path.join(base_dir, "..", "config", "config.json")
 
-        cfg = self.config.get("display", {})
+        with open(config_path, "r", encoding="utf-8") as f:
+            self.config = json.load(f)
 
-        self.fps = cfg.get("fps", 30)
-        self.blink_min = cfg.get("blink_min_seconds", 4)
-        self.blink_max = cfg.get("blink_max_seconds", 8)
-
-        # SPI
-        spi = busio.SPI(board.SCK, MOSI=board.MOSI)
-        cs = digitalio.DigitalInOut(board.CE0)
-        dc = digitalio.DigitalInOut(board.D23)
-        rst = digitalio.DigitalInOut(board.D24)
-
-        self.display = ili9341.ILI9341(
-            spi,
-            cs=cs,
-            dc=dc,
-            rst=rst,
-            baudrate=24000000,
-            width=320,
-            height=240
+        self.llm = LLMClient(
+            server_url=self.config["server"]["llm_url"],
+            model=self.config["server"]["model"],
+            timeout=self.config["server"]["timeout"]
         )
 
-        self.lock = threading.Lock()
+        self.tts = TTS(lang=self.config["tts"]["language"])
+        self.stt = VoskSTT(self.config["voice"]["vosk_model_path"])
 
-        self.estado = "Escuchando..."
-        self.hablando = False
+        self.display = FaceDisplay(config_path)
 
-        self.ojos = True
-        self.next_blink = time.time() + random.uniform(self.blink_min, self.blink_max)
-        self.blink_end = 0
+        self.user = None
+        self.stream = None
 
-        # VIDA EN OJOS
-        self.px = 0
-        self.py = 0
+    def on_user(self, user: str):
 
-        self.running = False
+        self.user = user
 
-        try:
-            self.font = ImageFont.truetype(
-                "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
-                16
-            )
-        except:
-            self.font = ImageFont.load_default()
+        self.display.set_estado(f"Hola {user}")
+        self.tts.speak(f"Hola {user}, sistema activado")
 
-    # =========================
-    # API
-    # =========================
-    def set_estado(self, txt):
-        with self.lock:
-            self.estado = txt
+        #  1. ARRANCAR AUDIO STREAM (ESTO TE FALTABA)
+        self.stream, _ = start_stream()
+        self.stream.start()
 
-    def set_hablando(self, val):
-        with self.lock:
-            self.hablando = val
+        # 2. DISPLAY THREAD
+        threading.Thread(target=self._start_display, daemon=True).start()
 
-    # =========================
-    # OJOS CON BRILLO
-    # =========================
-    def draw_eyes(self, draw, cx, cy, sep):
+        #  3. VOZ THREAD
+        threading.Thread(target=self._start_voice, daemon=True).start()
 
-        r = 35
+    def _start_voice(self):
 
-        if not self.ojos:
-            draw.line((cx-sep-r, cy, cx-sep+r, cy), fill="white", width=5)
-            draw.line((cx+sep-r, cy, cx+sep+r, cy), fill="white", width=5)
-            return
+        def on_speech(text):
 
-        # brillo (glow)
-        for i in range(3):
-            draw.ellipse(
-                (cx-sep-r-i, cy-r-i, cx-sep+r+i, cy+r+i),
-                outline=(120, 180, 255),
-                width=1
-            )
-            draw.ellipse(
-                (cx+sep-r-i, cy-r-i, cx+sep+r+i, cy+r+i),
-                outline=(120, 180, 255),
-                width=1
-            )
+            if not text:
+                return
 
-        # ojos
-        draw.ellipse((cx-sep-r, cy-r, cx-sep+r, cy+r), outline="white", width=4)
-        draw.ellipse((cx+sep-r, cy-r, cx+sep+r, cy+r), outline="white", width=4)
+            self.display.set_estado(f"Entendiendo: {text}")
 
-        # pupilas vivas
-        for ox in [-sep, sep]:
+            respuesta = procesar_texto(self.user, text)
 
-            draw.ellipse(
-                (cx+ox-6+self.px, cy-6+self.py,
-                 cx+ox+6+self.px, cy+6+self.py),
-                fill="white"
-            )
+            #  LLM OUTPUT → DISPLAY + VOZ
+            self.display.set_estado("Hablando...")
+            self.display.set_hablando(True)
 
-            draw.ellipse(
-                (cx+ox-10+self.px, cy-10+self.py,
-                 cx+ox+10+self.px, cy+10+self.py),
-                fill="black"
-            )
+            self.tts.speak(respuesta)
 
-    # =========================
-    # FRAME
-    # =========================
-    def draw(self):
+            self.display.set_hablando(False)
+            self.display.set_estado("Escuchando...")
 
-        with self.lock:
-            txt = self.estado
-            talking = self.hablando
+        self.stt.listen_loop(on_speech)
 
-        img = Image.new("RGB", (320, 240), "black")
-        draw = ImageDraw.Draw(img)
-
-        cx, cy = 160, 100
-
-        self.draw_eyes(draw, cx, cy, 75)
-
-        # boca
-        if talking:
-            h = random.randint(10, 18)
-            draw.ellipse((145, 160-h, 175, 160+h), outline="white", width=4)
-        else:
-            draw.arc((130, 150, 190, 180), 0, 180, fill="white", width=4)
-
-        # texto
-        draw.text((10, 210), txt[:40], font=self.font, fill=(0, 255, 0))
-
-        self.display.image(img)
-
-    # =========================
-    # LOOP
-    # =========================
-    def start(self):
-
-        self.running = True
-        frame_time = 1 / self.fps
-
-        while self.running:
-
-            now = time.time()
-
-            if now > self.next_blink:
-                self.ojos = False
-                self.blink_end = now + 0.15
-                self.next_blink = now + random.uniform(self.blink_min, self.blink_max)
-
-            if self.blink_end and now > self.blink_end:
-                self.ojos = True
-                self.blink_end = 0
-
-            # vida en ojos
-            self.px = random.randint(-2, 2)
-            self.py = random.randint(-1, 1)
-
-            self.draw()
-
-            time.sleep(frame_time)
+    def _start_display(self):
+        self.display.start()
