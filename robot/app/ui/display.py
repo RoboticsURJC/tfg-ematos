@@ -1,6 +1,7 @@
 import time
 import random
 import json
+import threading
 
 import board
 import busio
@@ -10,56 +11,27 @@ from PIL import Image, ImageDraw, ImageFont
 from adafruit_rgb_display import ili9341
 
 
-## @file display.py
-#  @brief Control visual del rostro del asistente.
-#
-#  Gestiona:
-#   - pantalla SPI ILI9341
-#   - animación facial
-#   - texto de estado
-#   - parpadeos automáticos
-#   - animación de boca
-
-
 class FaceDisplay:
-    """
-    Controla la pantalla física SPI y renderiza
-    la cara animada del asistente.
-    """
 
-    # =========================
-    # INIT
-    # =========================
     def __init__(self, config_path=None):
 
         # =========================
         # CONFIG
         # =========================
-        self.config = {}
-
         if config_path:
-            try:
-                with open(config_path, "r") as f:
-                    self.config = json.load(f)
-            except Exception:
-                print("No se pudo cargar config.json")
+            with open(config_path) as f:
+                self.config = json.load(f)
+        else:
+            self.config = {}
 
         display_cfg = self.config.get("display", {})
 
         self.fps = display_cfg.get("fps", 30)
-
-        self.blink_min = display_cfg.get(
-            "blink_min_seconds",
-            4
-        )
-
-        self.blink_max = display_cfg.get(
-            "blink_max_seconds",
-            8
-        )
+        self.blink_min = display_cfg.get("blink_min_seconds", 4)
+        self.blink_max = display_cfg.get("blink_max_seconds", 8)
 
         # =========================
-        # SPI SETUP
+        # SPI
         # =========================
         spi = busio.SPI(
             board.SCK,
@@ -70,9 +42,6 @@ class FaceDisplay:
         dc = digitalio.DigitalInOut(board.D23)
         rst = digitalio.DigitalInOut(board.D24)
 
-        # =========================
-        # DISPLAY
-        # =========================
         self.display = ili9341.ILI9341(
             spi,
             cs=cs,
@@ -84,23 +53,21 @@ class FaceDisplay:
         )
 
         # =========================
-        # ESTADO INTERNO
+        # ESTADO
         # =========================
         self.robot_hablando = False
-
-        self.estado_texto = "Inicializando..."
-
-        self.ojos_abiertos = True
+        self.estado_texto = "Iniciando..."
 
         self.parpadeo_fin = 0
 
         self.proximo_parpadeo = (
-            time.time() +
-            random.uniform(
+            time.time() + random.uniform(
                 self.blink_min,
                 self.blink_max
             )
         )
+
+        self.running = False
 
         # =========================
         # FUENTE
@@ -119,127 +86,109 @@ class FaceDisplay:
     # =========================
     # API EXTERNA
     # =========================
-    def set_estado(self, texto: str):
-        """
-        Actualiza texto inferior.
-        """
+    def set_estado(self, texto):
         self.estado_texto = texto
 
-    def set_hablando(self, speaking: bool):
-        """
-        Cambia estado de animación de boca.
-        """
-        self.robot_hablando = speaking
+    def set_hablando(self, hablando):
+        self.robot_hablando = hablando
 
     # =========================
-    # DIBUJO COMPLETO
+    # START DISPLAY THREAD
     # =========================
-    def dibujar_cara(self):
+    def start(self):
 
-        # Crear canvas
+        if self.running:
+            return
+
+        self.running = True
+
+        threading.Thread(
+            target=self.loop,
+            daemon=True
+        ).start()
+
+    # =========================
+    # STOP
+    # =========================
+    def stop(self):
+        self.running = False
+
+    # =========================
+    # DRAW
+    # =========================
+    def dibujar_cara(self, ojos_abiertos=True):
+
         img = Image.new(
             "RGB",
-            (
-                self.display.width,
-                self.display.height
-            ),
+            (self.display.width, self.display.height),
             "black"
         )
 
         draw = ImageDraw.Draw(img)
 
-        # =========================
-        # GEOMETRÍA BASE
-        # =========================
         cx = self.display.width // 2
         cy = self.display.height // 2 - 30
 
         radio = 35
-        separacion = 75
+        sep = 75
 
         # =========================
         # OJOS
         # =========================
-        if self.ojos_abiertos:
+        if ojos_abiertos:
 
-            # OJO IZQUIERDO
+            # ojo izquierdo
             draw.ellipse(
                 (
-                    cx - separacion - radio,
-                    cy - radio,
-                    cx - separacion + radio,
-                    cy + radio
+                    cx-sep-radio,
+                    cy-radio,
+                    cx-sep+radio,
+                    cy+radio
                 ),
                 outline="white",
                 width=4
             )
 
-            # OJO DERECHO
+            # ojo derecho
             draw.ellipse(
                 (
-                    cx + separacion - radio,
-                    cy - radio,
-                    cx + separacion + radio,
-                    cy + radio
+                    cx+sep-radio,
+                    cy-radio,
+                    cx+sep+radio,
+                    cy+radio
                 ),
                 outline="white",
                 width=4
             )
 
-            # =========================
-            # PUPILAS
-            # =========================
+            # pupilas
             draw.ellipse(
                 (
-                    cx - separacion - 10,
-                    cy - 10,
-                    cx - separacion + 10,
-                    cy + 10
+                    cx-sep-10,
+                    cy-10,
+                    cx-sep+10,
+                    cy+10
                 ),
                 fill="white"
             )
 
             draw.ellipse(
                 (
-                    cx + separacion - 10,
-                    cy - 10,
-                    cx + separacion + 10,
-                    cy + 10
-                ),
-                fill="white"
-            )
-
-            # =========================
-            # BRILLOS
-            # =========================
-            draw.ellipse(
-                (
-                    cx - separacion + 8,
-                    cy - 18,
-                    cx - separacion + 16,
-                    cy - 10
-                ),
-                fill="white"
-            )
-
-            draw.ellipse(
-                (
-                    cx + separacion + 8,
-                    cy - 18,
-                    cx + separacion + 16,
-                    cy - 10
+                    cx+sep-10,
+                    cy-10,
+                    cx+sep+10,
+                    cy+10
                 ),
                 fill="white"
             )
 
         else:
 
-            # OJOS CERRADOS
             draw.line(
                 (
-                    cx - separacion - radio,
+                    cx-sep-radio,
                     cy,
-                    cx - separacion + radio,
+                    cx-sep+radio,
                     cy
                 ),
                 fill="white",
@@ -248,9 +197,9 @@ class FaceDisplay:
 
             draw.line(
                 (
-                    cx + separacion - radio,
+                    cx+sep-radio,
                     cy,
-                    cx + separacion + radio,
+                    cx+sep+radio,
                     cy
                 ),
                 fill="white",
@@ -268,10 +217,10 @@ class FaceDisplay:
 
             draw.ellipse(
                 (
-                    cx - 18,
-                    boca_y - apertura,
-                    cx + 18,
-                    boca_y + apertura
+                    cx-15,
+                    boca_y-apertura,
+                    cx+15,
+                    boca_y+apertura
                 ),
                 outline="white",
                 width=4
@@ -279,35 +228,28 @@ class FaceDisplay:
 
         else:
 
-            # sonrisa
             draw.arc(
                 (
-                    cx - 30,
-                    boca_y - 10,
-                    cx + 30,
-                    boca_y + 20
+                    cx-30,
+                    boca_y-10,
+                    cx+30,
+                    boca_y+20
                 ),
-                start=0,
-                end=180,
+                0,
+                180,
                 fill="white",
                 width=4
             )
 
         # =========================
-        # PANEL TEXTO
+        # TEXTO
         # =========================
         draw.rectangle(
-            (
-                0,
-                200,
-                320,
-                240
-            ),
+            (0, 200, 320, 240),
             fill="black"
         )
 
-        # color dinámico
-        text_color = (
+        color = (
             (255, 255, 0)
             if self.robot_hablando
             else (0, 255, 0)
@@ -317,64 +259,50 @@ class FaceDisplay:
             (10, 210),
             self.estado_texto[:35],
             font=self.font,
-            fill=text_color
+            fill=color
         )
 
-        # =========================
-        # ENVIAR A DISPLAY
-        # =========================
         self.display.image(img)
 
     # =========================
-    # PARPADEO
+    # LOOP
     # =========================
-    def actualizar_parpadeo(self):
+    def loop(self):
 
-        ahora = time.time()
+        frame_time = 1 / self.fps
 
-        # iniciar parpadeo
-        if ahora > self.proximo_parpadeo:
+        ojos_abiertos = True
 
-            self.ojos_abiertos = False
+        while self.running:
 
-            self.parpadeo_fin = ahora + 0.15
+            now = time.time()
 
-            self.proximo_parpadeo = (
-                ahora +
-                random.uniform(
-                    self.blink_min,
-                    self.blink_max
+            # =========================
+            # PARPADEO
+            # =========================
+            if now > self.proximo_parpadeo:
+
+                ojos_abiertos = False
+
+                self.parpadeo_fin = now + 0.15
+
+                self.proximo_parpadeo = (
+                    now + random.uniform(
+                        self.blink_min,
+                        self.blink_max
+                    )
                 )
+
+            if self.parpadeo_fin and now > self.parpadeo_fin:
+
+                ojos_abiertos = True
+                self.parpadeo_fin = 0
+
+            # =========================
+            # DIBUJAR
+            # =========================
+            self.dibujar_cara(
+                ojos_abiertos=ojos_abiertos
             )
 
-        # terminar parpadeo
-        if (
-            self.parpadeo_fin and
-            ahora > self.parpadeo_fin
-        ):
-            self.ojos_abiertos = True
-            self.parpadeo_fin = 0
-
-    # =========================
-    # LOOP PRINCIPAL
-    # =========================
-    def loop(self, fps=None):
-        """
-        Loop principal de renderizado.
-        """
-
-        if fps is None:
-            fps = self.fps
-
-        frame_time = 1 / fps
-
-        while True:
-
-            # actualizar animaciones
-            self.actualizar_parpadeo()
-
-            # render
-            self.dibujar_cara()
-
-            # FPS
             time.sleep(frame_time)

@@ -6,12 +6,26 @@ import cv2
 import logging
 
 from PyQt5.QtWidgets import (
-    QApplication, QWidget, QLabel, QPushButton,
-    QVBoxLayout, QDialog, QProgressBar
+    QApplication,
+    QWidget,
+    QLabel,
+    QPushButton,
+    QVBoxLayout,
+    QDialog,
+    QProgressBar
 )
 
-from PyQt5.QtCore import QTimer, Qt, QThread, pyqtSignal
-from PyQt5.QtGui import QImage, QPixmap
+from PyQt5.QtCore import (
+    QTimer,
+    Qt,
+    QThread,
+    pyqtSignal
+)
+
+from PyQt5.QtGui import (
+    QImage,
+    QPixmap
+)
 
 from app.ui.display import FaceDisplay
 
@@ -33,45 +47,63 @@ SERVER_URL = config["server"]["recognition_url"]
 # =========================
 # LOGGING
 # =========================
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s | %(levelname)s | %(message)s"
+)
+
 logger = logging.getLogger("FaceClient")
 
 
 # =========================
-# WORKER (API CALL)
+# WORKER API
 # =========================
 class Worker(QThread):
+
     result_signal = pyqtSignal(dict)
     error_signal = pyqtSignal(str)
 
     def __init__(self, server_url, image):
         super().__init__()
+
         self.server_url = server_url
         self.image = image
 
     def run(self):
+
         try:
             import requests
 
-            r = requests.post(
+            response = requests.post(
                 f"{self.server_url}/recognize",
                 json={"image": self.image},
                 timeout=10
             )
 
-            if r.ok:
-                self.result_signal.emit(r.json())
+            if response.ok:
+
+                self.result_signal.emit(
+                    response.json()
+                )
+
             else:
-                self.error_signal.emit("Error del servidor")
+
+                self.error_signal.emit(
+                    f"Error servidor ({response.status_code})"
+                )
 
         except Exception as e:
-            self.error_signal.emit(f"Sin conexión: {e}")
+
+            self.error_signal.emit(
+                f"Sin conexión: {e}"
+            )
 
 
 # =========================
 # POPUP
 # =========================
 class ProgressPopup(QDialog):
+
     def __init__(self, text="Procesando..."):
         super().__init__()
 
@@ -104,29 +136,37 @@ class FaceClient(QWidget):
         self.server_url = SERVER_URL
         self.on_authenticated = on_authenticated
 
+        # =========================
+        # WINDOW
+        # =========================
         self.setWindowTitle("Face Client")
         self.setFixedSize(640, 520)
 
         # =========================
-        # DISPLAY FÍSICO (SPI)
+        # DISPLAY SPI
         # =========================
-        self.display = FaceDisplay(config_path=config_path)
-        self.display.set_estado("Sistema iniciado")
+        self.display = FaceDisplay(
+            config_path=config_path
+        )
 
-        import threading
-        threading.Thread(
-            target=self.display.start,
-            daemon=True
-        ).start()
+        self.display.set_estado(
+            "Sistema iniciado"
+        )
+
+        self.display.start()
 
         # =========================
-        # CÁMARA
+        # CAMERA
         # =========================
         self.cap = cv2.VideoCapture(0)
+
         self.current_frame = None
 
         if not self.cap.isOpened():
-            raise RuntimeError("No se pudo abrir la cámara")
+
+            raise RuntimeError(
+                "No se pudo abrir la cámara"
+            )
 
         # =========================
         # UI
@@ -134,13 +174,19 @@ class FaceClient(QWidget):
         self.image = QLabel()
         self.image.setAlignment(Qt.AlignCenter)
 
-        self.result_label = QLabel("Esperando...")
-        self.result_label.setAlignment(Qt.AlignCenter)
+        self.result_label = QLabel(
+            "Esperando autenticación..."
+        )
+
+        self.result_label.setAlignment(
+            Qt.AlignCenter
+        )
 
         self.btn_login = QPushButton("Login")
         self.btn_register = QPushButton("Registrar")
 
         layout = QVBoxLayout()
+
         layout.addWidget(self.image)
         layout.addWidget(self.btn_login)
         layout.addWidget(self.btn_register)
@@ -151,35 +197,59 @@ class FaceClient(QWidget):
         # =========================
         # EVENTS
         # =========================
-        self.btn_login.clicked.connect(self.login)
-        self.btn_register.clicked.connect(self.register)
+        self.btn_login.clicked.connect(
+            self.login
+        )
+
+        self.btn_register.clicked.connect(
+            self.register
+        )
 
         # =========================
         # CAMERA TIMER
         # =========================
         self.timer = QTimer()
-        self.timer.timeout.connect(self.update_frame)
+
+        self.timer.timeout.connect(
+            self.update_frame
+        )
+
         self.timer.start(30)
 
     # =========================
     # CAMERA LOOP
     # =========================
     def update_frame(self):
+
         ret, frame = self.cap.read()
+
         if not ret:
             return
 
+        # espejo
         frame = cv2.flip(frame, 1)
+
         self.current_frame = frame
 
-        rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        rgb = cv2.cvtColor(
+            frame,
+            cv2.COLOR_BGR2RGB
+        )
 
         h, w, ch = rgb.shape
-        img = QImage(rgb.data, w, h, rgb.strides[0], QImage.Format_RGB888)
+
+        image = QImage(
+            rgb.data,
+            w,
+            h,
+            rgb.strides[0],
+            QImage.Format_RGB888
+        )
 
         self.image.setPixmap(
-            QPixmap.fromImage(img).scaled(
-                320, 240,
+            QPixmap.fromImage(image).scaled(
+                320,
+                240,
                 Qt.KeepAspectRatio
             )
         )
@@ -190,70 +260,157 @@ class FaceClient(QWidget):
     def login(self):
 
         if self.current_frame is None:
-            self.result_label.setText("Cámara no lista")
+
+            self.result_label.setText(
+                "Cámara no lista"
+            )
+
             return
 
-        self.display.set_estado("Reconociendo rostro...")
+        logger.info("Iniciando reconocimiento")
 
-        self.popup = ProgressPopup("Analizando...")
+        self.display.set_estado(
+            "Reconociendo rostro..."
+        )
+
+        self.popup = ProgressPopup(
+            "Analizando rostro..."
+        )
+
         self.popup.show()
 
-        frame = cv2.resize(self.current_frame, (320, 240))
-        _, buffer = cv2.imencode(".jpg", frame)
+        # reducir tamaño
+        frame = cv2.resize(
+            self.current_frame,
+            (320, 240)
+        )
 
-        img = base64.b64encode(buffer).decode()
+        _, buffer = cv2.imencode(
+            ".jpg",
+            frame
+        )
 
-        self.worker = Worker(self.server_url, img)
-        self.worker.result_signal.connect(self.on_result)
-        self.worker.error_signal.connect(self.on_error)
+        img_b64 = base64.b64encode(
+            buffer
+        ).decode()
+
+        self.worker = Worker(
+            self.server_url,
+            img_b64
+        )
+
+        self.worker.result_signal.connect(
+            self.on_result
+        )
+
+        self.worker.error_signal.connect(
+            self.on_error
+        )
+
         self.worker.start()
 
     # =========================
-    # RESULTADO
+    # RESULT
     # =========================
     def on_result(self, data):
 
         self.popup.close()
 
-        names = data.get("recognized", [])
+        names = data.get(
+            "recognized",
+            []
+        )
 
         if names:
 
             user = names[0]
 
-            self.result_label.setText(f"Bienvenido {user}")
-            self.display.set_estado(f"Bienvenido {user}")
+            logger.info(
+                f"Usuario autenticado: {user}"
+            )
 
-            # 🔥 EVENTO LIMPIO HACIA EL CEREBRO
+            self.result_label.setText(
+                f"Bienvenido {user}"
+            )
+
+            self.display.set_estado(
+                f"Bienvenido {user}"
+            )
+
+            #  evento limpio
             self.on_authenticated(user)
 
         else:
 
-            self.result_label.setText("No reconocido")
-            self.display.set_estado("Intruso detectado")
+            logger.warning(
+                "Usuario no reconocido"
+            )
+
+            self.result_label.setText(
+                "No reconocido"
+            )
+
+            self.display.set_estado(
+                "Intruso detectado"
+            )
 
     # =========================
     # ERROR
     # =========================
     def on_error(self, msg):
 
+        logger.error(msg)
+
         self.popup.close()
 
         self.result_label.setText(msg)
-        self.display.set_estado("Error de conexión")
+
+        self.display.set_estado(
+            "Error conexión"
+        )
 
     # =========================
-    # REGISTER (FUTURO)
+    # REGISTER
     # =========================
     def register(self):
-        self.result_label.setText("Registro no implementado")
+
+        self.result_label.setText(
+            "Registro no implementado"
+        )
 
     # =========================
     # CLOSE
     # =========================
     def closeEvent(self, event):
 
+        logger.info(
+            "Cerrando FaceClient"
+        )
+
+        self.timer.stop()
+
         if self.cap:
             self.cap.release()
 
+        self.display.stop()
+
         event.accept()
+
+
+# =========================
+# MAIN TEST
+# =========================
+if __name__ == "__main__":
+
+    def fake_auth(user):
+        print(f"AUTH OK -> {user}")
+
+    app = QApplication(sys.argv)
+
+    client = FaceClient(
+        on_authenticated=fake_auth
+    )
+
+    client.show()
+
+    sys.exit(app.exec_())
