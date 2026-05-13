@@ -1,79 +1,380 @@
+import time
+import random
 import json
-import threading
-import os
 
-from app.core.assistant import procesar_texto
-from app.llm.client import LLMClient
+import board
+import busio
+import digitalio
 
-from app.voice.stt_vosk import VoskSTT
-from app.voice.audio_stream import start_stream
-from app.voice.tts import TTS
-from app.ui.display import FaceDisplay
+from PIL import Image, ImageDraw, ImageFont
+from adafruit_rgb_display import ili9341
 
 
-class AssistantEngine:
+## @file display.py
+#  @brief Control visual del rostro del asistente.
+#
+#  Gestiona:
+#   - pantalla SPI ILI9341
+#   - animación facial
+#   - texto de estado
+#   - parpadeos automáticos
+#   - animación de boca
 
+
+class FaceDisplay:
+    """
+    Controla la pantalla física SPI y renderiza
+    la cara animada del asistente.
+    """
+
+    # =========================
+    # INIT
+    # =========================
     def __init__(self, config_path=None):
 
-        if config_path is None:
-            base_dir = os.path.dirname(os.path.abspath(__file__))
-            config_path = os.path.join(base_dir, "..", "config", "config.json")
+        # =========================
+        # CONFIG
+        # =========================
+        self.config = {}
 
-        with open(config_path, "r", encoding="utf-8") as f:
-            self.config = json.load(f)
+        if config_path:
+            try:
+                with open(config_path, "r") as f:
+                    self.config = json.load(f)
+            except Exception:
+                print("No se pudo cargar config.json")
 
-        self.llm = LLMClient(
-            server_url=self.config["server"]["llm_url"],
-            model=self.config["server"]["model"],
-            timeout=self.config["server"]["timeout"]
+        display_cfg = self.config.get("display", {})
+
+        self.fps = display_cfg.get("fps", 30)
+
+        self.blink_min = display_cfg.get(
+            "blink_min_seconds",
+            4
         )
 
-        self.tts = TTS(lang=self.config["tts"]["language"])
-        self.stt = VoskSTT(self.config["voice"]["vosk_model_path"])
+        self.blink_max = display_cfg.get(
+            "blink_max_seconds",
+            8
+        )
 
-        self.display = FaceDisplay(config_path)
+        # =========================
+        # SPI SETUP
+        # =========================
+        spi = busio.SPI(
+            board.SCK,
+            MOSI=board.MOSI
+        )
 
-        self.user = None
-        self.stream = None
+        cs = digitalio.DigitalInOut(board.CE0)
+        dc = digitalio.DigitalInOut(board.D23)
+        rst = digitalio.DigitalInOut(board.D24)
 
-    def on_user(self, user: str):
+        # =========================
+        # DISPLAY
+        # =========================
+        self.display = ili9341.ILI9341(
+            spi,
+            cs=cs,
+            dc=dc,
+            rst=rst,
+            baudrate=24000000,
+            width=320,
+            height=240
+        )
 
-        self.user = user
+        # =========================
+        # ESTADO INTERNO
+        # =========================
+        self.robot_hablando = False
 
-        self.display.set_estado(f"Hola {user}")
-        self.tts.speak(f"Hola {user}, sistema activado")
+        self.estado_texto = "Inicializando..."
 
-        #  1. ARRANCAR AUDIO STREAM (ESTO TE FALTABA)
-        self.stream, _ = start_stream()
-        self.stream.start()
+        self.ojos_abiertos = True
 
-        # 2. DISPLAY THREAD
-        threading.Thread(target=self._start_display, daemon=True).start()
+        self.parpadeo_fin = 0
 
-        #  3. VOZ THREAD
-        threading.Thread(target=self._start_voice, daemon=True).start()
+        self.proximo_parpadeo = (
+            time.time() +
+            random.uniform(
+                self.blink_min,
+                self.blink_max
+            )
+        )
 
-    def _start_voice(self):
+        # =========================
+        # FUENTE
+        # =========================
+        try:
 
-        def on_speech(text):
+            self.font = ImageFont.truetype(
+                "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+                16
+            )
 
-            if not text:
-                return
+        except Exception:
 
-            self.display.set_estado(f"Entendiendo: {text}")
+            self.font = ImageFont.load_default()
 
-            respuesta = procesar_texto(self.user, text)
+    # =========================
+    # API EXTERNA
+    # =========================
+    def set_estado(self, texto: str):
+        """
+        Actualiza texto inferior.
+        """
+        self.estado_texto = texto
 
-            #  LLM OUTPUT → DISPLAY + VOZ
-            self.display.set_estado("Hablando...")
-            self.display.set_hablando(True)
+    def set_hablando(self, speaking: bool):
+        """
+        Cambia estado de animación de boca.
+        """
+        self.robot_hablando = speaking
 
-            self.tts.speak(respuesta)
+    # =========================
+    # DIBUJO COMPLETO
+    # =========================
+    def dibujar_cara(self):
 
-            self.display.set_hablando(False)
-            self.display.set_estado("Escuchando...")
+        # Crear canvas
+        img = Image.new(
+            "RGB",
+            (
+                self.display.width,
+                self.display.height
+            ),
+            "black"
+        )
 
-        self.stt.listen_loop(on_speech)
+        draw = ImageDraw.Draw(img)
 
-    def _start_display(self):
-        self.display.start()
+        # =========================
+        # GEOMETRÍA BASE
+        # =========================
+        cx = self.display.width // 2
+        cy = self.display.height // 2 - 30
+
+        radio = 35
+        separacion = 75
+
+        # =========================
+        # OJOS
+        # =========================
+        if self.ojos_abiertos:
+
+            # OJO IZQUIERDO
+            draw.ellipse(
+                (
+                    cx - separacion - radio,
+                    cy - radio,
+                    cx - separacion + radio,
+                    cy + radio
+                ),
+                outline="white",
+                width=4
+            )
+
+            # OJO DERECHO
+            draw.ellipse(
+                (
+                    cx + separacion - radio,
+                    cy - radio,
+                    cx + separacion + radio,
+                    cy + radio
+                ),
+                outline="white",
+                width=4
+            )
+
+            # =========================
+            # PUPILAS
+            # =========================
+            draw.ellipse(
+                (
+                    cx - separacion - 10,
+                    cy - 10,
+                    cx - separacion + 10,
+                    cy + 10
+                ),
+                fill="white"
+            )
+
+            draw.ellipse(
+                (
+                    cx + separacion - 10,
+                    cy - 10,
+                    cx + separacion + 10,
+                    cy + 10
+                ),
+                fill="white"
+            )
+
+            # =========================
+            # BRILLOS
+            # =========================
+            draw.ellipse(
+                (
+                    cx - separacion + 8,
+                    cy - 18,
+                    cx - separacion + 16,
+                    cy - 10
+                ),
+                fill="white"
+            )
+
+            draw.ellipse(
+                (
+                    cx + separacion + 8,
+                    cy - 18,
+                    cx + separacion + 16,
+                    cy - 10
+                ),
+                fill="white"
+            )
+
+        else:
+
+            # OJOS CERRADOS
+            draw.line(
+                (
+                    cx - separacion - radio,
+                    cy,
+                    cx - separacion + radio,
+                    cy
+                ),
+                fill="white",
+                width=5
+            )
+
+            draw.line(
+                (
+                    cx + separacion - radio,
+                    cy,
+                    cx + separacion + radio,
+                    cy
+                ),
+                fill="white",
+                width=5
+            )
+
+        # =========================
+        # BOCA
+        # =========================
+        boca_y = cy + 75
+
+        if self.robot_hablando:
+
+            apertura = random.randint(10, 18)
+
+            draw.ellipse(
+                (
+                    cx - 18,
+                    boca_y - apertura,
+                    cx + 18,
+                    boca_y + apertura
+                ),
+                outline="white",
+                width=4
+            )
+
+        else:
+
+            # sonrisa
+            draw.arc(
+                (
+                    cx - 30,
+                    boca_y - 10,
+                    cx + 30,
+                    boca_y + 20
+                ),
+                start=0,
+                end=180,
+                fill="white",
+                width=4
+            )
+
+        # =========================
+        # PANEL TEXTO
+        # =========================
+        draw.rectangle(
+            (
+                0,
+                200,
+                320,
+                240
+            ),
+            fill="black"
+        )
+
+        # color dinámico
+        text_color = (
+            (255, 255, 0)
+            if self.robot_hablando
+            else (0, 255, 0)
+        )
+
+        draw.text(
+            (10, 210),
+            self.estado_texto[:35],
+            font=self.font,
+            fill=text_color
+        )
+
+        # =========================
+        # ENVIAR A DISPLAY
+        # =========================
+        self.display.image(img)
+
+    # =========================
+    # PARPADEO
+    # =========================
+    def actualizar_parpadeo(self):
+
+        ahora = time.time()
+
+        # iniciar parpadeo
+        if ahora > self.proximo_parpadeo:
+
+            self.ojos_abiertos = False
+
+            self.parpadeo_fin = ahora + 0.15
+
+            self.proximo_parpadeo = (
+                ahora +
+                random.uniform(
+                    self.blink_min,
+                    self.blink_max
+                )
+            )
+
+        # terminar parpadeo
+        if (
+            self.parpadeo_fin and
+            ahora > self.parpadeo_fin
+        ):
+            self.ojos_abiertos = True
+            self.parpadeo_fin = 0
+
+    # =========================
+    # LOOP PRINCIPAL
+    # =========================
+    def loop(self, fps=None):
+        """
+        Loop principal de renderizado.
+        """
+
+        if fps is None:
+            fps = self.fps
+
+        frame_time = 1 / fps
+
+        while True:
+
+            # actualizar animaciones
+            self.actualizar_parpadeo()
+
+            # render
+            self.dibujar_cara()
+
+            # FPS
+            time.sleep(frame_time)
