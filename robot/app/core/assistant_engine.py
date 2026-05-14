@@ -14,7 +14,15 @@ logger = logging.getLogger("engine")
 
 class AssistantEngine:
 
-    def __init__(self, display, config_path=None):
+    # =====================================================
+    # INIT
+    # =====================================================
+
+    def __init__(
+        self,
+        display,
+        config_path=None
+    ):
 
         self.display = display
 
@@ -31,39 +39,68 @@ class AssistantEngine:
                 "config.json"
             )
 
-        with open(config_path, "r", encoding="utf-8") as f:
+        with open(
+            config_path,
+            "r",
+            encoding="utf-8"
+        ) as f:
 
             self.config = json.load(f)
 
-        self.SERVER_URL = self.config["server"]["llm_url"]
+        logger.info(
+            f"Config cargada: {config_path}"
+        )
 
-        # =========================
+        # =================================================
+        # SERVER
+        # =================================================
+
+        self.SERVER_URL = (
+            self.config["server"]["llm_url"]
+        )
+
+        # =================================================
         # LLM
-        # =========================
+        # =================================================
+
         self.llm = LLMClient(
             server_url=self.SERVER_URL,
             model=self.config["server"]["model"],
             timeout=self.config["server"]["timeout"]
         )
 
-        # =========================
-        # VOICE
-        # =========================
+        # =================================================
+        # TTS
+        # =================================================
+
         self.tts = TTS(
             lang=self.config["tts"]["language"]
         )
+
+        # =================================================
+        # STT
+        # =================================================
 
         self.stt = VoskSTT(
             self.config["voice"]["vosk_model_path"]
         )
 
+        # =================================================
+        # USER
+        # =================================================
+
         self.user = None
+
+        # =================================================
+        # FLAGS
+        # =================================================
 
         self.voice_started = False
 
-    # =========================
+    # =====================================================
     # USER AUTH
-    # =========================
+    # =====================================================
+
     def on_user(self, user: str):
 
         self.user = user
@@ -82,9 +119,11 @@ class AssistantEngine:
             f"Hola {user}, sistema activado"
         )
 
-        self.display.set_hablando(False)
+        self.display.set_estado(
+            "Escuchando..."
+        )
 
-        # iniciar voz SOLO UNA VEZ
+        # iniciar voz una sola vez
         if not self.voice_started:
 
             self.voice_started = True
@@ -94,47 +133,147 @@ class AssistantEngine:
                 daemon=True
             ).start()
 
-    # =========================
+    # =====================================================
     # VOICE LOOP
-    # =========================
+    # =====================================================
+
     def _start_voice(self):
+
+        logger.info(
+            "VOICE LOOP INICIADO"
+        )
+
+        # =================================================
+        # CALLBACK STT
+        # =================================================
 
         def on_speech(text):
 
-            logger.info(f"USER: {text}")
+            logger.info(
+                f"USER: {text}"
+            )
+
+            text_lower = text.lower()
+
+            # =============================================
+            # STOP WORDS
+            # =============================================
+
+            stop_words = [
+                "calla",
+                "para",
+                "silencio",
+                "cállate"
+            ]
+
+            stop_command = any(
+                x in text_lower
+                for x in stop_words
+            )
+
+            # =============================================
+            # ROBOT HABLANDO
+            # =============================================
+
+            if self.tts.is_speaking:
+
+                # solo aceptar stop
+                if stop_command:
+
+                    logger.info(
+                        "STOP COMMAND"
+                    )
+
+                    self.tts.stop()
+
+                    self.display.set_hablando(
+                        False
+                    )
+
+                    self.display.set_estado(
+                        "Escuchando..."
+                    )
+
+                # ignorar resto
+                return
+
+            # =============================================
+            # NORMAL FLOW
+            # =============================================
 
             self.display.set_estado(
                 f"Procesando: {text}"
             )
 
-            # =========================
-            # LLM
-            # =========================
-            respuesta = self.llm.generate(text)
+            try:
 
-            # fallback
-            if not respuesta:
-
-                respuesta = procesar_texto(
-                    self.user,
+                respuesta = self.llm.ask(
                     text
                 )
 
-            # =========================
-            # SPEAK
-            # =========================
-            self.display.set_hablando(True)
+                if not respuesta:
 
-            self.display.set_estado(
-                "Hablando..."
+                    respuesta = procesar_texto(
+                        self.user,
+                        text
+                    )
+
+            except Exception as e:
+
+                logger.exception(
+                    f"LLM ERROR: {e}"
+                )
+
+                respuesta = (
+                    "He tenido un problema."
+                )
+
+            logger.info(
+                f"BOT: {respuesta}"
             )
 
-            self.tts.speak(respuesta)
+            # =============================================
+            # TTS
+            # =============================================
 
-            self.display.set_hablando(False)
+            self.display.set_estado(
+                "Preparando voz..."
+            )
+
+            self.display.set_hablando(True)
+
+            self.tts.speak(respuesta)
 
             self.display.set_estado(
                 "Escuchando..."
             )
 
-        self.stt.listen_loop(on_speech)
+        # =================================================
+        # START LOOP
+        # =================================================
+
+        logger.info(
+            "Llamando a listen_loop"
+        )
+
+        try:
+
+            self.stt.listen_loop(
+                callback=on_speech,
+                device_name=self.config[
+                    "voice"
+                ].get(
+                    "device_name",
+                    None
+                )
+            )
+
+        except Exception as e:
+
+            logger.exception(
+                f"VOICE LOOP ERROR: {e}"
+            )
+
+        logger.info(
+            "listen_loop TERMINÓ"
+        )

@@ -1,130 +1,119 @@
-import subprocess
-import threading
+"""
+@file tts.py
+@brief Motor TTS basado en pico2wave.
+"""
+
 import re
+import threading
+import subprocess
 
 
-## @file tts.py
-#  @brief Motor Text-To-Speech basado en pico2wave.
-#
-#  Este módulo proporciona:
-#   - síntesis de voz
-#   - reproducción de audio
-#   - limpieza de texto Markdown
-#   - reproducción asíncrona mediante hilos
-
-
-## @class TTS
-#  @brief Motor de voz simple basado en pico2wave.
-#
-#  Utiliza:
-#   - pico2wave para generar audio WAV
-#   - aplay para reproducir audio
-#
-#  Incluye soporte para:
-#   - reproducción en segundo plano
-#   - detener audio activo
-#   - limpiar formato Markdown
 class TTS:
-    """
-    Motor de voz simple basado en pico2wave.
-    """
 
-    ## @brief Inicializa el motor TTS.
-    #
-    #  @param lang Idioma utilizado por pico2wave.
     def __init__(self, lang="es-ES"):
 
-        ## @brief Idioma de síntesis.
         self.lang = lang
 
-        ## @brief Proceso de reproducción activo.
         self.process = None
 
-        ## @brief Estado de reproducción.
         self.is_speaking = False
 
-    ## @brief Limpia texto antes de sintetizar voz.
-    #
-    #  Elimina:
-    #   - Markdown
-    #   - títulos
-    #   - backticks
-    #   - saltos de línea excesivos
-    #
-    #  @param texto Texto original.
-    #
-    #  @return str Texto limpio listo para TTS.
-    def limpiar_texto(self, texto: str) -> str:
-        """
-        Limpia markdown y formato raro.
-        """
+    # =====================================================
+    # CLEAN TEXT
+    # =====================================================
 
-        # Eliminar negritas
-        texto = re.sub(r"\*\*(.*?)\*\*", r"\1", texto)
+    def clean_text(self, text: str):
 
-        # Eliminar cursivas
-        texto = re.sub(r"\*(.*?)\*", r"\1", texto)
+        text = re.sub(
+            r"\*\*(.*?)\*\*",
+            r"\1",
+            text
+        )
 
-        # Eliminar títulos markdown
-        texto = re.sub(r"#+\s*", "", texto)
+        text = re.sub(
+            r"\*(.*?)\*",
+            r"\1",
+            text
+        )
 
-        # Eliminar backticks
-        texto = texto.replace("`", "")
+        text = re.sub(
+            r"#+\s*",
+            "",
+            text
+        )
 
-        # Reemplazar saltos de línea
-        texto = re.sub(r"\n+", ". ", texto)
+        text = re.sub(
+            r"\d+\.\s*",
+            "",
+            text
+        )
 
-        return texto.strip()
+        text = re.sub(
+            r"^\s*-\s+",
+            " ",
+            text,
+            flags=re.MULTILINE
+        )
 
-    ## @brief Ejecuta internamente la síntesis de voz.
-    #
-    #  Genera un archivo WAV temporal y lo reproduce.
-    #
-    #  @param text Texto a sintetizar.
+        text = text.replace("`", "")
+
+        text = re.sub(
+            r"\n+",
+            ". ",
+            text
+        )
+
+        return text.strip()
+
+    # =====================================================
+    # INTERNAL
+    # =====================================================
+
     def _speak(self, text: str):
-        """
-        Ejecución interna de TTS.
-        """
 
-        # Limpiar texto
-        text = self.limpiar_texto(text)
+        text = self.clean_text(text)
 
         self.is_speaking = True
 
-        # Generar WAV usando pico2wave
-        subprocess.run(
-            [
-                "pico2wave",
-                f"-l={self.lang}",
-                "-w=/tmp/voice.wav",
-                text
-            ],
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL
-        )
+        try:
 
-        # Reproducir audio
-        self.process = subprocess.Popen(
-            ["aplay", "/tmp/voice.wav"],
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL
-        )
+            subprocess.run(
+                [
+                    "pico2wave",
+                    f"-l={self.lang}",
+                    "-w=/tmp/voice.wav",
+                    text
+                ],
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL
+            )
 
-        # Esperar a que termine reproducción
-        self.process.wait()
+            self.process = subprocess.Popen(
+                [
+                    "aplay",
+                    "/tmp/voice.wav"
+                ],
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL
+            )
 
-        self.is_speaking = False
-        self.process = None
+            self.process.wait()
 
-    ## @brief Inicia reproducción TTS en un hilo.
-    #
-    #  Permite continuar ejecución sin bloquear.
-    #
-    #  @param text Texto a reproducir.
+        finally:
+
+            self.process = None
+
+            self.is_speaking = False
+
+    # =====================================================
+    # PUBLIC
+    # =====================================================
+
     def speak(self, text: str):
-        """
-        Lanza TTS en hilo.
-        """
+
+        # detener si ya habla
+        if self.is_speaking:
+            self.stop()
 
         threading.Thread(
             target=self._speak,
@@ -132,16 +121,12 @@ class TTS:
             daemon=True
         ).start()
 
-    ## @brief Detiene la reproducción de audio actual.
-    #
-    #  Finaliza el proceso de reproducción si existe.
     def stop(self):
-        """
-        Detiene audio si está hablando.
-        """
 
         if self.process:
+
             self.process.terminate()
+
             self.process = None
 
         self.is_speaking = False

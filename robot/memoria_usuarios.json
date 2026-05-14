@@ -1,0 +1,34 @@
+{
+  "Elisa": [
+    {
+      "user": "hola",
+      "bot": "¡Hola! Me alegra poder ayudarte. ¿En qué puedo ayudarte hoy? ¿Necesitas algo en particular o solo quieres charlar un rato? Estoy aquí para escucharte y ayudarte en lo que puedas necesitar. ¿Cómo estás hoy?",
+      "time": "2026-05-14T17:59:01.460556"
+    },
+    {
+      "user": "qué hora es",
+      "bot": "Son las 17:59:50",
+      "time": "2026-05-14T17:59:50.816773"
+    },
+    {
+      "user": "qué tiempo hace hoy en madrid",
+      "bot": "En Madrid hay 21.5°C y viento de 12.9 km/h",
+      "time": "2026-05-14T17:59:59.715445"
+    },
+    {
+      "user": "medir es una receta de patatas",
+      "bot": "¡Claro que sí! Me encantaría ayudarte con una receta de patatas. ¿Qué tipo de receta estás buscando? ¿Quieres algo sencillo como patatas fritas o algo más elaborado como patatas arrugadas con Mojo? ¿O quizás estás pensando en una receta más tradicional como patatas con chorizo o patatas con verduras?\n\nSi no tienes nada en mente, puedo sugerirte algunas opciones. ¿Te gustaría que te dé algunas ideas para empezar? Estoy aquí para ayudarte paso a paso. ¿Qué te parece si empezamos con algo fácil y luego podemos complicarlo un poco si lo deseas?",
+      "time": "2026-05-14T18:00:12.722387"
+    },
+    {
+      "user": "hola",
+      "bot": "¡Hola de nuevo! Me alegra verte otra vez. ¿Cómo te va? ¿Necesitas seguir con la receta de patatas que estábamos hablando antes o tienes algo nuevo en mente? Estoy aquí para ayudarte en lo que puedas necesitar. ¿Quieres continuar con la receta o cambiar de tema? Estoy escuchando.",
+      "time": "2026-05-14T18:10:14.946806"
+    },
+    {
+      "user": "me puedes contar un chiste porfa",
+      "bot": "¡Claro que sí! Me encantaría contarte un chiste para hacer que te rías. Aquí va uno:\n\n¿Por qué la patata fue al médico?\n\n(Puedes pensar un momento antes de que te diga la respuesta)\n\nLa respuesta es... ¡porque no se sentía muy \"sanita\"! (jajaja) Espero que te haya hecho reír un poco. ¿Quieres escuchar otro? Estoy aquí para hacerte sonreír. ¿Qué te parece si te cuento otro chiste?",
+      "time": "2026-05-14T18:10:28.961073"
+    }
+  ]
+}

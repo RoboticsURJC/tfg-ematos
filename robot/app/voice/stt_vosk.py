@@ -1,100 +1,140 @@
+"""
+@file stt_vosk.py
+@brief Speech-To-Text usando Vosk.
+"""
+
 import json
 import time
 import vosk
 
-from app.voice.audio_stream import audio_queue
+from app.voice.audio_stream import (
+    start_stream,
+    audio_queue,
+    MIC_SAMPLE_RATE
+)
 
 
-## @file stt_vosk.py
-#  @brief Reconocimiento de voz usando Vosk.
-#
-#  Este módulo implementa un wrapper sencillo para:
-#   - cargar modelos Vosk
-#   - procesar audio en tiempo real
-#   - detectar texto hablado
-#   - ejecutar callbacks con transcripciones
+# =========================================================
+# CONFIG
+# =========================================================
+
+VOSK_SAMPLE_RATE = 16000
 
 
-## @class VoskSTT
-#  @brief Wrapper de reconocimiento de voz con Vosk.
-#
-#  Gestiona:
-#   - inicialización del modelo
-#   - reconocimiento incremental
-#   - bucle continuo de escucha
+# =========================================================
+# STT
+# =========================================================
+
 class VoskSTT:
     """
-    Wrapper de reconocimiento de voz con Vosk.
+    Wrapper STT basado en Vosk.
     """
 
-    ## @brief Inicializa el reconocedor Vosk.
-    #
-    #  @param model_path Ruta al modelo Vosk.
-    #  @param sample_rate Frecuencia de muestreo esperada.
-    def __init__(self, model_path: str, sample_rate=16000):
+    def __init__(self, model_path: str):
 
-        ## @brief Modelo de reconocimiento Vosk.
         self.model = vosk.Model(model_path)
 
-        ## @brief Reconocedor Kaldi asociado al modelo.
         self.rec = vosk.KaldiRecognizer(
             self.model,
-            sample_rate
+            VOSK_SAMPLE_RATE
         )
 
-        ## @brief Frecuencia de muestreo utilizada.
-        self.sample_rate = sample_rate
+    # =====================================================
+    # AUDIO
+    # =====================================================
 
-    ## @brief Procesa un bloque de audio.
-    #
-    #  Convierte el audio a una versión reducida
-    #  aproximada a 16 kHz y lo envía al reconocedor.
-    #
-    #  @param audio_bytes Bloque de audio en bytes.
-    #
-    #  @return str Texto reconocido.
-    #  @retval "" Si no se detecta una frase completa.
+    def downsample_audio(self, audio_bytes: bytes):
+        """
+        Convierte 48kHz -> 16kHz.
+
+        Método rápido/simple.
+        """
+
+        return audio_bytes[::3]
+
+    # =====================================================
+    # PROCESS
+    # =====================================================
+
     def process_audio(self, audio_bytes: bytes):
-        """
-        Procesa bloque de audio.
-        """
 
-        # Downsample simple aproximado
-        audio_16k = audio_bytes[::3]
+        audio_16k = self.downsample_audio(
+            audio_bytes
+        )
 
-        # Procesar audio
         if self.rec.AcceptWaveform(audio_16k):
 
-            # Resultado final de reconocimiento
-            result = json.loads(self.rec.Result())
+            result = json.loads(
+                self.rec.Result()
+            )
 
-            return result.get("text", "").strip()
+            text = result.get(
+                "text",
+                ""
+            ).strip()
+
+            if text:
+                print("FINAL:", text)
+
+            return text
+
+        else:
+
+            partial = json.loads(
+                self.rec.PartialResult()
+            )
+
+            p = partial.get(
+                "partial",
+                ""
+            )
+
+            if p:
+                print("PARCIAL:", p)
 
         return ""
 
-    ## @brief Inicia el bucle continuo de escucha.
-    #
-    #  Lee audio desde la cola global y ejecuta
-    #  un callback cuando detecta texto válido.
-    #
-    #  @param callback Función callback(texto).
-    def listen_loop(self, callback):
+    # =====================================================
+    # LOOP
+    # =====================================================
+
+    def listen_loop(
+        self,
+        callback,
+        device_name=None
+    ):
         """
-        Bucle principal de escucha.
-        callback(texto)
+        Loop principal STT.
+
+        callback(text)
         """
 
-        while True:
+        print("Iniciando micro...")
 
-            # Esperar nuevo bloque de audio
-            data = audio_queue.get()
+        stream, _ = start_stream(
+            device_name=device_name
+        )
 
-            # Procesar reconocimiento
-            text = self.process_audio(data)
+        stream.start()
 
-            # Ejecutar callback si hay texto
-            if text:
-                callback(text)
+        print("Micro iniciado")
 
-            # Pequeña pausa para reducir CPU
-            time.sleep(0.005)
+        try:
+
+            while True:
+
+                data = audio_queue.get()
+
+                text = self.process_audio(
+                    data
+                )
+
+                if text:
+                    callback(text)
+
+                time.sleep(0.005)
+
+        finally:
+
+            stream.stop()
+            stream.close()

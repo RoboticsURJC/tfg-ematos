@@ -10,15 +10,27 @@ logger = logging.getLogger("main")
 
 
 def main():
+
     app = QApplication(sys.argv)
 
-    engine = AssistantEngine()
+    engine = None
 
     def on_user_authenticated(user):
-        logger.info(f"Usuario autenticado: {user}")
+
+        logger.info(
+            f"Usuario autenticado: {user}"
+        )
+
         engine.on_user(user)
 
-    client = FaceClient(on_user_authenticated)
+    client = FaceClient(
+        on_user_authenticated
+    )
+
+    engine = AssistantEngine(
+        client.display
+    )
+
     client.show()
 
     logger.info("Sistema iniciado")
