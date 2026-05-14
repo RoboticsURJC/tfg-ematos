@@ -2,278 +2,124 @@ import json
 import threading
 import logging
 import os
+import time
 
-from app.core.assistant import procesar_texto
 from app.llm.client import LLMClient
 from app.voice.stt_vosk import VoskSTT
 from app.voice.tts import TTS
-
 
 logger = logging.getLogger("engine")
 
 
 class AssistantEngine:
 
-    # =====================================================
-    # INIT
-    # =====================================================
-
-    def __init__(
-        self,
-        display,
-        config_path=None
-    ):
+    def __init__(self, display, config_path=None):
 
         self.display = display
 
-        base_dir = os.path.dirname(
-            os.path.abspath(__file__)
-        )
+        base = os.path.dirname(os.path.abspath(__file__))
 
         if config_path is None:
+            config_path = os.path.join(base, "..", "config", "config.json")
 
-            config_path = os.path.join(
-                base_dir,
-                "..",
-                "config",
-                "config.json"
-            )
-
-        with open(
-            config_path,
-            "r",
-            encoding="utf-8"
-        ) as f:
-
+        with open(config_path, "r") as f:
             self.config = json.load(f)
 
-        logger.info(
-            f"Config cargada: {config_path}"
-        )
-
-        # =================================================
-        # SERVER
-        # =================================================
-
-        self.SERVER_URL = (
-            self.config["server"]["llm_url"]
-        )
-
-        # =================================================
-        # LLM
-        # =================================================
-
+        # =========================
+        # COMPONENTS
+        # =========================
         self.llm = LLMClient(
-            server_url=self.SERVER_URL,
-            model=self.config["server"]["model"],
-            timeout=self.config["server"]["timeout"]
+            self.config["server"]["llm_url"],
+            self.config["server"]["model"],
+            self.config["server"]["timeout"]
         )
 
-        # =================================================
-        # TTS
-        # =================================================
-
-        self.tts = TTS(
-            lang=self.config["tts"]["language"]
-        )
-
-        # =================================================
-        # STT
-        # =================================================
+        self.tts = TTS(self.config["tts"]["language"])
 
         self.stt = VoskSTT(
             self.config["voice"]["vosk_model_path"]
         )
 
-        # =================================================
-        # USER
-        # =================================================
-
+        # =========================
+        # STATE
+        # =========================
         self.user = None
-
-        # =================================================
-        # FLAGS
-        # =================================================
-
         self.voice_started = False
+        self.interrupt = False
 
-    # =====================================================
-    # USER AUTH
-    # =====================================================
-
-    def on_user(self, user: str):
+    # =========================
+    # USER
+    # =========================
+    def on_user(self, user):
 
         self.user = user
 
-        logger.info(
-            f"Usuario autenticado: {user}"
-        )
+        self.display.set_estado(f"Hola {user}")
+        self.tts.speak(f"Hola {user}")
 
-        self.display.set_estado(
-            f"Hola {user}"
-        )
-
-        self.display.set_hablando(True)
-
-        self.tts.speak(
-            f"Hola {user}, sistema activado"
-        )
-
-        self.display.set_estado(
-            "Escuchando..."
-        )
-
-        # iniciar voz una sola vez
         if not self.voice_started:
-
             self.voice_started = True
-
             threading.Thread(
-                target=self._start_voice,
+                target=self._voice_loop,
                 daemon=True
             ).start()
 
-    # =====================================================
+    # =========================
     # VOICE LOOP
-    # =====================================================
-
-    def _start_voice(self):
-
-        logger.info(
-            "VOICE LOOP INICIADO"
-        )
-
-        # =================================================
-        # CALLBACK STT
-        # =================================================
+    # =========================
+    def _voice_loop(self):
 
         def on_speech(text):
 
-            logger.info(
-                f"USER: {text}"
-            )
+            t = text.lower()
 
-            text_lower = text.lower()
+            stop_words = ["calla", "para", "silencio", "cállate"]
 
-            # =============================================
-            # STOP WORDS
-            # =============================================
+            is_stop = any(w in t for w in stop_words)
 
-            stop_words = [
-                "calla",
-                "para",
-                "silencio",
-                "cállate"
-            ]
-
-            stop_command = any(
-                x in text_lower
-                for x in stop_words
-            )
-
-            # =============================================
-            # ROBOT HABLANDO
-            # =============================================
-
+            # =========================
+            # INTERRUPCIÓN
+            # =========================
             if self.tts.is_speaking:
 
-                # solo aceptar stop
-                if stop_command:
-
-                    logger.info(
-                        "STOP COMMAND"
-                    )
-
+                if is_stop:
                     self.tts.stop()
+                    self.display.set_estado("Escuchando")
+                    self.display.set_emotion("neutral")
 
-                    self.display.set_hablando(
-                        False
-                    )
-
-                    self.display.set_estado(
-                        "Escuchando..."
-                    )
-
-                # ignorar resto
                 return
 
-            # =============================================
-            # NORMAL FLOW
-            # =============================================
+            # =========================
+            # EMOTION THINKING
+            # =========================
+            self.display.set_emotion("thinking")
+            self.display.set_estado(f"Procesando: {text}")
 
-            self.display.set_estado(
-                f"Procesando: {text}"
-            )
+            # =========================
+            # STREAM LLM
+            # =========================
+            buffer = ""
 
             try:
+                for token in self.llm.stream(text):
 
-                respuesta = self.llm.ask(
-                    text
-                )
+                    if self.interrupt:
+                        break
 
-                if not respuesta:
+                    buffer += token
+                    self.display.set_estado(buffer[-40:])
 
-                    respuesta = procesar_texto(
-                        self.user,
-                        text
-                    )
+            except Exception:
+                buffer = self.llm.ask(text)
 
-            except Exception as e:
+            # =========================
+            # SPEAK
+            # =========================
+            self.display.set_emotion("speaking")
+            self.tts.speak(buffer)
 
-                logger.exception(
-                    f"LLM ERROR: {e}"
-                )
+            self.display.set_estado("Escuchando")
+            self.display.set_emotion("listening")
 
-                respuesta = (
-                    "He tenido un problema."
-                )
-
-            logger.info(
-                f"BOT: {respuesta}"
-            )
-
-            # =============================================
-            # TTS
-            # =============================================
-
-            self.display.set_estado(
-                "Preparando voz..."
-            )
-
-            self.display.set_hablando(True)
-
-            self.tts.speak(respuesta)
-
-            self.display.set_estado(
-                "Escuchando..."
-            )
-
-        # =================================================
-        # START LOOP
-        # =================================================
-
-        logger.info(
-            "Llamando a listen_loop"
-        )
-
-        try:
-
-            self.stt.listen_loop(
-                callback=on_speech,
-                device_name=self.config[
-                    "voice"
-                ].get(
-                    "device_name",
-                    None
-                )
-            )
-
-        except Exception as e:
-
-            logger.exception(
-                f"VOICE LOOP ERROR: {e}"
-            )
-
-        logger.info(
-            "listen_loop TERMINÓ"
-        )
+        # START
+        self.stt.listen_loop(on_speech)
