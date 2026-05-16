@@ -1,23 +1,23 @@
-import sys
 import os
 import json
 import base64
 import cv2
-import logging
+import requests
 
 from PyQt5.QtWidgets import (
-    QApplication,
     QWidget,
     QLabel,
     QPushButton,
     QVBoxLayout,
-    QDialog,
+    QHBoxLayout,
+    QMessageBox,
+    QInputDialog,
     QProgressBar
 )
 
 from PyQt5.QtCore import (
-    QTimer,
     Qt,
+    QTimer,
     QThread,
     pyqtSignal
 )
@@ -30,9 +30,10 @@ from PyQt5.QtGui import (
 from app.ui.display import FaceDisplay
 
 
-# =========================
+# =========================================================
 # CONFIG
-# =========================
+# =========================================================
+
 config_path = os.path.join(
     os.path.dirname(__file__),
     "../config/config.json"
@@ -44,107 +45,93 @@ with open(config_path, "r") as f:
 SERVER_URL = config["server"]["recognition_url"]
 
 
-# =========================
-# LOGGING
-# =========================
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s | %(levelname)s | %(message)s"
-)
+# =========================================================
+# THREAD LOGIN
+# =========================================================
 
-logger = logging.getLogger("FaceClient")
-
-
-# =========================
-# WORKER API
-# =========================
 class Worker(QThread):
 
     result_signal = pyqtSignal(dict)
     error_signal = pyqtSignal(str)
 
-    def __init__(self, server_url, image):
+    def __init__(self, url, image):
         super().__init__()
 
-        self.server_url = server_url
+        self.url = url
         self.image = image
 
     def run(self):
 
         try:
-            import requests
 
-            response = requests.post(
-                f"{self.server_url}/recognize",
+            r = requests.post(
+                f"{self.url}/recognize",
                 json={"image": self.image},
                 timeout=10
             )
 
-            if response.ok:
+            if r.ok:
 
                 self.result_signal.emit(
-                    response.json()
+                    r.json()
                 )
 
             else:
 
                 self.error_signal.emit(
-                    f"Error servidor ({response.status_code})"
+                    f"Servidor: {r.status_code}"
                 )
 
         except Exception as e:
 
-            self.error_signal.emit(
-                f"Sin conexión: {e}"
-            )
+            self.error_signal.emit(str(e))
 
 
-# =========================
-# POPUP
-# =========================
-class ProgressPopup(QDialog):
-
-    def __init__(self, text="Procesando..."):
-        super().__init__()
-
-        self.setWindowTitle("Face AI")
-        self.setFixedSize(300, 120)
-        self.setModal(True)
-
-        layout = QVBoxLayout()
-
-        self.label = QLabel(text)
-        self.label.setAlignment(Qt.AlignCenter)
-
-        self.bar = QProgressBar()
-        self.bar.setRange(0, 0)
-
-        layout.addWidget(self.label)
-        layout.addWidget(self.bar)
-
-        self.setLayout(layout)
-
-
-# =========================
+# =========================================================
 # FACE CLIENT
-# =========================
+# =========================================================
+
 class FaceClient(QWidget):
 
     def __init__(self, on_authenticated):
         super().__init__()
 
-        self.server_url = SERVER_URL
         self.on_authenticated = on_authenticated
+        self.server_url = SERVER_URL
 
-        # =========================
+        # =====================================================
         # WINDOW
-        # =========================
-        self.setWindowTitle("Face Client")
-        self.setFixedSize(640, 520)
+        # =====================================================
 
-        # =========================
+        self.setWindowTitle(
+            "Asistente Facial"
+        )
+
+        self.setWindowFlags(
+            Qt.Window
+        )
+
+        self.setAttribute(
+            Qt.WA_StyledBackground,
+            True
+        )
+
+        self.resize(1100, 760)
+
+        # =====================================================
+        # STATE
+        # =====================================================
+
+        self.logged_in = False
+
+        # registro
+        self.register_name = ""
+        self.register_images = []
+
+        # =====================================================
         # DISPLAY SPI
-        # =========================
+        # =====================================================
+
         self.display = FaceDisplay(
             config_path=config_path
         )
@@ -155,59 +142,200 @@ class FaceClient(QWidget):
 
         self.display.start()
 
-        # =========================
+        # =====================================================
         # CAMERA
-        # =========================
-        self.cap = cv2.VideoCapture(0)
+        # =====================================================
 
-        self.current_frame = None
+        self.cap = cv2.VideoCapture(0)
 
         if not self.cap.isOpened():
 
             raise RuntimeError(
-                "No se pudo abrir la cámara"
+                "No se pudo abrir cámara"
             )
 
-        # =========================
-        # UI
-        # =========================
-        self.image = QLabel()
-        self.image.setAlignment(Qt.AlignCenter)
+        self.current_frame = None
 
-        self.result_label = QLabel(
-            "Esperando autenticación..."
+        # =====================================================
+        # TITLE
+        # =====================================================
+
+        self.title = QLabel(
+            "🌸 Asistente Facial"
         )
 
-        self.result_label.setAlignment(
+        self.title.setObjectName(
+            "title"
+        )
+
+        self.title.setAlignment(
             Qt.AlignCenter
         )
 
-        self.btn_login = QPushButton("Login")
-        self.btn_register = QPushButton("Registrar")
+        # =====================================================
+        # CAMERA
+        # =====================================================
+
+        self.camera = QLabel()
+
+        self.camera.setObjectName(
+            "camera"
+        )
+
+        self.camera.setAlignment(
+            Qt.AlignCenter
+        )
+
+        self.camera.setMinimumSize(
+            960,
+            540
+        )
+
+        # =====================================================
+        # STATUS
+        # =====================================================
+
+        self.status = QLabel(
+            "🌿 Esperando usuario..."
+        )
+
+        self.status.setObjectName(
+            "status"
+        )
+
+        self.status.setAlignment(
+            Qt.AlignCenter
+        )
+
+        # =====================================================
+        # PROGRESS REGISTER
+        # =====================================================
+
+        self.progress = QProgressBar()
+
+        self.progress.setMinimum(0)
+        self.progress.setMaximum(5)
+
+        self.progress.setValue(0)
+
+        self.progress.hide()
+
+        # =====================================================
+        # BUTTONS
+        # =====================================================
+
+        self.btn_login = QPushButton(
+            "🔐 Iniciar sesión"
+        )
+
+        self.btn_register = QPushButton(
+            "✨ Registrar usuario"
+        )
+
+        self.btn_capture = QPushButton(
+            "📸 Capturar foto"
+        )
+
+        self.btn_exit = QPushButton(
+            "❌ Salir"
+        )
+
+        self.btn_register.setObjectName(
+            "secondary"
+        )
+
+        self.btn_exit.setObjectName(
+            "exit"
+        )
+
+        self.btn_capture.hide()
+
+        # =====================================================
+        # BUTTON LAYOUT
+        # =====================================================
+
+        buttons_layout = QHBoxLayout()
+
+        buttons_layout.setSpacing(14)
+
+        buttons_layout.addWidget(
+            self.btn_login
+        )
+
+        buttons_layout.addWidget(
+            self.btn_register
+        )
+
+        buttons_layout.addWidget(
+            self.btn_capture
+        )
+
+        buttons_layout.addWidget(
+            self.btn_exit
+        )
+
+        # =====================================================
+        # MAIN LAYOUT
+        # =====================================================
 
         layout = QVBoxLayout()
 
-        layout.addWidget(self.image)
-        layout.addWidget(self.btn_login)
-        layout.addWidget(self.btn_register)
-        layout.addWidget(self.result_label)
+        layout.setContentsMargins(
+            24,
+            24,
+            24,
+            24
+        )
+
+        layout.setSpacing(18)
+
+        layout.addWidget(
+            self.title
+        )
+
+        layout.addWidget(
+            self.camera,
+            1
+        )
+
+        layout.addWidget(
+            self.status
+        )
+
+        layout.addWidget(
+            self.progress
+        )
+
+        layout.addLayout(
+            buttons_layout
+        )
 
         self.setLayout(layout)
 
-        # =========================
+        # =====================================================
         # EVENTS
-        # =========================
+        # =====================================================
+
         self.btn_login.clicked.connect(
             self.login
         )
 
         self.btn_register.clicked.connect(
-            self.register
+            self.start_register
         )
 
-        # =========================
-        # CAMERA TIMER
-        # =========================
+        self.btn_capture.clicked.connect(
+            self.capture_register_photo
+        )
+
+        self.btn_exit.clicked.connect(
+            self.close_app
+        )
+
+        # =====================================================
+        # TIMER CAMERA
+        # =====================================================
+
         self.timer = QTimer()
 
         self.timer.timeout.connect(
@@ -216,9 +344,10 @@ class FaceClient(QWidget):
 
         self.timer.start(30)
 
-    # =========================
-    # CAMERA LOOP
-    # =========================
+    # =====================================================
+    # UPDATE CAMERA
+    # =====================================================
+
     def update_frame(self):
 
         ret, frame = self.cap.read()
@@ -226,8 +355,10 @@ class FaceClient(QWidget):
         if not ret:
             return
 
-        # espejo
-        frame = cv2.flip(frame, 1)
+        frame = cv2.flip(
+            frame,
+            1
+        )
 
         self.current_frame = frame
 
@@ -236,7 +367,7 @@ class FaceClient(QWidget):
             cv2.COLOR_BGR2RGB
         )
 
-        h, w, ch = rgb.shape
+        h, w, _ = rgb.shape
 
         image = QImage(
             rgb.data,
@@ -246,146 +377,339 @@ class FaceClient(QWidget):
             QImage.Format_RGB888
         )
 
-        self.image.setPixmap(
-            QPixmap.fromImage(image).scaled(
-                320,
-                240,
-                Qt.KeepAspectRatio
+        pixmap = QPixmap.fromImage(
+            image
+        )
+
+        self.camera.setPixmap(
+            pixmap.scaled(
+                self.camera.size(),
+                Qt.KeepAspectRatio,
+                Qt.SmoothTransformation
             )
         )
 
-    # =========================
+    # =====================================================
     # LOGIN
-    # =========================
+    # =====================================================
+
     def login(self):
 
         if self.current_frame is None:
 
-            self.result_label.setText(
-                "Cámara no lista"
+            self.status.setText(
+                "⚠ Cámara no lista"
             )
 
             return
 
-        logger.info("Iniciando reconocimiento")
+        self.status.setText(
+            "🔎 Reconociendo rostro..."
+        )
 
         self.display.set_estado(
-            "Reconociendo rostro..."
+            "Reconociendo rostro"
         )
 
-        self.popup = ProgressPopup(
-            "Analizando rostro..."
-        )
+        try:
 
-        self.popup.show()
+            frame = cv2.resize(
+                self.current_frame,
+                (320, 240)
+            )
 
-        # reducir tamaño
-        frame = cv2.resize(
-            self.current_frame,
-            (320, 240)
-        )
+            _, buffer = cv2.imencode(
+                ".jpg",
+                frame
+            )
 
-        _, buffer = cv2.imencode(
-            ".jpg",
-            frame
-        )
+            img_b64 = base64.b64encode(
+                buffer
+            ).decode()
 
-        img_b64 = base64.b64encode(
-            buffer
-        ).decode()
+            self.worker = Worker(
+                self.server_url,
+                img_b64
+            )
 
-        self.worker = Worker(
-            self.server_url,
-            img_b64
-        )
+            self.worker.result_signal.connect(
+                self.on_result
+            )
 
-        self.worker.result_signal.connect(
-            self.on_result
-        )
+            self.worker.error_signal.connect(
+                self.on_error
+            )
 
-        self.worker.error_signal.connect(
-            self.on_error
-        )
+            self.worker.start()
 
-        self.worker.start()
+        except Exception as e:
 
-    # =========================
-    # RESULT
-    # =========================
+            print("LOGIN ERROR:", e)
+
+            self.status.setText(
+                "❌ Error preparando imagen"
+            )
+
+    # =====================================================
+    # LOGIN RESULT
+    # =====================================================
+
     def on_result(self, data):
 
-        self.popup.close()
+        print(
+            "RESPUESTA SERVER:",
+            data
+        )
 
         names = data.get(
             "recognized",
             []
         )
 
-        if names:
+        if len(names) > 0 and names[0] != "Desconocido":
 
             user = names[0]
 
-            logger.info(
-                f"Usuario autenticado: {user}"
-            )
+            self.logged_in = True
 
-            self.result_label.setText(
-                f"Bienvenido {user}"
+            self.status.setText(
+                f"🌸 Bienvenido {user}"
             )
 
             self.display.set_estado(
-                f"Bienvenido {user}"
+                f"Hola {user}"
             )
 
-            #  evento limpio
             self.on_authenticated(user)
+
+            self.btn_login.hide()
+            self.btn_register.hide()
 
         else:
 
-            logger.warning(
-                "Usuario no reconocido"
-            )
-
-            self.result_label.setText(
-                "No reconocido"
+            self.status.setText(
+                "❌ Rostro no reconocido"
             )
 
             self.display.set_estado(
-                "Intruso detectado"
+                "Usuario no reconocido"
             )
 
-    # =========================
+    # =====================================================
     # ERROR
-    # =========================
+    # =====================================================
+
     def on_error(self, msg):
 
-        logger.error(msg)
+        print("ERROR:", msg)
 
-        self.popup.close()
-
-        self.result_label.setText(msg)
+        self.status.setText(
+            "⚠ Sin conexión con servidor"
+        )
 
         self.display.set_estado(
             "Error conexión"
         )
 
-    # =========================
-    # REGISTER
-    # =========================
-    def register(self):
+    # =====================================================
+    # START REGISTER
+    # =====================================================
 
-        self.result_label.setText(
-            "Registro no implementado"
+    def start_register(self):
+
+        name, ok = QInputDialog.getText(
+            self,
+            "🌸 Registro facial",
+            "Nombre del usuario:"
         )
 
-    # =========================
+        if not ok or not name.strip():
+            return
+
+        self.register_name = name.strip()
+
+        self.register_images = []
+
+        self.progress.setValue(0)
+        self.progress.show()
+
+        self.btn_capture.show()
+
+        self.status.setText(
+            "📸 Se tomarán 5 fotos manualmente"
+        )
+
+        self.display.set_estado(
+            "Modo registro"
+        )
+
+        QMessageBox.information(
+            self,
+            "Registro facial",
+            "Se tomarán 5 fotos.\n\n"
+            "Pulsa 'Capturar foto' "
+            "cada vez que estés listo 🌸"
+        )
+
+    # =====================================================
+    # CAPTURE REGISTER PHOTO
+    # =====================================================
+
+    def capture_register_photo(self):
+
+        if self.current_frame is None:
+
+            QMessageBox.warning(
+                self,
+                "Error",
+                "Cámara no disponible"
+            )
+
+            return
+
+        try:
+
+            frame = cv2.resize(
+                self.current_frame,
+                (320, 240)
+            )
+
+            _, buffer = cv2.imencode(
+                ".jpg",
+                frame
+            )
+
+            img_b64 = base64.b64encode(
+                buffer
+            ).decode()
+
+            self.register_images.append(
+                img_b64
+            )
+
+            total = len(
+                self.register_images
+            )
+
+            self.progress.setValue(
+                total
+            )
+
+            self.status.setText(
+                f"📸 Foto {total}/5 capturada"
+            )
+
+            self.display.set_estado(
+                f"Foto {total} capturada"
+            )
+
+            # =================================================
+            # FINAL REGISTER
+            # =================================================
+
+            if total >= 5:
+
+                self.finish_register()
+
+        except Exception as e:
+
+            QMessageBox.critical(
+                self,
+                "Error",
+                str(e)
+            )
+
+    # =====================================================
+    # FINISH REGISTER
+    # =====================================================
+
+    def finish_register(self):
+
+        try:
+
+            self.status.setText(
+                "📤 Enviando registro..."
+            )
+
+            self.display.set_estado(
+                "Procesando registro"
+            )
+
+            payload = {
+                "name": self.register_name,
+                "images": self.register_images
+            }
+
+            r = requests.post(
+                f"{self.server_url}/register",
+                json=payload,
+                timeout=20
+            )
+
+            print(
+                "REGISTER STATUS:",
+                r.status_code
+            )
+
+            print(
+                "REGISTER RESPONSE:",
+                r.text
+            )
+
+            if r.ok:
+
+                data = r.json()
+
+                QMessageBox.information(
+                    self,
+                    "🌸 Registro completado",
+                    data.get(
+                        "message",
+                        "Usuario registrado"
+                    )
+                )
+
+                self.status.setText(
+                    "🌸 Usuario registrado"
+                )
+
+                self.display.set_estado(
+                    "Registro completado"
+                )
+
+            else:
+
+                QMessageBox.warning(
+                    self,
+                    "Error servidor",
+                    r.text
+                )
+
+                self.status.setText(
+                    "❌ Error en registro"
+                )
+
+        except Exception as e:
+
+            QMessageBox.critical(
+                self,
+                "Error",
+                str(e)
+            )
+
+        finally:
+
+            self.progress.hide()
+
+            self.btn_capture.hide()
+
+            self.register_images = []
+
+    # =====================================================
     # CLOSE
-    # =========================
-    def closeEvent(self, event):
+    # =====================================================
 
-        logger.info(
-            "Cerrando FaceClient"
-        )
+    def close_app(self):
 
         self.timer.stop()
 
@@ -394,23 +718,14 @@ class FaceClient(QWidget):
 
         self.display.stop()
 
-        event.accept()
+        self.close()
 
+    # =====================================================
+    # ESC CLOSE
+    # =====================================================
 
-# =========================
-# MAIN TEST
-# =========================
-if __name__ == "__main__":
+    def keyPressEvent(self, event):
 
-    def fake_auth(user):
-        print(f"AUTH OK -> {user}")
+        if event.key() == Qt.Key_Escape:
 
-    app = QApplication(sys.argv)
-
-    client = FaceClient(
-        on_authenticated=fake_auth
-    )
-
-    client.show()
-
-    sys.exit(app.exec_())
+            self.close_app()
