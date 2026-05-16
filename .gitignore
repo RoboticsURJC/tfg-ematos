@@ -5,3 +5,6 @@ config.json
 /home/elisa/uni/tfg-ematos/test/apis/known_faces.pkl
 /home/elisa/uni/tfg-ematos/test/apis/known_persons
 /home/elisa/uni/tfg-ematos/test/llm-test/llm-benchmark-framework/.env
+/home/elisa/uni/tfg-ematos/robot/app/server/known_persons
+/home/elisa/uni/tfg-ematos/robot/app/server/known_faces.pkl
+/home/elisa/uni/tfg-ematos/robot/app/robot_memory.db

@@ -1,0 +1,10 @@
+2026-05-16 10:54:29,530 [INFO] FaceServer: Base de datos facial cargada correctamente
+2026-05-16 10:54:29,540 [INFO] FaceServer: Base de datos SQLite inicializada
+2026-05-16 10:54:29,553 [INFO] FaceServer: Base de datos facial cargada correctamente
+2026-05-16 10:54:29,553 [INFO] FaceServer: Base de datos SQLite inicializada
+2026-05-16 10:54:29,602 [INFO] FaceServer: Base de datos facial cargada correctamente
+2026-05-16 10:54:29,603 [INFO] FaceServer: Base de datos SQLite inicializada
+2026-05-16 10:54:29,648 [INFO] FaceServer: Base de datos facial cargada correctamente
+2026-05-16 10:54:29,649 [INFO] FaceServer: Base de datos SQLite inicializada
+2026-05-16 10:55:09,801 [INFO] FaceServer: Solicitud recibida en /recognize
+2026-05-16 10:55:10,034 [INFO] FaceServer: Rostros reconocidos: ['Elisa']

@@ -1,0 +1,5 @@
+2026-05-16 10:54:45,408 | INFO |  API iniciada correctamente
+2026-05-16 10:54:46,644 | INFO | Modelos cargados: ['llama', 'mistral', 'groq', 'gpt', 'gemini']
+2026-05-16 10:55:17,134 | INFO | Request recibido | model=groq | prompt_len=4609
+2026-05-16 10:55:18,551 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-16 10:55:18,562 | INFO | OK | model=groq | latency=1.428s
