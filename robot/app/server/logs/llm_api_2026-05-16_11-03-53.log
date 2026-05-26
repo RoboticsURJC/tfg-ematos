@@ -1,2 +1,0 @@
-2026-05-16 11:03:53,377 | INFO |  API iniciada correctamente
-2026-05-16 11:03:54,641 | INFO | Modelos cargados: ['llama', 'mistral', 'groq', 'gpt', 'gemini']
