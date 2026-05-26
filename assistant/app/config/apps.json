@@ -1,0 +1,39 @@
+{
+  "apps": [
+    {
+      "id": "weather",
+      "name": "Clima",
+      "icon": "icons/weather.png",
+      "class": "WeatherApp",
+      "enabled": true
+    },
+    {
+      "id": "music",
+      "name": "Música",
+      "icon": "icons/music.png",
+      "class": "MusicApp",
+      "enabled": true
+    },
+    {
+      "id": "camera",
+      "name": "Cámara",
+      "icon": "icons/camera.png",
+      "class": "CameraApp",
+      "enabled": true
+    },
+    {
+      "id": "browser",
+      "name": "Navegador",
+      "icon": "icons/browser.png",
+      "class": "BrowserApp",
+      "enabled": true
+    },
+    {
+      "id": "system",
+      "name": "Sistema",
+      "icon": "icons/system.png",
+      "class": "SystemApp",
+      "enabled": true
+    }
+  ]
+}

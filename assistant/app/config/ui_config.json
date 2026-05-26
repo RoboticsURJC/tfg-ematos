@@ -1,0 +1,30 @@
+{
+  "theme": "dark",
+
+  "colors": {
+    "background": "#0f1115",
+    "panel": "#1a1d24",
+    "primary": "#00ffcc",
+    "secondary": "#4aa3ff",
+    "danger": "#ff4d4d",
+    "text": "#e6e6e6",
+    "muted": "#888888"
+  },
+
+  "fonts": {
+    "title_size": 24,
+    "text_size": 14,
+    "font_family": "Arial"
+  },
+
+  "layout": {
+    "border_radius": 12,
+    "padding": 16,
+    "spacing": 10
+  },
+
+  "animations": {
+    "enabled": true,
+    "transition_ms": 250
+  }
+}

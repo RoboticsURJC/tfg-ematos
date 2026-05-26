@@ -1,0 +1,43 @@
+{
+  "neutral": {
+    "eyes": "open",
+    "mouth": "flat",
+    "color": "#ffffff"
+  },
+
+  "happy": {
+    "eyes": "open",
+    "mouth": "smile",
+    "color": "#00ffcc"
+  },
+
+  "sad": {
+    "eyes": "half",
+    "mouth": "frown",
+    "color": "#4aa3ff"
+  },
+
+  "thinking": {
+    "eyes": "blink_slow",
+    "mouth": "small_line",
+    "color": "#ffcc00"
+  },
+
+  "speaking": {
+    "eyes": "open",
+    "mouth": "talking",
+    "color": "#00ffcc"
+  },
+
+  "listening": {
+    "eyes": "open",
+    "mouth": "neutral",
+    "color": "#66ff66"
+  },
+
+  "error": {
+    "eyes": "closed",
+    "mouth": "flat",
+    "color": "#ff4d4d"
+  }
+}

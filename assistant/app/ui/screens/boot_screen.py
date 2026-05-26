@@ -1,0 +1,44 @@
+from PyQt5.QtWidgets import QWidget, QLabel, QVBoxLayout
+from PyQt5.QtCore import Qt, QTimer, pyqtSignal
+
+from app.core.logger import logger
+
+
+class BootScreen(QWidget):
+
+    finished = pyqtSignal()
+
+    def __init__(self, controller):
+        super().__init__()
+
+        logger.info(" -> Iniciando Boot Screen")
+
+        self.controller = controller
+
+        self.setStyleSheet("background-color: black; color: white;")
+
+        layout = QVBoxLayout()
+
+        self.label = QLabel("🤖 Iniciando sistema...")
+        self.label.setAlignment(Qt.AlignCenter)
+
+        self.sub = QLabel("Cargando módulos neuronales…")
+        self.sub.setAlignment(Qt.AlignCenter)
+
+        layout.addWidget(self.label)
+        layout.addWidget(self.sub)
+
+        self.setLayout(layout)
+
+        # conexión interna
+        self.finished.connect(self.on_finished)
+
+        # simulación boot
+        QTimer.singleShot(2500, self.finish)
+
+    def finish(self):
+        self.finished.emit()
+
+    def on_finished(self):
+        # transición al login
+        self.controller.ui.show_login()
