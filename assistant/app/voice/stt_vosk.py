@@ -14,7 +14,7 @@ class VoskSTT:
         self.sample_rate = sample_rate
 
         # WAKE WORD
-        self.wake_word = "robot"
+        self.wake_word = "eli"
         self.active = False
 
     def process_audio(self, data):

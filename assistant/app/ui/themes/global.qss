@@ -1,0 +1,45 @@
+QWidget {
+    background-color: #f7f3ff;
+    color: #4b4453;
+    font-family: "Segoe UI";
+}
+
+QLabel#camera {
+    background-color: #f7f3ff;
+    border: 3px solid #b8a1ff;
+    border-radius: 18px;
+}
+
+QLabel#title {
+    font-size: 30px;
+    font-weight: bold;
+    color: #7c6cff;
+}
+
+QLabel#status, QLabel#userLabel {
+    font-size: 18px;
+    color: #5a5463;
+}
+
+QPushButton {
+    background-color: #ffd6e0;
+    border-radius: 18px;
+    padding: 12px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #b8a1ff;
+    color: white;
+}
+
+QProgressBar {
+    border: 2px solid #b8a1ff;
+    border-radius: 10px;
+    text-align: center;
+}
+
+QProgressBar::chunk {
+    background-color: #b8a1ff;
+    border-radius: 10px;
+}

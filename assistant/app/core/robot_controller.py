@@ -65,13 +65,14 @@ class RobotController:
 
         self.state_machine.set_state(StateMachine.HOME)
 
-        self.display.set_user(username)
+        # ~ self.display.set_user(username)
         self.display.set_estado(f"Hola {username}")
 
         self.assistant.set_user(username)
         self.assistant.start()
 
         if self.ui:
+            self.ui.launcher_screen.set_user(username)
             self.ui.show_launcher()
 
     # =========================================================

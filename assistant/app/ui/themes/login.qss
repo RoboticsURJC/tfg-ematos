@@ -1,0 +1,71 @@
+LoginScreen {
+    background-color: #f6edb7;
+}
+
+/* =========================
+   TITLE
+========================= */
+
+QLabel#title {
+    font-size: 34px;
+    font-weight: bold;
+    color: #ff9f68;
+    padding: 20px;
+    background: transparent;
+}
+
+/* =========================
+   CAMERA FRAME
+========================= */
+
+QLabel#camera {
+    background-color: #fff8f0; /* se funde con la ventana */
+
+    border: 4px solid #ffb347;
+    border-radius: 30px;
+
+    padding: 10px;
+}
+
+/* =========================
+   STATUS
+========================= */
+
+QLabel#status {
+    font-size: 18px;
+    color: #6b7280;
+    background: transparent;
+}
+
+/* =========================
+   USER LABEL
+========================= */
+
+QLabel#userLabel {
+    font-size: 26px;
+    font-weight: bold;
+    color: #ffb347;
+    background: transparent;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+QPushButton {
+    background-color: #ffd6a5;
+    border: none;
+    border-radius: 20px;
+
+    padding: 14px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #7ee3d0;
+    color: white;
+}
+
+QPushButton:pressed {
+    background-color: #5dade2;
+}

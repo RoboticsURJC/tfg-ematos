@@ -3,7 +3,8 @@ import os
 import sys
 import logging
 
-from PyQt5.QtWidgets import QApplication
+from PyQt5.QtWidgets import QApplication, QShortcut
+from PyQt5.QtGui import QKeySequence
 
 from app.core.robot_controller import RobotController
 from app.ui.main_window import MainWindow
@@ -20,6 +21,10 @@ def main():
 
     window = MainWindow(controller)
     controller.set_ui(window)
+
+    # Atajo de teclado para salir
+    exit_shortcut = QShortcut(QKeySequence("Esc"), window)
+    exit_shortcut.activated.connect(app.quit)
 
     window.showFullScreen()
 

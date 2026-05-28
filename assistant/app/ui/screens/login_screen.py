@@ -1,162 +1,241 @@
+          
+# app/ui/screens/login_screen.py
+
 import os
-import json
 import base64
-import sys
 import cv2
 import requests
 
 from PyQt5.QtWidgets import (
-    QWidget, QLabel, QPushButton,
-    QVBoxLayout, QHBoxLayout,
-    QMessageBox, QInputDialog,
-    QProgressBar
+    QWidget,
+    QLabel,
+    QPushButton,
+    QVBoxLayout
 )
 
-from PyQt5.QtCore import Qt, QTimer, QThread, pyqtSignal
-from PyQt5.QtGui import QImage, QPixmap
-from PyQt5.QtWidgets import QApplication
+from PyQt5.QtCore import (
+    Qt,
+    QTimer,
+    QThread,
+    pyqtSignal
+)
 
-from app.robot.display.face_display import FaceDisplay
-from app.core.logger import logger
+from PyQt5.QtGui import (
+    QImage,
+    QPixmap
+)
+
+from app.core.camera_manager import CameraManager
+from app.core.config import Config
 
 
-config_path = os.path.join(os.path.dirname(__file__), "../../config/config.json")
-
-with open(config_path, "r") as f:
-    config = json.load(f)
-
-SERVER_URL = config["server"]["recognition_url"]
-
-
-# =========================
+# =====================================================
 # WORKER
-# =========================
+# =====================================================
 class Worker(QThread):
+
     result_signal = pyqtSignal(dict)
     error_signal = pyqtSignal(str)
 
     def __init__(self, url, image):
         super().__init__()
+
         self.url = url
         self.image = image
 
     def run(self):
+
         try:
-            r = requests.post(
-                f"{self.url}/recognize",
+
+            response = requests.post(
+                self.url,
                 json={"image": self.image},
                 timeout=10
             )
 
-            if r.ok:
-                self.result_signal.emit(r.json())
+            if response.ok:
+                self.result_signal.emit(response.json())
+
             else:
-                self.error_signal.emit(str(r.status_code))
+                self.error_signal.emit(
+                    f"Error {response.status_code}"
+                )
 
         except Exception as e:
             self.error_signal.emit(str(e))
 
 
-# =========================
+# =====================================================
 # LOGIN SCREEN
-# =========================
+# =====================================================
 class LoginScreen(QWidget):
 
-    authenticated = pyqtSignal(str)
-
     def __init__(self, controller):
+
         super().__init__()
 
-        logger.info(" -> Iniciando Login Screen")
-
         self.controller = controller
+        self.config = Config()
 
-        self.setWindowTitle("Login Facial")
+        self.setObjectName("loginScreen")
+        self.setMinimumSize(900, 700)
 
-        # display robot
-        self.display = FaceDisplay(config_path=config_path)
-        self.display.start()
+        # =================================================
+        # QSS
+        # =================================================
+        qss_path = os.path.join(
+            os.path.dirname(__file__),
+            "..",
+            "themes",
+            "login.qss"
+        )
 
-        # camera
-        self.cap = cv2.VideoCapture(0)
-        if not self.cap.isOpened():
-            raise RuntimeError("Cámara no disponible")
+        qss_path = os.path.abspath(qss_path)
+
+        if os.path.exists(qss_path):
+
+            with open(qss_path, "r", encoding="utf-8") as f:
+                self.setStyleSheet(f.read())
+
+        # =================================================
+        # CAMERA SHARED
+        # =================================================
+        CameraManager.get().open()
 
         self.current_frame = None
 
+        # =================================================
         # UI
-        self.title = QLabel("🔐 Reconocimiento facial")
-        self.title.setAlignment(Qt.AlignCenter)
-
+        # =================================================
         self.camera = QLabel()
-        self.status = QLabel("Esperando usuario...")
+        self.camera.setAlignment(Qt.AlignCenter)
+        self.camera.setObjectName("camera")
+        self.camera.setFixedSize(640, 480)
 
-        self.btn_login = QPushButton("Iniciar sesión")
+        self.status = QLabel("Esperando usuario...")
+        self.status.setAlignment(Qt.AlignCenter)
+        self.status.setObjectName("status")
+
+        self.user_label = QLabel("")
+        self.user_label.setAlignment(Qt.AlignCenter)
+        self.user_label.setObjectName("userLabel")
+
+        self.btn_login = QPushButton("✨ Iniciar sesión")
+
+        self.btn_register = QPushButton(
+            "🧬 Registrar usuario"
+        )
+
         self.btn_login.clicked.connect(self.login)
 
-        self.btn_exit = QPushButton("Salir")
-        self.btn_exit.clicked.connect(self.close_app)
+        self.btn_register.clicked.connect(
+            self.go_register
+        )
 
+        # =================================================
+        # LAYOUT
+        # =================================================
         layout = QVBoxLayout()
-        layout.addWidget(self.title)
+        layout.setAlignment(Qt.AlignCenter)
+        layout.setSpacing(15)
+
         layout.addWidget(self.camera)
         layout.addWidget(self.status)
+        layout.addWidget(self.user_label)
         layout.addWidget(self.btn_login)
-        layout.addWidget(self.btn_exit)
+        layout.addWidget(self.btn_register)
 
         self.setLayout(layout)
 
-        # loop cámara
+        # =================================================
+        # TIMER
+        # =================================================
         self.timer = QTimer()
-        self.timer.timeout.connect(self.update_frame)
+
+        self.timer.timeout.connect(
+            self.update_frame
+        )
+
         self.timer.start(30)
 
-    # -------------------------
+    # =====================================================
+    # CAMERA LOOP
+    # =====================================================
     def update_frame(self):
-        ret, frame = self.cap.read()
-        if not ret:
+
+        ok, frame = CameraManager.get().read()
+
+        if not ok:
             return
 
         frame = cv2.flip(frame, 1)
+
         self.current_frame = frame
 
-        rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        rgb = cv2.cvtColor(
+            frame,
+            cv2.COLOR_BGR2RGB
+        )
 
         h, w, _ = rgb.shape
-        img = QImage(rgb.data, w, h, rgb.strides[0], QImage.Format_RGB888)
 
-        self.camera.setPixmap(QPixmap.fromImage(img))
+        img = QImage(
+            rgb.data,
+            w,
+            h,
+            rgb.strides[0],
+            QImage.Format_RGB888
+        )
 
-    # -------------------------
+        pix = QPixmap.fromImage(img)
+
+        pix = pix.scaled(
+            self.camera.size(),
+            Qt.KeepAspectRatioByExpanding,
+            Qt.SmoothTransformation
+        )
+
+        self.camera.setPixmap(pix)
+
+    # =====================================================
+    # LOGIN
+    # =====================================================
     def login(self):
 
         if self.current_frame is None:
             return
 
-        self.status.setText("Reconociendo...")
+        self.status.setText("🔍 Reconociendo...")
 
-        frame = cv2.resize(self.current_frame, (320, 240))
-        _, buffer = cv2.imencode(".jpg", frame)
+        frame = cv2.resize(
+            self.current_frame,
+            (320, 240)
+        )
 
-        img_b64 = base64.b64encode(buffer).decode()
+        _, buf = cv2.imencode(".jpg", frame)
 
-        self.worker = Worker(SERVER_URL, img_b64)
-        self.worker.result_signal.connect(self.on_result)
-        self.worker.error_signal.connect(self.on_error)
+        img_b64 = base64.b64encode(buf).decode()
+
+        url = (
+            self.config.recognition_url()
+            + "/recognize"
+        )
+
+        self.worker = Worker(url, img_b64)
+
+        self.worker.result_signal.connect(
+            self.on_result
+        )
+
+        self.worker.error_signal.connect(
+            self.on_error
+        )
+
         self.worker.start()
 
-    def close_app(self):
-        self.timer.stop()
-
-        if self.cap:
-            self.cap.release()
-        
-        self.display.stop()
-        
-        QApplication.quit()
-        sys.exit(0)
-
-    # -------------------------
+    # =====================================================
+    # RESULT
+    # =====================================================
     def on_result(self, data):
 
         names = data.get("recognized", [])
@@ -165,20 +244,51 @@ class LoginScreen(QWidget):
 
             user = names[0]
 
-            logger.info(f" -> Usuario {user} logeado")
+            self.status.setText(
+                "✨ Usuario reconocido"
+            )
 
-            self.display.set_estado(f"Hola {user}")
-            self.authenticated.emit(user)
+            self.user_label.setText(
+                f"Bienvenido {user}"
+            )
+            
+            print(user)
+            
+            self.timer.stop()
+            
+            self.controller.login(user)
 
         else:
-            self.status.setText("No reconocido")
 
-    # -------------------------
+            self.status.setText(
+                "❌ Usuario no reconocido"
+            )
+
+    # =====================================================
+    # ERROR
+    # =====================================================
     def on_error(self, msg):
-        self.status.setText("Error conexión")
 
-    # -------------------------
-    def closeEvent(self, event):
-        self.cap.release()
-        self.display.stop()
-        event.accept()
+        self.status.setText(
+            "⚠ Error de conexión"
+        )
+
+    # =====================================================
+    # GO REGISTER
+    # =====================================================
+    def go_register(self):
+
+        self.timer.stop()
+
+        self.controller.ui.show_register()
+
+    # =====================================================
+    # SHOW EVENT
+    # =====================================================
+    def showEvent(self, event):
+
+        self.timer.start(30)
+
+        super().showEvent(event) 
+        
+        

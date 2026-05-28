@@ -46,7 +46,19 @@ class AssistantEngine:
         self.user = None
         self.voice_started = False
         self.interrupt = False
-
+    
+    
+    # =========================
+    # START
+    # =========================
+    def start(self):
+        if not self.voice_started: 
+            self.voice_started = True
+            threading.Thread(
+                target=self._voice_loop,
+                daemon=True
+            ).start() 
+    
     # =========================
     # USER
     # =========================
@@ -57,12 +69,6 @@ class AssistantEngine:
         self.display.set_estado(f"Hola {user}")
         self.tts.speak(f"Hola {user}")
 
-        if not self.voice_started:
-            self.voice_started = True
-            threading.Thread(
-                target=self._voice_loop,
-                daemon=True
-            ).start()
 
     # =========================
     # VOICE LOOP
