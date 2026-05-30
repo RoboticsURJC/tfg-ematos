@@ -20,7 +20,7 @@ SERVER_URL = config["server"]["log"]
 logger = logging.getLogger("robot")
 logger.setLevel(logging.DEBUG)
 
-remote = RemoteHandler(SERVER_URL)
+remote = RemoteHandler(SERVER_URL, "rojazz")
 remote.setFormatter(logging.Formatter("%(asctime)s - %(message)s"))
 
 logger.addHandler(remote)
