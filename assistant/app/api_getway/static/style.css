@@ -1,0 +1,195 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0f172a;
+    color: white;
+    padding: 40px;
+}
+
+/* ===================== */
+/* CONTAINER */
+/* ===================== */
+
+.container {
+    max-width: 1300px;
+    margin: auto;
+}
+
+/* ===================== */
+/* BANNER */
+/* ===================== */
+
+.banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+/* LOGO PROTAGONISTA */
+.banner-img {
+    width: 320px;
+    height: auto;
+    object-fit: contain;
+
+    border-radius: 14px;
+
+    background: rgba(255,255,255,0.03);
+    padding: 10px;
+
+    box-shadow:
+        0 0 40px rgba(56, 189, 248, 0.5),
+        0 0 90px rgba(56, 189, 248, 0.15);
+
+    animation: pulse 3s infinite ease-in-out;
+
+    position: relative;
+    left: -10px;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* TITULO */
+.title {
+    flex: 1;
+    text-align: center;
+    font-size: 44px;
+    color: #e8faf3;
+    margin: 0;
+}
+
+/* spacer */
+.banner-spacer {
+    width: 320px;
+}
+
+/* ===================== */
+/* LAYOUT */
+/* ===================== */
+
+.layout {
+    display: flex;
+    gap: 20px;
+}
+
+/* LOGS */
+.logs-panel {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* CONTROLES */
+.controls-panel {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ===================== */
+/* CARD */
+/* ===================== */
+
+.card {
+    background: rgba(2, 6, 23, 0.85);
+    border: 1px solid rgba(125, 211, 252, 0.08);
+
+    padding: 20px;
+    border-radius: 16px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* HEADER */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* CONTROLES */
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-end;
+}
+
+/* BOTONES */
+button {
+    padding: 10px 14px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+    background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+    color: white;
+
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+/* LED */
+.led {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+
+    background: #ef4444;
+    box-shadow: 0 0 10px #ef4444;
+}
+
+.led.on {
+    background: #22c55e;
+    box-shadow: 0 0 12px #22c55e;
+}
+
+/* LOGS */
+.log-box {
+    background: #020617;
+    height: 320px;
+    overflow-y: auto;
+
+    padding: 12px;
+    border-radius: 10px;
+
+    font-family: monospace;
+    font-weight: 600;
+}
+
+/* scrollbar */
+.log-box::-webkit-scrollbar {
+    width: 8px;
+}
+
+.log-box::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 10px;
+}
+
+/* animación logs */
+.log-box div {
+    padding: 2px 0;
+}
+
+.log-box div:hover {
+    transform: translateX(4px);
+}
+
+/* colores logs */
+.log-llm {
+    color: #38bdf8;
+}
+
+.log-recognition {
+    color: #22c55e;
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- BANNER -->
+    <div class="banner">
+
+        <img src="/static/logo.png" class="banner-img">
+
+        <h1 class="title">Dashboard</h1>
+
+        <div class="banner-spacer"></div>
+
+    </div>
+
+    <!-- LAYOUT -->
+    <div class="layout">
+
+        <!-- LOGS -->
+        <div class="logs-panel">
+
+            <div class="card">
+                <div class="section-header">
+                    <h2>🤖 LLM</h2>
+                </div>
+                <div id="logs-llm" class="log-box"></div>
+            </div>
+
+            <div class="card">
+                <div class="section-header">
+                    <h2>📷 Reconocimiento facial</h2>
+                </div>
+                <div id="logs-recognition" class="log-box"></div>
+            </div>
+
+        </div>
+
+        <!-- CONTROLES -->
+        <div class="controls-panel">
+
+            <div class="card">
+                <div class="section-header">
+                    <h2>🎤 Control LLM</h2>
+
+                    <div class="controls">
+                        <div id="led-llm" class="led"></div>
+                        <button onclick="startService('llm')">Start</button>
+                        <button onclick="stopService('llm')">Stop</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="section-header">
+                    <h2>📷 Control Cámara</h2>
+
+                    <div class="controls">
+                        <div id="led-recognition" class="led"></div>
+                        <button onclick="startService('recognition')">Start</button>
+                        <button onclick="stopService('recognition')">Stop</button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<script>
+
+async function startService(service){
+    await fetch(`/start/${service}`, { method: 'POST' });
+    setLed(service, true);
+}
+
+async function stopService(service){
+    await fetch(`/stop/${service}`, { method: 'POST' });
+    setLed(service, false);
+}
+
+function setLed(service, state){
+    const led = document.getElementById(`led-${service}`);
+    if(!led) return;
+    led.classList.toggle("on", state);
+}
+
+async function loadLogs(service){
+
+    const res = await fetch(`/logs/${service}`);
+    const data = await res.json();
+
+    const box = document.getElementById(`logs-${service}`);
+
+    box.innerHTML = data.logs
+        .map(l => `<div>${l.text}</div>`)
+        .join("");
+
+    box.scrollTop = box.scrollHeight;
+}
+
+setInterval(() => {
+    loadLogs("llm");
+    loadLogs("recognition");
+}, 1000);
+
+</script>
+
+</body>
+</html>
