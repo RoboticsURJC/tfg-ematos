@@ -10,3 +10,4 @@ config.json
 /home/elisa/uni/tfg-ematos/robot/app/robot_memory.db
 /home/elisa/uni/tfg-ematos/assistant/app/robot_server/app_server/services/known_persons
 /home/elisa/uni/tfg-ematos/assistant/app/robot_server/app_server/services/known_faces.pkl
+/home/elisa/Desktop/tfg-ematos/assistant/app/llm_package/.env
