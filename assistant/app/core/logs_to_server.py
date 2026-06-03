@@ -1,22 +1,22 @@
-import requests
 import logging
+import requests
+
 
 class RemoteHandler(logging.Handler):
 
-    def __init__(self, url, service_name):
+    def __init__(self, url):
         super().__init__()
         self.url = url
-        self.service_name = service_name
 
     def emit(self, record):
         try:
+            msg = self.format(record)
+
             requests.post(
-                f"{self.url}/log/{self.service_name}",
-                json={
-                    "level": record.levelname,
-                    "message": self.format(record),
-                },
+                self.url,
+                json={"text": msg},
                 timeout=1
             )
-        except:
-            pass
+
+        except Exception as e:
+            print("[REMOTE LOG ERROR]", e)

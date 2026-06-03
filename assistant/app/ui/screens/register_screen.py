@@ -21,6 +21,7 @@ from PyQt5.QtGui import QImage, QPixmap
 
 from app.core.camera_manager import CameraManager
 from app.core.config import Config
+from app.core.logger import logger
 
 
 # =====================================================
@@ -74,6 +75,8 @@ class RegisterScreen(QWidget):
         self.setWindowTitle("Registro Facial")
         self.setMinimumSize(950, 750)
         self.setObjectName("registerScreen")
+        
+        logger.info("Iniciando registro de usuario")
 
         # =================================================
         # QSS

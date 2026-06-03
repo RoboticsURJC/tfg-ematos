@@ -21,6 +21,7 @@ class LauncherScreen(QWidget):
         self.title.setAlignment(Qt.AlignCenter)
 
         info = QLabel("Selecciona una app")
+        logger.info("Selección de app")
         info.setAlignment(Qt.AlignCenter)
 
         layout.addWidget(self.title)
@@ -30,4 +31,5 @@ class LauncherScreen(QWidget):
        
     def set_user(self, user):
         self.title.setText(f"Bienvenid@ {user}" )
+        logger.info(f"Bienvenid@ {user}")
 

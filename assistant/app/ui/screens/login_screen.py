@@ -27,6 +27,8 @@ from PyQt5.QtGui import (
 
 from app.core.camera_manager import CameraManager
 from app.core.config import Config
+from app.core.logger import logger
+
 
 
 # =====================================================
@@ -121,6 +123,7 @@ class LoginScreen(QWidget):
         self.user_label.setObjectName("userLabel")
 
         self.btn_login = QPushButton("✨ Iniciar sesión")
+        logger.info("✨ Iniciar sesión")
 
         self.btn_register = QPushButton(
             "🧬 Registrar usuario"
@@ -252,7 +255,7 @@ class LoginScreen(QWidget):
                 f"Bienvenido {user}"
             )
             
-            print(user)
+            logger.info("Usuario reconocido")
             
             self.timer.stop()
             

@@ -1,65 +1,110 @@
-import re
-import threading
+
+
+"""
+@file tts.py
+@brief Síntesis de voz mediante pico2wave + aplay.
+"""
+
 import subprocess
+import threading
+import re
+from app.core.logger import logger
 
 
 class TTS:
-
     def __init__(self, lang="es-ES"):
         self.lang = lang
         self.process = None
         self.is_speaking = False
+        self._done_event = threading.Event()
+        self._done_event.set()
+        logger.info(f"[TTS] init lang={lang}")
 
     def clean(self, text):
-        text = re.sub(r"\*\*(.*?)\*\*", r"\1", text)
-        text = re.sub(r"\*(.*?)\*", r"\1", text)
+        """
+        @brief Elimina TODO el formato Markdown y símbolos que pico2wave
+               lee en voz alta (corchetes, asteriscos, almohadillas, etc.)
+        """
+        # Negrita e itálica
+        text = re.sub(r"\*{1,3}(.*?)\*{1,3}", r"\1", text)
+        # Encabezados
         text = re.sub(r"#+\s*", "", text)
-        text = text.replace("`", "")
+        # Listas numeradas
+        text = re.sub(r"^\s*\d+\.\s+", "", text, flags=re.MULTILINE)
+        # Listas con guión o asterisco
+        text = re.sub(r"^\s*[-*•]\s+", "", text, flags=re.MULTILINE)
+        # Código inline y bloques
+        text = re.sub(r"```.*?```", "", text, flags=re.DOTALL)
+        text = re.sub(r"`([^`]*)`", r"\1", text)
+        # Corchetes y paréntesis de links  [texto](url)
+        text = re.sub(r"\[([^\]]*)\]\([^)]*\)", r"\1", text)
+        # Corchetes sueltos
+        text = re.sub(r"[\[\]]", "", text)
+        # Símbolos que pico2wave lee en voz alta
+        text = re.sub(r"[_~|><^\\]", "", text)
+        # Múltiples espacios/saltos
         text = re.sub(r"\n+", ". ", text)
+        text = re.sub(r"\s{2,}", " ", text)
+        # Puntuación duplicada
+        text = re.sub(r"\.{2,}", ".", text)
         return text.strip()
 
-    def _run(self, text):
-
-        text = self.clean(text)
-        self.is_speaking = True
-
-        try:
-            subprocess.run(
-                [
-                    "pico2wave",
-                    f"-l={self.lang}",
-                    "-w=/tmp/voice.wav",
-                    text
-                ],
-                stdout=subprocess.DEVNULL,
-                stderr=subprocess.DEVNULL
-            )
-
-            self.process = subprocess.Popen(
-                ["aplay", "/tmp/voice.wav"],
-                stdout=subprocess.DEVNULL,
-                stderr=subprocess.DEVNULL
-            )
-
-            self.process.wait()
-
-        finally:
-            self.process = None
-            self.is_speaking = False
-
     def speak(self, text):
-        if self.is_speaking:
-            self.stop()
+        """
+        @brief Sintetiza y reproduce texto. is_speaking se activa
+               ANTES de lanzar el hilo para que el STT lo vea de inmediato.
+        """
+        # Activar ANTES del hilo (evita race condition con STT)
+        self.is_speaking = True
+        self._done_event.clear()
 
-        threading.Thread(
-            target=self._run,
-            args=(text,),
-            daemon=True
-        ).start()
+        def _run():
+            clean_text = self.clean(text)
+            logger.info(f"[TTS] hablando: {clean_text[:80]}")
+            try:
+                subprocess.run(
+                    ["pico2wave", f"-l={self.lang}", "-w=/tmp/voice.wav", clean_text],
+                    stdout=subprocess.DEVNULL,
+                    stderr=subprocess.DEVNULL,
+                    timeout=15
+                )
+                self.process = subprocess.Popen(
+                    ["aplay", "/tmp/voice.wav"],
+                    stdout=subprocess.DEVNULL,
+                    stderr=subprocess.DEVNULL
+                )
+                self.process.wait()
+            except Exception as e:
+                logger.error(f"[TTS] error: {e}")
+            finally:
+                self.is_speaking = False
+                self.process = None
+                self._done_event.set()
+                logger.info("[TTS] fin")
+
+        threading.Thread(target=_run, daemon=True).start()
+
+    def wait_until_done(self, timeout=None):
+        return self._done_event.wait(timeout=timeout)
 
     def stop(self):
+        """
+        @brief Detiene la reproducción matando pico2wave y aplay.
+               Usa SIGKILL para garantizar parada inmediata.
+        """
+        logger.info("[TTS] stop")
+        # Matar el proceso aplay activo
         if self.process:
-            self.process.terminate()
-            self.process = None
-
+            try:
+                self.process.kill()   # SIGKILL, más agresivo que terminate()
+            except Exception:
+                pass
+        # Matar cualquier proceso aplay/pico2wave residual del sistema
+        try:
+            subprocess.run(["pkill", "-9", "-f", "aplay"], stderr=subprocess.DEVNULL)
+            subprocess.run(["pkill", "-9", "-f", "pico2wave"], stderr=subprocess.DEVNULL)
+        except Exception:
+            pass
         self.is_speaking = False
+        self.process = None
+        self._done_event.set()
