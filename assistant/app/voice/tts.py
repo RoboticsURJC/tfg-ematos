@@ -49,7 +49,7 @@ class TTS:
         text = re.sub(r"\.{2,}", ".", text)
         return text.strip()
 
-    def speak(self, text):
+    def speak(self, text, on_done=None):
         """
         @brief Sintetiza y reproduce texto. is_speaking se activa
                ANTES de lanzar el hilo para que el STT lo vea de inmediato.
@@ -80,6 +80,9 @@ class TTS:
                 self.is_speaking = False
                 self.process = None
                 self._done_event.set()
+                
+                if on_done:
+                   on_done()
                 logger.info("[TTS] fin")
 
         threading.Thread(target=_run, daemon=True).start()

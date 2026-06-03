@@ -84,6 +84,7 @@ class VoskSTT:
                 self._flush_queue(q)
                 tts_estaba_hablando = False
                 logger.info("[STT] TTS terminó, escuchando de nuevo")
+                
                 continue
 
             tts_estaba_hablando = tts_hablando

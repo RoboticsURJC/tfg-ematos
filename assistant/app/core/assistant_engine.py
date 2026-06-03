@@ -270,11 +270,13 @@ class AssistantEngine:
 
         elif intent == "weather":
             if self.display:
+                # ~ self.display.set_talking(False)
                 self.display.set_estado("Consultando clima...")
             respuesta = self._get_weather()
 
         else:
             if self.display:
+                self.display.set_talking(False)
                 self.display.set_estado("Pensando...")
 
             prompt = self._construir_prompt(texto)
@@ -331,7 +333,15 @@ class AssistantEngine:
         """
         if self.display:
             self.display.set_estado("Hablando...")
-        self.tts.speak(text)
+            self.display.set_talking(True)
+         
+        def _fin():
+            if self.display:
+               self.display.set_talking(False)
+               self.display.set_estado("Escuchando...") 
+            
+        self.tts.speak(text, on_done=_fin)
+        
 
     def start(self):
         """
@@ -359,13 +369,16 @@ class AssistantEngine:
         """
         def _on_text(text):
             if self.display:
+                # ~ self.display.set_talking(False)
                 self.display.set_estado(f"Escuchado: {text[:20]}")
 
             # Comandos de parada inmediata
             if any(x in text for x in ["calla", "para", "silencio", "cállate"]):
                 self.tts.stop()
                 if self.display:
+                    # ~ self.display.set_talking(False)
                     self.display.set_estado("Escuchando...")
+                                        
                 return
 
             try:
