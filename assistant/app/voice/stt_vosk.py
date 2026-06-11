@@ -8,18 +8,21 @@
 import json
 import queue
 import vosk
+import time
 from app.voice.audio_stream import start_stream
 from app.core.logger import logger
 
 # Palabras que interrumpen el TTS aunque esté hablando
 STOP_WORDS = {"calla", "para", "silencio", "cállate", "callate", "basta", "stop"}
-
+WAKE_WORDS = {"eliot", "asistente", "rojazz", "hablame"}
 
 class VoskSTT:
     def __init__(self, model_path, sample_rate=16000):
         logger.info(f"[STT] cargando modelo: {model_path}")
         self.model = vosk.Model(model_path)
         self.rec = vosk.KaldiRecognizer(self.model, sample_rate)
+        self.awake = False
+        self.awake_until = 0
         self.running = False
         self._stream = None
         logger.info("[STT] listo")
@@ -56,7 +59,16 @@ class VoskSTT:
         if p:
             logger.info(f"[STT] parcial: '{p}'")
         return ""
-
+    
+    def _contiene_palabra_inicio(self, text):
+        words = set(text.lower().split())
+        return bool(words & WAKE_WORDS)
+        
+    def activar_voz(self, seconds=10):
+        self.awake = True
+        self.awake_until = time.time() + seconds
+        logger.info("[STT] Wake Word detectada")
+    
     def listen_loop(self, callback, assistant=None, device=None):
         self._stream, q = start_stream(samplerate=48000, device=device)
         self._stream.start()
@@ -99,10 +111,23 @@ class VoskSTT:
 
             # --- Escucha normal ---
             text = self.process(data)
+           
             if not text:
                 continue
 
             text = text.lower().strip()
+            
+            if not self.awake:
+                if self._contiene_palabra_inicio(text):
+                    self.activar_voz()
+                continue
+                
+            if time.time() > self.awake_until:
+                # ~ self.awake =
+                logger.info("[STT] Bastante tiempo sin escuchar")
+                
+            logger.info(f"[STT]: {text}")
+            
             logger.info(f"[STT] reconocido: '{text}'")
             callback(text)
 

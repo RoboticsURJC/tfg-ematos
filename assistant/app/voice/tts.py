@@ -8,6 +8,7 @@
 import subprocess
 import threading
 import re
+import time
 from app.core.logger import logger
 
 
@@ -18,6 +19,8 @@ class TTS:
         self.is_speaking = False
         self._done_event = threading.Event()
         self._done_event.set()
+        self._stop_event = threading.Event()
+        
         logger.info(f"[TTS] init lang={lang}")
 
     def clean(self, text):
@@ -57,10 +60,12 @@ class TTS:
         # Activar ANTES del hilo (evita race condition con STT)
         self.is_speaking = True
         self._done_event.clear()
+        self._stop_event.clear()
 
         def _run():
             clean_text = self.clean(text)
             logger.info(f"[TTS] hablando: {clean_text[:80]}")
+            logger.info(f"[TTS] hile={threading.get_ident()}")
             try:
                 subprocess.run(
                     ["pico2wave", f"-l={self.lang}", "-w=/tmp/voice.wav", clean_text],
@@ -68,12 +73,30 @@ class TTS:
                     stderr=subprocess.DEVNULL,
                     timeout=15
                 )
+                
+                if self._stop_event.is_set():
+                    logger.info("[TTS] Cancelado antes de reproducir")
+                    return
+                    
                 self.process = subprocess.Popen(
                     ["aplay", "/tmp/voice.wav"],
                     stdout=subprocess.DEVNULL,
                     stderr=subprocess.DEVNULL
                 )
-                self.process.wait()
+                
+                logger.info(f"[TTS] PID aplay={self.process.pid}")
+                # ~ self.process.wait()
+                
+                while self.process.poll() is None:
+                    if self._stop_event.is_set():
+                        try:
+                            self.process.kill()
+                        except Exception:
+                            pass
+                        return
+                        
+                    time.sleep(0.05)
+                
             except Exception as e:
                 logger.error(f"[TTS] error: {e}")
             finally:
@@ -95,9 +118,13 @@ class TTS:
         @brief Detiene la reproducción matando pico2wave y aplay.
                Usa SIGKILL para garantizar parada inmediata.
         """
-        logger.info("[TTS] stop")
+        logger.info("[TTS] stop solicitado")
+        
+        self._stop_event.set()
+        
         # Matar el proceso aplay activo
         if self.process:
+            logger.info(f"[TTS] matado PID={self.process.pid} poll={self.process.poll()} ")
             try:
                 self.process.kill()   # SIGKILL, más agresivo que terminate()
             except Exception:
@@ -106,6 +133,14 @@ class TTS:
         try:
             subprocess.run(["pkill", "-9", "-f", "aplay"], stderr=subprocess.DEVNULL)
             subprocess.run(["pkill", "-9", "-f", "pico2wave"], stderr=subprocess.DEVNULL)
+            result = subprocess.run(
+                ["pgrep", "-a", "aplay"],
+                capture_output=True,
+                text=True
+            )
+            
+            logger.info(f"[TTS] aplay restantes: {result.stdout}")
+            
         except Exception:
             pass
         self.is_speaking = False
