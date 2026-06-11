@@ -7,13 +7,13 @@ class AssistantScreen(QWidget):
     def __init__(self, engine):
         super().__init__()
 
-        logger.info(" -> Iniciando Assistant Screen")
+        logger.info("[ASSISTANT SCREEN] Inicianda ventana  Assistant Screen")
 
         self.engine = engine
 
         layout = QVBoxLayout()
 
-        self.title = QLabel("🤖 Asistente activo")
+        self.title = QLabel(" Asistente activo")
         self.title.setAlignment(Qt.AlignCenter)
 
         self.state = QLabel("Esperando orden...")

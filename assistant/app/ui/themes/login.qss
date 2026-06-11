@@ -1,71 +1,66 @@
-LoginScreen {
-    background-color: #f6edb7;
+/* ============================================================
+   LOGIN SCREEN — FIXED + COLORES REALES
+   ============================================================ */
+
+QWidget#loginScreen {
+    background: qlineargradient(
+        x1: 0, y1: 0, x2: 1, y2: 1,
+        stop: 0 #fff0f9,
+        stop: 0.3 #f3ecff,
+        stop: 0.6 #e8f4ff,
+        stop: 1 #ffeef7
+    );
 }
 
-/* =========================
-   TITLE
-========================= */
-
-QLabel#title {
-    font-size: 34px;
-    font-weight: bold;
-    color: #ff9f68;
-    padding: 20px;
-    background: transparent;
+/* cámara */
+QWidget#loginScreen QLabel#camera {
+    background-color: #e2f2ff;
+    border: 4px solid #82c3f7;
+    border-radius: 45px;
 }
 
-/* =========================
-   CAMERA FRAME
-========================= */
-
-QLabel#camera {
-    background-color: #fff8f0; /* se funde con la ventana */
-
-    border: 4px solid #ffb347;
-    border-radius: 30px;
-
-    padding: 10px;
+/* estado */
+QWidget#loginScreen QLabel#status {
+    background-color: #fef6dd;
+    border: 4px solid #f4d97d;
+    border-radius: 35px;
+    color: #765e3b;
+    font-size: 24px;
+    font-weight: 800;
 }
 
-/* =========================
-   STATUS
-========================= */
-
-QLabel#status {
-    font-size: 18px;
-    color: #6b7280;
-    background: transparent;
+/* usuario */
+QWidget#loginScreen QLabel#userLabel {
+    color: #583b76;
+    font-size: 40px;
+    font-weight: 900;
 }
 
-/* =========================
-   USER LABEL
-========================= */
-
-QLabel#userLabel {
+/* botones */
+QWidget#loginScreen QPushButton {
+    border-radius: 40px;
     font-size: 26px;
-    font-weight: bold;
-    color: #ffb347;
-    background: transparent;
+    font-weight: 900;
+    min-height: 70px;
 }
 
-/* =========================
-   BUTTONS
-========================= */
-
-QPushButton {
-    background-color: #ffd6a5;
-    border: none;
-    border-radius: 20px;
-
-    padding: 14px;
-    font-weight: bold;
-}
-
-QPushButton:hover {
-    background-color: #7ee3d0;
+/* login */
+QWidget#loginScreen QPushButton#btn_login {
+    background-color: #82c3f7;
+    border: 4px solid #5fa6e0;
     color: white;
 }
 
-QPushButton:pressed {
-    background-color: #5dade2;
+/* register */
+QWidget#loginScreen QPushButton#btn_register {
+    background-color: #fca9cd;
+    border: 4px solid #e28cb0;
+    color: white;
 }
+
+/* hover */
+QWidget#loginScreen QPushButton:hover {
+    filter: brightness(1.05);
+}
+
+

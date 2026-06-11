@@ -1,151 +1,89 @@
-/* =========================
-   WINDOW
-========================= */
 
-QWidget#registerScreen {
-    background-color: #f8f4ff;
-    font-family: "Segoe UI";
-    color: #514761;
+
+
+/* ============================================================
+   REGISTER SCREEN — Fresh Mint & Purple Pop
+   ============================================================ */
+
+Qwidget#registerScreen {
+    background: qlineargradient(
+        x1: 0, y1: 0, x2: 1, y2: 1,
+        stop: 0 #fff0f9,
+        stop: 0.3 #f3ecff,
+        stop: 0.6 #e8f4ff,
+        stop: 1 #ffeef7
+    );
 }
 
-
-/* =========================
-   TITLE
-========================= */
-
-QLabel#title {
+/* Título */
+Qwidget#registerScreen #title {
+    background-color: #fef6dd;
+    border: 4px solid #f4d97d;
+    border-radius: 45px;
+    color: #765e3b;
     font-size: 38px;
-    font-weight: 700;
-    color: #7b68ee;
-    padding-top: 10px;
+    font-weight: 900;
+    padding: 20px;
 }
 
-QLabel#subtitle {
-    font-size: 18px;
-    color: #7d748c;
-    padding-bottom: 12px;
+/* Paso */
+Qwidget#registerScreen #stepLabel {
+    background-color: #f1e6ff;
+    border: 4px solid #caacf7;
+    border-radius: 30px;
+    color: #583b76;
+    font-size: 24px;
+    font-weight: 800;
+    padding: 12px 28px;
 }
 
-
-/* =========================
-   CAMERA CARD
-========================= */
-
-QFrame#cameraFrame {
-    background-color: #ffffff;
-
-    border: 3px solid #d8cfff;
-    border-radius: 28px;
-
-    padding: 24px;
-
-    min-width: 700px;
+/* Cámara */
+Qwidget#registerScreen #camera {
+    background-color: #e2fbe9;
+    border: 4px solid #8fe3a8;
+    border-radius: 45px;
 }
 
-
-/* =========================
-   STEP LABEL
-========================= */
-
-QLabel#stepLabel {
-    font-size: 20px;
-    font-weight: 600;
-    color: #6f61a8;
-
-    padding-bottom: 10px;
+/* Inputs */
+Qwidget#registerScreen QLineEdit {
+    border-radius: 35px;
+    border: 4px solid #caacf7;
+    padding: 18px;
+    font-size: 24px;
+    background: white;
+    color: #583b76;
 }
 
-
-/* =========================
-   CAMERA
-========================= */
-
-QLabel#camera {
-
-    background-color: #efeaff;
-
-    border: 4px solid #c5b7ff;
-    border-radius: 22px;
-
-    padding: 6px;
+Qwidget#registerScreen QLineEdit:focus {
+    border: 4px solid #82c3f7;
+    background: #f6faff;
 }
 
-
-/* =========================
-   PROGRESS
-========================= */
-
-QProgressBar {
-
-    background-color: #ece7ff;
-
-    border-radius: 10px;
-
-    height: 16px;
-
-    margin-top: 18px;
+/* Progress */
+Qwidget#registerScreen QProgressBar {
+    border-radius: 14px;
+    background: #e8e8f2;
+    border: 3px solid #cfcfdf;
+    height: 26px;
 }
 
-QProgressBar::chunk {
-
-    background-color: #a892ff;
-
+Qwidget#registerScreen QProgressBar::chunk {
+    background: #8fe3a8;
     border-radius: 10px;
 }
 
-
-/* =========================
-   BUTTONS
-========================= */
-
-QPushButton {
-
-    min-width: 240px;
-
-    padding: 16px;
-
-    font-size: 18px;
-    font-weight: 700;
-
-    border-radius: 22px;
-
-    border: none;
-}
-
-
-/* CAPTURE */
-
-QPushButton#captureButton {
-
-    background-color: #cbb8ff;
+/* Botón capture */
+Qwidget#registerScreen #btn_capture {
+    background-color: #8fe3a8;
+    border: 4px solid #6ec989;
     color: white;
+    border-radius: 40px;
 }
 
-QPushButton#captureButton:hover {
-
-    background-color: #b39dff;
-}
-
-QPushButton#captureButton:pressed {
-
-    background-color: #9b84ff;
-}
-
-
-/* BACK */
-
-QPushButton#backButton {
-
-    background-color: #ffd6e7;
-    color: #7a5d6d;
-}
-
-QPushButton#backButton:hover {
-
-    background-color: #ffc1db;
-}
-
-QPushButton#backButton:pressed {
-
-    background-color: #ffaccf;
+/* Botón back */
+Qwidget#registerScreen #btn_back {
+    background-color: #f4d97d;
+    border: 4px solid #dca342;
+    color: white;
+    border-radius: 40px;
 }

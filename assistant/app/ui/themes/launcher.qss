@@ -1,0 +1,115 @@
+
+
+
+
+/* ============================================================
+   LAUNCHER SCREEN
+   ============================================================ */
+
+#launcherScreen {
+    background-color: #ECECF4;
+    font-family: "Segoe UI", "Nunito", sans-serif;
+}
+
+/* Header */
+
+#headerCard {
+
+    background: #F9F9F9;
+
+    border: 4px solid #E8C866;
+
+    border-radius: 36px;
+}
+
+#title {
+
+    color: #75613F;
+
+    font-size: 42px;
+
+    font-weight: 800;
+}
+
+#subtitle {
+
+    color: #9B7B45;
+
+    font-size: 26px;
+
+    font-weight: 600;
+}
+
+/* Base Apps */
+
+QToolButton {
+
+    border-radius: 32px;
+
+    font-size: 28px;
+
+    font-weight: 800;
+
+    padding: 18px;
+}
+
+/* Calendario */
+
+QToolButton#calendar {
+
+    background: #F2E8C8;
+
+    border: 4px solid #E8C866;
+
+    color: #7B6639;
+}
+
+/* Internet */
+
+QToolButton#browser {
+
+    background: #D8EAF8;
+
+    border: 4px solid #7DB7E8;
+
+    color: #4A6889;
+}
+
+/* Juegos */
+
+QToolButton#games {
+
+    background: #F3D8E8;
+
+    border: 4px solid #E3A5C8;
+
+    color: #875878;
+}
+
+/* Notas */
+
+QToolButton#notes {
+
+    background: #D7EEE4;
+
+    border: 4px solid #77C89F;
+
+    color: #4B735E;
+}
+
+/* Ajustes */
+
+QToolButton#settings {
+
+    background: #E4D6F4;
+
+    border: 4px solid #B592E3;
+
+    color: #725A99;
+}
+
+QToolButton:hover {
+
+    border-width: 5px;
+}
+

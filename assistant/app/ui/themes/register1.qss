@@ -1,0 +1,151 @@
+/* =========================
+   WINDOW
+========================= */
+
+QWidget#registerScreen {
+    background-color: #f8f4ff;
+    font-family: "Segoe UI";
+    color: #514761;
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+QLabel#title {
+    font-size: 38px;
+    font-weight: 700;
+    color: #7b68ee;
+    padding-top: 10px;
+}
+
+QLabel#subtitle {
+    font-size: 18px;
+    color: #7d748c;
+    padding-bottom: 12px;
+}
+
+
+/* =========================
+   CAMERA CARD
+========================= */
+
+QFrame#cameraFrame {
+    background-color: #ffffff;
+
+    border: 3px solid #d8cfff;
+    border-radius: 28px;
+
+    padding: 24px;
+
+    min-width: 700px;
+}
+
+
+/* =========================
+   STEP LABEL
+========================= */
+
+QLabel#stepLabel {
+    font-size: 20px;
+    font-weight: 600;
+    color: #6f61a8;
+
+    padding-bottom: 10px;
+}
+
+
+/* =========================
+   CAMERA
+========================= */
+
+QLabel#camera {
+
+    background-color: #efeaff;
+
+    border: 4px solid #c5b7ff;
+    border-radius: 22px;
+
+    padding: 6px;
+}
+
+
+/* =========================
+   PROGRESS
+========================= */
+
+QProgressBar {
+
+    background-color: #ece7ff;
+
+    border-radius: 10px;
+
+    height: 16px;
+
+    margin-top: 18px;
+}
+
+QProgressBar::chunk {
+
+    background-color: #a892ff;
+
+    border-radius: 10px;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+QPushButton {
+
+    min-width: 240px;
+
+    padding: 16px;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    border-radius: 22px;
+
+    border: none;
+}
+
+
+/* CAPTURE */
+
+QPushButton#captureButton {
+
+    background-color: #cbb8ff;
+    color: white;
+}
+
+QPushButton#captureButton:hover {
+
+    background-color: #b39dff;
+}
+
+QPushButton#captureButton:pressed {
+
+    background-color: #9b84ff;
+}
+
+
+/* BACK */
+
+QPushButton#backButton {
+
+    background-color: #ffd6e7;
+    color: #7a5d6d;
+}
+
+QPushButton#backButton:hover {
+
+    background-color: #ffc1db;
+}
+
+QPushButton#backButton:pressed {
+
+    background-color: #ffaccf;
+}
