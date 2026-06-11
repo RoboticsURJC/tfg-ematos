@@ -33,11 +33,12 @@ class CameraManager:
         if self.cap is not None and self.cap.isOpened():
             return self.cap
 
-        logger.info("📷 Abriendo cámara compartida")
+        logger.info("[CAMERA MANAGER] Abriendo cámara compartida")
 
         self.cap = cv2.VideoCapture(0, cv2.CAP_V4L2)
 
         if not self.cap.isOpened():
+            logger.info("[CAMERA MANAGER] No se ha podido abrir la cámara")
             raise RuntimeError("No se pudo abrir la cámara")
 
         self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
@@ -63,7 +64,7 @@ class CameraManager:
 
         if self.cap is not None:
 
-            logger.info("📷 Liberando cámara")
+            logger.info("[CAMERA MANAGER] Liberando cámara")
 
             self.cap.release()
             self.cap = None

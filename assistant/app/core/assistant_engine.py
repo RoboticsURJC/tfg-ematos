@@ -11,18 +11,21 @@ Replica fielmente la lógica del asistente_robotico.py original:
 """
 
 import os
+import re
 import json
 import socket
 import threading
 import requests
+import dateparser
 
-from datetime import datetime
+from datetime import datetime, timedelta
 from bs4 import BeautifulSoup
 
 from app.voice.stt_vosk import VoskSTT
 from app.llm.client import LLMClient
 from app.voice.audio_stream import encontrar_micro
 from app.voice.tts import TTS
+from app.ui.apps.reminder.reminder_scheduler import ReminderScheduler
 from app.core.logger import logger
 
 
@@ -69,7 +72,7 @@ class AssistantEngine:
     7. La interacción se guarda en memoria persistente.
     """
 
-    def __init__(self, ui_state=None, display=None, model_path=None, server_url=None, mic_name=None, llm_model='groq', llm_timeout=90):
+    def __init__(self, ui_state=None, display=None, calendar_store=None,reminder_store=None, model_path=None, server_url=None, mic_name=None, llm_model='groq', llm_timeout=90):
         """
         @param ui_state    Estado compartido de la interfaz (UIState).
         @param display     Pantalla facial (FaceDisplay).
@@ -78,6 +81,9 @@ class AssistantEngine:
         """
         self.ui_state = ui_state
         self.display = display
+        self.calendar_store = calendar_store 
+        self.reminder_store = reminder_store
+        self.reminder_scheduler = None
         self.user = "invitado"
         self.running = False
 
@@ -97,9 +103,10 @@ class AssistantEngine:
         else:
             self.mic_device = None
 
+        # ~ Iniciar tts
         self.tts = TTS()
         self.stt = VoskSTT(model_path) if model_path else None
-
+        
         self.memoria = self._cargar_memoria()
 
         logger.info("[ASSISTANT] listo")
@@ -180,6 +187,20 @@ class AssistantEngine:
             return "time"
         if any(x in text for x in ["clima", "tiempo", "qué tiempo", "que tiempo", "temperatura"]):
             return "weather"
+            
+        if any(x in text for x in ["recuerdame", "recuérdame", "avisame", "avísame", 
+           "alarma", "medicación", "pastilla", "medicina"
+        ]): 
+            return "reminder"
+            
+        if any(x in text for x in [
+            "citas", "eventos", "agenda", "calendario", 
+            "qué tengo", "que tengo", "mis planes", "mi semana",
+            "martes", "lunes", "proximo", "hoy", "mi mes"
+        
+        ]):
+            return "calendar"
+        
         return "llm"
 
     # =========================================================
@@ -210,6 +231,160 @@ class AssistantEngine:
             logger.error(f"[WEB SEARCH] error: {e}")
             return ""
 
+
+    def _parse_fecha(self, texto):
+        """
+        Convierte expresiones naturales a fechas reales
+        Ej: "mañana", "proximo lunes", "este mes"
+        """
+        
+        settings = {
+            "PREFER_DATES_FROM": "future",
+            "RELATIVE_BASE": datetime.now()
+        }
+        
+        fecha = dateparser.parse(texto, settings=settings)
+        
+        return fecha
+        
+    def _rango_temporal(self, texto):
+        """
+        Devuelve (inico, fin) segun la expresion natural
+        """
+        
+        texto = texto.lower()
+        hoy = datetime.now().date()
+        
+        if "hoy" in texto:
+            logger.info("Pregunta por hoy")
+            return hoy, hoy
+            
+            
+        if "mañana" in texto:
+            logger.info("Pregunta por mañana")
+            mañana = hoy + timedelta(days=1)
+            return mañana, mañana
+            
+            
+        if "semana" in texto:
+            logger.info("Pregunta la semana")
+            inicio = hoy - timedelta(days=hoy.weekday())
+            fin = inicio + timedelta(days=6)
+            return inicio, fin
+                 
+        if "mes" in texto:
+            logger.info("Pregunta por el mes")
+            inicio = hoy.replace(day=1)
+            
+            if inicio.month == 12:
+                fin = inicio.replace(year=inicio.year+1, month=1, day=1) - timedelta(days=1)
+            else:
+                fin = inicio.replace(month=inicio.month+1, day=1) - timedelta(days=1)
+            return inicio, fin
+            
+        fecha = self._parse_fecha(texto)
+        if fecha:
+             f = fecha.date()
+             return f, f
+         
+        return None, None
+            
+           
+    def _get_calendar_events(self, text):
+                
+        inicio, fin = self._rango_temporal(text)
+        
+        if not inicio:
+            return "No he entendido bien la fecha que quieres consultar"
+ 
+        resultados = []
+        
+        for event in self.calendar_store.events:
+            try:
+                fecha = datetime.strptime(event["date"], "%Y-%m-%d").date()
+                
+                if inicio <= fecha <= fin:
+                    resultados.append(event)
+                    
+            except:
+                logger.error("[ASSISTANT ENGINE] error creando la fecha del calendario")
+                continue
+                
+        if not resultados:
+            return "No tienes eventos en este periodo."
+            
+        if inicio == fin:
+            intro = f"Tiene esto el {inicio.strftime('%d/%m/%Y')}: "
+            
+        else:
+            intro = f"Tienes estos eventos entre el {inicio.strftime('%d/%m/%Y')} y el {fin.strftime('%d/%m/%Y')}: "
+            
+        return intro + " ".join(
+           f"{e['title']} ({e['date']})." for e in resultados
+        )  
+            
+    def _crear_recordatorio(self, texto):
+        
+        """
+        Convierte una orden de voz en un recordatorio
+        Ej: Recuerdame tomarme la pastilla en 5 minutos
+        """
+        
+        logger.info("[ASSISTANT ENGINE] Crear recordartorio")
+        
+        try:
+
+
+            if not self.reminder_store:
+                return "No tengo acceso al sistema de recordatorios"
+            
+            texto_original = texto.lower()
+        
+            comando_limpio = re.sub(r"(recu[eé]rdame|recuerdame|av[ií]same|avisame)", "", texto_original).strip()
+        
+            minutos = None
+            horas = None
+        
+            m_min = re.search(r"(\d+)\s*min", comando_limpio)
+            m_h = re.search(r"(\d+)\s*hora", comando_limpio)
+            
+            # ~ Calcular fecha del recordatorio
+            when = datetime.now()
+        
+            if m_min:
+               minutos = int(m_min.group(1))
+               when += timedelta(minutes=minutos)
+            
+            if m_h:
+               when += timedelta(hours=int(m_h.group(1)))
+        
+            # ~ Si no se detecta tiempo
+            if not minutos and not horas:
+                when += timedelta(minutes=5)
+            
+            else:
+                when += timedelta(minutes=5)
+        
+            mensaje = re.sub(r"\d+\s*(minutos?|horas?) ", "", comando_limpio).strip()
+        
+            if not mensaje:
+                mensaje = "Recordatario sin título"
+            
+            # ~ Guardar recordatorio   
+            self.reminder_store.add(
+                mensaje,
+                when.strftime("%Y-%m-%d %H:%M")
+            )
+        
+            logger.info("[ASSISTANT ENGINE] Recordatorio añadido correctamente")
+        
+            return "Recordatorio añadido correctamente"
+        
+        except Exception as e:
+            logger.info(f"[ASSISTANT ENGINE] Fallo al crear recordatorio {e}")
+            return "No he podido crear el recordatorio"
+        
+            
     def _construir_prompt(self, mensaje):
         """
         @brief Construye el prompt completo con contexto conversacional.
@@ -266,14 +441,22 @@ class AssistantEngine:
         intent = self._detectar_intencion(texto)
 
         if intent == "time":
+            logger.info("Consultado hora")
             respuesta = f"Son las {self._get_time()}."
 
         elif intent == "weather":
             if self.display:
                 # ~ self.display.set_talking(False)
                 self.display.set_estado("Consultando clima...")
+                logger.info("Consultado clima")
             respuesta = self._get_weather()
-
+            
+        elif intent == "calendar":
+            respuesta = self._get_calendar_events(texto) 
+        
+        elif intent == "reminder":
+            respuesta = self._crear_recordatorio(texto)
+        
         else:
             if self.display:
                 self.display.set_talking(False)
@@ -398,5 +581,8 @@ class AssistantEngine:
         if self.stt:
             self.stt.stop()
         self.tts.stop()
+        
+        if self.reminder_scheduler:
+            self.reminder_scheduler.stop()
         
         

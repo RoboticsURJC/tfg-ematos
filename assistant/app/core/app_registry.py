@@ -4,7 +4,7 @@ from app.ui.apps.weather_app import WeatherApp
 from app.ui.apps.music_app import MusicApp
 from app.ui.apps.camera_app import CameraApp
 from app.ui.apps.browser_app import BrowserApp
-from app.ui.apps.system_app import SystemApp
+from app.core.system_apps import SystemApps
 
 
 class AppRegistry:
@@ -44,7 +44,7 @@ class AppRegistry:
 
         self.register(
             "system",
-            SystemApp
+            SystemApps
         )
 
     # =========================================================
