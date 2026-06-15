@@ -1,0 +1,12 @@
+Latency measurements towards http://victus-16.local:5000/recognize
+Start Date: 20251212_113911
+
+20250211_120847.jpg,2770.61 ms
+Manuel_2.jpg,503.01 ms
+1412ddec8b344141900c6108d4377d76_foto1.jpg,525.40 ms
+20250204_163819.jpg,2416.81 ms
+
+Avg: 1553.96 ms
+Max: 2770.61 ms
+Min: 503.01 ms
+Median: 1471.10 ms

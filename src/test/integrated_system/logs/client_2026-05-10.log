@@ -1,0 +1,104 @@
+2026-05-10 12:07:10,778 [INFO] FaceClient: Servidor configurado en: http://192.168.1.96:5000
+2026-05-10 12:07:10,780 [INFO] FaceClient: Iniciando API....
+2026-05-10 12:07:11,125 [INFO] FaceClient: Inicializando aplicación...
+2026-05-10 12:07:11,198 [INFO] FaceClient: Cámara USB inicializada correctamente
+2026-05-10 12:07:15,802 [INFO] FaceClient: Captura para login iniciada
+2026-05-10 12:07:15,804 [INFO] FaceClient: Mostrando popup de progreso
+2026-05-10 12:07:15,834 [INFO] FaceClient: Mostrando popup de progreso
+2026-05-10 12:07:15,861 [INFO] FaceClient: Enviando imagen al servidor (recognize)...
+2026-05-10 12:07:16,533 [INFO] FaceClient: Respuesta recibida correctamente
+2026-05-10 12:07:16,645 [INFO] FaceClient: Resultado: {'message': 'Reconocidos: Elisa', 'recognized': ['Elisa']}
+2026-05-10 12:07:58,741 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-10 12:13:48,122 [INFO] FaceClient: Servidor configurado en: http://192.168.1.96:5000
+2026-05-10 12:13:48,124 [INFO] FaceClient: Iniciando API....
+2026-05-10 12:13:49,011 [INFO] FaceClient: Inicializando aplicación...
+2026-05-10 12:13:49,094 [INFO] FaceClient: Cámara USB inicializada correctamente
+2026-05-10 12:15:00,838 [INFO] FaceClient: Servidor configurado en: http://192.168.1.96:5000
+2026-05-10 12:15:00,839 [INFO] FaceClient: Iniciando API....
+2026-05-10 12:15:01,154 [INFO] FaceClient: Inicializando aplicación...
+2026-05-10 12:15:01,227 [INFO] FaceClient: Cámara USB inicializada correctamente
+2026-05-10 12:15:08,452 [INFO] FaceClient: Captura para login iniciada
+2026-05-10 12:15:08,454 [INFO] FaceClient: Mostrando popup de progreso
+2026-05-10 12:15:08,500 [INFO] FaceClient: Mostrando popup de progreso
+2026-05-10 12:15:08,605 [INFO] FaceClient: Enviando imagen al servidor (recognize)...
+2026-05-10 12:15:09,315 [INFO] FaceClient: Respuesta recibida correctamente
+2026-05-10 12:15:09,401 [INFO] FaceClient: Resultado: {'message': 'Reconocidos: Elisa', 'recognized': ['Elisa']}
+2026-05-10 12:15:33,441 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-10 12:16:04,919 [INFO] FaceClient: Servidor configurado en: http://192.168.1.96:5000
+2026-05-10 12:16:04,920 [INFO] FaceClient: Iniciando API....
+2026-05-10 12:16:05,280 [INFO] FaceClient: Inicializando aplicación...
+2026-05-10 12:16:05,370 [INFO] FaceClient: Cámara USB inicializada correctamente
+2026-05-10 12:16:08,407 [INFO] FaceClient: Captura para login iniciada
+2026-05-10 12:16:08,408 [INFO] FaceClient: Mostrando popup de progreso
+2026-05-10 12:16:08,419 [INFO] FaceClient: Mostrando popup de progreso
+2026-05-10 12:16:08,430 [INFO] FaceClient: Enviando imagen al servidor (recognize)...
+2026-05-10 12:16:09,324 [INFO] FaceClient: Respuesta recibida correctamente
+2026-05-10 12:16:09,380 [INFO] FaceClient: Resultado: {'message': 'Reconocidos: Elisa', 'recognized': ['Elisa']}
+2026-05-10 12:16:30,898 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-10 12:16:44,025 [INFO] FaceClient: Servidor configurado en: http://192.168.1.96:5000
+2026-05-10 12:16:44,026 [INFO] FaceClient: Iniciando API....
+2026-05-10 12:16:44,661 [INFO] FaceClient: Inicializando aplicación...
+2026-05-10 12:16:44,733 [INFO] FaceClient: Cámara USB inicializada correctamente
+2026-05-10 12:16:48,798 [INFO] FaceClient: Captura para login iniciada
+2026-05-10 12:16:48,799 [INFO] FaceClient: Mostrando popup de progreso
+2026-05-10 12:16:48,814 [INFO] FaceClient: Mostrando popup de progreso
+2026-05-10 12:16:48,825 [INFO] FaceClient: Enviando imagen al servidor (recognize)...
+2026-05-10 12:16:49,261 [INFO] FaceClient: Respuesta recibida correctamente
+2026-05-10 12:16:49,285 [INFO] FaceClient: Resultado: {'message': 'Reconocidos: Elisa', 'recognized': ['Elisa']}
+2026-05-10 12:19:42,421 [INFO] FaceClient: Servidor configurado en: http://192.168.1.96:5000
+2026-05-10 12:19:42,422 [INFO] FaceClient: Iniciando API....
+2026-05-10 12:19:42,737 [INFO] FaceClient: Inicializando aplicación...
+2026-05-10 12:19:42,805 [INFO] FaceClient: Cámara USB inicializada correctamente
+2026-05-10 12:19:45,822 [INFO] FaceClient: Captura para login iniciada
+2026-05-10 12:19:45,824 [INFO] FaceClient: Mostrando popup de progreso
+2026-05-10 12:19:45,834 [INFO] FaceClient: Mostrando popup de progreso
+2026-05-10 12:19:45,843 [INFO] FaceClient: Enviando imagen al servidor (recognize)...
+2026-05-10 12:19:46,441 [ERROR] FaceClient: Fallo conexión: HTTPConnectionPool(host='192.168.1.96', port=5000): Max retries exceeded with url: /recognize (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fa5959b50>: Failed to establish a new connection: [Errno 111] Conexión rehusada'))
+2026-05-10 12:19:46,539 [ERROR] FaceClient: Error reconocimiento: No se pudo conectar al servidor
+2026-05-10 12:20:12,739 [INFO] FaceClient: Captura para login iniciada
+2026-05-10 12:20:12,740 [INFO] FaceClient: Mostrando popup de progreso
+2026-05-10 12:20:12,748 [INFO] FaceClient: Mostrando popup de progreso
+2026-05-10 12:20:12,764 [INFO] FaceClient: Enviando imagen al servidor (recognize)...
+2026-05-10 12:20:13,346 [INFO] FaceClient: Respuesta recibida correctamente
+2026-05-10 12:20:13,440 [INFO] FaceClient: Resultado: {'message': 'Reconocidos: Elisa', 'recognized': ['Elisa']}
+2026-05-10 12:21:03,056 [INFO] FaceClient: Servidor configurado en: http://192.168.1.96:5000
+2026-05-10 12:21:03,057 [INFO] FaceClient: Iniciando API....
+2026-05-10 12:21:03,372 [INFO] FaceClient: Inicializando aplicación...
+2026-05-10 12:21:03,441 [INFO] FaceClient: Cámara USB inicializada correctamente
+2026-05-10 12:21:05,858 [INFO] FaceClient: Captura para login iniciada
+2026-05-10 12:21:05,860 [INFO] FaceClient: Mostrando popup de progreso
+2026-05-10 12:21:05,886 [INFO] FaceClient: Mostrando popup de progreso
+2026-05-10 12:21:05,908 [INFO] FaceClient: Enviando imagen al servidor (recognize)...
+2026-05-10 12:21:06,801 [INFO] FaceClient: Respuesta recibida correctamente
+2026-05-10 12:21:06,813 [INFO] FaceClient: Resultado: {'message': 'Reconocidos: Elisa', 'recognized': ['Elisa']}
+2026-05-10 12:21:11,744 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-10 12:22:44,736 [INFO] FaceClient: Servidor configurado en: http://192.168.1.96:5000
+2026-05-10 12:22:44,737 [INFO] FaceClient: Iniciando API....
+2026-05-10 12:22:45,053 [INFO] FaceClient: Inicializando aplicación...
+2026-05-10 12:22:45,121 [INFO] FaceClient: Cámara USB inicializada correctamente
+2026-05-10 12:22:47,389 [INFO] FaceClient: Captura para login iniciada
+2026-05-10 12:22:47,390 [INFO] FaceClient: Mostrando popup de progreso
+2026-05-10 12:22:47,399 [INFO] FaceClient: Mostrando popup de progreso
+2026-05-10 12:22:47,407 [INFO] FaceClient: Enviando imagen al servidor (recognize)...
+2026-05-10 12:22:47,817 [INFO] FaceClient: Respuesta recibida correctamente
+2026-05-10 12:22:47,886 [INFO] FaceClient: Resultado: {'message': 'Reconocidos: Elisa', 'recognized': ['Elisa']}
+2026-05-10 12:23:41,939 [INFO] FaceClient: Servidor configurado en: http://192.168.1.96:5000
+2026-05-10 12:23:41,940 [INFO] FaceClient: Iniciando API....
+2026-05-10 12:23:42,252 [INFO] FaceClient: Inicializando aplicación...
+2026-05-10 12:23:42,321 [INFO] FaceClient: Cámara USB inicializada correctamente
+2026-05-10 12:23:44,012 [INFO] FaceClient: Captura para login iniciada
+2026-05-10 12:23:44,013 [INFO] FaceClient: Mostrando popup de progreso
+2026-05-10 12:23:44,038 [INFO] FaceClient: Mostrando popup de progreso
+2026-05-10 12:23:44,062 [INFO] FaceClient: Enviando imagen al servidor (recognize)...
+2026-05-10 12:23:44,602 [INFO] FaceClient: Respuesta recibida correctamente
+2026-05-10 12:23:44,709 [INFO] FaceClient: Resultado: {'message': 'Reconocidos: Elisa', 'recognized': ['Elisa']}
+2026-05-10 12:25:35,274 [INFO] FaceClient: Servidor configurado en: http://192.168.1.96:5000
+2026-05-10 12:25:35,276 [INFO] FaceClient: Iniciando API....
+2026-05-10 12:25:36,145 [INFO] FaceClient: Inicializando aplicación...
+2026-05-10 12:25:36,223 [INFO] FaceClient: Cámara USB inicializada correctamente
+2026-05-10 12:25:46,097 [INFO] FaceClient: Captura para login iniciada
+2026-05-10 12:25:46,098 [INFO] FaceClient: Mostrando popup de progreso
+2026-05-10 12:25:46,118 [INFO] FaceClient: Mostrando popup de progreso
+2026-05-10 12:25:46,135 [INFO] FaceClient: Enviando imagen al servidor (recognize)...
+2026-05-10 12:25:46,849 [INFO] FaceClient: Respuesta recibida correctamente
+2026-05-10 12:25:46,925 [INFO] FaceClient: Resultado: {'message': 'Reconocidos: Elisa', 'recognized': ['Elisa']}

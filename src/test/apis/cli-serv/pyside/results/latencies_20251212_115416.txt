@@ -1,0 +1,18 @@
+Latency measurements towards http://victus-16.local:5000/latency
+Start Date: 20251212_115416
+
+11:54:21 - Connection failure
+11:54:27 - Connection failure
+11:54:34 - Connection failure
+11:54:40 - Connection failure
+11:54:46 - Connection failure
+11:54:48 - Error in response
+11:54:50 - Error in response
+11:54:51 - Error in response
+11:54:53 - Error in response
+11:54:54 - Error in response
+11:54:55 - Error in response
+11:54:57 - Error in response
+11:54:58 - Error in response
+11:54:59 - Error in response
+11:55:00 - Error in response

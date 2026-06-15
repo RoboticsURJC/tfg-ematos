@@ -1,0 +1,46 @@
+2026-04-29 21:47:19,905 | INFO | Chat iniciado
+2026-04-29 21:47:22,245 | INFO | USER: hola
+2026-04-29 21:47:22,246 | INFO | AI: ¡Hola! Me alegra poder ayudarte. ¿En qué puedo ayudarte hoy? ¿Necesitas algo en particular o solo quieres charlar un rato? Estoy aquí para escucharte y ayudarte en lo que pueda. ¿Cómo estás hoy? {}
+2026-04-29 21:47:22,246 | INFO | FINAL: ¡Hola! Me alegra poder ayudarte. ¿En qué puedo ayudarte hoy? ¿Necesitas algo en particular o solo quieres charlar un rato? Estoy aquí para escucharte y ayudarte en lo que pueda. ¿Cómo estás hoy? {}
+2026-04-29 21:47:22,247 | INFO | ------------------------------------------------------------
+2026-04-29 21:47:25,490 | INFO | USER: qué tal?
+2026-04-29 21:47:25,491 | INFO | AI: ¡Hola! Estoy aquí para ayudarte en lo que necesites. ¿Cómo te sientes hoy? ¿Hay algo en lo que pueda asistirte o simplemente quieres charlar un rato? Estoy todo oídos. {}
+2026-04-29 21:47:25,491 | INFO | FINAL: ¡Hola! Estoy aquí para ayudarte en lo que necesites. ¿Cómo te sientes hoy? ¿Hay algo en lo que pueda asistirte o simplemente quieres charlar un rato? Estoy todo oídos. {}
+2026-04-29 21:47:25,492 | INFO | ------------------------------------------------------------
+2026-04-29 21:47:41,361 | INFO | USER: queiero hablar un rato
+2026-04-29 21:47:41,362 | INFO | AI: ¡Claro que sí! Estoy aquí para escucharte y charlar contigo. No hay prisa, podemos hablar de lo que quieras, cuando quieras. ¿Qué te gustaría hablar? ¿De algún tema en particular o solo quieres conversar un rato? Estoy aquí para ti. ¿Cómo te sientes hoy? {}
+2026-04-29 21:47:41,363 | INFO | FINAL: ¡Claro que sí! Estoy aquí para escucharte y charlar contigo. No hay prisa, podemos hablar de lo que quieras, cuando quieras. ¿Qué te gustaría hablar? ¿De algún tema en particular o solo quieres conversar un rato? Estoy aquí para ti. ¿Cómo te sientes hoy? {}
+2026-04-29 21:47:41,364 | INFO | ------------------------------------------------------------
+2026-04-29 21:47:50,782 | INFO | USER: de cómo me siento
+2026-04-29 21:47:50,783 | INFO | AI: ¡Hola! Me alegra que hayas decidido hablar conmigo sobre cómo te sientes. A veces, compartir nuestros sentimientos y pensamientos puede ser muy útil para entender mejor lo que está pasando dentro de nosotros.
+
+¿Qué te hace sentir como te sientes en este momento? ¿Es algo en particular que te preocupa o te está molestando, o simplemente necesitas alguien con quien charlar? Estoy aquí para escucharte y ofrecerte apoyo si lo necesitas. ¿Qué te parece si empezamos hablando un poco más sobre lo que te pasa? {}
+2026-04-29 21:47:50,784 | INFO | FINAL: ¡Hola! Me alegra que hayas decidido hablar conmigo sobre cómo te sientes. A veces, compartir nuestros sentimientos y pensamientos puede ser muy útil para entender mejor lo que está pasando dentro de nosotros.
+
+¿Qué te hace sentir como te sientes en este momento? ¿Es algo en particular que te preocupa o te está molestando, o simplemente necesitas alguien con quien charlar? Estoy aquí para escucharte y ofrecerte apoyo si lo necesitas. ¿Qué te parece si empezamos hablando un poco más sobre lo que te pasa? {}
+2026-04-29 21:47:50,785 | INFO | ------------------------------------------------------------
+2026-04-29 21:47:59,384 | INFO | USER: me duele el pecho
+2026-04-29 21:47:59,384 | INFO | AI: Lo siento mucho, ¿puedes decirme un poco más sobre el dolor en el pecho que estás experimentando? ¿Es un dolor intenso y repentino o más bien un dolor leve y constante? ¿Te duele cuando respiras, toses o te mueves? También, ¿has tenido algún problema de salud previo que pueda estar relacionado con este dolor? Quiero entender mejor lo que estás pasando para poder ayudarte de la mejor manera posible. {}
+2026-04-29 21:47:59,385 | INFO | FINAL: Lo siento mucho, ¿puedes decirme un poco más sobre el dolor en el pecho que estás experimentando? ¿Es un dolor intenso y repentino o más bien un dolor leve y constante? ¿Te duele cuando respiras, toses o te mueves? También, ¿has tenido algún problema de salud previo que pueda estar relacionado con este dolor? Quiero entender mejor lo que estás pasando para poder ayudarte de la mejor manera posible. {}
+2026-04-29 21:47:59,386 | INFO | ------------------------------------------------------------
+2026-04-29 21:48:18,023 | INFO | USER: me duele el lado derercho con un dolor punzante
+2026-04-29 21:48:18,024 | INFO | AI: Lo siento mucho que estés experimentando dolor en el lado derecho. Un dolor punzante puede ser preocupante, pero no te preocupes, vamos a intentar entender mejor qué puede estar sucediendo.
+
+Para poder ayudarte mejor, ¿podrías decirme un poco más sobre el dolor que estás experimentando? ¿Es un dolor constante o viene y va? ¿Es un dolor que se irradia hacia otras partes del cuerpo o se queda en un solo lugar?
+
+Además, ¿has notado si el dolor empeora o mejora con ciertas actividades, como comer, moverte o descansar? Cualquier detalle que puedas proporcionarme me ayudará a entender mejor tu situación y a darte consejos más adecuados.
+
+Recuerda que no soy un médico, pero puedo ayudarte a identificar algunos posibles causas y adecuar algunos consejos generales para que puedas encontrar alivio. Si el dolor es severo o persistente, siempre es recomendable consultar con un profesional de la salud para un diagnóstico y tratamiento adecuados. ¿Quieres seguir hablando sobre tu dolor y ver si podemos encontrar alguna forma de ayudarte? {}
+2026-04-29 21:48:18,024 | INFO | FINAL: Lo siento mucho que estés experimentando dolor en el lado derecho. Un dolor punzante puede ser preocupante, pero no te preocupes, vamos a intentar entender mejor qué puede estar sucediendo.
+
+Para poder ayudarte mejor, ¿podrías decirme un poco más sobre el dolor que estás experimentando? ¿Es un dolor constante o viene y va? ¿Es un dolor que se irradia hacia otras partes del cuerpo o se queda en un solo lugar?
+
+Además, ¿has notado si el dolor empeora o mejora con ciertas actividades, como comer, moverte o descansar? Cualquier detalle que puedas proporcionarme me ayudará a entender mejor tu situación y a darte consejos más adecuados.
+
+Recuerda que no soy un médico, pero puedo ayudarte a identificar algunos posibles causas y adecuar algunos consejos generales para que puedas encontrar alivio. Si el dolor es severo o persistente, siempre es recomendable consultar con un profesional de la salud para un diagnóstico y tratamiento adecuados. ¿Quieres seguir hablando sobre tu dolor y ver si podemos encontrar alguna forma de ayudarte? {}
+2026-04-29 21:48:18,025 | INFO | ------------------------------------------------------------
+2026-04-29 21:48:33,385 | INFO | USER: puedes añadir un recordatorio?
+2026-04-29 21:48:33,386 | INFO | AI: ¡Claro que sí! Me encantaría ayudarte a agregar un recordatorio. ¿Podrías decirme qué es lo que te gustaría recordar y cuándo te gustaría que te lo recuerde? Por ejemplo, ¿es un evento, una cita, una tarea que debes hacer o algo más? Estoy aquí para ayudarte. ¿Quieres que te guíe paso a paso para crear el recordatorio? {}
+2026-04-29 21:48:33,387 | INFO | FINAL: ¡Claro que sí! Me encantaría ayudarte a agregar un recordatorio. ¿Podrías decirme qué es lo que te gustaría recordar y cuándo te gustaría que te lo recuerde? Por ejemplo, ¿es un evento, una cita, una tarea que debes hacer o algo más? Estoy aquí para ayudarte. ¿Quieres que te guíe paso a paso para crear el recordatorio? {}
+2026-04-29 21:48:33,387 | INFO | ------------------------------------------------------------
+2026-04-29 21:48:38,242 | INFO | Interrupción por usuario

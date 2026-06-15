@@ -1,0 +1,8 @@
+2026-04-29 21:31:39,536 | INFO | Chat iniciado
+2026-04-29 21:31:40,767 | ERROR | LLM ERROR: HTTPConnectionPool(host='192.168.1.96', port=8000): Max retries exceeded with url: /generate (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f87f1a290>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2026-04-29 21:31:40,767 | INFO | USER: hola
+2026-04-29 21:31:40,768 | INFO | AI: 
+2026-04-29 21:31:40,768 | INFO | Activando búsqueda web...
+2026-04-29 21:31:41,064 | INFO | FINAL: 
+2026-04-29 21:31:41,064 | INFO | ------------------------------------------------------------
+2026-04-29 21:33:28,488 | INFO | Interrupción por usuario

@@ -1,0 +1,647 @@
+2026-05-04 18:38:48,497 [INFO] FaceClient: Servidor configurado en: http://192.168.1.96:5000
+2026-05-04 18:38:48,499 [INFO] FaceClient: Iniciando API....
+2026-05-04 18:38:52,336 [INFO] FaceClient: Inicializando aplicación...
+2026-05-04 18:38:52,364 [ERROR] FaceClient: No se pudo abrir la cámara USB
+2026-05-04 18:39:20,704 [INFO] FaceClient: Servidor configurado en: http://192.168.1.96:5000
+2026-05-04 18:39:20,705 [INFO] FaceClient: Iniciando API....
+2026-05-04 18:39:21,146 [INFO] FaceClient: Inicializando aplicación...
+2026-05-04 18:39:21,224 [INFO] FaceClient: Cámara USB inicializada correctamente
+2026-05-04 18:39:59,198 [INFO] FaceClient: Captura para login iniciada
+2026-05-04 18:39:59,203 [INFO] FaceClient: Mostrando popup de progreso
+2026-05-04 18:39:59,247 [INFO] FaceClient: Mostrando popup de progreso
+2026-05-04 18:39:59,335 [INFO] FaceClient: Enviando imagen al servidor (recognize)...
+2026-05-04 18:39:59,690 [INFO] FaceClient: Respuesta recibida correctamente
+2026-05-04 18:39:59,794 [INFO] FaceClient: Resultado: {'message': 'No se detectó ningún rostro', 'recognized': []}
+2026-05-04 18:40:01,729 [INFO] FaceClient: Captura para login iniciada
+2026-05-04 18:40:01,730 [INFO] FaceClient: Mostrando popup de progreso
+2026-05-04 18:40:01,740 [INFO] FaceClient: Mostrando popup de progreso
+2026-05-04 18:40:01,771 [INFO] FaceClient: Enviando imagen al servidor (recognize)...
+2026-05-04 18:40:02,197 [INFO] FaceClient: Respuesta recibida correctamente
+2026-05-04 18:40:02,311 [INFO] FaceClient: Resultado: {'message': 'Reconocidos: Elisa', 'recognized': ['Elisa']}
+2026-05-04 21:52:12,663 [INFO] FaceClient: Servidor configurado en: http://192.168.1.96:5000
+2026-05-04 21:52:12,665 [INFO] FaceClient: Iniciando API....
+2026-05-04 21:52:13,037 [INFO] FaceClient: Inicializando aplicación...
+2026-05-04 21:52:13,109 [INFO] FaceClient: Cámara USB inicializada correctamente
+2026-05-04 21:52:23,267 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:52:33,301 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:52:43,312 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:52:54,647 [INFO] FaceClient: Servidor configurado en: http://192.168.1.96:5000
+2026-05-04 21:52:54,649 [INFO] FaceClient: Iniciando API....
+2026-05-04 21:52:55,000 [INFO] FaceClient: Inicializando aplicación...
+2026-05-04 21:52:55,010 [INFO] FaceClient: Cámara USB inicializada correctamente
+2026-05-04 21:53:04,184 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:04,201 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:04,232 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:04,306 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:04,336 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:04,365 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:04,396 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:04,426 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:04,456 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:04,488 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:04,518 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:04,547 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:04,577 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:04,607 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:04,640 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:04,670 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:04,700 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:04,729 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:04,760 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:04,792 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:04,822 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:04,853 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:04,884 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:04,914 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:04,943 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:04,976 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:05,004 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:05,036 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:05,065 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:05,097 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:05,126 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:05,156 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:05,188 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:05,217 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:05,247 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:05,278 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:05,308 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:05,340 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:05,369 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:05,399 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:05,430 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:05,460 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:05,497 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:05,522 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:05,552 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:05,585 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:05,613 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:05,644 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:05,674 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:05,704 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:05,736 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:05,766 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:05,796 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:05,826 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:05,856 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:05,888 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:05,918 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:05,947 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:05,978 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:06,007 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:06,040 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:06,069 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:06,100 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:06,130 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:06,161 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:06,192 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:06,222 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:06,253 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:06,284 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:06,314 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:06,343 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:06,374 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:06,403 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:06,436 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:06,465 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:06,495 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:06,525 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:06,555 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:06,589 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:06,617 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:06,647 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:06,677 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:06,708 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:06,740 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:06,769 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:06,801 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:06,830 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:06,860 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:06,892 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:06,921 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:06,952 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:06,984 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:07,013 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:07,044 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:07,075 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:07,104 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:07,136 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:07,166 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:07,195 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:07,226 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:07,255 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:07,288 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:07,318 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:07,347 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:07,378 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:07,409 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:07,440 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:07,471 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:07,500 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:07,529 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:07,559 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:07,592 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:07,621 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:07,651 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:07,684 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:07,713 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:07,744 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:07,773 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:07,804 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:07,837 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:07,865 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:07,895 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:07,926 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:07,956 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:07,988 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:08,018 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:08,048 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:08,077 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:08,108 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:08,139 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:08,170 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:08,199 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:08,230 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:08,260 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:08,291 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:08,322 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:08,353 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:08,383 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:08,413 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:08,443 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:08,473 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:08,506 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:08,536 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:08,566 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:08,596 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:08,626 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:08,656 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:08,688 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:08,718 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:08,747 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:08,778 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:08,807 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:08,840 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:08,870 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:08,900 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:08,929 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:08,959 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:08,992 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:09,021 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:09,052 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:09,084 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:09,113 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:09,144 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:09,174 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:09,204 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:09,236 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:09,265 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:09,295 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:09,326 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:09,356 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:09,388 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:09,418 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:09,447 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:09,477 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:09,508 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:09,540 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:09,569 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:09,599 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:09,630 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:09,660 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:09,694 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:09,725 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:09,754 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:09,784 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:09,820 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:09,843 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:09,874 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:09,904 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:09,936 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:09,969 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:09,995 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:10,025 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:10,056 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:10,087 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:10,118 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:10,148 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:10,177 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:10,208 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:10,240 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:10,273 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:10,299 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:10,331 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:10,359 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:10,391 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:10,424 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:10,451 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:10,484 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:10,514 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:10,544 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:10,574 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:10,603 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:10,635 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:10,669 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:10,696 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:10,727 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:10,756 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:10,788 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:10,818 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:10,847 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:10,877 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:10,907 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:10,940 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:10,970 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:11,001 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:11,030 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:11,060 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:11,091 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:11,122 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:11,151 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:11,185 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:11,214 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:11,243 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:11,275 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:11,304 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:11,337 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:11,368 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:11,397 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:11,426 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:11,455 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:11,488 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:11,518 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:11,548 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:11,578 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:11,608 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:11,639 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:11,669 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:11,700 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:11,729 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:11,759 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:11,791 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:11,821 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:11,852 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:11,884 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:11,913 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:11,943 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:11,974 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:12,005 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:12,036 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:12,067 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:12,096 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:12,126 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:12,156 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:12,189 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:12,219 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:12,247 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:12,278 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:12,308 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:12,339 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:12,371 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:12,399 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:12,430 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:12,459 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:12,492 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:12,522 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:12,553 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:12,584 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:12,613 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:12,644 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:12,674 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:12,704 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:12,737 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:12,766 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:12,796 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:12,826 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:12,856 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:12,888 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:12,917 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:12,947 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:12,978 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:13,008 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:13,039 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:13,069 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:13,100 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:13,129 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:13,160 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:13,193 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:13,222 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:13,252 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:13,284 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:13,313 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:13,344 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:13,374 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:13,404 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:13,436 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:13,466 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:13,496 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:13,526 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:13,556 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:13,588 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:13,621 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:13,648 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:13,679 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:13,708 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:13,740 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:13,770 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:13,800 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:13,829 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:13,859 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:13,892 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:13,923 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:13,952 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:13,985 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:14,014 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:14,043 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:14,075 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:14,104 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:14,136 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:14,166 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:14,195 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:14,226 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:14,256 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:14,288 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:14,318 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:14,347 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:14,377 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:14,407 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:14,440 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:14,470 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:14,500 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:14,529 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:14,559 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:14,592 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:14,625 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:14,653 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:14,685 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:14,714 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:14,744 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:14,773 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:14,803 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:14,836 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:14,867 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:14,896 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:14,925 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:14,956 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:14,988 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:15,018 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:15,048 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:15,077 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:15,108 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:15,140 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:15,169 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:15,200 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:15,230 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:15,261 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:15,293 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:15,329 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:15,351 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:15,383 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:15,414 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:15,444 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:15,474 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:15,504 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:15,536 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:15,565 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:15,595 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:15,626 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:15,655 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:15,688 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:15,717 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:15,748 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:15,778 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:15,808 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:15,841 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:15,869 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:15,900 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:15,930 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:15,959 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:15,992 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:16,021 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:16,052 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:16,083 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:16,113 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:16,144 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:16,175 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:16,204 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:16,236 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:16,266 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:16,296 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:16,326 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:16,356 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:16,388 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:16,420 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:16,448 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:16,478 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:16,508 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:16,540 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:16,569 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:16,600 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:16,629 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:16,660 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:16,692 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:16,722 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:16,753 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:16,784 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:16,814 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:16,843 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:16,874 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:16,904 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:16,936 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:16,966 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:16,996 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:17,025 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:17,056 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:17,087 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:17,119 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:17,147 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:17,178 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:17,209 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:17,240 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:17,270 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:17,301 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:17,329 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:17,360 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:17,392 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:17,422 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:17,452 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:17,485 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:17,514 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:17,543 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:17,574 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:17,605 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:17,635 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:17,666 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:17,695 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:17,725 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:17,756 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:17,788 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:17,818 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:17,847 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:17,878 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:17,908 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:17,940 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:17,970 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:17,999 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:18,029 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:18,059 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:18,091 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:18,122 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:18,152 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:18,185 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:18,214 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:18,244 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:18,274 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:18,304 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:18,336 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:18,366 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:18,396 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:18,425 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:18,456 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:18,488 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:18,518 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:18,548 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:18,577 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:18,607 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:18,641 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:18,670 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:18,700 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:18,730 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:18,760 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:18,792 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:18,822 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:18,852 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:18,883 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:18,913 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:18,943 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:18,974 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:19,005 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:19,036 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:19,066 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:19,095 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:19,126 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:19,155 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:19,187 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:19,218 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:19,248 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:19,278 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:19,308 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:19,340 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:19,370 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:19,400 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:19,430 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:19,459 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:19,491 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:19,522 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:19,551 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:19,586 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:19,614 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:19,643 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:19,673 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:19,704 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:19,736 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:19,766 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:19,795 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:19,825 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:19,856 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:19,887 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:19,925 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:19,948 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:19,978 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:20,008 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:20,040 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:20,070 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:20,099 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:20,129 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:20,160 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:20,193 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:20,227 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:20,265 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:20,284 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:20,358 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:20,389 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:20,417 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:20,448 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:20,478 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:20,507 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:20,540 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:20,569 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:20,605 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:20,630 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:20,661 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:20,693 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:20,722 [WARNING] FaceClient: Frame no recibido de cámara
+2026-05-04 21:53:22,909 [INFO] FaceClient: Servidor configurado en: http://192.168.1.96:5000
+2026-05-04 21:53:22,910 [INFO] FaceClient: Iniciando API....
+2026-05-04 21:53:23,245 [INFO] FaceClient: Inicializando aplicación...
+2026-05-04 21:53:23,246 [ERROR] FaceClient: No se pudo abrir la cámara USB
+2026-05-04 21:53:26,260 [INFO] FaceClient: Servidor configurado en: http://192.168.1.96:5000
+2026-05-04 21:53:26,261 [INFO] FaceClient: Iniciando API....
+2026-05-04 21:53:26,598 [INFO] FaceClient: Inicializando aplicación...
+2026-05-04 21:53:26,599 [ERROR] FaceClient: No se pudo abrir la cámara USB
+2026-05-04 21:53:44,309 [INFO] FaceClient: Servidor configurado en: http://192.168.1.96:5000
+2026-05-04 21:53:44,311 [INFO] FaceClient: Iniciando API....
+2026-05-04 21:53:44,647 [INFO] FaceClient: Inicializando aplicación...
+2026-05-04 21:53:44,714 [INFO] FaceClient: Cámara USB inicializada correctamente
+2026-05-04 21:53:50,913 [INFO] FaceClient: Captura para login iniciada
+2026-05-04 21:53:50,913 [INFO] FaceClient: Mostrando popup de progreso
+2026-05-04 21:53:50,931 [INFO] FaceClient: Mostrando popup de progreso
+2026-05-04 21:53:50,947 [INFO] FaceClient: Enviando imagen al servidor (recognize)...
+2026-05-04 21:53:51,675 [INFO] FaceClient: Respuesta recibida correctamente
+2026-05-04 21:53:51,754 [INFO] FaceClient: Resultado: {'message': 'Reconocidos: Elisa', 'recognized': ['Elisa']}
+2026-05-04 22:25:55,154 [INFO] FaceClient: Servidor configurado en: http://192.168.1.96:5000
+2026-05-04 22:25:55,156 [INFO] FaceClient: Iniciando API....
+2026-05-04 22:25:55,507 [INFO] FaceClient: Inicializando aplicación...
+2026-05-04 22:25:55,574 [INFO] FaceClient: Cámara USB inicializada correctamente
+2026-05-04 22:26:04,020 [INFO] FaceClient: Captura para login iniciada
+2026-05-04 22:26:04,021 [INFO] FaceClient: Mostrando popup de progreso
+2026-05-04 22:26:04,039 [INFO] FaceClient: Mostrando popup de progreso
+2026-05-04 22:26:04,054 [INFO] FaceClient: Enviando imagen al servidor (recognize)...
+2026-05-04 22:26:04,395 [INFO] FaceClient: Respuesta recibida correctamente
+2026-05-04 22:26:04,506 [INFO] FaceClient: Resultado: {'message': 'Reconocidos: Desconocido', 'recognized': ['Desconocido']}
+2026-05-04 22:26:04,508 [INFO] FaceClient: UI MESSAGE -> warning: Inicio fallido - Usuario desconocido.
+2026-05-04 22:26:13,765 [INFO] FaceClient: Captura para login iniciada
+2026-05-04 22:26:13,766 [INFO] FaceClient: Mostrando popup de progreso
+2026-05-04 22:26:13,776 [INFO] FaceClient: Mostrando popup de progreso
+2026-05-04 22:26:13,798 [INFO] FaceClient: Enviando imagen al servidor (recognize)...
+2026-05-04 22:26:14,126 [INFO] FaceClient: Respuesta recibida correctamente
+2026-05-04 22:26:14,247 [INFO] FaceClient: Resultado: {'message': 'Reconocidos: Desconocido', 'recognized': ['Desconocido']}
+2026-05-04 22:26:14,252 [INFO] FaceClient: UI MESSAGE -> warning: Inicio fallido - Usuario desconocido.
+2026-05-04 22:26:19,894 [INFO] FaceClient: Captura para login iniciada
+2026-05-04 22:26:19,895 [INFO] FaceClient: Mostrando popup de progreso
+2026-05-04 22:26:19,907 [INFO] FaceClient: Mostrando popup de progreso
+2026-05-04 22:26:19,937 [INFO] FaceClient: Enviando imagen al servidor (recognize)...
+2026-05-04 22:26:20,668 [INFO] FaceClient: Respuesta recibida correctamente
+2026-05-04 22:26:20,726 [INFO] FaceClient: Resultado: {'message': 'Reconocidos: Desconocido', 'recognized': ['Desconocido']}
+2026-05-04 22:26:20,727 [INFO] FaceClient: UI MESSAGE -> warning: Inicio fallido - Usuario desconocido.
+2026-05-04 22:27:44,622 [INFO] FaceClient: Servidor configurado en: http://192.168.1.96:5000
+2026-05-04 22:27:44,623 [INFO] FaceClient: Iniciando API....
+2026-05-04 22:27:45,001 [INFO] FaceClient: Inicializando aplicación...
+2026-05-04 22:27:45,078 [INFO] FaceClient: Cámara USB inicializada correctamente
+2026-05-04 22:27:50,024 [INFO] FaceClient: Captura para login iniciada
+2026-05-04 22:27:50,026 [INFO] FaceClient: Mostrando popup de progreso
+2026-05-04 22:27:50,054 [INFO] FaceClient: Mostrando popup de progreso
+2026-05-04 22:27:50,079 [INFO] FaceClient: Enviando imagen al servidor (recognize)...
+2026-05-04 22:27:50,512 [INFO] FaceClient: Respuesta recibida correctamente
+2026-05-04 22:27:50,619 [INFO] FaceClient: Resultado: {'message': 'Reconocidos: Desconocido', 'recognized': ['Desconocido']}
+2026-05-04 22:27:50,621 [INFO] FaceClient: UI MESSAGE -> warning: Inicio fallido - Usuario desconocido.
+2026-05-04 22:27:56,516 [INFO] FaceClient: Captura para login iniciada
+2026-05-04 22:27:56,517 [INFO] FaceClient: Mostrando popup de progreso
+2026-05-04 22:27:56,530 [INFO] FaceClient: Mostrando popup de progreso
+2026-05-04 22:27:56,554 [INFO] FaceClient: Enviando imagen al servidor (recognize)...
+2026-05-04 22:27:58,153 [INFO] FaceClient: Respuesta recibida correctamente
+2026-05-04 22:27:58,187 [INFO] FaceClient: Resultado: {'message': 'Reconocidos: Desconocido', 'recognized': ['Desconocido']}
+2026-05-04 22:27:58,189 [INFO] FaceClient: UI MESSAGE -> warning: Inicio fallido - Usuario desconocido.
+2026-05-04 22:28:04,074 [INFO] FaceClient: Captura para login iniciada
+2026-05-04 22:28:04,075 [INFO] FaceClient: Mostrando popup de progreso
+2026-05-04 22:28:04,082 [INFO] FaceClient: Mostrando popup de progreso
+2026-05-04 22:28:04,098 [INFO] FaceClient: Enviando imagen al servidor (recognize)...
+2026-05-04 22:28:04,707 [INFO] FaceClient: Respuesta recibida correctamente
+2026-05-04 22:28:04,800 [INFO] FaceClient: Resultado: {'message': 'Reconocidos: Desconocido', 'recognized': ['Desconocido']}
+2026-05-04 22:28:04,802 [INFO] FaceClient: UI MESSAGE -> warning: Inicio fallido - Usuario desconocido.
+2026-05-04 22:28:27,029 [INFO] FaceClient: Captura para login iniciada
+2026-05-04 22:28:27,030 [INFO] FaceClient: Mostrando popup de progreso
+2026-05-04 22:28:27,036 [INFO] FaceClient: Mostrando popup de progreso
+2026-05-04 22:28:27,052 [INFO] FaceClient: Enviando imagen al servidor (recognize)...
+2026-05-04 22:28:27,643 [INFO] FaceClient: Respuesta recibida correctamente
+2026-05-04 22:28:27,746 [INFO] FaceClient: Resultado: {'message': 'Reconocidos: Elisa', 'recognized': ['Elisa']}

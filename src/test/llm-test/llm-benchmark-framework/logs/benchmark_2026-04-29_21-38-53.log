@@ -1,0 +1,5 @@
+2026-04-29 21:38:53,084 | INFO | Chat iniciado
+2026-04-29 21:38:56,193 | INFO | USER: hola
+2026-04-29 21:38:56,194 | INFO | AI: ['¡Hola! Me alegra que estés aquí. ¿En qué puedo ayudarte hoy? ¿Necesitas ayuda con algo en particular o solo quieres charlar un rato? Estoy aquí para escucharte y ayudarte en lo que pueda.', {}]
+2026-04-29 21:38:56,194 | ERROR | FATAL ERROR LOOP: 'list' object has no attribute 'lower'
+2026-04-29 21:39:11,806 | INFO | Interrupción por usuario

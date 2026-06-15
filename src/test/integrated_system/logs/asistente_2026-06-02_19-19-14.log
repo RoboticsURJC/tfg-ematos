@@ -1,0 +1,11 @@
+2026-06-02 19:19:14,108 | INFO | Sistema iniciado
+2026-06-02 19:19:16,589 | INFO | Asistente iniciado para usuario: invitado
+2026-06-02 19:19:16,590 | INFO | Arrancando sistema para invitado
+2026-06-02 19:19:16,590 | INFO | config_path: /home/elisa/tfg-ematos/test/integrated_system/config copy.json
+2026-06-02 19:19:16,590 | INFO | url: http://192.168.1.96:8000/generate
+2026-06-02 19:19:30,520 | INFO | USER(invitado): hola hola hola hola hola
+2026-06-02 19:19:31,168 | INFO | BOT: ¡Hola! Me alegra que estés aquí. Parece que estabas muy emocionado al saludar. ¿En qué puedo ayudarte hoy? ¿Hay algo en lo que pueda asistirte o simplemente quieres charlar un rato? Estoy aquí para escucharte.
+2026-06-02 19:19:31,169 | INFO | --------------------------------------------------
+2026-06-02 19:19:32,590 | INFO | USER(invitado): hola
+2026-06-02 19:19:33,448 | INFO | BOT: ¡Hola de nuevo! Me parece que ya nos hemos saludado anteriormente. ¿Quieres hablar un poco sobre cómo te sientes hoy o hay algo específico en lo que necesitas ayuda? Estoy aquí para escucharte y apoyarte en lo que pueda. ¿Qué te parece si empezamos con algo simple? ¿Tienes algún plan o actividad para hoy que te gustaría compartir?
+2026-06-02 19:19:33,448 | INFO | --------------------------------------------------

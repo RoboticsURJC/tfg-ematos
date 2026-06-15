@@ -1,0 +1,146 @@
+[
+  {
+    "model": "gpt-4-azure",
+    "prompt": "Explica la relatividad en 5 líneas",
+    "response": "La relatividad, formulada por Albert Einstein, se divide en dos teorías: la relatividad especial y la relatividad general. La relatividad especial, publicada en 1905, establece que las leyes de la física son las mismas para todos los observadores y que la velocidad de la luz es constante, lo que provoca que el tiempo y la longitud sean relativos. La relatividad general, presentada en 1915, amplía esta idea al describir la gravedad como la curvatura del espacio-tiempo provocada por la masa. Esto implica que los objetos masivos deforman el espacio a su alrededor, afectando la trayectoria de otros objetos. En conjunto, estas teorías revolucionaron nuestra comprensión del tiempo, el espacio y la gravedad.",
+    "latency_total": 5.0702938880003785,
+    "extra": {},
+    "timestamp": "2026-04-14T20:46:33.879901"
+  },
+  {
+    "model": "gpt-4-azure",
+    "prompt": "Explica la relatividad en 5 líneas",
+    "response": "La relatividad, formulada por Albert Einstein, comprende dos teorías: la relatividad especial y la relatividad general. La relatividad especial, presentada en 1905, establece que las leyes de la física son iguales para todos los observadores y que la velocidad de la luz es constante en el vacío, independientemente del movimiento de la fuente o del observador. La relatividad general, publicada en 1915, describe la gravedad no como una fuerza, sino como la curvatura del espacio-tiempo causada por la masa de los objetos. Estas teorías revolucionaron nuestra comprensión del tiempo, el espacio y la gravedad, mostrando que son interdependientes y no absolutos. En conjunto, han tenido un impacto profundo en la física moderna y nuestra visión del universo.",
+    "latency_total": 3.2341113929996936,
+    "extra": {},
+    "timestamp": "2026-04-14T20:46:37.114302"
+  },
+  {
+    "model": "gpt-4-azure",
+    "prompt": "Explica la relatividad en 5 líneas",
+    "response": "La relatividad es una teoría formulada por Albert Einstein que comprende dos partes: la relatividad especial y la relatividad general. La relatividad especial, publicada en 1905, establece que las leyes de la física son las mismas para todos los observadores inerciales y que la velocidad de la luz es constante, independientemente del movimiento del observador. La relatividad general, presentada en 1915, describe la gravedad como la curvatura del espacio-tiempo causada por la masa. Ambas teorías revolucionaron nuestra comprensión del tiempo, el espacio y la gravedad. La relatividad ha sido confirmada mediante numerosos experimentos y observaciones.",
+    "latency_total": 2.3735468159993616,
+    "extra": {},
+    "timestamp": "2026-04-14T20:46:39.488105"
+  },
+  {
+    "model": "llama-3-groq",
+    "prompt": "Explica la relatividad en 5 líneas",
+    "response": "La relatividad es una teoría física que describe la naturaleza del espacio y el tiempo. Fue desarrollada por Albert Einstein y se divide en dos partes: la relatividad especial y la relatividad general. La relatividad especial trata del movimiento a velocidades altas y cómo el tiempo y el espacio se relacionan. La relatividad general explica la gravedad como la curvatura del espacio-tiempo causada por la masa y la energía. En resumen, la relatividad cambia nuestra comprensión del universo y cómo funciona.",
+    "latency_total": 1.0517413679990568,
+    "extra": {},
+    "timestamp": "2026-04-14T20:46:40.540222"
+  },
+  {
+    "model": "llama-3-groq",
+    "prompt": "Explica la relatividad en 5 líneas",
+    "response": "La teoría de la relatividad, propuesta por Albert Einstein, establece que el tiempo y el espacio son relativos.\nLa velocidad de la luz es constante y no cambia, independientemente del movimiento del observador.\nEl tiempo y el espacio pueden ser afectados por la velocidad y la gravedad.\nLa teoría se divide en dos partes: la relatividad especial y la relatividad general.\nLa relatividad especial se enfoca en la velocidad, mientras que la relatividad general se enfoca en la gravedad y su efecto en el espacio y el tiempo.",
+    "latency_total": 0.5419926910017239,
+    "extra": {},
+    "timestamp": "2026-04-14T20:46:41.082506"
+  },
+  {
+    "model": "llama-3-groq",
+    "prompt": "Explica la relatividad en 5 líneas",
+    "response": "La relatividad es una teoría física que desafía la percepción tradicional del espacio y el tiempo. Según Albert Einstein, el tiempo y el espacio están relacionados y dependen del observador. La velocidad de la luz es constante y no cambia, lo que implica que el tiempo y el espacio pueden variar. Esto significa que dos eventos que parecen simultáneos para un observador pueden no serlo para otro. La relatividad cambió nuestra comprensión del universo y nos llevó a una nueva forma de entender el espacio y el tiempo.",
+    "latency_total": 1.706214342999374,
+    "extra": {},
+    "timestamp": "2026-04-14T20:46:42.789042"
+  },
+  {
+    "model": "gemini",
+    "prompt": "Explica la relatividad en 5 líneas",
+    "response": "Aquí tienes la relatividad explicada en 5 líneas:\n\n1. El tiempo y el espacio no son absolutos, sino que dependen de la velocidad del observador.\n2. La gravedad no es una fuerza invisible, sino la curvatura del tejido del espacio-tiempo.\n3. La masa de los objetos deforma ese tejido, dictando cómo se mueven los cuerpos celestes.\n4. La energía y la materia son equivalentes, según la famosa ecuación de Einstein $E=mc^2$.\n5. A mayor velocidad o gravedad, el tiempo transcurre más lentamente para quien lo experimenta.",
+    "latency_total": 3.66970398400008,
+    "extra": {},
+    "timestamp": "2026-04-14T20:46:46.459087"
+  },
+  {
+    "model": "gemini",
+    "prompt": "Explica la relatividad en 5 líneas",
+    "response": "Aquí tienes la relatividad explicada en 5 líneas:\n\n1. El tiempo y el espacio no son fijos, sino que se estiran o encogen según tu velocidad.\n2. La velocidad de la luz es la única constante universal y nada puede superarla.\n3. La gravedad no es una fuerza invisible, sino la curvatura del espacio-tiempo causada por la masa.\n4. La materia y la energía son equivalentes y pueden transformarse entre sí ($E=mc^2$).\n5. Todo movimiento es relativo al observador; no existe un punto de reposo absoluto en el universo.",
+    "latency_total": 4.31225950299995,
+    "extra": {},
+    "timestamp": "2026-04-14T20:46:50.771802"
+  },
+  {
+    "model": "gemini",
+    "prompt": "Explica la relatividad en 5 líneas",
+    "response": "Aquí tienes la relatividad explicada en 5 líneas:\n\n1. El tiempo y el espacio no son fijos, sino que se deforman según la velocidad y la gravedad.\n2. La gravedad no es una fuerza invisible, sino la curvatura del espacio-tiempo causada por la masa.\n3. La materia y la energía son dos caras de la misma moneda, relacionadas por la fórmula $E=mc^2$.\n4. El tiempo transcurre más lento para quien se mueve a gran velocidad o está cerca de un objeto masivo.\n5. La velocidad de la luz es el límite máximo del universo y siempre permanece constante para todos.",
+    "latency_total": 4.326673802001096,
+    "extra": {},
+    "timestamp": "2026-04-14T20:46:55.098865"
+  },
+  {
+    "model": "gpt-4-azure",
+    "prompt": "Explica la relatividad en 5 líneas",
+    "response": "La relatividad, formulada por Albert Einstein, se divide en dos teorías: la relatividad especial y la relatividad general. La relatividad especial, publicada en 1905, establece que las leyes de la física son las mismas para todos los observadores y que la velocidad de la luz es constante en todos los marcos de referencia. La relatividad general, presentada en 1915, describe la gravedad no como una fuerza, sino como la curvatura del espacio-tiempo causada por la masa. Estas teorías revolucionaron nuestra comprensión del tiempo, el espacio y la gravedad, demostrando que son interdependientes. En esencia, la relatividad desafía nuestras nociones intuitivas sobre el movimiento y la estructura del universo.",
+    "latency_total": 4.652076959999249,
+    "extra": {},
+    "timestamp": "2026-04-14T20:48:35.137445"
+  },
+  {
+    "model": "gpt-4-azure",
+    "prompt": "Explica la relatividad en 5 líneas",
+    "response": "La relatividad, formulada por Albert Einstein, consiste en dos teorías: la relatividad especial y la relatividad general. La relatividad especial establece que las leyes de la física son iguales para todos los observadores inerciales y que la velocidad de la luz es constante, independientemente del movimiento del observador. Esto lleva a la famosa ecuación E=mc², que relaciona energía y masa. La relatividad general, por su parte, describe la gravitación como la curvatura del espacio-tiempo causada por la masa. En conjunto, estas teorías revolucionaron nuestro entendimiento del tiempo, el espacio y la gravedad.",
+    "latency_total": 3.777099245999125,
+    "extra": {},
+    "timestamp": "2026-04-14T20:48:38.914977"
+  },
+  {
+    "model": "gpt-4-azure",
+    "prompt": "Explica la relatividad en 5 líneas",
+    "response": "La relatividad, formulada por Albert Einstein a principios del siglo XX, comprende dos teorías principales: la relatividad especial y la relatividad general. La relatividad especial (1905) establece que las leyes de la física son las mismas para todos los observadores inerciales y que la velocidad de la luz en el vacío es constante, independientemente de la fuente o el observador. La relatividad general (1915) amplía esta idea, describiendo la gravedad como la curvatura del espacio-tiempo causada por la masa. Esto implica que el tiempo y el espacio son interdependientes y pueden ser afectados por la velocidad y la gravedad. En resumen, la relatividad revoluciona nuestra comprensión del movimiento, el tiempo y el universo.",
+    "latency_total": 3.264019221998751,
+    "extra": {},
+    "timestamp": "2026-04-14T20:48:42.179445"
+  },
+  {
+    "model": "llama-3-groq",
+    "prompt": "Explica la relatividad en 5 líneas",
+    "response": "La relatividad de Albert Einstein describe cómo la velocidad y la gravedad afectan el espacio y el tiempo. Según esta teoría, la velocidad de la luz es constante para todos los observadores. El tiempo y el espacio pueden verse afectados por la velocidad y la gravedad. Esto significa que la percepción del tiempo y el espacio puede variar dependiendo del observador. La relatividad es una teoría fundamental en la física que ha revolucionado nuestra comprensión del universo.",
+    "latency_total": 0.9603942789999564,
+    "extra": {},
+    "timestamp": "2026-04-14T20:48:43.140265"
+  },
+  {
+    "model": "llama-3-groq",
+    "prompt": "Explica la relatividad en 5 líneas",
+    "response": "La relatividad es una teoría física que describe cómo el tiempo y el espacio se relacionan. \nFue desarrollada por Albert Einstein y se divide en dos partes: la relatividad especial y la relatividad general. \nLa relatividad especial trata sobre objetos que se mueven a velocidades constantes, mientras que la relatividad general se enfoca en la gravedad y la curvatura del espacio-tiempo. \nLa teoría establece que el tiempo y el espacio no son absolutos, sino que dependen del observador y su marco de referencia. \nEn resumen, la relatividad cambió nuestra comprensión del universo y revolucionó la física moderna.",
+    "latency_total": 0.5864705980002327,
+    "extra": {},
+    "timestamp": "2026-04-14T20:48:43.727242"
+  },
+  {
+    "model": "llama-3-groq",
+    "prompt": "Explica la relatividad en 5 líneas",
+    "response": "La teoría de la relatividad de Albert Einstein establece que el tiempo y el espacio no son absolutos. \nLa velocidad de la luz es constante y siempre se mantiene igual, independientemente del movimiento del observador. \nEl tiempo puede parecer más lento o más rápido dependiendo de la velocidad y la posición en un campo gravitatorio. \nLa masa y la energía son equivalentes y pueden transformarse una en otra. \nEsto cambió nuestra comprensión del universo y la forma en que entendemos el espacio y el tiempo.",
+    "latency_total": 0.6977902859998721,
+    "extra": {},
+    "timestamp": "2026-04-14T20:48:44.425509"
+  },
+  {
+    "model": "gemini",
+    "prompt": "Explica la relatividad en 5 líneas",
+    "response": "Aquí tienes la relatividad explicada en 5 líneas:\n\n1. El tiempo y el espacio no son absolutos, sino una red flexible llamada espaciotiempo.\n2. La velocidad de la luz es constante, por lo que el tiempo se frena si te mueves muy rápido.\n3. La gravedad no es una fuerza invisible, sino la curvatura del espacio causada por la masa.\n4. La energía y la materia son equivalentes, relacionadas por la famosa fórmula E=mc².\n5. Todo en el universo depende del observador, ya que el movimiento altera la percepción de la realidad.",
+    "latency_total": 3.891441665000457,
+    "extra": {},
+    "timestamp": "2026-04-14T20:48:48.317535"
+  },
+  {
+    "model": "gemini",
+    "prompt": "Explica la relatividad en 5 líneas",
+    "response": "Aquí tienes la relatividad explicada en 5 líneas:\n\n1. El tiempo y el espacio no son fijos, sino que se estiran o encogen según tu velocidad.\n2. La velocidad de la luz es constante para todos y es el límite máximo del universo.\n3. La gravedad no es una fuerza, sino la curvatura del tejido del espacio-tiempo.\n4. Los objetos con mucha masa deforman ese tejido, haciendo que otros caigan hacia ellos.\n5. La materia y la energía son dos caras de la misma moneda ($E=mc^2$).",
+    "latency_total": 4.321580754000024,
+    "extra": {},
+    "timestamp": "2026-04-14T20:48:52.639630"
+  },
+  {
+    "model": "gemini",
+    "prompt": "Explica la relatividad en 5 líneas",
+    "response": "Aquí tienes la relatividad explicada en 5 líneas:\n\n1. El tiempo y el espacio no son absolutos, sino que forman un tejido unido llamado espacio-tiempo.\n2. La masa y la energía curvan este tejido, y esa deformación es lo que percibimos como gravedad.\n3. El tiempo transcurre más lento para quien se mueve a gran velocidad o está cerca de mucha masa.\n4. La velocidad de la luz es constante y funciona como el límite de velocidad máximo del universo.\n5. La materia y la energía son equivalentes, relacionadas por la famosa fórmula $E=mc^2$.",
+    "latency_total": 3.9089873709999665,
+    "extra": {},
+    "timestamp": "2026-04-14T20:48:56.549232"
+  }
+]

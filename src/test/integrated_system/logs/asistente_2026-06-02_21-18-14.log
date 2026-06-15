@@ -1,0 +1,5 @@
+2026-06-02 21:18:14,630 | INFO | Sistema iniciado
+2026-06-02 21:18:15,801 | INFO | Asistente iniciado para usuario: invitado
+2026-06-02 21:18:15,802 | INFO | Arrancando sistema para invitado
+2026-06-02 21:18:15,802 | INFO | config_path: /home/elisa/tfg-ematos/test/integrated_system/config copy.json
+2026-06-02 21:18:15,803 | INFO | url: http://192.168.1.96:8000/generate

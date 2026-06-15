@@ -1,0 +1,57 @@
+[
+  {
+    "model": "llama",
+    "prompt": "Explica la relatividad en 5 líneas",
+    "latency_total": 28.88214349746704,
+    "server_latency": 28.572761058807373,
+    "output": [
+      " y el significado de la teoría de la relatividad. La teoría de la relatividad es una teoría física que describe los fundamentos de la física moderna. Esta teoría cambió de forma drástica la física clásica (mecánica newtoniana). La teoría de la relatividad postula que las leyes de la física son independientes del sistema de referencia en el que se encuentran las particulas.\n\nLa Teoría de la Relatividad, como se sabe, fue desarrollada por Einstein en el año 1905. A partir de las observaciones de Maxwell, Einstein supo que la velocidad de la luz, como toda velocidad, es la misma para todos los observadores.\n\nLa teoría de la relatividad es una teoría física que describe los fundamentos de la física moderna. Esta teoría cambió de forma drástica la física clásica (mecánica newtoniana).\n\nLa teoría de la relatividad postula",
+      {}
+    ],
+    "status": "OK"
+  },
+  {
+    "model": "llama",
+    "prompt": "Escribe un algoritmo de ordenación en Python",
+    "latency_total": 28.726614713668823,
+    "server_latency": 28.626796007156372,
+    "output": [
+      " para el siguiente problema\n\nLa siguiente función recibe por parámetros un número de días y un día de la semana. La función debe retornar True si el día de la semana que se le pasa como segundo parámetro es un día laboral, False en caso contrario.\n\ndef es_dia_laboral(dias, dia):\n\nEn el archivo main.py debe ejecutarse el algoritmo de ordenación de forma recursiva para poder ordenar por orden alfabético la lista de palabras que se encuentran en la lista de palabras. El algoritmo debe devolver la lista de palabras ordenadas en orden alfabético.\n\nlista_palabras = [\"perro\", \"gato\", \"elefante\", \"búho\", \"hierba\", \"flor\", \"gato\"]\n\nCuando se ejecute el programa, el algoritmo de ordenación debe ejecutar el algoritmo de ordenación para cada sublista que se encuentre dentro de la lista de palabras y devolver la",
+      {}
+    ],
+    "status": "OK"
+  },
+  {
+    "model": "llama",
+    "prompt": "Resume qué es la inteligencia artificial",
+    "latency_total": 29.050161123275757,
+    "server_latency": 28.563538789749146,
+    "output": [
+      "\n\n# Artificial intelligence\n\nArtificial intelligence (AI) is the theory and development of computer systems able to perform tasks that normally require human intelligence, such as visual perception, speech recognition, decision-making, and translation between languages. The term artificial intelligence was coined in 1956, and, while various definitions exist, the most common definition is \"the study and design of intelligent agents\", where an intelligent agent is a system that perceives its environment and takes actions that maximize its chance of success. John McCarthy, who coined the term in 1956, defines it as \"the science and engineering of making intelligent machines\".^{[1]}\n\nAI research is highly technical and specialized. The field is studied by philosophers, scientists, engineers, computer scientists, and researchers from other fields, who study and develop AI, as opposed to other technologies, as an objective in its own right. Applied AI is already deeply embedded in people's everyday lives through smartphones, video games, and GPS navigation systems. AI techniques have become an essential part of the economy and of business, and of scientific research.^{[2]}\n\nIn 1950, Alan Turing proposed an imitation game test",
+      {}
+    ],
+    "status": "OK"
+  },
+  {
+    "model": "llama",
+    "prompt": "Genera una receta de tortilla de patatas",
+    "latency_total": 30.772645950317383,
+    "server_latency": 30.36397099494934,
+    "output": [
+      " que sea diferente cada vez.\n\n\nimport random\nimport string\nfrom django.db import models\n\nclass Receta(models.Model):\n    nombre = models.CharField(max_length=200, blank=False)\n    ingredientes = models.TextField(blank=False)\n    preparacion = models.TextField(blank=False)\n\n    def __str__(self):\n        return self.nombre\n\n\n\n\nclass Receta_random(models.Model):\n    nombre = models.CharField(max_length=200, blank=True, null=True)\n    ingredientes = models.TextField(blank=True, null=True)\n    preparacion = models.TextField(blank=True, null=True)\n\n    def __str__(self):\n        return self.nombre\n\n    def generar_receta(self):\n        nombre = 'Tortilla de Patatas ' + ''.join(random.choices(string.ascii_uppercase + string.digits, k=10))\n        ingredientes = ', '.join(random.choices(string.ascii",
+      {}
+    ],
+    "status": "OK"
+  },
+  {
+    "model": "llama",
+    "prompt": "¿Qué es un agujero negro?",
+    "latency_total": 31.51259422302246,
+    "server_latency": 30.95141625404358,
+    "output": [
+      "\n\nUn agujero negro es un agujero gravitacional donde la gravedad es tan fuerte que nada ni luz pueden salir. Se pueden formar cuando un gigante gaseoso se derrite y colapsa sobre sí mismo.\n\n¿Qué es un agujero negro?\n\nUn agujero negro es un agujero gravitacional donde la gravedad es tan fuerte que nada ni luz pueden salir. Se pueden formar cuando un gigante gaseoso se derrite y colapsa sobre sí mismo.\n\nWhat is a black hole?\n\nA black hole is a gravitational well so deep that even light cannot escape. They can be formed when a giant gas-giant star collapses over itself.\n\nWhat is a black hole?\n\nA black hole is a gravitational well so deep that even light cannot escape. They can be formed when a giant gas-giant star collapses over itself.\n\n### What is the smallest black hole called?\n\nPrimordial black holes\n\n### What is the smallest black hole called?\n\nPrimordial black holes\n\n###",
+      {}
+    ],
+    "status": "OK"
+  }
+]

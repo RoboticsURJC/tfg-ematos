@@ -1,0 +1,10 @@
+2026-06-03 00:23:37,599 | INFO | Sistema iniciado
+2026-06-03 00:23:38,789 | INFO | Asistente iniciado para usuario: invitado
+2026-06-03 00:23:38,790 | INFO | Arrancando sistema para invitado
+2026-06-03 00:23:38,790 | INFO | config_path: /home/elisa/tfg-ematos/test/integrated_system/config copy.json
+2026-06-03 00:23:38,790 | INFO | url: http://192.168.1.96:8000/generate
+2026-06-03 00:23:43,291 | INFO | USER(invitado): qué tal estás
+2026-06-03 00:23:44,278 | INFO | BOT: Estoy muy bien, gracias por preguntar. Me alegra que te hayas interesado en saber cómo estoy. Aunque soy un asistente virtual, no tengo sentimientos ni emociones como los humanos, pero estoy aquí para ayudarte y apoyarte en todo lo que necesites. Me siento contento de poder charlar contigo y ayudarte en lo que pueda.
+
+Ahora que ya hemos saludado y hemos hablado un poco sobre nosotros, me gustaría saber más sobre ti. ¿Cómo te sientes hoy? ¿Hay algo que te gustaría hacer o hablar sobre? Estoy aquí para escucharte y ayudarte en lo que pueda. ¿Quieres hablar un poco sobre tus intereses o hobbies? ¿O tal vez hay algo que te preocupa y quieres compartir? Estoy aquí para escucharte y ayudarte en lo que pueda.
+2026-06-03 00:23:44,278 | INFO | --------------------------------------------------

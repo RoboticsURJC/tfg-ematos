@@ -1,0 +1,15 @@
+2026-04-29 21:24:09,528 | INFO | Chat iniciado
+2026-04-29 21:24:12,110 | ERROR | LLM ERROR: HTTPConnectionPool(host='192.168.1.96', port=8000): Max retries exceeded with url: /generate (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fb58949d0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2026-04-29 21:24:12,110 | INFO | USER: Hola
+2026-04-29 21:24:12,110 | INFO | AI: 
+2026-04-29 21:24:12,111 | INFO | Activando búsqueda web...
+2026-04-29 21:24:12,396 | ERROR | WEB SEARCH ERROR: name 'BeautifulSoup' is not defined
+2026-04-29 21:24:12,398 | INFO | FINAL: 
+2026-04-29 21:24:12,398 | ERROR | FATAL ERROR LOOP: cannot access local variable 'latency' where it is not associated with a value
+2026-04-29 21:24:33,497 | INFO | USER: qué hora es?
+2026-04-29 21:24:33,497 | INFO | TOOL: 21:24:33
+2026-04-29 21:24:33,497 | INFO | ------------------------------------------------------------
+2026-04-29 21:24:43,028 | INFO | USER: qué tiempo hace hoy?
+2026-04-29 21:24:43,028 | INFO | TOOL: En Madrid ahora hay 15.0°C y viento de 4.3 km/h
+2026-04-29 21:24:43,028 | INFO | ------------------------------------------------------------
+2026-04-29 21:24:48,883 | INFO | Chat finalizado

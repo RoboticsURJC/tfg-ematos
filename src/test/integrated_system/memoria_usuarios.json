@@ -1,0 +1,24 @@
+{
+  "invitado": [
+    {
+      "user": "hola hola hola hola hola",
+      "bot": "¡Hola! Me alegra que estés aquí. Parece que estabas muy emocionado al saludar. ¿En qué puedo ayudarte hoy? ¿Hay algo en lo que pueda asistirte o simplemente quieres charlar un rato? Estoy aquí para escucharte.",
+      "time": "2026-06-02T19:19:31.168207"
+    },
+    {
+      "user": "hola",
+      "bot": "¡Hola de nuevo! Me parece que ya nos hemos saludado anteriormente. ¿Quieres hablar un poco sobre cómo te sientes hoy o hay algo específico en lo que necesitas ayuda? Estoy aquí para escucharte y apoyarte en lo que pueda. ¿Qué te parece si empezamos con algo simple? ¿Tienes algún plan o actividad para hoy que te gustaría compartir?",
+      "time": "2026-06-02T19:19:33.447584"
+    },
+    {
+      "user": "hola",
+      "bot": "¡Hola de nuevo! Me alegra verte aquí. Parece que estás diciendo hola varias veces, ¿verdad? No hay problema, me gusta tu entusiasmo. Sin embargo, me pregunto si hay algo en particular que te gustaría hablar o si necesitas ayuda con algo. ¿Quieres hablar un poco sobre tu día o hay algo que te preocupa y quieres compartir? Estoy aquí para escucharte y ayudarte en lo que pueda. ¿Qué tal si intentamos tener una charla un poco más larga? ¿Hay algo que te interesa o algo que te hace feliz que te gustaría hablar?",
+      "time": "2026-06-02T19:20:52.871893"
+    },
+    {
+      "user": "qué tal estás",
+      "bot": "Estoy muy bien, gracias por preguntar. Me alegra que te hayas interesado en saber cómo estoy. Aunque soy un asistente virtual, no tengo sentimientos ni emociones como los humanos, pero estoy aquí para ayudarte y apoyarte en todo lo que necesites. Me siento contento de poder charlar contigo y ayudarte en lo que pueda.\n\nAhora que ya hemos saludado y hemos hablado un poco sobre nosotros, me gustaría saber más sobre ti. ¿Cómo te sientes hoy? ¿Hay algo que te gustaría hacer o hablar sobre? Estoy aquí para escucharte y ayudarte en lo que pueda. ¿Quieres hablar un poco sobre tus intereses o hobbies? ¿O tal vez hay algo que te preocupa y quieres compartir? Estoy aquí para escucharte y ayudarte en lo que pueda.",
+      "time": "2026-06-03T00:23:44.277571"
+    }
+  ]
+}
