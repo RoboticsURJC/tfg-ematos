@@ -1,7 +1,7 @@
 config.json
-/home/eli/tfg-ematos/test/apis/known_faces.pkl
-/home/eli/tfg-ematos/test/apis/known_persons
-/home/eli/tfg-ematos/test/recognition-models/face-recognition/known_persons
+/home/eli/tfg-ematos/src/test/apis/known_faces.pkl
+/home/eli/tfg-ematos/src/test/apis/known_persons
+/home/eli/tfg-ematos/src/test/recognition-models/face-recognition/known_persons
 /home/elisa/uni/tfg-ematos/test/apis/known_faces.pkl
 /home/elisa/uni/tfg-ematos/test/apis/known_persons
 /home/elisa/uni/tfg-ematos/test/llm-test/llm-benchmark-framework/.env
@@ -11,3 +11,4 @@ config.json
 /home/elisa/uni/tfg-ematos/assistant/app/robot_server/app_server/services/known_persons
 /home/elisa/uni/tfg-ematos/assistant/app/robot_server/app_server/services/known_faces.pkl
 /home/elisa/Desktop/tfg-ematos/assistant/app/llm_package/.env
+/home/elisa/tfg-ematos/src/assistant/app/config
