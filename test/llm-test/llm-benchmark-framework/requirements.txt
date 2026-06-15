@@ -1,5 +1,0 @@
-openai
-groq
-google-genai
-requests
-python-dotenv
