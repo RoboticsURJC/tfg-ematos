@@ -1,13 +1,13 @@
+# assistant_engine.py
 
 """
 @file assistant_engine.py
 @brief Motor principal del asistente: integra STT, TTS, LLM y herramientas.
-
-Replica fielmente la lógica del asistente_robotico.py original:
-- Detección de intenciones (hora, clima, LLM)
-- Memoria conversacional persistente por usuario
-- Llamadas al modelo LLM remoto
-- Fallback a búsqueda web si el modelo falla
+@details Replica fielmente la lógica del asistente_robotico.py original:
+- Detección de intenciones (hora, clima, calendario, recordatorios, LLM).
+- Memoria conversacional persistente por usuario.
+- Llamadas al modelo LLM remoto.
+- Fallback a búsqueda web si el modelo falla.
 """
 
 import os
@@ -33,6 +33,7 @@ from app.core.logger import logger
 # PROMPT DEL SISTEMA
 # =========================================================
 
+## Instrucciones de comportamiento base para la Inteligencia Artificial (orientado a ancianos).
 PROMPT_DEL_SISTEMA = """
 Eres un asistente virtual diseñado para ayudar a personas mayores.
 
@@ -50,7 +51,10 @@ Reglas importantes:
 # RUTAS
 # =========================================================
 
+## Nombre del fichero JSON local para guardar la persistencia del historial.
 MEMORY_FILE = "memoria_usuarios.json"
+
+## Tiempo máximo de espera por defecto (en segundos) para solicitudes de red.
 TIMEOUT = 90
 
 
@@ -61,30 +65,33 @@ TIMEOUT = 90
 class AssistantEngine:
     """
     @brief Motor conversacional completo del asistente robótico.
-
-    Orquesta el ciclo completo:
-    1. El STT escucha y entrega texto.
-    2. Se detecta la intención (hora / clima / LLM).
-    3. Se construye el prompt con historial de memoria.
-    4. Se llama al modelo LLM remoto.
-    5. Si falla, se hace búsqueda web como fallback.
-    6. La respuesta se sintetiza con TTS.
-    7. La interacción se guarda en memoria persistente.
+    @details Orquesta el ciclo completo: Listen -> Detect -> Process -> Speak.
     """
 
-    def __init__(self, ui_state=None, display=None, calendar_store=None,reminder_store=None, model_path=None, server_url=None, mic_name=None, llm_model='groq', llm_timeout=90):
+    def __init__(self, ui_state=None, display=None, calendar_store=None, reminder_store=None, model_path=None, server_url=None, mic_name=None, llm_model='groq', llm_timeout=90):
         """
-        @param ui_state    Estado compartido de la interfaz (UIState).
-        @param display     Pantalla facial (FaceDisplay).
-        @param model_path  Ruta al modelo Vosk para STT.
-        @param server_url  URL del servidor LLM (ej: http://192.168.x.x:8000/generate).
+        @brief Inicializa los módulos de voz, interfaz, almacenamiento y clientes de IA.
+        
+        @param ui_state        Estado compartido de la interfaz gráfica (UIState).
+        @param display         Controlador de la pantalla facial (FaceDisplay).
+        @param calendar_store  Repositorio o base de datos de eventos del calendario.
+        @param reminder_store  Repositorio o base de datos de los recordatorios de medicación/alertas.
+        @param model_path      Ruta local hacia la carpeta del modelo Vosk para STT.
+        @param server_url      URL del API Gateway o servidor LLM externo.
+        @param mic_name        Nombre específico del micrófono a capturar en hardware.
+        @param llm_model       Identificador del backend/modelo LLM (ej: 'groq', 'ollama').
+        @param llm_timeout     Límite de tiempo en segundos para las consultas al LLM.
         """
         self.ui_state = ui_state
         self.display = display
         self.calendar_store = calendar_store 
         self.reminder_store = reminder_store
         self.reminder_scheduler = None
+        
+        ## Nombre o ID del perfil de usuario actualmente interactuando.
         self.user = "invitado"
+        
+        ## Bandera de control para saber si el bucle de escucha asíncrono está encendido.
         self.running = False
 
         # Cliente LLM (None si no hay URL configurada)
@@ -103,10 +110,11 @@ class AssistantEngine:
         else:
             self.mic_device = None
 
-        # ~ Iniciar tts
+        # Iniciar síntesis de voz y reconocedor
         self.tts = TTS()
         self.stt = VoskSTT(model_path) if model_path else None
         
+        ## Estructura en memoria con el historial cargado por perfiles.
         self.memoria = self._cargar_memoria()
         
         if self.display:
@@ -120,8 +128,8 @@ class AssistantEngine:
 
     def _cargar_memoria(self):
         """
-        @brief Carga el historial conversacional desde disco.
-        @return Diccionario {usuario: [lista de turnos]}.
+        @brief Carga el historial conversacional desde el almacenamiento en disco.
+        @return dict Diccionario estructurado `{usuario: [lista de turnos]}` o dict vacío ante fallos.
         """
         if not os.path.exists(MEMORY_FILE):
             return {}
@@ -133,7 +141,9 @@ class AssistantEngine:
             return {}
 
     def _guardar_memoria(self):
-        """@brief Persiste el historial conversacional en disco."""
+        """
+        @brief Persiste el historial conversacional actual estructurado en formato JSON a disco.
+        """
         try:
             with open(MEMORY_FILE, "w", encoding="utf-8") as f:
                 json.dump(self.memoria, f, indent=2, ensure_ascii=False)
@@ -145,14 +155,17 @@ class AssistantEngine:
     # =========================================================
 
     def _get_time(self):
-        """@brief Devuelve la hora actual en formato HH:MM."""
+        """
+        @brief Devuelve la hora actual del sistema operativo.
+        @return str Cadena de texto formateada en "HH:MM".
+        """
         return datetime.now().strftime("%H:%M")
 
     def _get_weather(self, city="Madrid"):
         """
-        @brief Consulta el clima actual via open-meteo (sin API key).
-        @param city Ciudad a consultar.
-        @return Descripción del clima en texto.
+        @brief Consulta el pronóstico del tiempo meteorológico mediante Open-Meteo sin API key.
+        @param city Nombre textual de la localidad o ciudad a buscar mediante geolocalización.
+        @return str Mensaje resumido con los grados y velocidad del viento listo para ser locutado.
         """
         try:
             geo = requests.get(
@@ -181,10 +194,9 @@ class AssistantEngine:
 
     def _detectar_intencion(self, text):
         """
-        @brief Clasifica el texto del usuario en una intención.
-
-        @param text  Texto en minúsculas.
-        @return 'time', 'weather' o 'llm'.
+        @brief Clasifica y mapea el texto del usuario para identificar comandos conocidos o herramientas nativas.
+        @param text Transcripción en texto limpio y minúsculas generada por el STT.
+        @return str Identificador de la intención ('time', 'weather', 'reminder', 'calendar', o 'llm').
         """
         if any(x in text for x in ["hora", "qué hora", "que hora", "dime la hora"]):
             return "time"
@@ -200,18 +212,20 @@ class AssistantEngine:
             "citas", "eventos", "agenda", "calendario", 
             "qué tengo", "que tengo", "mis planes", "mi semana",
             "martes", "lunes", "proximo", "hoy", "mi mes"
-        
         ]):
             return "calendar"
         
         return "llm"
 
     # =========================================================
-    # LLM
+    # LLM Y BÚSQUEDA
     # =========================================================
 
     def _hay_internet(self):
-        """@brief Comprueba conectividad básica a internet."""
+        """
+        @brief Comprueba de forma rápida la conectividad TCP a Internet mediante el DNS de Google.
+        @return bool True si hay conexión activa, False en caso de corte de red.
+        """
         try:
             socket.create_connection(("8.8.8.8", 53), timeout=2)
             return True
@@ -220,9 +234,9 @@ class AssistantEngine:
 
     def _web_search(self, query):
         """
-        @brief Búsqueda web de emergencia via DuckDuckGo HTML.
-        @param query Consulta a buscar.
-        @return Texto con los primeros resultados, o cadena vacía.
+        @brief Realiza un escrapeo de emergencia via DuckDuckGo HTML ante caídas de la IA.
+        @param query Cadena de términos de búsqueda solicitados por el usuario.
+        @return str Resumen de las primeras coincidencias textuales encontradas en la web.
         """
         try:
             url = f"https://html.duckduckgo.com/html/?q={requests.utils.quote(query)}"
@@ -234,27 +248,25 @@ class AssistantEngine:
             logger.error(f"[WEB SEARCH] error: {e}")
             return ""
 
-
     def _parse_fecha(self, texto):
         """
-        Convierte expresiones naturales a fechas reales
-        Ej: "mañana", "proximo lunes", "este mes"
+        @brief Transforma expresiones complejas de lenguaje natural a un objeto datetime estructurado.
+        @param texto Fragmento de la transcripción de voz que describe un tiempo (ej: 'el próximo martes').
+        @return datetime Objeto de tiempo interpretado, o None si no se comprende la referencia.
         """
-        
         settings = {
             "PREFER_DATES_FROM": "future",
             "RELATIVE_BASE": datetime.now()
         }
-        
         fecha = dateparser.parse(texto, settings=settings)
-        
         return fecha
         
     def _rango_temporal(self, texto):
         """
-        Devuelve (inico, fin) segun la expresion natural
+        @brief Determina los límites temporales (fecha de inicio y fin) según los adverbios utilizados.
+        @param texto Transcripción del habla en minúsculas.
+        @return tuple Una tupla `(date_inicio, date_fin)` o `(None, None)` si es inclasificable.
         """
-        
         texto = texto.lower()
         hoy = datetime.now().date()
         
@@ -262,12 +274,10 @@ class AssistantEngine:
             logger.info("Pregunta por hoy")
             return hoy, hoy
             
-            
         if "mañana" in texto:
             logger.info("Pregunta por mañana")
             mañana = hoy + timedelta(days=1)
             return mañana, mañana
-            
             
         if "semana" in texto:
             logger.info("Pregunta la semana")
@@ -292,9 +302,12 @@ class AssistantEngine:
          
         return None, None
             
-           
     def _get_calendar_events(self, text):
-                
+        """
+        @brief Filtra y lee los eventos agendados dentro del rango temporal solicitado por voz.
+        @param text Texto con la consulta cronológica sobre la agenda.
+        @return str Frase descriptiva conteniendo las citas de la agenda para ser narradas por TTS.
+        """
         inicio, fin = self._rango_temporal(text)
         
         if not inicio:
@@ -305,11 +318,9 @@ class AssistantEngine:
         for event in self.calendar_store.events:
             try:
                 fecha = datetime.strptime(event["date"], "%Y-%m-%d").date()
-                
                 if inicio <= fecha <= fin:
                     resultados.append(event)
-                    
-            except:
+            except Exception:
                 logger.error("[ASSISTANT ENGINE] error creando la fecha del calendario")
                 continue
                 
@@ -318,7 +329,6 @@ class AssistantEngine:
             
         if inicio == fin:
             intro = f"Tiene esto el {inicio.strftime('%d/%m/%Y')}: "
-            
         else:
             intro = f"Tienes estos eventos entre el {inicio.strftime('%d/%m/%Y')} y el {fin.strftime('%d/%m/%Y')}: "
             
@@ -327,22 +337,20 @@ class AssistantEngine:
         )  
             
     def _crear_recordatorio(self, texto):
-        
         """
-        Convierte una orden de voz en un recordatorio
-        Ej: Recuerdame tomarme la pastilla en 5 minutos
-        """
+        @brief Procesa una orden verbal para programar un nuevo recordatorio de alerta.
+        @details Extrae mediante expresiones regulares patrones de tiempo numéricos ('minutos', 'horas') 
+        y agenda el objeto en el repositorio persistente.
         
+        @param texto Transcripción del comando de voz.
+        @return str Mensaje de confirmación del éxito de la operación.
+        """
         logger.info("[ASSISTANT ENGINE] Crear recordartorio")
-        
         try:
-
-
             if not self.reminder_store:
                 return "No tengo acceso al sistema de recordatorios"
             
             texto_original = texto.lower()
-        
             comando_limpio = re.sub(r"(recu[eé]rdame|recuerdame|av[ií]same|avisame)", "", texto_original).strip()
         
             minutos = None
@@ -351,7 +359,7 @@ class AssistantEngine:
             m_min = re.search(r"(\d+)\s*min", comando_limpio)
             m_h = re.search(r"(\d+)\s*hora", comando_limpio)
             
-            # ~ Calcular fecha del recordatorio
+            # Calcular fecha exacta del recordatorio
             when = datetime.now()
         
             if m_min:
@@ -361,10 +369,9 @@ class AssistantEngine:
             if m_h:
                when += timedelta(hours=int(m_h.group(1)))
         
-            # ~ Si no se detecta tiempo
+            # Si no se especifica explícitamente el tiempo, aplica salvaguarda de 5 minutos
             if not minutos and not horas:
                 when += timedelta(minutes=5)
-            
             else:
                 when += timedelta(minutes=5)
         
@@ -372,31 +379,24 @@ class AssistantEngine:
         
             if not mensaje:
                 mensaje = "Recordatario sin título"
-            
-            # ~ Guardar recordatorio   
+               
             self.reminder_store.add(
                 mensaje,
                 when.strftime("%Y-%m-%d %H:%M")
             )
         
             logger.info("[ASSISTANT ENGINE] Recordatorio añadido correctamente")
-        
             return "Recordatorio añadido correctamente"
         
         except Exception as e:
             logger.info(f"[ASSISTANT ENGINE] Fallo al crear recordatorio {e}")
             return "No he podido crear el recordatorio"
         
-            
     def _construir_prompt(self, mensaje):
         """
-        @brief Construye el prompt completo con contexto conversacional.
-
-        Incluye el system prompt, los últimos 5 turnos de memoria
-        y el mensaje actual del usuario.
-
-        @param mensaje  Texto del usuario en este turno.
-        @return Prompt completo como string.
+        @brief Prepara el prompt consolidado inyectando el System Prompt, memoria de corto plazo y el mensaje actual.
+        @param mensaje Texto de la entrada actual remitida por el usuario.
+        @return str Bloque de texto final formateado para el modelo LLM.
         """
         historial = self.memoria.get(self.user, [])[-5:]
         contexto = ""
@@ -411,16 +411,14 @@ class AssistantEngine:
 
     def _ask_model(self, prompt):
         """
-        @brief Envía el prompt al LLMClient y devuelve la respuesta.
-
-        @param prompt  Texto completo del prompt.
-        @return Respuesta del modelo (str) o cadena vacía si falla.
+        @brief Realiza la invocación de red hacia la interfaz de inferencia del LLMClient.
+        @param prompt Texto formateado completo con el contexto.
+        @return str Respuesta generada por la IA o cadena vacía si no hay cliente o falla.
         """
         if not self.llm:
             logger.warning("[LLM] no hay cliente configurado")
             return ""
         return self.llm.ask(prompt)
-
 
     # =========================================================
     # PROCESAMIENTO PRINCIPAL
@@ -428,19 +426,11 @@ class AssistantEngine:
 
     def _procesar_texto(self, texto):
         """
-        @brief Flujo completo de procesamiento de un turno conversacional.
-
-        1. Detecta intención.
-        2. Ejecuta herramienta local si procede.
-        3. Si es LLM: construye prompt, llama al modelo.
-        4. Fallback web si el modelo no responde.
-        5. Guarda en memoria persistente.
-
-        @param texto  Texto reconocido del usuario.
-        @return Respuesta en texto del asistente.
+        @brief Flujo central y toma de decisiones para resolver un turno de conversación completo.
+        @param texto Transcripción de la entrada del usuario.
+        @return str Texto de salida generado que el robot debe responder.
         """
         logger.info(f"[USER:{self.user}] {texto}")
-
         intent = self._detectar_intencion(texto)
 
         if intent == "time":
@@ -449,7 +439,6 @@ class AssistantEngine:
 
         elif intent == "weather":
             if self.display:
-                # ~ self.display.set_talking(False)
                 self.display.set_estado("Consultando clima...")
                 logger.info("Consultado clima")
             respuesta = self._get_weather()
@@ -471,7 +460,7 @@ class AssistantEngine:
             if self._hay_internet():
                 respuesta = self._ask_model(prompt)
 
-            # Fallback: búsqueda web + reintento al modelo
+            # Fallback activo si falla la red o el servicio de lenguaje inteligente
             if not respuesta:
                 logger.info("[ASSISTANT] fallback a búsqueda web")
                 web = self._web_search(texto)
@@ -481,7 +470,7 @@ class AssistantEngine:
             if not respuesta:
                 respuesta = "Lo siento, no tengo respuesta en este momento."
 
-        # Guardar en memoria
+        # Registrar el turno actual en la estructura persistente
         self.memoria.setdefault(self.user, []).append({
             "user": texto,
             "bot": respuesta,
@@ -499,11 +488,8 @@ class AssistantEngine:
 
     def set_user(self, user):
         """
-        @brief Establece el usuario activo y pronuncia el saludo.
-
-        Si el usuario tiene historial previo, el saludo es de reencuentro.
-
-        @param user  Nombre del usuario.
+        @brief Modifica el perfil de usuario activo y genera un saludo adaptado por voz (TTS).
+        @param user Nombre de pila o identificador del usuario detectado (ej: por reconocimiento facial).
         """
         self.user = user
         historial = self.memoria.get(user, [])
@@ -514,8 +500,8 @@ class AssistantEngine:
 
     def speak(self, text):
         """
-        @brief Sintetiza y reproduce texto por voz.
-        @param text  Texto a pronunciar.
+        @brief Envía una cadena de texto al sintetizador de audio (TTS) y sincroniza los estados gráficos de la cara.
+        @param text Mensaje completo de respuesta que será transformado a audio.
         """
         if self.display:
             self.display.set_estado("Hablando...")
@@ -524,7 +510,6 @@ class AssistantEngine:
         def _fin():
             if self.display:
                self.display.set_talking(False)
-               
                if self.stt and self.stt.awake:
                    self.display.set_estado("Escuchando...") 
                else:
@@ -532,13 +517,9 @@ class AssistantEngine:
             
         self.tts.speak(text, on_done=_fin)
         
-
     def start(self):
         """
-        @brief Arranca el hilo de escucha continua.
-
-        Sólo arranca si hay un modelo STT configurado y
-        el asistente no está ya en marcha.
+        @brief Levanta e inicializa el hilo daemon encargado del bucle infinito de escucha por micrófono.
         """
         if self.running:
             logger.warning("[ASSISTANT] ya está en marcha")
@@ -557,23 +538,18 @@ class AssistantEngine:
 
     def _loop(self):
         """
-        @brief Hilo interno de escucha y respuesta.
-
-        Consume texto del STT y genera respuesta para cada frase.
-        Gestiona comandos de parada ("calla", "para", "silencio").
+        @brief Bucle de consumo interno para procesar el texto obtenido del transcriptor de audio.
+        @details Intercepta comandos de parada en tiempo real antes de procesar intenciones complejas.
         """
         def _on_text(text):
             if self.display:
-                # ~ self.display.set_talking(False)
                 self.display.set_estado(f"Escuchado: {text[:20]}")
 
-            # Comandos de parada inmediata
+            # Interrupción inmediata por comandos de pánico o parada de locución
             if any(x in text for x in ["calla", "para", "silencio", "cállate"]):
                 self.tts.stop()
                 if self.display:
-                    # ~ self.display.set_talking(False)
                     self.display.set_estado("Escuchando...")
-                                        
                 return
 
             try:
@@ -587,7 +563,9 @@ class AssistantEngine:
         self.stt.listen_loop(_on_text, assistant=self, device=self.mic_device)
 
     def stop(self):
-        """@brief Detiene el asistente (STT + TTS)."""
+        """
+        @brief Detiene y cancela de forma controlada el ciclo de vida del motor de escucha y voz.
+        """
         logger.info("[ASSISTANT] deteniendo")
         self.running = False
         if self.stt:
@@ -596,5 +574,3 @@ class AssistantEngine:
         
         if self.reminder_scheduler:
             self.reminder_scheduler.stop()
-        
-        

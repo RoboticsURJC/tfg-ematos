@@ -2,10 +2,10 @@
 
 """
 @file settings_screen.py
-@brief Panel de configuración y diagnóstico del sistema.
-@details Proporciona una interfaz para gestionar hardware (Bluetooth, Wi-Fi, 
-audio), monitorear recursos (CPU, RAM, Temp) y realizar tareas de 
-mantenimiento (limpieza de logs/tmp, reinicio/apagado).
+@brief Panel de control y ajustes del sistema para la Raspberry Pi.
+@details Clase QWidget que permite gestionar hardware (Audio, Bluetooth, Wi-Fi),
+monitorizar el estado del sistema (CPU, RAM, Temperatura) y ejecutar tareas 
+de mantenimiento (reinicio, apagado, limpieza de archivos).
 """
 
 import subprocess
@@ -186,6 +186,7 @@ QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical { height: 0px; }
 
 
 def _card(border_color: str) -> QWidget:
+    """@brief Crea un contenedor estilizado (tarjeta) con borde de color."""
     w = QWidget()
     w.setObjectName("card")
     w.setStyleSheet(
@@ -197,9 +198,8 @@ def _card(border_color: str) -> QWidget:
 class SettingsScreen(QWidget):
     
     """
-    @brief Interfaz principal de ajustes.
-    @details Utiliza señales personalizadas para actualizar la UI desde hilos
-    secundarios, evitando bloqueos durante procesos lentos como el escaneo Bluetooth.
+    @brief Pantalla principal de ajustes.
+    @details Conecta señales asíncronas para actualizar la UI desde hilos de hardware.
     """
 
     # Señales para actualizar UI desde hilos
@@ -207,12 +207,9 @@ class SettingsScreen(QWidget):
     _wifi_info_done = pyqtSignal(str, str)   # (estado, red)
 
     def __init__(self, controller):
-      
-        """
-        @brief Inicializa la UI y configura temporizadores de refresco.
-        @param controller Controlador que gestiona la navegación entre pantallas.
-        """
-      
+        
+        """@brief Inicializa los componentes y configura los timers de monitoreo."""
+        
         super().__init__()
         self.controller = controller
 
@@ -483,13 +480,7 @@ class SettingsScreen(QWidget):
     # ── Helpers ──────────────────────────────────────────────────────────────
 
     def _make_stat(self, label: str, color: str):
-        """
-        @brief Crea un widget de estadística con etiqueta y barra de progreso.
-        @param label Texto de la etiqueta (ej. "CPU").
-        @param color Color CSS para el 'chunk' de la barra de progreso.
-        @return Tupla (QLabel, QProgressBar).
-        """
-        
+        """@brief Crea un widget de barra de progreso para estadísticas del sistema."""
         lbl = QLabel(f"{label}: —")
         lbl.setObjectName("info_text")
         lbl.setFont(QFont("Segoe UI", 17, QFont.Bold))
@@ -503,12 +494,7 @@ class SettingsScreen(QWidget):
         return lbl, bar
 
     def _wrap_stat(self, lbl, bar):
-      
-        """
-        @brief Envuelve un par de label/progress en un contenedor vertical.
-        @return QWidget configurado.
-        """
-      
+        
         w = QWidget()
         w.setStyleSheet("background: transparent;")
         lay = QVBoxLayout(w)
@@ -521,8 +507,7 @@ class SettingsScreen(QWidget):
     # ── Ciclo de vida ─────────────────────────────────────────────────────────
 
     def showEvent(self, event):
-        """@brief Trigger automático al mostrarse la pantalla; inicia los timers."""
-
+        """@brief Inicia los timers al mostrar la pantalla."""
         super().showEvent(event)
         self._update_clock()
         self._update_volume()
@@ -533,9 +518,7 @@ class SettingsScreen(QWidget):
         self._sys_timer.start()
 
     def hideEvent(self, event):
-      
-        """@brief Trigger automático al ocultarse la pantalla; detiene los timers."""
-        
+        """@brief Detiene los procesos en segundo plano al cerrar."""
         self._clock_timer.stop()
         self._sys_timer.stop()
         super().hideEvent(event)
@@ -543,8 +526,7 @@ class SettingsScreen(QWidget):
     # ── Reloj y uptime ───────────────────────────────────────────────────────
 
     def _update_clock(self):
-        """@brief Actualiza la hora, fecha y el tiempo de actividad (uptime) del sistema."""
-      
+        """@brief Actualiza el reloj, fecha y tiempo de actividad (uptime)."""
         self.lbl_time.setText(QTime.currentTime().toString("HH:mm:ss"))
         self.lbl_date.setText(QDate.currentDate().toString("dddd, d 'de' MMMM 'de' yyyy"))
         try:
@@ -556,7 +538,7 @@ class SettingsScreen(QWidget):
     # ── Volumen ───────────────────────────────────────────────────────────────
 
     def _change_volume(self, delta: int):
-        """@brief Ajusta el volumen maestro mediante 'amixer'."""
+        """@brief Cambia el nivel de volumen actual vía amixer."""
         try:
             sign = "+" if delta > 0 else "-"
             subprocess.run(
@@ -568,8 +550,7 @@ class SettingsScreen(QWidget):
             logger.error(f"[SETTINGS] Volumen: {e}")
 
     def _update_volume(self):
-        """@brief Consulta el volumen actual mediante 'amixer' y actualiza la UI."""
-        
+        """@brief Lee el nivel de volumen actual vía amixer."""
         try:
             out = subprocess.check_output(["amixer", "get", "Master"]).decode()
             if "[" in out and "%]" in out:
@@ -582,22 +563,14 @@ class SettingsScreen(QWidget):
     # ── Bluetooth ────────────────────────────────────────────────────────────
 
     def _run_cmd(self, cmd: list) -> str:
-        
-        """
-        @brief Ejecutor seguro de comandos de sistema.
-        @param cmd Lista de comandos (ej. ['bluetoothctl', 'show']).
-        @return Salida del comando como string.
-        """
-      
+        """@brief Lanza comando de aplicaciones internas"""
         try:
             return subprocess.check_output(cmd, stderr=subprocess.DEVNULL).decode().strip()
         except Exception:
             return ""
 
     def _bt_refresh_state(self):
-        
-        """@brief Consulta el estado (encendido/apagado) del módulo Bluetooth."""
-      
+        """@brief Recarga el estado de bluetooth."""
         out = self._run_cmd(["bluetoothctl", "show"])
         if "Powered: yes" in out:
             self.lbl_bt_state.setText("Encendido")
@@ -607,31 +580,25 @@ class SettingsScreen(QWidget):
             self.lbl_bt_state.setStyleSheet("color: #b91c1c; background: transparent; font-weight: 800;")
 
     def _bt_enable(self):
-      
-        """@brief Activa el módulo Bluetooth mediante 'bluetoothctl'."""
-        
+        """@brief Habilitar bluetooth."""
         subprocess.run(["bluetoothctl", "power", "on"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         self._bt_refresh_state()
 
     def _bt_disable(self):
-      
-        """@brief Desactiva el módulo Bluetooth y oculta la lista de dispositivos."""
-        
+        """@brief Deshabilitar bluetooth."""
         subprocess.run(["bluetoothctl", "power", "off"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         self.list_bt.hide()
         self._bt_refresh_state()
 
     def _bt_scan(self):
-      
-        """@brief Inicia el proceso de escaneo en un hilo secundario."""
-        
+        """@brief Inicia el escaneo de dispositivos Bluetooth en un hilo separado."""
         self.btn_bt_scan.setText("Buscando…")
         self.btn_bt_scan.setEnabled(False)
         self.list_bt.clear()
         threading.Thread(target=self._bt_scan_thread, daemon=True).start()
 
     def _bt_scan_thread(self):
-        """@brief Hilo dedicado al escaneo de dispositivos Bluetooth."""
+        """@brief Lógica de escaneo (ejecución síncrona en hilo)."""
         try:
             # Escanear 8 segundos
             subprocess.run(
@@ -652,12 +619,8 @@ class SettingsScreen(QWidget):
             self._bt_scan_done.emit([])
 
     def _on_bt_scan_done(self, devices: list):
-      
-        """
-        @brief Slot que recibe la lista de dispositivos escaneados y actualiza el QListWidget.
-        @param devices Lista de strings con los dispositivos encontrados.
-        """
-      
+        """@brief Inicia el escaneo de dispositivos."""
+
         self.btn_bt_scan.setText("Buscar dispositivos")
         self.btn_bt_scan.setEnabled(True)
         self.list_bt.clear()
@@ -673,29 +636,22 @@ class SettingsScreen(QWidget):
     # ── Wi-Fi ─────────────────────────────────────────────────────────────────
 
     def _wifi_enable(self):
-      
-        """@brief Activa la radio Wi-Fi vía 'nmcli'."""
-        
+        """@brief Habilitar wifi."""
         subprocess.run(["nmcli", "radio", "wifi", "on"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         QTimer.singleShot(1500, self._wifi_refresh)
 
     def _wifi_disable(self):
-      
-        """@brief Desactiva la radio Wi-Fi vía 'nmcli'."""
-       
+        """@brief Deshabilitar wifi."""
         subprocess.run(["nmcli", "radio", "wifi", "off"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         QTimer.singleShot(500, self._wifi_refresh)
 
     def _wifi_refresh(self):
-      
-        """@brief Inicia la actualización del estado Wi-Fi en un hilo secundario."""
-        
+        """@brief Recargar wifi."""        
         threading.Thread(target=self._wifi_refresh_thread, daemon=True).start()
 
     def _wifi_refresh_thread(self):
-      
-        """@brief Hilo encargado de parsear el estado, SSID y IP mediante 'nmcli'."""
-      
+        """@brief Recargar wifi con hilos."""        
+
         try:
             # Estado radio
             radio = subprocess.check_output(
@@ -732,13 +688,7 @@ class SettingsScreen(QWidget):
             self._wifi_info_done.emit("unknown", "No disponible")
 
     def _on_wifi_info_done(self, estado: str, red: str):
-      
-        """
-        @brief Slot para aplicar en la UI los datos obtenidos del hilo Wi-Fi.
-        @param estado String 'enabled' o 'disabled'.
-        @param red String con la información de red e IP.
-        """
-      
+        """@brief Estado del wifi."""        
         if estado == "enabled":
             self.lbl_wifi_net.setText("Encendido")
             self.lbl_wifi_net.setStyleSheet("color: #14532d; background: transparent; font-weight: 800;")
@@ -750,12 +700,8 @@ class SettingsScreen(QWidget):
     # ── Sistema ───────────────────────────────────────────────────────────────
 
     def _update_system(self):
-
-        """
-        @brief Refresca estadísticas de CPU, RAM, Disco y Temperatura.
-        @details Lee directamente de /proc/stat y sysfs para un rendimiento óptimo.
-        """
-
+        """@brief Lee estadísticas de CPU, RAM, Disco y Temperatura de la Pi."""
+        # CPU via /proc/stat (más ligero que top)
         try:
             with open("/proc/stat") as f:
                 line = f.readline()
@@ -802,6 +748,7 @@ class SettingsScreen(QWidget):
     # ── Mantenimiento ─────────────────────────────────────────────────────────
 
     def _clean_tmp(self):
+        """@brief Borrar /tmp."""
         try:
             subprocess.run(["find", "/tmp", "-type", "f", "-delete"],
                            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
@@ -812,7 +759,7 @@ class SettingsScreen(QWidget):
         self._maint_clear_timer.start()
 
     def _clean_logs(self):
-        """@brief Purga registros de sistema antiguos (journalctl)."""
+        """@brief Limpiar logs."""
         try:
             subprocess.run(
                 ["sudo", "journalctl", "--vacuum-time=3d"],
@@ -827,6 +774,7 @@ class SettingsScreen(QWidget):
     # ── Apagado / Reinicio ────────────────────────────────────────────────────
 
     def _safe_poweroff(self):
+        """@brief Ejecuta un comando de apagado seguro."""
         self.btn_poweroff.setText("Apagando…")
         self.btn_poweroff.setEnabled(False)
         logger.info("[SETTINGS] Apagado seguro")
@@ -838,6 +786,7 @@ class SettingsScreen(QWidget):
             self.btn_poweroff.setEnabled(True)
 
     def _safe_restart(self):
+        """@brief Ejecuta un comando de reinicio seguro."""
         self.btn_restart.setText("Reiniciando…")
         self.btn_restart.setEnabled(False)
         logger.info("[SETTINGS] Reinicio seguro")
@@ -851,8 +800,9 @@ class SettingsScreen(QWidget):
     # ── Navegación ────────────────────────────────────────────────────────────
 
     def _go_back(self):
-        """@brief Regresa al menú principal (Launcher)."""
+        """@brief Retorna al lanzador."""
         if hasattr(self.controller, "ui"):
             self.controller.ui.show_launcher()           
             
             
+

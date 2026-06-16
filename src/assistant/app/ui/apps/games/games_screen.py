@@ -1,5 +1,12 @@
 # app/ui/screens/games_screen.py
 
+"""
+@file games_screen.py
+@brief Interfaz del catálogo o lanzador principal de mini-juegos interactivos.
+@details Diseña una cuadrícula matricial bidimensional de tarjetas táctiles de alta visibilidad 
+utilizando descriptores vectoriales SVG dinámicos renderizados de forma segura a través de archivos temporales del sistema.
+"""
+
 from PyQt5.QtWidgets import (
     QWidget, QLabel, QVBoxLayout, QHBoxLayout,
     QGridLayout, QPushButton, QSizePolicy
@@ -12,7 +19,10 @@ import os, tempfile
 from app.core.logger import logger
 
 
-# ── Fondo multicolor pastel ───────────────────────────────────────────────────
+# =========================================================================
+# HOJA DE ESTILOS EN CASCADA DE QT (QSS)
+# =========================================================================
+## Cadena de texto QSS global que modela los gradientes estéticos y layouts de la ventana de juegos.
 _GAMES_QSS = """
 QWidget#GamesMain {
     background: qlineargradient(
@@ -49,7 +59,10 @@ QPushButton#BackBtn:hover   { background-color: #f0e0ff; border-color: #a060c8; 
 QPushButton#BackBtn:pressed { background-color: #e0c8ff; padding-top: 6px; }
 """
 
-# ── SVGs (sin emojis, compatible Raspberry Pi) ───────────────────────────────
+# =========================================================================
+# ASSETS VECTORIALES SVG (Inmunes a fallos de fuentes tipográficas / Emojis)
+# =========================================================================
+## Descriptor SVG unificado para el glifo gráfico de Cerebro (Módulo de Memoria).
 _SVG_BRAIN = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <path d="M32 6c-5 0-9 3-10 7-1-1-3-2-5-2-4 0-7 3-7 7
            0 1 0 2 1 3C8 22 6 25 6 28c0 4 3 7 7 8-1 1-1 3-1 4
@@ -67,6 +80,7 @@ _SVG_BRAIN = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
         stroke-width="2.5" stroke-linecap="round"/>
 </svg>"""
 
+## Descriptor SVG unificado para el glifo gráfico Numérico (Módulo de Lógica).
 _SVG_NUMBER = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <rect x="8" y="8" width="48" height="48" rx="10"
         fill="none" stroke="ICONCOLOR" stroke-width="3.5"/>
@@ -76,6 +90,7 @@ _SVG_NUMBER = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
         stroke-width="2.5" stroke-linecap="round"/>
 </svg>"""
 
+## Descriptor SVG unificado para el glifo gráfico de Texto (Módulo de Palabras).
 _SVG_WORDS = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <rect x="6" y="10" width="52" height="44" rx="8"
         fill="none" stroke="ICONCOLOR" stroke-width="3.5"/>
@@ -93,19 +108,45 @@ _SVG_WORDS = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
 
 
 def _write_svg(svg_text: str, color: str) -> str:
+    """
+    @brief Inyecta una clave de color hexadecimal en el XML del SVG y lo escribe en el directorio temporal del sistema.
+    @details **Optimización de renderizado:** Evita cuellos de botella e incompatibilidades de parseo en caliente 
+    sobre hilos de ejecución de la Raspberry Pi aislando físicamente el recurso en disco.
+    
+    @param svg_text Cadena con la estructura XML nativa del SVG que posee la directiva comodín 'ICONCOLOR'.
+    @param color Cadena de texto hexadecimal (Ej: '#ffffff') con el color final de trazo.
+    @return str Ruta absoluta física hacia la entidad temporal generada (ej: `/tmp/tmpXXXXXX.svg`).
+    """
     fd, path = tempfile.mkstemp(suffix=".svg")
     with os.fdopen(fd, "w") as f:
         f.write(svg_text.replace("ICONCOLOR", color))
     return path
 
 
-# ── Tarjeta de juego ─────────────────────────────────────────────────────────
 class GameCard(QWidget):
+    """
+    @brief Componente personalizado interactivo que actúa como tarjeta o disparador táctil de un juego.
+    """
+    
+    ## Señal asíncrona emitida al registrar un clic completo sobre la tarjeta. Envía el id único del juego.
     clicked = pyqtSignal(str)
 
-    def __init__(self, game_id, label, svg_src,
-                 bg, border, hover, fg, parent=None):
+    def __init__(self, game_id, label, svg_src, bg, border, hover, fg, parent=None):
+        """
+        @brief Constructor de la clase GameCard.
+        
+        @param game_id Cadena identificadora unívoca asignada al juego destino.
+        @param label Texto descriptivo que se estampará como título inferior.
+        @param svg_src Cadena de texto que almacena la especificación XML del icono.
+        @param bg Estilo CSS que define el fondo estático de la tarjeta.
+        @param border Estilo CSS que define la constante de color de los bordes.
+        @param hover Estilo CSS que activa la retroalimentación tonal cuando el puntero sobrevuela el área.
+        @param fg Estilo CSS que define la propiedad de color de fuente y trazo gráfico vectorial.
+        @param parent Puntero de referencia al widget contenedor padre.
+        """
         super().__init__(parent)
+        
+        ## Identificador alfanumérico unívoco del juego gestionado por esta instancia.
         self.game_id = game_id
 
         self.setAttribute(Qt.WA_StyledBackground, True)
@@ -128,7 +169,7 @@ class GameCard(QWidget):
         vlay.setSpacing(16)
         vlay.setAlignment(Qt.AlignCenter)
 
-        # Icono SVG
+        # Inicialización del subsistema SVG
         svg_path = _write_svg(svg_src, fg)
         icon = QSvgWidget(svg_path)
         icon.setFixedSize(QSize(130, 130))
@@ -146,22 +187,31 @@ class GameCard(QWidget):
         vlay.addStretch()
 
     def mousePressEvent(self, event):
+        """
+        @brief Captura los clicks físicos del ratón o contactos de la pantalla capacitiva.
+        
+        @param event Instancia del evento nativo de tipo QMouseEvent.
+        """
         if event.button() == Qt.LeftButton:
             self.clicked.emit(self.game_id)
         super().mousePressEvent(event)
 
 
-# ── Pantalla principal ────────────────────────────────────────────────────────
 class GamesScreen(QWidget):
-
+    """
+    @brief Vista de pantalla centralizada que orquesta e ilustra el menú general de la suite de entretenimiento.
+    """
+    
+    ## Señal asíncrona emitida al pulsar el botón de salida para solicitar el retorno al Hub de inicio.
     back_requested = pyqtSignal()
 
+    ## Estructura de metadatos estáticos indexados que definen los juegos disponibles de la suite.
     _GAMES = [
         {
             "id":     "memory",
             "label":  "Memoria",
             "svg":    _SVG_BRAIN,
-            "bg":     "#ffc8dd",   # rosa pastel
+            "bg":     "#ffc8dd",   # Rosa pastel
             "border": "#e0709a",
             "hover":  "#ffdde8",
             "fg":     "#6b002a",
@@ -170,7 +220,7 @@ class GamesScreen(QWidget):
             "id":     "simon_says",
             "label":  "Simon Dice",
             "svg":    _SVG_NUMBER,
-            "bg":     "#e5eab5",   # amarillo pastel
+            "bg":     "#e5eab5",   # Amarillo pastel
             "border": "#adaf4c",
             "hover":  "#f1f5d0",
             "fg":     "#3d3c0a",
@@ -179,7 +229,7 @@ class GamesScreen(QWidget):
             "id":     "find_diferences",
             "label":  "Encuentra\n las diferencias",
             "svg":    _SVG_NUMBER,
-            "bg":     "#b5ceea",   # verde menta pastel
+            "bg":     "#b5ceea",   # Azul/Verde pastel
             "border": "#4c6baf",
             "hover":  "#d0ddf5",
             "fg":     "#0a1c3d",
@@ -188,7 +238,7 @@ class GamesScreen(QWidget):
             "id":     "word_search",
             "label":  "Palabras",
             "svg":    _SVG_WORDS,
-            "bg":     "#ffd6a5",   # melocoton pastel
+            "bg":     "#ffd6a5",   # Melocotón pastel
             "border": "#e08030",
             "hover":  "#ffe8c8",
             "fg":     "#4a1e00",
@@ -196,20 +246,29 @@ class GamesScreen(QWidget):
     ]
 
     def __init__(self, controller=None):
+        """
+        @brief Constructor de la clase GamesScreen.
+        @details Instancia iterativamente los subcontroles `GameCard` e implementa un algoritmo aritmético 
+        `divmod` posicional de dos columnas fijos para armar el panel central de dibujo.
+        
+        @param controller Instancia del enrutador central de vistas de la UI.
+        """
         super().__init__()
+        
+        ## Referencia al enrutador o máquina de control de interfaces de la app.
         self.controller = controller
 
         self.setAttribute(Qt.WA_StyledBackground, True)
         self.setObjectName("GamesMain")
         self.setStyleSheet(_GAMES_QSS)
 
-        logger.info("[GAMES] Iniciando pantalla")
+        logger.info("[GAMES] Iniciando pantalla del catálogo de actividades.")
 
         root = QVBoxLayout(self)
         root.setContentsMargins(50, 36, 50, 36)
         root.setSpacing(24)
 
-        # ── Titulo ────────────────────────────────────────────────
+        # ── Cabecera e Identificadores Textuales ─────────────────
         title = QLabel("Juegos")
         title.setObjectName("TitleLabel")
         title.setAlignment(Qt.AlignCenter)
@@ -224,13 +283,14 @@ class GamesScreen(QWidget):
         root.addWidget(subtitle)
         root.addSpacing(8)
 
-        # ── Grid de tarjetas ──────────────────────────────────────
+        # ── Rejilla Matricial Dinámica ────────────────────────────
         grid_wrap = QHBoxLayout()
         grid_wrap.addStretch()
 
         grid = QGridLayout()
         grid.setSpacing(40)
 
+        # Carga matricial iterativa
         for idx, g in enumerate(self._GAMES):
             card = GameCard(
                 game_id=g["id"],
@@ -242,6 +302,7 @@ class GamesScreen(QWidget):
                 fg=g["fg"],
             )
             card.clicked.connect(self._launch)
+            # Aritmética de división entera para resolver fila y columna en cuadrícula de 2 columnas de ancho
             row, col = divmod(idx, 2)
             grid.addWidget(card, row, col, Qt.AlignCenter)
 
@@ -251,8 +312,10 @@ class GamesScreen(QWidget):
 
         root.addStretch()
 
-        # ── Volver ────────────────────────────────────────────────
+        # ── Barra de Control de Cierre / Retorno ──────────────────
         back_row = QHBoxLayout()
+        
+        ## Elemento interactivo para disparar la rutina de salida parcial.
         self.back_btn = QPushButton("  Volver")
         self.back_btn.setObjectName("BackBtn")
         self.back_btn.setFixedSize(280, 80)
@@ -263,12 +326,20 @@ class GamesScreen(QWidget):
         root.addLayout(back_row)
 
     def _launch(self, game_id: str):
-        logger.info(f"[GAMES] Lanzando juego: {game_id}")
+        """
+        @brief Canaliza la petición de apertura enviando el id capturado hacia la máquina de estados lógica superior.
+        
+        @param game_id Identificador de texto del juego seleccionado.
+        """
+        logger.info(f"[GAMES] Lanzando juego solicitado: {game_id}")
         if self.controller:
             self.controller.open_game(game_id)
 
     def go_back(self):
-        logger.info("[GAMES] Volviendo al launcher")
+        """
+        @brief Interrumpe la visualización de la vista actual emitiendo las señales de retorno hacia el Launcher.
+        """
+        logger.info("[GAMES] Volviendo al menú del launcher.")
         self.back_requested.emit()
         if self.controller and hasattr(self.controller, "ui"):
             self.controller.ui.show_launcher()

@@ -1,13 +1,18 @@
+# app/core/proactive_scheduler.py
+
 """
 @file proactive_scheduler.py
-@brief Lanzar sugerencias proactivas de forma reactiva y limpia.
+@brief Sistema de gestión proactiva de tareas para el bienestar del usuario.
+@details Implementa un planificador basado en hilos (threading) que dispara sugerencias 
+de memoria y movilidad de forma periódica y no intrusiva. Incluye control de estados,
+bloqueos de seguridad (locks) y sincronización con sistemas de TTS y UI.
 """
 
 import threading
 import time
 from app.core.logger import logger
 
-
+## Colección de ejercicios cognitivos para la estimulación de la memoria.
 MEMORY_SUGGESTIONS = [
     {
         "type": "memory", "title": "Ejercita tu memoria",
@@ -29,6 +34,7 @@ MEMORY_SUGGESTIONS = [
     },
 ]
 
+## Colección de ejercicios de movilidad física para mejorar la circulación y reducir la rigidez.
 MOBILITY_SUGGESTIONS = [
     {
         "type": "mobility", "title": "Hora de moverse",
@@ -62,26 +68,38 @@ MOBILITY_SUGGESTIONS = [
     },
 ]
 
-# Estado al que vuelve el display cuando el asistente está en reposo.
+## Etiqueta de estado para cuando el asistente está en reposo.
 DISPLAY_IDLE     = "Esperando activación..."
+## Etiqueta de estado para cuando el asistente está procesando voz.
 DISPLAY_AWAKE    = "Escuchando..."
-
-# Segundos máximos que se espera respuesta de la UI antes de auto-cerrar la sugerencia.
+## Segundos límite de espera para la respuesta de la UI antes de auto-cancelar la sugerencia.
 SUGGESTION_TIMEOUT = 60
 
 
 class ProactiveScheduler:
+    """
+    @brief Clase encargada de programar y ejecutar disparos proactivos de sugerencias.
+    """
 
     def __init__(self, tts, display=None, on_suggest=None,
                  get_stt_state=None,
                  memory_interval: int = 45 * 60,
                  mobility_interval: int = 30 * 60,
                  start_delay: int = 10 * 60):
-
+        """
+        @brief Constructor del planificador proactivo.
+        
+        @param tts Motor de texto a voz para la locución de las sugerencias.
+        @param display Objeto de control de la pantalla para mostrar mensajes de estado.
+        @param on_suggest Callback invocado para renderizar la tarjeta de sugerencia en la UI.
+        @param get_stt_state Función que devuelve un booleano sobre si el sistema escucha activamente.
+        @param memory_interval Intervalo en segundos entre sugerencias de memoria.
+        @param mobility_interval Intervalo en segundos entre sugerencias de movilidad.
+        @param start_delay Tiempo de espera inicial tras el inicio antes de la primera sugerencia.
+        """
         self.tts               = tts
         self.display           = display
         self.on_suggest        = on_suggest
-        # callable opcional → bool: devuelve True si el STT está activo (awake)
         self.get_stt_state     = get_stt_state
         self.memory_interval   = memory_interval
         self.mobility_interval = mobility_interval
@@ -93,11 +111,8 @@ class ProactiveScheduler:
         self._mem_idx   = 0
         self._mob_idx   = 0
 
-        # Control de estado de la sugerencia actual
         self._suggestion_active    = False
-        self._suggestion_fired_at  = 0.0   # timestamp del último _fire()
-        # Lock que garantiza que nunca se disparan dos sugerencias a la vez,
-        # ni desde el bucle ni desde los triggers manuales.
+        self._suggestion_fired_at  = 0.0   
         self._fire_lock            = threading.Lock()
 
         logger.info(
@@ -112,8 +127,8 @@ class ProactiveScheduler:
 
     def on_suggestion_dismissed(self):
         """
-        Llamar OBLIGATORIAMENTE desde la UI tanto si el usuario ACEPTA como
-        si RECHAZA (Ahora no) la sugerencia interactiva.
+        @brief Procesa el cierre de una sugerencia, sea aceptada o rechazada.
+        @details Limpia el estado interno y restaura el mensaje del display al modo reposo.
         """
         if self._suggestion_active:
             self._suggestion_active   = False
@@ -123,8 +138,7 @@ class ProactiveScheduler:
 
     def _restore_display(self):
         """
-        Restaura el display al estado correcto según si el STT está activo o no.
-        Así no pisamos el mensaje 'Escuchando...' si el asistente sigue despierto.
+        @brief Función interna para restaurar el texto en pantalla según el estado del STT.
         """
         if not self.display:
             return
@@ -137,19 +151,18 @@ class ProactiveScheduler:
             logger.info("[PROACTIVE] Display restaurado → Esperando activación...")
 
     # ------------------------------------------------------------------
-    # Ciclo de Control Adaptativo (Resolución a 1 segundo)
+    # Ciclo de Control Adaptativo
     # ------------------------------------------------------------------
 
     def start(self):
+        """
+        @brief Inicia el hilo de control para el sondeo de sugerencias.
+        """
         if self._thread and self._thread.is_alive():
             logger.warning("[PROACTIVE] start() ignorado, hilo ya activo")
             return
 
         self._stop_evt.clear()
-
-        # FIX: el offset extra de movilidad se escala al intervalo para no
-        # dejar _last_mobility en el futuro cuando se usan intervalos cortos
-        # en desarrollo (p.ej. mobility_interval=3).
         now = time.time()
         mobility_extra = min(5 * 60, self.mobility_interval // 2)
 
@@ -161,29 +174,31 @@ class ProactiveScheduler:
         logger.info("[PROACTIVE] Scheduler iniciado de forma segura")
 
     def stop(self):
+        """
+        @brief Detiene de forma controlada el hilo de ejecución del scheduler.
+        """
         self._stop_evt.set()
         if self._thread:
             self._thread.join(timeout=2.0)
         logger.info("[PROACTIVE] Scheduler detenido completamente")
 
     def _loop(self):
+        """
+        @brief Bucle principal de control que gestiona los tiempos de disparo.
+        @details Evalúa el transcurso del tiempo respecto a los intervalos configurados 
+        y delega el disparo de las sugerencias.
+        """
         logger.info(f"[PROACTIVE] Bucle arrancado — Esperando delay de inicio: {self.start_delay}s")
 
-        # Retardo inicial seguro
         if self._stop_evt.wait(timeout=self.start_delay):
             logger.info("[PROACTIVE] Detenido durante el inicio")
             return
 
-        # Ventana de sondeo continuo de alta frecuencia
         while not self._stop_evt.is_set():
             try:
                 if self._suggestion_active:
-                    # FIX: auto-cierre si la UI no respondió en SUGGESTION_TIMEOUT segundos
                     if time.time() - self._suggestion_fired_at > SUGGESTION_TIMEOUT:
-                        logger.warning(
-                            "[PROACTIVE] Timeout de sugerencia sin respuesta de la UI — "
-                            "restaurando display automáticamente"
-                        )
+                        logger.warning("[PROACTIVE] Timeout de sugerencia — restaurando display")
                         self.on_suggestion_dismissed()
                     else:
                         self._stop_evt.wait(timeout=1.0)
@@ -194,13 +209,9 @@ class ProactiveScheduler:
                 mob_due = (now - self._last_mobility) >= self.mobility_interval
 
                 if mem_due or mob_due:
-                    # Selección equitativa de tipos de ejercicio
-                    if mem_due and mob_due:
-                        fire_type = self._next_type
-                    elif mem_due:
-                        fire_type = "memory"
-                    else:
-                        fire_type = "mobility"
+                    if mem_due and mob_due: fire_type = self._next_type
+                    elif mem_due:           fire_type = "memory"
+                    else:                   fire_type = "mobility"
 
                     self._fire(self._pick(fire_type))
 
@@ -213,14 +224,16 @@ class ProactiveScheduler:
                         self._next_type     = "memory"
 
                 self._stop_evt.wait(timeout=1.0)
-
             except Exception as e:
-                logger.error(f"[PROACTIVE] Error crítico en bucle interno: {e}")
+                logger.error(f"[PROACTIVE] Error crítico en bucle: {e}")
                 self._stop_evt.wait(timeout=5.0)
 
-        logger.info("[PROACTIVE] Bucle terminado limpiamente")
-
     def _pick(self, kind: str) -> dict:
+        """
+        @brief Selecciona la siguiente sugerencia de la lista, alternando por índice.
+        @param kind Tipo de sugerencia ('memory' o 'mobility').
+        @return dict Diccionario con los datos de la sugerencia seleccionada.
+        """
         if kind == "memory":
             s = MEMORY_SUGGESTIONS[self._mem_idx % len(MEMORY_SUGGESTIONS)]
             self._mem_idx += 1
@@ -231,64 +244,46 @@ class ProactiveScheduler:
 
     def _fire(self, suggestion: dict):
         """
-        Lanza la sugerencia de forma síncrona y segura.
-        El lock garantiza que nunca se ejecutan dos _fire() en paralelo,
-        ni desde el bucle ni desde los triggers manuales.
+        @brief Ejecuta el disparo de una sugerencia de forma segura y síncrona.
+        @details Utiliza un Lock para evitar colisiones entre el bucle y los disparos manuales.
+        @param suggestion Objeto que contiene los metadatos de la sugerencia.
         """
-        # Si ya hay una sugerencia activa, ignorar completamente este disparo.
         if self._suggestion_active:
-            logger.warning(
-                f"[PROACTIVE] Disparo ignorado (ya hay sugerencia activa): '{suggestion['title']}'"
-            )
             return
 
-        # Adquirir el lock de forma no bloqueante — si otro hilo ya lo tiene, salir.
         if not self._fire_lock.acquire(blocking=False):
-            logger.warning("[PROACTIVE] Disparo ignorado (lock ocupado)")
             return
 
         try:
             self._suggestion_active   = True
             self._suggestion_fired_at = time.time()
-            logger.info(f"[PROACTIVE] Disparando sugerencia: '{suggestion['title']}'")
+            logger.info(f"[PROACTIVE] Disparando: '{suggestion['title']}'")
 
             if self.display:
                 self.display.set_estado(f"Sugerencia: {suggestion['title'][:28]}")
 
-            # 1. Hablar primero — esperar a que el TTS termine antes de abrir la tarjeta UI,
-            #    así la voz y la pantalla nunca se solapan con otra sugerencia anterior.
             try:
                 self.tts.speak(suggestion["tts"])
-                # Esperar a que el TTS termine de reproducir (máx. 15 s por seguridad)
                 deadline = time.time() + 15
                 while getattr(self.tts, "is_speaking", False) and time.time() < deadline:
-                    if self._stop_evt.wait(timeout=0.2):
-                        break  # Scheduler detenido mientras esperábamos
+                    if self._stop_evt.wait(timeout=0.2): break
             except Exception as e:
                 logger.error(f"[PROACTIVE] Error en TTS: {e}")
 
-            # 2. Mostrar la tarjeta UI solo después de que el TTS haya terminado.
             if self.on_suggest and not self._stop_evt.is_set():
                 try:
                     self.on_suggest(suggestion)
                 except Exception as e:
-                    logger.error(f"[PROACTIVE] Error al renderizar on_suggest: {e}")
-                    # Rescate automático si la UI falla
-                    self._suggestion_active   = False
-                    self._suggestion_fired_at = 0.0
+                    logger.error(f"[PROACTIVE] Error en on_suggest: {e}")
+                    self._suggestion_active = False
                     self._restore_display()
-
         finally:
             self._fire_lock.release()
 
-    # ------------------------------------------------------------------
-    # Disparos manuales (Inyecciones forzadas desde botones de testeo)
-    # ------------------------------------------------------------------
-
     def trigger_memory(self):
-        if not self._suggestion_active:
-            self._fire(self._pick("memory"))
+        """@brief Inyección manual de una sugerencia de memoria."""
+        if not self._suggestion_active: self._fire(self._pick("memory"))
 
     def trigger_mobility(self):
-        if not self._suggestion_active:
-            self._fire(self._pick("mobility"))
+        """@brief Inyección manual de una sugerencia de movilidad."""
+        if not self._suggestion_active: self._fire(self._pick("mobility"))

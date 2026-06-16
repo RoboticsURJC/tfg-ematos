@@ -1,8 +1,12 @@
+# app/voice/tts.py
 
 
 """
 @file tts.py
-@brief Síntesis de voz mediante pico2wave + aplay.
+@brief Síntesis de voz (Text-To-Speech) mediante SVOX Pico y reproducción con ALSA.
+@details Utiliza la utilidad `pico2wave` para convertir texto a un archivo .wav 
+temporal y `aplay` para la reproducción de audio. Incluye lógica de limpieza 
+de texto para eliminar formato Markdown antes de la síntesis.
 """
 
 import subprocess
@@ -13,7 +17,20 @@ from app.core.logger import logger
 
 
 class TTS:
+    
+    """
+    @brief Gestor de síntesis de voz.
+    @details Mantiene el estado de la reproducción, gestiona la interrupción de 
+    procesos de audio y normaliza el texto para mejorar la calidad de lectura.
+    """
+    
     def __init__(self, lang="es-ES"):
+        
+        """
+        @brief Inicializa el motor TTS.
+        @param lang Código de idioma (default: "es-ES").
+        """
+        
         self.lang = lang
         self.process = None
         self.is_speaking = False
@@ -25,9 +42,14 @@ class TTS:
 
     def clean(self, text):
         """
-        @brief Elimina TODO el formato Markdown y símbolos que pico2wave
-               lee en voz alta (corchetes, asteriscos, almohadillas, etc.)
+        @brief Elimina formato Markdown y caracteres especiales del texto.
+        @details Filtra asteriscos, encabezados, bloques de código, links y otros 
+        símbolos que podrían ser leídos literalmente por el motor de síntesis.
+        @param text Texto original.
+        @return Texto normalizado listo para ser sintetizado.
         """
+        
+        
         # Negrita e itálica
         text = re.sub(r"\*{1,3}(.*?)\*{1,3}", r"\1", text)
         # Encabezados
@@ -54,9 +76,13 @@ class TTS:
 
     def speak(self, text, on_done=None):
         """
-        @brief Sintetiza y reproduce texto. is_speaking se activa
-               ANTES de lanzar el hilo para que el STT lo vea de inmediato.
+        @brief Inicia la síntesis y reproducción de audio en un hilo independiente.
+        @details Activa `is_speaking` inmediatamente para sincronizar con el STT, 
+        genera el audio y gestiona la interrupción del proceso vía `_stop_event`.
+        @param text Texto a pronunciar.
+        @param on_done Callback opcional a ejecutar al finalizar.
         """
+        
         # Activar ANTES del hilo (evita race condition con STT)
         self.is_speaking = True
         self._done_event.clear()
@@ -111,13 +137,21 @@ class TTS:
         threading.Thread(target=_run, daemon=True).start()
 
     def wait_until_done(self, timeout=None):
+        """
+        @brief Bloquea la ejecución hasta que la reproducción actual finalice.
+        @param timeout Tiempo máximo de espera en segundos.
+        @return True si finalizó, False si hubo timeout.
+        """
         return self._done_event.wait(timeout=timeout)
 
     def stop(self):
         """
-        @brief Detiene la reproducción matando pico2wave y aplay.
-               Usa SIGKILL para garantizar parada inmediata.
+        @brief Detiene de forma agresiva cualquier proceso de síntesis o audio activo.
+        @details Utiliza `SIGKILL` para asegurar que el hardware de audio se libere 
+        inmediatamente, limpiando también procesos residuales con `pkill`.
         """
+        
+        
         logger.info("[TTS] stop solicitado")
         
         self._stop_event.set()

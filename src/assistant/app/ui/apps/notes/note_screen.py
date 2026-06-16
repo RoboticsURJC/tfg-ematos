@@ -1,5 +1,13 @@
 # app/ui/apps/notes/notes_screen.py
 
+"""
+@file notes_screen.py
+@brief Pantalla de gestión de notas optimizada para accesibilidad cognitiva mediante PyQt5.
+@details Diseñada con una paleta de alto contraste basada en tonos turquesas y pastel.
+Implementa un teclado táctil embebido dinámico que modifica las dimensiones del viewport
+al recibir el foco para garantizar la visibilidad de los campos de entrada de texto.
+"""
+
 from PyQt5.QtWidgets import (
     QWidget, QVBoxLayout, QHBoxLayout,
     QLineEdit, QPushButton, QLabel,
@@ -10,7 +18,7 @@ from app.ui.apps.notes.note_store import NotesStore
 from app.ui.widgets.keyboard_widget import KeyboardWidget
 from app.core.logger import logger
 
-
+## Hoja de estilos QSS modularizada con colores pastel de alto contraste y esquinas suavizadas hiper-legibles.
 STYLE = """
 QWidget {
     background: qlineargradient(
@@ -120,17 +128,28 @@ QPushButton#btn_back:pressed { background: #d0f0ec; padding-top: 20px; }
 
 
 class NotesScreen(QWidget):
+    """
+    @brief Interfaz gráfica interactiva para la creación, búsqueda y eliminación de notas.
+    """
 
     def __init__(self, controller):
+        """
+        @brief Constructor de la pantalla de notas.
+        @details Inicializa el gestor de almacenamiento e instala los componentes de la interfaz,
+        incluyendo las redirecciones táctiles hacia el teclado virtual embebido.
+        
+        @param controller Instancia del enrutador central de la aplicación.
+        """
         super().__init__()
         self.controller = controller
-        self.store      = NotesStore()
-        logger.info("[NOTE] Iniciada ventana Notes")
+        self.store      = NotesStore()  ##< Componente de persistencia de datos local (JSON wrapper).
+        logger.info("[NOTE] Inicializando pantalla de notas NotesScreen.")
 
+        # Configuración inicial del Widget contenedor
         self.setAttribute(Qt.WA_StyledBackground, True)
         self.setStyleSheet(STYLE)
 
-        # ── Layout raíz: contenido arriba, teclado abajo ─────────────────────
+        # ── Layout raíz: Contenido interactivo arriba, teclado táctil abajo ──
         root = QVBoxLayout()
         root.setSpacing(0)
         root.setContentsMargins(0, 0, 0, 0)
@@ -143,7 +162,7 @@ class NotesScreen(QWidget):
         layout.setContentsMargins(40, 36, 40, 20)
         content.setLayout(layout)
 
-        # Cabecera
+        # Barra Superior de Cabecera
         top_row = QHBoxLayout()
         top_row.setSpacing(16)
 
@@ -158,16 +177,18 @@ class NotesScreen(QWidget):
         top_row.addWidget(title, 1)
         top_row.addWidget(self.btn_back)
 
-        # Campos — mousePressEvent abre el teclado
+        # Barra de Búsqueda Dinámica
         self.search = QLineEdit()
         self.search.setObjectName("search")
         self.search.setPlaceholderText(" Buscar notas...")
         self.search.textChanged.connect(self.refresh)
         self.search.mousePressEvent = lambda e: self._show_keyboard(self.search)
 
+        # Lista Principal de Notas Guardadas
         self.list = QListWidget()
         self.list.setMinimumHeight(200)
 
+        # Campos de Entrada para Nueva Nota
         self.title_input = QLineEdit()
         self.title_input.setPlaceholderText("  Título de la nota")
         self.title_input.mousePressEvent = lambda e: self._show_keyboard(self.title_input)
@@ -176,6 +197,7 @@ class NotesScreen(QWidget):
         self.content_input.setPlaceholderText("✏️  Escribe aquí tu nota...")
         self.content_input.mousePressEvent = lambda e: self._show_keyboard(self.content_input)
 
+        # Botonera de Acciones Inferiores
         btn_row = QHBoxLayout()
         btn_row.setSpacing(16)
 
@@ -183,13 +205,14 @@ class NotesScreen(QWidget):
         self.btn_add.setObjectName("btn_add")
         self.btn_add.clicked.connect(self.add_note)
 
-        self.btn_delete = QPushButton("️  Borrar nota")
+        self.btn_delete = QPushButton("🗑️  Borrar nota")
         self.btn_delete.setObjectName("btn_delete")
         self.btn_delete.clicked.connect(self.delete_note)
 
         btn_row.addWidget(self.btn_add, 1)
         btn_row.addWidget(self.btn_delete, 1)
 
+        # Ensamblado del Layout del Contenido Principal
         layout.addLayout(top_row)
         layout.addWidget(self.search)
         layout.addWidget(self.list, 1)
@@ -197,67 +220,112 @@ class NotesScreen(QWidget):
         layout.addWidget(self.content_input)
         layout.addLayout(btn_row)
 
-        # ── Teclado embebido ─────────────────────────────────────────────────
+        # ── Teclado Embebido Inferior ────────────────────────────────────────
         self.keyboard = KeyboardWidget(self)
         self.keyboard.confirmed.connect(self._hide_keyboard)
 
+        # Integración vertical sobre el layout raíz sin saltos de ventana
         root.addWidget(content, 1)
-        root.addWidget(self.keyboard)   # se muestra/oculta sin saltar de ventana
+        root.addWidget(self.keyboard)
 
+        # Carga inicial de elementos persistidos
         self.refresh()
 
-    # ── Teclado ───────────────────────────────────────────────────────────────
-
+    # =========================================================================
+    # LÓGICA DE CONTROL DEL TECLADO EMBEDIDO
+    # =========================================================================
     def _show_keyboard(self, target: QLineEdit):
+        """
+        @brief Acopla el teclado al campo de texto objetivo y reduce las dimensiones de la lista.
+        @details **Criterio de Accesibilidad:** Reduce el tamaño máximo de la lista de elementos 
+        para evitar que el teclado embebido desplace los campos activos fuera de la pantalla útil.
+        
+        @param target Widget QLineEdit que recibe el foco de edición actual.
+        """
         self.keyboard.set_target(target)
         self.list.setMinimumHeight(60)
         self.list.setMaximumHeight(100)
 
     def _hide_keyboard(self):
+        """
+        @brief Desacopla el teclado virtual y restaura las dimensiones originales de la lista.
+        """
         self.keyboard.detach()
         self.list.setMinimumHeight(200)
         self.list.setMaximumHeight(16777215)
 
-    # ── Notas ─────────────────────────────────────────────────────────────────
-
+    # =========================================================================
+    # ACCIONES DE PERSISTENCIA Y ACTUALIZACIÓN (CRUD)
+    # =========================================================================
     def refresh(self):
+        """
+        @brief Sincroniza la vista del componente QListWidget con el almacén local persistente.
+        @details Filtra los registros en tiempo real basándose en el criterio del campo de búsqueda.
+        Cada nota guarda una referencia oculta al diccionario original mediante `Qt.UserRole`.
+        """
         self.list.clear()
-        for note in self.store.search(self.search.text()):
-            self.list.addItem(QListWidgetItem(f"  {note['title']}\n{note['content']}"))
+        query = self.search.text()
+        
+        # Iteramos sobre el set de notas filtradas por el sub-motor de búsqueda
+        for note in self.store.search(query):
+            item = QListWidgetItem(f"  {note['title']}\n{note['content']}")
+            # Almacenamos la referencia de la nota en el rol de usuario para desvincular el borrado del índice visual
+            item.setData(Qt.UserRole, note)
+            self.list.addItem(item)
 
     def add_note(self):
+        """
+        @brief Extrae los datos de los formularios y registra una nueva nota en el sistema.
+        """
         title   = self.title_input.text().strip() or "Sin título"
         content = self.content_input.text().strip()
+        
         self.store.add_note(title, content)
         self.title_input.clear()
         self.content_input.clear()
+        
         self._hide_keyboard()
         self.refresh()
-        logger.info("[NOTE] Nota añadida")
+        logger.info("[NOTE] Nueva nota consolidada y guardada con éxito.")
 
     def delete_note(self):
-        row = self.list.currentRow()
-        if row < 0:
+        """
+        @brief Elimina de forma definitiva la nota seleccionada bajo confirmación del usuario.
+        @details **Corrección Lógica:** Utiliza la referencia `Qt.UserRole` para encontrar el elemento
+        dentro de la lista global original, evitando corrupciones de borrado erróneo cuando la lista está filtrada.
+        """
+        current_item = self.list.currentItem()
+        if not current_item:
             return
-        reply = QMessageBox.question(self, "Borrar nota", "¿Eliminar esta nota?",
-                                     QMessageBox.Yes | QMessageBox.No)
-        if reply == QMessageBox.Yes:
-            del self.store.notes[row]
-            self.store.save_all()
-            self.refresh()
-        logger.info("[NOTE] Nota eliminada")
 
+        reply = QMessageBox.question(
+            self, "Borrar nota", "¿Eliminar esta nota de forma permanente?",
+            QMessageBox.Yes | QMessageBox.No
+        )
+        
+        if reply == QMessageBox.Yes:
+            note_data = current_item.data(Qt.UserRole)
+            if note_data in self.store.notes:
+                self.store.notes.remove(note_data)
+                self.store.save_all()
+                self.refresh()
+                logger.info("[NOTE] Nota eliminada del almacenamiento local.")
+
+    # =========================================================================
+    # EVENTOS DE NAVEGACIÓN Y CICLO DE VIDA
+    # =========================================================================
     def hideEvent(self, event):
+        """
+        @brief Intercepta el evento de ocultación de la pantalla para replegar el teclado.
+        
+        @param event Instancia del evento nativo de tipo QHideEvent.
+        """
         self._hide_keyboard()
         super().hideEvent(event)
 
     def go_back(self):
+        """
+        @brief Solicita al enrutador central el retorno seguro hacia el Launcher principal de Qt.
+        """
         if hasattr(self.controller, "ui"):
             self.controller.ui.show_launcher()
-            
-            
-            
-            
-            
-            
-            

@@ -1,98 +1,112 @@
+# app/ui/apps/games/find_differences_screen.py
+
+"""
+@file find_differences_screen.py
+@brief Motor de juego interactivo de encontrar diferencias integrado en PyQt5 mediante Pygame.
+@details Genera de forma procedimental dos lienzos gráficos paralelos basados en temáticas configurables
+(jardín, ciudad, playa) aplicando transformaciones aleatorias de color, escala y presencia de primitivas.
+Diseñado con elementos visuales de gran escala optimizados para pantallas táctiles en Raspberry Pi.
+"""
+
 import pygame
 import random
 import math
 from app.ui.apps.games.base_pygame_qt_screen import BasePygameQtScreen
 from app.core.logger import logger
 
-# ─────────────────────────────────────────────
-#  PALETA  (coherente con el resto de juegos)
-# ─────────────────────────────────────────────
-P_BG_TOP        = (255, 240, 250)
-P_BG_BOTTOM     = (230, 240, 255)
-P_TITLE         = (180,  90, 180)
-P_SUBTITLE      = (140, 110, 180)
-P_SHADOW        = (210, 200, 225)
-P_BTN_TEXT      = ( 60,  40,  90)
-P_PANEL_BG      = (245, 240, 255)
-P_PANEL_BORDER  = (200, 180, 230)
-P_BTN_BACK      = (180, 200, 255)
-P_BTN_EASY      = (150, 230, 180)
-P_BTN_MEDIUM    = (255, 210, 130)
-P_BTN_HARD      = (255, 160, 160)
-P_BTN_EXIT      = (255, 170, 170)
+# ─────────────────────────────────────────────────────────────────────────────
+# PALETA DE COLORES (QSS / Pygame Coherente)
+# ─────────────────────────────────────────────────────────────────────────────
+P_BG_TOP        = (255, 240, 250)  ##< Color superior del gradiente de fondo.
+P_BG_BOTTOM     = (230, 240, 255)  ##< Color inferior del gradiente de fondo.
+P_TITLE         = (180,  90, 180)  ##< Tonalidad para textos de títulos principales.
+P_SUBTITLE      = (140, 110, 180)  ##< Tonalidad para textos informativos secundarios.
+P_SHADOW        = (210, 200, 225)  ##< Color de sombreado para dar profundidad tridimensional.
+P_BTN_TEXT      = ( 60,  40,  90)  ##< Color del texto interno de los botones.
+P_PANEL_BG      = (245, 240, 255)  ##< Color de fondo de los contenedores de datos.
+P_PANEL_BORDER  = (200, 180, 230)  ##< Color para los bordes y rejillas de los lienzos.
+P_BTN_BACK      = (180, 200, 255)  ##< Color del botón de retorno al menú.
+P_BTN_EASY      = (150, 230, 180)  ##< Identificador verde para dificultad fácil.
+P_BTN_MEDIUM    = (255, 210, 130)  ##< Identificador naranja para dificultad media.
+P_BTN_HARD      = (255, 160, 160)  ##< Identificador rojo para dificultad difícil.
+P_BTN_EXIT      = (255, 170, 170)  ##< Color del botón de salida del módulo de juego.
 
-P_FOUND_RING    = ( 80, 200, 120)   # círculo verde al encontrar diferencia
-P_MISS_FLASH    = (220,  80,  80)   # destello rojo al fallar
+P_FOUND_RING    = ( 80, 200, 120)  ##< Círculo verde emitido al descubrir una diferencia válida.
+P_MISS_FLASH    = (220,  80,  80)  ##< Destello rojo alfa emitido ante una pulsación errónea.
 
-# ─────────────────────────────────────────────
-#  CONFIGURACIÓN DE DIFICULTAD
-# ─────────────────────────────────────────────
+# ─────────────────────────────────────────────────────────────────────────────
+# CONFIGURACIÓN DE DIFICULTAD
+# ─────────────────────────────────────────────────────────────────────────────
+## Diccionario de configuración de parámetros lógicos indexados por nivel de dificultad.
 DIFFICULTY = {
-    "facil":   {"n_objects": 8,  "n_diffs": 3, "time_limit": 0},   # sin límite
+    "facil":   {"n_objects": 8,  "n_diffs": 3, "time_limit": 0},   # Sin límite temporal
     "medio":   {"n_objects": 12, "n_diffs": 5, "time_limit": 120},  # 2 minutos
     "dificil": {"n_objects": 16, "n_diffs": 7, "time_limit": 90},   # 90 segundos
 }
 
-# ─────────────────────────────────────────────
-#  TEMAS DE ESCENAS
-# ─────────────────────────────────────────────
+# ─────────────────────────────────────────────────────────────────────────────
+# TEMAS DE ESCENAS PROCEDIMENTALES
+# ─────────────────────────────────────────────────────────────────────────────
+## Estructuras temáticas que definen los fondos, paletas de dibujo y morfologías disponibles para la escena.
 THEMES = {
     "jardin": {
-        "bg":      (210, 235, 200),   # verde pálido
-        "colors":  [
-            (220,  80,  80),   # rojo flor
-            ( 80, 160,  80),   # verde hoja
-            (255, 200,  50),   # amarillo girasol
-            (150,  80, 200),   # lila lavanda
-            (255, 150,  50),   # naranja tulipán
-            ( 60, 130,  60),   # verde oscuro
-            (200, 240, 160),   # verde claro
-        ],
+        "bg":      (210, 235, 200),
+        "colors":  [(220, 80, 80), (80, 160, 80), (255, 200, 50), (150, 80, 200), (255, 150, 50), (60, 130, 60), (200, 240, 160)],
         "shapes":  ["circle", "rect", "triangle"],
     },
     "ciudad": {
-        "bg":      (200, 210, 230),   # gris azulado
-        "colors":  [
-            (100, 140, 200),   # azul ventana
-            (180, 120,  60),   # marrón edificio
-            (220, 220, 220),   # gris claro
-            ( 60,  60, 100),   # azul oscuro
-            (240, 180,  60),   # amarillo taxi
-            (200,  60,  60),   # rojo señal
-            (120, 180, 120),   # verde árbol
-        ],
-        "shapes":  ["rect", "rect", "circle"],   # más rectángulos (edificios)
+        "bg":      (200, 210, 230),
+        "colors":  [(100, 140, 200), (180, 120, 60), (220, 220, 220), (60, 60, 100), (240, 180, 60), (200, 60, 60), (120, 180, 120)],
+        "shapes":  ["rect", "rect", "circle"],
     },
     "playa": {
-        "bg":      (200, 230, 255),   # azul cielo
-        "colors":  [
-            (255, 220, 100),   # arena
-            ( 50, 150, 220),   # azul mar
-            (255, 100,  80),   # rojo sombrilla
-            (255, 200,  80),   # amarillo sol
-            (200, 240, 200),   # verde palmera
-            (200, 180, 140),   # beige concha
-            (255, 150, 100),   # coral
-        ],
+        "bg":      (200, 230, 255),
+        "colors":  [(255, 220, 100), (50, 150, 220), (255, 100, 80), (255, 200, 80), (200, 240, 200), (200, 180, 140), (255, 150, 100)],
         "shapes":  ["circle", "triangle", "rect"],
     },
 }
 
-# ─────────────────────────────────────────────
-#  AUXILIARES
-# ─────────────────────────────────────────────
+
 def _darken(color, factor=0.7):
+    """
+    @brief Atenúa u oscurece un color RGB aplicando un factor multiplicativo de escala.
+    
+    @param color Tupla `(R, G, B)` original.
+    @param factor Coeficiente flotante de atenuación lineal.
+    @return tuple Tupla `(R, G, B)` resultante normalizada en el rango [0, 255].
+    """
     return tuple(max(0, int(c * factor)) for c in color)
 
+
 def _lighten(color, factor=1.3):
+    """
+    @brief Intensifica o aclara un color RGB aplicando un factor multiplicativo de escala.
+    
+    @param color Tupla `(R, G, B)` original.
+    @param factor Coeficiente flotante de amplificación lineal.
+    @return tuple Tupla `(R, G, B)` resultante acotada en el rango [0, 255].
+    """
     return tuple(min(255, int(c * factor)) for c in color)
 
-# ─────────────────────────────────────────────
-#  OBJETO DE ESCENA
-# ─────────────────────────────────────────────
+
 class SceneObject:
+    """
+    @brief Entidad abstracta que representa una primitiva geométrica dibujable dentro de los lienzos.
+    """
+
     def __init__(self, shape, x, y, w, h, color, border_color=None):
-        self.shape        = shape         # "circle" | "rect" | "triangle"
+        """
+        @brief Constructor de SceneObject.
+        
+        @param shape Cadena identificadora de la morfología ("circle" | "rect" | "triangle").
+        @param x Coordenada de origen horizontal local.
+        @param y Coordenada de origen vertical local.
+        @param w Ancho de la caja delimitadora del objeto.
+        @param h Alto de la caja delimitadora del objeto.
+        @param color Tupla RGB que define el tono de relleno.
+        @param border_color Tupla RGB opcional para el trazo exterior del contorno.
+        """
+        self.shape        = shape
         self.x            = x
         self.y            = y
         self.w            = w
@@ -101,15 +115,34 @@ class SceneObject:
         self.border_color = border_color or _darken(color, 0.6)
 
     def copy(self):
+        """
+        @brief Duplica la instancia actual para su posterior manipulación o mutación aislada.
+        
+        @return SceneObject Nueva copia exacta clonada en memoria.
+        """
         return SceneObject(
             self.shape, self.x, self.y, self.w, self.h,
             self.color, self.border_color
         )
 
     def get_rect(self, offset_x=0, offset_y=0):
+        """
+        @brief Devuelve el objeto delimitador `pygame.Rect` proyectado con offsets globales de pantalla.
+        
+        @param offset_x Desplazamiento horizontal del lienzo contenedor.
+        @param offset_y Desplazamiento vertical del lienzo contenedor.
+        @return pygame.Rect Rectángulo absoluto en coordenadas de ventana.
+        """
         return pygame.Rect(self.x + offset_x, self.y + offset_y, self.w, self.h)
 
     def draw(self, surface, offset_x=0, offset_y=0):
+        """
+        @brief Renderiza la primitiva geométrica en la superficie destino aplicando los offsets indicados.
+        
+        @param surface Superficie (`pygame.Surface`) de dibujo.
+        @param offset_x Margen de traslación horizontal.
+        @param offset_y Margen de traslación vertical.
+        """
         px = self.x + offset_x
         py = self.y + offset_y
 
@@ -135,10 +168,19 @@ class SceneObject:
             pygame.draw.polygon(surface, self.color,        pts)
             pygame.draw.polygon(surface, self.border_color, pts, 2)
 
-# ─────────────────────────────────────────────
-#  GENERADOR DE ESCENAS
-# ─────────────────────────────────────────────
+
 def generate_scene(n_objects: int, theme_name: str, canvas_w: int, canvas_h: int) -> list:
+    """
+    @brief Genera procedimentalmente una colección de objetos distribuidos sobre una rejilla ortogonal desordenada.
+    @details Segmenta el lienzo en regiones proporcionales para mitigar colisiones directas o solapamientos 
+    masivos de las primitivas geométricas, aplicando variaciones aleatorias de tamaño y posición dentro de cada celda.
+    
+    @param n_objects Número total de elementos que se instanciarán en la escena.
+    @param theme_name Identificador de texto de la paleta temática a emplear.
+    @param canvas_w Ancho útil de la superficie de renderizado.
+    @param canvas_h Alto útil de la superficie de renderizado.
+    @return list Vector relleno de instancias de tipo SceneObject.
+    """
     theme   = THEMES[theme_name]
     objects = []
 
@@ -177,17 +219,39 @@ def generate_scene(n_objects: int, theme_name: str, canvas_w: int, canvas_h: int
 
     return objects
 
-# ─────────────────────────────────────────────
-#  MOTOR DE DIFERENCIAS
-# ─────────────────────────────────────────────
+
 class Difference:
+    """
+    @brief Estructura de control que define una diferencia inyectada entre los dos lienzos.
+    """
+
     def __init__(self, diff_type: str, obj_index: int, zone: pygame.Rect):
-        self.diff_type  = diff_type   # "color_change" | "remove" | "size_change" | "add"
+        """
+        @brief Constructor de Difference.
+        
+        @param diff_type Naturaleza de la mutación ("color_change" | "remove" | "size_change" | "add").
+        @param obj_index Índice del vector de elementos asociado al cambio.
+        @param zone Área rectangular delimitadora para el chequeo de colisiones o clics táctiles.
+        """
+        self.diff_type  = diff_type
         self.obj_index  = obj_index
-        self.zone       = zone        # Área local del canvas
+        self.zone       = zone
         self.found      = False
 
+
 def apply_differences(base_objects: list, n_diffs: int, canvas_w: int, canvas_h: int, theme_name: str):
+    """
+    @brief Toma una escena base y genera una copia mutada inyectando un número determinado de diferencias lógicas.
+    @details Selecciona de manera aleatoria objetos para alterar sus atributos de color, escala, 
+    eliminar su visibilidad o añadir nuevos componentes huérfanos sobre zonas libres del canvas.
+    
+    @param base_objects Colección original de objetos que componen el lienzo primario A.
+    @param n_diffs Número estricto de mutaciones a inyectar en la escena modificada B.
+    @param canvas_w Ancho útil de la superficie de renderizado.
+    @param canvas_h Alto útil de la superficie de renderizado.
+    @param theme_name Identificador del tema gráfico para la extracción de colores de reemplazo.
+    @return tuple Una tupla contenedora de `(lista_objetos_mutados, lista_de_instancias_Difference)`.
+    """
     theme    = THEMES[theme_name]
     modified = [obj.copy() for obj in base_objects]
     diffs    = []
@@ -258,53 +322,92 @@ def apply_differences(base_objects: list, n_diffs: int, canvas_w: int, canvas_h:
 
     return modified, diffs
 
-# ─────────────────────────────────────────────
-#  PANTALLA PRINCIPAL
-# ─────────────────────────────────────────────
+
 class FindDifferencesScreen(BasePygameQtScreen):
+    """
+    @brief Pantalla del juego encargada de gestionar el ciclo de vida, la lógica y el renderizado.
+    """
+
     def __init__(self, controller=None, width=1024, height=600):
+        """
+        @brief Constructor de FindDifferencesScreen.
+        
+        @param controller Instancia del enrutador central de vistas de la UI.
+        @param width Resolución horizontal virtual de la ventana.
+        @param height Resolución vertical virtual de la ventana.
+        """
         super().__init__(controller, width, height)
         logger.info("[DIFF] Iniciada FindDifferencesScreen")
 
+        ## Estado de la máquina de ejecución interna ("menu" | "playing" | "win" | "timeout").
         self.state      = "menu"
+        
+        ## Nivel de dificultad activo en la partida en curso.
         self.difficulty = "facil"
+        
+        ## Identificador temático visual seleccionado para la ronda de juego.
         self.theme_name = "jardin"
 
+        ## Colección de SceneObjects asignados al lienzo izquierdo A.
         self.objects_a   = []
+        
+        ## Colección de SceneObjects asignados al lienzo derecho B.
         self.objects_b   = []
+        
+        ## Colección dinámica de diferencias inyectadas activas en la ronda.
         self.differences = []
 
+        ## Región geométrica absoluta que ocupa el lienzo A en la ventana.
         self.canvas_rect_a = pygame.Rect(0, 0, 0, 0)
+        
+        ## Región geométrica absoluta que ocupa el lienzo B en la ventana.
         self.canvas_rect_b = pygame.Rect(0, 0, 0, 0)
+        
+        ## Búfer gráfico estático para el caché visual del lienzo A.
         self._canvas_a_surf = None
+        
+        ## Búfer gráfico estático para el caché visual del lienzo B.
         self._canvas_b_surf = None
 
+        ## Lista de destellos activos generados por pulsaciones erróneas.
         self._miss_flashes   = []
+        
+        ## Lista de anillos de realce verde correspondientes a aciertos confirmados.
         self._found_rings    = []
 
+        ## Contador incremental de tiempo de juego transcurrido en segundos.
         self._elapsed    = 0.0
+        
+        ## Límite de tiempo máximo permitido extraído de la dificultad (0 implica infinito).
         self._time_limit = 0
+        
+        ## Variable oscilatoria armónica continua para efectos de pulsado gráfico.
         self._ring_pulse = 0.0
+        
+        ## Temporizador de persistencia para congelar la pantalla de victoria antes de salir.
         self._win_timer  = 0.0
 
-        self._init_menu_buttons()
+        # Mapeos geométricos de la botonera del menú
+        self.btn_easy   = pygame.Rect(0, 0, 0, 0)
+        self.btn_medium = pygame.Rect(0, 0, 0, 0)
+        self.btn_hard   = pygame.Rect(0, 0, 0, 0)
+        self.btn_exit   = pygame.Rect(0, 0, 0, 0)
+        self.btn_back   = pygame.Rect(0, 0, 0, 0)
 
     def exit_game(self):
+        """
+        @brief Termina la ejecución lúdica activa y cede el control del foco al hub central de juegos.
+        """
         self.stop()
         if self.controller and hasattr(self.controller, "ui"):
             self.controller.ui.show_games()
 
-    def _init_menu_buttons(self):
-        w, h = self.game_width, self.game_height
-        cx   = w // 2
-        # REAJUSTE DE MENÚ: Botones más grandes (altura 62) y bien distribuidos verticalmente
-        self.btn_easy   = pygame.Rect(cx - 150, 190, 300, 62)
-        self.btn_medium = pygame.Rect(cx - 150, 270, 300, 62)
-        self.btn_hard   = pygame.Rect(cx - 150, 350, 300, 62)
-        self.btn_exit   = pygame.Rect(cx - 150, 445, 300, 52)
-        self.btn_back   = pygame.Rect(12, self.game_height - 64, 130, 48)
-
     def start_game(self, difficulty: str):
+        """
+        @brief Inicializa y arranca una partida limpiando los contadores y generando los mapas.
+        
+        @param difficulty Cadena identificadora del nivel de dificultad a setear ("facil" | "medio" | "dificil").
+        """
         self.difficulty  = difficulty
         self.theme_name  = random.choice(list(THEMES.keys()))
         cfg              = DIFFICULTY[difficulty]
@@ -332,13 +435,21 @@ class FindDifferencesScreen(BasePygameQtScreen):
         logger.info(f"[DIFF] Partida — dificultad={difficulty}, tema={self.theme_name}")
 
     def _calculate_layout(self):
-        HEADER_H = 90
-        FOOTER_H = 72
-        GAP      = 12
-        MARGIN   = 14
+        """
+        @brief Calcula de forma estricta los rectángulos de visualización de los lienzos.
+        @details Reserva espacios proporcionales para barras de cabecera amplificadas (`HEADER_H`)
+        y pie de página (`FOOTER_H`), dividiendo el espacio libre restante equitativamente en dos mitades.
+        """
+        HEADER_H = 105
+        FOOTER_H = 80
+        GAP      = 16
+        MARGIN   = 16
 
-        total_w  = self.game_width - (MARGIN * 2) - GAP
-        total_h  = self.game_height - HEADER_H - FOOTER_H
+        surf_w = self.surface.get_width()
+        surf_h = self.surface.get_height()
+
+        total_w  = surf_w - (MARGIN * 2) - GAP
+        total_h  = surf_h - HEADER_H - FOOTER_H
 
         canvas_w = total_w // 2
         canvas_h = total_h
@@ -347,6 +458,9 @@ class FindDifferencesScreen(BasePygameQtScreen):
         self.canvas_rect_b = pygame.Rect(MARGIN + canvas_w + GAP, HEADER_H, canvas_w, canvas_h)
 
     def _render_canvas_a(self):
+        """
+        @brief Dibuja y cachea en una superficie aislada los objetos estáticos del lienzo A.
+        """
         bg   = THEMES[self.theme_name]["bg"]
         surf = pygame.Surface((self.canvas_rect_a.width, self.canvas_rect_a.height))
         surf.fill(bg)
@@ -356,6 +470,9 @@ class FindDifferencesScreen(BasePygameQtScreen):
         self._canvas_a_surf = surf
 
     def _render_canvas_b(self):
+        """
+        @brief Dibuja y cachea en una superficie aislada los objetos estáticos del lienzo B.
+        """
         bg   = THEMES[self.theme_name]["bg"]
         surf = pygame.Surface((self.canvas_rect_b.width, self.canvas_rect_b.height))
         surf.fill(bg)
@@ -365,6 +482,11 @@ class FindDifferencesScreen(BasePygameQtScreen):
         self._canvas_b_surf = surf
 
     def update_logic(self):
+        """
+        @brief Procesa la actualización cronológica de la partida, animaciones alfa y límites de tiempo.
+        @details Implementa las cláusulas de guarda necesarias para conmutar las pantallas de fin 
+        de juego en función de los contadores asíncronos (`dt`).
+        """
         dt = 1.0 / 60.0
 
         if self.state == "playing":
@@ -387,6 +509,11 @@ class FindDifferencesScreen(BasePygameQtScreen):
                 self.state = "menu"
 
     def mousePressEvent(self, event):
+        """
+        @brief Intercepta los eventos físicos de pulsación y los evalúa contra las cajas de colisión.
+        
+        @param event Objeto del evento nativo de tipo QMouseEvent.
+        """
         pos = self._qt_to_game_pos((event.x(), event.y()))
 
         if self.state == "menu":
@@ -409,7 +536,14 @@ class FindDifferencesScreen(BasePygameQtScreen):
             self.state = "menu"
 
     def _handle_canvas_click(self, pos):
-        HIT_MARGIN = 24  
+        """
+        @brief Evalúa si un clic táctil colisiona con el radio de acierto de alguna diferencia latente.
+        @details Convierte las coordenadas globales a márgenes locales de lienzo e infla un rectángulo 
+        de tolerancia (`HIT_MARGIN`) para compensar la imprecisión en pantallas táctiles resistivas/capacitivas.
+        
+        @param pos Tupla `(x, y)` con el píxel de contacto absoluto en la ventana de juego.
+        """
+        HIT_MARGIN = 30
 
         in_a = self.canvas_rect_a.collidepoint(pos)
         in_b = self.canvas_rect_b.collidepoint(pos)
@@ -438,19 +572,22 @@ class FindDifferencesScreen(BasePygameQtScreen):
         if found_diff:
             found_diff.found = True
             cx_local = found_diff.zone.centerx
-            cy_local = found_diff.zone.centery # CORREGIDO: Se elimina el duplicado erróneo con NameError que tenías aquí
+            cy_local = found_diff.zone.centery
             
+            # Espejado simétrico del anillo indicador en ambos lienzos para facilitar el feedback
             self._found_rings.append((cx_local + self.canvas_rect_a.x, cy_local + self.canvas_rect_a.y, found_diff))
             self._found_rings.append((cx_local + self.canvas_rect_b.x, cy_local + self.canvas_rect_b.y, found_diff))
             logger.info(f"[DIFF] Diferencia encontrada: {found_diff.diff_type}")
         else:
             self._miss_flashes.append((pos[0], pos[1], 0.4))
-            logger.debug(f"[DIFF] Clic fallido en ({local_x}, {local_y})")
+            logger.debug(f"[DIFF] Clic fallido en coordenadas relativas ({local_x}, {local_y})")
 
-    # ──────────────────────────────────────────
-    #  RENDERING
-    # ──────────────────────────────────────────
+    # ── Orquestación de Canales de Dibujo (Rendering) ─────────────────────────
+
     def render(self):
+        """
+        @brief Canal maestro de dibujo que vacía y refresca el búfer gráfico principal según el estado.
+        """
         self._draw_bg()
         if self.state == "menu":
             self._draw_menu()
@@ -462,32 +599,54 @@ class FindDifferencesScreen(BasePygameQtScreen):
                 self._draw_timeout_overlay()
 
     def _draw_bg(self):
-        for y in range(self.game_height):
-            t = y / self.game_height
+        """
+        @brief Genera y pinta un fondo degradado vertical interpolando linealmente las constantes de color.
+        """
+        surf_h = self.surface.get_height()
+        surf_w = self.surface.get_width()
+        for y in range(surf_h):
+            t = y / surf_h
             r = int(P_BG_TOP[0] + (P_BG_BOTTOM[0] - P_BG_TOP[0]) * t)
             g = int(P_BG_TOP[1] + (P_BG_BOTTOM[1] - P_BG_TOP[1]) * t)
             b = int(P_BG_TOP[2] + (P_BG_BOTTOM[2] - P_BG_TOP[2]) * t)
-            pygame.draw.line(self.surface, (r, g, b), (0, y), (self.game_width, y))
+            pygame.draw.line(self.surface, (r, g, b), (0, y), (surf_w, y))
 
     def _draw_menu(self):
-        w = self.game_width
-        tf = pygame.font.Font(None, 64) # Ajustado a 64 para evitar desborde lateral
+        """
+        @brief Estampa la interfaz del menú principal, textos informativos y botones gigantes.
+        """
+        w = self.surface.get_width()
+        h = self.surface.get_height()
+        cx = w // 2
         
+        btn_w = 460
+        btn_h = 80
+        
+        self.btn_easy   = pygame.Rect(cx - (btn_w // 2), int(h * 0.32), btn_w, btn_h)
+        self.btn_medium = pygame.Rect(cx - (btn_w // 2), int(h * 0.46), btn_w, btn_h)
+        self.btn_hard   = pygame.Rect(cx - (btn_w // 2), int(h * 0.60), btn_w, btn_h)
+        self.btn_exit   = pygame.Rect(cx - (btn_w // 2), int(h * 0.76), btn_w, 64)
+
+        tf = pygame.font.Font(None, 82)
         shadow = tf.render("ENCUENTRA LAS DIFERENCIAS", True, P_SHADOW)
         title  = tf.render("ENCUENTRA LAS DIFERENCIAS", True, P_TITLE)
-        self.surface.blit(shadow, (w // 2 - shadow.get_width() // 2 + 3, 63))
-        self.surface.blit(title,  (w // 2 - title.get_width()  // 2,     60))
+        
+        self.surface.blit(shadow, (cx - shadow.get_width() // 2 + 3, int(h * 0.10) + 3))
+        self.surface.blit(title,  (cx - title.get_width()  // 2, int(h * 0.10)))
 
-        sf  = pygame.font.Font(None, 36)
-        sub = sf.render("Pulsa en las diferencias entre las dos imágenes 🔍", True, P_SUBTITLE)
-        self.surface.blit(sub, (w // 2 - sub.get_width() // 2, 130)) # Espaciado de 130 para dar aire
+        sf  = pygame.font.Font(None, 42)
+        sub = sf.render("Pulsa en las diferencias entre las dos imágenes", True, P_SUBTITLE)
+        self.surface.blit(sub, (cx - sub.get_width() // 2, int(h * 0.22)))
 
-        self._draw_button(self.btn_easy,   "FÁCIL  — 3 diferencias",  P_BTN_EASY)
-        self._draw_button(self.btn_medium, "MEDIO  — 5 diferencias",  P_BTN_MEDIUM)
-        self._draw_button(self.btn_hard,   "DIFÍCIL — 7 diferencias", P_BTN_HARD)
-        self._draw_button(self.btn_exit,   "⬅ Volver",                P_BTN_EXIT)
+        self._draw_button(self.btn_easy,   "FÁCIL  —  3 diferencias",  P_BTN_EASY,   fontSize=46)
+        self._draw_button(self.btn_medium, "MEDIO  —  5 diferencias",  P_BTN_MEDIUM, fontSize=46)
+        self._draw_button(self.btn_hard,   "DIFÍCIL —  7 diferencias", P_BTN_HARD,   fontSize=46)
+        self._draw_button(self.btn_exit,   " Volver",                 P_BTN_EXIT,   fontSize=42)
 
     def _draw_game(self):
+        """
+        @brief Compone de forma aditiva los elementos mecánicos activos de la partida en curso.
+        """
         self._draw_canvases()
         self._draw_found_rings()
         self._draw_miss_flashes()
@@ -495,32 +654,34 @@ class FindDifferencesScreen(BasePygameQtScreen):
         self._draw_footer()
 
     def _draw_header(self):
-        w = self.game_width
-        hbar = pygame.Surface((w, 86), pygame.SRCALPHA)
+        """
+        @brief Renderiza el panel translúcido superior, el progreso mediante esferas y el cronómetro.
+        """
+        w = self.surface.get_width()
+        HEADER_H = 105
+        
+        hbar = pygame.Surface((w, HEADER_H), pygame.SRCALPHA)
         hbar.fill((245, 235, 255, 200))
         self.surface.blit(hbar, (0, 0))
-        pygame.draw.line(self.surface, P_PANEL_BORDER, (0, 86), (w, 86), 2)
+        pygame.draw.line(self.surface, P_PANEL_BORDER, (0, HEADER_H), (w, HEADER_H), 2)
 
-        # TEXTO GRANDE: Ajustado a un tamaño contundente de 42
-        tf = pygame.font.Font(None, 42)
+        tf = pygame.font.Font(None, 54)
         tit = tf.render(f"🔍  ESTILO: {self.theme_name.upper()}", True, P_TITLE)
-        self.surface.blit(tit, (w // 2 - tit.get_width() // 2, 12))
+        self.surface.blit(tit, (w // 2 - tit.get_width() // 2, 10))
 
         found = sum(1 for d in self.differences if d.found)
         total = len(self.differences)
 
-        # PROGRESO: Subido a tamaño 30 para mejor lectura
-        cf = pygame.font.Font(None, 30)
+        cf = pygame.font.Font(None, 38)
         ct = cf.render(f"Progreso: {found} / {total}", True, P_SUBTITLE)
-        self.surface.blit(ct, (w // 2 - ct.get_width() // 2, 50))
+        self.surface.blit(ct, (w // 2 - ct.get_width() // 2, 54))
 
-        # BOLITAS HUD (Ajustadas dinámicamente con gap controlado)
         if total > 0:
-            dot_r = 7
-            dot_gap = 6
+            dot_r = 9
+            dot_gap = 8
             dot_total_w = total * (dot_r * 2) + (total - 1) * dot_gap
             dot_x = w // 2 - dot_total_w // 2 + dot_r
-            dot_y = 74
+            dot_y = 90
             for diff in self.differences:
                 color = P_FOUND_RING if diff.found else (210, 205, 225)
                 pygame.draw.circle(self.surface, color, (dot_x, dot_y), dot_r)
@@ -531,11 +692,14 @@ class FindDifferencesScreen(BasePygameQtScreen):
         if self._time_limit > 0:
             remaining = max(0.0, self._time_limit - self._elapsed)
             color = (220, 70, 70) if remaining < 20 else P_SUBTITLE
-            tf2 = pygame.font.Font(None, 34)
+            tf2 = pygame.font.Font(None, 42)
             ts  = tf2.render(f"⏱  {int(remaining)}s", True, color)
-            self.surface.blit(ts, (w - ts.get_width() - 25, 15))
+            self.surface.blit(ts, (w - ts.get_width() - 25, 25))
 
     def _draw_canvases(self):
+        """
+        @brief Proyecta sobre la superficie global las copas cacheadas de los dos cuadros lúdicos.
+        """
         if self._canvas_a_surf is None or self._canvas_b_surf is None:
             return
 
@@ -548,13 +712,16 @@ class FindDifferencesScreen(BasePygameQtScreen):
             self.surface.blit(surf, rect.topleft)
             pygame.draw.rect(self.surface, P_PANEL_BORDER, rect, 3, border_radius=8)
 
-            lf = pygame.font.Font(None, 24)
+            lf = pygame.font.Font(None, 32)
             ls = lf.render(label, True, P_SUBTITLE)
-            self.surface.blit(ls, (rect.x + 10, rect.y + 8))
+            self.surface.blit(ls, (rect.x + 12, rect.y + 10))
 
     def _draw_found_rings(self):
-        base_r = 26
-        pulse  = int(math.sin(self._ring_pulse) * 3)
+        """
+        @brief Pinta anillos armónicos expansivos y marcas de verificación sobre las diferencias descubiertas.
+        """
+        base_r = 30
+        pulse  = int(math.sin(self._ring_pulse) * 4)
 
         for cx, cy, diff in self._found_rings:
             r = base_r + pulse
@@ -565,56 +732,75 @@ class FindDifferencesScreen(BasePygameQtScreen):
             pygame.draw.circle(ring_surf, (*P_FOUND_RING, 230), (r + 3, r + 3), r, 3)
             self.surface.blit(ring_surf, (cx - r - 3, cy - r - 3))
 
-            cf  = pygame.font.Font(None, 28)
+            cf  = pygame.font.Font(None, 36)
             cts = cf.render("✓", True, P_FOUND_RING)
             self.surface.blit(cts, (cx - cts.get_width() // 2, cy - cts.get_height() // 2))
 
     def _draw_miss_flashes(self):
+        """
+        @brief Renderiza círculos de advertencia con atenuación exponencial alfa para los fallos.
+        """
         for fx, fy, ft in self._miss_flashes:
             alpha = int(ft / 0.4 * 150)
             if alpha <= 0: continue
-            r = 20
+            r = 26
             fs = pygame.Surface((r * 2, r * 2), pygame.SRCALPHA)
             pygame.draw.circle(fs, (*P_MISS_FLASH, alpha), (r, r), r)
             self.surface.blit(fs, (fx - r, fy - r))
 
     def _draw_footer(self):
-        BAR_H = 64
-        bar_y = self.game_height - BAR_H
-        bar   = pygame.Surface((self.game_width, BAR_H), pygame.SRCALPHA)
+        """
+        @brief Pinta la barra de pie de página y actualiza el botón de salida parcial.
+        """
+        w = self.surface.get_width()
+        h = self.surface.get_height()
+        BAR_H = 80
+        bar_y = h - BAR_H
+        bar   = pygame.Surface((w, BAR_H), pygame.SRCALPHA)
         bar.fill((245, 235, 255, 200))
         self.surface.blit(bar, (0, bar_y))
-        pygame.draw.line(self.surface, P_PANEL_BORDER, (0, bar_y), (self.game_width, bar_y), 2)
+        pygame.draw.line(self.surface, P_PANEL_BORDER, (0, bar_y), (w, bar_y), 2)
 
-        self.btn_back = pygame.Rect(14, bar_y + 10, 130, 44)
-        self._draw_button(self.btn_back, "⬅ Menú", P_BTN_BACK)
+        self.btn_back = pygame.Rect(20, bar_y + 12, 160, 56)
+        self._draw_button(self.btn_back, "⬅ Menú", P_BTN_BACK, fontSize=38)
 
-        hf  = pygame.font.Font(None, 24)
+        hf  = pygame.font.Font(None, 30)
         ht  = hf.render("Tip: Las diferencias se pueden marcar en cualquiera de los dos lados", True, P_SUBTITLE)
-        self.surface.blit(ht, (self.game_width // 2 - ht.get_width() // 2, bar_y + 22))
+        self.surface.blit(ht, (w // 2 - ht.get_width() // 2, bar_y + 26))
 
     def _draw_win_overlay(self):
-        overlay = pygame.Surface((self.game_width, self.game_height), pygame.SRCALPHA)
+        """
+        @brief Superpone una cortina verde translúcida que indica la resolución exitosa del juego.
+        """
+        w = self.surface.get_width()
+        h = self.surface.get_height()
+        overlay = pygame.Surface((w, h), pygame.SRCALPHA)
         overlay.fill((210, 245, 220, 200))
         self.surface.blit(overlay, (0, 0))
 
-        tf  = pygame.font.Font(None, 82)
+        tf  = pygame.font.Font(None, 92)
         tx  = tf.render("¡COMPLETADO! 🎉", True, (40, 140, 70))
-        self.surface.blit(tx, (self.game_width // 2 - tx.get_width() // 2, self.game_height // 2 - 50))
+        self.surface.blit(tx, (w // 2 - tx.get_width() // 2, h // 2 - 50))
 
-        sf  = pygame.font.Font(None, 36)
+        sf  = pygame.font.Font(None, 42)
         st  = sf.render(f"¡Encontraste las {len(self.differences)} diferencias con éxito!", True, (60, 110, 80))
-        self.surface.blit(st, (self.game_width // 2 - st.get_width() // 2, self.game_height // 2 + 25))
+        self.surface.blit(st, (w // 2 - st.get_width() // 2, h // 2 + 25))
 
     def _draw_timeout_overlay(self):
-        overlay = pygame.Surface((self.game_width, self.game_height), pygame.SRCALPHA)
+        """
+        @brief Superpone una cortina roja translúcida detallando la ubicación de las diferencias no encontradas.
+        """
+        w = self.surface.get_width()
+        h = self.surface.get_height()
+        overlay = pygame.Surface((w, h), pygame.SRCALPHA)
         overlay.fill((255, 210, 210, 180))
         self.surface.blit(overlay, (0, 0))
 
-        tf  = pygame.font.Font(None, 74)
+        tf  = pygame.font.Font(None, 86)
         tx  = tf.render("¡Tiempo Agotado! ⏱", True, (170, 50, 50))
-        self.surface.blit(tx, (self.game_width // 2 - tx.get_width() // 2, self.game_height // 2 - 60))
+        self.surface.blit(tx, (w // 2 - tx.get_width() // 2, h // 2 - 60))
 
+        # Remarcado explícito de los objetivos no descubiertos mediante cajas rojas de contorno
         for diff in self.differences:
             if not diff.found:
                 for offset_x, offset_y in [
@@ -625,16 +811,24 @@ class FindDifferencesScreen(BasePygameQtScreen):
                     ry = diff.zone.y + offset_y
                     pygame.draw.rect(self.surface, (230, 50, 50), (rx - 2, ry - 2, diff.zone.w + 4, diff.zone.h + 4), 3, border_radius=6)
 
-        sf = pygame.font.Font(None, 32)
+        sf = pygame.font.Font(None, 38)
         st = sf.render("Haz clic en cualquier parte para volver al menú principal", True, (130, 50, 50))
-        self.surface.blit(st, (self.game_width // 2 - st.get_width() // 2, self.game_height // 2 + 40))
+        self.surface.blit(st, (w // 2 - st.get_width() // 2, h // 2 + 40))
 
-    def _draw_button(self, rect, text, color):
-        sr = rect.move(2, 2)
-        pygame.draw.rect(self.surface, P_SHADOW, sr, border_radius=16)
-        pygame.draw.rect(self.surface, color,    rect, border_radius=16)
-        pygame.draw.rect(self.surface, (255, 255, 255), rect, 2, border_radius=16)
+    def _draw_button(self, rect, text, color, fontSize=38):
+        """
+        @brief Dibuja de forma atómica un botón estilizado con sombras proyectadas y texto centrado.
         
-        f  = pygame.font.Font(None, 30)
+        @param rect Estructura `pygame.Rect` que define el tamaño y posición del control.
+        @param text Cadena de texto a estampar en su interior.
+        @param color Tupla RGB con el tono base del relleno.
+        @param fontSize Tamaño entero de la fuente tipográfica para la renderización.
+        """
+        sr = rect.move(2, 2)
+        pygame.draw.rect(self.surface, P_SHADOW, sr, border_radius=18)
+        pygame.draw.rect(self.surface, color,    rect, border_radius=18)
+        pygame.draw.rect(self.surface, (255, 255, 255), rect, 2, border_radius=18)
+        
+        f  = pygame.font.Font(None, fontSize)
         ts = f.render(text, True, P_BTN_TEXT)
         self.surface.blit(ts, (rect.x + (rect.width - ts.get_width()) // 2, rect.y + (rect.height - ts.get_height()) // 2))

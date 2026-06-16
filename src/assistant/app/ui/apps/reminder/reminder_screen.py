@@ -1,4 +1,12 @@
 # app/ui/apps/reminders/reminder_screen.py
+# app/ui/apps/reminders/reminder_screen.py
+
+"""
+@file reminder_screen.py
+@brief Interfaz de usuario para la gestión de recordatorios.
+@details Proporciona una interfaz basada en PyQt5 para visualizar, crear y 
+eliminar recordatorios, integrando un teclado virtual y un selector de fecha/hora.
+"""
 
 from PyQt5.QtWidgets import (
     QWidget, QVBoxLayout, QHBoxLayout,
@@ -12,7 +20,7 @@ from app.core.logger import logger
 from app.ui.apps.reminder.reminder_store import ReminderStore
 from app.ui.widgets.keyboard_widget import KeyboardWidget
 
-
+# --- Estilos CSS ---
 STYLE = """
 QWidget {
     background: qlineargradient(
@@ -233,9 +241,14 @@ QDialogButtonBox QPushButton:pressed { background-color: #1a6a9f; padding-top: 1
 
 
 class DateTimePickerDialog(QDialog):
-    """Mini diálogo con calendario + selector de hora con spinboxes."""
-
+    """
+    @brief Diálogo modal para la selección precisa de fecha y hora.
+    """
+    
     def __init__(self, parent=None):
+        
+        """@brief Inicializa el calendario y los selectores de tiempo (spinboxes)."""
+        
         super().__init__(parent)
         self.setWindowTitle("Elegir fecha y hora")
         self.setModal(True)
@@ -305,6 +318,7 @@ class DateTimePickerDialog(QDialog):
         self.setLayout(layout)
 
     def get_datetime_str(self):
+        """@brief Formatea la selección a 'YYYY-MM-DD HH:MM'."""
         date = self.calendar.selectedDate()
         h    = self.hour_spin.value()
         m    = self.min_spin.value()
@@ -315,6 +329,12 @@ class DateTimePickerDialog(QDialog):
 class ReminderScreen(QWidget):
 
     def __init__(self, controller):
+        
+        """
+        @brief Inicializa la pantalla de recordatorios.
+        @param controller Controlador principal que gestiona el flujo de UI y datos.
+        """
+        
         super().__init__()
         self.controller   = controller
         self.store        = controller.reminder_store
@@ -322,10 +342,6 @@ class ReminderScreen(QWidget):
 
         self.setAttribute(Qt.WA_StyledBackground, True)
         self.setStyleSheet(STYLE)
-
-        # ~ layout = QVBoxLayout()
-        # ~ layout.setSpacing(18)
-        # ~ layout.setContentsMargins(40, 36, 40, 36)
 
         root = QVBoxLayout()
         root.setSpacing(0)
@@ -345,7 +361,7 @@ class ReminderScreen(QWidget):
         top_row = QHBoxLayout()
         top_row.setSpacing(16)
 
-        self.title = QLabel("⏰  Recordatorios")
+        self.title = QLabel(" Recordatorios")
         self.title.setObjectName("title")
 
         self.btn_back = QPushButton("⬅  Volver")
@@ -372,6 +388,7 @@ class ReminderScreen(QWidget):
         date_row = QHBoxLayout()
         date_row.setSpacing(14)
 
+        # Selector de fecha
         self.date_display = QLabel(" Sin fecha seleccionada")
         self.date_display.setObjectName("date_display")
 
@@ -404,7 +421,7 @@ class ReminderScreen(QWidget):
         layout.addLayout(date_row)
         layout.addLayout(btn_row)
 
-        # ~ self.setLayout(layout)
+        # Integración teclado
         self.keyboard = KeyboardWidget(self)
         self.keyboard.confirmed.connect(self._hide_keyboard)
         
@@ -415,7 +432,7 @@ class ReminderScreen(QWidget):
 
     
     def _show_keyboard(self, target):
-        
+        """@brief Despliega el teclado y ajusta el layout."""
         self.keyboard.set_target(target)
         
         self.list.setMinimumHeight(80)
@@ -423,7 +440,7 @@ class ReminderScreen(QWidget):
      
     
     def _hide_keyboard(self):
-    
+        """@brief Oculta el teclado y restaura el tamaño de la lista."""
         self.keyboard.detach()
         
         self.list.setMinimumHeight(340)
@@ -431,17 +448,20 @@ class ReminderScreen(QWidget):
      
      
     def hideEvent(self, event):
+        """@brief Garantiza el cierre del teclado al ocultar el widget."""
         self._hide_keyboard()
         super().hideEvent(event)
 
 
     def open_date_picker(self):
+        """@brief Lanza el selector de fecha y hora."""
         dialog = DateTimePickerDialog(self)
         if dialog.exec_() == QDialog.Accepted:
             self._selected_dt = dialog.get_datetime_str()
             self.date_display.setText(f"  {self._selected_dt}")
 
     def refresh(self):
+        """@brief Refresca la lista desde el store."""
         self.list.clear()
         for r in self.store.reminders:
             logger.info(f"[REMINDER SCREEN] Encontrado: {r}")
@@ -451,6 +471,7 @@ class ReminderScreen(QWidget):
             )
 
     def add_reminder(self):
+        """@brief Valida entrada y guarda el recordatorio."""
         title = self.input_text.text().strip()
         if not title or not self._selected_dt:
             return
@@ -465,6 +486,7 @@ class ReminderScreen(QWidget):
         self.refresh()
 
     def delete_reminder(self):
+        """@brief Elimina el item seleccionado."""
         row = self.list.currentRow()
         if row < 0:
             return
@@ -478,5 +500,6 @@ class ReminderScreen(QWidget):
             self.refresh()
 
     def go_back(self):
+        """@brief Navegación hacia atrás."""
         if hasattr(self.controller, "ui"):
             self.controller.ui.show_launcher()

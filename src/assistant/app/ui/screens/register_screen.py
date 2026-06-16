@@ -1,5 +1,12 @@
 # app/ui/screens/register_screen.py
 
+"""
+@file register_screen.py
+@brief Pantalla de registro de nuevos usuarios mediante captura facial.
+@details Gestiona la entrada de texto, la captura secuencial de tres imágenes 
+para el entrenamiento del modelo, y la comunicación asíncrona con el servidor.
+"""
+
 import base64
 import cv2
 import requests
@@ -16,6 +23,10 @@ from app.core.logger import logger
 
 
 class RegisterWorker(QThread):
+    """
+    @brief Trabajador en segundo plano para el envío de datos de registro al servidor.
+    """
+    
     success = pyqtSignal()
     error = pyqtSignal(str)
 
@@ -26,6 +37,7 @@ class RegisterWorker(QThread):
         self.images = images
 
     def run(self):
+        """@brief Realiza la petición POST de registro de nuevo usuario."""
         try:
             r = requests.post(self.url, json={
                 "name": self.name,
@@ -43,8 +55,16 @@ class RegisterWorker(QThread):
 
 
 class RegisterScreen(QWidget):
+    
+    """
+    @brief Interfaz de usuario para el registro facial.
+    @details Guía al usuario en un proceso de 3 pasos de captura de imagen.
+    """
 
     def __init__(self, controller):
+        
+        """@brief Inicializa la UI de registro y los recursos de cámara."""
+        
         super().__init__()
         self.setAttribute(Qt.WA_StyledBackground, True)
 
@@ -198,6 +218,7 @@ class RegisterScreen(QWidget):
         self.timer.start(30)
 
     def update_frame(self):
+        """@brief Actualiza la visualización de la cámara en tiempo real."""
         ok, frame = CameraManager.get().read()
         if not ok:
             return
@@ -215,6 +236,7 @@ class RegisterScreen(QWidget):
         self.camera.setPixmap(pix)
 
     def capture(self):
+        """@brief Captura un frame actual y lo añade a la lista de entrenamiento."""
         if self.frame is None:
             return
 
@@ -239,6 +261,7 @@ class RegisterScreen(QWidget):
             self.send(name)
 
     def send(self, name):
+        """@brief Inicia el trabajador de red para enviar las imágenes al servidor."""
         url = self.config.recognition_url() + "/register"
 
         self.worker = RegisterWorker(url, name, self.images)
@@ -247,16 +270,19 @@ class RegisterScreen(QWidget):
         self.worker.start()
 
     def on_success(self):
+        """@brief Maneja el éxito del registro."""
         logger.info("[REGISTER] Registro usuario correcto")
         self.step_label.setText(" listo")
         QTimer.singleShot(1000, self.go_back)
 
     def on_error(self, msg):
+        """@brief Maneja el error del registro."""
         logger.info("[REGISTER] Error en registro")
         self.step_label.setText("⚠ error")
         self.btn_capture.setEnabled(True)
 
     def go_back(self):
+        """@brief Limpia el estado y regresa a la pantalla de login."""
         self.timer.stop()
         self.images.clear()
         self.step = 0

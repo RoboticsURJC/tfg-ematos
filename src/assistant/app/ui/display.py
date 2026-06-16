@@ -1,3 +1,13 @@
+# app/ui/app_controller.py
+
+"""
+@file face_display.py
+@brief Control de la interfaz gráfica facial del robot.
+@details Gestiona el renderizado en tiempo real de los ojos, boca y estado
+del sistema en una pantalla ILI9341. Incluye lógica de animación (parpadeo),
+expresiones emocionales y retroalimentación textual.
+"""
+
 
 import random
 import time
@@ -14,8 +24,18 @@ from adafruit_rgb_display import ili9341
 
 
 class FaceDisplay:
+    """
+    @brief Orquestador de la visualización facial del robot.
+    @details Mantiene un bucle de renderizado en un hilo separado para actualizar 
+    la interfaz a una tasa de FPS definida, procesando estados emocionales y 
+    animaciones de habla en tiempo real.
+    """
 
     def __init__(self, config_path=None):
+        """
+        @brief Inicializa la pantalla, carga configuración y prepara el font del sistema.
+        @param config_path Ruta al archivo JSON de configuración (opcional).
+        """
 
         # =========================
         # CONFIG
@@ -82,18 +102,25 @@ class FaceDisplay:
     # API
     # =========================
     def set_estado(self, text):
+        """@brief Actualiza el texto de estado mostrado en la parte inferior de la pantalla."""
         self.estado_texto = text
 
     def set_talking(self, talking):
+        """@brief Habilita/deshabilita la animación de boca al hablar."""
         self.robot_hablando = talking
 
     def set_emotion(self, emotion):
+        """
+        @brief Cambia el estado emocional del robot.
+        @param emotion String identificador (ej: 'happy', 'sad', 'thinking', 'surprised').
+        """
         self.emotion = emotion
 
     # =========================
     # START
     # =========================
     def start(self):
+        """@brief Inicia el hilo secundario de refresco de pantalla."""
         if self.running:
             return
 
@@ -104,6 +131,12 @@ class FaceDisplay:
     # DRAW
     # =========================
     def draw(self, eyes_open=True):
+        """
+        @brief Renderiza un fotograma completo en el buffer de imagen.
+        @details Procesa la geometría de ojos (apertura/cierre), boca (habla/emoción)
+        y dibuja el texto de estado del sistema.
+        @param eyes_open Booleano para controlar el parpadeo.
+        """
 
         img = Image.new("RGB", (self.display.width, self.display.height), "black")
         draw = ImageDraw.Draw(img)
@@ -116,11 +149,7 @@ class FaceDisplay:
         cy = self.display.height // 2 - 10  # Centro de los ojos
         sep = 80  # Separación entre ojos
         eye_radius = 40  # Radio del ojo (más grande)
-        
-        # Cejas: centradas encima de cada ojo
-        eyebrow_y = cy - 45  # Altura de las cejas
-        eyebrow_width = 50   # Ancho de cada ceja
-        eyebrow_height = 15  # Altura del arco
+
         
         # Boca
         mouth_y = cy + 55
@@ -129,62 +158,10 @@ class FaceDisplay:
         self.animation_phase += 1
 
         # =========================
-        # EYEBROWS (CEJAS centradas sobre cada ojo)
-        # =========================
         # Centro de cada ojo: cx - sep y cx + sep
         left_eye_cx = cx - sep
         right_eye_cx = cx + sep
         
-        # ~ if self.emotion == "happy":
-            # ~ # Cejas felices - arco convexo hacia arriba
-            # ~ draw.arc((left_eye_cx - eyebrow_width, eyebrow_y - 10, 
-                      # ~ left_eye_cx + eyebrow_width, eyebrow_y + eyebrow_height), 
-                     # ~ 180, 360, fill="white", width=5)
-            # ~ draw.arc((right_eye_cx - eyebrow_width, eyebrow_y - 10, 
-                      # ~ right_eye_cx + eyebrow_width, eyebrow_y + eyebrow_height), 
-                     # ~ 180, 360, fill="white", width=5)
-        
-        # ~ elif self.emotion == "sad":
-            # ~ # Cejas tristes - arco hacia abajo
-            # ~ draw.arc((left_eye_cx - eyebrow_width, eyebrow_y, 
-                      # ~ left_eye_cx + eyebrow_width, eyebrow_y + eyebrow_height + 10), 
-                     # ~ 0, 180, fill="white", width=5)
-            # ~ draw.arc((right_eye_cx - eyebrow_width, eyebrow_y, 
-                      # ~ right_eye_cx + eyebrow_width, eyebrow_y + eyebrow_height + 10), 
-                     # ~ 0, 180, fill="white", width=5)
-        
-        # ~ elif self.emotion == "surprised":
-            # ~ # Cejas sorprendidas - muy arriba
-            # ~ draw.arc((left_eye_cx - eyebrow_width, eyebrow_y - 20, 
-                      # ~ left_eye_cx + eyebrow_width, eyebrow_y + 5), 
-                     # ~ 180, 360, fill="white", width=5)
-            # ~ draw.arc((right_eye_cx - eyebrow_width, eyebrow_y - 20, 
-                      # ~ right_eye_cx + eyebrow_width, eyebrow_y + 5), 
-                     # ~ 180, 360, fill="white", width=5)
-        
-        # ~ elif self.emotion == "angry":
-            # ~ # Cejas enfadadas - inclinadas hacia dentro
-            # ~ draw.line((left_eye_cx - eyebrow_width, eyebrow_y - 5, 
-                       # ~ left_eye_cx + 10, eyebrow_y + 15), fill="white", width=5)
-            # ~ draw.line((right_eye_cx - 10, eyebrow_y - 5, 
-                       # ~ right_eye_cx + eyebrow_width, eyebrow_y + 15), fill="white", width=5)
-        
-        # ~ elif self.emotion == "thinking":
-            # ~ # Cejas pensativas - una más alta
-            # ~ draw.arc((left_eye_cx - eyebrow_width, eyebrow_y - 10, 
-                      # ~ left_eye_cx + eyebrow_width, eyebrow_y + eyebrow_height), 
-                     # ~ 180, 360, fill="white", width=5)
-            # ~ draw.arc((right_eye_cx - eyebrow_width, eyebrow_y - 20, 
-                      # ~ right_eye_cx + eyebrow_width, eyebrow_y + 5), 
-                     # ~ 180, 360, fill="white", width=5)
-        
-        # ~ else:  # NEUTRAL - arco suave
-            # ~ draw.arc((left_eye_cx - eyebrow_width, eyebrow_y - 5, 
-                      # ~ left_eye_cx + eyebrow_width, eyebrow_y + eyebrow_height), 
-                     # ~ 180, 360, fill="white", width=5)
-            # ~ draw.arc((right_eye_cx - eyebrow_width, eyebrow_y - 5, 
-                      # ~ right_eye_cx + eyebrow_width, eyebrow_y + eyebrow_height), 
-                     # ~ 180, 360, fill="white", width=5)
 
         # =========================
         # EYES
@@ -292,6 +269,10 @@ class FaceDisplay:
     # LOOP
     # =========================
     def loop(self):
+        """
+        @brief Bucle principal de ejecución del hilo de renderizado.
+        @details Calcula los intervalos de parpadeo y actualiza el display según los FPS.
+        """
 
         fps = 1 / self.fps
         eyes_open = True

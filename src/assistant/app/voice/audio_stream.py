@@ -1,14 +1,17 @@
-
+# app/voice/audio_stream.py
 
 """
 @file audio_stream.py
 @brief Captura de audio desde el micrófono en tiempo real.
-
-Captura a 48kHz (compatible con la mayoría de micrófonos USB)
-y hace downsampling manual a 16kHz para Vosk, igual que el original.
+@details Implementa la captura de audio utilizando sounddevice, realizando un 
+downsampling manual de 48kHz a 16kHz, formato requerido por los modelos 
+de reconocimiento de voz como Vosk.
 """
 
+
+
 import queue
+import struct
 import sounddevice as sd
 from app.core.logger import logger
 
@@ -16,10 +19,9 @@ from app.core.logger import logger
 class AudioStream:
     """
     @brief Gestiona la captura continua de audio desde el micrófono.
-
-    Captura a 48kHz y hace downsampling x3 → 16kHz para Vosk.
-    Esto replica el comportamiento del sistema original y garantiza
-    compatibilidad con micrófonos USB que no soportan 16kHz nativo.
+    @details Configura un flujo (stream) de entrada Raw, captura a 48kHz para 
+    asegurar compatibilidad con hardware USB y procesa el downsampling a 16kHz
+    en el callback para optimizar el consumo de la librería Vosk.
     """
 
     def __init__(self, device=None, samplerate=48000, blocksize=8000):
@@ -56,15 +58,14 @@ class AudioStream:
         if status:
             logger.warning(f"[AUDIO STATUS] {status}")
 
+        # Convertir bytes a muestras int16
         raw = bytes(indata)
-        # Downsampling 48kHz → 16kHz: tomar 1 muestra de cada 3
-        # Cada muestra int16 = 2 bytes → paso de 6 bytes
-        downsampled = raw[::6] + raw[1::6]  # reconstruir pares de bytes
-        # Método más correcto: slice por muestra completa (2 bytes = 1 muestra)
-        # Reconstruimos seleccionando muestras completas
-        import struct
         samples = struct.unpack(f"{len(raw)//2}h", raw)
+        
+        # Downsampling 48kHz → 16kHz: tomar 1 muestra de cada 3
         samples_16k = samples[::3]
+        
+        # Empaquetar de nuevo a formato de bytes para Vosk
         data_16k = struct.pack(f"{len(samples_16k)}h", *samples_16k)
         self.q.put(data_16k)
 

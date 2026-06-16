@@ -1,7 +1,7 @@
-# app/ui/widgets/keyboard_widget.py
 """
 Teclado software nativo PyQt5.
-Diseño de alto contraste con teclas gigantes y descriptivas para personas mayores.
+Diseño corregido y alineado: Borrar abajo a la derecha, Listo abajo a la izquierda.
+Matriz matemática perfecta de 10 columnas por fila.
 """
 
 from PyQt5.QtWidgets import QWidget, QGridLayout, QPushButton, QSizePolicy
@@ -10,20 +10,21 @@ from PyQt5.QtGui import QFont
 from app.core.logger import logger
 
 
+# Cada fila suma exactamente 10 en su 'span' total para evitar descuadres
 ROWS_LOWER = [
-    ["1","2","3","4","5","6","7","8","9","0"],
-    ["q","w","e","r","t","y","u","i","o","p"],
-    ["a","s","d","f","g","h","j","k","l","ñ"],
-    ["MAYÚS","z","x","c","v","b","n","m",",","."],
-    ["BORRAR","ESPACIO","LISTO"],
+    ["1","2","3","4","5","6","7","8","9","0"], # 10 teclas (span 1x10 = 10)
+    ["q","w","e","r","t","y","u","i","o","p"], # 10 teclas (span 1x10 = 10)
+    ["a","s","d","f","g","h","j","k","l","ñ"], # 10 teclas (span 1x10 = 10)
+    ["MAYÚS","z","x","c","v","b","n","m",",","."], # MAYÚS(2) + 8 teclas(8) = 10
+    ["LISTO", "ESPACIO", "BORRAR"],                # LISTO(2) + ESPACIO(6) + BORRAR(2) = 10
 ]
 
 ROWS_UPPER = [
     ["1","2","3","4","5","6","7","8","9","0"],
     ["Q","W","E","R","T","Y","U","I","O","P"],
-    ["A","S","D","H","G","H","J","K","L","Ñ"],
+    ["A","S","D","F","G","H","J","K","L","Ñ"],
     ["MAYÚS","Z","X","C","V","B","N","M",",","."],
-    ["BORRAR","ESPACIO","LISTO"],
+    ["LISTO", "ESPACIO", "BORRAR"],
 ]
 
 KB_STYLE = """
@@ -32,7 +33,7 @@ QWidget#keyboard_root {
     border-top: 5px solid #4f46e5;
 }
 
-/* Teclas alfabéticas y numéricas (Blancas de alto contraste) */
+/* Teclas alfabéticas y numéricas */
 QPushButton#kb_key {
     background-color: #ffffff;
     color: #0f172a;
@@ -49,7 +50,7 @@ QPushButton#kb_key:pressed {
     padding-top: 4px;
 }
 
-/* Modificadores generales (Azul pastel amigable) */
+/* Modificadores generales (Mayús inactivo) */
 QPushButton#kb_special {
     background-color: #dbeafe;
     color: #1e40af;
@@ -66,7 +67,7 @@ QPushButton#kb_special:pressed {
     padding-top: 4px;
 }
 
-/* Mayúsculas Activas (Naranja/Ámbar de advertencia clara) */
+/* Mayúsculas Activas */
 QPushButton#kb_shift_on {
     background-color: #fef3c7;
     color: #d97706;
@@ -83,15 +84,15 @@ QPushButton#kb_shift_on:pressed {
     padding-top: 4px;
 }
 
-/* Barra Espaciadora (Ancha y cómoda) */
+/* Barra Espaciadora Centrada */
 QPushButton#kb_space {
     background-color: #f8fafc;
     color: #475569;
     border: none;
     border-bottom: 6px solid #e2e8f0;
     border-radius: 16px;
-    font-size: 28px;
-    font-weight: 700;
+    font-size: 32px;
+    font-weight: 800;
     min-height: 90px;
     letter-spacing: 2px;
 }
@@ -101,7 +102,7 @@ QPushButton#kb_space:pressed {
     padding-top: 4px;
 }
 
-/* Botón Borrar (Rojo/Coral suave - ¡Peligro intuitivo!) */
+/* Botón Borrar (Abajo a la derecha) */
 QPushButton#kb_delete {
     background-color: #fee2e2;
     color: #991b1b;
@@ -118,7 +119,7 @@ QPushButton#kb_delete:pressed {
     padding-top: 4px;
 }
 
-/* Botón Confirmar / Listo (Verde vitalizante y alegre) */
+/* Botón Confirmar / Listo (Abajo a la izquierda) */
 QPushButton#kb_confirm {
     background-color: #dcfce7;
     color: #166534;
@@ -139,13 +140,23 @@ QPushButton#kb_confirm:pressed {
 
 class KeyboardWidget(QWidget):
     """
-    Teclado software interactivo de alta legibilidad para la tercera edad.
-    Sincroniza la inserción de texto con instancias QLineEdit.
+    @brief Teclado software interactivo diseñado para alta legibilidad.
+    @details Proporciona una interfaz táctil de teclado con disposición QWERTY,
+    soporte para mayúsculas y una matriz matemática fija de 10 columnas para
+    garantizar una alineación consistente en diferentes resoluciones de pantalla.
+    
+    @attr confirmed Señal emitida cuando el usuario presiona el botón 'Listo'.
     """
 
     confirmed = pyqtSignal()
 
     def __init__(self, parent=None):
+        
+        """
+        @brief Inicializa el teclado, configura el estilo y construye la matriz de teclas.
+        @param parent Widget padre (opcional).
+        """
+        
         super().__init__(parent)
         self.setObjectName("keyboard_root")
         self.setAttribute(Qt.WA_StyledBackground, True)
@@ -155,8 +166,8 @@ class KeyboardWidget(QWidget):
         self._upper  = False
 
         self._grid = QGridLayout()
-        self._grid.setSpacing(8)  # Mayor separación entre teclas para evitar pulsaciones erróneas
-        self._grid.setContentsMargins(12, 14, 12, 18)
+        self._grid.setSpacing(10)
+        self._grid.setContentsMargins(14, 16, 14, 20)
         self.setLayout(self._grid)
 
         self._build_keys()
@@ -165,7 +176,13 @@ class KeyboardWidget(QWidget):
     # ── Construcción de la Interfaz ──────────────────────────────────────────
 
     def _build_keys(self):
-        # Limpieza segura del layout anterior
+        
+        """
+        @brief Reconstruye la matriz del teclado al cambiar de estado (Mayús).
+        @details Limpia el layout actual y redibuja los botones según ROWS_UPPER o ROWS_LOWER.
+        """
+        
+        # Limpieza del layout
         while self._grid.count():
             item = self._grid.takeAt(0)
             if item.widget():
@@ -182,6 +199,15 @@ class KeyboardWidget(QWidget):
                 c += span
 
     def _make_button(self, key, font):
+        
+        
+        """
+        @brief Crea y configura un botón del teclado basándose en su función.
+        @param key String con el carácter o acción a asignar.
+        @param font QFont configurada para el texto del botón.
+        @return Tupla (QPushButton, int) con el botón y el espacio que ocupa (span).
+        """
+        
         btn = QPushButton()
         btn.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         btn.setFont(font)
@@ -189,19 +215,19 @@ class KeyboardWidget(QWidget):
         if key == "ESPACIO":
             btn.setText("ESPACIO")
             btn.setObjectName("kb_space")
-            span = 4  # Ocupa el centro de la última fila
+            span = 6  # Columnas centrales (de la 2 a la 7)
         elif key == "BORRAR":
             btn.setText("Borrar ⌫")
             btn.setObjectName("kb_delete")
-            span = 3  # Lateral izquierdo equilibrado
+            span = 2  # Columnas 8 y 9 (Esquina inferior derecha)
         elif key == "LISTO":
             btn.setText("Listo ✓")
             btn.setObjectName("kb_confirm")
-            span = 3  # Lateral derecho equilibrado
+            span = 2  # Columnas 0 y 1 (Esquina inferior izquierda)
         elif key == "MAYÚS":
             btn.setText("Mayús ⇧")
             btn.setObjectName("kb_shift_on" if self._upper else "kb_special")
-            span = 2  # Mantiene alineación armónica en la cuarta fila
+            span = 2  # Ocupa 2 columnas en la fila 4
         else:
             btn.setText(key)
             btn.setObjectName("kb_key")
@@ -213,6 +239,13 @@ class KeyboardWidget(QWidget):
     # ── Control de Pulsaciones ───────────────────────────────────────────────
 
     def _on_key(self, key):
+        
+        """
+        @brief Slot principal para gestionar eventos de clic en las teclas.
+        @details Realiza la acción correspondiente (borrado, espacio, shift, inserción).
+        @param key El identificador de la tecla pulsada.
+        """
+        
         if key == "BORRAR":
             if self._target:
                 self._target.backspace()
@@ -229,7 +262,7 @@ class KeyboardWidget(QWidget):
             if self._target:
                 self._target.insert(key)
             
-            # Desactivar mayúsculas automáticas tras pulsar una letra (comportamiento móvil)
+            # Desactivación móvil del Shift tras pulsar una letra
             if self._upper and key not in [",", "."]:
                 self._upper = False
                 self._build_keys()
@@ -237,14 +270,19 @@ class KeyboardWidget(QWidget):
     # ── Métodos de Enlace (Target) ───────────────────────────────────────────
 
     def set_target(self, line_edit):
-        """Asocia el teclado a un QLineEdit y lo despliega."""
+        
+        """
+        @brief Asigna el widget de texto (target) donde se escribirán los caracteres.
+        @param line_edit Instancia de QLineEdit o similar.
+        """
+        
         self._target = line_edit
         self.show()
         self.raise_()
         logger.info("[KB] Teclado visible adaptado")
 
     def detach(self):
-        """Remueve la referencia del input objetivo y oculta el widget."""
+        """@brief Desvincula el target actual y oculta el teclado."""
         self._target = None
         self.hide()
         logger.info("[KB] Teclado ocultado")

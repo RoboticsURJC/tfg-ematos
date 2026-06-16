@@ -1,5 +1,13 @@
 # app/ui/screens/login_screen.py
 
+"""
+@file login_screen.py
+@brief Pantalla de autenticación mediante reconocimiento facial.
+@details Gestiona la captura de vídeo a través de CameraManager, el envío 
+asíncrono de frames al motor de IA mediante trabajadores QThread y la 
+transición de estado según el resultado de la autenticación.
+"""
+
 import base64
 import cv2
 import requests
@@ -14,6 +22,10 @@ from app.core.logger import logger
 
 
 class Worker(QThread):
+    """
+    @brief Trabajador en segundo plano para peticiones HTTP de reconocimiento facial.
+    @details Evita que el hilo principal (UI) se bloquee durante la espera del servicio.
+    """
     result_signal = pyqtSignal(dict)
     error_signal  = pyqtSignal(str)
 
@@ -23,6 +35,7 @@ class Worker(QThread):
         self.image = image
 
     def run(self):
+        """@brief Ejecuta la petición POST al servicio de reconocimiento."""
         try:
             response = requests.post(self.url, json={"image": self.image}, timeout=10)
             if response.ok:
@@ -105,8 +118,20 @@ QPushButton#btn_register:pressed { background-color: #a0aef8; padding-top: 22px;
 
 
 class LoginScreen(QWidget):
+    
+    """
+    @brief Interfaz de login.
+    @details Muestra un stream de video en vivo, procesa el reconocimiento facial 
+    y gestiona la navegación hacia el registro de usuarios.
+    """
 
     def __init__(self, controller):
+        
+        """
+        @brief Inicializa la pantalla, abre la cámara y configura el layout.
+        @param controller Controlador principal para la gestión de estados.
+        """
+        
         super().__init__()
         self.setAttribute(Qt.WA_StyledBackground, True)
         logger.info("[LOGIN] Iniciando ventana de Login")
@@ -164,6 +189,7 @@ class LoginScreen(QWidget):
         self.timer.start(30)
 
     def update_frame(self):
+        """@brief Lee el frame actual de la cámara y lo renderiza en la UI."""
         ok, frame = CameraManager.get().read()
         if not ok:
             return
@@ -177,9 +203,10 @@ class LoginScreen(QWidget):
         self.camera.setPixmap(pix)
 
     def login(self):
+        """@brief Prepara la imagen actual y lanza el hilo de reconocimiento facial."""
         if self.current_frame is None:
             return
-        self.status.setText("🔍  Reconociendo...")
+        self.status.setText("  Reconociendo...")
         logger.info("[LOGIN] Reconociendo ...")
         frame = cv2.resize(self.current_frame, (320, 240))
         _, buf  = cv2.imencode(".jpg", frame)
@@ -190,23 +217,26 @@ class LoginScreen(QWidget):
         self.worker.start()
 
     def on_result(self, data):
+        """@brief Callback al recibir una respuesta exitosa del servidor."""
         names = data.get("recognized", [])
         if names and names[0] != "Desconocido":
-            self.status.setText("✅  Usuario reconocido")
+            self.status.setText(" Usuario reconocido")
             logger.info("[LOGIN] Usuario reconocido")
             self.user_label.setText(f"¡Bienvenid@, {names[0]}!")
             self.user_label.show()
             self.timer.stop()
             self.controller.login(names[0])
         else:
-            self.status.setText("❌  Usuario no reconocido")
+            self.status.setText("  Usuario no reconocido")
 
     def on_error(self, msg):
+        """@brief Lanzar error  al no recibir una respuesta exitosa del servidor."""
         logger.info("[LOGIN] Error de conexión")
         self.status.setText("⚠️  Error de conexión")
 
 
     def go_register(self):
+        """@brief Llamar a la ventana de registro."""
         self.timer.stop()
         self.controller.ui.show_register()
 

@@ -1,3 +1,13 @@
+# app/ui/face_client.py
+
+"""
+@file face_client.py
+@brief Cliente de reconocimiento facial y registro de usuarios.
+@details Gestiona la captura de video vía OpenCV, el procesamiento asíncrono
+mediante hilos (QThread) para la comunicación con el servidor de reconocimiento 
+facial, y la actualización de la interfaz de usuario.
+"""
+
 import os
 import json
 import base64
@@ -50,6 +60,14 @@ SERVER_URL = config["server"]["recognition_url"]
 # =========================================================
 
 class Worker(QThread):
+    """
+    @brief Hilo secundario para realizar peticiones HTTP de reconocimiento facial.
+    @details Evita el bloqueo del hilo principal de la UI al realizar operaciones
+    de red (I/O) hacia el servidor de reconocimiento.
+    
+    @attr result_signal Señal que devuelve el JSON de respuesta del servidor.
+    @attr error_signal Señal emitida en caso de fallo en la conexión o timeout.
+    """
 
     result_signal = pyqtSignal(dict)
     error_signal = pyqtSignal(str)
@@ -92,8 +110,19 @@ class Worker(QThread):
 # =========================================================
 
 class FaceClient(QWidget):
+    """
+    @brief Interfaz principal de autenticación y registro facial.
+    @details Coordina la visualización de la cámara, el control del display del 
+    robot y la interacción con los servicios de reconocimiento facial del servidor.
+    """
 
     def __init__(self, on_authenticated):
+        
+        """
+        @brief Inicializa el cliente facial, la cámara y el display del robot.
+        @param on_authenticated Callback que se ejecuta al reconocer exitosamente a un usuario.
+        """
+        
         super().__init__()
 
         self.on_authenticated = on_authenticated
@@ -161,7 +190,7 @@ class FaceClient(QWidget):
         # =====================================================
 
         self.title = QLabel(
-            "🌸 Asistente Facial"
+            " Asistente Facial"
         )
 
         self.title.setObjectName(
@@ -196,7 +225,7 @@ class FaceClient(QWidget):
         # =====================================================
 
         self.status = QLabel(
-            "🌿 Esperando usuario..."
+            " Esperando usuario..."
         )
 
         self.status.setObjectName(
@@ -225,19 +254,19 @@ class FaceClient(QWidget):
         # =====================================================
 
         self.btn_login = QPushButton(
-            "🔐 Iniciar sesión"
+            " Iniciar sesión"
         )
 
         self.btn_register = QPushButton(
-            "✨ Registrar usuario"
+            " Registrar usuario"
         )
 
         self.btn_capture = QPushButton(
-            "📸 Capturar foto"
+            " Capturar foto"
         )
 
         self.btn_exit = QPushButton(
-            "❌ Salir"
+            " Salir"
         )
 
         self.btn_register.setObjectName(
@@ -349,6 +378,11 @@ class FaceClient(QWidget):
     # =====================================================
 
     def update_frame(self):
+        
+        """
+        @brief Slot del temporizador para actualizar el fotograma de la cámara.
+        @details Convierte el frame de BGR (OpenCV) a RGB (Qt) y lo escala al widget.
+        """
 
         ret, frame = self.cap.read()
 
@@ -394,6 +428,9 @@ class FaceClient(QWidget):
     # =====================================================
 
     def login(self):
+        """
+        @brief Captura la imagen actual e inicia el proceso de login en un hilo.
+        """
 
         if self.current_frame is None:
 
@@ -404,7 +441,7 @@ class FaceClient(QWidget):
             return
 
         self.status.setText(
-            "🔎 Reconociendo rostro..."
+            "Reconociendo rostro..."
         )
 
         self.display.set_estado(
@@ -447,7 +484,7 @@ class FaceClient(QWidget):
             print("LOGIN ERROR:", e)
 
             self.status.setText(
-                "❌ Error preparando imagen"
+                " Error preparando imagen"
             )
 
     # =====================================================
@@ -455,6 +492,10 @@ class FaceClient(QWidget):
     # =====================================================
 
     def on_result(self, data):
+        """
+        @brief Maneja la respuesta exitosa del servidor de reconocimiento.
+        @param data Diccionario con la información del usuario reconocido.
+        """
 
         print(
             "RESPUESTA SERVER:",
@@ -473,7 +514,7 @@ class FaceClient(QWidget):
             self.logged_in = True
 
             self.status.setText(
-                f"🌸 Bienvenido {user}"
+                f" Bienvenido {user}"
             )
 
             self.display.set_estado(
@@ -488,7 +529,7 @@ class FaceClient(QWidget):
         else:
 
             self.status.setText(
-                "❌ Rostro no reconocido"
+                " Rostro no reconocido"
             )
 
             self.display.set_estado(
@@ -516,10 +557,11 @@ class FaceClient(QWidget):
     # =====================================================
 
     def start_register(self):
+        """@brief Inicia el flujo manual de captura para registrar un nuevo usuario."""
 
         name, ok = QInputDialog.getText(
             self,
-            "🌸 Registro facial",
+            " Registro facial",
             "Nombre del usuario:"
         )
 
@@ -536,7 +578,7 @@ class FaceClient(QWidget):
         self.btn_capture.show()
 
         self.status.setText(
-            "📸 Se tomarán 5 fotos manualmente"
+            " Se tomarán 5 fotos manualmente"
         )
 
         self.display.set_estado(
@@ -548,7 +590,7 @@ class FaceClient(QWidget):
             "Registro facial",
             "Se tomarán 5 fotos.\n\n"
             "Pulsa 'Capturar foto' "
-            "cada vez que estés listo 🌸"
+            "cada vez que estés listo "
         )
 
     # =====================================================
@@ -556,6 +598,7 @@ class FaceClient(QWidget):
     # =====================================================
 
     def capture_register_photo(self):
+        """@brief Captura y guarda localmente una foto para el set de entrenamiento."""
 
         if self.current_frame is None:
 
@@ -596,7 +639,7 @@ class FaceClient(QWidget):
             )
 
             self.status.setText(
-                f"📸 Foto {total}/5 capturada"
+                f"Foto {total}/5 capturada"
             )
 
             self.display.set_estado(
@@ -624,11 +667,12 @@ class FaceClient(QWidget):
     # =====================================================
 
     def finish_register(self):
+        """@brief Envía el set de fotos capturadas al servidor para registrar el nuevo usuario."""
 
         try:
 
             self.status.setText(
-                "📤 Enviando registro..."
+                " Enviando registro..."
             )
 
             self.display.set_estado(
@@ -662,7 +706,7 @@ class FaceClient(QWidget):
 
                 QMessageBox.information(
                     self,
-                    "🌸 Registro completado",
+                    " Registro completado",
                     data.get(
                         "message",
                         "Usuario registrado"
@@ -670,7 +714,7 @@ class FaceClient(QWidget):
                 )
 
                 self.status.setText(
-                    "🌸 Usuario registrado"
+                    " Usuario registrado"
                 )
 
                 self.display.set_estado(
@@ -686,7 +730,7 @@ class FaceClient(QWidget):
                 )
 
                 self.status.setText(
-                    "❌ Error en registro"
+                    " Error en registro"
                 )
 
         except Exception as e:
@@ -710,6 +754,7 @@ class FaceClient(QWidget):
     # =====================================================
 
     def close_app(self):
+        """@brief Detiene los procesos de cámara, timers y cierra la aplicación."""
 
         self.timer.stop()
 

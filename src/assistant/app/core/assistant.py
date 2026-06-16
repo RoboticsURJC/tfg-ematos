@@ -1,3 +1,5 @@
+# assistant.py
+
 import requests
 from datetime import datetime
 
@@ -7,29 +9,25 @@ from app.core.memory import (
     agregar_interaccion,
     obtener_historial
 )
-
 from app.core.intent import detectar_intencion
 
-
-## @file pipeline.py
-#  @brief Pipeline principal del asistente virtual.
+##
+# @file assistant.py
+# @brief Pipeline principal del asistente virtual.
+# @details Este módulo coordina secuencialmente la detección de intención, 
+# la construcción de prompts dinámicos, las llamadas HTTP al modelo LLM remoto,
+# la ejecución de herramientas locales y el almacenamiento de la memoria persistente.
 #
-#  Este módulo coordina:
-#   - detección de intención
-#   - construcción de prompts
-#   - llamadas al modelo LLM
-#   - herramientas locales
-#   - almacenamiento de memoria
 
 
 # =========================
 # CONFIG
 # =========================
 
-## @brief Tiempo máximo de espera para peticiones HTTP.
+## Tiempo máximo de espera (en segundos) para las peticiones HTTP del sistema.
 TIMEOUT = 90
 
-## @brief URL del servidor LLM local/remoto.
+## URL del API Gateway o servidor LLM local/remoto para la generación de texto.
 PC_URL = "http://192.168.1.96:8000/generate"
 
 
@@ -37,9 +35,7 @@ PC_URL = "http://192.168.1.96:8000/generate"
 # PROMPT BASE
 # =========================
 
-## @brief Prompt principal del sistema.
-#
-#  Define el comportamiento general del asistente.
+## Prompt principal del sistema que define las directrices éticas y de comportamiento del asistente.
 PROMPT_DEL_SISTEMA = """
 Eres un asistente virtual diseñado para ayudar a personas mayores.
 
@@ -55,7 +51,7 @@ Reglas:
 # MEMORIA GLOBAL
 # =========================
 
-## @brief Memoria cargada desde disco.
+## Diccionario global de memoria conversacional cargado desde el almacenamiento en disco al inicializar el módulo.
 memoria = cargar_memoria()
 
 
@@ -63,22 +59,20 @@ memoria = cargar_memoria()
 # PROMPT BUILDER
 # =========================
 
-## @brief Construye el prompt completo para el LLM.
-#
-#  Incluye:
-#   - prompt del sistema
-#   - historial reciente
-#   - mensaje actual del usuario
-#
-#  @param usuario Nombre o identificador del usuario.
-#  @param mensaje Mensaje actual del usuario.
-#
-#  @return str Prompt completo listo para enviar al modelo.
 def construir_prompt(usuario, mensaje):
+    """
+    @brief Construye el prompt estructurado completo para enviar al modelo de lenguaje.
+    @details Aglutina las directrices fijas del sistema, el historial de los últimos turnos 
+    del usuario en particular y la entrada actual para mantener el contexto.
+    
+    @param usuario Nombre o identificador único del usuario activo.
+    @param mensaje Mensaje o transcripción de voz actual remitida por el usuario.
+    
+    @return str Prompt formateado multilínea listo para la inferencia de la IA.
+    """
     historial = obtener_historial(memoria, usuario)
 
     contexto = ""
-
     for h in historial:
         contexto += (
             f"Usuario: {h['user']}\n"
@@ -100,16 +94,17 @@ Asistente:
 # LLM CALL
 # =========================
 
-## @brief Envía un prompt al modelo de lenguaje.
-#
-#  Realiza una petición HTTP al servidor configurado
-#  y devuelve la respuesta generada.
-#
-#  @param prompt Texto completo enviado al modelo.
-#
-#  @return str Respuesta generada por el modelo.
-#  @retval "" Si ocurre un error.
 def ask_model(prompt: str) -> str:
+    """
+    @brief Envía el prompt empaquetado al modelo de lenguaje a través de una petición HTTP POST.
+    @details Realiza la llamada al backend configurado, desempaqueta la respuesta JSON y gestiona 
+    las excepciones y variaciones en el formato de salida de algunos servidores de inferencia.
+    
+    @param prompt Texto consolidado con instrucciones e historial que se enviará al modelo.
+    
+    @return str Texto de salida generado por la Inteligencia Artificial.
+    @retval "" Retorna una cadena vacía en caso de que ocurra un error de red o timeout.
+    """
     try:
         r = requests.post(
             PC_URL,
@@ -123,7 +118,7 @@ def ask_model(prompt: str) -> str:
         data = r.json()
         output = data.get("output", "")
 
-        # Algunos backends devuelven listas
+        # Salvaguarda para backends que encapsulan el texto de salida en listas
         if isinstance(output, list):
             output = output[0]
 
@@ -137,26 +132,29 @@ def ask_model(prompt: str) -> str:
 # TOOLS LOCALES
 # =========================
 
-## @brief Obtiene la hora actual del sistema.
-#
-#  @return str Hora actual en formato HH:MM:SS.
 def get_time():
+    """
+    @brief Obtiene la hora local actual del sistema operativo de la Raspberry Pi o servidor.
+    
+    @return str Cadena de texto formateada con precisión de segundos ("HH:MM:SS").
+    """
     return datetime.now().strftime("%H:%M:%S")
 
 
-## @brief Obtiene el clima actual de una ciudad.
-#
-#  Utiliza:
-#   - Open-Meteo Geocoding API
-#   - Open-Meteo Weather API
-#
-#  @param city Nombre de la ciudad.
-#
-#  @return str Información meteorológica resumida.
-#  @retval str Mensaje de error si falla la consulta.
 def get_weather(city="Madrid"):
+    """
+    @brief Consulta las condiciones meteorológicas en tiempo real de una ciudad.
+    @details Realiza un flujo encadenado de peticiones HTTP utilizando las APIs públicas de Open-Meteo:
+    1. Geocoding API para transformar el nombre de la ciudad en coordenadas geográficas.
+    2. Weather API para obtener la temperatura y velocidad del viento actuales mediante dichas coordenadas.
+    
+    @param city Nombre textual de la localidad o término de búsqueda a consultar.
+    
+    @return str Cadena resumida lista para el TTS con los grados y viento de la ciudad.
+    @retval str Mensaje alternativo de error amigable si falla la resolución o conexión de red.
+    """
     try:
-        # Obtener coordenadas
+        # Obtener coordenadas geográficas mediante el nombre de la ciudad
         geo = requests.get(
             f"https://geocoding-api.open-meteo.com/v1/search"
             f"?name={city}&count=1"
@@ -165,7 +163,7 @@ def get_weather(city="Madrid"):
         lat = geo["results"][0]["latitude"]
         lon = geo["results"][0]["longitude"]
 
-        # Obtener clima actual
+        # Obtener el reporte climático actual utilizando la latitud y longitud calculadas
         weather = requests.get(
             f"https://api.open-meteo.com/v1/forecast"
             f"?latitude={lat}"
@@ -189,42 +187,40 @@ def get_weather(city="Madrid"):
 # MAIN PIPELINE
 # =========================
 
-## @brief Procesa un mensaje del usuario.
-#
-#  Flujo principal:
-#   1. Detectar intención
-#   2. Ejecutar herramienta local o LLM
-#   3. Guardar interacción en memoria
-#   4. Devolver respuesta
-#
-#  @param usuario Nombre o identificador del usuario.
-#  @param texto Texto introducido por el usuario.
-#
-#  @return str Respuesta final del asistente.
 def procesar_texto(usuario: str, texto: str) -> str:
+    """
+    @brief Orquesta el flujo principal (Pipeline) para procesar un mensaje del usuario.
+    @details Ejecuta la toma de decisiones del robot siguiendo cuatro etapas claras:
+    1. Invoca el módulo analítico para detectar la intención subyacente del texto.
+    2. Bifurca el flujo ejecutando una herramienta local rápida (hora, clima) o delegando al LLM.
+    3. Anexa el par de interacción pregunta/respuesta a la estructura de datos en memoria.
+    4. Sincroniza y escribe la actualización en el almacenamiento persistente en disco.
+    
+    @param usuario Nombre o identificador único del usuario que emite el mensaje.
+    @param texto Transcripción o entrada de texto limpia del usuario.
+    
+    @return str Respuesta final resuelta que el asistente debe vocalizar o mostrar en pantalla.
+    """
     global memoria
 
-    # Detectar intención
+    # 1. Detectar intención
     intent = detectar_intencion(texto)
 
-    # Herramienta de hora
+    # 2. Ejecutar herramienta local o LLM según corresponda
     if intent == "time":
         respuesta = f"Son las {get_time()}"
 
-    # Herramienta de clima
     elif intent == "weather":
         respuesta = get_weather()
 
-    # Consulta general al LLM
     else:
         prompt = construir_prompt(usuario, texto)
-
         respuesta = ask_model(prompt)
 
         if not respuesta:
             respuesta = "No tengo respuesta ahora mismo."
 
-    # Guardar interacción en memoria
+    # 3. Guardar interacción en memoria y persistir en disco
     memoria = agregar_interaccion(
         memoria,
         usuario,

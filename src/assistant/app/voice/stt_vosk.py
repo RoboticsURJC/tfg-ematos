@@ -1,7 +1,11 @@
-         
+# app/voice/stt_vosk.py
+
 """
 @file stt_vosk.py
-@brief Reconocimiento de voz con Vosk (Speech-To-Text).
+@brief Reconocimiento de voz local utilizando el motor Vosk (Speech-To-Text).
+@details Implementa una máquina de estados para la escucha activa, gestionando 
+palabras de activación (Wake Words), palabras de parada (Stop Words) y la 
+coordinación con el subsistema TTS.
 """
 
 import json
@@ -20,7 +24,21 @@ AWAKE_TIMEOUT = 15
 
 
 class VoskSTT:
+    
+    """
+    @brief Gestor del motor de reconocimiento de voz.
+    @details Mantiene el estado de escucha del asistente y procesa el audio 
+    entrante para detectar comandos de activación o instrucciones de voz.
+    """
+    
     def __init__(self, model_path, sample_rate=16000):
+        
+        """
+        @brief Inicializa el modelo de Vosk y configura la máquina de estados.
+        @param model_path Ruta al directorio que contiene el modelo acústico.
+        @param sample_rate Frecuencia de muestreo esperada (default 16kHz).
+        """
+        
         logger.info(f"[STT] cargando modelo: {model_path}")
         self.model = vosk.Model(model_path)
         self.rec = vosk.KaldiRecognizer(self.model, sample_rate)
@@ -31,12 +49,16 @@ class VoskSTT:
         logger.info("[STT] listo")
 
     def stop(self):
+        """@brief Detiene el hilo de captura de audio y marca el servicio como no en ejecución."""
         logger.info("[STT] deteniendo")
         self.running = False
         if self._stream:
             self._stream.stop()
 
     def _flush_queue(self, q):
+        
+        """@brief Vacía la cola de audio y resetea el reconocedor (usado tras TTS)."""
+        
         vaciados = 0
         while True:
             try:
@@ -49,11 +71,23 @@ class VoskSTT:
         self.rec.Reset()
 
     def _is_stop_command(self, text):
-        """Devuelve True si el texto contiene alguna palabra de parada."""
+        """
+        @brief Verifica si el texto reconocido contiene palabras de interrupción.
+        @param text El texto procesado por el reconocedor.
+        @return True si contiene alguna 'stop word', False en caso contrario.
+        """
+        
         words = set(text.lower().split())
         return bool(words & STOP_WORDS)
 
     def process(self, data):
+        
+        """
+        @brief Procesa un bloque de audio y retorna el texto si se ha completado una frase.
+        @param data Bloque de audio en bytes (formato int16, 16kHz).
+        @return Texto reconocido o string vacío si no hay resultado completo.
+        """
+        
         if self.rec.AcceptWaveform(data):
             result = json.loads(self.rec.Result())
             return result.get("text", "").strip()
@@ -64,24 +98,32 @@ class VoskSTT:
         return ""
 
     def _contiene_palabra_inicio(self, text):
+        
+        """
+        @brief Verifica si el texto reconocido contiene palabras de activación.
+        @param text Texto reconocido.
+        @return True si se detectó una 'wake word'.
+        """
+        
         words = set(text.lower().split())
         return bool(words & WAKE_WORDS)
 
     def activar_voz(self, seconds=AWAKE_TIMEOUT):
+        
+        """@brief Despierta al asistente durante un tiempo determinado."""
+        
         self.awake = True
         self.awake_until = time.time() + seconds
         logger.info(f"[STT] Wake Word detectada — activo {seconds}s")
 
     def _renovar_awake(self):
-        """Renueva el tiempo de escucha activa tras cada interacción."""
+        """@brief Extiende el tiempo de escucha activa tras cada interacción del usuario."""        
         self.awake_until = time.time() + AWAKE_TIMEOUT
 
     def _desactivar(self, display=None):
-        """
-        Vuelve al estado dormido y actualiza el display.
-        FIX: siempre muestra 'Esperando activación...' al desactivarse,
-        independientemente de cualquier otro estado previo del display.
-        """
+        
+        """@brief Pone al asistente en modo reposo (Wake Word necesaria)."""
+        
         self.awake = False
         self.awake_until = 0
         logger.info("[STT] volviendo a modo espera (wake word necesaria)")
@@ -89,6 +131,17 @@ class VoskSTT:
             display.set_estado("Esperando activación...")
 
     def listen_loop(self, callback, assistant=None, device=None):
+        """
+        @brief Bucle principal de escucha.
+        @details Coordina:
+          - La detección de palabras de parada mientras el TTS habla.
+          - La lógica de 'despertar' mediante wake words.
+          - La limpieza de eco tras finalizar el TTS.
+        @param callback Función ejecutada al detectar una frase completa.
+        @param assistant Instancia del asistente (para acceder a TTS y display).
+        @param device Dispositivo de audio a utilizar.
+        """
+        
         display = assistant.display if assistant else None
 
         self._stream, q = start_stream(samplerate=48000, device=device)
