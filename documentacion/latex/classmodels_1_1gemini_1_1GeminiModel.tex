@@ -1,0 +1,117 @@
+\hypertarget{classmodels_1_1gemini_1_1GeminiModel}{}\doxysection{models.\+gemini.\+Gemini\+Model Class Reference}
+\label{classmodels_1_1gemini_1_1GeminiModel}\index{models.gemini.GeminiModel@{models.gemini.GeminiModel}}
+
+
+Adaptador del modelo Gemini para el pipeline de ejecución de benchmarks del robot.  
+
+
+
+
+Inheritance diagram for models.\+gemini.\+Gemini\+Model\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{classmodels_1_1gemini_1_1GeminiModel__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for models.\+gemini.\+Gemini\+Model\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{classmodels_1_1gemini_1_1GeminiModel__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classmodels_1_1gemini_1_1GeminiModel_ae75f8058861b90622740acfa04d9356a}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\begin{DoxyCompactList}\small\item\em Constructor de la clase \mbox{\hyperlink{classmodels_1_1gemini_1_1GeminiModel}{Gemini\+Model}}. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classmodels_1_1gemini_1_1GeminiModel_ae6b4fa140438a6c2cb9debf1efc71e14}{generate}} (self, prompt)
+\begin{DoxyCompactList}\small\item\em Genera texto a partir de un prompt utilizando el modelo ligero y rápido Gemini Flash. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmodels_1_1gemini_1_1GeminiModel_ae55ea89c23d5f0b5c09b28465a0d2a48}{client}}
+\begin{DoxyCompactList}\small\item\em Cliente autenticado de la API de Google Gen\+AI. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Adaptador del modelo Gemini para el pipeline de ejecución de benchmarks del robot. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classmodels_1_1gemini_1_1GeminiModel_ae75f8058861b90622740acfa04d9356a}\label{classmodels_1_1gemini_1_1GeminiModel_ae75f8058861b90622740acfa04d9356a}} 
+\index{models.gemini.GeminiModel@{models.gemini.GeminiModel}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!models.gemini.GeminiModel@{models.gemini.GeminiModel}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def models.\+gemini.\+Gemini\+Model.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Constructor de la clase \mbox{\hyperlink{classmodels_1_1gemini_1_1GeminiModel}{Gemini\+Model}}. 
+
+Invoca al constructor de la clase abstracta padre definiendo el nombre clave \textquotesingle{}gemini\textquotesingle{} e inicializa el cliente seguro de Gen\+AI inyectando la API Key del archivo de configuración. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=241pt]{classmodels_1_1gemini_1_1GeminiModel_ae75f8058861b90622740acfa04d9356a_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classmodels_1_1gemini_1_1GeminiModel_ae6b4fa140438a6c2cb9debf1efc71e14}\label{classmodels_1_1gemini_1_1GeminiModel_ae6b4fa140438a6c2cb9debf1efc71e14}} 
+\index{models.gemini.GeminiModel@{models.gemini.GeminiModel}!generate@{generate}}
+\index{generate@{generate}!models.gemini.GeminiModel@{models.gemini.GeminiModel}}
+\doxysubsubsection{\texorpdfstring{generate()}{generate()}}
+{\footnotesize\ttfamily def models.\+gemini.\+Gemini\+Model.\+generate (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{prompt }\end{DoxyParamCaption})}
+
+
+
+Genera texto a partir de un prompt utilizando el modelo ligero y rápido Gemini Flash. 
+
+Envuelve la llamada en un bucle tolerante de hasta 3 intentos. Si el servidor de Google devuelve un error HTTP 429 (Resource Exhausted / Rate Limit), el hilo de ejecución se congela de forma incremental antes de reintentar la inferencia.
+
+\begin{DoxyNote}{Note}
+La fórmula de espera ante un error 429 aplica un retraso lineal/exponencial básico\+: {\ttfamily espera = 10 $\ast$ (intento\+\_\+actual + 1)}. Esto se traduce en pausas sucesivas de 10, 20 y 30 segundos.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em prompt} & Texto estructurado con el contexto e instrucciones para el modelo.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+tuple Una tupla {\ttfamily (response\+\_\+text, extra\+\_\+metadata)} donde {\ttfamily response\+\_\+text} es el string generado. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em (\+None,dict)} & Retorna un diccionario con una bandera de error si se agotan todos los reintentos permitidos.\\
+\hline
+\end{DoxyRetVals}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & Relanza cualquier excepción ajena al Rate Limit (como errores de API Key inválida o 403 Forbidden). \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classmodels_1_1gemini_1_1GeminiModel_ae55ea89c23d5f0b5c09b28465a0d2a48}\label{classmodels_1_1gemini_1_1GeminiModel_ae55ea89c23d5f0b5c09b28465a0d2a48}} 
+\index{models.gemini.GeminiModel@{models.gemini.GeminiModel}!client@{client}}
+\index{client@{client}!models.gemini.GeminiModel@{models.gemini.GeminiModel}}
+\doxysubsubsection{\texorpdfstring{client}{client}}
+{\footnotesize\ttfamily models.\+gemini.\+Gemini\+Model.\+client}
+
+
+
+Cliente autenticado de la API de Google Gen\+AI. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+llm\+\_\+package/models/\mbox{\hyperlink{gemini_8py}{gemini.\+py}}\end{DoxyCompactItemize}

@@ -1,0 +1,4 @@
+<map id="process_service.ProcessService.stop" name="process_service.ProcessService.stop">
+<area shape="rect" id="node1" title="Detiene de forma segura el microservicio indicado liberando sus recursos." alt="" coords="5,5,265,32"/>
+<area shape="rect" id="node2" href="$namespacelog__service.html#af8a86650753e2ab9216e190fad59757c" title="Añade una nueva entrada de registro para un servicio específico." alt="" coords="313,5,464,32"/>
+</map>

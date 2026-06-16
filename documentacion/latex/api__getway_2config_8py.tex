@@ -1,0 +1,41 @@
+\hypertarget{api__getway_2config_8py}{}\doxysection{api\+\_\+getway/config.py File Reference}
+\label{api__getway_2config_8py}\index{api\_getway/config.py@{api\_getway/config.py}}
+
+
+Archivo de configuración global del sistema y definición de constantes.  
+
+
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceconfig}{config}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceconfig_a464e5db34b74c0650466629503b90c49}{config.\+BASE\+\_\+\+DIR}} = Path(\+\_\+\+\_\+file\+\_\+\+\_\+).resolve().parent
+\begin{DoxyCompactList}\small\item\em Ruta absoluta hacia el directorio base donde se encuentra este archivo de configuración. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{namespaceconfig_a27f3faf6ff2ef620bf2e2657805f2cb3}{config.\+STATIC\+\_\+\+DIR}} = BASE\+\_\+\+DIR / \char`\"{}static\char`\"{}
+\begin{DoxyCompactList}\small\item\em Ruta absoluta hacia el directorio encargado de almacenar los archivos estáticos. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{namespaceconfig_abb8f2c63dffd405c72fd31eb0b56c2ea}{config.\+LOG\+\_\+\+DIR}} = BASE\+\_\+\+DIR / \char`\"{}logs\char`\"{}
+\begin{DoxyCompactList}\small\item\em Ruta absoluta hacia el directorio encargado de almacenar los ficheros de logs físicos. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceconfig_ac0c7f0873718563f2e88322d0c1808a0}{config.\+parents}}
+\item 
+\mbox{\hyperlink{namespaceconfig_a9b2c9e4449f58f693f6f24d6a81b08ee}{config.\+True}}
+\item 
+\mbox{\hyperlink{namespaceconfig_a5efb09e6bf59aba1dc9b5aedbf9af6ad}{config.\+exist\+\_\+ok}}
+\item 
+string \mbox{\hyperlink{namespaceconfig_abfbe3a8dc80726a23d2a65816089764f}{config.\+FACE\+\_\+\+SERVER\+\_\+\+URL}} = \char`\"{}http\+://localhost\+:5000\char`\"{}
+\begin{DoxyCompactList}\small\item\em Dirección URL local y puerto base asignados al microservicio de Reconocimiento Facial. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{namespaceconfig_a638423c8998dd51dca0177a62d0f9b61}{config.\+LLM\+\_\+\+SERVER\+\_\+\+URL}} = \char`\"{}http\+://localhost\+:8000\char`\"{}
+\begin{DoxyCompactList}\small\item\em Dirección URL local y puerto base asignados al microservicio del Modelo de Lenguaje (LLM). \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{namespaceconfig_a6190eb3cd371fc4846f41a5f6cf475b1}{config.\+HOST}} = \char`\"{}0.\+0.\+0.\+0\char`\"{}
+\begin{DoxyCompactList}\small\item\em Dirección de red (Host) del servidor web del Dashboard (0.\+0.\+0.\+0 permite conexiones de red local). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespaceconfig_a30a8b8fa20fcff7fd871a31b2d6f004c}{config.\+PORT}} = 3000
+\begin{DoxyCompactList}\small\item\em Puerto de red por el cual escuchará el servidor de la interfaz del Dashboard. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Archivo de configuración global del sistema y definición de constantes. 
+
+Inicializa las rutas del sistema de archivos (directorios de logs y archivos estáticos), define los puntos de enlace de los microservicios y configura los parámetros de red del dashboard. 

@@ -1,0 +1,181 @@
+\hypertarget{namespacespeaking__server}{}\doxysection{speaking\+\_\+server Namespace Reference}
+\label{namespacespeaking__server}\index{speaking\_server@{speaking\_server}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacespeaking__server_a05f3c922903c5d7044136b6637fc2176}{root}} ()
+\begin{DoxyCompactList}\small\item\em Endpoint raíz (Heartbeat) para verificar la disponibilidad de la API. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespacespeaking__server_a0eebcc2003f539ed2c986b3bd1d15f70}{generate}} (dict payload)
+\begin{DoxyCompactList}\small\item\em Endpoint HTTP POST\+: Orquesta la inferencia del modelo y audita sus tiempos. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacespeaking__server_a23523c0f831cc8334606ecc8a4f2e841}{app}}
+\begin{DoxyCompactList}\small\item\em Instancia central de la aplicación asíncrona Fast\+API. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacespeaking__server_a7e82f7f3a452563a63c6383ec341f292}{LOG\+\_\+\+DIR}} = os.\+path.\+join(os.\+path.\+dirname(\+\_\+\+\_\+file\+\_\+\+\_\+), \char`\"{}logs\char`\"{})
+\begin{DoxyCompactList}\small\item\em Directorio absoluto asignado para el almacenamiento físico de trazas de inferencia. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacespeaking__server_a5d91e0fc64510d5a21cba8a1f9de0e16}{exist\+\_\+ok}}
+\item 
+\mbox{\hyperlink{namespacespeaking__server_a234546f4dcc277b1b7163a0dd5ff0144}{log\+\_\+file}}
+\begin{DoxyCompactList}\small\item\em Nombre dinámico del archivo de log con estampa horaria de resolución por segundos. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacespeaking__server_a913c415d1516b51aff4b3c447e5c772a}{level}}
+\item 
+\mbox{\hyperlink{namespacespeaking__server_a2fc71ea43ba0ac711b4b7f1d1c9847dc}{format}}
+\item 
+\mbox{\hyperlink{namespacespeaking__server_a3762bb27294dc485062ef778f277148f}{handlers}}
+\item 
+\mbox{\hyperlink{namespacespeaking__server_afe80047014911a3441ce92d0ee4b68d7}{logger}} = logging.\+get\+Logger(\char`\"{}llm-\/api\char`\"{})
+\begin{DoxyCompactList}\small\item\em Registrador (logger) dedicado a eventos de red e inferencia IA. \end{DoxyCompactList}\item 
+dictionary \mbox{\hyperlink{namespacespeaking__server_af135daa74e94fe8ea454a96b21a4a8c0}{models}}
+\begin{DoxyCompactList}\small\item\em Diccionario global indexado que actúa como registro de instancias de modelos LLM activos. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacespeaking__server_a0eebcc2003f539ed2c986b3bd1d15f70}\label{namespacespeaking__server_a0eebcc2003f539ed2c986b3bd1d15f70}} 
+\index{speaking\_server@{speaking\_server}!generate@{generate}}
+\index{generate@{generate}!speaking\_server@{speaking\_server}}
+\doxysubsubsection{\texorpdfstring{generate()}{generate()}}
+{\footnotesize\ttfamily def speaking\+\_\+server.\+generate (\begin{DoxyParamCaption}\item[{dict}]{payload }\end{DoxyParamCaption})}
+
+
+
+Endpoint HTTP POST\+: Orquesta la inferencia del modelo y audita sus tiempos. 
+
+Valida la existencia del proveedor en el diccionario {\ttfamily models}, intercepta strings vacíos para economizar recursos de red y captura excepciones a nivel de socket mediante {\ttfamily traceback} para impedir el colapso del hilo de ejecución asíncrono (Fail-\/\+Safe).
+
+
+\begin{DoxyParams}{Parameters}
+{\em payload} & Diccionario JSON que debe cumplir estrictamente con la estructura\+:
+\begin{DoxyItemize}
+\item {\ttfamily model} (str)\+: Identificador clave del modelo (ej\+: \textquotesingle{}groq\textquotesingle{}, \textquotesingle{}gemini\textquotesingle{}).
+\item {\ttfamily prompt} (str)\+: Texto plano con la instrucción o contexto conversacional.
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+dict Datos de salida estructurados para el Pipeline o reporte de error detallado\+:
+\begin{DoxyItemize}
+\item {\ttfamily status} (str)\+: Estado de la transacción (\textquotesingle{}OK\textquotesingle{} o \textquotesingle{}ERROR\textquotesingle{}).
+\item {\ttfamily model} (str)\+: Confirmación del motor que procesó la inferencia.
+\item {\ttfamily output} (str)\+: Texto plano devuelto por la IA.
+\item {\ttfamily latency} (float)\+: Tiempo exacto del viaje de ida y vuelta en segundos. 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacespeaking__server_a05f3c922903c5d7044136b6637fc2176}\label{namespacespeaking__server_a05f3c922903c5d7044136b6637fc2176}} 
+\index{speaking\_server@{speaking\_server}!root@{root}}
+\index{root@{root}!speaking\_server@{speaking\_server}}
+\doxysubsubsection{\texorpdfstring{root()}{root()}}
+{\footnotesize\ttfamily def speaking\+\_\+server.\+root (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Endpoint raíz (Heartbeat) para verificar la disponibilidad de la API. 
+
+\begin{DoxyReturn}{Returns}
+dict Diccionario de estado con la bandera de actividad del sistema. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacespeaking__server_a23523c0f831cc8334606ecc8a4f2e841}\label{namespacespeaking__server_a23523c0f831cc8334606ecc8a4f2e841}} 
+\index{speaking\_server@{speaking\_server}!app@{app}}
+\index{app@{app}!speaking\_server@{speaking\_server}}
+\doxysubsubsection{\texorpdfstring{app}{app}}
+{\footnotesize\ttfamily speaking\+\_\+server.\+app}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  FastAPI(}
+\DoxyCodeLine{2     title=\textcolor{stringliteral}{"{}Robot LLM Inference API"{}},}
+\DoxyCodeLine{3     description=\textcolor{stringliteral}{"{}Gateway unificado para el procesamiento distribuido de modelos de lenguaje."{}},}
+\DoxyCodeLine{4     version=\textcolor{stringliteral}{"{}1.0.0"{}}}
+\DoxyCodeLine{5 )}
+
+\end{DoxyCode}
+
+
+Instancia central de la aplicación asíncrona Fast\+API. 
+
+\mbox{\Hypertarget{namespacespeaking__server_a5d91e0fc64510d5a21cba8a1f9de0e16}\label{namespacespeaking__server_a5d91e0fc64510d5a21cba8a1f9de0e16}} 
+\index{speaking\_server@{speaking\_server}!exist\_ok@{exist\_ok}}
+\index{exist\_ok@{exist\_ok}!speaking\_server@{speaking\_server}}
+\doxysubsubsection{\texorpdfstring{exist\_ok}{exist\_ok}}
+{\footnotesize\ttfamily speaking\+\_\+server.\+exist\+\_\+ok}
+
+\mbox{\Hypertarget{namespacespeaking__server_a2fc71ea43ba0ac711b4b7f1d1c9847dc}\label{namespacespeaking__server_a2fc71ea43ba0ac711b4b7f1d1c9847dc}} 
+\index{speaking\_server@{speaking\_server}!format@{format}}
+\index{format@{format}!speaking\_server@{speaking\_server}}
+\doxysubsubsection{\texorpdfstring{format}{format}}
+{\footnotesize\ttfamily speaking\+\_\+server.\+format}
+
+\mbox{\Hypertarget{namespacespeaking__server_a3762bb27294dc485062ef778f277148f}\label{namespacespeaking__server_a3762bb27294dc485062ef778f277148f}} 
+\index{speaking\_server@{speaking\_server}!handlers@{handlers}}
+\index{handlers@{handlers}!speaking\_server@{speaking\_server}}
+\doxysubsubsection{\texorpdfstring{handlers}{handlers}}
+{\footnotesize\ttfamily speaking\+\_\+server.\+handlers}
+
+\mbox{\Hypertarget{namespacespeaking__server_a913c415d1516b51aff4b3c447e5c772a}\label{namespacespeaking__server_a913c415d1516b51aff4b3c447e5c772a}} 
+\index{speaking\_server@{speaking\_server}!level@{level}}
+\index{level@{level}!speaking\_server@{speaking\_server}}
+\doxysubsubsection{\texorpdfstring{level}{level}}
+{\footnotesize\ttfamily speaking\+\_\+server.\+level}
+
+\mbox{\Hypertarget{namespacespeaking__server_a7e82f7f3a452563a63c6383ec341f292}\label{namespacespeaking__server_a7e82f7f3a452563a63c6383ec341f292}} 
+\index{speaking\_server@{speaking\_server}!LOG\_DIR@{LOG\_DIR}}
+\index{LOG\_DIR@{LOG\_DIR}!speaking\_server@{speaking\_server}}
+\doxysubsubsection{\texorpdfstring{LOG\_DIR}{LOG\_DIR}}
+{\footnotesize\ttfamily speaking\+\_\+server.\+LOG\+\_\+\+DIR = os.\+path.\+join(os.\+path.\+dirname(\+\_\+\+\_\+file\+\_\+\+\_\+), \char`\"{}logs\char`\"{})}
+
+
+
+Directorio absoluto asignado para el almacenamiento físico de trazas de inferencia. 
+
+\mbox{\Hypertarget{namespacespeaking__server_a234546f4dcc277b1b7163a0dd5ff0144}\label{namespacespeaking__server_a234546f4dcc277b1b7163a0dd5ff0144}} 
+\index{speaking\_server@{speaking\_server}!log\_file@{log\_file}}
+\index{log\_file@{log\_file}!speaking\_server@{speaking\_server}}
+\doxysubsubsection{\texorpdfstring{log\_file}{log\_file}}
+{\footnotesize\ttfamily speaking\+\_\+server.\+log\+\_\+file}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  os.path.join(}
+\DoxyCodeLine{2     LOG\_DIR,}
+\DoxyCodeLine{3     f\textcolor{stringliteral}{"{}llm\_api\_\{datetime.now().strftime('\%Y-\/\%m-\/\%d\_\%H-\/\%M-\/\%S')\}.log"{}}}
+\DoxyCodeLine{4 )}
+
+\end{DoxyCode}
+
+
+Nombre dinámico del archivo de log con estampa horaria de resolución por segundos. 
+
+\mbox{\Hypertarget{namespacespeaking__server_afe80047014911a3441ce92d0ee4b68d7}\label{namespacespeaking__server_afe80047014911a3441ce92d0ee4b68d7}} 
+\index{speaking\_server@{speaking\_server}!logger@{logger}}
+\index{logger@{logger}!speaking\_server@{speaking\_server}}
+\doxysubsubsection{\texorpdfstring{logger}{logger}}
+{\footnotesize\ttfamily speaking\+\_\+server.\+logger = logging.\+get\+Logger(\char`\"{}llm-\/api\char`\"{})}
+
+
+
+Registrador (logger) dedicado a eventos de red e inferencia IA. 
+
+\mbox{\Hypertarget{namespacespeaking__server_af135daa74e94fe8ea454a96b21a4a8c0}\label{namespacespeaking__server_af135daa74e94fe8ea454a96b21a4a8c0}} 
+\index{speaking\_server@{speaking\_server}!models@{models}}
+\index{models@{models}!speaking\_server@{speaking\_server}}
+\doxysubsubsection{\texorpdfstring{models}{models}}
+{\footnotesize\ttfamily dictionary speaking\+\_\+server.\+models}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  \{}
+\DoxyCodeLine{2     \textcolor{stringliteral}{"{}llama"{}}: LlamaServer(),}
+\DoxyCodeLine{3     \textcolor{stringliteral}{"{}mistral"{}}: LlamaServer(),}
+\DoxyCodeLine{4     \textcolor{stringliteral}{"{}groq"{}}: GroqLlama(),}
+\DoxyCodeLine{5     \textcolor{stringliteral}{"{}gpt"{}}: GPTAzure(),}
+\DoxyCodeLine{6     \textcolor{stringliteral}{"{}gemini"{}}: GeminiModel()}
+\DoxyCodeLine{7 \}}
+
+\end{DoxyCode}
+
+
+Diccionario global indexado que actúa como registro de instancias de modelos LLM activos. 
+

@@ -1,0 +1,5 @@
+<map id="find_differences_screen.FindDifferencesScreen._draw_footer" name="find_differences_screen.FindDifferencesScreen._draw_footer">
+<area shape="rect" id="node1" title="Pinta la barra de pie de página y actualiza el botón de salida parcial." alt="" coords="5,35,184,91"/>
+<area shape="rect" id="node2" href="$classword__search__screen_1_1WordSearchScreen.html#a89ba1e70da8645750e7a4b403444b8da" title="Helper utilitario para el renderizado de botones secundarios in&#45;game con sombreado plano." alt="" coords="232,5,467,47"/>
+<area shape="rect" id="node3" href="$classfind__differences__screen_1_1FindDifferencesScreen.html#a53b189f6bcf7ed6d03f477c49507e81d" title="Dibuja de forma atómica un botón estilizado con sombras proyectadas y texto centrado." alt="" coords="260,71,439,127"/>
+</map>

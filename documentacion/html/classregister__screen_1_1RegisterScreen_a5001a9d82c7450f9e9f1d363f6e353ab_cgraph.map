@@ -1,0 +1,5 @@
+<map id="register_screen.RegisterScreen.go_back" name="register_screen.RegisterScreen.go_back">
+<area shape="rect" id="node1" title="Limpia el estado y regresa a la pantalla de login." alt="" coords="5,5,185,47"/>
+<area shape="rect" id="node2" href="$namespaceroutes__dashboard.html#a8e1c87d3914c53c0d5ed6d8c3dafca9e" title="Vacía el historial de logs de un servicio." alt="" coords="233,13,408,39"/>
+<area shape="rect" id="node3" href="$namespacelog__service.html#ae2983f6bea2c5025c60c12bb9e947d4c" title="Vacía por completo el historial de registros de un servicio específico." alt="" coords="456,13,623,39"/>
+</map>

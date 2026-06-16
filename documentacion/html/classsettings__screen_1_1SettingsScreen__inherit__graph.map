@@ -1,0 +1,4 @@
+<map id="settings_screen.SettingsScreen" name="settings_screen.SettingsScreen">
+<area shape="rect" id="node1" title="Pantalla principal de ajustes." alt="" coords="5,131,187,677"/>
+<area shape="rect" id="node2" title=" " alt="" coords="57,5,135,83"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="server.get_memories" name="server.get_memories">
+<area shape="rect" id="node1" title="Endpoint HTTP GET: Extrae los últimos 20 hechos o recuerdos guardados asociados a un perfil." alt="" coords="5,5,165,32"/>
+<area shape="rect" id="node2" href="$namespaceserver.html#aba0f719635d68d7bd245b84b1654c2b5" title="Crea y parametriza una nueva conexión atómica hacia la base de datos SQLite." alt="" coords="213,5,379,32"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="models.gemini.GeminiModel" name="models.gemini.GeminiModel">
+<area shape="rect" id="node1" title="Adaptador del modelo Gemini para el pipeline de ejecución de benchmarks del robot." alt="" coords="5,131,216,223"/>
+<area shape="rect" id="node2" title=" " alt="" coords="67,5,155,83"/>
+</map>

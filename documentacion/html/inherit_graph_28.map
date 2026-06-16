@@ -1,0 +1,22 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" title=" " alt="" coords="5,509,84,536"/>
+<area shape="rect" id="node2" href="$classapp_1_1ui_1_1face__client_1_1FaceClient.html" title="Interfaz principal de autenticación y registro facial." alt="" coords="149,5,357,32"/>
+<area shape="rect" id="node3" href="$classapp_1_1ui_1_1main__window_1_1MainWindow.html" title="Ventana principal de la aplicación." alt="" coords="132,56,375,83"/>
+<area shape="rect" id="node4" href="$classassistant__screen_1_1AssistantScreen.html" title="Pantalla visual para el asistente IA." alt="" coords="156,107,351,149"/>
+<area shape="rect" id="node5" href="$classbase__app_1_1BaseApp.html" title="Clase base para todas las aplicaciones del sistema." alt="" coords="181,173,326,200"/>
+<area shape="rect" id="node6" href="$classbase__pygame__qt__screen_1_1BasePygameQtScreen.html" title="Inicialización del mezclador de audio de bajo nivel." alt="" coords="144,225,363,266"/>
+<area shape="rect" id="node7" href="$classboot__screen_1_1BootScreen.html" title="Pantalla de inicio de la aplicación." alt="" coords="164,291,343,317"/>
+<area shape="rect" id="node8" href="$classbrowser__screen_1_1BrowserScreen.html" title="Pantalla contenedora encargada de inicializar y supervisar el ciclo de vida del navegador Chromium." alt="" coords="141,341,366,368"/>
+<area shape="rect" id="node9" href="$classcalendar__screen_1_1CalendarScreen.html" title="Componento de pantalla unificado para la visualización de la agenda táctil del robot." alt="" coords="158,393,349,434"/>
+<area shape="rect" id="node10" href="$classerror__screen_1_1ErrorScreen.html" title="Pantalla de error genérica." alt="" coords="162,459,345,485"/>
+<area shape="rect" id="node11" href="$classgames__screen_1_1GameCard.html" title="Componente personalizado interactivo que actúa como tarjeta o disparador táctil de un juego." alt="" coords="159,509,348,536"/>
+<area shape="rect" id="node12" href="$classgames__screen_1_1GamesScreen.html" title="Vista de pantalla centralizada que orquesta e ilustra el menú general de la suite de entretenimiento." alt="" coords="148,560,359,587"/>
+<area shape="rect" id="node13" href="$classkeyboard__widget_1_1KeyboardWidget.html" title="Teclado software interactivo diseñado para alta legibilidad." alt="" coords="154,611,353,653"/>
+<area shape="rect" id="node14" href="$classlauncher__screen_1_1LauncherScreen.html" title="Pantalla principal de inicio." alt="" coords="158,677,349,718"/>
+<area shape="rect" id="node15" href="$classloading__screen_1_1LoadingScreen.html" title="Pantalla de carga con animación simple." alt="" coords="144,743,363,769"/>
+<area shape="rect" id="node16" href="$classlogin__screen_1_1LoginScreen.html" title="Interfaz de login." alt="" coords="160,793,347,820"/>
+<area shape="rect" id="node17" href="$classnote__screen_1_1NotesScreen.html" title="Interfaz gráfica interactiva para la creación, búsqueda y eliminación de notas." alt="" coords="160,844,347,871"/>
+<area shape="rect" id="node18" href="$classregister__screen_1_1RegisterScreen.html" title="Interfaz de usuario para el registro facial." alt="" coords="163,895,343,937"/>
+<area shape="rect" id="node19" href="$classreminder__screen_1_1ReminderScreen.html" title=" " alt="" coords="154,961,353,1002"/>
+<area shape="rect" id="node20" href="$classsettings__screen_1_1SettingsScreen.html" title="Pantalla principal de ajustes." alt="" coords="163,1026,344,1067"/>
+</map>

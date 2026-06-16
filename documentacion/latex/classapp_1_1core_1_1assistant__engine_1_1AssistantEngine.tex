@@ -1,0 +1,579 @@
+\hypertarget{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine}{}\doxysection{app.\+core.\+assistant\+\_\+engine.\+Assistant\+Engine Class Reference}
+\label{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine}\index{app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}}
+
+
+Motor conversacional completo del asistente robótico.  
+
+
+
+
+Collaboration diagram for app.\+core.\+assistant\+\_\+engine.\+Assistant\+Engine\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a592c4b17c24950982a2acb818ec8ce16}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_abcf71d77a6aea5bb51e23883580418c4}{ui\+\_\+state}}=None, \mbox{\hyperlink{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a84be7f27efea9145dfbb2f9270dbd2ae}{display}}=None, \mbox{\hyperlink{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a7fb697a70c8bd05dfa19b495fb3538ea}{calendar\+\_\+store}}=None, \mbox{\hyperlink{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a642f62d25e2e0c1ddb4e5c23b6055459}{reminder\+\_\+store}}=None, model\+\_\+path=None, server\+\_\+url=None, mic\+\_\+name=None, llm\+\_\+model=\textquotesingle{}groq\textquotesingle{}, llm\+\_\+timeout=90)
+\begin{DoxyCompactList}\small\item\em Inicializa los módulos de voz, interfaz, almacenamiento y clientes de IA. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_ad70d5091205e2c36d3e136c768af16e2}{set\+\_\+user}} (self, \mbox{\hyperlink{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a8d4423ede4d7665a22c7cb23fa22899d}{user}})
+\begin{DoxyCompactList}\small\item\em Modifica el perfil de usuario activo y genera un saludo adaptado por voz (TTS). \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a0e51d25b0f69be861f63bebf91e70db9}{speak}} (self, text)
+\begin{DoxyCompactList}\small\item\em Envía una cadena de texto al sintetizador de audio (TTS) y sincroniza los estados gráficos de la cara. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a6d09af66df60a02a184d2049281adb56}{start}} (self)
+\begin{DoxyCompactList}\small\item\em Levanta e inicializa el hilo daemon encargado del bucle infinito de escucha por micrófono. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a017d6284c15f7500b1d7033f17e67ac2}{stop}} (self)
+\begin{DoxyCompactList}\small\item\em Detiene y cancela de forma controlada el ciclo de vida del motor de escucha y voz. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_abcf71d77a6aea5bb51e23883580418c4}{ui\+\_\+state}}
+\item 
+\mbox{\hyperlink{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a84be7f27efea9145dfbb2f9270dbd2ae}{display}}
+\item 
+\mbox{\hyperlink{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a7fb697a70c8bd05dfa19b495fb3538ea}{calendar\+\_\+store}}
+\item 
+\mbox{\hyperlink{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a642f62d25e2e0c1ddb4e5c23b6055459}{reminder\+\_\+store}}
+\item 
+\mbox{\hyperlink{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_ae2b644067b48750f3b8a68001f755b9c}{reminder\+\_\+scheduler}}
+\item 
+\mbox{\hyperlink{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a8d4423ede4d7665a22c7cb23fa22899d}{user}}
+\begin{DoxyCompactList}\small\item\em Nombre o ID del perfil de usuario actualmente interactuando. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a3e8596e1939f2c1b9bf8bca0eeaebd7d}{running}}
+\begin{DoxyCompactList}\small\item\em Bandera de control para saber si el bucle de escucha asíncrono está encendido. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_ace08df20f64c7c26dd5690038c440da8}{llm}}
+\item 
+\mbox{\hyperlink{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a4d16441d345c333f88ecc2ff6b27b097}{mic\+\_\+device}}
+\item 
+\mbox{\hyperlink{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_ab3aeea79a8c99495c34bcd7db505d456}{tts}}
+\item 
+\mbox{\hyperlink{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a466d58d04a2e728c631b32eef657dc5d}{stt}}
+\item 
+\mbox{\hyperlink{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a687b161a3bdb1940ef2ac4e618932a49}{memoria}}
+\begin{DoxyCompactList}\small\item\em Estructura en memoria con el historial cargado por perfiles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a9e4a53f24f60d7aab8ec68544b0e86ca}{\+\_\+cargar\+\_\+memoria}} (self)
+\begin{DoxyCompactList}\small\item\em Carga el historial conversacional desde el almacenamiento en disco. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_ab202136e786fea5ce4923dcb80236998}{\+\_\+guardar\+\_\+memoria}} (self)
+\begin{DoxyCompactList}\small\item\em Persiste el historial conversacional actual estructurado en formato JSON a disco. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a7f3f0842be28519ffcf2572d2cf3e598}{\+\_\+get\+\_\+time}} (self)
+\begin{DoxyCompactList}\small\item\em Devuelve la hora actual del sistema operativo. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a359dd1f9d72985cdf4ebf5f83784c3c0}{\+\_\+get\+\_\+weather}} (self, city=\char`\"{}Madrid\char`\"{})
+\begin{DoxyCompactList}\small\item\em Consulta el pronóstico del tiempo meteorológico mediante Open-\/\+Meteo sin API key. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a917eb0b368b3ff38d67b6ba5ff4e44af}{\+\_\+detectar\+\_\+intencion}} (self, text)
+\begin{DoxyCompactList}\small\item\em Clasifica y mapea el texto del usuario para identificar comandos conocidos o herramientas nativas. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_aa136c14d054360b1906522dc204ddc39}{\+\_\+hay\+\_\+internet}} (self)
+\begin{DoxyCompactList}\small\item\em Comprueba de forma rápida la conectividad TCP a Internet mediante el DNS de Google. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a1939eceddbf9af2ec90fee45be7b7a21}{\+\_\+web\+\_\+search}} (self, query)
+\begin{DoxyCompactList}\small\item\em Realiza un escrapeo de emergencia via Duck\+Duck\+Go HTML ante caídas de la IA. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a9a21ecd3bd3e064b3e1417260c58d824}{\+\_\+parse\+\_\+fecha}} (self, texto)
+\begin{DoxyCompactList}\small\item\em Transforma expresiones complejas de lenguaje natural a un objeto datetime estructurado. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_aa7555d19c229c6b24390a33fb3b79ba7}{\+\_\+rango\+\_\+temporal}} (self, texto)
+\begin{DoxyCompactList}\small\item\em Determina los límites temporales (fecha de inicio y fin) según los adverbios utilizados. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_af66140b101836e66362549e319085f60}{\+\_\+get\+\_\+calendar\+\_\+events}} (self, text)
+\begin{DoxyCompactList}\small\item\em Filtra y lee los eventos agendados dentro del rango temporal solicitado por voz. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_afc45ecc3592005b50bb15ed264a45d63}{\+\_\+crear\+\_\+recordatorio}} (self, texto)
+\begin{DoxyCompactList}\small\item\em Procesa una orden verbal para programar un nuevo recordatorio de alerta. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a47fff198d39d7d750d5a756ae64f07ae}{\+\_\+construir\+\_\+prompt}} (self, mensaje)
+\begin{DoxyCompactList}\small\item\em Prepara el prompt consolidado inyectando el System Prompt, memoria de corto plazo y el mensaje actual. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_ab7de7caf306918a181422e7df357adbf}{\+\_\+ask\+\_\+model}} (self, prompt)
+\begin{DoxyCompactList}\small\item\em Realiza la invocación de red hacia la interfaz de inferencia del LLMClient. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_af42d30fe9d2e183f277f1eb83e59e43a}{\+\_\+procesar\+\_\+texto}} (self, texto)
+\begin{DoxyCompactList}\small\item\em Flujo central y toma de decisiones para resolver un turno de conversación completo. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_ae0da5e680e526bab8a82d5cc72969384}{\+\_\+loop}} (self)
+\begin{DoxyCompactList}\small\item\em Bucle de consumo interno para procesar el texto obtenido del transcriptor de audio. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Motor conversacional completo del asistente robótico. 
+
+Orquesta el ciclo completo\+: Listen -\/\texorpdfstring{$>$}{>} Detect -\/\texorpdfstring{$>$}{>} Process -\/\texorpdfstring{$>$}{>} Speak. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a592c4b17c24950982a2acb818ec8ce16}\label{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a592c4b17c24950982a2acb818ec8ce16}} 
+\index{app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def app.\+core.\+assistant\+\_\+engine.\+Assistant\+Engine.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{ui\+\_\+state = {\ttfamily None},  }\item[{}]{display = {\ttfamily None},  }\item[{}]{calendar\+\_\+store = {\ttfamily None},  }\item[{}]{reminder\+\_\+store = {\ttfamily None},  }\item[{}]{model\+\_\+path = {\ttfamily None},  }\item[{}]{server\+\_\+url = {\ttfamily None},  }\item[{}]{mic\+\_\+name = {\ttfamily None},  }\item[{}]{llm\+\_\+model = {\ttfamily \textquotesingle{}groq\textquotesingle{}},  }\item[{}]{llm\+\_\+timeout = {\ttfamily 90} }\end{DoxyParamCaption})}
+
+
+
+Inicializa los módulos de voz, interfaz, almacenamiento y clientes de IA. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ui\+\_\+state} & Estado compartido de la interfaz gráfica (UIState). \\
+\hline
+{\em display} & Controlador de la pantalla facial (Face\+Display). \\
+\hline
+{\em \mbox{\hyperlink{namespacecalendar__store}{calendar\+\_\+store}}} & Repositorio o base de datos de eventos del calendario. \\
+\hline
+{\em \mbox{\hyperlink{namespacereminder__store}{reminder\+\_\+store}}} & Repositorio o base de datos de los recordatorios de medicación/alertas. \\
+\hline
+{\em model\+\_\+path} & Ruta local hacia la carpeta del modelo Vosk para STT. \\
+\hline
+{\em server\+\_\+url} & URL del API Gateway o servidor LLM externo. \\
+\hline
+{\em mic\+\_\+name} & Nombre específico del micrófono a capturar en hardware. \\
+\hline
+{\em llm\+\_\+model} & Identificador del backend/modelo LLM (ej\+: \textquotesingle{}groq\textquotesingle{}, \textquotesingle{}ollama\textquotesingle{}). \\
+\hline
+{\em llm\+\_\+timeout} & Límite de tiempo en segundos para las consultas al LLM. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_ab7de7caf306918a181422e7df357adbf}\label{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_ab7de7caf306918a181422e7df357adbf}} 
+\index{app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}!\_ask\_model@{\_ask\_model}}
+\index{\_ask\_model@{\_ask\_model}!app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}}
+\doxysubsubsection{\texorpdfstring{\_ask\_model()}{\_ask\_model()}}
+{\footnotesize\ttfamily def app.\+core.\+assistant\+\_\+engine.\+Assistant\+Engine.\+\_\+ask\+\_\+model (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{prompt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Realiza la invocación de red hacia la interfaz de inferencia del LLMClient. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em prompt} & Texto formateado completo con el contexto. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+str Respuesta generada por la IA o cadena vacía si no hay cliente o falla. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a9e4a53f24f60d7aab8ec68544b0e86ca}\label{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a9e4a53f24f60d7aab8ec68544b0e86ca}} 
+\index{app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}!\_cargar\_memoria@{\_cargar\_memoria}}
+\index{\_cargar\_memoria@{\_cargar\_memoria}!app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}}
+\doxysubsubsection{\texorpdfstring{\_cargar\_memoria()}{\_cargar\_memoria()}}
+{\footnotesize\ttfamily def app.\+core.\+assistant\+\_\+engine.\+Assistant\+Engine.\+\_\+cargar\+\_\+memoria (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Carga el historial conversacional desde el almacenamiento en disco. 
+
+\begin{DoxyReturn}{Returns}
+dict Diccionario estructurado {\ttfamily \{usuario\+: \mbox{[}lista de turnos\mbox{]}\}} o dict vacío ante fallos. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a47fff198d39d7d750d5a756ae64f07ae}\label{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a47fff198d39d7d750d5a756ae64f07ae}} 
+\index{app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}!\_construir\_prompt@{\_construir\_prompt}}
+\index{\_construir\_prompt@{\_construir\_prompt}!app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}}
+\doxysubsubsection{\texorpdfstring{\_construir\_prompt()}{\_construir\_prompt()}}
+{\footnotesize\ttfamily def app.\+core.\+assistant\+\_\+engine.\+Assistant\+Engine.\+\_\+construir\+\_\+prompt (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{mensaje }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Prepara el prompt consolidado inyectando el System Prompt, memoria de corto plazo y el mensaje actual. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mensaje} & Texto de la entrada actual remitida por el usuario. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+str Bloque de texto final formateado para el modelo LLM. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_afc45ecc3592005b50bb15ed264a45d63}\label{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_afc45ecc3592005b50bb15ed264a45d63}} 
+\index{app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}!\_crear\_recordatorio@{\_crear\_recordatorio}}
+\index{\_crear\_recordatorio@{\_crear\_recordatorio}!app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}}
+\doxysubsubsection{\texorpdfstring{\_crear\_recordatorio()}{\_crear\_recordatorio()}}
+{\footnotesize\ttfamily def app.\+core.\+assistant\+\_\+engine.\+Assistant\+Engine.\+\_\+crear\+\_\+recordatorio (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{texto }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Procesa una orden verbal para programar un nuevo recordatorio de alerta. 
+
+Extrae mediante expresiones regulares patrones de tiempo numéricos (\textquotesingle{}minutos\textquotesingle{}, \textquotesingle{}horas\textquotesingle{}) y agenda el objeto en el repositorio persistente.
+
+
+\begin{DoxyParams}{Parameters}
+{\em texto} & Transcripción del comando de voz. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+str Mensaje de confirmación del éxito de la operación. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a917eb0b368b3ff38d67b6ba5ff4e44af}\label{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a917eb0b368b3ff38d67b6ba5ff4e44af}} 
+\index{app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}!\_detectar\_intencion@{\_detectar\_intencion}}
+\index{\_detectar\_intencion@{\_detectar\_intencion}!app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}}
+\doxysubsubsection{\texorpdfstring{\_detectar\_intencion()}{\_detectar\_intencion()}}
+{\footnotesize\ttfamily def app.\+core.\+assistant\+\_\+engine.\+Assistant\+Engine.\+\_\+detectar\+\_\+intencion (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Clasifica y mapea el texto del usuario para identificar comandos conocidos o herramientas nativas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & Transcripción en texto limpio y minúsculas generada por el STT. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+str Identificador de la intención (\textquotesingle{}time\textquotesingle{}, \textquotesingle{}weather\textquotesingle{}, \textquotesingle{}reminder\textquotesingle{}, \textquotesingle{}calendar\textquotesingle{}, o \textquotesingle{}llm\textquotesingle{}). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_af66140b101836e66362549e319085f60}\label{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_af66140b101836e66362549e319085f60}} 
+\index{app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}!\_get\_calendar\_events@{\_get\_calendar\_events}}
+\index{\_get\_calendar\_events@{\_get\_calendar\_events}!app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}}
+\doxysubsubsection{\texorpdfstring{\_get\_calendar\_events()}{\_get\_calendar\_events()}}
+{\footnotesize\ttfamily def app.\+core.\+assistant\+\_\+engine.\+Assistant\+Engine.\+\_\+get\+\_\+calendar\+\_\+events (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Filtra y lee los eventos agendados dentro del rango temporal solicitado por voz. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & Texto con la consulta cronológica sobre la agenda. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+str Frase descriptiva conteniendo las citas de la agenda para ser narradas por TTS. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_af66140b101836e66362549e319085f60_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a7f3f0842be28519ffcf2572d2cf3e598}\label{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a7f3f0842be28519ffcf2572d2cf3e598}} 
+\index{app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}!\_get\_time@{\_get\_time}}
+\index{\_get\_time@{\_get\_time}!app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}}
+\doxysubsubsection{\texorpdfstring{\_get\_time()}{\_get\_time()}}
+{\footnotesize\ttfamily def app.\+core.\+assistant\+\_\+engine.\+Assistant\+Engine.\+\_\+get\+\_\+time (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Devuelve la hora actual del sistema operativo. 
+
+\begin{DoxyReturn}{Returns}
+str Cadena de texto formateada en \char`\"{}\+HH\+:\+MM\char`\"{}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a359dd1f9d72985cdf4ebf5f83784c3c0}\label{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a359dd1f9d72985cdf4ebf5f83784c3c0}} 
+\index{app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}!\_get\_weather@{\_get\_weather}}
+\index{\_get\_weather@{\_get\_weather}!app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}}
+\doxysubsubsection{\texorpdfstring{\_get\_weather()}{\_get\_weather()}}
+{\footnotesize\ttfamily def app.\+core.\+assistant\+\_\+engine.\+Assistant\+Engine.\+\_\+get\+\_\+weather (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{city = {\ttfamily \char`\"{}Madrid\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Consulta el pronóstico del tiempo meteorológico mediante Open-\/\+Meteo sin API key. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em city} & Nombre textual de la localidad o ciudad a buscar mediante geolocalización. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+str Mensaje resumido con los grados y velocidad del viento listo para ser locutado. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_ab202136e786fea5ce4923dcb80236998}\label{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_ab202136e786fea5ce4923dcb80236998}} 
+\index{app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}!\_guardar\_memoria@{\_guardar\_memoria}}
+\index{\_guardar\_memoria@{\_guardar\_memoria}!app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}}
+\doxysubsubsection{\texorpdfstring{\_guardar\_memoria()}{\_guardar\_memoria()}}
+{\footnotesize\ttfamily def app.\+core.\+assistant\+\_\+engine.\+Assistant\+Engine.\+\_\+guardar\+\_\+memoria (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Persiste el historial conversacional actual estructurado en formato JSON a disco. 
+
+\mbox{\Hypertarget{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_aa136c14d054360b1906522dc204ddc39}\label{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_aa136c14d054360b1906522dc204ddc39}} 
+\index{app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}!\_hay\_internet@{\_hay\_internet}}
+\index{\_hay\_internet@{\_hay\_internet}!app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}}
+\doxysubsubsection{\texorpdfstring{\_hay\_internet()}{\_hay\_internet()}}
+{\footnotesize\ttfamily def app.\+core.\+assistant\+\_\+engine.\+Assistant\+Engine.\+\_\+hay\+\_\+internet (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Comprueba de forma rápida la conectividad TCP a Internet mediante el DNS de Google. 
+
+\begin{DoxyReturn}{Returns}
+bool True si hay conexión activa, False en caso de corte de red. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_ae0da5e680e526bab8a82d5cc72969384}\label{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_ae0da5e680e526bab8a82d5cc72969384}} 
+\index{app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}!\_loop@{\_loop}}
+\index{\_loop@{\_loop}!app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}}
+\doxysubsubsection{\texorpdfstring{\_loop()}{\_loop()}}
+{\footnotesize\ttfamily def app.\+core.\+assistant\+\_\+engine.\+Assistant\+Engine.\+\_\+loop (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Bucle de consumo interno para procesar el texto obtenido del transcriptor de audio. 
+
+Intercepta comandos de parada en tiempo real antes de procesar intenciones complejas. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_ae0da5e680e526bab8a82d5cc72969384_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a9a21ecd3bd3e064b3e1417260c58d824}\label{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a9a21ecd3bd3e064b3e1417260c58d824}} 
+\index{app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}!\_parse\_fecha@{\_parse\_fecha}}
+\index{\_parse\_fecha@{\_parse\_fecha}!app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}}
+\doxysubsubsection{\texorpdfstring{\_parse\_fecha()}{\_parse\_fecha()}}
+{\footnotesize\ttfamily def app.\+core.\+assistant\+\_\+engine.\+Assistant\+Engine.\+\_\+parse\+\_\+fecha (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{texto }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Transforma expresiones complejas de lenguaje natural a un objeto datetime estructurado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em texto} & Fragmento de la transcripción de voz que describe un tiempo (ej\+: \textquotesingle{}el próximo martes\textquotesingle{}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+datetime Objeto de tiempo interpretado, o None si no se comprende la referencia. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_af42d30fe9d2e183f277f1eb83e59e43a}\label{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_af42d30fe9d2e183f277f1eb83e59e43a}} 
+\index{app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}!\_procesar\_texto@{\_procesar\_texto}}
+\index{\_procesar\_texto@{\_procesar\_texto}!app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}}
+\doxysubsubsection{\texorpdfstring{\_procesar\_texto()}{\_procesar\_texto()}}
+{\footnotesize\ttfamily def app.\+core.\+assistant\+\_\+engine.\+Assistant\+Engine.\+\_\+procesar\+\_\+texto (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{texto }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Flujo central y toma de decisiones para resolver un turno de conversación completo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em texto} & Transcripción de la entrada del usuario. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+str Texto de salida generado que el robot debe responder. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_af42d30fe9d2e183f277f1eb83e59e43a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_aa7555d19c229c6b24390a33fb3b79ba7}\label{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_aa7555d19c229c6b24390a33fb3b79ba7}} 
+\index{app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}!\_rango\_temporal@{\_rango\_temporal}}
+\index{\_rango\_temporal@{\_rango\_temporal}!app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}}
+\doxysubsubsection{\texorpdfstring{\_rango\_temporal()}{\_rango\_temporal()}}
+{\footnotesize\ttfamily def app.\+core.\+assistant\+\_\+engine.\+Assistant\+Engine.\+\_\+rango\+\_\+temporal (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{texto }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Determina los límites temporales (fecha de inicio y fin) según los adverbios utilizados. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em texto} & Transcripción del habla en minúsculas. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+tuple Una tupla {\ttfamily (date\+\_\+inicio, date\+\_\+fin)} o {\ttfamily (None, None)} si es inclasificable. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_aa7555d19c229c6b24390a33fb3b79ba7_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a1939eceddbf9af2ec90fee45be7b7a21}\label{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a1939eceddbf9af2ec90fee45be7b7a21}} 
+\index{app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}!\_web\_search@{\_web\_search}}
+\index{\_web\_search@{\_web\_search}!app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}}
+\doxysubsubsection{\texorpdfstring{\_web\_search()}{\_web\_search()}}
+{\footnotesize\ttfamily def app.\+core.\+assistant\+\_\+engine.\+Assistant\+Engine.\+\_\+web\+\_\+search (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{query }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Realiza un escrapeo de emergencia via Duck\+Duck\+Go HTML ante caídas de la IA. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em query} & Cadena de términos de búsqueda solicitados por el usuario. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+str Resumen de las primeras coincidencias textuales encontradas en la web. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_ad70d5091205e2c36d3e136c768af16e2}\label{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_ad70d5091205e2c36d3e136c768af16e2}} 
+\index{app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}!set\_user@{set\_user}}
+\index{set\_user@{set\_user}!app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}}
+\doxysubsubsection{\texorpdfstring{set\_user()}{set\_user()}}
+{\footnotesize\ttfamily def app.\+core.\+assistant\+\_\+engine.\+Assistant\+Engine.\+set\+\_\+user (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{user }\end{DoxyParamCaption})}
+
+
+
+Modifica el perfil de usuario activo y genera un saludo adaptado por voz (TTS). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & Nombre de pila o identificador del usuario detectado (ej\+: por reconocimiento facial). \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_ad70d5091205e2c36d3e136c768af16e2_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a0e51d25b0f69be861f63bebf91e70db9}\label{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a0e51d25b0f69be861f63bebf91e70db9}} 
+\index{app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}!speak@{speak}}
+\index{speak@{speak}!app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}}
+\doxysubsubsection{\texorpdfstring{speak()}{speak()}}
+{\footnotesize\ttfamily def app.\+core.\+assistant\+\_\+engine.\+Assistant\+Engine.\+speak (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{text }\end{DoxyParamCaption})}
+
+
+
+Envía una cadena de texto al sintetizador de audio (TTS) y sincroniza los estados gráficos de la cara. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & Mensaje completo de respuesta que será transformado a audio. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=248pt]{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a0e51d25b0f69be861f63bebf91e70db9_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a6d09af66df60a02a184d2049281adb56}\label{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a6d09af66df60a02a184d2049281adb56}} 
+\index{app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}!start@{start}}
+\index{start@{start}!app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily def app.\+core.\+assistant\+\_\+engine.\+Assistant\+Engine.\+start (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Levanta e inicializa el hilo daemon encargado del bucle infinito de escucha por micrófono. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a6d09af66df60a02a184d2049281adb56_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a017d6284c15f7500b1d7033f17e67ac2}\label{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a017d6284c15f7500b1d7033f17e67ac2}} 
+\index{app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}!stop@{stop}}
+\index{stop@{stop}!app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily def app.\+core.\+assistant\+\_\+engine.\+Assistant\+Engine.\+stop (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Detiene y cancela de forma controlada el ciclo de vida del motor de escucha y voz. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=240pt]{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a017d6284c15f7500b1d7033f17e67ac2_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a7fb697a70c8bd05dfa19b495fb3538ea}\label{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a7fb697a70c8bd05dfa19b495fb3538ea}} 
+\index{app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}!calendar\_store@{calendar\_store}}
+\index{calendar\_store@{calendar\_store}!app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}}
+\doxysubsubsection{\texorpdfstring{calendar\_store}{calendar\_store}}
+{\footnotesize\ttfamily app.\+core.\+assistant\+\_\+engine.\+Assistant\+Engine.\+calendar\+\_\+store}
+
+\mbox{\Hypertarget{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a84be7f27efea9145dfbb2f9270dbd2ae}\label{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a84be7f27efea9145dfbb2f9270dbd2ae}} 
+\index{app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}!display@{display}}
+\index{display@{display}!app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}}
+\doxysubsubsection{\texorpdfstring{display}{display}}
+{\footnotesize\ttfamily app.\+core.\+assistant\+\_\+engine.\+Assistant\+Engine.\+display}
+
+\mbox{\Hypertarget{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_ace08df20f64c7c26dd5690038c440da8}\label{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_ace08df20f64c7c26dd5690038c440da8}} 
+\index{app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}!llm@{llm}}
+\index{llm@{llm}!app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}}
+\doxysubsubsection{\texorpdfstring{llm}{llm}}
+{\footnotesize\ttfamily app.\+core.\+assistant\+\_\+engine.\+Assistant\+Engine.\+llm}
+
+\mbox{\Hypertarget{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a687b161a3bdb1940ef2ac4e618932a49}\label{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a687b161a3bdb1940ef2ac4e618932a49}} 
+\index{app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}!memoria@{memoria}}
+\index{memoria@{memoria}!app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}}
+\doxysubsubsection{\texorpdfstring{memoria}{memoria}}
+{\footnotesize\ttfamily app.\+core.\+assistant\+\_\+engine.\+Assistant\+Engine.\+memoria}
+
+
+
+Estructura en memoria con el historial cargado por perfiles. 
+
+\mbox{\Hypertarget{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a4d16441d345c333f88ecc2ff6b27b097}\label{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a4d16441d345c333f88ecc2ff6b27b097}} 
+\index{app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}!mic\_device@{mic\_device}}
+\index{mic\_device@{mic\_device}!app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}}
+\doxysubsubsection{\texorpdfstring{mic\_device}{mic\_device}}
+{\footnotesize\ttfamily app.\+core.\+assistant\+\_\+engine.\+Assistant\+Engine.\+mic\+\_\+device}
+
+\mbox{\Hypertarget{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_ae2b644067b48750f3b8a68001f755b9c}\label{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_ae2b644067b48750f3b8a68001f755b9c}} 
+\index{app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}!reminder\_scheduler@{reminder\_scheduler}}
+\index{reminder\_scheduler@{reminder\_scheduler}!app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}}
+\doxysubsubsection{\texorpdfstring{reminder\_scheduler}{reminder\_scheduler}}
+{\footnotesize\ttfamily app.\+core.\+assistant\+\_\+engine.\+Assistant\+Engine.\+reminder\+\_\+scheduler}
+
+\mbox{\Hypertarget{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a642f62d25e2e0c1ddb4e5c23b6055459}\label{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a642f62d25e2e0c1ddb4e5c23b6055459}} 
+\index{app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}!reminder\_store@{reminder\_store}}
+\index{reminder\_store@{reminder\_store}!app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}}
+\doxysubsubsection{\texorpdfstring{reminder\_store}{reminder\_store}}
+{\footnotesize\ttfamily app.\+core.\+assistant\+\_\+engine.\+Assistant\+Engine.\+reminder\+\_\+store}
+
+\mbox{\Hypertarget{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a3e8596e1939f2c1b9bf8bca0eeaebd7d}\label{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a3e8596e1939f2c1b9bf8bca0eeaebd7d}} 
+\index{app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}!running@{running}}
+\index{running@{running}!app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}}
+\doxysubsubsection{\texorpdfstring{running}{running}}
+{\footnotesize\ttfamily app.\+core.\+assistant\+\_\+engine.\+Assistant\+Engine.\+running}
+
+
+
+Bandera de control para saber si el bucle de escucha asíncrono está encendido. 
+
+\mbox{\Hypertarget{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a466d58d04a2e728c631b32eef657dc5d}\label{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a466d58d04a2e728c631b32eef657dc5d}} 
+\index{app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}!stt@{stt}}
+\index{stt@{stt}!app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}}
+\doxysubsubsection{\texorpdfstring{stt}{stt}}
+{\footnotesize\ttfamily app.\+core.\+assistant\+\_\+engine.\+Assistant\+Engine.\+stt}
+
+\mbox{\Hypertarget{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_ab3aeea79a8c99495c34bcd7db505d456}\label{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_ab3aeea79a8c99495c34bcd7db505d456}} 
+\index{app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}!tts@{tts}}
+\index{tts@{tts}!app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}}
+\doxysubsubsection{\texorpdfstring{tts}{tts}}
+{\footnotesize\ttfamily app.\+core.\+assistant\+\_\+engine.\+Assistant\+Engine.\+tts}
+
+\mbox{\Hypertarget{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_abcf71d77a6aea5bb51e23883580418c4}\label{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_abcf71d77a6aea5bb51e23883580418c4}} 
+\index{app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}!ui\_state@{ui\_state}}
+\index{ui\_state@{ui\_state}!app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}}
+\doxysubsubsection{\texorpdfstring{ui\_state}{ui\_state}}
+{\footnotesize\ttfamily app.\+core.\+assistant\+\_\+engine.\+Assistant\+Engine.\+ui\+\_\+state}
+
+\mbox{\Hypertarget{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a8d4423ede4d7665a22c7cb23fa22899d}\label{classapp_1_1core_1_1assistant__engine_1_1AssistantEngine_a8d4423ede4d7665a22c7cb23fa22899d}} 
+\index{app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}!user@{user}}
+\index{user@{user}!app.core.assistant\_engine.AssistantEngine@{app.core.assistant\_engine.AssistantEngine}}
+\doxysubsubsection{\texorpdfstring{user}{user}}
+{\footnotesize\ttfamily app.\+core.\+assistant\+\_\+engine.\+Assistant\+Engine.\+user}
+
+
+
+Nombre o ID del perfil de usuario actualmente interactuando. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/\mbox{\hyperlink{assistant__engine_8py}{assistant\+\_\+engine.\+py}}\end{DoxyCompactItemize}

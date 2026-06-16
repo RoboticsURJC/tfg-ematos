@@ -1,0 +1,4 @@
+<map id="note_store.NotesStore.add_note" name="note_store.NotesStore.add_note">
+<area shape="rect" id="node1" title="Crea una nueva instancia de nota y la guarda de forma persistente." alt="" coords="5,5,236,32"/>
+<area shape="rect" id="node2" href="$classnote__store_1_1NotesStore.html#aedf073e5d198bf0f232c341312fdc523" title="Persiste el estado actual de la lista self.notes en el archivo JSON." alt="" coords="284,5,509,32"/>
+</map>

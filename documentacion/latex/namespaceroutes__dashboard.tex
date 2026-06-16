@@ -1,0 +1,184 @@
+\hypertarget{namespaceroutes__dashboard}{}\doxysection{routes\+\_\+dashboard Namespace Reference}
+\label{namespaceroutes__dashboard}\index{routes\_dashboard@{routes\_dashboard}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceroutes__dashboard_a22f51e6e6cdb4133d9d29fc9ec8c89f4}{start\+\_\+service}} (str service)
+\begin{DoxyCompactList}\small\item\em Arranca un servicio del sistema. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceroutes__dashboard_ad8107449d713bc61faeada8dbabc7039}{stop\+\_\+service}} (str service)
+\begin{DoxyCompactList}\small\item\em Detiene un servicio del sistema en ejecución. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceroutes__dashboard_a1a8b52e5f814ab9e7c045c625f94628c}{status}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene el estado actual de todos los servicios. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceroutes__dashboard_a8655f71bfdedbc58ad3dc877abdf5c01}{logs}} (str service)
+\begin{DoxyCompactList}\small\item\em Recupera los logs específicos de un servicio. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceroutes__dashboard_a8e1c87d3914c53c0d5ed6d8c3dafca9e}{clear}} (str service)
+\begin{DoxyCompactList}\small\item\em Vacía el historial de logs de un servicio. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceroutes__dashboard_a227e326032301c2f5fceeaf5fa2bba67}{all\+\_\+logs}} ()
+\begin{DoxyCompactList}\small\item\em Recupera el historial completo de logs globales. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceroutes__dashboard_a31a5fc9d30be4bf524e43abd52a2613f}{router}} = APIRouter(tags=\mbox{[}\char`\"{}Dashboard\char`\"{}\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceroutes__dashboard_a227e326032301c2f5fceeaf5fa2bba67}\label{namespaceroutes__dashboard_a227e326032301c2f5fceeaf5fa2bba67}} 
+\index{routes\_dashboard@{routes\_dashboard}!all\_logs@{all\_logs}}
+\index{all\_logs@{all\_logs}!routes\_dashboard@{routes\_dashboard}}
+\doxysubsubsection{\texorpdfstring{all\_logs()}{all\_logs()}}
+{\footnotesize\ttfamily def routes\+\_\+dashboard.\+all\+\_\+logs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Recupera el historial completo de logs globales. 
+
+Reúne los registros de todas las aplicaciones e interacciones del sistema en un solo volcado de datos.
+
+\begin{DoxyReturn}{Returns}
+list/dict Lista completa de los eventos de log almacenados en el sistema. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceroutes__dashboard_a227e326032301c2f5fceeaf5fa2bba67_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceroutes__dashboard_a8e1c87d3914c53c0d5ed6d8c3dafca9e}\label{namespaceroutes__dashboard_a8e1c87d3914c53c0d5ed6d8c3dafca9e}} 
+\index{routes\_dashboard@{routes\_dashboard}!clear@{clear}}
+\index{clear@{clear}!routes\_dashboard@{routes\_dashboard}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily def routes\+\_\+dashboard.\+clear (\begin{DoxyParamCaption}\item[{str}]{service }\end{DoxyParamCaption})}
+
+
+
+Vacía el historial de logs de un servicio. 
+
+Elimina todos los registros guardados en memoria o disco para reiniciar el historial de la app.
+
+
+\begin{DoxyParams}{Parameters}
+{\em service} & Nombre o identificador del servicio cuyo log se desea limpiar.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+dict Confirmación del estado de la limpieza (ej\+: \{\char`\"{}status\char`\"{}\+: \char`\"{}ok\char`\"{}\}). 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceroutes__dashboard_a8e1c87d3914c53c0d5ed6d8c3dafca9e_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceroutes__dashboard_a8655f71bfdedbc58ad3dc877abdf5c01}\label{namespaceroutes__dashboard_a8655f71bfdedbc58ad3dc877abdf5c01}} 
+\index{routes\_dashboard@{routes\_dashboard}!logs@{logs}}
+\index{logs@{logs}!routes\_dashboard@{routes\_dashboard}}
+\doxysubsubsection{\texorpdfstring{logs()}{logs()}}
+{\footnotesize\ttfamily def routes\+\_\+dashboard.\+logs (\begin{DoxyParamCaption}\item[{str}]{service }\end{DoxyParamCaption})}
+
+
+
+Recupera los logs específicos de un servicio. 
+
+Obtiene el historial de acciones y comandos ejecutados relacionados con la aplicación solicitada.
+
+
+\begin{DoxyParams}{Parameters}
+{\em service} & Nombre o identificador del servicio a consultar.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+dict Contenedor con la lista de líneas de registro encontradas. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceroutes__dashboard_a8655f71bfdedbc58ad3dc877abdf5c01_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceroutes__dashboard_a22f51e6e6cdb4133d9d29fc9ec8c89f4}\label{namespaceroutes__dashboard_a22f51e6e6cdb4133d9d29fc9ec8c89f4}} 
+\index{routes\_dashboard@{routes\_dashboard}!start\_service@{start\_service}}
+\index{start\_service@{start\_service}!routes\_dashboard@{routes\_dashboard}}
+\doxysubsubsection{\texorpdfstring{start\_service()}{start\_service()}}
+{\footnotesize\ttfamily def routes\+\_\+dashboard.\+start\+\_\+service (\begin{DoxyParamCaption}\item[{str}]{service }\end{DoxyParamCaption})}
+
+
+
+Arranca un servicio del sistema. 
+
+Lanza el subproceso correspondiente a la aplicación solicitada mediante el servicio de procesos y registra la acción en el historial de logs.
+
+
+\begin{DoxyParams}{Parameters}
+{\em service} & Nombre o identificador del servicio a arrancar (ej\+: \textquotesingle{}calculator\textquotesingle{}, \textquotesingle{}browser\textquotesingle{}).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+dict/bool Resultado de la operación devuelto por Process\+Service. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceroutes__dashboard_a22f51e6e6cdb4133d9d29fc9ec8c89f4_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceroutes__dashboard_a1a8b52e5f814ab9e7c045c625f94628c}\label{namespaceroutes__dashboard_a1a8b52e5f814ab9e7c045c625f94628c}} 
+\index{routes\_dashboard@{routes\_dashboard}!status@{status}}
+\index{status@{status}!routes\_dashboard@{routes\_dashboard}}
+\doxysubsubsection{\texorpdfstring{status()}{status()}}
+{\footnotesize\ttfamily def routes\+\_\+dashboard.\+status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtiene el estado actual de todos los servicios. 
+
+Consulta qué aplicaciones del sistema están activas (en ejecución) o detenidas en este momento.
+
+\begin{DoxyReturn}{Returns}
+dict Diccionario con el estado estructurado de cada servicio registrado. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceroutes__dashboard_ad8107449d713bc61faeada8dbabc7039}\label{namespaceroutes__dashboard_ad8107449d713bc61faeada8dbabc7039}} 
+\index{routes\_dashboard@{routes\_dashboard}!stop\_service@{stop\_service}}
+\index{stop\_service@{stop\_service}!routes\_dashboard@{routes\_dashboard}}
+\doxysubsubsection{\texorpdfstring{stop\_service()}{stop\_service()}}
+{\footnotesize\ttfamily def routes\+\_\+dashboard.\+stop\+\_\+service (\begin{DoxyParamCaption}\item[{str}]{service }\end{DoxyParamCaption})}
+
+
+
+Detiene un servicio del sistema en ejecución. 
+
+Finaliza el proceso activo del servicio indicado y añade el evento al registro de logs.
+
+
+\begin{DoxyParams}{Parameters}
+{\em service} & Nombre o identificador del servicio a detener.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+dict/bool Resultado de la operación devuelto por Process\+Service. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceroutes__dashboard_ad8107449d713bc61faeada8dbabc7039_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespaceroutes__dashboard_a31a5fc9d30be4bf524e43abd52a2613f}\label{namespaceroutes__dashboard_a31a5fc9d30be4bf524e43abd52a2613f}} 
+\index{routes\_dashboard@{routes\_dashboard}!router@{router}}
+\index{router@{router}!routes\_dashboard@{routes\_dashboard}}
+\doxysubsubsection{\texorpdfstring{router}{router}}
+{\footnotesize\ttfamily routes\+\_\+dashboard.\+router = APIRouter(tags=\mbox{[}\char`\"{}Dashboard\char`\"{}\mbox{]})}
+

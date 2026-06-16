@@ -1,0 +1,151 @@
+\hypertarget{classapp_1_1voice_1_1audio__stream_1_1AudioStream}{}\doxysection{app.\+voice.\+audio\+\_\+stream.\+Audio\+Stream Class Reference}
+\label{classapp_1_1voice_1_1audio__stream_1_1AudioStream}\index{app.voice.audio\_stream.AudioStream@{app.voice.audio\_stream.AudioStream}}
+
+
+Gestiona la captura continua de audio desde el micrófono.  
+
+
+
+
+Collaboration diagram for app.\+voice.\+audio\+\_\+stream.\+Audio\+Stream\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{classapp_1_1voice_1_1audio__stream_1_1AudioStream__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classapp_1_1voice_1_1audio__stream_1_1AudioStream_a4aff41a03bf366ccb8ef92c68ffd46fc}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, device=None, \mbox{\hyperlink{classapp_1_1voice_1_1audio__stream_1_1AudioStream_a0fd39083e48ffda40111cad44cf980e9}{samplerate}}=48000, blocksize=8000)
+\item 
+def \mbox{\hyperlink{classapp_1_1voice_1_1audio__stream_1_1AudioStream_a3cc686f75803368ec466c6d97fb08612}{start}} (self)
+\begin{DoxyCompactList}\small\item\em Inicia la captura de audio. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1voice_1_1audio__stream_1_1AudioStream_a72c9b2b39f5d7f419e7209d7c0640703}{stop}} (self)
+\begin{DoxyCompactList}\small\item\em Detiene la captura de audio. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classapp_1_1voice_1_1audio__stream_1_1AudioStream_ac1d779383890a229434e30a181447104}{q}}
+\item 
+\mbox{\hyperlink{classapp_1_1voice_1_1audio__stream_1_1AudioStream_a0fd39083e48ffda40111cad44cf980e9}{samplerate}}
+\item 
+\mbox{\hyperlink{classapp_1_1voice_1_1audio__stream_1_1AudioStream_a27c69ecbae1538b8e21687cad27459f6}{stream}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classapp_1_1voice_1_1audio__stream_1_1AudioStream_a5ea857d4bed703b9192ec71cf4435b1a}{\+\_\+callback}} (self, indata, frames, time, status)
+\begin{DoxyCompactList}\small\item\em Callback interno\+: recibe bloques de audio y los encola. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Gestiona la captura continua de audio desde el micrófono. 
+
+Configura un flujo (stream) de entrada Raw, captura a 48k\+Hz para asegurar compatibilidad con hardware USB y procesa el downsampling a 16k\+Hz en el callback para optimizar el consumo de la librería Vosk. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classapp_1_1voice_1_1audio__stream_1_1AudioStream_a4aff41a03bf366ccb8ef92c68ffd46fc}\label{classapp_1_1voice_1_1audio__stream_1_1AudioStream_a4aff41a03bf366ccb8ef92c68ffd46fc}} 
+\index{app.voice.audio\_stream.AudioStream@{app.voice.audio\_stream.AudioStream}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!app.voice.audio\_stream.AudioStream@{app.voice.audio\_stream.AudioStream}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def app.\+voice.\+audio\+\_\+stream.\+Audio\+Stream.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{device = {\ttfamily None},  }\item[{}]{samplerate = {\ttfamily 48000},  }\item[{}]{blocksize = {\ttfamily 8000} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Índice o nombre del dispositivo de audio (None = default). \\
+\hline
+{\em samplerate} & Frecuencia de captura (48000 Hz recomendado). \\
+\hline
+{\em blocksize} & Tamaño del bloque de audio por callback. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classapp_1_1voice_1_1audio__stream_1_1AudioStream_a5ea857d4bed703b9192ec71cf4435b1a}\label{classapp_1_1voice_1_1audio__stream_1_1AudioStream_a5ea857d4bed703b9192ec71cf4435b1a}} 
+\index{app.voice.audio\_stream.AudioStream@{app.voice.audio\_stream.AudioStream}!\_callback@{\_callback}}
+\index{\_callback@{\_callback}!app.voice.audio\_stream.AudioStream@{app.voice.audio\_stream.AudioStream}}
+\doxysubsubsection{\texorpdfstring{\_callback()}{\_callback()}}
+{\footnotesize\ttfamily def app.\+voice.\+audio\+\_\+stream.\+Audio\+Stream.\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{indata,  }\item[{}]{frames,  }\item[{}]{time,  }\item[{}]{status }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Callback interno\+: recibe bloques de audio y los encola. 
+
+Aplica downsampling 3\+:1 (48k\+Hz → 16k\+Hz) tomando 1 de cada 3 muestras, igual que el sistema original (data\mbox{[}\+::3\mbox{]}).
+
+
+\begin{DoxyParams}{Parameters}
+{\em indata} & Datos de audio en bruto (int16). \\
+\hline
+{\em frames} & Número de frames del bloque. \\
+\hline
+{\em time} & Información temporal del stream. \\
+\hline
+{\em status} & Estado del stream (errores, underrun, etc.). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classapp_1_1voice_1_1audio__stream_1_1AudioStream_a3cc686f75803368ec466c6d97fb08612}\label{classapp_1_1voice_1_1audio__stream_1_1AudioStream_a3cc686f75803368ec466c6d97fb08612}} 
+\index{app.voice.audio\_stream.AudioStream@{app.voice.audio\_stream.AudioStream}!start@{start}}
+\index{start@{start}!app.voice.audio\_stream.AudioStream@{app.voice.audio\_stream.AudioStream}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily def app.\+voice.\+audio\+\_\+stream.\+Audio\+Stream.\+start (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Inicia la captura de audio. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classapp_1_1voice_1_1audio__stream_1_1AudioStream_a3cc686f75803368ec466c6d97fb08612_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classapp_1_1voice_1_1audio__stream_1_1AudioStream_a72c9b2b39f5d7f419e7209d7c0640703}\label{classapp_1_1voice_1_1audio__stream_1_1AudioStream_a72c9b2b39f5d7f419e7209d7c0640703}} 
+\index{app.voice.audio\_stream.AudioStream@{app.voice.audio\_stream.AudioStream}!stop@{stop}}
+\index{stop@{stop}!app.voice.audio\_stream.AudioStream@{app.voice.audio\_stream.AudioStream}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily def app.\+voice.\+audio\+\_\+stream.\+Audio\+Stream.\+stop (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Detiene la captura de audio. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classapp_1_1voice_1_1audio__stream_1_1AudioStream_a72c9b2b39f5d7f419e7209d7c0640703_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classapp_1_1voice_1_1audio__stream_1_1AudioStream_ac1d779383890a229434e30a181447104}\label{classapp_1_1voice_1_1audio__stream_1_1AudioStream_ac1d779383890a229434e30a181447104}} 
+\index{app.voice.audio\_stream.AudioStream@{app.voice.audio\_stream.AudioStream}!q@{q}}
+\index{q@{q}!app.voice.audio\_stream.AudioStream@{app.voice.audio\_stream.AudioStream}}
+\doxysubsubsection{\texorpdfstring{q}{q}}
+{\footnotesize\ttfamily app.\+voice.\+audio\+\_\+stream.\+Audio\+Stream.\+q}
+
+\mbox{\Hypertarget{classapp_1_1voice_1_1audio__stream_1_1AudioStream_a0fd39083e48ffda40111cad44cf980e9}\label{classapp_1_1voice_1_1audio__stream_1_1AudioStream_a0fd39083e48ffda40111cad44cf980e9}} 
+\index{app.voice.audio\_stream.AudioStream@{app.voice.audio\_stream.AudioStream}!samplerate@{samplerate}}
+\index{samplerate@{samplerate}!app.voice.audio\_stream.AudioStream@{app.voice.audio\_stream.AudioStream}}
+\doxysubsubsection{\texorpdfstring{samplerate}{samplerate}}
+{\footnotesize\ttfamily app.\+voice.\+audio\+\_\+stream.\+Audio\+Stream.\+samplerate}
+
+\mbox{\Hypertarget{classapp_1_1voice_1_1audio__stream_1_1AudioStream_a27c69ecbae1538b8e21687cad27459f6}\label{classapp_1_1voice_1_1audio__stream_1_1AudioStream_a27c69ecbae1538b8e21687cad27459f6}} 
+\index{app.voice.audio\_stream.AudioStream@{app.voice.audio\_stream.AudioStream}!stream@{stream}}
+\index{stream@{stream}!app.voice.audio\_stream.AudioStream@{app.voice.audio\_stream.AudioStream}}
+\doxysubsubsection{\texorpdfstring{stream}{stream}}
+{\footnotesize\ttfamily app.\+voice.\+audio\+\_\+stream.\+Audio\+Stream.\+stream}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+voice/\mbox{\hyperlink{audio__stream_8py}{audio\+\_\+stream.\+py}}\end{DoxyCompactItemize}

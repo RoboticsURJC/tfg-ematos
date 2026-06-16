@@ -1,0 +1,5 @@
+<map id="process_service.ProcessService.start" name="process_service.ProcessService.start">
+<area shape="rect" id="node1" title="Levanta un microservicio en segundo plano de manera asíncrona." alt="" coords="5,35,268,61"/>
+<area shape="rect" id="node2" href="$namespacelog__service.html#af8a86650753e2ab9216e190fad59757c" title="Añade una nueva entrada de registro para un servicio específico." alt="" coords="362,5,513,32"/>
+<area shape="rect" id="node3" href="$classprocess__service_1_1ProcessService.html#a68c39806ab01a758c6e4d971d6783eba" title="Evalúa si el subproceso asociado a un servicio sigue activo." alt="" coords="316,57,559,98"/>
+</map>

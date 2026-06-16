@@ -1,0 +1,4 @@
+<map id="face_service.FaceService.memories" name="face_service.FaceService.memories">
+<area shape="rect" id="node1" title="Recupera la base de conocimientos o memorias vinculadas a un usuario específico." alt="" coords="5,5,260,32"/>
+<area shape="rect" id="node2" href="$namespacelog__service.html#af8a86650753e2ab9216e190fad59757c" title="Añade una nueva entrada de registro para un servicio específico." alt="" coords="308,5,459,32"/>
+</map>

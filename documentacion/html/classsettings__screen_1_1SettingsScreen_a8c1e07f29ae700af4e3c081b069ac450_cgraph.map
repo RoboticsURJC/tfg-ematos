@@ -1,0 +1,5 @@
+<map id="settings_screen.SettingsScreen._bt_disable" name="settings_screen.SettingsScreen._bt_disable">
+<area shape="rect" id="node1" title="Desactiva el módulo Bluetooth y oculta la lista de dispositivos." alt="" coords="5,5,187,47"/>
+<area shape="rect" id="node2" href="$classsettings__screen_1_1SettingsScreen.html#a64f0829473fc7cb45952f01150170377" title="Recarga el estado de bluetooth." alt="" coords="235,5,417,47"/>
+<area shape="rect" id="node3" href="$classsettings__screen_1_1SettingsScreen.html#a795c99353ff5f5d7c78ce40ee3bf3a2b" title="Lanza comando de aplicaciones internas." alt="" coords="465,5,647,47"/>
+</map>

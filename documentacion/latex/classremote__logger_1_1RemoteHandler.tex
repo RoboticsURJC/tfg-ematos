@@ -1,0 +1,113 @@
+\hypertarget{classremote__logger_1_1RemoteHandler}{}\doxysection{remote\+\_\+logger.\+Remote\+Handler Class Reference}
+\label{classremote__logger_1_1RemoteHandler}\index{remote\_logger.RemoteHandler@{remote\_logger.RemoteHandler}}
+
+
+Clase encargada de empaquetar y transmitir los logs hacia un punto de acceso HTTP remoto.  
+
+
+
+
+Inheritance diagram for remote\+\_\+logger.\+Remote\+Handler\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=247pt]{classremote__logger_1_1RemoteHandler__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for remote\+\_\+logger.\+Remote\+Handler\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=247pt]{classremote__logger_1_1RemoteHandler__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classremote__logger_1_1RemoteHandler_a6682ad545b64d5c42150bf937f3f6a4e}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classremote__logger_1_1RemoteHandler_ac2f4121e21c4c0b227efe1af587c77a4}{url}})
+\begin{DoxyCompactList}\small\item\em Inicializa la instancia del manejador remoto configurando la dirección de destino. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classremote__logger_1_1RemoteHandler_afd7e842c63ffa46741bffa70dbb237f0}{emit}} (self, record)
+\begin{DoxyCompactList}\small\item\em Envía de forma activa un registro de log hacia el servidor HTTP remoto. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classremote__logger_1_1RemoteHandler_ac2f4121e21c4c0b227efe1af587c77a4}{url}}
+\begin{DoxyCompactList}\small\item\em URL del servidor destino donde se enviarán las peticiones JSON con las líneas de log. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase encargada de empaquetar y transmitir los logs hacia un punto de acceso HTTP remoto. 
+
+Hereda de logging.\+Handler y sobreescribe el método fundamental emit para realizar peticiones POST. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classremote__logger_1_1RemoteHandler_a6682ad545b64d5c42150bf937f3f6a4e}\label{classremote__logger_1_1RemoteHandler_a6682ad545b64d5c42150bf937f3f6a4e}} 
+\index{remote\_logger.RemoteHandler@{remote\_logger.RemoteHandler}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!remote\_logger.RemoteHandler@{remote\_logger.RemoteHandler}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def remote\+\_\+logger.\+Remote\+Handler.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{url }\end{DoxyParamCaption})}
+
+
+
+Inicializa la instancia del manejador remoto configurando la dirección de destino. 
+
+Llama al constructor de la clase base logging.\+Handler y establece la URL del endpoint receptor.
+
+
+\begin{DoxyParams}{Parameters}
+{\em url} & Dirección base del servidor remoto de logs (ej\+: \textquotesingle{}\href{http://localhost:3000'}{\texttt{ http\+://localhost\+:3000\textquotesingle{}}}). \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=249pt]{classremote__logger_1_1RemoteHandler_a6682ad545b64d5c42150bf937f3f6a4e_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classremote__logger_1_1RemoteHandler_afd7e842c63ffa46741bffa70dbb237f0}\label{classremote__logger_1_1RemoteHandler_afd7e842c63ffa46741bffa70dbb237f0}} 
+\index{remote\_logger.RemoteHandler@{remote\_logger.RemoteHandler}!emit@{emit}}
+\index{emit@{emit}!remote\_logger.RemoteHandler@{remote\_logger.RemoteHandler}}
+\doxysubsubsection{\texorpdfstring{emit()}{emit()}}
+{\footnotesize\ttfamily def remote\+\_\+logger.\+Remote\+Handler.\+emit (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{record }\end{DoxyParamCaption})}
+
+
+
+Envía de forma activa un registro de log hacia el servidor HTTP remoto. 
+
+Este método es invocado automáticamente por el framework de logging de Python cada vez que se genera un evento. Transforma el registro (record) en una carga útil JSON que contiene el nivel y el mensaje formateado.
+
+\begin{DoxyNote}{Note}
+El tiempo de espera (timeout) está limitado estrictamente a 1 segundo para evitar que una caída del servidor remoto bloquee el hilo principal de ejecución de la aplicación o del robot.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em record} & Objeto de tipo logging.\+Log\+Record que contiene toda la metadata del evento capturado. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classremote__logger_1_1RemoteHandler_ac2f4121e21c4c0b227efe1af587c77a4}\label{classremote__logger_1_1RemoteHandler_ac2f4121e21c4c0b227efe1af587c77a4}} 
+\index{remote\_logger.RemoteHandler@{remote\_logger.RemoteHandler}!url@{url}}
+\index{url@{url}!remote\_logger.RemoteHandler@{remote\_logger.RemoteHandler}}
+\doxysubsubsection{\texorpdfstring{url}{url}}
+{\footnotesize\ttfamily remote\+\_\+logger.\+Remote\+Handler.\+url}
+
+
+
+URL del servidor destino donde se enviarán las peticiones JSON con las líneas de log. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+common/\mbox{\hyperlink{remote__logger_8py}{remote\+\_\+logger.\+py}}\end{DoxyCompactItemize}

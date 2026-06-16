@@ -1,0 +1,261 @@
+\hypertarget{classapp_1_1ui_1_1display_1_1FaceDisplay}{}\doxysection{app.\+ui.\+display.\+Face\+Display Class Reference}
+\label{classapp_1_1ui_1_1display_1_1FaceDisplay}\index{app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}}
+
+
+Orquestador de la visualización facial del robot.  
+
+
+
+
+Collaboration diagram for app.\+ui.\+display.\+Face\+Display\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=225pt]{classapp_1_1ui_1_1display_1_1FaceDisplay__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1display_1_1FaceDisplay_a2c8a6ea838eb684d4e7bcc0ad328c740}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, config\+\_\+path=None)
+\begin{DoxyCompactList}\small\item\em Inicializa la pantalla, carga configuración y prepara el font del sistema. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1display_1_1FaceDisplay_a4974307a023bafff1f0769db31a031e7}{set\+\_\+estado}} (self, text)
+\begin{DoxyCompactList}\small\item\em Actualiza el texto de estado mostrado en la parte inferior de la pantalla. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1display_1_1FaceDisplay_a8d2e295a8959c7a8c517f5ab4e843aa0}{set\+\_\+talking}} (self, talking)
+\begin{DoxyCompactList}\small\item\em Habilita/deshabilita la animación de boca al hablar. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1display_1_1FaceDisplay_af3747242a7ba32d64a0dda4c4d9003cc}{set\+\_\+emotion}} (self, \mbox{\hyperlink{classapp_1_1ui_1_1display_1_1FaceDisplay_a3c0a7b5a9dd562f9f4182c29974111cc}{emotion}})
+\begin{DoxyCompactList}\small\item\em Cambia el estado emocional del robot. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1display_1_1FaceDisplay_a744bd8bcd158f460a75ca90d0513ed6b}{start}} (self)
+\begin{DoxyCompactList}\small\item\em Inicia el hilo secundario de refresco de pantalla. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1display_1_1FaceDisplay_aee4db24221e2f842722ae8cf30bb5f8a}{draw}} (self, eyes\+\_\+open=True)
+\begin{DoxyCompactList}\small\item\em Renderiza un fotograma completo en el buffer de imagen. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1display_1_1FaceDisplay_a47f2051d908ea2d29e3468c0c9ea5ea1}{loop}} (self)
+\begin{DoxyCompactList}\small\item\em Bucle principal de ejecución del hilo de renderizado. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1display_1_1FaceDisplay_a14784cc6286392900fd065d5398cdf9d}{config}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1display_1_1FaceDisplay_a50eb67f01f60d8bab875ab7d17ec87be}{fps}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1display_1_1FaceDisplay_a7b672cc2cfacaee292cd2a672daccafa}{blink\+\_\+min}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1display_1_1FaceDisplay_ae43f2f7e98a92b5b70678d205cd5ace7}{blink\+\_\+max}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1display_1_1FaceDisplay_aa0c43d8b7a32cd09a370b852fff9a91e}{display}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1display_1_1FaceDisplay_a29d69276ae22e3a3d464a99330556793}{robot\+\_\+hablando}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1display_1_1FaceDisplay_acd3919ea3e126fc519d23a616615c40c}{estado\+\_\+texto}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1display_1_1FaceDisplay_a3c0a7b5a9dd562f9f4182c29974111cc}{emotion}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1display_1_1FaceDisplay_a691b568d30dbcfe8adc55d4936ddd59e}{running}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1display_1_1FaceDisplay_a833f27e64ad9e9bbec1119a4df8501f2}{next\+\_\+blink}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1display_1_1FaceDisplay_ad7a08f4bdf81347a8d2112e592dde023}{blink\+\_\+end}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1display_1_1FaceDisplay_aa727df8700c9c463c62108afc8dfaff0}{animation\+\_\+phase}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1display_1_1FaceDisplay_a52266d340c5d92104ea79dc5b22a5792}{font}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Orquestador de la visualización facial del robot. 
+
+Mantiene un bucle de renderizado en un hilo separado para actualizar la interfaz a una tasa de FPS definida, procesando estados emocionales y animaciones de habla en tiempo real. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classapp_1_1ui_1_1display_1_1FaceDisplay_a2c8a6ea838eb684d4e7bcc0ad328c740}\label{classapp_1_1ui_1_1display_1_1FaceDisplay_a2c8a6ea838eb684d4e7bcc0ad328c740}} 
+\index{app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def app.\+ui.\+display.\+Face\+Display.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{config\+\_\+path = {\ttfamily None} }\end{DoxyParamCaption})}
+
+
+
+Inicializa la pantalla, carga configuración y prepara el font del sistema. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em config\+\_\+path} & Ruta al archivo JSON de configuración (opcional). \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classapp_1_1ui_1_1display_1_1FaceDisplay_aee4db24221e2f842722ae8cf30bb5f8a}\label{classapp_1_1ui_1_1display_1_1FaceDisplay_aee4db24221e2f842722ae8cf30bb5f8a}} 
+\index{app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}!draw@{draw}}
+\index{draw@{draw}!app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily def app.\+ui.\+display.\+Face\+Display.\+draw (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{eyes\+\_\+open = {\ttfamily True} }\end{DoxyParamCaption})}
+
+
+
+Renderiza un fotograma completo en el buffer de imagen. 
+
+Procesa la geometría de ojos (apertura/cierre), boca (habla/emoción) y dibuja el texto de estado del sistema. 
+\begin{DoxyParams}{Parameters}
+{\em eyes\+\_\+open} & Booleano para controlar el parpadeo. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classapp_1_1ui_1_1display_1_1FaceDisplay_a47f2051d908ea2d29e3468c0c9ea5ea1}\label{classapp_1_1ui_1_1display_1_1FaceDisplay_a47f2051d908ea2d29e3468c0c9ea5ea1}} 
+\index{app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}!loop@{loop}}
+\index{loop@{loop}!app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily def app.\+ui.\+display.\+Face\+Display.\+loop (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Bucle principal de ejecución del hilo de renderizado. 
+
+Calcula los intervalos de parpadeo y actualiza el display según los FPS. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classapp_1_1ui_1_1display_1_1FaceDisplay_a47f2051d908ea2d29e3468c0c9ea5ea1_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classapp_1_1ui_1_1display_1_1FaceDisplay_af3747242a7ba32d64a0dda4c4d9003cc}\label{classapp_1_1ui_1_1display_1_1FaceDisplay_af3747242a7ba32d64a0dda4c4d9003cc}} 
+\index{app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}!set\_emotion@{set\_emotion}}
+\index{set\_emotion@{set\_emotion}!app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}}
+\doxysubsubsection{\texorpdfstring{set\_emotion()}{set\_emotion()}}
+{\footnotesize\ttfamily def app.\+ui.\+display.\+Face\+Display.\+set\+\_\+emotion (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{emotion }\end{DoxyParamCaption})}
+
+
+
+Cambia el estado emocional del robot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em emotion} & String identificador (ej\+: \textquotesingle{}happy\textquotesingle{}, \textquotesingle{}sad\textquotesingle{}, \textquotesingle{}thinking\textquotesingle{}, \textquotesingle{}surprised\textquotesingle{}). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classapp_1_1ui_1_1display_1_1FaceDisplay_a4974307a023bafff1f0769db31a031e7}\label{classapp_1_1ui_1_1display_1_1FaceDisplay_a4974307a023bafff1f0769db31a031e7}} 
+\index{app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}!set\_estado@{set\_estado}}
+\index{set\_estado@{set\_estado}!app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}}
+\doxysubsubsection{\texorpdfstring{set\_estado()}{set\_estado()}}
+{\footnotesize\ttfamily def app.\+ui.\+display.\+Face\+Display.\+set\+\_\+estado (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{text }\end{DoxyParamCaption})}
+
+
+
+Actualiza el texto de estado mostrado en la parte inferior de la pantalla. 
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1display_1_1FaceDisplay_a8d2e295a8959c7a8c517f5ab4e843aa0}\label{classapp_1_1ui_1_1display_1_1FaceDisplay_a8d2e295a8959c7a8c517f5ab4e843aa0}} 
+\index{app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}!set\_talking@{set\_talking}}
+\index{set\_talking@{set\_talking}!app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}}
+\doxysubsubsection{\texorpdfstring{set\_talking()}{set\_talking()}}
+{\footnotesize\ttfamily def app.\+ui.\+display.\+Face\+Display.\+set\+\_\+talking (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{talking }\end{DoxyParamCaption})}
+
+
+
+Habilita/deshabilita la animación de boca al hablar. 
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1display_1_1FaceDisplay_a744bd8bcd158f460a75ca90d0513ed6b}\label{classapp_1_1ui_1_1display_1_1FaceDisplay_a744bd8bcd158f460a75ca90d0513ed6b}} 
+\index{app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}!start@{start}}
+\index{start@{start}!app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily def app.\+ui.\+display.\+Face\+Display.\+start (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Inicia el hilo secundario de refresco de pantalla. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classapp_1_1ui_1_1display_1_1FaceDisplay_a744bd8bcd158f460a75ca90d0513ed6b_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classapp_1_1ui_1_1display_1_1FaceDisplay_aa727df8700c9c463c62108afc8dfaff0}\label{classapp_1_1ui_1_1display_1_1FaceDisplay_aa727df8700c9c463c62108afc8dfaff0}} 
+\index{app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}!animation\_phase@{animation\_phase}}
+\index{animation\_phase@{animation\_phase}!app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}}
+\doxysubsubsection{\texorpdfstring{animation\_phase}{animation\_phase}}
+{\footnotesize\ttfamily app.\+ui.\+display.\+Face\+Display.\+animation\+\_\+phase}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1display_1_1FaceDisplay_ad7a08f4bdf81347a8d2112e592dde023}\label{classapp_1_1ui_1_1display_1_1FaceDisplay_ad7a08f4bdf81347a8d2112e592dde023}} 
+\index{app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}!blink\_end@{blink\_end}}
+\index{blink\_end@{blink\_end}!app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}}
+\doxysubsubsection{\texorpdfstring{blink\_end}{blink\_end}}
+{\footnotesize\ttfamily app.\+ui.\+display.\+Face\+Display.\+blink\+\_\+end}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1display_1_1FaceDisplay_ae43f2f7e98a92b5b70678d205cd5ace7}\label{classapp_1_1ui_1_1display_1_1FaceDisplay_ae43f2f7e98a92b5b70678d205cd5ace7}} 
+\index{app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}!blink\_max@{blink\_max}}
+\index{blink\_max@{blink\_max}!app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}}
+\doxysubsubsection{\texorpdfstring{blink\_max}{blink\_max}}
+{\footnotesize\ttfamily app.\+ui.\+display.\+Face\+Display.\+blink\+\_\+max}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1display_1_1FaceDisplay_a7b672cc2cfacaee292cd2a672daccafa}\label{classapp_1_1ui_1_1display_1_1FaceDisplay_a7b672cc2cfacaee292cd2a672daccafa}} 
+\index{app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}!blink\_min@{blink\_min}}
+\index{blink\_min@{blink\_min}!app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}}
+\doxysubsubsection{\texorpdfstring{blink\_min}{blink\_min}}
+{\footnotesize\ttfamily app.\+ui.\+display.\+Face\+Display.\+blink\+\_\+min}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1display_1_1FaceDisplay_a14784cc6286392900fd065d5398cdf9d}\label{classapp_1_1ui_1_1display_1_1FaceDisplay_a14784cc6286392900fd065d5398cdf9d}} 
+\index{app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}!config@{config}}
+\index{config@{config}!app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}}
+\doxysubsubsection{\texorpdfstring{config}{config}}
+{\footnotesize\ttfamily app.\+ui.\+display.\+Face\+Display.\+config}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1display_1_1FaceDisplay_aa0c43d8b7a32cd09a370b852fff9a91e}\label{classapp_1_1ui_1_1display_1_1FaceDisplay_aa0c43d8b7a32cd09a370b852fff9a91e}} 
+\index{app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}!display@{display}}
+\index{display@{display}!app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}}
+\doxysubsubsection{\texorpdfstring{display}{display}}
+{\footnotesize\ttfamily app.\+ui.\+display.\+Face\+Display.\+display}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1display_1_1FaceDisplay_a3c0a7b5a9dd562f9f4182c29974111cc}\label{classapp_1_1ui_1_1display_1_1FaceDisplay_a3c0a7b5a9dd562f9f4182c29974111cc}} 
+\index{app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}!emotion@{emotion}}
+\index{emotion@{emotion}!app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}}
+\doxysubsubsection{\texorpdfstring{emotion}{emotion}}
+{\footnotesize\ttfamily app.\+ui.\+display.\+Face\+Display.\+emotion}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1display_1_1FaceDisplay_acd3919ea3e126fc519d23a616615c40c}\label{classapp_1_1ui_1_1display_1_1FaceDisplay_acd3919ea3e126fc519d23a616615c40c}} 
+\index{app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}!estado\_texto@{estado\_texto}}
+\index{estado\_texto@{estado\_texto}!app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}}
+\doxysubsubsection{\texorpdfstring{estado\_texto}{estado\_texto}}
+{\footnotesize\ttfamily app.\+ui.\+display.\+Face\+Display.\+estado\+\_\+texto}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1display_1_1FaceDisplay_a52266d340c5d92104ea79dc5b22a5792}\label{classapp_1_1ui_1_1display_1_1FaceDisplay_a52266d340c5d92104ea79dc5b22a5792}} 
+\index{app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}!font@{font}}
+\index{font@{font}!app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}}
+\doxysubsubsection{\texorpdfstring{font}{font}}
+{\footnotesize\ttfamily app.\+ui.\+display.\+Face\+Display.\+font}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1display_1_1FaceDisplay_a50eb67f01f60d8bab875ab7d17ec87be}\label{classapp_1_1ui_1_1display_1_1FaceDisplay_a50eb67f01f60d8bab875ab7d17ec87be}} 
+\index{app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}!fps@{fps}}
+\index{fps@{fps}!app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}}
+\doxysubsubsection{\texorpdfstring{fps}{fps}}
+{\footnotesize\ttfamily app.\+ui.\+display.\+Face\+Display.\+fps}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1display_1_1FaceDisplay_a833f27e64ad9e9bbec1119a4df8501f2}\label{classapp_1_1ui_1_1display_1_1FaceDisplay_a833f27e64ad9e9bbec1119a4df8501f2}} 
+\index{app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}!next\_blink@{next\_blink}}
+\index{next\_blink@{next\_blink}!app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}}
+\doxysubsubsection{\texorpdfstring{next\_blink}{next\_blink}}
+{\footnotesize\ttfamily app.\+ui.\+display.\+Face\+Display.\+next\+\_\+blink}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1display_1_1FaceDisplay_a29d69276ae22e3a3d464a99330556793}\label{classapp_1_1ui_1_1display_1_1FaceDisplay_a29d69276ae22e3a3d464a99330556793}} 
+\index{app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}!robot\_hablando@{robot\_hablando}}
+\index{robot\_hablando@{robot\_hablando}!app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}}
+\doxysubsubsection{\texorpdfstring{robot\_hablando}{robot\_hablando}}
+{\footnotesize\ttfamily app.\+ui.\+display.\+Face\+Display.\+robot\+\_\+hablando}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1display_1_1FaceDisplay_a691b568d30dbcfe8adc55d4936ddd59e}\label{classapp_1_1ui_1_1display_1_1FaceDisplay_a691b568d30dbcfe8adc55d4936ddd59e}} 
+\index{app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}!running@{running}}
+\index{running@{running}!app.ui.display.FaceDisplay@{app.ui.display.FaceDisplay}}
+\doxysubsubsection{\texorpdfstring{running}{running}}
+{\footnotesize\ttfamily app.\+ui.\+display.\+Face\+Display.\+running}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ui/\mbox{\hyperlink{display_8py}{display.\+py}}\end{DoxyCompactItemize}

@@ -1,0 +1,772 @@
+\hypertarget{classword__search__screen_1_1WordSearchScreen}{}\doxysection{word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen Class Reference}
+\label{classword__search__screen_1_1WordSearchScreen}\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+
+
+Pantalla interactiva de Sopa de Letras optimizada con criterios de accesibilidad.  
+
+
+
+
+Inheritance diagram for word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classword__search__screen_1_1WordSearchScreen__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classword__search__screen_1_1WordSearchScreen__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_aace3587d8db03566ddf8c96dcd2e1d07}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, controller=None, width=1024, height=600)
+\begin{DoxyCompactList}\small\item\em Constructor de la clase \mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen}{Word\+Search\+Screen}}. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_ab7df2eacfb8e2099064eb127354645a7}{exit\+\_\+game}} (self)
+\begin{DoxyCompactList}\small\item\em Cierra de forma ordenada el sub-\/entorno de ejecución de Pygame y retorna al launcher de Qt. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_a74d20cc02e6d6001518c47e79389412a}{start\+\_\+game}} (self, \mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_ab40df9139019fd95f6915fbfec3d60ca}{difficulty}})
+\begin{DoxyCompactList}\small\item\em Inicializa las matrices del generador procedimental e inicia una partida nueva. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_aa4a3fceb79c314b7a3c0f7815148346e}{update\+\_\+logic}} (self)
+\begin{DoxyCompactList}\small\item\em Comprueba de forma asíncrona la condición de victoria por vaciado de lista. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_ab447daf03a12981065c7d7697fb50973}{mouse\+Press\+Event}} (self, event)
+\begin{DoxyCompactList}\small\item\em Manejador de eventos de pulsación inicial sobre el dispositivo apuntador. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_aaa0845c89986d0ce19a065d5e1bc5066}{mouse\+Move\+Event}} (self, event)
+\begin{DoxyCompactList}\small\item\em Manejador de trazos continuos para soportar arrastres (drag and drop) táctiles. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_afe5e3f80c9c28781091317dbee28766c}{mouse\+Release\+Event}} (self, event)
+\begin{DoxyCompactList}\small\item\em Manejador de liberación del punto de contacto. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_a5f0da20e93208094896203a19686e223}{render}} (self)
+\begin{DoxyCompactList}\small\item\em Orquestador cíclico de dibujo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_ad45ce8eeea37be64bc72c1d6cad80f7a}{state}}
+\item 
+\mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_ab40df9139019fd95f6915fbfec3d60ca}{difficulty}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Máquina de estados lógicos principal (\char`\"{}menu\char`\"{} $\vert$ \char`\"{}game\char`\"{}). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_a310191f1dc5a7c442636a91d0c0e5462}{selected}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Cadena que determina la dificultad activa (\char`\"{}facil\char`\"{} $\vert$ \char`\"{}medio\char`\"{} $\vert$ \char`\"{}dificil\char`\"{}). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_a0c098e60c8d3952c3d3ecb01702e2c54}{current\+\_\+path}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Lista dinámica de posiciones {\ttfamily \mbox{[}x, y\mbox{]}} con las celdas ya descubiertas con éxito. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_a6415ae7521a0c8af4ab97c93fcf4dbbd}{words\+\_\+to\+\_\+guess}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Lista transitoria de posiciones {\ttfamily (x, y)} del trazo lineal en curso durante el arrastre. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_a87df929c5df223b283c677ac1bdbc609}{hint\+\_\+cell}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Subconjunto de cadenas textuales que el usuario debe encontrar para ganar. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_af3e0f1617c3c5a464277b853f294190a}{CELL}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Coordenada tupla {\ttfamily (x, y)} de la celda destacada por el botón de pista (None si no está activo). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_a393358ec8852108d3612ead774cf1bf7}{GRID\+\_\+\+POS}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Tamaño físico adaptativo en píxeles de los lados de cada celda cuadrada de la matriz. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_a4932723f7fc3530e552d463ebfbac091}{WORD\+\_\+\+LIST\+\_\+X}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Coordenadas absolutas de origen {\ttfamily (X, Y)} para el renderizado del tablero. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_ab14348fa5c4cfef4c1f4b24bb71d0203}{WORD\+\_\+\+LIST\+\_\+Y}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Coordenada en el eje X de origen para la barra lateral derecha de palabras. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_a5c1a2296dfdae8a9820e215b0a6e3c63}{scroll\+\_\+offset}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Coordenada en el eje Y de origen para la barra lateral derecha de palabras. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_ac98d7f28f339dd0752b48fb6e2446842}{max\+\_\+scroll}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Desplazamiento actual en píxeles del scroll de la lista lateral de palabras. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_a0baccc5dbc86ede89472591232d200ec}{m\+\_\+f\+\_\+title}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Bandera interna que monitoriza el estado de presión continua del mouse o pantalla táctil. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_a1dbbe30734474332dcb058803128cab7}{m\+\_\+f\+\_\+subtitle}}
+\item 
+\mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_ab5059a0ec9dee19f3d502e69cec22a90}{m\+\_\+f\+\_\+btn}}
+\item 
+\mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_ad36e272aa70b4a68bb172fcf87cf0ff0}{btn\+\_\+easy}}
+\item 
+\mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_a61d3dd1980a3caa09ac56759cf1564e9}{btn\+\_\+medium}}
+\item 
+\mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_a7e626006002fa24253c85648e17adef7}{btn\+\_\+hard}}
+\item 
+\mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_a1a2e87162b57cd1ec5986b98e7742f7a}{btn\+\_\+game\+\_\+back}}
+\item 
+\mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_a20758c3bfbe276fb9c5855ebc0b7d48d}{btn\+\_\+hint}}
+\item 
+\mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_a7ae36cc435c327eaa276e151e663722a}{btn\+\_\+back}}
+\item 
+\mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_af476d220d7950eff83a59d1a7862c78c}{letter\+\_\+cache}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_ab3ba7ccbe96c60a15ba1b19db528145d}{\+\_\+calculate\+\_\+layout}} (self)
+\begin{DoxyCompactList}\small\item\em Distribuye espacialmente la matriz de juego basándose en la resolución actual del lienzo. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_a5cc2220bbc67dd963cd9400fc43a17d1}{\+\_\+update\+\_\+scroll\+\_\+range}} (self)
+\begin{DoxyCompactList}\small\item\em Evalúa las dimensiones de la lista léxica y calibra los límites del scroll vertical. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_af299de8caa0a843b4b8259a3c9212053}{\+\_\+cache\+\_\+letters}} (self)
+\begin{DoxyCompactList}\small\item\em Pre-\/renderiza las letras del alfabeto de la matriz sobre un mapa asociativo en memoria. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_a981fd39093d5b080137669378f75c161}{\+\_\+handle\+\_\+grid\+\_\+click}} (self, pos)
+\begin{DoxyCompactList}\small\item\em Identifica la celda base sobre la que se inicia la selección lineal. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_a355a8c737dc5c9a0920f87d51315b48c}{\+\_\+handle\+\_\+grid\+\_\+drag}} (self, pos)
+\begin{DoxyCompactList}\small\item\em Analiza la posición del arrastre para expandir de forma lineal la palabra activa. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_a96930fe9d47b71d8606215882a59beac}{\+\_\+is\+\_\+straight\+\_\+line}} (self, path)
+\begin{DoxyCompactList}\small\item\em Algoritmo analítico de restricción ortogonal y diagonal para vectores de celdas. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_a5f20368b12ea9b4a8665ab67a3968bae}{\+\_\+validate\+\_\+selection}} (self)
+\begin{DoxyCompactList}\small\item\em Verifica si la palabra seleccionada coincide con algún elemento de la lista pendiente. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_a4b2b9b6bdae3de70df6f62e557dc009e}{\+\_\+get\+\_\+hint\+\_\+cell}} (self)
+\begin{DoxyCompactList}\small\item\em Resuelve la posición inicial del primer carácter de la palabra más cercana pendiente. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_a07d15e130ca6bccd00b1b803076c6c60}{\+\_\+draw\+\_\+bg}} (self)
+\begin{DoxyCompactList}\small\item\em Renderiza el fondo aplicando un gradiente cromático vertical suavizado. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_a7ff1238e1d5fe68d1a8bf052db22d0b5}{\+\_\+draw\+\_\+menu\+\_\+dinamico}} (self, W, H)
+\begin{DoxyCompactList}\small\item\em Compone el Menú Principal centralizado y autoescalado con tipografías legibles. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_a1a4572828e4b6e9c413250f31a2c70b6}{\+\_\+draw\+\_\+menu\+\_\+btn}} (self, rect, text, bg\+\_\+color, brd\+\_\+color)
+\begin{DoxyCompactList}\small\item\em Sub-\/utilidad interna encargada de estructurar los botones del menú con relieves. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_af68b1a6445c946d67c94862ae803ed5b}{\+\_\+draw\+\_\+game}} (self)
+\begin{DoxyCompactList}\small\item\em Ejecuta la renderización visual de las subcapas de juego activo. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_a0dcd4ece2fb168f80ad2c3f9fafb354f}{\+\_\+draw\+\_\+grid}} (self)
+\begin{DoxyCompactList}\small\item\em Dibuja la rejilla matricial de caracteres combinando los estados lógicos de juego. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_a757cb0a63f36abb362a90807c6167595}{\+\_\+draw\+\_\+words}} (self)
+\begin{DoxyCompactList}\small\item\em Renderiza el panel derecho que aloja el listado dinámico de palabras y su barra de scroll. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_a7728323f0948cab18f3305d78ccd8831}{\+\_\+draw\+\_\+bottom\+\_\+bar}} (self)
+\begin{DoxyCompactList}\small\item\em Renderiza el HUD inferior horizontal que contiene los botones auxiliares de juego. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_a89ba1e70da8645750e7a4b403444b8da}{\+\_\+draw\+\_\+button}} (self, rect, text, color)
+\begin{DoxyCompactList}\small\item\em Helper utilitario para el renderizado de botones secundarios in-\/game con sombreado plano. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_a8e395cb5ecb6b185b0704266a76ab12b}{\+\_\+win}} (self)
+\begin{DoxyCompactList}\small\item\em Gestiona las variables de control al completar con éxito todas las palabras del panel. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen_a4d30c684d4fb47f0a8d8b405a7b6bf4b}{\+\_\+mouse\+\_\+pressed}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Límite superior de desplazamiento vertical permitido para el scroll. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Pantalla interactiva de Sopa de Letras optimizada con criterios de accesibilidad. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_aace3587d8db03566ddf8c96dcd2e1d07}\label{classword__search__screen_1_1WordSearchScreen_aace3587d8db03566ddf8c96dcd2e1d07}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{controller = {\ttfamily None},  }\item[{}]{width = {\ttfamily 1024},  }\item[{}]{height = {\ttfamily 600} }\end{DoxyParamCaption})}
+
+
+
+Constructor de la clase \mbox{\hyperlink{classword__search__screen_1_1WordSearchScreen}{Word\+Search\+Screen}}. 
+
+Instancia la máquina de estados lógicos e inicializa los caches tipográficos masivos.
+
+
+\begin{DoxyParams}{Parameters}
+{\em controller} & Instancia del enrutador o máquina de control de interfaces de la app. \\
+\hline
+{\em width} & Dimensión horizontal inicial de la ventana de juego. \\
+\hline
+{\em height} & Dimensión vertical inicial de la ventana de juego. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{classword__search__screen_1_1WordSearchScreen_aace3587d8db03566ddf8c96dcd2e1d07_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_af299de8caa0a843b4b8259a3c9212053}\label{classword__search__screen_1_1WordSearchScreen_af299de8caa0a843b4b8259a3c9212053}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!\_cache\_letters@{\_cache\_letters}}
+\index{\_cache\_letters@{\_cache\_letters}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{\_cache\_letters()}{\_cache\_letters()}}
+{\footnotesize\ttfamily def word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+\_\+cache\+\_\+letters (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Pre-\/renderiza las letras del alfabeto de la matriz sobre un mapa asociativo en memoria. 
+
+{\bfseries{Optimización técnica\+:}} Suprime llamadas redundantes a {\ttfamily Font.\+render()} dentro del bucle principal, logrando tasas estables de 60 FPS independientemente del tamaño de la matriz. \mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_ab3ba7ccbe96c60a15ba1b19db528145d}\label{classword__search__screen_1_1WordSearchScreen_ab3ba7ccbe96c60a15ba1b19db528145d}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!\_calculate\_layout@{\_calculate\_layout}}
+\index{\_calculate\_layout@{\_calculate\_layout}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{\_calculate\_layout()}{\_calculate\_layout()}}
+{\footnotesize\ttfamily def word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+\_\+calculate\+\_\+layout (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Distribuye espacialmente la matriz de juego basándose en la resolución actual del lienzo. 
+
+Resuelve de forma exacta las cotas dimensionales de las celdas y ubica los paneles laterales minimizando la distorsión geométrica en pantallas panorámicas. \mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_a07d15e130ca6bccd00b1b803076c6c60}\label{classword__search__screen_1_1WordSearchScreen_a07d15e130ca6bccd00b1b803076c6c60}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!\_draw\_bg@{\_draw\_bg}}
+\index{\_draw\_bg@{\_draw\_bg}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{\_draw\_bg()}{\_draw\_bg()}}
+{\footnotesize\ttfamily def word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+\_\+draw\+\_\+bg (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Renderiza el fondo aplicando un gradiente cromático vertical suavizado. 
+
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_a7728323f0948cab18f3305d78ccd8831}\label{classword__search__screen_1_1WordSearchScreen_a7728323f0948cab18f3305d78ccd8831}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!\_draw\_bottom\_bar@{\_draw\_bottom\_bar}}
+\index{\_draw\_bottom\_bar@{\_draw\_bottom\_bar}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{\_draw\_bottom\_bar()}{\_draw\_bottom\_bar()}}
+{\footnotesize\ttfamily def word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+\_\+draw\+\_\+bottom\+\_\+bar (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Renderiza el HUD inferior horizontal que contiene los botones auxiliares de juego. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classword__search__screen_1_1WordSearchScreen_a7728323f0948cab18f3305d78ccd8831_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_a89ba1e70da8645750e7a4b403444b8da}\label{classword__search__screen_1_1WordSearchScreen_a89ba1e70da8645750e7a4b403444b8da}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!\_draw\_button@{\_draw\_button}}
+\index{\_draw\_button@{\_draw\_button}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{\_draw\_button()}{\_draw\_button()}}
+{\footnotesize\ttfamily def word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+\_\+draw\+\_\+button (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{rect,  }\item[{}]{text,  }\item[{}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Helper utilitario para el renderizado de botones secundarios in-\/game con sombreado plano. 
+
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_af68b1a6445c946d67c94862ae803ed5b}\label{classword__search__screen_1_1WordSearchScreen_af68b1a6445c946d67c94862ae803ed5b}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!\_draw\_game@{\_draw\_game}}
+\index{\_draw\_game@{\_draw\_game}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{\_draw\_game()}{\_draw\_game()}}
+{\footnotesize\ttfamily def word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+\_\+draw\+\_\+game (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Ejecuta la renderización visual de las subcapas de juego activo. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classword__search__screen_1_1WordSearchScreen_af68b1a6445c946d67c94862ae803ed5b_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_a0dcd4ece2fb168f80ad2c3f9fafb354f}\label{classword__search__screen_1_1WordSearchScreen_a0dcd4ece2fb168f80ad2c3f9fafb354f}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!\_draw\_grid@{\_draw\_grid}}
+\index{\_draw\_grid@{\_draw\_grid}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{\_draw\_grid()}{\_draw\_grid()}}
+{\footnotesize\ttfamily def word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+\_\+draw\+\_\+grid (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Dibuja la rejilla matricial de caracteres combinando los estados lógicos de juego. 
+
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_a1a4572828e4b6e9c413250f31a2c70b6}\label{classword__search__screen_1_1WordSearchScreen_a1a4572828e4b6e9c413250f31a2c70b6}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!\_draw\_menu\_btn@{\_draw\_menu\_btn}}
+\index{\_draw\_menu\_btn@{\_draw\_menu\_btn}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{\_draw\_menu\_btn()}{\_draw\_menu\_btn()}}
+{\footnotesize\ttfamily def word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+\_\+draw\+\_\+menu\+\_\+btn (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{rect,  }\item[{}]{text,  }\item[{}]{bg\+\_\+color,  }\item[{}]{brd\+\_\+color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Sub-\/utilidad interna encargada de estructurar los botones del menú con relieves. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classword__search__screen_1_1WordSearchScreen_a1a4572828e4b6e9c413250f31a2c70b6_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_a7ff1238e1d5fe68d1a8bf052db22d0b5}\label{classword__search__screen_1_1WordSearchScreen_a7ff1238e1d5fe68d1a8bf052db22d0b5}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!\_draw\_menu\_dinamico@{\_draw\_menu\_dinamico}}
+\index{\_draw\_menu\_dinamico@{\_draw\_menu\_dinamico}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{\_draw\_menu\_dinamico()}{\_draw\_menu\_dinamico()}}
+{\footnotesize\ttfamily def word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+\_\+draw\+\_\+menu\+\_\+dinamico (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{W,  }\item[{}]{H }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Compone el Menú Principal centralizado y autoescalado con tipografías legibles. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em W} & Ancho actual del marco físico de la app. \\
+\hline
+{\em H} & Alto actual del marco físico de la app. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classword__search__screen_1_1WordSearchScreen_a7ff1238e1d5fe68d1a8bf052db22d0b5_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_a757cb0a63f36abb362a90807c6167595}\label{classword__search__screen_1_1WordSearchScreen_a757cb0a63f36abb362a90807c6167595}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!\_draw\_words@{\_draw\_words}}
+\index{\_draw\_words@{\_draw\_words}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{\_draw\_words()}{\_draw\_words()}}
+{\footnotesize\ttfamily def word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+\_\+draw\+\_\+words (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Renderiza el panel derecho que aloja el listado dinámico de palabras y su barra de scroll. 
+
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_a4b2b9b6bdae3de70df6f62e557dc009e}\label{classword__search__screen_1_1WordSearchScreen_a4b2b9b6bdae3de70df6f62e557dc009e}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!\_get\_hint\_cell@{\_get\_hint\_cell}}
+\index{\_get\_hint\_cell@{\_get\_hint\_cell}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{\_get\_hint\_cell()}{\_get\_hint\_cell()}}
+{\footnotesize\ttfamily def word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+\_\+get\+\_\+hint\+\_\+cell (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Resuelve la posición inicial del primer carácter de la palabra más cercana pendiente. 
+
+\begin{DoxyReturn}{Returns}
+tupla Coordenada {\ttfamily (x, y)} de apoyo cognitivo, o {\ttfamily None} si hay un fallo de indexación. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_a981fd39093d5b080137669378f75c161}\label{classword__search__screen_1_1WordSearchScreen_a981fd39093d5b080137669378f75c161}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!\_handle\_grid\_click@{\_handle\_grid\_click}}
+\index{\_handle\_grid\_click@{\_handle\_grid\_click}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{\_handle\_grid\_click()}{\_handle\_grid\_click()}}
+{\footnotesize\ttfamily def word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+\_\+handle\+\_\+grid\+\_\+click (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Identifica la celda base sobre la que se inicia la selección lineal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & Coordenadas del cursor respecto al origen. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_a355a8c737dc5c9a0920f87d51315b48c}\label{classword__search__screen_1_1WordSearchScreen_a355a8c737dc5c9a0920f87d51315b48c}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!\_handle\_grid\_drag@{\_handle\_grid\_drag}}
+\index{\_handle\_grid\_drag@{\_handle\_grid\_drag}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{\_handle\_grid\_drag()}{\_handle\_grid\_drag()}}
+{\footnotesize\ttfamily def word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+\_\+handle\+\_\+grid\+\_\+drag (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Analiza la posición del arrastre para expandir de forma lineal la palabra activa. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & Coordenadas continuas del cursor. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classword__search__screen_1_1WordSearchScreen_a355a8c737dc5c9a0920f87d51315b48c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_a96930fe9d47b71d8606215882a59beac}\label{classword__search__screen_1_1WordSearchScreen_a96930fe9d47b71d8606215882a59beac}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!\_is\_straight\_line@{\_is\_straight\_line}}
+\index{\_is\_straight\_line@{\_is\_straight\_line}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{\_is\_straight\_line()}{\_is\_straight\_line()}}
+{\footnotesize\ttfamily def word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+\_\+is\+\_\+straight\+\_\+line (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Algoritmo analítico de restricción ortogonal y diagonal para vectores de celdas. 
+
+Garantiza mediante normalización de pendientes unitarias recurrentes que las celdas arrastradas formen estrictamente una línea recta continua (horizontal, vertical o diagonal).
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Vector con la serie temporal de coordenadas {\ttfamily (x, y)} evaluadas. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool Verdadero si la trayectoria cumple con el vector de alineación rectilíneo. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_a5cc2220bbc67dd963cd9400fc43a17d1}\label{classword__search__screen_1_1WordSearchScreen_a5cc2220bbc67dd963cd9400fc43a17d1}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!\_update\_scroll\_range@{\_update\_scroll\_range}}
+\index{\_update\_scroll\_range@{\_update\_scroll\_range}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{\_update\_scroll\_range()}{\_update\_scroll\_range()}}
+{\footnotesize\ttfamily def word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+\_\+update\+\_\+scroll\+\_\+range (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Evalúa las dimensiones de la lista léxica y calibra los límites del scroll vertical. 
+
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_a5f20368b12ea9b4a8665ab67a3968bae}\label{classword__search__screen_1_1WordSearchScreen_a5f20368b12ea9b4a8665ab67a3968bae}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!\_validate\_selection@{\_validate\_selection}}
+\index{\_validate\_selection@{\_validate\_selection}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{\_validate\_selection()}{\_validate\_selection()}}
+{\footnotesize\ttfamily def word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+\_\+validate\+\_\+selection (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Verifica si la palabra seleccionada coincide con algún elemento de la lista pendiente. 
+
+Soporta lecturas inversas para palabras dispuestas al revés en el tablero.
+
+\begin{DoxyReturn}{Returns}
+bool Verdadero si la palabra es correcta y es aceptada por el motor. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classword__search__screen_1_1WordSearchScreen_a5f20368b12ea9b4a8665ab67a3968bae_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_a8e395cb5ecb6b185b0704266a76ab12b}\label{classword__search__screen_1_1WordSearchScreen_a8e395cb5ecb6b185b0704266a76ab12b}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!\_win@{\_win}}
+\index{\_win@{\_win}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{\_win()}{\_win()}}
+{\footnotesize\ttfamily def word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+\_\+win (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Gestiona las variables de control al completar con éxito todas las palabras del panel. 
+
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_ab7df2eacfb8e2099064eb127354645a7}\label{classword__search__screen_1_1WordSearchScreen_ab7df2eacfb8e2099064eb127354645a7}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!exit\_game@{exit\_game}}
+\index{exit\_game@{exit\_game}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{exit\_game()}{exit\_game()}}
+{\footnotesize\ttfamily def word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+exit\+\_\+game (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Cierra de forma ordenada el sub-\/entorno de ejecución de Pygame y retorna al launcher de Qt. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classword__search__screen_1_1WordSearchScreen_ab7df2eacfb8e2099064eb127354645a7_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_aaa0845c89986d0ce19a065d5e1bc5066}\label{classword__search__screen_1_1WordSearchScreen_aaa0845c89986d0ce19a065d5e1bc5066}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!mouseMoveEvent@{mouseMoveEvent}}
+\index{mouseMoveEvent@{mouseMoveEvent}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{mouseMoveEvent()}{mouseMoveEvent()}}
+{\footnotesize\ttfamily def word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+mouse\+Move\+Event (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{event }\end{DoxyParamCaption})}
+
+
+
+Manejador de trazos continuos para soportar arrastres (drag and drop) táctiles. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Instancia del evento nativo de tipo QMouse\+Event. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classword__search__screen_1_1WordSearchScreen_aaa0845c89986d0ce19a065d5e1bc5066_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_ab447daf03a12981065c7d7697fb50973}\label{classword__search__screen_1_1WordSearchScreen_ab447daf03a12981065c7d7697fb50973}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!mousePressEvent@{mousePressEvent}}
+\index{mousePressEvent@{mousePressEvent}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{mousePressEvent()}{mousePressEvent()}}
+{\footnotesize\ttfamily def word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+mouse\+Press\+Event (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{event }\end{DoxyParamCaption})}
+
+
+
+Manejador de eventos de pulsación inicial sobre el dispositivo apuntador. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Instancia del evento nativo de tipo QMouse\+Event. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classword__search__screen_1_1WordSearchScreen_ab447daf03a12981065c7d7697fb50973_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_afe5e3f80c9c28781091317dbee28766c}\label{classword__search__screen_1_1WordSearchScreen_afe5e3f80c9c28781091317dbee28766c}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!mouseReleaseEvent@{mouseReleaseEvent}}
+\index{mouseReleaseEvent@{mouseReleaseEvent}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{mouseReleaseEvent()}{mouseReleaseEvent()}}
+{\footnotesize\ttfamily def word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+mouse\+Release\+Event (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{event }\end{DoxyParamCaption})}
+
+
+
+Manejador de liberación del punto de contacto. 
+
+Valida la validez léxica del trazo.
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Instancia del evento nativo de tipo QMouse\+Event. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classword__search__screen_1_1WordSearchScreen_afe5e3f80c9c28781091317dbee28766c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_a5f0da20e93208094896203a19686e223}\label{classword__search__screen_1_1WordSearchScreen_a5f0da20e93208094896203a19686e223}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!render@{render}}
+\index{render@{render}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily def word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+render (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Orquestador cíclico de dibujo. 
+
+Resuelve las dimensiones globales de la ventana en caliente. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classword__search__screen_1_1WordSearchScreen_a5f0da20e93208094896203a19686e223_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_a74d20cc02e6d6001518c47e79389412a}\label{classword__search__screen_1_1WordSearchScreen_a74d20cc02e6d6001518c47e79389412a}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!start\_game@{start\_game}}
+\index{start\_game@{start\_game}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{start\_game()}{start\_game()}}
+{\footnotesize\ttfamily def word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+start\+\_\+game (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{difficulty }\end{DoxyParamCaption})}
+
+
+
+Inicializa las matrices del generador procedimental e inicia una partida nueva. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em difficulty} & Cadena de texto que configura la dimensión y densidad léxica de la sopa. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classword__search__screen_1_1WordSearchScreen_a74d20cc02e6d6001518c47e79389412a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_aa4a3fceb79c314b7a3c0f7815148346e}\label{classword__search__screen_1_1WordSearchScreen_aa4a3fceb79c314b7a3c0f7815148346e}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!update\_logic@{update\_logic}}
+\index{update\_logic@{update\_logic}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{update\_logic()}{update\_logic()}}
+{\footnotesize\ttfamily def word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+update\+\_\+logic (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Comprueba de forma asíncrona la condición de victoria por vaciado de lista. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classword__search__screen_1_1WordSearchScreen_aa4a3fceb79c314b7a3c0f7815148346e_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_a4d30c684d4fb47f0a8d8b405a7b6bf4b}\label{classword__search__screen_1_1WordSearchScreen_a4d30c684d4fb47f0a8d8b405a7b6bf4b}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!\_mouse\_pressed@{\_mouse\_pressed}}
+\index{\_mouse\_pressed@{\_mouse\_pressed}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{\_mouse\_pressed}{\_mouse\_pressed}}
+{\footnotesize\ttfamily word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+\_\+mouse\+\_\+pressed\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\texorpdfstring{$<$}{<} Límite superior de desplazamiento vertical permitido para el scroll. 
+
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_a7ae36cc435c327eaa276e151e663722a}\label{classword__search__screen_1_1WordSearchScreen_a7ae36cc435c327eaa276e151e663722a}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!btn\_back@{btn\_back}}
+\index{btn\_back@{btn\_back}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_back}{btn\_back}}
+{\footnotesize\ttfamily word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+btn\+\_\+back}
+
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_ad36e272aa70b4a68bb172fcf87cf0ff0}\label{classword__search__screen_1_1WordSearchScreen_ad36e272aa70b4a68bb172fcf87cf0ff0}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!btn\_easy@{btn\_easy}}
+\index{btn\_easy@{btn\_easy}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_easy}{btn\_easy}}
+{\footnotesize\ttfamily word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+btn\+\_\+easy}
+
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_a1a2e87162b57cd1ec5986b98e7742f7a}\label{classword__search__screen_1_1WordSearchScreen_a1a2e87162b57cd1ec5986b98e7742f7a}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!btn\_game\_back@{btn\_game\_back}}
+\index{btn\_game\_back@{btn\_game\_back}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_game\_back}{btn\_game\_back}}
+{\footnotesize\ttfamily word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+btn\+\_\+game\+\_\+back}
+
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_a7e626006002fa24253c85648e17adef7}\label{classword__search__screen_1_1WordSearchScreen_a7e626006002fa24253c85648e17adef7}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!btn\_hard@{btn\_hard}}
+\index{btn\_hard@{btn\_hard}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_hard}{btn\_hard}}
+{\footnotesize\ttfamily word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+btn\+\_\+hard}
+
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_a20758c3bfbe276fb9c5855ebc0b7d48d}\label{classword__search__screen_1_1WordSearchScreen_a20758c3bfbe276fb9c5855ebc0b7d48d}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!btn\_hint@{btn\_hint}}
+\index{btn\_hint@{btn\_hint}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_hint}{btn\_hint}}
+{\footnotesize\ttfamily word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+btn\+\_\+hint}
+
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_a61d3dd1980a3caa09ac56759cf1564e9}\label{classword__search__screen_1_1WordSearchScreen_a61d3dd1980a3caa09ac56759cf1564e9}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!btn\_medium@{btn\_medium}}
+\index{btn\_medium@{btn\_medium}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_medium}{btn\_medium}}
+{\footnotesize\ttfamily word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+btn\+\_\+medium}
+
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_af3e0f1617c3c5a464277b853f294190a}\label{classword__search__screen_1_1WordSearchScreen_af3e0f1617c3c5a464277b853f294190a}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!CELL@{CELL}}
+\index{CELL@{CELL}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{CELL}{CELL}}
+{\footnotesize\ttfamily word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+CELL}
+
+
+
+\texorpdfstring{$<$}{<} Coordenada tupla {\ttfamily (x, y)} de la celda destacada por el botón de pista (None si no está activo). 
+
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_a0c098e60c8d3952c3d3ecb01702e2c54}\label{classword__search__screen_1_1WordSearchScreen_a0c098e60c8d3952c3d3ecb01702e2c54}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!current\_path@{current\_path}}
+\index{current\_path@{current\_path}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{current\_path}{current\_path}}
+{\footnotesize\ttfamily word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+current\+\_\+path}
+
+
+
+\texorpdfstring{$<$}{<} Lista dinámica de posiciones {\ttfamily \mbox{[}x, y\mbox{]}} con las celdas ya descubiertas con éxito. 
+
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_ab40df9139019fd95f6915fbfec3d60ca}\label{classword__search__screen_1_1WordSearchScreen_ab40df9139019fd95f6915fbfec3d60ca}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!difficulty@{difficulty}}
+\index{difficulty@{difficulty}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{difficulty}{difficulty}}
+{\footnotesize\ttfamily word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+difficulty}
+
+
+
+\texorpdfstring{$<$}{<} Máquina de estados lógicos principal (\char`\"{}menu\char`\"{} $\vert$ \char`\"{}game\char`\"{}). 
+
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_a393358ec8852108d3612ead774cf1bf7}\label{classword__search__screen_1_1WordSearchScreen_a393358ec8852108d3612ead774cf1bf7}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!GRID\_POS@{GRID\_POS}}
+\index{GRID\_POS@{GRID\_POS}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{GRID\_POS}{GRID\_POS}}
+{\footnotesize\ttfamily word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+GRID\+\_\+\+POS}
+
+
+
+\texorpdfstring{$<$}{<} Tamaño físico adaptativo en píxeles de los lados de cada celda cuadrada de la matriz. 
+
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_a87df929c5df223b283c677ac1bdbc609}\label{classword__search__screen_1_1WordSearchScreen_a87df929c5df223b283c677ac1bdbc609}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!hint\_cell@{hint\_cell}}
+\index{hint\_cell@{hint\_cell}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{hint\_cell}{hint\_cell}}
+{\footnotesize\ttfamily word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+hint\+\_\+cell}
+
+
+
+\texorpdfstring{$<$}{<} Subconjunto de cadenas textuales que el usuario debe encontrar para ganar. 
+
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_af476d220d7950eff83a59d1a7862c78c}\label{classword__search__screen_1_1WordSearchScreen_af476d220d7950eff83a59d1a7862c78c}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!letter\_cache@{letter\_cache}}
+\index{letter\_cache@{letter\_cache}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{letter\_cache}{letter\_cache}}
+{\footnotesize\ttfamily word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+letter\+\_\+cache}
+
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_ab5059a0ec9dee19f3d502e69cec22a90}\label{classword__search__screen_1_1WordSearchScreen_ab5059a0ec9dee19f3d502e69cec22a90}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!m\_f\_btn@{m\_f\_btn}}
+\index{m\_f\_btn@{m\_f\_btn}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{m\_f\_btn}{m\_f\_btn}}
+{\footnotesize\ttfamily word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+m\+\_\+f\+\_\+btn}
+
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_a1dbbe30734474332dcb058803128cab7}\label{classword__search__screen_1_1WordSearchScreen_a1dbbe30734474332dcb058803128cab7}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!m\_f\_subtitle@{m\_f\_subtitle}}
+\index{m\_f\_subtitle@{m\_f\_subtitle}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{m\_f\_subtitle}{m\_f\_subtitle}}
+{\footnotesize\ttfamily word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+m\+\_\+f\+\_\+subtitle}
+
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_a0baccc5dbc86ede89472591232d200ec}\label{classword__search__screen_1_1WordSearchScreen_a0baccc5dbc86ede89472591232d200ec}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!m\_f\_title@{m\_f\_title}}
+\index{m\_f\_title@{m\_f\_title}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{m\_f\_title}{m\_f\_title}}
+{\footnotesize\ttfamily word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+m\+\_\+f\+\_\+title}
+
+
+
+\texorpdfstring{$<$}{<} Bandera interna que monitoriza el estado de presión continua del mouse o pantalla táctil. 
+
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_ac98d7f28f339dd0752b48fb6e2446842}\label{classword__search__screen_1_1WordSearchScreen_ac98d7f28f339dd0752b48fb6e2446842}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!max\_scroll@{max\_scroll}}
+\index{max\_scroll@{max\_scroll}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{max\_scroll}{max\_scroll}}
+{\footnotesize\ttfamily word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+max\+\_\+scroll}
+
+
+
+\texorpdfstring{$<$}{<} Desplazamiento actual en píxeles del scroll de la lista lateral de palabras. 
+
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_a5c1a2296dfdae8a9820e215b0a6e3c63}\label{classword__search__screen_1_1WordSearchScreen_a5c1a2296dfdae8a9820e215b0a6e3c63}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!scroll\_offset@{scroll\_offset}}
+\index{scroll\_offset@{scroll\_offset}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{scroll\_offset}{scroll\_offset}}
+{\footnotesize\ttfamily word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+scroll\+\_\+offset}
+
+
+
+\texorpdfstring{$<$}{<} Coordenada en el eje Y de origen para la barra lateral derecha de palabras. 
+
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_a310191f1dc5a7c442636a91d0c0e5462}\label{classword__search__screen_1_1WordSearchScreen_a310191f1dc5a7c442636a91d0c0e5462}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!selected@{selected}}
+\index{selected@{selected}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{selected}{selected}}
+{\footnotesize\ttfamily word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+selected}
+
+
+
+\texorpdfstring{$<$}{<} Cadena que determina la dificultad activa (\char`\"{}facil\char`\"{} $\vert$ \char`\"{}medio\char`\"{} $\vert$ \char`\"{}dificil\char`\"{}). 
+
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_ad45ce8eeea37be64bc72c1d6cad80f7a}\label{classword__search__screen_1_1WordSearchScreen_ad45ce8eeea37be64bc72c1d6cad80f7a}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!state@{state}}
+\index{state@{state}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+state}
+
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_a4932723f7fc3530e552d463ebfbac091}\label{classword__search__screen_1_1WordSearchScreen_a4932723f7fc3530e552d463ebfbac091}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!WORD\_LIST\_X@{WORD\_LIST\_X}}
+\index{WORD\_LIST\_X@{WORD\_LIST\_X}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{WORD\_LIST\_X}{WORD\_LIST\_X}}
+{\footnotesize\ttfamily word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+WORD\+\_\+\+LIST\+\_\+X}
+
+
+
+\texorpdfstring{$<$}{<} Coordenadas absolutas de origen {\ttfamily (X, Y)} para el renderizado del tablero. 
+
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_ab14348fa5c4cfef4c1f4b24bb71d0203}\label{classword__search__screen_1_1WordSearchScreen_ab14348fa5c4cfef4c1f4b24bb71d0203}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!WORD\_LIST\_Y@{WORD\_LIST\_Y}}
+\index{WORD\_LIST\_Y@{WORD\_LIST\_Y}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{WORD\_LIST\_Y}{WORD\_LIST\_Y}}
+{\footnotesize\ttfamily word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+WORD\+\_\+\+LIST\+\_\+Y}
+
+
+
+\texorpdfstring{$<$}{<} Coordenada en el eje X de origen para la barra lateral derecha de palabras. 
+
+\mbox{\Hypertarget{classword__search__screen_1_1WordSearchScreen_a6415ae7521a0c8af4ab97c93fcf4dbbd}\label{classword__search__screen_1_1WordSearchScreen_a6415ae7521a0c8af4ab97c93fcf4dbbd}} 
+\index{word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}!words\_to\_guess@{words\_to\_guess}}
+\index{words\_to\_guess@{words\_to\_guess}!word\_search\_screen.WordSearchScreen@{word\_search\_screen.WordSearchScreen}}
+\doxysubsubsection{\texorpdfstring{words\_to\_guess}{words\_to\_guess}}
+{\footnotesize\ttfamily word\+\_\+search\+\_\+screen.\+Word\+Search\+Screen.\+words\+\_\+to\+\_\+guess}
+
+
+
+\texorpdfstring{$<$}{<} Lista transitoria de posiciones {\ttfamily (x, y)} del trazo lineal en curso durante el arrastre. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ui/apps/games/\mbox{\hyperlink{word__search__screen_8py}{word\+\_\+search\+\_\+screen.\+py}}\end{DoxyCompactItemize}

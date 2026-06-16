@@ -1,0 +1,118 @@
+\hypertarget{namespaceroutes__face}{}\doxysection{routes\+\_\+face Namespace Reference}
+\label{namespaceroutes__face}\index{routes\_face@{routes\_face}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceroutes__face_ae4e820c671a747069cdbd2fcbcccd4dd}{recognize}} (Recognize\+Request payload)
+\begin{DoxyCompactList}\small\item\em Procesa una imagen para reconocer un rostro. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceroutes__face_a564375a482ec378f7998fb474bddfc89}{register}} (Register\+Request payload)
+\begin{DoxyCompactList}\small\item\em Registra a una nueva persona en el sistema. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceroutes__face_aef0e48756ea2d682639ed2389a7fb023}{get\+\_\+memories}} (str user)
+\begin{DoxyCompactList}\small\item\em Recupera los recuerdos o información asociada a un usuario específico. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceroutes__face_a4ae5668c4bc4a605d06a2812d4a76b2e}{remember}} (dict payload)
+\begin{DoxyCompactList}\small\item\em Almacena un nuevo recuerdo o dato textual para un usuario. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceroutes__face_af7cf8cc346055102340305a00fc8f030}{router}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceroutes__face_aef0e48756ea2d682639ed2389a7fb023}\label{namespaceroutes__face_aef0e48756ea2d682639ed2389a7fb023}} 
+\index{routes\_face@{routes\_face}!get\_memories@{get\_memories}}
+\index{get\_memories@{get\_memories}!routes\_face@{routes\_face}}
+\doxysubsubsection{\texorpdfstring{get\_memories()}{get\_memories()}}
+{\footnotesize\ttfamily def routes\+\_\+face.\+get\+\_\+memories (\begin{DoxyParamCaption}\item[{str}]{user }\end{DoxyParamCaption})}
+
+
+
+Recupera los recuerdos o información asociada a un usuario específico. 
+
+Consulta en el servicio de reconocimiento facial o su base de datos semántica todo el contenido o datos históricos que el sistema \char`\"{}recuerda\char`\"{} sobre una persona.
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & Nombre o identificador único del usuario a consultar.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+list/dict Lista de memorias, notas o datos biográficos vinculados a ese rostro. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceroutes__face_ae4e820c671a747069cdbd2fcbcccd4dd}\label{namespaceroutes__face_ae4e820c671a747069cdbd2fcbcccd4dd}} 
+\index{routes\_face@{routes\_face}!recognize@{recognize}}
+\index{recognize@{recognize}!routes\_face@{routes\_face}}
+\doxysubsubsection{\texorpdfstring{recognize()}{recognize()}}
+{\footnotesize\ttfamily def routes\+\_\+face.\+recognize (\begin{DoxyParamCaption}\item[{Recognize\+Request}]{payload }\end{DoxyParamCaption})}
+
+
+
+Procesa una imagen para reconocer un rostro. 
+
+Envía la imagen capturada al servicio de reconocimiento facial para contrastarla con la base de datos de usuarios registrados.
+
+
+\begin{DoxyParams}{Parameters}
+{\em payload} & Objeto Recognize\+Request que contiene la imagen en formato compatible (generalmente Base64 o ruta).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+dict Datos de la persona identificada (nombre, nivel de confianza) o estado de no reconocido. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceroutes__face_a564375a482ec378f7998fb474bddfc89}\label{namespaceroutes__face_a564375a482ec378f7998fb474bddfc89}} 
+\index{routes\_face@{routes\_face}!register@{register}}
+\index{register@{register}!routes\_face@{routes\_face}}
+\doxysubsubsection{\texorpdfstring{register()}{register()}}
+{\footnotesize\ttfamily def routes\+\_\+face.\+register (\begin{DoxyParamCaption}\item[{Register\+Request}]{payload }\end{DoxyParamCaption})}
+
+
+
+Registra a una nueva persona en el sistema. 
+
+Guarda el nombre de un usuario y analiza su conjunto de imágenes para extraer y almacenar sus vectores/patrones faciales característicos.
+
+
+\begin{DoxyParams}{Parameters}
+{\em payload} & Objeto Register\+Request con el nombre del usuario y la lista de imágenes para el entrenamiento.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+dict Confirmación del éxito del registro y cantidad de imágenes procesadas. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceroutes__face_a4ae5668c4bc4a605d06a2812d4a76b2e}\label{namespaceroutes__face_a4ae5668c4bc4a605d06a2812d4a76b2e}} 
+\index{routes\_face@{routes\_face}!remember@{remember}}
+\index{remember@{remember}!routes\_face@{routes\_face}}
+\doxysubsubsection{\texorpdfstring{remember()}{remember()}}
+{\footnotesize\ttfamily def routes\+\_\+face.\+remember (\begin{DoxyParamCaption}\item[{dict}]{payload }\end{DoxyParamCaption})}
+
+
+
+Almacena un nuevo recuerdo o dato textual para un usuario. 
+
+Permite inyectar información contextual a la base de conocimientos de un usuario específico para que el sistema pueda usarla en interacciones futuras tras reconocerlo.
+
+
+\begin{DoxyParams}{Parameters}
+{\em payload} & Diccionario que debe contener obligatoriamente las claves \textquotesingle{}user\textquotesingle{} (str) y \textquotesingle{}content\textquotesingle{} (str).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+dict Estado del guardado en la memoria semántica. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespaceroutes__face_af7cf8cc346055102340305a00fc8f030}\label{namespaceroutes__face_af7cf8cc346055102340305a00fc8f030}} 
+\index{routes\_face@{routes\_face}!router@{router}}
+\index{router@{router}!routes\_face@{routes\_face}}
+\doxysubsubsection{\texorpdfstring{router}{router}}
+{\footnotesize\ttfamily routes\+\_\+face.\+router}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  APIRouter(}
+\DoxyCodeLine{2     prefix=\textcolor{stringliteral}{"{}/face"{}},}
+\DoxyCodeLine{3     tags=[\textcolor{stringliteral}{"{}Face Recognition"{}}]}
+\DoxyCodeLine{4 )}
+
+\end{DoxyCode}

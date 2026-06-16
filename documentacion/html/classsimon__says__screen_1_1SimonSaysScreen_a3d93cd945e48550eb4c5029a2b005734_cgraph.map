@@ -1,0 +1,4 @@
+<map id="simon_says_screen.SimonSaysScreen._draw_circles" name="simon_says_screen.SimonSaysScreen._draw_circles">
+<area shape="rect" id="node1" title="Genera y dibuja los círculos interactivos en sus respectivas posiciones calculadas." alt="" coords="5,5,231,47"/>
+<area shape="rect" id="node2" href="$namespacesimon__says__screen.html#adec696afad24da63db8a0d0fa85a2c7f" title="Algoritmo iterativo de aproximación por convergencia para ajustar el tamaño de fuente." alt="" coords="279,5,432,47"/>
+</map>

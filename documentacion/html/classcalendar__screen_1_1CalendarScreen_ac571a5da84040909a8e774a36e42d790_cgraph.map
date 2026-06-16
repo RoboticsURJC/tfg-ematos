@@ -1,0 +1,11 @@
+<map id="calendar_screen.CalendarScreen.date_changed" name="calendar_screen.CalendarScreen.date_changed">
+<area shape="rect" id="node1" title="Slot asíncrono que se dispara cuando el usuario presiona un día en la cuadrícula." alt="" coords="5,107,196,149"/>
+<area shape="rect" id="node2" href="$classcalendar__screen_1_1CalendarScreen.html#ad7d7057756ab86ac3735e41738308de5" title="Sincroniza la lista visual de tareas y repinta los días destacados." alt="" coords="267,13,458,54"/>
+<area shape="rect" id="node6" href="$classnote__screen_1_1NotesScreen.html#a877224d5f9b00ce6d3c9766b3c1581b5" title="Sincroniza la vista del componente QListWidget con el almacén local persistente." alt="" coords="244,144,481,171"/>
+<area shape="rect" id="node8" href="$classreminder__screen_1_1ReminderScreen.html#af258ef456b74e29be94a4ff4c3dcd6c9" title="Refresca la lista desde el store." alt="" coords="263,78,462,119"/>
+<area shape="rect" id="node9" href="$classcalendar__screen_1_1CalendarScreen.html#abc63bf26ee2c9f4cb8d1702b3e90a23d" title="Sincroniza el texto del encabezado principal con el mes y año bajo visualización." alt="" coords="267,195,458,237"/>
+<area shape="rect" id="node3" href="$namespaceroutes__dashboard.html#a8e1c87d3914c53c0d5ed6d8c3dafca9e" title="Vacía el historial de logs de un servicio." alt="" coords="549,85,724,112"/>
+<area shape="rect" id="node5" href="$classcalendar__screen_1_1CalendarScreen.html#a0f1a3545f3729b3b7f1ce049450dd3d5" title="Resalta visualmente las casillas del calendario que contienen recordatorios agendados." alt="" coords="541,5,732,61"/>
+<area shape="rect" id="node4" href="$namespacelog__service.html#ae2983f6bea2c5025c60c12bb9e947d4c" title="Vacía por completo el historial de registros de un servicio específico." alt="" coords="792,85,959,112"/>
+<area shape="rect" id="node7" href="$classnote__store_1_1NotesStore.html#a13f394991b40877d7f453777764467aa" title="Realiza una búsqueda insensible a mayúsculas dentro de los campos de las notas." alt="" coords="529,144,744,171"/>
+</map>

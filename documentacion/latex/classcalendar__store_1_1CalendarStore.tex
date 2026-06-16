@@ -1,0 +1,179 @@
+\hypertarget{classcalendar__store_1_1CalendarStore}{}\doxysection{calendar\+\_\+store.\+Calendar\+Store Class Reference}
+\label{classcalendar__store_1_1CalendarStore}\index{calendar\_store.CalendarStore@{calendar\_store.CalendarStore}}
+
+
+Clase encargada del almacenamiento y serialización física de los eventos en disco.  
+
+
+
+
+Collaboration diagram for calendar\+\_\+store.\+Calendar\+Store\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=241pt]{classcalendar__store_1_1CalendarStore__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classcalendar__store_1_1CalendarStore_a8e6b30dccd79c46bf748b88c46245ad5}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\begin{DoxyCompactList}\small\item\em Constructor de la clase \mbox{\hyperlink{classcalendar__store_1_1CalendarStore}{Calendar\+Store}}. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classcalendar__store_1_1CalendarStore_a61fd6d67bbdba3402bb8a0453a0fa4c4}{load}} (self)
+\begin{DoxyCompactList}\small\item\em Lee y deserializa el archivo JSON alojado en el disco. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classcalendar__store_1_1CalendarStore_a3202f87b3854da7f577b8f533ec21305}{save}} (self)
+\begin{DoxyCompactList}\small\item\em Serializa y escribe el estado actual de la lista de eventos en el disco. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classcalendar__store_1_1CalendarStore_aa6896b242738bea4fe06d63b46cda80e}{add\+\_\+event}} (self, date, title)
+\begin{DoxyCompactList}\small\item\em Inserta un nuevo recordatorio en la estructura de datos y consolida el cambio en disco. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classcalendar__store_1_1CalendarStore_a028e3fb3ad616de3f9481993c7766783}{get\+\_\+events}} (self, date)
+\begin{DoxyCompactList}\small\item\em Filtra y recupera por lista de comprensión los eventos asociados a una fecha específica. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classcalendar__store_1_1CalendarStore_a877c44c84d56e2e83ce615e9e76280db}{delete\+\_\+event}} (self, index)
+\begin{DoxyCompactList}\small\item\em Elimina físicamente un evento del registro utilizando su índice de posicionamiento secuencial. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcalendar__store_1_1CalendarStore_a57f425eac2bdb3c56552b4d57b5e7118}{path}}
+\begin{DoxyCompactList}\small\item\em Ruta absoluta mapeada del archivo de almacenamiento físico JSON. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcalendar__store_1_1CalendarStore_a8b8f65c3eac6cdeb82419cd9a32cf134}{events}}
+\begin{DoxyCompactList}\small\item\em Lista/\+Caché en memoria que almacena los diccionarios con la estructura de eventos vigentes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase encargada del almacenamiento y serialización física de los eventos en disco. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcalendar__store_1_1CalendarStore_a8e6b30dccd79c46bf748b88c46245ad5}\label{classcalendar__store_1_1CalendarStore_a8e6b30dccd79c46bf748b88c46245ad5}} 
+\index{calendar\_store.CalendarStore@{calendar\_store.CalendarStore}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!calendar\_store.CalendarStore@{calendar\_store.CalendarStore}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def calendar\+\_\+store.\+Calendar\+Store.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Constructor de la clase \mbox{\hyperlink{classcalendar__store_1_1CalendarStore}{Calendar\+Store}}. 
+
+Modela la ruta absoluta hacia el archivo {\ttfamily events.\+json} de manera dinámica tomando como base la ubicación de este script e inicializa el caché de eventos en memoria RAM. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcalendar__store_1_1CalendarStore_aa6896b242738bea4fe06d63b46cda80e}\label{classcalendar__store_1_1CalendarStore_aa6896b242738bea4fe06d63b46cda80e}} 
+\index{calendar\_store.CalendarStore@{calendar\_store.CalendarStore}!add\_event@{add\_event}}
+\index{add\_event@{add\_event}!calendar\_store.CalendarStore@{calendar\_store.CalendarStore}}
+\doxysubsubsection{\texorpdfstring{add\_event()}{add\_event()}}
+{\footnotesize\ttfamily def calendar\+\_\+store.\+Calendar\+Store.\+add\+\_\+event (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{date,  }\item[{}]{title }\end{DoxyParamCaption})}
+
+
+
+Inserta un nuevo recordatorio en la estructura de datos y consolida el cambio en disco. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & Cadena de texto con formato cronológico estandarizado (ej\+: \textquotesingle{}yyyy-\/\+MM-\/dd\textquotesingle{}). \\
+\hline
+{\em title} & Texto descriptivo o cuerpo del evento anotado por el usuario. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcalendar__store_1_1CalendarStore_aa6896b242738bea4fe06d63b46cda80e_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcalendar__store_1_1CalendarStore_a877c44c84d56e2e83ce615e9e76280db}\label{classcalendar__store_1_1CalendarStore_a877c44c84d56e2e83ce615e9e76280db}} 
+\index{calendar\_store.CalendarStore@{calendar\_store.CalendarStore}!delete\_event@{delete\_event}}
+\index{delete\_event@{delete\_event}!calendar\_store.CalendarStore@{calendar\_store.CalendarStore}}
+\doxysubsubsection{\texorpdfstring{delete\_event()}{delete\_event()}}
+{\footnotesize\ttfamily def calendar\+\_\+store.\+Calendar\+Store.\+delete\+\_\+event (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{index }\end{DoxyParamCaption})}
+
+
+
+Elimina físicamente un evento del registro utilizando su índice de posicionamiento secuencial. 
+
+Implementa una cláusula de guarda para validar que el índice solicitado se encuentra dentro de los límites lógicos del vector ({\ttfamily 0 \texorpdfstring{$<$}{<}= index \texorpdfstring{$<$}{<} len}), previniendo excepciones fatales de desbordamiento ({\ttfamily Index\+Error}).
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Posición numérica entera (ID de matriz) del objeto que se desea remover de la colección. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcalendar__store_1_1CalendarStore_a877c44c84d56e2e83ce615e9e76280db_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcalendar__store_1_1CalendarStore_a028e3fb3ad616de3f9481993c7766783}\label{classcalendar__store_1_1CalendarStore_a028e3fb3ad616de3f9481993c7766783}} 
+\index{calendar\_store.CalendarStore@{calendar\_store.CalendarStore}!get\_events@{get\_events}}
+\index{get\_events@{get\_events}!calendar\_store.CalendarStore@{calendar\_store.CalendarStore}}
+\doxysubsubsection{\texorpdfstring{get\_events()}{get\_events()}}
+{\footnotesize\ttfamily def calendar\+\_\+store.\+Calendar\+Store.\+get\+\_\+events (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{date }\end{DoxyParamCaption})}
+
+
+
+Filtra y recupera por lista de comprensión los eventos asociados a una fecha específica. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & Cadena con la fecha de consulta formateada bajo la máscara \textquotesingle{}yyyy-\/\+MM-\/dd\textquotesingle{}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+list Colección segmentada de diccionarios cuyos campos \textquotesingle{}date\textquotesingle{} coinciden con el parámetro. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcalendar__store_1_1CalendarStore_a61fd6d67bbdba3402bb8a0453a0fa4c4}\label{classcalendar__store_1_1CalendarStore_a61fd6d67bbdba3402bb8a0453a0fa4c4}} 
+\index{calendar\_store.CalendarStore@{calendar\_store.CalendarStore}!load@{load}}
+\index{load@{load}!calendar\_store.CalendarStore@{calendar\_store.CalendarStore}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily def calendar\+\_\+store.\+Calendar\+Store.\+load (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Lee y deserializa el archivo JSON alojado en el disco. 
+
+Evalúa de forma preventiva si el archivo físico existe. En caso de ausencia, retorna un vector vacío para mitigar fallos de puntero en el primer arranque del módulo.
+
+\begin{DoxyReturn}{Returns}
+list Lista de diccionarios con la estructura interna de los eventos registrados. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcalendar__store_1_1CalendarStore_a3202f87b3854da7f577b8f533ec21305}\label{classcalendar__store_1_1CalendarStore_a3202f87b3854da7f577b8f533ec21305}} 
+\index{calendar\_store.CalendarStore@{calendar\_store.CalendarStore}!save@{save}}
+\index{save@{save}!calendar\_store.CalendarStore@{calendar\_store.CalendarStore}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}}
+{\footnotesize\ttfamily def calendar\+\_\+store.\+Calendar\+Store.\+save (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Serializa y escribe el estado actual de la lista de eventos en el disco. 
+
+Fuerza el uso del formato UTF-\/8 desactivando la bandera {\ttfamily ensure\+\_\+ascii} para preservar la integridad de los caracteres del castellano (acentos, diéresis, eñes) e inyecta un indentado de 4 espacios. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcalendar__store_1_1CalendarStore_a8b8f65c3eac6cdeb82419cd9a32cf134}\label{classcalendar__store_1_1CalendarStore_a8b8f65c3eac6cdeb82419cd9a32cf134}} 
+\index{calendar\_store.CalendarStore@{calendar\_store.CalendarStore}!events@{events}}
+\index{events@{events}!calendar\_store.CalendarStore@{calendar\_store.CalendarStore}}
+\doxysubsubsection{\texorpdfstring{events}{events}}
+{\footnotesize\ttfamily calendar\+\_\+store.\+Calendar\+Store.\+events}
+
+
+
+Lista/\+Caché en memoria que almacena los diccionarios con la estructura de eventos vigentes. 
+
+\mbox{\Hypertarget{classcalendar__store_1_1CalendarStore_a57f425eac2bdb3c56552b4d57b5e7118}\label{classcalendar__store_1_1CalendarStore_a57f425eac2bdb3c56552b4d57b5e7118}} 
+\index{calendar\_store.CalendarStore@{calendar\_store.CalendarStore}!path@{path}}
+\index{path@{path}!calendar\_store.CalendarStore@{calendar\_store.CalendarStore}}
+\doxysubsubsection{\texorpdfstring{path}{path}}
+{\footnotesize\ttfamily calendar\+\_\+store.\+Calendar\+Store.\+path}
+
+
+
+Ruta absoluta mapeada del archivo de almacenamiento físico JSON. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ui/apps/calendar/\mbox{\hyperlink{calendar__store_8py}{calendar\+\_\+store.\+py}}\end{DoxyCompactItemize}

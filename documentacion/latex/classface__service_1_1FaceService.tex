@@ -1,0 +1,155 @@
+\hypertarget{classface__service_1_1FaceService}{}\doxysection{face\+\_\+service.\+Face\+Service Class Reference}
+\label{classface__service_1_1FaceService}\index{face\_service.FaceService@{face\_service.FaceService}}
+
+
+Clase estática que encapsula los servicios de reconocimiento, registro y memoria facial.  
+
+
+
+
+Collaboration diagram for face\+\_\+service.\+Face\+Service\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{classface__service_1_1FaceService__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classface__service_1_1FaceService_a4bbd54afe43681aa150fb80c38b41110}{recognize}} (str image)
+\begin{DoxyCompactList}\small\item\em Envía una imagen para identificar el rostro presente en ella. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classface__service_1_1FaceService_a40867ebf8811f455c7fb1e4440b7caef}{register}} (str name, list images)
+\begin{DoxyCompactList}\small\item\em Registra un nuevo usuario asociándolo a un conjunto de imágenes de entrenamiento. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classface__service_1_1FaceService_a718efdebe91db681a383c6904cf0426b}{memories}} (str user)
+\begin{DoxyCompactList}\small\item\em Recupera la base de conocimientos o memorias vinculadas a un usuario específico. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classface__service_1_1FaceService_abcf8665bba750afe96ff741829ffe7e0}{remember}} (str user, str content)
+\begin{DoxyCompactList}\small\item\em Almacena un nuevo dato o recuerdo textual en el perfil del usuario. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase estática que encapsula los servicios de reconocimiento, registro y memoria facial. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classface__service_1_1FaceService_a718efdebe91db681a383c6904cf0426b}\label{classface__service_1_1FaceService_a718efdebe91db681a383c6904cf0426b}} 
+\index{face\_service.FaceService@{face\_service.FaceService}!memories@{memories}}
+\index{memories@{memories}!face\_service.FaceService@{face\_service.FaceService}}
+\doxysubsubsection{\texorpdfstring{memories()}{memories()}}
+{\footnotesize\ttfamily def face\+\_\+service.\+Face\+Service.\+memories (\begin{DoxyParamCaption}\item[{str}]{user }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Recupera la base de conocimientos o memorias vinculadas a un usuario específico. 
+
+Realiza una consulta GET para extraer toda la información contextual almacenada sobre la persona indicada.
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & Nombre o identificador único del usuario consultado.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+dict/list Datos históricos y notas guardadas del usuario, o un diccionario con estado de error. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classface__service_1_1FaceService_a718efdebe91db681a383c6904cf0426b_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classface__service_1_1FaceService_a4bbd54afe43681aa150fb80c38b41110}\label{classface__service_1_1FaceService_a4bbd54afe43681aa150fb80c38b41110}} 
+\index{face\_service.FaceService@{face\_service.FaceService}!recognize@{recognize}}
+\index{recognize@{recognize}!face\_service.FaceService@{face\_service.FaceService}}
+\doxysubsubsection{\texorpdfstring{recognize()}{recognize()}}
+{\footnotesize\ttfamily def face\+\_\+service.\+Face\+Service.\+recognize (\begin{DoxyParamCaption}\item[{str}]{image }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Envía una imagen para identificar el rostro presente en ella. 
+
+Realiza una petición POST al endpoint de reconocimiento y registra el evento en el historial de logs.
+
+
+\begin{DoxyParams}{Parameters}
+{\em image} & Imagen codificada (normalmente en Base64 o ruta) que contiene el rostro a reconocer.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+dict Diccionario con la respuesta del microservicio (datos del usuario identificado o estado de error). 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classface__service_1_1FaceService_a4bbd54afe43681aa150fb80c38b41110_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classface__service_1_1FaceService_a40867ebf8811f455c7fb1e4440b7caef}\label{classface__service_1_1FaceService_a40867ebf8811f455c7fb1e4440b7caef}} 
+\index{face\_service.FaceService@{face\_service.FaceService}!register@{register}}
+\index{register@{register}!face\_service.FaceService@{face\_service.FaceService}}
+\doxysubsubsection{\texorpdfstring{register()}{register()}}
+{\footnotesize\ttfamily def face\+\_\+service.\+Face\+Service.\+register (\begin{DoxyParamCaption}\item[{str}]{name,  }\item[{list}]{images }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Registra un nuevo usuario asociándolo a un conjunto de imágenes de entrenamiento. 
+
+Envía los datos mediante una petición POST al microservicio para extraer los patrones faciales característicos.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Nombre o identificador único del nuevo usuario. \\
+\hline
+{\em images} & Lista de imágenes (en formato Base64 o rutas) que muestran el rostro desde diferentes ángulos.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+dict Respuesta del servidor que confirma el éxito del registro o detalla el fallo. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classface__service_1_1FaceService_a40867ebf8811f455c7fb1e4440b7caef_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classface__service_1_1FaceService_abcf8665bba750afe96ff741829ffe7e0}\label{classface__service_1_1FaceService_abcf8665bba750afe96ff741829ffe7e0}} 
+\index{face\_service.FaceService@{face\_service.FaceService}!remember@{remember}}
+\index{remember@{remember}!face\_service.FaceService@{face\_service.FaceService}}
+\doxysubsubsection{\texorpdfstring{remember()}{remember()}}
+{\footnotesize\ttfamily def face\+\_\+service.\+Face\+Service.\+remember (\begin{DoxyParamCaption}\item[{str}]{user,  }\item[{str}]{content }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Almacena un nuevo dato o recuerdo textual en el perfil del usuario. 
+
+Envía información semántica mediante una petición POST para enriquecer el contexto que el sistema posee sobre esa persona.
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & Nombre o identificador único del usuario al que se le asocia el recuerdo. \\
+\hline
+{\em content} & Texto descriptivo con la información que el sistema debe memorizar.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+dict Resultado de la operación devuelto por el backend de almacenamiento. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classface__service_1_1FaceService_abcf8665bba750afe96ff741829ffe7e0_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+api\+\_\+getway/services/\mbox{\hyperlink{face__service_8py}{face\+\_\+service.\+py}}\end{DoxyCompactItemize}

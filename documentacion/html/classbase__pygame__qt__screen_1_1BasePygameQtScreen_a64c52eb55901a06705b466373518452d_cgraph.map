@@ -1,0 +1,4 @@
+<map id="base_pygame_qt_screen.BasePygameQtScreen.mousePressEvent" name="base_pygame_qt_screen.BasePygameQtScreen.mousePressEvent">
+<area shape="rect" id="node1" title="Intercepta la pulsación táctil/ratón de Qt y genera un evento sintético homólogo para Pygame." alt="" coords="5,29,260,71"/>
+<area shape="rect" id="node2" href="$classbase__pygame__qt__screen_1_1BasePygameQtScreen.html#a459793b86c65f4e448608173a73cd1bc" title="Ejecuta una transformación lineal inversa para corregir las coordenadas físicas del widget." alt="" coords="308,29,560,71"/>
+</map>

@@ -1,0 +1,163 @@
+\hypertarget{classgames__screen_1_1GamesScreen}{}\doxysection{games\+\_\+screen.\+Games\+Screen Class Reference}
+\label{classgames__screen_1_1GamesScreen}\index{games\_screen.GamesScreen@{games\_screen.GamesScreen}}
+
+
+Vista de pantalla centralizada que orquesta e ilustra el menú general de la suite de entretenimiento.  
+
+
+
+
+Inheritance diagram for games\+\_\+screen.\+Games\+Screen\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{classgames__screen_1_1GamesScreen__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for games\+\_\+screen.\+Games\+Screen\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{classgames__screen_1_1GamesScreen__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classgames__screen_1_1GamesScreen_afb95411dcb6244d0f0514ec144e1c13a}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classgames__screen_1_1GamesScreen_aa16e90404938e66f52724ddd12c6b7ea}{controller}}=None)
+\begin{DoxyCompactList}\small\item\em Constructor de la clase \mbox{\hyperlink{classgames__screen_1_1GamesScreen}{Games\+Screen}}. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classgames__screen_1_1GamesScreen_a89c28fc9eb83fcb2679959a77080b07a}{go\+\_\+back}} (self)
+\begin{DoxyCompactList}\small\item\em Interrumpe la visualización de la vista actual emitiendo las señales de retorno hacia el Launcher. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgames__screen_1_1GamesScreen_aa16e90404938e66f52724ddd12c6b7ea}{controller}}
+\begin{DoxyCompactList}\small\item\em Referencia al enrutador o máquina de control de interfaces de la app. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classgames__screen_1_1GamesScreen_a227217480c03af3ad4db74798cc8d8e9}{back\+\_\+btn}}
+\begin{DoxyCompactList}\small\item\em Elemento interactivo para disparar la rutina de salida parcial. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgames__screen_1_1GamesScreen_aa5f3056b830247aedf017dc5e8a876d3}{back\+\_\+requested}} = pyqt\+Signal()
+\begin{DoxyCompactList}\small\item\em Señal asíncrona emitida al pulsar el botón de salida para solicitar el retorno al Hub de inicio. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classgames__screen_1_1GamesScreen_a0130229f4a4cd59a87e21a15f9d4bfb0}{\+\_\+launch}} (self, str game\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Canaliza la petición de apertura enviando el id capturado hacia la máquina de estados lógica superior. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+list \mbox{\hyperlink{classgames__screen_1_1GamesScreen_a239111657e08d13aaefd92fdc4b0f09f}{\+\_\+\+GAMES}}
+\begin{DoxyCompactList}\small\item\em Estructura de metadatos estáticos indexados que definen los juegos disponibles de la suite. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Vista de pantalla centralizada que orquesta e ilustra el menú general de la suite de entretenimiento. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classgames__screen_1_1GamesScreen_afb95411dcb6244d0f0514ec144e1c13a}\label{classgames__screen_1_1GamesScreen_afb95411dcb6244d0f0514ec144e1c13a}} 
+\index{games\_screen.GamesScreen@{games\_screen.GamesScreen}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!games\_screen.GamesScreen@{games\_screen.GamesScreen}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def games\+\_\+screen.\+Games\+Screen.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{controller = {\ttfamily None} }\end{DoxyParamCaption})}
+
+
+
+Constructor de la clase \mbox{\hyperlink{classgames__screen_1_1GamesScreen}{Games\+Screen}}. 
+
+Instancia iterativamente los subcontroles {\ttfamily \mbox{\hyperlink{classgames__screen_1_1GameCard}{Game\+Card}}} e implementa un algoritmo aritmético {\ttfamily divmod} posicional de dos columnas fijos para armar el panel central de dibujo.
+
+
+\begin{DoxyParams}{Parameters}
+{\em controller} & Instancia del enrutador central de vistas de la UI. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=241pt]{classgames__screen_1_1GamesScreen_afb95411dcb6244d0f0514ec144e1c13a_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classgames__screen_1_1GamesScreen_a0130229f4a4cd59a87e21a15f9d4bfb0}\label{classgames__screen_1_1GamesScreen_a0130229f4a4cd59a87e21a15f9d4bfb0}} 
+\index{games\_screen.GamesScreen@{games\_screen.GamesScreen}!\_launch@{\_launch}}
+\index{\_launch@{\_launch}!games\_screen.GamesScreen@{games\_screen.GamesScreen}}
+\doxysubsubsection{\texorpdfstring{\_launch()}{\_launch()}}
+{\footnotesize\ttfamily def games\+\_\+screen.\+Games\+Screen.\+\_\+launch (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{str}]{game\+\_\+id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Canaliza la petición de apertura enviando el id capturado hacia la máquina de estados lógica superior. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game\+\_\+id} & Identificador de texto del juego seleccionado. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classgames__screen_1_1GamesScreen_a89c28fc9eb83fcb2679959a77080b07a}\label{classgames__screen_1_1GamesScreen_a89c28fc9eb83fcb2679959a77080b07a}} 
+\index{games\_screen.GamesScreen@{games\_screen.GamesScreen}!go\_back@{go\_back}}
+\index{go\_back@{go\_back}!games\_screen.GamesScreen@{games\_screen.GamesScreen}}
+\doxysubsubsection{\texorpdfstring{go\_back()}{go\_back()}}
+{\footnotesize\ttfamily def games\+\_\+screen.\+Games\+Screen.\+go\+\_\+back (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Interrumpe la visualización de la vista actual emitiendo las señales de retorno hacia el Launcher. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classgames__screen_1_1GamesScreen_a239111657e08d13aaefd92fdc4b0f09f}\label{classgames__screen_1_1GamesScreen_a239111657e08d13aaefd92fdc4b0f09f}} 
+\index{games\_screen.GamesScreen@{games\_screen.GamesScreen}!\_GAMES@{\_GAMES}}
+\index{\_GAMES@{\_GAMES}!games\_screen.GamesScreen@{games\_screen.GamesScreen}}
+\doxysubsubsection{\texorpdfstring{\_GAMES}{\_GAMES}}
+{\footnotesize\ttfamily list games\+\_\+screen.\+Games\+Screen.\+\_\+\+GAMES\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Estructura de metadatos estáticos indexados que definen los juegos disponibles de la suite. 
+
+\mbox{\Hypertarget{classgames__screen_1_1GamesScreen_a227217480c03af3ad4db74798cc8d8e9}\label{classgames__screen_1_1GamesScreen_a227217480c03af3ad4db74798cc8d8e9}} 
+\index{games\_screen.GamesScreen@{games\_screen.GamesScreen}!back\_btn@{back\_btn}}
+\index{back\_btn@{back\_btn}!games\_screen.GamesScreen@{games\_screen.GamesScreen}}
+\doxysubsubsection{\texorpdfstring{back\_btn}{back\_btn}}
+{\footnotesize\ttfamily games\+\_\+screen.\+Games\+Screen.\+back\+\_\+btn}
+
+
+
+Elemento interactivo para disparar la rutina de salida parcial. 
+
+\mbox{\Hypertarget{classgames__screen_1_1GamesScreen_aa5f3056b830247aedf017dc5e8a876d3}\label{classgames__screen_1_1GamesScreen_aa5f3056b830247aedf017dc5e8a876d3}} 
+\index{games\_screen.GamesScreen@{games\_screen.GamesScreen}!back\_requested@{back\_requested}}
+\index{back\_requested@{back\_requested}!games\_screen.GamesScreen@{games\_screen.GamesScreen}}
+\doxysubsubsection{\texorpdfstring{back\_requested}{back\_requested}}
+{\footnotesize\ttfamily games\+\_\+screen.\+Games\+Screen.\+back\+\_\+requested = pyqt\+Signal()\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Señal asíncrona emitida al pulsar el botón de salida para solicitar el retorno al Hub de inicio. 
+
+\mbox{\Hypertarget{classgames__screen_1_1GamesScreen_aa16e90404938e66f52724ddd12c6b7ea}\label{classgames__screen_1_1GamesScreen_aa16e90404938e66f52724ddd12c6b7ea}} 
+\index{games\_screen.GamesScreen@{games\_screen.GamesScreen}!controller@{controller}}
+\index{controller@{controller}!games\_screen.GamesScreen@{games\_screen.GamesScreen}}
+\doxysubsubsection{\texorpdfstring{controller}{controller}}
+{\footnotesize\ttfamily games\+\_\+screen.\+Games\+Screen.\+controller}
+
+
+
+Referencia al enrutador o máquina de control de interfaces de la app. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ui/apps/games/\mbox{\hyperlink{games__screen_8py}{games\+\_\+screen.\+py}}\end{DoxyCompactItemize}

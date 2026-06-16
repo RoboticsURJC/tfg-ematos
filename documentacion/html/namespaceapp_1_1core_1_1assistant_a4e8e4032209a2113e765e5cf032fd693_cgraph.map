@@ -1,0 +1,4 @@
+<map id="app.core.assistant.construir_prompt" name="app.core.assistant.construir_prompt">
+<area shape="rect" id="node1" title="Construye el prompt estructurado completo para enviar al modelo de lenguaje." alt="" coords="5,5,208,47"/>
+<area shape="rect" id="node2" href="$namespaceapp_1_1core_1_1memory.html#a4ffffc8ce49b0c20d92fd6ee7be9226a" title="Obtiene las últimas interacciones de un usuario." alt="" coords="256,5,445,47"/>
+</map>

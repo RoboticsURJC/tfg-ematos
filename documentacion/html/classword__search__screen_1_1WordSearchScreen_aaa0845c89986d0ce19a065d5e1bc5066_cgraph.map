@@ -1,0 +1,6 @@
+<map id="word_search_screen.WordSearchScreen.mouseMoveEvent" name="word_search_screen.WordSearchScreen.mouseMoveEvent">
+<area shape="rect" id="node1" title="Manejador de trazos continuos para soportar arrastres (drag and drop) táctiles." alt="" coords="5,39,240,80"/>
+<area shape="rect" id="node2" href="$classword__search__screen_1_1WordSearchScreen.html#a355a8c737dc5c9a0920f87d51315b48c" title="Analiza la posición del arrastre para expandir de forma lineal la palabra activa." alt="" coords="297,5,531,47"/>
+<area shape="rect" id="node4" href="$classbase__pygame__qt__screen_1_1BasePygameQtScreen.html#a459793b86c65f4e448608173a73cd1bc" title="Ejecuta una transformación lineal inversa para corregir las coordenadas físicas del widget." alt="" coords="288,71,540,112"/>
+<area shape="rect" id="node3" href="$classword__search__screen_1_1WordSearchScreen.html#a96930fe9d47b71d8606215882a59beac" title="Algoritmo analítico de restricción ortogonal y diagonal para vectores de celdas." alt="" coords="588,5,823,47"/>
+</map>

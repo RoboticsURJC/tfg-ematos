@@ -1,0 +1,7 @@
+<map id="app.voice.tts.TTS.speak" name="app.voice.tts.TTS.speak">
+<area shape="rect" id="node1" title="Inicia la síntesis y reproducción de audio en un hilo independiente." alt="" coords="5,56,183,83"/>
+<area shape="rect" id="node2" href="$classapp_1_1voice_1_1tts_1_1TTS.html#ab55d16da54d4e8e1193a6622bf74936b" title="Elimina formato Markdown y caracteres especiales del texto." alt="" coords="272,5,445,32"/>
+<area shape="rect" id="node3" href="$namespaceroutes__dashboard.html#a8e1c87d3914c53c0d5ed6d8c3dafca9e" title="Vacía el historial de logs de un servicio." alt="" coords="271,56,446,83"/>
+<area shape="rect" id="node5" href="$classapp_1_1voice_1_1stt__vosk_1_1VoskSTT.html#a46be0c9a33f07af0990ebf16e6777b69" title="Procesa un bloque de audio y retorna el texto si se ha completado una frase." alt="" coords="231,107,487,133"/>
+<area shape="rect" id="node4" href="$namespacelog__service.html#ae2983f6bea2c5025c60c12bb9e947d4c" title="Vacía por completo el historial de registros de un servicio específico." alt="" coords="535,56,701,83"/>
+</map>

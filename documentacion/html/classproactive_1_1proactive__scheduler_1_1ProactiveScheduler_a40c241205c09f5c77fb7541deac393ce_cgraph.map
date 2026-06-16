@@ -1,0 +1,7 @@
+<map id="proactive.proactive_scheduler.ProactiveScheduler._loop" name="proactive.proactive_scheduler.ProactiveScheduler._loop">
+<area shape="rect" id="node1" title="Bucle principal de control que gestiona los tiempos de disparo." alt="" coords="5,71,264,112"/>
+<area shape="rect" id="node2" href="$classproactive_1_1proactive__scheduler_1_1ProactiveScheduler.html#a3af12df226e4fd74ccee2bd57c9260a4" title="Ejecuta el disparo de una sugerencia de forma segura y síncrona." alt="" coords="315,5,566,47"/>
+<area shape="rect" id="node4" href="$classproactive_1_1proactive__scheduler_1_1ProactiveScheduler.html#a8b0d0da894fb61895207a5cd8f294752" title="Selecciona la siguiente sugerencia de la lista, alternando por índice." alt="" coords="312,71,569,112"/>
+<area shape="rect" id="node5" href="$classproactive_1_1proactive__scheduler_1_1ProactiveScheduler.html#ac849e801063de0ba9833850d9f1e9908" title="Procesa el cierre de una sugerencia, sea aceptada o rechazada." alt="" coords="321,137,560,193"/>
+<area shape="rect" id="node3" href="$classproactive_1_1proactive__scheduler_1_1ProactiveScheduler.html#afeeb3c1e7fd805410e488b8d86b1965a" title="Función interna para restaurar el texto en pantalla según el estado del STT." alt="" coords="617,67,840,123"/>
+</map>

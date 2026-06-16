@@ -1,0 +1,37 @@
+\hypertarget{generate_8py}{}\doxysection{ui/apps/games/generate.py File Reference}
+\label{generate_8py}\index{ui/apps/games/generate.py@{ui/apps/games/generate.py}}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacegenerate}{generate}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacegenerate_a021501468e4f34b9109dd4c692ba0343}{generate.\+generate\+\_\+word\+\_\+list}} ()
+\begin{DoxyCompactList}\small\item\em Carga y normaliza el banco de términos lingüísticos desde el sistema de archivos del dispositivo. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespacegenerate_a496d21facf73697d8c96ec05feef9c96}{generate.\+check\+\_\+possibility}} (matrice, word, index, fit\+\_\+dir)
+\begin{DoxyCompactList}\small\item\em Valida mediante proyección lineal si una palabra puede ser sembrada en una coordenada específica. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespacegenerate_a46429655209bf6a2ab7da37cabd54629}{generate.\+put\+\_\+in\+\_\+word}} (matrice, word, index, fit\+\_\+dir)
+\begin{DoxyCompactList}\small\item\em Modifica físicamente las celdas de la matriz e inyecta los caracteres de la palabra validada. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespacegenerate_ac32ef11a9853aafa450a68f57d636cb0}{generate.\+generate\+\_\+board}} ()
+\begin{DoxyCompactList}\small\item\em Genera procedimentalmente un nuevo mapa completo de sopa de letras bajo criterios de optimización espacial. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespacegenerate_a6eec92933c39e8c4be3de8b8af78d39c}{generate.\+set\+\_\+difficulty}} (level)
+\begin{DoxyCompactList}\small\item\em Configura y altera dinámicamente las dimensiones estructurales de la grilla según el grado de complejidad deseado. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespacegenerate_a60ef478263406e90547855fa19936ac7}{generate.\+GRID\+\_\+\+SIZE}} = 10
+\item 
+int \mbox{\hyperlink{namespacegenerate_a59f2a3e28de68a7ef5deb6c4af43ddbb}{generate.\+num\+\_\+palabras}} = 10
+\item 
+list \mbox{\hyperlink{namespacegenerate_a11b0c386d2e143a45fbe502648ca8b25}{generate.\+grid}} = \mbox{[}$\,$\mbox{]}
+\item 
+list \mbox{\hyperlink{namespacegenerate_ac240610ab5c607a75672a1bb25228aec}{generate.\+words\+\_\+copy}} = \mbox{[}$\,$\mbox{]}
+\item 
+dictionary \mbox{\hyperlink{namespacegenerate_a201953e32a902296aedbef2e895c5700}{generate.\+word\+\_\+positions}} = \{\}
+\item 
+int \mbox{\hyperlink{namespacegenerate_ac458a5e2219436eb2f9f185dddf0a952}{generate.\+MAX\+\_\+\+ATTEMPTS}} = 500
+\item 
+dictionary \mbox{\hyperlink{namespacegenerate_ab3ad8a817861d27c0340f1dc819deb9b}{generate.\+possibilites}}
+\begin{DoxyCompactList}\small\item\em Tuplas de dirección matemática elemental {\ttfamily (dx, dy)} que acotan el juego exclusivamente a ejes ortogonales. \end{DoxyCompactList}\end{DoxyCompactItemize}

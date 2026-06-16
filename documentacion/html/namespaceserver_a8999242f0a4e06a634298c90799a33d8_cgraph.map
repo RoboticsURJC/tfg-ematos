@@ -1,0 +1,4 @@
+<map id="server.recognize" name="server.recognize">
+<area shape="rect" id="node1" title="Endpoint HTTP POST: Procesa e identifica caras a partir de un fotograma de cámara." alt="" coords="5,5,135,32"/>
+<area shape="rect" id="node2" href="$namespaceserver.html#a6d6c556145e1f23ce86bd83d55e4a1a7" title="Imprime mensajes formateados por la salida estándar utilizando códigos de color ANSI." alt="" coords="183,5,269,32"/>
+</map>

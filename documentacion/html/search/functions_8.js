@@ -1,0 +1,5 @@
+var searchData=
+[
+  ['health_0',['health',['../classllm__service_1_1LLMService.html#a10b032c40bfe0f45a0968539e324bc58',1,'llm_service.LLMService.health()'],['../namespaceroutes__llm.html#a0315537b7f294c878fa5e080f3508537',1,'routes_llm.health()']]],
+  ['hideevent_1',['hideEvent',['../classbrowser__screen_1_1BrowserScreen.html#abd4b73419a6054d17c4c1b68836f7174',1,'browser_screen.BrowserScreen.hideEvent()'],['../classcalendar__screen_1_1CalendarScreen.html#af8491b1eec1b9138fa6b59d4640ee4b6',1,'calendar_screen.CalendarScreen.hideEvent()'],['../classnote__screen_1_1NotesScreen.html#afd6b4c18ea90837052464ca39ee30373',1,'note_screen.NotesScreen.hideEvent()'],['../classreminder__screen_1_1ReminderScreen.html#a6ed3e97bce6aa3b082aab67a57f9df7e',1,'reminder_screen.ReminderScreen.hideEvent()'],['../classsettings__screen_1_1SettingsScreen.html#a069a3acc462dd1c994ed1e704c41ddf8',1,'settings_screen.SettingsScreen.hideEvent(self, event)'],['../classsettings__screen_1_1SettingsScreen.html#a069a3acc462dd1c994ed1e704c41ddf8',1,'settings_screen.SettingsScreen.hideEvent(self, event)']]]
+];

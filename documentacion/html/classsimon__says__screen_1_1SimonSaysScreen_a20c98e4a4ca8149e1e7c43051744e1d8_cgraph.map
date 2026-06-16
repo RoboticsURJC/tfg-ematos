@@ -1,0 +1,9 @@
+<map id="simon_says_screen.SimonSaysScreen.start_game" name="simon_says_screen.SimonSaysScreen.start_game">
+<area shape="rect" id="node1" title="Inicializa los parámetros de control e inicia una nueva partida." alt="" coords="5,185,231,227"/>
+<area shape="rect" id="node2" href="$classsimon__says__screen_1_1SimonSaysScreen.html#a1e81a6f6987d4378d63c75ab887bcb81" title="Añade un nuevo índice aleatorio [0&#45;3] a la secuencia para subir el nivel." alt="" coords="283,5,509,47"/>
+<area shape="rect" id="node3" href="$classfind__differences__screen_1_1FindDifferencesScreen.html#a6cdf3bc76266e6c4845292d93d021335" title="Calcula de forma estricta los rectángulos de visualización de los lienzos." alt="" coords="307,71,485,127"/>
+<area shape="rect" id="node4" href="$classsimon__says__screen_1_1SimonSaysScreen.html#aef296cc8b6b4f1c4a975a937940b85b6" title="Distribuye espacialmente 4 inductores circulares idénticos alineados de forma horizontal." alt="" coords="283,152,509,193"/>
+<area shape="rect" id="node5" href="$classword__search__screen_1_1WordSearchScreen.html#ab3ba7ccbe96c60a15ba1b19db528145d" title="Distribuye espacialmente la matriz de juego basándose en la resolución actual del lienzo." alt="" coords="279,217,513,259"/>
+<area shape="rect" id="node6" href="$classsimon__says__screen_1_1SimonSaysScreen.html#a1babbbe8411f99a203b00d848fbd054f" title="Sintetiza matemáticamente ondas senoidales e inicializa el subsistema de sonido." alt="" coords="283,283,509,324"/>
+<area shape="rect" id="node7" href="$classsimon__says__screen_1_1SimonSaysScreen.html#a66dc15c613f829b53f91f938dfe1f5a5" title="Configura las variables para iniciar la reproducción automática de colores." alt="" coords="283,348,509,389"/>
+</map>

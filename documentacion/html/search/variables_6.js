@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['f_5fbody_0',['f_body',['../classproactive_1_1proactive__screen_1_1ProactiveScreen.html#a092d66736cc6e520798e082122267866',1,'proactive::proactive_screen::ProactiveScreen']]],
+  ['f_5fbtn_1',['f_btn',['../classproactive_1_1proactive__screen_1_1ProactiveScreen.html#a7ed7af843c0a17eac1c939452bb7a3c1',1,'proactive::proactive_screen::ProactiveScreen']]],
+  ['f_5ftag_2',['f_tag',['../classproactive_1_1proactive__screen_1_1ProactiveScreen.html#a84ce79c2c413ae8bda2fcb6495f41b3d',1,'proactive::proactive_screen::ProactiveScreen']]],
+  ['f_5ftitle_3',['f_title',['../classproactive_1_1proactive__screen_1_1ProactiveScreen.html#a3681e4318efe515007422ad3df7c60d8',1,'proactive::proactive_screen::ProactiveScreen']]],
+  ['face_5fserver_5furl_4',['FACE_SERVER_URL',['../namespaceconfig.html#abfbe3a8dc80726a23d2a65816089764f',1,'config']]],
+  ['face_5furl_5',['FACE_URL',['../namespaceface__service.html#af464bea3ba23919fb1e750caf84d031f',1,'face_service']]],
+  ['feedback_5fdur_6',['FEEDBACK_DUR',['../classsimon__says__screen_1_1SimonSaysScreen.html#ad89a1974987d9b9ab306fb0991820910',1,'simon_says_screen::SimonSaysScreen']]],
+  ['file_7',['FILE',['../namespacestorage.html#ae39f55f02fef69b60394ed28d8fa2c0f',1,'storage']]],
+  ['find_5fdifferences_5fscreen_8',['find_differences_screen',['../classapp_1_1ui_1_1main__window_1_1MainWindow.html#ad6fb3e7212553e1aff1eab403db9cb3e',1,'app::ui::main_window::MainWindow']]],
+  ['finished_9',['finished',['../classboot__screen_1_1BootScreen.html#add5b53550c452493d4f8f10d5b171478',1,'boot_screen::BootScreen']]],
+  ['first_10',['first',['../classmemory__screen_1_1MemoryScreen.html#a64441a3bad7bbe9defc4b13f9265617a',1,'memory_screen::MemoryScreen']]],
+  ['font_11',['font',['../classapp_1_1ui_1_1display_1_1FaceDisplay.html#a52266d340c5d92104ea79dc5b22a5792',1,'app.ui.display.FaceDisplay.font()'],['../classmemory__screen_1_1MemoryScreen.html#a18360ff43086b424f364171cdc15ad27',1,'memory_screen.MemoryScreen.font()']]],
+  ['footer_5fh_12',['FOOTER_H',['../classsimon__says__screen_1_1SimonSaysScreen.html#a7a06392b17d3baa83171674fa6092cc1',1,'simon_says_screen::SimonSaysScreen']]],
+  ['format_13',['format',['../namespaceserver.html#addb76dcb1b81da9cf62eb9849b07211a',1,'server.format()'],['../namespacespeaking__server.html#a2fc71ea43ba0ac711b4b7f1d1c9847dc',1,'speaking_server.format()']]],
+  ['found_14',['found',['../classfind__differences__screen_1_1Difference.html#a8e678935f3c1a699addd69c64f93f6f1',1,'find_differences_screen::Difference']]],
+  ['fps_15',['fps',['../classapp_1_1ui_1_1display_1_1FaceDisplay.html#a50eb67f01f60d8bab875ab7d17ec87be',1,'app::ui::display::FaceDisplay']]],
+  ['frame_16',['frame',['../classregister__screen_1_1RegisterScreen.html#a15f90df5d0d2e1c95ffa2d154ba95d35',1,'register_screen::RegisterScreen']]]
+];

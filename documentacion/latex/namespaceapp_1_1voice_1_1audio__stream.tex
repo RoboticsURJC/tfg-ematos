@@ -1,0 +1,57 @@
+\hypertarget{namespaceapp_1_1voice_1_1audio__stream}{}\doxysection{app.\+voice.\+audio\+\_\+stream Namespace Reference}
+\label{namespaceapp_1_1voice_1_1audio__stream}\index{app.voice.audio\_stream@{app.voice.audio\_stream}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classapp_1_1voice_1_1audio__stream_1_1AudioStream}{Audio\+Stream}}
+\begin{DoxyCompactList}\small\item\em Gestiona la captura continua de audio desde el micrófono. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceapp_1_1voice_1_1audio__stream_a7128105ed9585d11834e780e049f5c63}{encontrar\+\_\+micro}} (nombre\+\_\+clave)
+\begin{DoxyCompactList}\small\item\em Busca un dispositivo de entrada por nombre parcial. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceapp_1_1voice_1_1audio__stream_a8d837b7791de1c7eb52a30a7d8684acb}{start\+\_\+stream}} (device=None, samplerate=48000, blocksize=8000)
+\begin{DoxyCompactList}\small\item\em Crea e inicia un \mbox{\hyperlink{classapp_1_1voice_1_1audio__stream_1_1AudioStream}{Audio\+Stream}} listo para usar. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceapp_1_1voice_1_1audio__stream_a7128105ed9585d11834e780e049f5c63}\label{namespaceapp_1_1voice_1_1audio__stream_a7128105ed9585d11834e780e049f5c63}} 
+\index{app.voice.audio\_stream@{app.voice.audio\_stream}!encontrar\_micro@{encontrar\_micro}}
+\index{encontrar\_micro@{encontrar\_micro}!app.voice.audio\_stream@{app.voice.audio\_stream}}
+\doxysubsubsection{\texorpdfstring{encontrar\_micro()}{encontrar\_micro()}}
+{\footnotesize\ttfamily def app.\+voice.\+audio\+\_\+stream.\+encontrar\+\_\+micro (\begin{DoxyParamCaption}\item[{}]{nombre\+\_\+clave }\end{DoxyParamCaption})}
+
+
+
+Busca un dispositivo de entrada por nombre parcial. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nombre\+\_\+clave} & Cadena a buscar en el nombre del dispositivo. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Índice del dispositivo encontrado, o None si no existe. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceapp_1_1voice_1_1audio__stream_a8d837b7791de1c7eb52a30a7d8684acb}\label{namespaceapp_1_1voice_1_1audio__stream_a8d837b7791de1c7eb52a30a7d8684acb}} 
+\index{app.voice.audio\_stream@{app.voice.audio\_stream}!start\_stream@{start\_stream}}
+\index{start\_stream@{start\_stream}!app.voice.audio\_stream@{app.voice.audio\_stream}}
+\doxysubsubsection{\texorpdfstring{start\_stream()}{start\_stream()}}
+{\footnotesize\ttfamily def app.\+voice.\+audio\+\_\+stream.\+start\+\_\+stream (\begin{DoxyParamCaption}\item[{}]{device = {\ttfamily None},  }\item[{}]{samplerate = {\ttfamily 48000},  }\item[{}]{blocksize = {\ttfamily 8000} }\end{DoxyParamCaption})}
+
+
+
+Crea e inicia un \mbox{\hyperlink{classapp_1_1voice_1_1audio__stream_1_1AudioStream}{Audio\+Stream}} listo para usar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Dispositivo de audio (índice o nombre). \\
+\hline
+{\em samplerate} & Frecuencia de muestreo de captura. \\
+\hline
+{\em blocksize} & Tamaño del bloque por callback. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Tupla (stream, queue) donde queue contiene bytes a 16k\+Hz. 
+\end{DoxyReturn}

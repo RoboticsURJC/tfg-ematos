@@ -1,0 +1,4 @@
+<map id="routes_dashboard.all_logs" name="routes_dashboard.all_logs">
+<area shape="rect" id="node1" title="Recupera el historial completo de logs globales." alt="" coords="5,5,197,32"/>
+<area shape="rect" id="node2" href="$namespacelog__service.html#a90bf579b129226e4ecccb979c22a8651" title="Obtiene una copia superficial de todo el ecosistema de logs global." alt="" coords="245,5,424,32"/>
+</map>

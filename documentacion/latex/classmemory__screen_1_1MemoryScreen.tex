@@ -1,0 +1,492 @@
+\hypertarget{classmemory__screen_1_1MemoryScreen}{}\doxysection{memory\+\_\+screen.\+Memory\+Screen Class Reference}
+\label{classmemory__screen_1_1MemoryScreen}\index{memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}}
+
+
+Orquestador gráfico y lógico del minijuego de memoria.  
+
+
+
+
+Inheritance diagram for memory\+\_\+screen.\+Memory\+Screen\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{classmemory__screen_1_1MemoryScreen__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for memory\+\_\+screen.\+Memory\+Screen\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{classmemory__screen_1_1MemoryScreen__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classmemory__screen_1_1MemoryScreen_a76ba5251581435f456af45ccc6aa11da}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, controller=None)
+\begin{DoxyCompactList}\small\item\em Constructor de la clase \mbox{\hyperlink{classmemory__screen_1_1MemoryScreen}{Memory\+Screen}}. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classmemory__screen_1_1MemoryScreen_a38308aa97c84a2ed508451b35f405b29}{exit\+\_\+game}} (self)
+\begin{DoxyCompactList}\small\item\em Detiene de forma segura el bucle de renderizado e invoca el retorno hacia el hub de juegos de Qt. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classmemory__screen_1_1MemoryScreen_acc0f78052765892169326dd5a06eefa7}{update\+\_\+logic}} (self)
+\begin{DoxyCompactList}\small\item\em Motor cíclico principal encargado de la resolución de la lógica de negocio y entrada por eventos. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classmemory__screen_1_1MemoryScreen_a0962ca789682113ae6d23d215d0b04d4}{render}} (self)
+\begin{DoxyCompactList}\small\item\em Canalizador centralizado del ciclo de dibujado. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmemory__screen_1_1MemoryScreen_a734d258e6e38d69fea2459272d0dcb99}{level}}
+\item 
+\mbox{\hyperlink{classmemory__screen_1_1MemoryScreen_aeeabbbbcb822169947b9988badc02e37}{game\+\_\+state}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Escalón de dificultad activo (Rangos de 1 a 4). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmemory__screen_1_1MemoryScreen_a0f2068b773d92519a474ff136ce7285d}{SQUARE}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Máquina de estados del flujo visual (\char`\"{}menu\char`\"{} $\vert$ \char`\"{}playing\char`\"{}). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmemory__screen_1_1MemoryScreen_a362fddbf5e8ee0dc69a37007088e85b1}{INFO\+\_\+H}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Dimensión longitudinal en píxeles de cada tarjeta cuadrada. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmemory__screen_1_1MemoryScreen_a18360ff43086b424f364171cdc15ad27}{font}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Altura en píxeles asignada a la barra de control inferior (HUD). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmemory__screen_1_1MemoryScreen_a8a8f289e42cbd1d9e7cc316e00c4b324}{title\+\_\+font}}
+\item 
+\mbox{\hyperlink{classmemory__screen_1_1MemoryScreen_ac0601c1da35c3bb643df8333f01deba1}{current\+\_\+dir}}
+\item 
+\mbox{\hyperlink{classmemory__screen_1_1MemoryScreen_acef02afa16b0291afa407d837f1a9693}{hidden}}
+\item 
+\mbox{\hyperlink{classmemory__screen_1_1MemoryScreen_ae7dfbe44276bab361594f81537766c5b}{sound\+\_\+flip}}
+\item 
+\mbox{\hyperlink{classmemory__screen_1_1MemoryScreen_acc2297013b6d80dff3df5c36148e3b9f}{sound\+\_\+wrong}}
+\item 
+\mbox{\hyperlink{classmemory__screen_1_1MemoryScreen_a2980e1206b2371c28592e4079fe4de99}{sound\+\_\+win}}
+\item 
+\mbox{\hyperlink{classmemory__screen_1_1MemoryScreen_a9de53bf57efdac547e46ade6ee8e8c75}{btn\+\_\+play}}
+\item 
+\mbox{\hyperlink{classmemory__screen_1_1MemoryScreen_a7904f5eae7feb4ca267d531c2d1e4b2a}{btn\+\_\+exit}}
+\item 
+\mbox{\hyperlink{classmemory__screen_1_1MemoryScreen_a52e98c664ccbd0cd06c4286873caf825}{btn\+\_\+ingame\+\_\+exit}}
+\item 
+\mbox{\hyperlink{classmemory__screen_1_1MemoryScreen_a4629fe6d131355dd41796fd5c27c08d4}{particles}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Marca de tiempo del inicio de la partida. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmemory__screen_1_1MemoryScreen_a7cd464576e0b558a539a216f69057c5d}{celebration}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Contenedor dinámico de vectores balísticos para las partículas de victoria. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmemory__screen_1_1MemoryScreen_ac7e8aedd1cf34f161791152543c2a4e5}{cols}}
+\item 
+\mbox{\hyperlink{classmemory__screen_1_1MemoryScreen_a64441a3bad7bbe9defc4b13f9265617a}{first}}
+\item 
+\mbox{\hyperlink{classmemory__screen_1_1MemoryScreen_a8759a41d211d6c1a2e0704fab261d582}{second}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Tupla {\ttfamily (cx, cy)} de coordenadas de la primera carta seleccionada. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmemory__screen_1_1MemoryScreen_aea95382d843709940a44a556026747a1}{lock}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Tupla {\ttfamily (cx, cy)} de coordenadas de la segunda carta seleccionada. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmemory__screen_1_1MemoryScreen_a3f14fe66b2347a4ac94d4f0070c8b1d4}{lock\+\_\+time}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Estado de bloqueo táctil temporal (impide clicks durante la animación de error). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmemory__screen_1_1MemoryScreen_a7871ba041c42bf5ccea336712e386a94}{start\+\_\+time}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Registro temporal (timestamp) de inicio del bloqueo de pantalla. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classmemory__screen_1_1MemoryScreen_a5a93651944325e6760f1087cd9732b6a}{\+\_\+reset}} (self)
+\begin{DoxyCompactList}\small\item\em Reinicia los punteros de control de emparejamiento y reconstruye la matriz según el nivel. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classmemory__screen_1_1MemoryScreen_a21aa69367b13f0120198a53a78020f1e}{\+\_\+create}} (self, \mbox{\hyperlink{classmemory__screen_1_1MemoryScreen_a734d258e6e38d69fea2459272d0dcb99}{level}})
+\begin{DoxyCompactList}\small\item\em Inicializa la estructura del mazo e instancia las texturas en memoria según la dificultad. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classmemory__screen_1_1MemoryScreen_a19d8388a31b628497f3a114c6318cb04}{\+\_\+board}} (self)
+\begin{DoxyCompactList}\small\item\em Calcula los desfases (offsets) espaciales para centrar geométricamente la matriz en la pantalla. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classmemory__screen_1_1MemoryScreen_a3e84b74c5da33dc744720e2436069f0d}{\+\_\+ui\+\_\+bar}} (self)
+\begin{DoxyCompactList}\small\item\em Genera la caja de colisión y dibujo asociada al HUD inferior. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classmemory__screen_1_1MemoryScreen_a4218a213f55753373904d0dc5e1a2d80}{\+\_\+spawn\+\_\+particles}} (self)
+\begin{DoxyCompactList}\small\item\em Genera y siembra aleatoriamente los descriptores cinemáticos para el sistema de partículas. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classmemory__screen_1_1MemoryScreen_a91b159d90c19f0f819b02f00ac72bd22}{\+\_\+bg}} (self)
+\begin{DoxyCompactList}\small\item\em Dibuja un gradiente cromático vertical en tiempo real directamente en la superficie principal. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classmemory__screen_1_1MemoryScreen_a9fb51c93a2467d2e04c3f0d4ad1b4c18}{\+\_\+menu}} (self)
+\begin{DoxyCompactList}\small\item\em Renderiza los elementos de la interfaz de usuario, textos y formas asociadas a la vista de Menú. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classmemory__screen_1_1MemoryScreen_a4a6453991298638967547a62e4b00b7b}{\+\_\+draw\+\_\+board}} (self)
+\begin{DoxyCompactList}\small\item\em Renderiza el tablero de juego activo, las tarjetas, los bordes de estado de control y el HUD. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Orquestador gráfico y lógico del minijuego de memoria. 
+
+Administra las transiciones de nivel aumentando de forma geométrica el tamaño de la rejilla y controlando los hilos de renderizado y captura de colisiones. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classmemory__screen_1_1MemoryScreen_a76ba5251581435f456af45ccc6aa11da}\label{classmemory__screen_1_1MemoryScreen_a76ba5251581435f456af45ccc6aa11da}} 
+\index{memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def memory\+\_\+screen.\+Memory\+Screen.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{controller = {\ttfamily None} }\end{DoxyParamCaption})}
+
+
+
+Constructor de la clase \mbox{\hyperlink{classmemory__screen_1_1MemoryScreen}{Memory\+Screen}}. 
+
+Inicializa los buffers de fuentes tipográficas, inicializa el subsistema de audio mezclador de Pygame e instancia los rectángulos de colisión estáticos del menú.
+
+
+\begin{DoxyParams}{Parameters}
+{\em controller} & Instancia del enrutador central de vistas de la UI. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=255pt]{classmemory__screen_1_1MemoryScreen_a76ba5251581435f456af45ccc6aa11da_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classmemory__screen_1_1MemoryScreen_a91b159d90c19f0f819b02f00ac72bd22}\label{classmemory__screen_1_1MemoryScreen_a91b159d90c19f0f819b02f00ac72bd22}} 
+\index{memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}!\_bg@{\_bg}}
+\index{\_bg@{\_bg}!memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}}
+\doxysubsubsection{\texorpdfstring{\_bg()}{\_bg()}}
+{\footnotesize\ttfamily def memory\+\_\+screen.\+Memory\+Screen.\+\_\+bg (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Dibuja un gradiente cromático vertical en tiempo real directamente en la superficie principal. 
+
+{\bfseries{Optimización de memoria\+:}} Interpola linealmente los colores RGB línea a línea evitando la sobrecarga que implicaría reescalar de forma continua un mapa de bits estático gigante. \mbox{\Hypertarget{classmemory__screen_1_1MemoryScreen_a19d8388a31b628497f3a114c6318cb04}\label{classmemory__screen_1_1MemoryScreen_a19d8388a31b628497f3a114c6318cb04}} 
+\index{memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}!\_board@{\_board}}
+\index{\_board@{\_board}!memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}}
+\doxysubsubsection{\texorpdfstring{\_board()}{\_board()}}
+{\footnotesize\ttfamily def memory\+\_\+screen.\+Memory\+Screen.\+\_\+board (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Calcula los desfases (offsets) espaciales para centrar geométricamente la matriz en la pantalla. 
+
+\begin{DoxyReturn}{Returns}
+tuple Desfases {\ttfamily (ox, oy)} en píxeles medidos desde el vértice superior izquierdo. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmemory__screen_1_1MemoryScreen_a21aa69367b13f0120198a53a78020f1e}\label{classmemory__screen_1_1MemoryScreen_a21aa69367b13f0120198a53a78020f1e}} 
+\index{memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}!\_create@{\_create}}
+\index{\_create@{\_create}!memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}}
+\doxysubsubsection{\texorpdfstring{\_create()}{\_create()}}
+{\footnotesize\ttfamily def memory\+\_\+screen.\+Memory\+Screen.\+\_\+create (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{level }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Inicializa la estructura del mazo e instancia las texturas en memoria según la dificultad. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em level} & Entero del escalón de dificultad que define las dimensiones matriciales. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+tuple Devuelve {\ttfamily (matrix, rows, cols)} donde matrix es una cuadrícula bidimensional de diccionarios. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmemory__screen_1_1MemoryScreen_a4a6453991298638967547a62e4b00b7b}\label{classmemory__screen_1_1MemoryScreen_a4a6453991298638967547a62e4b00b7b}} 
+\index{memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}!\_draw\_board@{\_draw\_board}}
+\index{\_draw\_board@{\_draw\_board}!memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}}
+\doxysubsubsection{\texorpdfstring{\_draw\_board()}{\_draw\_board()}}
+{\footnotesize\ttfamily def memory\+\_\+screen.\+Memory\+Screen.\+\_\+draw\+\_\+board (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Renderiza el tablero de juego activo, las tarjetas, los bordes de estado de control y el HUD. 
+
+Modifica dinámicamente la posición de los vectores de partículas en base a su delta cinemático si la bandera de celebración se encuentra activa. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classmemory__screen_1_1MemoryScreen_a4a6453991298638967547a62e4b00b7b_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classmemory__screen_1_1MemoryScreen_a9fb51c93a2467d2e04c3f0d4ad1b4c18}\label{classmemory__screen_1_1MemoryScreen_a9fb51c93a2467d2e04c3f0d4ad1b4c18}} 
+\index{memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}!\_menu@{\_menu}}
+\index{\_menu@{\_menu}!memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}}
+\doxysubsubsection{\texorpdfstring{\_menu()}{\_menu()}}
+{\footnotesize\ttfamily def memory\+\_\+screen.\+Memory\+Screen.\+\_\+menu (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Renderiza los elementos de la interfaz de usuario, textos y formas asociadas a la vista de Menú. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classmemory__screen_1_1MemoryScreen_a9fb51c93a2467d2e04c3f0d4ad1b4c18_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classmemory__screen_1_1MemoryScreen_a5a93651944325e6760f1087cd9732b6a}\label{classmemory__screen_1_1MemoryScreen_a5a93651944325e6760f1087cd9732b6a}} 
+\index{memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}!\_reset@{\_reset}}
+\index{\_reset@{\_reset}!memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}}
+\doxysubsubsection{\texorpdfstring{\_reset()}{\_reset()}}
+{\footnotesize\ttfamily def memory\+\_\+screen.\+Memory\+Screen.\+\_\+reset (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reinicia los punteros de control de emparejamiento y reconstruye la matriz según el nivel. 
+
+\mbox{\Hypertarget{classmemory__screen_1_1MemoryScreen_a4218a213f55753373904d0dc5e1a2d80}\label{classmemory__screen_1_1MemoryScreen_a4218a213f55753373904d0dc5e1a2d80}} 
+\index{memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}!\_spawn\_particles@{\_spawn\_particles}}
+\index{\_spawn\_particles@{\_spawn\_particles}!memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}}
+\doxysubsubsection{\texorpdfstring{\_spawn\_particles()}{\_spawn\_particles()}}
+{\footnotesize\ttfamily def memory\+\_\+screen.\+Memory\+Screen.\+\_\+spawn\+\_\+particles (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Genera y siembra aleatoriamente los descriptores cinemáticos para el sistema de partículas. 
+
+Puebla el contenedor dinámico con una estructura de vector {\ttfamily \mbox{[}x, y, dx, dy, color\mbox{]}} calculando la proyección inicial desde los bordes de la cuadrícula activa. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classmemory__screen_1_1MemoryScreen_a4218a213f55753373904d0dc5e1a2d80_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classmemory__screen_1_1MemoryScreen_a3e84b74c5da33dc744720e2436069f0d}\label{classmemory__screen_1_1MemoryScreen_a3e84b74c5da33dc744720e2436069f0d}} 
+\index{memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}!\_ui\_bar@{\_ui\_bar}}
+\index{\_ui\_bar@{\_ui\_bar}!memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}}
+\doxysubsubsection{\texorpdfstring{\_ui\_bar()}{\_ui\_bar()}}
+{\footnotesize\ttfamily def memory\+\_\+screen.\+Memory\+Screen.\+\_\+ui\+\_\+bar (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Genera la caja de colisión y dibujo asociada al HUD inferior. 
+
+\begin{DoxyReturn}{Returns}
+pygame.\+Rect Rectángulo absoluto que acota la barra inferior. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmemory__screen_1_1MemoryScreen_a38308aa97c84a2ed508451b35f405b29}\label{classmemory__screen_1_1MemoryScreen_a38308aa97c84a2ed508451b35f405b29}} 
+\index{memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}!exit\_game@{exit\_game}}
+\index{exit\_game@{exit\_game}!memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}}
+\doxysubsubsection{\texorpdfstring{exit\_game()}{exit\_game()}}
+{\footnotesize\ttfamily def memory\+\_\+screen.\+Memory\+Screen.\+exit\+\_\+game (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Detiene de forma segura el bucle de renderizado e invoca el retorno hacia el hub de juegos de Qt. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classmemory__screen_1_1MemoryScreen_a38308aa97c84a2ed508451b35f405b29_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classmemory__screen_1_1MemoryScreen_a0962ca789682113ae6d23d215d0b04d4}\label{classmemory__screen_1_1MemoryScreen_a0962ca789682113ae6d23d215d0b04d4}} 
+\index{memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}!render@{render}}
+\index{render@{render}!memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily def memory\+\_\+screen.\+Memory\+Screen.\+render (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Canalizador centralizado del ciclo de dibujado. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classmemory__screen_1_1MemoryScreen_a0962ca789682113ae6d23d215d0b04d4_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classmemory__screen_1_1MemoryScreen_acc0f78052765892169326dd5a06eefa7}\label{classmemory__screen_1_1MemoryScreen_acc0f78052765892169326dd5a06eefa7}} 
+\index{memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}!update\_logic@{update\_logic}}
+\index{update\_logic@{update\_logic}!memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}}
+\doxysubsubsection{\texorpdfstring{update\_logic()}{update\_logic()}}
+{\footnotesize\ttfamily def memory\+\_\+screen.\+Memory\+Screen.\+update\+\_\+logic (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Motor cíclico principal encargado de la resolución de la lógica de negocio y entrada por eventos. 
+
+Procesa la pila asíncrona de eventos capturando clicks de la pantalla táctil, colisiones geométricas y coordina el desbloqueo diferido de las tarjetas erróneas mediante temporizadores. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classmemory__screen_1_1MemoryScreen_acc0f78052765892169326dd5a06eefa7_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classmemory__screen_1_1MemoryScreen_a7904f5eae7feb4ca267d531c2d1e4b2a}\label{classmemory__screen_1_1MemoryScreen_a7904f5eae7feb4ca267d531c2d1e4b2a}} 
+\index{memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}!btn\_exit@{btn\_exit}}
+\index{btn\_exit@{btn\_exit}!memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_exit}{btn\_exit}}
+{\footnotesize\ttfamily memory\+\_\+screen.\+Memory\+Screen.\+btn\+\_\+exit}
+
+\mbox{\Hypertarget{classmemory__screen_1_1MemoryScreen_a52e98c664ccbd0cd06c4286873caf825}\label{classmemory__screen_1_1MemoryScreen_a52e98c664ccbd0cd06c4286873caf825}} 
+\index{memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}!btn\_ingame\_exit@{btn\_ingame\_exit}}
+\index{btn\_ingame\_exit@{btn\_ingame\_exit}!memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_ingame\_exit}{btn\_ingame\_exit}}
+{\footnotesize\ttfamily memory\+\_\+screen.\+Memory\+Screen.\+btn\+\_\+ingame\+\_\+exit}
+
+\mbox{\Hypertarget{classmemory__screen_1_1MemoryScreen_a9de53bf57efdac547e46ade6ee8e8c75}\label{classmemory__screen_1_1MemoryScreen_a9de53bf57efdac547e46ade6ee8e8c75}} 
+\index{memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}!btn\_play@{btn\_play}}
+\index{btn\_play@{btn\_play}!memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_play}{btn\_play}}
+{\footnotesize\ttfamily memory\+\_\+screen.\+Memory\+Screen.\+btn\+\_\+play}
+
+\mbox{\Hypertarget{classmemory__screen_1_1MemoryScreen_a7cd464576e0b558a539a216f69057c5d}\label{classmemory__screen_1_1MemoryScreen_a7cd464576e0b558a539a216f69057c5d}} 
+\index{memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}!celebration@{celebration}}
+\index{celebration@{celebration}!memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}}
+\doxysubsubsection{\texorpdfstring{celebration}{celebration}}
+{\footnotesize\ttfamily memory\+\_\+screen.\+Memory\+Screen.\+celebration}
+
+
+
+\texorpdfstring{$<$}{<} Contenedor dinámico de vectores balísticos para las partículas de victoria. 
+
+\mbox{\Hypertarget{classmemory__screen_1_1MemoryScreen_ac7e8aedd1cf34f161791152543c2a4e5}\label{classmemory__screen_1_1MemoryScreen_ac7e8aedd1cf34f161791152543c2a4e5}} 
+\index{memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}!cols@{cols}}
+\index{cols@{cols}!memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}}
+\doxysubsubsection{\texorpdfstring{cols}{cols}}
+{\footnotesize\ttfamily memory\+\_\+screen.\+Memory\+Screen.\+cols}
+
+\mbox{\Hypertarget{classmemory__screen_1_1MemoryScreen_ac0601c1da35c3bb643df8333f01deba1}\label{classmemory__screen_1_1MemoryScreen_ac0601c1da35c3bb643df8333f01deba1}} 
+\index{memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}!current\_dir@{current\_dir}}
+\index{current\_dir@{current\_dir}!memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}}
+\doxysubsubsection{\texorpdfstring{current\_dir}{current\_dir}}
+{\footnotesize\ttfamily memory\+\_\+screen.\+Memory\+Screen.\+current\+\_\+dir}
+
+\mbox{\Hypertarget{classmemory__screen_1_1MemoryScreen_a64441a3bad7bbe9defc4b13f9265617a}\label{classmemory__screen_1_1MemoryScreen_a64441a3bad7bbe9defc4b13f9265617a}} 
+\index{memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}!first@{first}}
+\index{first@{first}!memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}}
+\doxysubsubsection{\texorpdfstring{first}{first}}
+{\footnotesize\ttfamily memory\+\_\+screen.\+Memory\+Screen.\+first}
+
+\mbox{\Hypertarget{classmemory__screen_1_1MemoryScreen_a18360ff43086b424f364171cdc15ad27}\label{classmemory__screen_1_1MemoryScreen_a18360ff43086b424f364171cdc15ad27}} 
+\index{memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}!font@{font}}
+\index{font@{font}!memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}}
+\doxysubsubsection{\texorpdfstring{font}{font}}
+{\footnotesize\ttfamily memory\+\_\+screen.\+Memory\+Screen.\+font}
+
+
+
+\texorpdfstring{$<$}{<} Altura en píxeles asignada a la barra de control inferior (HUD). 
+
+\mbox{\Hypertarget{classmemory__screen_1_1MemoryScreen_aeeabbbbcb822169947b9988badc02e37}\label{classmemory__screen_1_1MemoryScreen_aeeabbbbcb822169947b9988badc02e37}} 
+\index{memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}!game\_state@{game\_state}}
+\index{game\_state@{game\_state}!memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}}
+\doxysubsubsection{\texorpdfstring{game\_state}{game\_state}}
+{\footnotesize\ttfamily memory\+\_\+screen.\+Memory\+Screen.\+game\+\_\+state}
+
+
+
+\texorpdfstring{$<$}{<} Escalón de dificultad activo (Rangos de 1 a 4). 
+
+\mbox{\Hypertarget{classmemory__screen_1_1MemoryScreen_acef02afa16b0291afa407d837f1a9693}\label{classmemory__screen_1_1MemoryScreen_acef02afa16b0291afa407d837f1a9693}} 
+\index{memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}!hidden@{hidden}}
+\index{hidden@{hidden}!memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}}
+\doxysubsubsection{\texorpdfstring{hidden}{hidden}}
+{\footnotesize\ttfamily memory\+\_\+screen.\+Memory\+Screen.\+hidden}
+
+\mbox{\Hypertarget{classmemory__screen_1_1MemoryScreen_a362fddbf5e8ee0dc69a37007088e85b1}\label{classmemory__screen_1_1MemoryScreen_a362fddbf5e8ee0dc69a37007088e85b1}} 
+\index{memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}!INFO\_H@{INFO\_H}}
+\index{INFO\_H@{INFO\_H}!memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}}
+\doxysubsubsection{\texorpdfstring{INFO\_H}{INFO\_H}}
+{\footnotesize\ttfamily memory\+\_\+screen.\+Memory\+Screen.\+INFO\+\_\+H}
+
+
+
+\texorpdfstring{$<$}{<} Dimensión longitudinal en píxeles de cada tarjeta cuadrada. 
+
+\mbox{\Hypertarget{classmemory__screen_1_1MemoryScreen_a734d258e6e38d69fea2459272d0dcb99}\label{classmemory__screen_1_1MemoryScreen_a734d258e6e38d69fea2459272d0dcb99}} 
+\index{memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}!level@{level}}
+\index{level@{level}!memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}}
+\doxysubsubsection{\texorpdfstring{level}{level}}
+{\footnotesize\ttfamily memory\+\_\+screen.\+Memory\+Screen.\+level}
+
+\mbox{\Hypertarget{classmemory__screen_1_1MemoryScreen_aea95382d843709940a44a556026747a1}\label{classmemory__screen_1_1MemoryScreen_aea95382d843709940a44a556026747a1}} 
+\index{memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}!lock@{lock}}
+\index{lock@{lock}!memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}}
+\doxysubsubsection{\texorpdfstring{lock}{lock}}
+{\footnotesize\ttfamily memory\+\_\+screen.\+Memory\+Screen.\+lock}
+
+
+
+\texorpdfstring{$<$}{<} Tupla {\ttfamily (cx, cy)} de coordenadas de la segunda carta seleccionada. 
+
+\mbox{\Hypertarget{classmemory__screen_1_1MemoryScreen_a3f14fe66b2347a4ac94d4f0070c8b1d4}\label{classmemory__screen_1_1MemoryScreen_a3f14fe66b2347a4ac94d4f0070c8b1d4}} 
+\index{memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}!lock\_time@{lock\_time}}
+\index{lock\_time@{lock\_time}!memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}}
+\doxysubsubsection{\texorpdfstring{lock\_time}{lock\_time}}
+{\footnotesize\ttfamily memory\+\_\+screen.\+Memory\+Screen.\+lock\+\_\+time}
+
+
+
+\texorpdfstring{$<$}{<} Estado de bloqueo táctil temporal (impide clicks durante la animación de error). 
+
+\mbox{\Hypertarget{classmemory__screen_1_1MemoryScreen_a4629fe6d131355dd41796fd5c27c08d4}\label{classmemory__screen_1_1MemoryScreen_a4629fe6d131355dd41796fd5c27c08d4}} 
+\index{memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}!particles@{particles}}
+\index{particles@{particles}!memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}}
+\doxysubsubsection{\texorpdfstring{particles}{particles}}
+{\footnotesize\ttfamily memory\+\_\+screen.\+Memory\+Screen.\+particles}
+
+
+
+\texorpdfstring{$<$}{<} Marca de tiempo del inicio de la partida. 
+
+\mbox{\Hypertarget{classmemory__screen_1_1MemoryScreen_a8759a41d211d6c1a2e0704fab261d582}\label{classmemory__screen_1_1MemoryScreen_a8759a41d211d6c1a2e0704fab261d582}} 
+\index{memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}!second@{second}}
+\index{second@{second}!memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}}
+\doxysubsubsection{\texorpdfstring{second}{second}}
+{\footnotesize\ttfamily memory\+\_\+screen.\+Memory\+Screen.\+second}
+
+
+
+\texorpdfstring{$<$}{<} Tupla {\ttfamily (cx, cy)} de coordenadas de la primera carta seleccionada. 
+
+\mbox{\Hypertarget{classmemory__screen_1_1MemoryScreen_ae7dfbe44276bab361594f81537766c5b}\label{classmemory__screen_1_1MemoryScreen_ae7dfbe44276bab361594f81537766c5b}} 
+\index{memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}!sound\_flip@{sound\_flip}}
+\index{sound\_flip@{sound\_flip}!memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}}
+\doxysubsubsection{\texorpdfstring{sound\_flip}{sound\_flip}}
+{\footnotesize\ttfamily memory\+\_\+screen.\+Memory\+Screen.\+sound\+\_\+flip}
+
+\mbox{\Hypertarget{classmemory__screen_1_1MemoryScreen_a2980e1206b2371c28592e4079fe4de99}\label{classmemory__screen_1_1MemoryScreen_a2980e1206b2371c28592e4079fe4de99}} 
+\index{memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}!sound\_win@{sound\_win}}
+\index{sound\_win@{sound\_win}!memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}}
+\doxysubsubsection{\texorpdfstring{sound\_win}{sound\_win}}
+{\footnotesize\ttfamily memory\+\_\+screen.\+Memory\+Screen.\+sound\+\_\+win}
+
+\mbox{\Hypertarget{classmemory__screen_1_1MemoryScreen_acc2297013b6d80dff3df5c36148e3b9f}\label{classmemory__screen_1_1MemoryScreen_acc2297013b6d80dff3df5c36148e3b9f}} 
+\index{memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}!sound\_wrong@{sound\_wrong}}
+\index{sound\_wrong@{sound\_wrong}!memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}}
+\doxysubsubsection{\texorpdfstring{sound\_wrong}{sound\_wrong}}
+{\footnotesize\ttfamily memory\+\_\+screen.\+Memory\+Screen.\+sound\+\_\+wrong}
+
+\mbox{\Hypertarget{classmemory__screen_1_1MemoryScreen_a0f2068b773d92519a474ff136ce7285d}\label{classmemory__screen_1_1MemoryScreen_a0f2068b773d92519a474ff136ce7285d}} 
+\index{memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}!SQUARE@{SQUARE}}
+\index{SQUARE@{SQUARE}!memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}}
+\doxysubsubsection{\texorpdfstring{SQUARE}{SQUARE}}
+{\footnotesize\ttfamily memory\+\_\+screen.\+Memory\+Screen.\+SQUARE}
+
+
+
+\texorpdfstring{$<$}{<} Máquina de estados del flujo visual (\char`\"{}menu\char`\"{} $\vert$ \char`\"{}playing\char`\"{}). 
+
+\mbox{\Hypertarget{classmemory__screen_1_1MemoryScreen_a7871ba041c42bf5ccea336712e386a94}\label{classmemory__screen_1_1MemoryScreen_a7871ba041c42bf5ccea336712e386a94}} 
+\index{memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}!start\_time@{start\_time}}
+\index{start\_time@{start\_time}!memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}}
+\doxysubsubsection{\texorpdfstring{start\_time}{start\_time}}
+{\footnotesize\ttfamily memory\+\_\+screen.\+Memory\+Screen.\+start\+\_\+time}
+
+
+
+\texorpdfstring{$<$}{<} Registro temporal (timestamp) de inicio del bloqueo de pantalla. 
+
+\mbox{\Hypertarget{classmemory__screen_1_1MemoryScreen_a8a8f289e42cbd1d9e7cc316e00c4b324}\label{classmemory__screen_1_1MemoryScreen_a8a8f289e42cbd1d9e7cc316e00c4b324}} 
+\index{memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}!title\_font@{title\_font}}
+\index{title\_font@{title\_font}!memory\_screen.MemoryScreen@{memory\_screen.MemoryScreen}}
+\doxysubsubsection{\texorpdfstring{title\_font}{title\_font}}
+{\footnotesize\ttfamily memory\+\_\+screen.\+Memory\+Screen.\+title\+\_\+font}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ui/apps/games/\mbox{\hyperlink{memory__screen_8py}{memory\+\_\+screen.\+py}}\end{DoxyCompactItemize}

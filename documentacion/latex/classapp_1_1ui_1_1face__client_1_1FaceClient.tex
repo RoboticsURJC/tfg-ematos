@@ -1,0 +1,342 @@
+\hypertarget{classapp_1_1ui_1_1face__client_1_1FaceClient}{}\doxysection{app.\+ui.\+face\+\_\+client.\+Face\+Client Class Reference}
+\label{classapp_1_1ui_1_1face__client_1_1FaceClient}\index{app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}}
+
+
+Interfaz principal de autenticación y registro facial.  
+
+
+
+
+Inheritance diagram for app.\+ui.\+face\+\_\+client.\+Face\+Client\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{classapp_1_1ui_1_1face__client_1_1FaceClient__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for app.\+ui.\+face\+\_\+client.\+Face\+Client\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{classapp_1_1ui_1_1face__client_1_1FaceClient__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1face__client_1_1FaceClient_abfcc7153b04c2947e0e752872fd2efd8}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classapp_1_1ui_1_1face__client_1_1FaceClient_ac1910e3375d7ee175c6a5e6f1ef4a806}{on\+\_\+authenticated}})
+\begin{DoxyCompactList}\small\item\em Inicializa el cliente facial, la cámara y el display del robot. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1face__client_1_1FaceClient_a7b9e540ade05357ae60c5bc1f6f0bc53}{update\+\_\+frame}} (self)
+\begin{DoxyCompactList}\small\item\em Slot del temporizador para actualizar el fotograma de la cámara. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1face__client_1_1FaceClient_ae878d0ec1a6e646855dbb4ce4485bf69}{login}} (self)
+\begin{DoxyCompactList}\small\item\em Captura la imagen actual e inicia el proceso de login en un hilo. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1face__client_1_1FaceClient_aef300b584609c0698fc24d069572e180}{on\+\_\+result}} (self, data)
+\begin{DoxyCompactList}\small\item\em Maneja la respuesta exitosa del servidor de reconocimiento. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1face__client_1_1FaceClient_a0e39fc89eb024bbea89314b79240aa7a}{on\+\_\+error}} (self, msg)
+\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1face__client_1_1FaceClient_a8b9320fae842efcfff0fdd504d43f15b}{start\+\_\+register}} (self)
+\begin{DoxyCompactList}\small\item\em Inicia el flujo manual de captura para registrar un nuevo usuario. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1face__client_1_1FaceClient_a5f5ace16ba98f9eef0afe737176cdce3}{capture\+\_\+register\+\_\+photo}} (self)
+\begin{DoxyCompactList}\small\item\em Captura y guarda localmente una foto para el set de entrenamiento. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1face__client_1_1FaceClient_a3e909ab926cf131c973decb458eacf5a}{finish\+\_\+register}} (self)
+\begin{DoxyCompactList}\small\item\em Envía el set de fotos capturadas al servidor para registrar el nuevo usuario. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1face__client_1_1FaceClient_a93f43b22f08a225e5c68212248128e0b}{close\+\_\+app}} (self)
+\begin{DoxyCompactList}\small\item\em Detiene los procesos de cámara, timers y cierra la aplicación. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1face__client_1_1FaceClient_a13fce2fd0a7d62c4fd64066408b2f494}{key\+Press\+Event}} (self, event)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1face__client_1_1FaceClient_ac1910e3375d7ee175c6a5e6f1ef4a806}{on\+\_\+authenticated}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1face__client_1_1FaceClient_a8bb2c130cdb0a8d394ff2c36ecfc1bf2}{server\+\_\+url}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1face__client_1_1FaceClient_aeb104fbd1a80c7ee0bf3f962253baa5c}{logged\+\_\+in}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1face__client_1_1FaceClient_a5d1456f16915bb19b7fbb6710a477d8c}{register\+\_\+name}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1face__client_1_1FaceClient_af2bb24b4fa0950b2261aea26c80daeb0}{register\+\_\+images}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1face__client_1_1FaceClient_a3b5e2ed2cc35f0f23c2346f96f8dd815}{display}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1face__client_1_1FaceClient_a1af7c3cf3eef0d40a31b18f279925590}{cap}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1face__client_1_1FaceClient_a8e98ff4d536ca507a0f98f2da7ffa451}{current\+\_\+frame}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1face__client_1_1FaceClient_a06f74a2489e142a2c048fe93dd319fe7}{title}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1face__client_1_1FaceClient_a757137e714781f53480cf96917d00488}{camera}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1face__client_1_1FaceClient_a02c9740117f9a68c25f8363cb24e5701}{status}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1face__client_1_1FaceClient_adf03aa09f3bee8448481e9fba694510b}{progress}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1face__client_1_1FaceClient_aade774786014e0b89065dcb91ac86128}{btn\+\_\+login}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1face__client_1_1FaceClient_a60d6a365a32a15d4c56fd440034ba85a}{btn\+\_\+register}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1face__client_1_1FaceClient_aa99f241cf0aa51247f1a4c36a556c4b7}{btn\+\_\+capture}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1face__client_1_1FaceClient_a2d02222f5e2b2becd6485c43975a1c98}{btn\+\_\+exit}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1face__client_1_1FaceClient_a3b62acd28978534e8456e3852a90b879}{timer}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1face__client_1_1FaceClient_af8cbfec76444b12606b12d71efb78cbc}{worker}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interfaz principal de autenticación y registro facial. 
+
+Coordina la visualización de la cámara, el control del display del robot y la interacción con los servicios de reconocimiento facial del servidor. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classapp_1_1ui_1_1face__client_1_1FaceClient_abfcc7153b04c2947e0e752872fd2efd8}\label{classapp_1_1ui_1_1face__client_1_1FaceClient_abfcc7153b04c2947e0e752872fd2efd8}} 
+\index{app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def app.\+ui.\+face\+\_\+client.\+Face\+Client.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{on\+\_\+authenticated }\end{DoxyParamCaption})}
+
+
+
+Inicializa el cliente facial, la cámara y el display del robot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em on\+\_\+authenticated} & Callback que se ejecuta al reconocer exitosamente a un usuario. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=239pt]{classapp_1_1ui_1_1face__client_1_1FaceClient_abfcc7153b04c2947e0e752872fd2efd8_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classapp_1_1ui_1_1face__client_1_1FaceClient_a5f5ace16ba98f9eef0afe737176cdce3}\label{classapp_1_1ui_1_1face__client_1_1FaceClient_a5f5ace16ba98f9eef0afe737176cdce3}} 
+\index{app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}!capture\_register\_photo@{capture\_register\_photo}}
+\index{capture\_register\_photo@{capture\_register\_photo}!app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}}
+\doxysubsubsection{\texorpdfstring{capture\_register\_photo()}{capture\_register\_photo()}}
+{\footnotesize\ttfamily def app.\+ui.\+face\+\_\+client.\+Face\+Client.\+capture\+\_\+register\+\_\+photo (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Captura y guarda localmente una foto para el set de entrenamiento. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classapp_1_1ui_1_1face__client_1_1FaceClient_a5f5ace16ba98f9eef0afe737176cdce3_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classapp_1_1ui_1_1face__client_1_1FaceClient_a93f43b22f08a225e5c68212248128e0b}\label{classapp_1_1ui_1_1face__client_1_1FaceClient_a93f43b22f08a225e5c68212248128e0b}} 
+\index{app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}!close\_app@{close\_app}}
+\index{close\_app@{close\_app}!app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}}
+\doxysubsubsection{\texorpdfstring{close\_app()}{close\_app()}}
+{\footnotesize\ttfamily def app.\+ui.\+face\+\_\+client.\+Face\+Client.\+close\+\_\+app (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Detiene los procesos de cámara, timers y cierra la aplicación. 
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1face__client_1_1FaceClient_a3e909ab926cf131c973decb458eacf5a}\label{classapp_1_1ui_1_1face__client_1_1FaceClient_a3e909ab926cf131c973decb458eacf5a}} 
+\index{app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}!finish\_register@{finish\_register}}
+\index{finish\_register@{finish\_register}!app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}}
+\doxysubsubsection{\texorpdfstring{finish\_register()}{finish\_register()}}
+{\footnotesize\ttfamily def app.\+ui.\+face\+\_\+client.\+Face\+Client.\+finish\+\_\+register (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Envía el set de fotos capturadas al servidor para registrar el nuevo usuario. 
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1face__client_1_1FaceClient_a13fce2fd0a7d62c4fd64066408b2f494}\label{classapp_1_1ui_1_1face__client_1_1FaceClient_a13fce2fd0a7d62c4fd64066408b2f494}} 
+\index{app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}!keyPressEvent@{keyPressEvent}}
+\index{keyPressEvent@{keyPressEvent}!app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}}
+\doxysubsubsection{\texorpdfstring{keyPressEvent()}{keyPressEvent()}}
+{\footnotesize\ttfamily def app.\+ui.\+face\+\_\+client.\+Face\+Client.\+key\+Press\+Event (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{event }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classapp_1_1ui_1_1face__client_1_1FaceClient_a13fce2fd0a7d62c4fd64066408b2f494_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classapp_1_1ui_1_1face__client_1_1FaceClient_ae878d0ec1a6e646855dbb4ce4485bf69}\label{classapp_1_1ui_1_1face__client_1_1FaceClient_ae878d0ec1a6e646855dbb4ce4485bf69}} 
+\index{app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}!login@{login}}
+\index{login@{login}!app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}}
+\doxysubsubsection{\texorpdfstring{login()}{login()}}
+{\footnotesize\ttfamily def app.\+ui.\+face\+\_\+client.\+Face\+Client.\+login (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Captura la imagen actual e inicia el proceso de login en un hilo. 
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1face__client_1_1FaceClient_a0e39fc89eb024bbea89314b79240aa7a}\label{classapp_1_1ui_1_1face__client_1_1FaceClient_a0e39fc89eb024bbea89314b79240aa7a}} 
+\index{app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}!on\_error@{on\_error}}
+\index{on\_error@{on\_error}!app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}}
+\doxysubsubsection{\texorpdfstring{on\_error()}{on\_error()}}
+{\footnotesize\ttfamily def app.\+ui.\+face\+\_\+client.\+Face\+Client.\+on\+\_\+error (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{msg }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1face__client_1_1FaceClient_aef300b584609c0698fc24d069572e180}\label{classapp_1_1ui_1_1face__client_1_1FaceClient_aef300b584609c0698fc24d069572e180}} 
+\index{app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}!on\_result@{on\_result}}
+\index{on\_result@{on\_result}!app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}}
+\doxysubsubsection{\texorpdfstring{on\_result()}{on\_result()}}
+{\footnotesize\ttfamily def app.\+ui.\+face\+\_\+client.\+Face\+Client.\+on\+\_\+result (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{data }\end{DoxyParamCaption})}
+
+
+
+Maneja la respuesta exitosa del servidor de reconocimiento. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Diccionario con la información del usuario reconocido. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classapp_1_1ui_1_1face__client_1_1FaceClient_a8b9320fae842efcfff0fdd504d43f15b}\label{classapp_1_1ui_1_1face__client_1_1FaceClient_a8b9320fae842efcfff0fdd504d43f15b}} 
+\index{app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}!start\_register@{start\_register}}
+\index{start\_register@{start\_register}!app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}}
+\doxysubsubsection{\texorpdfstring{start\_register()}{start\_register()}}
+{\footnotesize\ttfamily def app.\+ui.\+face\+\_\+client.\+Face\+Client.\+start\+\_\+register (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Inicia el flujo manual de captura para registrar un nuevo usuario. 
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1face__client_1_1FaceClient_a7b9e540ade05357ae60c5bc1f6f0bc53}\label{classapp_1_1ui_1_1face__client_1_1FaceClient_a7b9e540ade05357ae60c5bc1f6f0bc53}} 
+\index{app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}!update\_frame@{update\_frame}}
+\index{update\_frame@{update\_frame}!app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}}
+\doxysubsubsection{\texorpdfstring{update\_frame()}{update\_frame()}}
+{\footnotesize\ttfamily def app.\+ui.\+face\+\_\+client.\+Face\+Client.\+update\+\_\+frame (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Slot del temporizador para actualizar el fotograma de la cámara. 
+
+Convierte el frame de BGR (Open\+CV) a RGB (Qt) y lo escala al widget. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classapp_1_1ui_1_1face__client_1_1FaceClient_aa99f241cf0aa51247f1a4c36a556c4b7}\label{classapp_1_1ui_1_1face__client_1_1FaceClient_aa99f241cf0aa51247f1a4c36a556c4b7}} 
+\index{app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}!btn\_capture@{btn\_capture}}
+\index{btn\_capture@{btn\_capture}!app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}}
+\doxysubsubsection{\texorpdfstring{btn\_capture}{btn\_capture}}
+{\footnotesize\ttfamily app.\+ui.\+face\+\_\+client.\+Face\+Client.\+btn\+\_\+capture}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1face__client_1_1FaceClient_a2d02222f5e2b2becd6485c43975a1c98}\label{classapp_1_1ui_1_1face__client_1_1FaceClient_a2d02222f5e2b2becd6485c43975a1c98}} 
+\index{app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}!btn\_exit@{btn\_exit}}
+\index{btn\_exit@{btn\_exit}!app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}}
+\doxysubsubsection{\texorpdfstring{btn\_exit}{btn\_exit}}
+{\footnotesize\ttfamily app.\+ui.\+face\+\_\+client.\+Face\+Client.\+btn\+\_\+exit}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1face__client_1_1FaceClient_aade774786014e0b89065dcb91ac86128}\label{classapp_1_1ui_1_1face__client_1_1FaceClient_aade774786014e0b89065dcb91ac86128}} 
+\index{app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}!btn\_login@{btn\_login}}
+\index{btn\_login@{btn\_login}!app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}}
+\doxysubsubsection{\texorpdfstring{btn\_login}{btn\_login}}
+{\footnotesize\ttfamily app.\+ui.\+face\+\_\+client.\+Face\+Client.\+btn\+\_\+login}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1face__client_1_1FaceClient_a60d6a365a32a15d4c56fd440034ba85a}\label{classapp_1_1ui_1_1face__client_1_1FaceClient_a60d6a365a32a15d4c56fd440034ba85a}} 
+\index{app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}!btn\_register@{btn\_register}}
+\index{btn\_register@{btn\_register}!app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}}
+\doxysubsubsection{\texorpdfstring{btn\_register}{btn\_register}}
+{\footnotesize\ttfamily app.\+ui.\+face\+\_\+client.\+Face\+Client.\+btn\+\_\+register}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1face__client_1_1FaceClient_a757137e714781f53480cf96917d00488}\label{classapp_1_1ui_1_1face__client_1_1FaceClient_a757137e714781f53480cf96917d00488}} 
+\index{app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}!camera@{camera}}
+\index{camera@{camera}!app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}}
+\doxysubsubsection{\texorpdfstring{camera}{camera}}
+{\footnotesize\ttfamily app.\+ui.\+face\+\_\+client.\+Face\+Client.\+camera}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1face__client_1_1FaceClient_a1af7c3cf3eef0d40a31b18f279925590}\label{classapp_1_1ui_1_1face__client_1_1FaceClient_a1af7c3cf3eef0d40a31b18f279925590}} 
+\index{app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}!cap@{cap}}
+\index{cap@{cap}!app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}}
+\doxysubsubsection{\texorpdfstring{cap}{cap}}
+{\footnotesize\ttfamily app.\+ui.\+face\+\_\+client.\+Face\+Client.\+cap}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1face__client_1_1FaceClient_a8e98ff4d536ca507a0f98f2da7ffa451}\label{classapp_1_1ui_1_1face__client_1_1FaceClient_a8e98ff4d536ca507a0f98f2da7ffa451}} 
+\index{app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}!current\_frame@{current\_frame}}
+\index{current\_frame@{current\_frame}!app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}}
+\doxysubsubsection{\texorpdfstring{current\_frame}{current\_frame}}
+{\footnotesize\ttfamily app.\+ui.\+face\+\_\+client.\+Face\+Client.\+current\+\_\+frame}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1face__client_1_1FaceClient_a3b5e2ed2cc35f0f23c2346f96f8dd815}\label{classapp_1_1ui_1_1face__client_1_1FaceClient_a3b5e2ed2cc35f0f23c2346f96f8dd815}} 
+\index{app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}!display@{display}}
+\index{display@{display}!app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}}
+\doxysubsubsection{\texorpdfstring{display}{display}}
+{\footnotesize\ttfamily app.\+ui.\+face\+\_\+client.\+Face\+Client.\+display}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1face__client_1_1FaceClient_aeb104fbd1a80c7ee0bf3f962253baa5c}\label{classapp_1_1ui_1_1face__client_1_1FaceClient_aeb104fbd1a80c7ee0bf3f962253baa5c}} 
+\index{app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}!logged\_in@{logged\_in}}
+\index{logged\_in@{logged\_in}!app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}}
+\doxysubsubsection{\texorpdfstring{logged\_in}{logged\_in}}
+{\footnotesize\ttfamily app.\+ui.\+face\+\_\+client.\+Face\+Client.\+logged\+\_\+in}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1face__client_1_1FaceClient_ac1910e3375d7ee175c6a5e6f1ef4a806}\label{classapp_1_1ui_1_1face__client_1_1FaceClient_ac1910e3375d7ee175c6a5e6f1ef4a806}} 
+\index{app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}!on\_authenticated@{on\_authenticated}}
+\index{on\_authenticated@{on\_authenticated}!app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}}
+\doxysubsubsection{\texorpdfstring{on\_authenticated}{on\_authenticated}}
+{\footnotesize\ttfamily app.\+ui.\+face\+\_\+client.\+Face\+Client.\+on\+\_\+authenticated}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1face__client_1_1FaceClient_adf03aa09f3bee8448481e9fba694510b}\label{classapp_1_1ui_1_1face__client_1_1FaceClient_adf03aa09f3bee8448481e9fba694510b}} 
+\index{app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}!progress@{progress}}
+\index{progress@{progress}!app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}}
+\doxysubsubsection{\texorpdfstring{progress}{progress}}
+{\footnotesize\ttfamily app.\+ui.\+face\+\_\+client.\+Face\+Client.\+progress}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1face__client_1_1FaceClient_af2bb24b4fa0950b2261aea26c80daeb0}\label{classapp_1_1ui_1_1face__client_1_1FaceClient_af2bb24b4fa0950b2261aea26c80daeb0}} 
+\index{app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}!register\_images@{register\_images}}
+\index{register\_images@{register\_images}!app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}}
+\doxysubsubsection{\texorpdfstring{register\_images}{register\_images}}
+{\footnotesize\ttfamily app.\+ui.\+face\+\_\+client.\+Face\+Client.\+register\+\_\+images}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1face__client_1_1FaceClient_a5d1456f16915bb19b7fbb6710a477d8c}\label{classapp_1_1ui_1_1face__client_1_1FaceClient_a5d1456f16915bb19b7fbb6710a477d8c}} 
+\index{app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}!register\_name@{register\_name}}
+\index{register\_name@{register\_name}!app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}}
+\doxysubsubsection{\texorpdfstring{register\_name}{register\_name}}
+{\footnotesize\ttfamily app.\+ui.\+face\+\_\+client.\+Face\+Client.\+register\+\_\+name}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1face__client_1_1FaceClient_a8bb2c130cdb0a8d394ff2c36ecfc1bf2}\label{classapp_1_1ui_1_1face__client_1_1FaceClient_a8bb2c130cdb0a8d394ff2c36ecfc1bf2}} 
+\index{app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}!server\_url@{server\_url}}
+\index{server\_url@{server\_url}!app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}}
+\doxysubsubsection{\texorpdfstring{server\_url}{server\_url}}
+{\footnotesize\ttfamily app.\+ui.\+face\+\_\+client.\+Face\+Client.\+server\+\_\+url}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1face__client_1_1FaceClient_a02c9740117f9a68c25f8363cb24e5701}\label{classapp_1_1ui_1_1face__client_1_1FaceClient_a02c9740117f9a68c25f8363cb24e5701}} 
+\index{app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}!status@{status}}
+\index{status@{status}!app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}}
+\doxysubsubsection{\texorpdfstring{status}{status}}
+{\footnotesize\ttfamily app.\+ui.\+face\+\_\+client.\+Face\+Client.\+status}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1face__client_1_1FaceClient_a3b62acd28978534e8456e3852a90b879}\label{classapp_1_1ui_1_1face__client_1_1FaceClient_a3b62acd28978534e8456e3852a90b879}} 
+\index{app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}!timer@{timer}}
+\index{timer@{timer}!app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}}
+\doxysubsubsection{\texorpdfstring{timer}{timer}}
+{\footnotesize\ttfamily app.\+ui.\+face\+\_\+client.\+Face\+Client.\+timer}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1face__client_1_1FaceClient_a06f74a2489e142a2c048fe93dd319fe7}\label{classapp_1_1ui_1_1face__client_1_1FaceClient_a06f74a2489e142a2c048fe93dd319fe7}} 
+\index{app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}!title@{title}}
+\index{title@{title}!app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}}
+\doxysubsubsection{\texorpdfstring{title}{title}}
+{\footnotesize\ttfamily app.\+ui.\+face\+\_\+client.\+Face\+Client.\+title}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1face__client_1_1FaceClient_af8cbfec76444b12606b12d71efb78cbc}\label{classapp_1_1ui_1_1face__client_1_1FaceClient_af8cbfec76444b12606b12d71efb78cbc}} 
+\index{app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}!worker@{worker}}
+\index{worker@{worker}!app.ui.face\_client.FaceClient@{app.ui.face\_client.FaceClient}}
+\doxysubsubsection{\texorpdfstring{worker}{worker}}
+{\footnotesize\ttfamily app.\+ui.\+face\+\_\+client.\+Face\+Client.\+worker}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ui/\mbox{\hyperlink{face__client_8py}{face\+\_\+client.\+py}}\end{DoxyCompactItemize}

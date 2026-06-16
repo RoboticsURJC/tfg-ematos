@@ -1,0 +1,11 @@
+<map id="base.LLMModel.benchmark" name="base.LLMModel.benchmark">
+<area shape="rect" id="node1" title="Ejecuta una prueba de rendimiento (benchmark) controlada sobre el método de generación." alt="" coords="5,157,205,184"/>
+<area shape="rect" id="node2" href="$classbase_1_1LLMModel.html#ab2e4dea029a6ea0bf863e2957e3a67a4" title="Genera una respuesta de texto a partir de una instrucción o prompt estructurado." alt="" coords="307,5,493,32"/>
+<area shape="rect" id="node3" href="$classmodels_1_1gemini_1_1GeminiModel.html#ae6b4fa140438a6c2cb9debf1efc71e14" title="Genera texto a partir de un prompt utilizando el modelo ligero y rápido Gemini Flash." alt="" coords="264,56,536,83"/>
+<area shape="rect" id="node4" href="$classmodels_1_1gpt__azure_1_1GPTAzure.html#ad98f29cb3a54d760c6a3df0f66c57074" title="Envía una solicitud de inferencia síncrona al modelo gpt&#45;4o&#45;mini alojado en Azure." alt="" coords="267,107,533,133"/>
+<area shape="rect" id="node5" href="$classmodels_1_1groq__llama_1_1GroqLlama.html#a594280747ebfccdcc74471a9ee366c2f" title="Envía una solicitud de inferencia síncrona al backend de Groq usando el modelo Llama 3...." alt="" coords="258,157,542,184"/>
+<area shape="rect" id="node6" href="$classmodels_1_1mistral__llama_1_1MistralServer.html#a1d85786cc7302e927611ac6c084b3b4b" title="Envía una solicitud de inferencia síncrona al servidor local Mistral." alt="" coords="293,209,507,250"/>
+<area shape="rect" id="node7" href="$classmodels_1_1serv__llama_1_1LlamaServer.html#a4c1456f4ba8a1786c9c9ef18f82b665b" title="Envía una solicitud de inferencia síncrona al backend de llama.cpp en local." alt="" coords="253,275,547,301"/>
+<area shape="rect" id="node8" href="$classllm__service_1_1LLMService.html#acbeb3dd2f1d4e8a6102dee2e831e7b39" title="Envía una petición de generación de texto al modelo especificado." alt="" coords="281,325,519,352"/>
+<area shape="rect" id="node9" href="$namespacelog__service.html#af8a86650753e2ab9216e190fad59757c" title="Añade una nueva entrada de registro para un servicio específico." alt="" coords="595,325,745,352"/>
+</map>

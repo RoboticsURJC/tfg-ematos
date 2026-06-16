@@ -1,0 +1,292 @@
+\hypertarget{classproactive_1_1proactive__screen_1_1ProactiveScreen}{}\doxysection{proactive.\+proactive\+\_\+screen.\+Proactive\+Screen Class Reference}
+\label{classproactive_1_1proactive__screen_1_1ProactiveScreen}\index{proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}}
+
+
+Pantalla UI proactiva que presenta sugerencias interactivas.  
+
+
+
+
+Inheritance diagram for proactive.\+proactive\+\_\+screen.\+Proactive\+Screen\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{classproactive_1_1proactive__screen_1_1ProactiveScreen__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for proactive.\+proactive\+\_\+screen.\+Proactive\+Screen\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{classproactive_1_1proactive__screen_1_1ProactiveScreen__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_af82f927537665db40ca5f67fab480e09}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_a46d008cff89156b81a10546875a77a08}{suggestion}}, controller=None, \mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_aea4058adc7324d2d1d01755a430657e3}{on\+\_\+accept}}=None, \mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_a271a1ee58f858be864d7731da4d11230}{on\+\_\+dismiss}}=None, width=1024, height=600)
+\begin{DoxyCompactList}\small\item\em Inicializa la pantalla proactiva. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_a4837f9fe51755869885493f8d4cd076b}{update\+\_\+logic}} (self)
+\begin{DoxyCompactList}\small\item\em Actualiza la animación de aparición y el contador de tiempo interno. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_a597f1b767cbdeb33a5bfb6ad2388a942}{mouse\+Press\+Event}} (self, event)
+\begin{DoxyCompactList}\small\item\em Gestiona la interacción táctil/ratón calculando colisiones dinámicas. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_a7bbf478078eca3f2c99b378ac03c3ba8}{render}} (self)
+\begin{DoxyCompactList}\small\item\em Renderiza toda la interfaz. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_a46d008cff89156b81a10546875a77a08}{suggestion}}
+\item 
+\mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_aea4058adc7324d2d1d01755a430657e3}{on\+\_\+accept}}
+\item 
+\mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_a271a1ee58f858be864d7731da4d11230}{on\+\_\+dismiss}}
+\item 
+\mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_a84ce79c2c413ae8bda2fcb6495f41b3d}{f\+\_\+tag}}
+\item 
+\mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_a3681e4318efe515007422ad3df7c60d8}{f\+\_\+title}}
+\item 
+\mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_a092d66736cc6e520798e082122267866}{f\+\_\+body}}
+\item 
+\mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_a7ed7af843c0a17eac1c939452bb7a3c1}{f\+\_\+btn}}
+\item 
+\mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_ad869e4257c67b893eaf89d051e295033}{btn\+\_\+yes}}
+\item 
+\mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_a2790c3fd1968e523c56e819cc17cf4ff}{btn\+\_\+no}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_a411f07f095cbe420aeb2cc4cc9e2090e}{\+\_\+draw\+\_\+bg}} (self, W, H)
+\begin{DoxyCompactList}\small\item\em Dibuja un gradiente vertical de fondo. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_a4dbafb10a863c621bd8166b6190c4a1b}{\+\_\+render\+\_\+wrapped\+\_\+text}} (self, text, font, color, max\+\_\+width)
+\begin{DoxyCompactList}\small\item\em Ajusta bloques de texto dentro de un ancho máximo. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_aabb4d7e4966638b75d2f00325d76e9b5}{\+\_\+draw\+\_\+animation}} (self, cx, cy, r)
+\begin{DoxyCompactList}\small\item\em Control central de las animaciones procedimentales. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_a545ee41e991488b64242004a570245e5}{\+\_\+figure}} (self, cx, cy, r, head\+\_\+tilt=0.\+0)
+\begin{DoxyCompactList}\small\item\em Dibuja un personaje humanoide estilizado. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_a1816eab8241f6c5b6e193caa8b1ee54f}{\+\_\+t}}
+\item 
+\mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_a33eef4f330814d581653d53a435bdaf9}{\+\_\+appear}}
+\item 
+\mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_a806128f9520f885fe81fa77ba9693a6b}{\+\_\+dismissed}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Pantalla UI proactiva que presenta sugerencias interactivas. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classproactive_1_1proactive__screen_1_1ProactiveScreen_af82f927537665db40ca5f67fab480e09}\label{classproactive_1_1proactive__screen_1_1ProactiveScreen_af82f927537665db40ca5f67fab480e09}} 
+\index{proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def proactive.\+proactive\+\_\+screen.\+Proactive\+Screen.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{suggestion,  }\item[{}]{controller = {\ttfamily None},  }\item[{}]{on\+\_\+accept = {\ttfamily None},  }\item[{}]{on\+\_\+dismiss = {\ttfamily None},  }\item[{}]{width = {\ttfamily 1024},  }\item[{}]{height = {\ttfamily 600} }\end{DoxyParamCaption})}
+
+
+
+Inicializa la pantalla proactiva. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em suggestion} & Diccionario con los datos de la sugerencia (tipo, título, cuerpo, etc.). \\
+\hline
+{\em controller} & Objeto controlador del sistema. \\
+\hline
+{\em on\+\_\+accept} & Callback cuando el usuario acepta la propuesta. \\
+\hline
+{\em on\+\_\+dismiss} & Callback cuando el usuario descarta la propuesta. \\
+\hline
+{\em width} & Ancho base de la ventana. \\
+\hline
+{\em height} & Alto base de la ventana. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{classproactive_1_1proactive__screen_1_1ProactiveScreen_af82f927537665db40ca5f67fab480e09_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classproactive_1_1proactive__screen_1_1ProactiveScreen_aabb4d7e4966638b75d2f00325d76e9b5}\label{classproactive_1_1proactive__screen_1_1ProactiveScreen_aabb4d7e4966638b75d2f00325d76e9b5}} 
+\index{proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}!\_draw\_animation@{\_draw\_animation}}
+\index{\_draw\_animation@{\_draw\_animation}!proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}}
+\doxysubsubsection{\texorpdfstring{\_draw\_animation()}{\_draw\_animation()}}
+{\footnotesize\ttfamily def proactive.\+proactive\+\_\+screen.\+Proactive\+Screen.\+\_\+draw\+\_\+animation (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{cx,  }\item[{}]{cy,  }\item[{}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Control central de las animaciones procedimentales. 
+
+\mbox{\Hypertarget{classproactive_1_1proactive__screen_1_1ProactiveScreen_a411f07f095cbe420aeb2cc4cc9e2090e}\label{classproactive_1_1proactive__screen_1_1ProactiveScreen_a411f07f095cbe420aeb2cc4cc9e2090e}} 
+\index{proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}!\_draw\_bg@{\_draw\_bg}}
+\index{\_draw\_bg@{\_draw\_bg}!proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}}
+\doxysubsubsection{\texorpdfstring{\_draw\_bg()}{\_draw\_bg()}}
+{\footnotesize\ttfamily def proactive.\+proactive\+\_\+screen.\+Proactive\+Screen.\+\_\+draw\+\_\+bg (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{W,  }\item[{}]{H }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Dibuja un gradiente vertical de fondo. 
+
+\mbox{\Hypertarget{classproactive_1_1proactive__screen_1_1ProactiveScreen_a545ee41e991488b64242004a570245e5}\label{classproactive_1_1proactive__screen_1_1ProactiveScreen_a545ee41e991488b64242004a570245e5}} 
+\index{proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}!\_figure@{\_figure}}
+\index{\_figure@{\_figure}!proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}}
+\doxysubsubsection{\texorpdfstring{\_figure()}{\_figure()}}
+{\footnotesize\ttfamily def proactive.\+proactive\+\_\+screen.\+Proactive\+Screen.\+\_\+figure (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{cx,  }\item[{}]{cy,  }\item[{}]{r,  }\item[{}]{head\+\_\+tilt = {\ttfamily 0.0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Dibuja un personaje humanoide estilizado. 
+
+\mbox{\Hypertarget{classproactive_1_1proactive__screen_1_1ProactiveScreen_a4dbafb10a863c621bd8166b6190c4a1b}\label{classproactive_1_1proactive__screen_1_1ProactiveScreen_a4dbafb10a863c621bd8166b6190c4a1b}} 
+\index{proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}!\_render\_wrapped\_text@{\_render\_wrapped\_text}}
+\index{\_render\_wrapped\_text@{\_render\_wrapped\_text}!proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}}
+\doxysubsubsection{\texorpdfstring{\_render\_wrapped\_text()}{\_render\_wrapped\_text()}}
+{\footnotesize\ttfamily def proactive.\+proactive\+\_\+screen.\+Proactive\+Screen.\+\_\+render\+\_\+wrapped\+\_\+text (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{text,  }\item[{}]{font,  }\item[{}]{color,  }\item[{}]{max\+\_\+width }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Ajusta bloques de texto dentro de un ancho máximo. 
+
+\mbox{\Hypertarget{classproactive_1_1proactive__screen_1_1ProactiveScreen_a597f1b767cbdeb33a5bfb6ad2388a942}\label{classproactive_1_1proactive__screen_1_1ProactiveScreen_a597f1b767cbdeb33a5bfb6ad2388a942}} 
+\index{proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}!mousePressEvent@{mousePressEvent}}
+\index{mousePressEvent@{mousePressEvent}!proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}}
+\doxysubsubsection{\texorpdfstring{mousePressEvent()}{mousePressEvent()}}
+{\footnotesize\ttfamily def proactive.\+proactive\+\_\+screen.\+Proactive\+Screen.\+mouse\+Press\+Event (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{event }\end{DoxyParamCaption})}
+
+
+
+Gestiona la interacción táctil/ratón calculando colisiones dinámicas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Evento de entrada de Qt. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classproactive_1_1proactive__screen_1_1ProactiveScreen_a597f1b767cbdeb33a5bfb6ad2388a942_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classproactive_1_1proactive__screen_1_1ProactiveScreen_a7bbf478078eca3f2c99b378ac03c3ba8}\label{classproactive_1_1proactive__screen_1_1ProactiveScreen_a7bbf478078eca3f2c99b378ac03c3ba8}} 
+\index{proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}!render@{render}}
+\index{render@{render}!proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily def proactive.\+proactive\+\_\+screen.\+Proactive\+Screen.\+render (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Renderiza toda la interfaz. 
+
+Recalcula posiciones basándose en el tamaño real de la superficie. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classproactive_1_1proactive__screen_1_1ProactiveScreen_a7bbf478078eca3f2c99b378ac03c3ba8_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classproactive_1_1proactive__screen_1_1ProactiveScreen_a4837f9fe51755869885493f8d4cd076b}\label{classproactive_1_1proactive__screen_1_1ProactiveScreen_a4837f9fe51755869885493f8d4cd076b}} 
+\index{proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}!update\_logic@{update\_logic}}
+\index{update\_logic@{update\_logic}!proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}}
+\doxysubsubsection{\texorpdfstring{update\_logic()}{update\_logic()}}
+{\footnotesize\ttfamily def proactive.\+proactive\+\_\+screen.\+Proactive\+Screen.\+update\+\_\+logic (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Actualiza la animación de aparición y el contador de tiempo interno. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classproactive_1_1proactive__screen_1_1ProactiveScreen_a33eef4f330814d581653d53a435bdaf9}\label{classproactive_1_1proactive__screen_1_1ProactiveScreen_a33eef4f330814d581653d53a435bdaf9}} 
+\index{proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}!\_appear@{\_appear}}
+\index{\_appear@{\_appear}!proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}}
+\doxysubsubsection{\texorpdfstring{\_appear}{\_appear}}
+{\footnotesize\ttfamily proactive.\+proactive\+\_\+screen.\+Proactive\+Screen.\+\_\+appear\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classproactive_1_1proactive__screen_1_1ProactiveScreen_a806128f9520f885fe81fa77ba9693a6b}\label{classproactive_1_1proactive__screen_1_1ProactiveScreen_a806128f9520f885fe81fa77ba9693a6b}} 
+\index{proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}!\_dismissed@{\_dismissed}}
+\index{\_dismissed@{\_dismissed}!proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}}
+\doxysubsubsection{\texorpdfstring{\_dismissed}{\_dismissed}}
+{\footnotesize\ttfamily proactive.\+proactive\+\_\+screen.\+Proactive\+Screen.\+\_\+dismissed\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classproactive_1_1proactive__screen_1_1ProactiveScreen_a1816eab8241f6c5b6e193caa8b1ee54f}\label{classproactive_1_1proactive__screen_1_1ProactiveScreen_a1816eab8241f6c5b6e193caa8b1ee54f}} 
+\index{proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}!\_t@{\_t}}
+\index{\_t@{\_t}!proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}}
+\doxysubsubsection{\texorpdfstring{\_t}{\_t}}
+{\footnotesize\ttfamily proactive.\+proactive\+\_\+screen.\+Proactive\+Screen.\+\_\+t\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classproactive_1_1proactive__screen_1_1ProactiveScreen_a2790c3fd1968e523c56e819cc17cf4ff}\label{classproactive_1_1proactive__screen_1_1ProactiveScreen_a2790c3fd1968e523c56e819cc17cf4ff}} 
+\index{proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}!btn\_no@{btn\_no}}
+\index{btn\_no@{btn\_no}!proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_no}{btn\_no}}
+{\footnotesize\ttfamily proactive.\+proactive\+\_\+screen.\+Proactive\+Screen.\+btn\+\_\+no}
+
+\mbox{\Hypertarget{classproactive_1_1proactive__screen_1_1ProactiveScreen_ad869e4257c67b893eaf89d051e295033}\label{classproactive_1_1proactive__screen_1_1ProactiveScreen_ad869e4257c67b893eaf89d051e295033}} 
+\index{proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}!btn\_yes@{btn\_yes}}
+\index{btn\_yes@{btn\_yes}!proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_yes}{btn\_yes}}
+{\footnotesize\ttfamily proactive.\+proactive\+\_\+screen.\+Proactive\+Screen.\+btn\+\_\+yes}
+
+\mbox{\Hypertarget{classproactive_1_1proactive__screen_1_1ProactiveScreen_a092d66736cc6e520798e082122267866}\label{classproactive_1_1proactive__screen_1_1ProactiveScreen_a092d66736cc6e520798e082122267866}} 
+\index{proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}!f\_body@{f\_body}}
+\index{f\_body@{f\_body}!proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}}
+\doxysubsubsection{\texorpdfstring{f\_body}{f\_body}}
+{\footnotesize\ttfamily proactive.\+proactive\+\_\+screen.\+Proactive\+Screen.\+f\+\_\+body}
+
+\mbox{\Hypertarget{classproactive_1_1proactive__screen_1_1ProactiveScreen_a7ed7af843c0a17eac1c939452bb7a3c1}\label{classproactive_1_1proactive__screen_1_1ProactiveScreen_a7ed7af843c0a17eac1c939452bb7a3c1}} 
+\index{proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}!f\_btn@{f\_btn}}
+\index{f\_btn@{f\_btn}!proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}}
+\doxysubsubsection{\texorpdfstring{f\_btn}{f\_btn}}
+{\footnotesize\ttfamily proactive.\+proactive\+\_\+screen.\+Proactive\+Screen.\+f\+\_\+btn}
+
+\mbox{\Hypertarget{classproactive_1_1proactive__screen_1_1ProactiveScreen_a84ce79c2c413ae8bda2fcb6495f41b3d}\label{classproactive_1_1proactive__screen_1_1ProactiveScreen_a84ce79c2c413ae8bda2fcb6495f41b3d}} 
+\index{proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}!f\_tag@{f\_tag}}
+\index{f\_tag@{f\_tag}!proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}}
+\doxysubsubsection{\texorpdfstring{f\_tag}{f\_tag}}
+{\footnotesize\ttfamily proactive.\+proactive\+\_\+screen.\+Proactive\+Screen.\+f\+\_\+tag}
+
+\mbox{\Hypertarget{classproactive_1_1proactive__screen_1_1ProactiveScreen_a3681e4318efe515007422ad3df7c60d8}\label{classproactive_1_1proactive__screen_1_1ProactiveScreen_a3681e4318efe515007422ad3df7c60d8}} 
+\index{proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}!f\_title@{f\_title}}
+\index{f\_title@{f\_title}!proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}}
+\doxysubsubsection{\texorpdfstring{f\_title}{f\_title}}
+{\footnotesize\ttfamily proactive.\+proactive\+\_\+screen.\+Proactive\+Screen.\+f\+\_\+title}
+
+\mbox{\Hypertarget{classproactive_1_1proactive__screen_1_1ProactiveScreen_aea4058adc7324d2d1d01755a430657e3}\label{classproactive_1_1proactive__screen_1_1ProactiveScreen_aea4058adc7324d2d1d01755a430657e3}} 
+\index{proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}!on\_accept@{on\_accept}}
+\index{on\_accept@{on\_accept}!proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}}
+\doxysubsubsection{\texorpdfstring{on\_accept}{on\_accept}}
+{\footnotesize\ttfamily proactive.\+proactive\+\_\+screen.\+Proactive\+Screen.\+on\+\_\+accept}
+
+\mbox{\Hypertarget{classproactive_1_1proactive__screen_1_1ProactiveScreen_a271a1ee58f858be864d7731da4d11230}\label{classproactive_1_1proactive__screen_1_1ProactiveScreen_a271a1ee58f858be864d7731da4d11230}} 
+\index{proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}!on\_dismiss@{on\_dismiss}}
+\index{on\_dismiss@{on\_dismiss}!proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}}
+\doxysubsubsection{\texorpdfstring{on\_dismiss}{on\_dismiss}}
+{\footnotesize\ttfamily proactive.\+proactive\+\_\+screen.\+Proactive\+Screen.\+on\+\_\+dismiss}
+
+\mbox{\Hypertarget{classproactive_1_1proactive__screen_1_1ProactiveScreen_a46d008cff89156b81a10546875a77a08}\label{classproactive_1_1proactive__screen_1_1ProactiveScreen_a46d008cff89156b81a10546875a77a08}} 
+\index{proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}!suggestion@{suggestion}}
+\index{suggestion@{suggestion}!proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}}
+\doxysubsubsection{\texorpdfstring{suggestion}{suggestion}}
+{\footnotesize\ttfamily proactive.\+proactive\+\_\+screen.\+Proactive\+Screen.\+suggestion}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ui/apps/proactive/\mbox{\hyperlink{proactive__screen_8py}{proactive\+\_\+screen.\+py}}\end{DoxyCompactItemize}

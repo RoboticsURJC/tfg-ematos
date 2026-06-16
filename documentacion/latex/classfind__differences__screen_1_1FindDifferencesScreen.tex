@@ -1,0 +1,641 @@
+\hypertarget{classfind__differences__screen_1_1FindDifferencesScreen}{}\doxysection{find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen Class Reference}
+\label{classfind__differences__screen_1_1FindDifferencesScreen}\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+
+
+Pantalla del juego encargada de gestionar el ciclo de vida, la lógica y el renderizado.  
+
+
+
+
+Inheritance diagram for find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classfind__differences__screen_1_1FindDifferencesScreen__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classfind__differences__screen_1_1FindDifferencesScreen__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_ab45977ecb50752e40b0deaea088ad12e}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, controller=None, width=1024, height=600)
+\begin{DoxyCompactList}\small\item\em Constructor de \mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen}{Find\+Differences\+Screen}}. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_abfc4803a090ab6bdf0e26aa10bfa5031}{exit\+\_\+game}} (self)
+\begin{DoxyCompactList}\small\item\em Termina la ejecución lúdica activa y cede el control del foco al hub central de juegos. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_a032f0f8c6ec196aab8c98dd930738b1f}{start\+\_\+game}} (self, str \mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_a7408b11967f5b1704d7077f0fa981c7d}{difficulty}})
+\begin{DoxyCompactList}\small\item\em Inicializa y arranca una partida limpiando los contadores y generando los mapas. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_a8c5c714dbfcd015d432ad9053be62bcd}{update\+\_\+logic}} (self)
+\begin{DoxyCompactList}\small\item\em Procesa la actualización cronológica de la partida, animaciones alfa y límites de tiempo. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_af7695b3408aaaaa9d9f6fd8b02a6c435}{mouse\+Press\+Event}} (self, event)
+\begin{DoxyCompactList}\small\item\em Intercepta los eventos físicos de pulsación y los evalúa contra las cajas de colisión. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_a378fbad44e1bd8f52dc8ff050c44cd95}{render}} (self)
+\begin{DoxyCompactList}\small\item\em Canal maestro de dibujo que vacía y refresca el búfer gráfico principal según el estado. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_a8e62e790b77e76f1ca82c5225200c8b7}{state}}
+\begin{DoxyCompactList}\small\item\em Estado de la máquina de ejecución interna (\char`\"{}menu\char`\"{} $\vert$ \char`\"{}playing\char`\"{} $\vert$ \char`\"{}win\char`\"{} $\vert$ \char`\"{}timeout\char`\"{}). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_a7408b11967f5b1704d7077f0fa981c7d}{difficulty}}
+\begin{DoxyCompactList}\small\item\em Nivel de dificultad activo en la partida en curso. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_a50ef03c15f683d50e9e66935e842e4ac}{theme\+\_\+name}}
+\begin{DoxyCompactList}\small\item\em Identificador temático visual seleccionado para la ronda de juego. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_ad54e42dbe24d5d857a8290b7a94e3d36}{objects\+\_\+a}}
+\begin{DoxyCompactList}\small\item\em Colección de Scene\+Objects asignados al lienzo izquierdo A. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_a051595bd48deec4ecc35ffa7ad7912e1}{objects\+\_\+b}}
+\begin{DoxyCompactList}\small\item\em Colección de Scene\+Objects asignados al lienzo derecho B. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_a05232dc119705529381aa6f6a0682ffa}{differences}}
+\begin{DoxyCompactList}\small\item\em Colección dinámica de diferencias inyectadas activas en la ronda. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_a5374deadf34f9a60a73b99d007af55a4}{canvas\+\_\+rect\+\_\+a}}
+\begin{DoxyCompactList}\small\item\em Región geométrica absoluta que ocupa el lienzo A en la ventana. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_ad3b70973c6030177284fd7066bd545d1}{canvas\+\_\+rect\+\_\+b}}
+\begin{DoxyCompactList}\small\item\em Región geométrica absoluta que ocupa el lienzo B en la ventana. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_ad6664e78c0ee10c7f723b706655d25b3}{btn\+\_\+easy}}
+\item 
+\mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_ad73bef898eb67100b3e231c816b7d22c}{btn\+\_\+medium}}
+\item 
+\mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_a6f9d072f1794c38023f72affb246cc56}{btn\+\_\+hard}}
+\item 
+\mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_a562f0160c3cd31c432f3779f6fab9ff2}{btn\+\_\+exit}}
+\item 
+\mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_a4c6271c54b2bd34b6fe8944248682e08}{btn\+\_\+back}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_a6cdf3bc76266e6c4845292d93d021335}{\+\_\+calculate\+\_\+layout}} (self)
+\begin{DoxyCompactList}\small\item\em Calcula de forma estricta los rectángulos de visualización de los lienzos. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_ab42cc709fc66be2e8347fd84bec8b2b3}{\+\_\+render\+\_\+canvas\+\_\+a}} (self)
+\begin{DoxyCompactList}\small\item\em Dibuja y cachea en una superficie aislada los objetos estáticos del lienzo A. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_adcf7c8a57d772241bfad5dfe5c516d27}{\+\_\+render\+\_\+canvas\+\_\+b}} (self)
+\begin{DoxyCompactList}\small\item\em Dibuja y cachea en una superficie aislada los objetos estáticos del lienzo B. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_ad20bbc363f041f5c247802190f8f4e03}{\+\_\+handle\+\_\+canvas\+\_\+click}} (self, pos)
+\begin{DoxyCompactList}\small\item\em Evalúa si un clic táctil colisiona con el radio de acierto de alguna diferencia latente. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_a22a8cc8892799e951472ad8e86facf8d}{\+\_\+draw\+\_\+bg}} (self)
+\begin{DoxyCompactList}\small\item\em Genera y pinta un fondo degradado vertical interpolando linealmente las constantes de color. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_a09d6f61ad40f185823efc4a8878c3101}{\+\_\+draw\+\_\+menu}} (self)
+\begin{DoxyCompactList}\small\item\em Estampa la interfaz del menú principal, textos informativos y botones gigantes. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_af9be5f37137db5d869c97e250a23c5b4}{\+\_\+draw\+\_\+game}} (self)
+\begin{DoxyCompactList}\small\item\em Compone de forma aditiva los elementos mecánicos activos de la partida en curso. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_a166edcfba2b8493e1c58766b0cfea6c6}{\+\_\+draw\+\_\+header}} (self)
+\begin{DoxyCompactList}\small\item\em Renderiza el panel translúcido superior, el progreso mediante esferas y el cronómetro. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_a0d7ac10d35fe89a2e0cfb7bec83563a9}{\+\_\+draw\+\_\+canvases}} (self)
+\begin{DoxyCompactList}\small\item\em Proyecta sobre la superficie global las copas cacheadas de los dos cuadros lúdicos. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_a9425bf60f53f8aacc51f22b17f0d96ca}{\+\_\+draw\+\_\+found\+\_\+rings}} (self)
+\begin{DoxyCompactList}\small\item\em Pinta anillos armónicos expansivos y marcas de verificación sobre las diferencias descubiertas. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_a7458da48b1e47752e336db9553ace165}{\+\_\+draw\+\_\+miss\+\_\+flashes}} (self)
+\begin{DoxyCompactList}\small\item\em Renderiza círculos de advertencia con atenuación exponencial alfa para los fallos. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_a2a00c9693cd5bd9719c9871731be9a5e}{\+\_\+draw\+\_\+footer}} (self)
+\begin{DoxyCompactList}\small\item\em Pinta la barra de pie de página y actualiza el botón de salida parcial. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_a63d970226b1af8ebcecea05cc4afd61a}{\+\_\+draw\+\_\+win\+\_\+overlay}} (self)
+\begin{DoxyCompactList}\small\item\em Superpone una cortina verde translúcida que indica la resolución exitosa del juego. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_a3de9bf707cf4b0baf6152b9f1e17b820}{\+\_\+draw\+\_\+timeout\+\_\+overlay}} (self)
+\begin{DoxyCompactList}\small\item\em Superpone una cortina roja translúcida detallando la ubicación de las diferencias no encontradas. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_a53b189f6bcf7ed6d03f477c49507e81d}{\+\_\+draw\+\_\+button}} (self, rect, text, color, font\+Size=38)
+\begin{DoxyCompactList}\small\item\em Dibuja de forma atómica un botón estilizado con sombras proyectadas y texto centrado. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_ac2c24649e5fc1902dbf550367d28c30b}{\+\_\+canvas\+\_\+a\+\_\+surf}}
+\begin{DoxyCompactList}\small\item\em Búfer gráfico estático para el caché visual del lienzo A. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_a789607f6cc37b44d07859b44d5040546}{\+\_\+canvas\+\_\+b\+\_\+surf}}
+\begin{DoxyCompactList}\small\item\em Búfer gráfico estático para el caché visual del lienzo B. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_a122a18abf995991b09ef257b42f24d58}{\+\_\+miss\+\_\+flashes}}
+\begin{DoxyCompactList}\small\item\em Lista de destellos activos generados por pulsaciones erróneas. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_ad17452e25ca1d6851c742367d4fea2b0}{\+\_\+found\+\_\+rings}}
+\begin{DoxyCompactList}\small\item\em Lista de anillos de realce verde correspondientes a aciertos confirmados. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_a5227bcdcc1cf3c593a3ca9dd70cc1580}{\+\_\+elapsed}}
+\begin{DoxyCompactList}\small\item\em Contador incremental de tiempo de juego transcurrido en segundos. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_a2e4e7c07952a96fcfaf9d5823433909f}{\+\_\+time\+\_\+limit}}
+\begin{DoxyCompactList}\small\item\em Límite de tiempo máximo permitido extraído de la dificultad (0 implica infinito). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_ae479458d5622bd41d9c35f431b931c6c}{\+\_\+ring\+\_\+pulse}}
+\begin{DoxyCompactList}\small\item\em Variable oscilatoria armónica continua para efectos de pulsado gráfico. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen_a1fe95602204a0d18604b47811daf834e}{\+\_\+win\+\_\+timer}}
+\begin{DoxyCompactList}\small\item\em Temporizador de persistencia para congelar la pantalla de victoria antes de salir. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Pantalla del juego encargada de gestionar el ciclo de vida, la lógica y el renderizado. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_ab45977ecb50752e40b0deaea088ad12e}\label{classfind__differences__screen_1_1FindDifferencesScreen_ab45977ecb50752e40b0deaea088ad12e}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{controller = {\ttfamily None},  }\item[{}]{width = {\ttfamily 1024},  }\item[{}]{height = {\ttfamily 600} }\end{DoxyParamCaption})}
+
+
+
+Constructor de \mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen}{Find\+Differences\+Screen}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em controller} & Instancia del enrutador central de vistas de la UI. \\
+\hline
+{\em width} & Resolución horizontal virtual de la ventana. \\
+\hline
+{\em height} & Resolución vertical virtual de la ventana. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{classfind__differences__screen_1_1FindDifferencesScreen_ab45977ecb50752e40b0deaea088ad12e_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_a6cdf3bc76266e6c4845292d93d021335}\label{classfind__differences__screen_1_1FindDifferencesScreen_a6cdf3bc76266e6c4845292d93d021335}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!\_calculate\_layout@{\_calculate\_layout}}
+\index{\_calculate\_layout@{\_calculate\_layout}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{\_calculate\_layout()}{\_calculate\_layout()}}
+{\footnotesize\ttfamily def find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+\_\+calculate\+\_\+layout (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Calcula de forma estricta los rectángulos de visualización de los lienzos. 
+
+Reserva espacios proporcionales para barras de cabecera amplificadas ({\ttfamily HEADER\+\_\+H}) y pie de página ({\ttfamily FOOTER\+\_\+H}), dividiendo el espacio libre restante equitativamente en dos mitades. \mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_a22a8cc8892799e951472ad8e86facf8d}\label{classfind__differences__screen_1_1FindDifferencesScreen_a22a8cc8892799e951472ad8e86facf8d}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!\_draw\_bg@{\_draw\_bg}}
+\index{\_draw\_bg@{\_draw\_bg}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{\_draw\_bg()}{\_draw\_bg()}}
+{\footnotesize\ttfamily def find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+\_\+draw\+\_\+bg (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Genera y pinta un fondo degradado vertical interpolando linealmente las constantes de color. 
+
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_a53b189f6bcf7ed6d03f477c49507e81d}\label{classfind__differences__screen_1_1FindDifferencesScreen_a53b189f6bcf7ed6d03f477c49507e81d}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!\_draw\_button@{\_draw\_button}}
+\index{\_draw\_button@{\_draw\_button}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{\_draw\_button()}{\_draw\_button()}}
+{\footnotesize\ttfamily def find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+\_\+draw\+\_\+button (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{rect,  }\item[{}]{text,  }\item[{}]{color,  }\item[{}]{font\+Size = {\ttfamily 38} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Dibuja de forma atómica un botón estilizado con sombras proyectadas y texto centrado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rect} & Estructura {\ttfamily pygame.\+Rect} que define el tamaño y posición del control. \\
+\hline
+{\em text} & Cadena de texto a estampar en su interior. \\
+\hline
+{\em color} & Tupla RGB con el tono base del relleno. \\
+\hline
+{\em font\+Size} & Tamaño entero de la fuente tipográfica para la renderización. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_a0d7ac10d35fe89a2e0cfb7bec83563a9}\label{classfind__differences__screen_1_1FindDifferencesScreen_a0d7ac10d35fe89a2e0cfb7bec83563a9}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!\_draw\_canvases@{\_draw\_canvases}}
+\index{\_draw\_canvases@{\_draw\_canvases}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{\_draw\_canvases()}{\_draw\_canvases()}}
+{\footnotesize\ttfamily def find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+\_\+draw\+\_\+canvases (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Proyecta sobre la superficie global las copas cacheadas de los dos cuadros lúdicos. 
+
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_a2a00c9693cd5bd9719c9871731be9a5e}\label{classfind__differences__screen_1_1FindDifferencesScreen_a2a00c9693cd5bd9719c9871731be9a5e}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!\_draw\_footer@{\_draw\_footer}}
+\index{\_draw\_footer@{\_draw\_footer}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{\_draw\_footer()}{\_draw\_footer()}}
+{\footnotesize\ttfamily def find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+\_\+draw\+\_\+footer (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Pinta la barra de pie de página y actualiza el botón de salida parcial. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classfind__differences__screen_1_1FindDifferencesScreen_a2a00c9693cd5bd9719c9871731be9a5e_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_a9425bf60f53f8aacc51f22b17f0d96ca}\label{classfind__differences__screen_1_1FindDifferencesScreen_a9425bf60f53f8aacc51f22b17f0d96ca}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!\_draw\_found\_rings@{\_draw\_found\_rings}}
+\index{\_draw\_found\_rings@{\_draw\_found\_rings}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{\_draw\_found\_rings()}{\_draw\_found\_rings()}}
+{\footnotesize\ttfamily def find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+\_\+draw\+\_\+found\+\_\+rings (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Pinta anillos armónicos expansivos y marcas de verificación sobre las diferencias descubiertas. 
+
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_af9be5f37137db5d869c97e250a23c5b4}\label{classfind__differences__screen_1_1FindDifferencesScreen_af9be5f37137db5d869c97e250a23c5b4}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!\_draw\_game@{\_draw\_game}}
+\index{\_draw\_game@{\_draw\_game}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{\_draw\_game()}{\_draw\_game()}}
+{\footnotesize\ttfamily def find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+\_\+draw\+\_\+game (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Compone de forma aditiva los elementos mecánicos activos de la partida en curso. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classfind__differences__screen_1_1FindDifferencesScreen_af9be5f37137db5d869c97e250a23c5b4_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_a166edcfba2b8493e1c58766b0cfea6c6}\label{classfind__differences__screen_1_1FindDifferencesScreen_a166edcfba2b8493e1c58766b0cfea6c6}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!\_draw\_header@{\_draw\_header}}
+\index{\_draw\_header@{\_draw\_header}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{\_draw\_header()}{\_draw\_header()}}
+{\footnotesize\ttfamily def find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+\_\+draw\+\_\+header (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Renderiza el panel translúcido superior, el progreso mediante esferas y el cronómetro. 
+
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_a09d6f61ad40f185823efc4a8878c3101}\label{classfind__differences__screen_1_1FindDifferencesScreen_a09d6f61ad40f185823efc4a8878c3101}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!\_draw\_menu@{\_draw\_menu}}
+\index{\_draw\_menu@{\_draw\_menu}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{\_draw\_menu()}{\_draw\_menu()}}
+{\footnotesize\ttfamily def find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+\_\+draw\+\_\+menu (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Estampa la interfaz del menú principal, textos informativos y botones gigantes. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classfind__differences__screen_1_1FindDifferencesScreen_a09d6f61ad40f185823efc4a8878c3101_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_a7458da48b1e47752e336db9553ace165}\label{classfind__differences__screen_1_1FindDifferencesScreen_a7458da48b1e47752e336db9553ace165}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!\_draw\_miss\_flashes@{\_draw\_miss\_flashes}}
+\index{\_draw\_miss\_flashes@{\_draw\_miss\_flashes}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{\_draw\_miss\_flashes()}{\_draw\_miss\_flashes()}}
+{\footnotesize\ttfamily def find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+\_\+draw\+\_\+miss\+\_\+flashes (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Renderiza círculos de advertencia con atenuación exponencial alfa para los fallos. 
+
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_a3de9bf707cf4b0baf6152b9f1e17b820}\label{classfind__differences__screen_1_1FindDifferencesScreen_a3de9bf707cf4b0baf6152b9f1e17b820}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!\_draw\_timeout\_overlay@{\_draw\_timeout\_overlay}}
+\index{\_draw\_timeout\_overlay@{\_draw\_timeout\_overlay}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{\_draw\_timeout\_overlay()}{\_draw\_timeout\_overlay()}}
+{\footnotesize\ttfamily def find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+\_\+draw\+\_\+timeout\+\_\+overlay (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Superpone una cortina roja translúcida detallando la ubicación de las diferencias no encontradas. 
+
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_a63d970226b1af8ebcecea05cc4afd61a}\label{classfind__differences__screen_1_1FindDifferencesScreen_a63d970226b1af8ebcecea05cc4afd61a}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!\_draw\_win\_overlay@{\_draw\_win\_overlay}}
+\index{\_draw\_win\_overlay@{\_draw\_win\_overlay}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{\_draw\_win\_overlay()}{\_draw\_win\_overlay()}}
+{\footnotesize\ttfamily def find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+\_\+draw\+\_\+win\+\_\+overlay (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Superpone una cortina verde translúcida que indica la resolución exitosa del juego. 
+
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_ad20bbc363f041f5c247802190f8f4e03}\label{classfind__differences__screen_1_1FindDifferencesScreen_ad20bbc363f041f5c247802190f8f4e03}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!\_handle\_canvas\_click@{\_handle\_canvas\_click}}
+\index{\_handle\_canvas\_click@{\_handle\_canvas\_click}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{\_handle\_canvas\_click()}{\_handle\_canvas\_click()}}
+{\footnotesize\ttfamily def find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+\_\+handle\+\_\+canvas\+\_\+click (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Evalúa si un clic táctil colisiona con el radio de acierto de alguna diferencia latente. 
+
+Convierte las coordenadas globales a márgenes locales de lienzo e infla un rectángulo de tolerancia ({\ttfamily HIT\+\_\+\+MARGIN}) para compensar la imprecisión en pantallas táctiles resistivas/capacitivas.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & Tupla {\ttfamily (x, y)} con el píxel de contacto absoluto en la ventana de juego. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_ab42cc709fc66be2e8347fd84bec8b2b3}\label{classfind__differences__screen_1_1FindDifferencesScreen_ab42cc709fc66be2e8347fd84bec8b2b3}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!\_render\_canvas\_a@{\_render\_canvas\_a}}
+\index{\_render\_canvas\_a@{\_render\_canvas\_a}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{\_render\_canvas\_a()}{\_render\_canvas\_a()}}
+{\footnotesize\ttfamily def find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+\_\+render\+\_\+canvas\+\_\+a (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Dibuja y cachea en una superficie aislada los objetos estáticos del lienzo A. 
+
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_adcf7c8a57d772241bfad5dfe5c516d27}\label{classfind__differences__screen_1_1FindDifferencesScreen_adcf7c8a57d772241bfad5dfe5c516d27}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!\_render\_canvas\_b@{\_render\_canvas\_b}}
+\index{\_render\_canvas\_b@{\_render\_canvas\_b}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{\_render\_canvas\_b()}{\_render\_canvas\_b()}}
+{\footnotesize\ttfamily def find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+\_\+render\+\_\+canvas\+\_\+b (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Dibuja y cachea en una superficie aislada los objetos estáticos del lienzo B. 
+
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_abfc4803a090ab6bdf0e26aa10bfa5031}\label{classfind__differences__screen_1_1FindDifferencesScreen_abfc4803a090ab6bdf0e26aa10bfa5031}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!exit\_game@{exit\_game}}
+\index{exit\_game@{exit\_game}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{exit\_game()}{exit\_game()}}
+{\footnotesize\ttfamily def find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+exit\+\_\+game (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Termina la ejecución lúdica activa y cede el control del foco al hub central de juegos. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classfind__differences__screen_1_1FindDifferencesScreen_abfc4803a090ab6bdf0e26aa10bfa5031_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_af7695b3408aaaaa9d9f6fd8b02a6c435}\label{classfind__differences__screen_1_1FindDifferencesScreen_af7695b3408aaaaa9d9f6fd8b02a6c435}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!mousePressEvent@{mousePressEvent}}
+\index{mousePressEvent@{mousePressEvent}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{mousePressEvent()}{mousePressEvent()}}
+{\footnotesize\ttfamily def find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+mouse\+Press\+Event (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{event }\end{DoxyParamCaption})}
+
+
+
+Intercepta los eventos físicos de pulsación y los evalúa contra las cajas de colisión. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Objeto del evento nativo de tipo QMouse\+Event. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classfind__differences__screen_1_1FindDifferencesScreen_af7695b3408aaaaa9d9f6fd8b02a6c435_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_a378fbad44e1bd8f52dc8ff050c44cd95}\label{classfind__differences__screen_1_1FindDifferencesScreen_a378fbad44e1bd8f52dc8ff050c44cd95}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!render@{render}}
+\index{render@{render}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily def find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+render (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Canal maestro de dibujo que vacía y refresca el búfer gráfico principal según el estado. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classfind__differences__screen_1_1FindDifferencesScreen_a378fbad44e1bd8f52dc8ff050c44cd95_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_a032f0f8c6ec196aab8c98dd930738b1f}\label{classfind__differences__screen_1_1FindDifferencesScreen_a032f0f8c6ec196aab8c98dd930738b1f}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!start\_game@{start\_game}}
+\index{start\_game@{start\_game}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{start\_game()}{start\_game()}}
+{\footnotesize\ttfamily def find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+start\+\_\+game (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{str}]{difficulty }\end{DoxyParamCaption})}
+
+
+
+Inicializa y arranca una partida limpiando los contadores y generando los mapas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em difficulty} & Cadena identificadora del nivel de dificultad a setear (\char`\"{}facil\char`\"{} $\vert$ \char`\"{}medio\char`\"{} $\vert$ \char`\"{}dificil\char`\"{}). \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classfind__differences__screen_1_1FindDifferencesScreen_a032f0f8c6ec196aab8c98dd930738b1f_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_a8c5c714dbfcd015d432ad9053be62bcd}\label{classfind__differences__screen_1_1FindDifferencesScreen_a8c5c714dbfcd015d432ad9053be62bcd}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!update\_logic@{update\_logic}}
+\index{update\_logic@{update\_logic}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{update\_logic()}{update\_logic()}}
+{\footnotesize\ttfamily def find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+update\+\_\+logic (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Procesa la actualización cronológica de la partida, animaciones alfa y límites de tiempo. 
+
+Implementa las cláusulas de guarda necesarias para conmutar las pantallas de fin de juego en función de los contadores asíncronos ({\ttfamily dt}). 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_ac2c24649e5fc1902dbf550367d28c30b}\label{classfind__differences__screen_1_1FindDifferencesScreen_ac2c24649e5fc1902dbf550367d28c30b}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!\_canvas\_a\_surf@{\_canvas\_a\_surf}}
+\index{\_canvas\_a\_surf@{\_canvas\_a\_surf}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{\_canvas\_a\_surf}{\_canvas\_a\_surf}}
+{\footnotesize\ttfamily find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+\_\+canvas\+\_\+a\+\_\+surf\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Búfer gráfico estático para el caché visual del lienzo A. 
+
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_a789607f6cc37b44d07859b44d5040546}\label{classfind__differences__screen_1_1FindDifferencesScreen_a789607f6cc37b44d07859b44d5040546}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!\_canvas\_b\_surf@{\_canvas\_b\_surf}}
+\index{\_canvas\_b\_surf@{\_canvas\_b\_surf}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{\_canvas\_b\_surf}{\_canvas\_b\_surf}}
+{\footnotesize\ttfamily find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+\_\+canvas\+\_\+b\+\_\+surf\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Búfer gráfico estático para el caché visual del lienzo B. 
+
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_a5227bcdcc1cf3c593a3ca9dd70cc1580}\label{classfind__differences__screen_1_1FindDifferencesScreen_a5227bcdcc1cf3c593a3ca9dd70cc1580}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!\_elapsed@{\_elapsed}}
+\index{\_elapsed@{\_elapsed}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{\_elapsed}{\_elapsed}}
+{\footnotesize\ttfamily find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+\_\+elapsed\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Contador incremental de tiempo de juego transcurrido en segundos. 
+
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_ad17452e25ca1d6851c742367d4fea2b0}\label{classfind__differences__screen_1_1FindDifferencesScreen_ad17452e25ca1d6851c742367d4fea2b0}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!\_found\_rings@{\_found\_rings}}
+\index{\_found\_rings@{\_found\_rings}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{\_found\_rings}{\_found\_rings}}
+{\footnotesize\ttfamily find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+\_\+found\+\_\+rings\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Lista de anillos de realce verde correspondientes a aciertos confirmados. 
+
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_a122a18abf995991b09ef257b42f24d58}\label{classfind__differences__screen_1_1FindDifferencesScreen_a122a18abf995991b09ef257b42f24d58}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!\_miss\_flashes@{\_miss\_flashes}}
+\index{\_miss\_flashes@{\_miss\_flashes}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{\_miss\_flashes}{\_miss\_flashes}}
+{\footnotesize\ttfamily find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+\_\+miss\+\_\+flashes\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Lista de destellos activos generados por pulsaciones erróneas. 
+
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_ae479458d5622bd41d9c35f431b931c6c}\label{classfind__differences__screen_1_1FindDifferencesScreen_ae479458d5622bd41d9c35f431b931c6c}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!\_ring\_pulse@{\_ring\_pulse}}
+\index{\_ring\_pulse@{\_ring\_pulse}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{\_ring\_pulse}{\_ring\_pulse}}
+{\footnotesize\ttfamily find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+\_\+ring\+\_\+pulse\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Variable oscilatoria armónica continua para efectos de pulsado gráfico. 
+
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_a2e4e7c07952a96fcfaf9d5823433909f}\label{classfind__differences__screen_1_1FindDifferencesScreen_a2e4e7c07952a96fcfaf9d5823433909f}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!\_time\_limit@{\_time\_limit}}
+\index{\_time\_limit@{\_time\_limit}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{\_time\_limit}{\_time\_limit}}
+{\footnotesize\ttfamily find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+\_\+time\+\_\+limit\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Límite de tiempo máximo permitido extraído de la dificultad (0 implica infinito). 
+
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_a1fe95602204a0d18604b47811daf834e}\label{classfind__differences__screen_1_1FindDifferencesScreen_a1fe95602204a0d18604b47811daf834e}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!\_win\_timer@{\_win\_timer}}
+\index{\_win\_timer@{\_win\_timer}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{\_win\_timer}{\_win\_timer}}
+{\footnotesize\ttfamily find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+\_\+win\+\_\+timer\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Temporizador de persistencia para congelar la pantalla de victoria antes de salir. 
+
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_a4c6271c54b2bd34b6fe8944248682e08}\label{classfind__differences__screen_1_1FindDifferencesScreen_a4c6271c54b2bd34b6fe8944248682e08}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!btn\_back@{btn\_back}}
+\index{btn\_back@{btn\_back}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_back}{btn\_back}}
+{\footnotesize\ttfamily find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+btn\+\_\+back}
+
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_ad6664e78c0ee10c7f723b706655d25b3}\label{classfind__differences__screen_1_1FindDifferencesScreen_ad6664e78c0ee10c7f723b706655d25b3}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!btn\_easy@{btn\_easy}}
+\index{btn\_easy@{btn\_easy}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_easy}{btn\_easy}}
+{\footnotesize\ttfamily find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+btn\+\_\+easy}
+
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_a562f0160c3cd31c432f3779f6fab9ff2}\label{classfind__differences__screen_1_1FindDifferencesScreen_a562f0160c3cd31c432f3779f6fab9ff2}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!btn\_exit@{btn\_exit}}
+\index{btn\_exit@{btn\_exit}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_exit}{btn\_exit}}
+{\footnotesize\ttfamily find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+btn\+\_\+exit}
+
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_a6f9d072f1794c38023f72affb246cc56}\label{classfind__differences__screen_1_1FindDifferencesScreen_a6f9d072f1794c38023f72affb246cc56}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!btn\_hard@{btn\_hard}}
+\index{btn\_hard@{btn\_hard}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_hard}{btn\_hard}}
+{\footnotesize\ttfamily find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+btn\+\_\+hard}
+
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_ad73bef898eb67100b3e231c816b7d22c}\label{classfind__differences__screen_1_1FindDifferencesScreen_ad73bef898eb67100b3e231c816b7d22c}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!btn\_medium@{btn\_medium}}
+\index{btn\_medium@{btn\_medium}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_medium}{btn\_medium}}
+{\footnotesize\ttfamily find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+btn\+\_\+medium}
+
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_a5374deadf34f9a60a73b99d007af55a4}\label{classfind__differences__screen_1_1FindDifferencesScreen_a5374deadf34f9a60a73b99d007af55a4}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!canvas\_rect\_a@{canvas\_rect\_a}}
+\index{canvas\_rect\_a@{canvas\_rect\_a}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{canvas\_rect\_a}{canvas\_rect\_a}}
+{\footnotesize\ttfamily find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+canvas\+\_\+rect\+\_\+a}
+
+
+
+Región geométrica absoluta que ocupa el lienzo A en la ventana. 
+
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_ad3b70973c6030177284fd7066bd545d1}\label{classfind__differences__screen_1_1FindDifferencesScreen_ad3b70973c6030177284fd7066bd545d1}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!canvas\_rect\_b@{canvas\_rect\_b}}
+\index{canvas\_rect\_b@{canvas\_rect\_b}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{canvas\_rect\_b}{canvas\_rect\_b}}
+{\footnotesize\ttfamily find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+canvas\+\_\+rect\+\_\+b}
+
+
+
+Región geométrica absoluta que ocupa el lienzo B en la ventana. 
+
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_a05232dc119705529381aa6f6a0682ffa}\label{classfind__differences__screen_1_1FindDifferencesScreen_a05232dc119705529381aa6f6a0682ffa}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!differences@{differences}}
+\index{differences@{differences}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{differences}{differences}}
+{\footnotesize\ttfamily find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+differences}
+
+
+
+Colección dinámica de diferencias inyectadas activas en la ronda. 
+
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_a7408b11967f5b1704d7077f0fa981c7d}\label{classfind__differences__screen_1_1FindDifferencesScreen_a7408b11967f5b1704d7077f0fa981c7d}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!difficulty@{difficulty}}
+\index{difficulty@{difficulty}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{difficulty}{difficulty}}
+{\footnotesize\ttfamily find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+difficulty}
+
+
+
+Nivel de dificultad activo en la partida en curso. 
+
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_ad54e42dbe24d5d857a8290b7a94e3d36}\label{classfind__differences__screen_1_1FindDifferencesScreen_ad54e42dbe24d5d857a8290b7a94e3d36}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!objects\_a@{objects\_a}}
+\index{objects\_a@{objects\_a}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{objects\_a}{objects\_a}}
+{\footnotesize\ttfamily find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+objects\+\_\+a}
+
+
+
+Colección de Scene\+Objects asignados al lienzo izquierdo A. 
+
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_a051595bd48deec4ecc35ffa7ad7912e1}\label{classfind__differences__screen_1_1FindDifferencesScreen_a051595bd48deec4ecc35ffa7ad7912e1}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!objects\_b@{objects\_b}}
+\index{objects\_b@{objects\_b}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{objects\_b}{objects\_b}}
+{\footnotesize\ttfamily find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+objects\+\_\+b}
+
+
+
+Colección de Scene\+Objects asignados al lienzo derecho B. 
+
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_a8e62e790b77e76f1ca82c5225200c8b7}\label{classfind__differences__screen_1_1FindDifferencesScreen_a8e62e790b77e76f1ca82c5225200c8b7}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!state@{state}}
+\index{state@{state}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+state}
+
+
+
+Estado de la máquina de ejecución interna (\char`\"{}menu\char`\"{} $\vert$ \char`\"{}playing\char`\"{} $\vert$ \char`\"{}win\char`\"{} $\vert$ \char`\"{}timeout\char`\"{}). 
+
+\mbox{\Hypertarget{classfind__differences__screen_1_1FindDifferencesScreen_a50ef03c15f683d50e9e66935e842e4ac}\label{classfind__differences__screen_1_1FindDifferencesScreen_a50ef03c15f683d50e9e66935e842e4ac}} 
+\index{find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}!theme\_name@{theme\_name}}
+\index{theme\_name@{theme\_name}!find\_differences\_screen.FindDifferencesScreen@{find\_differences\_screen.FindDifferencesScreen}}
+\doxysubsubsection{\texorpdfstring{theme\_name}{theme\_name}}
+{\footnotesize\ttfamily find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen.\+theme\+\_\+name}
+
+
+
+Identificador temático visual seleccionado para la ronda de juego. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ui/apps/games/\mbox{\hyperlink{find__differences__screen_8py}{find\+\_\+differences\+\_\+screen.\+py}}\end{DoxyCompactItemize}

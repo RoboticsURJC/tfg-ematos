@@ -1,0 +1,4 @@
+<map id="server.remember" name="server.remember">
+<area shape="rect" id="node1" title="Endpoint HTTP POST: Inyecta una nueva traza de conocimiento en la memoria relacional del robot." alt="" coords="5,5,140,32"/>
+<area shape="rect" id="node2" href="$namespaceserver.html#aba0f719635d68d7bd245b84b1654c2b5" title="Crea y parametriza una nueva conexión atómica hacia la base de datos SQLite." alt="" coords="188,5,353,32"/>
+</map>

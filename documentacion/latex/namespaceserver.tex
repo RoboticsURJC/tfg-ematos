@@ -1,0 +1,518 @@
+\hypertarget{namespaceserver}{}\doxysection{server Namespace Reference}
+\label{namespaceserver}\index{server@{server}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceserver_a6d6c556145e1f23ce86bd83d55e4a1a7}{log}} (msg, color=\char`\"{}\textbackslash{}033\mbox{[}96m\char`\"{})
+\begin{DoxyCompactList}\small\item\em Imprime mensajes formateados por la salida estándar utilizando códigos de color ANSI. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceserver_a327eda4f438784fe2bc32e03eb0db11c}{load\+\_\+known\+\_\+faces}} ()
+\begin{DoxyCompactList}\small\item\em Carga los embeddings faciales y nombres de referencia desde el disco duro. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceserver_a0e7989b28f33b52fa4ca8d1df7e2387d}{save\+\_\+known\+\_\+faces}} (names, encodings)
+\begin{DoxyCompactList}\small\item\em Guarda los embeddings vectoriales de rostros mediante una operación de escritura atómica. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceserver_aba0f719635d68d7bd245b84b1654c2b5}{get\+\_\+connection}} ()
+\begin{DoxyCompactList}\small\item\em Crea y parametriza una nueva conexión atómica hacia la base de datos SQLite. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceserver_a521aabff96b526d80b0bfea9fd9da272}{init\+\_\+database}} ()
+\begin{DoxyCompactList}\small\item\em Inicializa la estructura del esquema relacional y crea las tablas si no existen. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceserver_a8999242f0a4e06a634298c90799a33d8}{recognize}} ()
+\begin{DoxyCompactList}\small\item\em Endpoint HTTP POST\+: Procesa e identifica caras a partir de un fotograma de cámara. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceserver_a47522b14514f994f7743798dfc26fb55}{register}} ()
+\begin{DoxyCompactList}\small\item\em Endpoint HTTP POST\+: Registra un nuevo usuario asociándolo a un set de imágenes facíales. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceserver_af33a447026239d93cda68c6aaf0f423b}{remember}} ()
+\begin{DoxyCompactList}\small\item\em Endpoint HTTP POST\+: Inyecta una nueva traza de conocimiento en la memoria relacional del robot. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceserver_a5c813a3761fd8e27d6a25823738826c1}{get\+\_\+memories}} (user)
+\begin{DoxyCompactList}\small\item\em Endpoint HTTP GET\+: Extrae los últimos 20 hechos o recuerdos guardados asociados a un perfil. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceserver_a7d5830b2cadcd2ee26b6039f49eeb9ed}{add\+\_\+reminder}} ()
+\begin{DoxyCompactList}\small\item\em Endpoint HTTP POST\+: Da de alta un recordatorio validando rigurosamente la estampa temporal. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceserver_a83c7c42fa7addf41bef1b5ce0beb4eae}{complete\+\_\+reminder}} (rid)
+\begin{DoxyCompactList}\small\item\em Endpoint HTTP POST\+: Conmuta de forma explícita el bit de completado de una alerta. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceserver_a3fed51e32ced2692d6e597614158aeb7}{get\+\_\+reminders}} (user)
+\begin{DoxyCompactList}\small\item\em Endpoint HTTP GET\+: Lista cronológicamente todos los recordatorios activos e históricos de un usuario. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceserver_ae6c14019c222f486daf3cb817aead359}{reminder\+\_\+scheduler}} ()
+\begin{DoxyCompactList}\small\item\em Proceso planificador e hilo demonio (Background Scheduler). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceserver_afb1509a90e83f53c1a46230ab539e4d1}{LOG\+\_\+\+DIR}} = os.\+path.\+join(os.\+path.\+dirname(\+\_\+\+\_\+file\+\_\+\+\_\+), \char`\"{}logs\char`\"{})
+\begin{DoxyCompactList}\small\item\em Directorio absoluto asignado para el almacenamiento físico de logs de auditoría. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceserver_acd26185724747cfa51a174c3ef9835f5}{exist\+\_\+ok}}
+\item 
+\mbox{\hyperlink{namespaceserver_aeb2dbe97404d9e62a682de25f9438ce0}{log\+\_\+file}}
+\begin{DoxyCompactList}\small\item\em Nombre del fichero de log rotativo diario computado de forma dinámica. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceserver_a005764c00126daf80eaacfcc2451946c}{level}}
+\item 
+\mbox{\hyperlink{namespaceserver_addb76dcb1b81da9cf62eb9849b07211a}{format}}
+\item 
+\mbox{\hyperlink{namespaceserver_a530b21dd4368739ec3f3eb39a695779a}{handlers}}
+\item 
+\mbox{\hyperlink{namespaceserver_abfa1d56012bc320e4b26361390f6fc24}{logger}} = logging.\+get\+Logger(\char`\"{}Face\+Server\char`\"{})
+\begin{DoxyCompactList}\small\item\em Instancia del registrador (logger) asignado para el backend de reconocimiento. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceserver_ad81539608721e4b8ffad6e7bb45dd34b}{app}} = Flask(\+\_\+\+\_\+name\+\_\+\+\_\+)
+\begin{DoxyCompactList}\small\item\em Instancia global de la aplicación web WSGI de Flask. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceserver_ad608cdd20e73912822108057ff39cd57}{curr\+\_\+dir}} = Path(\+\_\+\+\_\+file\+\_\+\+\_\+).resolve().parent
+\begin{DoxyCompactList}\small\item\em Ruta absoluta del directorio raíz donde se localiza el script del servidor. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{namespaceserver_adc374e9d63944f6b78685b2c7e196133}{data\+\_\+path}} = \mbox{\hyperlink{namespaceserver_ad608cdd20e73912822108057ff39cd57}{curr\+\_\+dir}} / \char`\"{}known\+\_\+faces.\+pkl\char`\"{}
+\begin{DoxyCompactList}\small\item\em Ruta del almacén binario pkl que guarda la base de datos de embeddings vectoriales. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{namespaceserver_a4f53eb4b01586ad62f9756d1c38d3d1d}{people\+\_\+path}} = \mbox{\hyperlink{namespaceserver_ad608cdd20e73912822108057ff39cd57}{curr\+\_\+dir}} / \char`\"{}known\+\_\+persons\char`\"{}
+\begin{DoxyCompactList}\small\item\em Ruta hacia la galería física de imágenes de personas registradas en el sistema. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{namespaceserver_a2a846bc7faada555c48d59290ff4ff90}{db\+\_\+path}} = curr\+\_\+dir.\+parent / \char`\"{}robot\+\_\+memory.\+db\char`\"{}
+\begin{DoxyCompactList}\small\item\em Ubicación del archivo de base de datos relacional SQLite que aloja la persistencia relacional. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceserver_aedfa7dbdd49d96c9d2815603c44c9c9b}{parents}}
+\item 
+\mbox{\hyperlink{namespaceserver_abddd200cc1c593bf02e65de2b8d866b9}{True}}
+\item 
+def \mbox{\hyperlink{namespaceserver_a7e7accabf1825866d1712d0c58ae84b5}{known\+\_\+face\+\_\+encodings}} = \mbox{\hyperlink{namespaceserver_a327eda4f438784fe2bc32e03eb0db11c}{load\+\_\+known\+\_\+faces}}()
+\begin{DoxyCompactList}\small\item\em Vector global en memoria con los nombres ordenados de las caras conocidas. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceserver_a57c6f0724a788f152b231df6b573f2ea}{scheduler\+\_\+thread}}
+\item 
+\mbox{\hyperlink{namespaceserver_ae9fe947fe8af0c8524c72b5978fe9ef7}{host}}
+\item 
+\mbox{\hyperlink{namespaceserver_ae0362f7d7e03199b2fb92f705b5efd32}{port}}
+\item 
+\mbox{\hyperlink{namespaceserver_a43e48d45560e05a17f4716d8b28aa82a}{debug}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceserver_a7d5830b2cadcd2ee26b6039f49eeb9ed}\label{namespaceserver_a7d5830b2cadcd2ee26b6039f49eeb9ed}} 
+\index{server@{server}!add\_reminder@{add\_reminder}}
+\index{add\_reminder@{add\_reminder}!server@{server}}
+\doxysubsubsection{\texorpdfstring{add\_reminder()}{add\_reminder()}}
+{\footnotesize\ttfamily def server.\+add\+\_\+reminder (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Endpoint HTTP POST\+: Da de alta un recordatorio validando rigurosamente la estampa temporal. 
+
+Fuerza la validación del campo de tiempo mediante {\ttfamily fromisoformat()} para garantizar que la sintaxis del reloj coincide con la norma internacional, previniendo excepciones en el daemon.
+
+\begin{DoxyReturn}{Returns}
+Response Estado de confirmación JSON con código de error HTTP en caso de fecha desalineada. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceserver_a7d5830b2cadcd2ee26b6039f49eeb9ed_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceserver_a83c7c42fa7addf41bef1b5ce0beb4eae}\label{namespaceserver_a83c7c42fa7addf41bef1b5ce0beb4eae}} 
+\index{server@{server}!complete\_reminder@{complete\_reminder}}
+\index{complete\_reminder@{complete\_reminder}!server@{server}}
+\doxysubsubsection{\texorpdfstring{complete\_reminder()}{complete\_reminder()}}
+{\footnotesize\ttfamily def server.\+complete\+\_\+reminder (\begin{DoxyParamCaption}\item[{}]{rid }\end{DoxyParamCaption})}
+
+
+
+Endpoint HTTP POST\+: Conmuta de forma explícita el bit de completado de una alerta. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rid} & Clave primaria identificadora ({\ttfamily id}) del recordatorio en la tabla SQLite. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response Estado de confirmación JSON. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceserver_a83c7c42fa7addf41bef1b5ce0beb4eae_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceserver_aba0f719635d68d7bd245b84b1654c2b5}\label{namespaceserver_aba0f719635d68d7bd245b84b1654c2b5}} 
+\index{server@{server}!get\_connection@{get\_connection}}
+\index{get\_connection@{get\_connection}!server@{server}}
+\doxysubsubsection{\texorpdfstring{get\_connection()}{get\_connection()}}
+{\footnotesize\ttfamily def server.\+get\+\_\+connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Crea y parametriza una nueva conexión atómica hacia la base de datos SQLite. 
+
+Modifica la propiedad {\ttfamily row\+\_\+factory} al valor nativo {\ttfamily sqlite3.\+Row} para posibilitar el mapeo por diccionario (clave-\/valor). Desactiva el flag de aserción de hilos ({\ttfamily check\+\_\+same\+\_\+thread=False}) permitiendo consultas seguras desde peticiones HTTP concurrentes y el daemon de alertas.
+
+\begin{DoxyReturn}{Returns}
+sqlite3.\+Connection Objeto activo de conexión a la base de datos SQLite. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceserver_a5c813a3761fd8e27d6a25823738826c1}\label{namespaceserver_a5c813a3761fd8e27d6a25823738826c1}} 
+\index{server@{server}!get\_memories@{get\_memories}}
+\index{get\_memories@{get\_memories}!server@{server}}
+\doxysubsubsection{\texorpdfstring{get\_memories()}{get\_memories()}}
+{\footnotesize\ttfamily def server.\+get\+\_\+memories (\begin{DoxyParamCaption}\item[{}]{user }\end{DoxyParamCaption})}
+
+
+
+Endpoint HTTP GET\+: Extrae los últimos 20 hechos o recuerdos guardados asociados a un perfil. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & Nombre de pila identificativo del usuario a consultar. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response Array JSON con la estructura completa de los registros coincidentes. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceserver_a5c813a3761fd8e27d6a25823738826c1_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceserver_a3fed51e32ced2692d6e597614158aeb7}\label{namespaceserver_a3fed51e32ced2692d6e597614158aeb7}} 
+\index{server@{server}!get\_reminders@{get\_reminders}}
+\index{get\_reminders@{get\_reminders}!server@{server}}
+\doxysubsubsection{\texorpdfstring{get\_reminders()}{get\_reminders()}}
+{\footnotesize\ttfamily def server.\+get\+\_\+reminders (\begin{DoxyParamCaption}\item[{}]{user }\end{DoxyParamCaption})}
+
+
+
+Endpoint HTTP GET\+: Lista cronológicamente todos los recordatorios activos e históricos de un usuario. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & Nombre del perfil del usuario bajo consulta. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response Lista de objetos JSON mapeados. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceserver_a3fed51e32ced2692d6e597614158aeb7_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceserver_a521aabff96b526d80b0bfea9fd9da272}\label{namespaceserver_a521aabff96b526d80b0bfea9fd9da272}} 
+\index{server@{server}!init\_database@{init\_database}}
+\index{init\_database@{init\_database}!server@{server}}
+\doxysubsubsection{\texorpdfstring{init\_database()}{init\_database()}}
+{\footnotesize\ttfamily def server.\+init\+\_\+database (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Inicializa la estructura del esquema relacional y crea las tablas si no existen. 
+
+Levanta de forma automática las tablas de entidad {\ttfamily reminders} (alertas de medicación y tareas) y {\ttfamily memories} (registro conversacional de la memoria semántica a largo plazo del robot). Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceserver_a521aabff96b526d80b0bfea9fd9da272_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceserver_a327eda4f438784fe2bc32e03eb0db11c}\label{namespaceserver_a327eda4f438784fe2bc32e03eb0db11c}} 
+\index{server@{server}!load\_known\_faces@{load\_known\_faces}}
+\index{load\_known\_faces@{load\_known\_faces}!server@{server}}
+\doxysubsubsection{\texorpdfstring{load\_known\_faces()}{load\_known\_faces()}}
+{\footnotesize\ttfamily def server.\+load\+\_\+known\+\_\+faces (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Carga los embeddings faciales y nombres de referencia desde el disco duro. 
+
+Intenta deserializar el archivo {\ttfamily .pkl}. Si no se localiza en la ruta del sistema, inicializa estructuras vacías mitigando interrupciones en el arranque del servidor.
+
+\begin{DoxyReturn}{Returns}
+tuple Una tupla estructurada en formato {\ttfamily (names, encodings)} donde\+:
+\begin{DoxyItemize}
+\item {\ttfamily names} (list)\+: Nombres de pila de los usuarios.
+\item {\ttfamily encodings} (list)\+: Vectores de características faciales multidimensionales (128-\/d). 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceserver_a6d6c556145e1f23ce86bd83d55e4a1a7}\label{namespaceserver_a6d6c556145e1f23ce86bd83d55e4a1a7}} 
+\index{server@{server}!log@{log}}
+\index{log@{log}!server@{server}}
+\doxysubsubsection{\texorpdfstring{log()}{log()}}
+{\footnotesize\ttfamily def server.\+log (\begin{DoxyParamCaption}\item[{}]{msg,  }\item[{}]{color = {\ttfamily \char`\"{}\textbackslash{}033\mbox{[}96m\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+Imprime mensajes formateados por la salida estándar utilizando códigos de color ANSI. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & Cadena de texto o cuerpo del mensaje informativo. \\
+\hline
+{\em color} & Código ANSI de color para la terminal (por defecto cian \textquotesingle{}\textbackslash{}033\mbox{[}96m\textquotesingle{}). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespaceserver_a8999242f0a4e06a634298c90799a33d8}\label{namespaceserver_a8999242f0a4e06a634298c90799a33d8}} 
+\index{server@{server}!recognize@{recognize}}
+\index{recognize@{recognize}!server@{server}}
+\doxysubsubsection{\texorpdfstring{recognize()}{recognize()}}
+{\footnotesize\ttfamily def server.\+recognize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Endpoint HTTP POST\+: Procesa e identifica caras a partir de un fotograma de cámara. 
+
+Decodifica una trama binaria desde base64, reconstruye el arreglo matricial de color mediante Open\+CV, calcula los vectores de 128 dimensiones con el algoritmo HOG (Histogram of Oriented Gradients) y deduce las distancias euclidianas relativas ({\ttfamily face\+\_\+distance}) para discernir la identidad más precisa.
+
+\begin{DoxyReturn}{Returns}
+Response Objeto JSON con el array de nombres identificados ({\ttfamily recognized}) y códigos HTTP estándar. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{namespaceserver_a8999242f0a4e06a634298c90799a33d8_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceserver_a47522b14514f994f7743798dfc26fb55}\label{namespaceserver_a47522b14514f994f7743798dfc26fb55}} 
+\index{server@{server}!register@{register}}
+\index{register@{register}!server@{server}}
+\doxysubsubsection{\texorpdfstring{register()}{register()}}
+{\footnotesize\ttfamily def server.\+register (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Endpoint HTTP POST\+: Registra un nuevo usuario asociándolo a un set de imágenes facíales. 
+
+Crea de forma dinámica la estructura física del perfil en disco, barre la colección de imágenes extrayendo sus características faciales válidas, escribe el fotograma JPG en la galería y actualiza los arrays en memoria sincronizando los datos con la base de datos atómica mediante {\ttfamily save\+\_\+known\+\_\+faces}.
+
+\begin{DoxyReturn}{Returns}
+Response Objeto de respuesta JSON reflejando el estatus de la operación ({\ttfamily ok}/{\ttfamily error}). 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{namespaceserver_a47522b14514f994f7743798dfc26fb55_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceserver_af33a447026239d93cda68c6aaf0f423b}\label{namespaceserver_af33a447026239d93cda68c6aaf0f423b}} 
+\index{server@{server}!remember@{remember}}
+\index{remember@{remember}!server@{server}}
+\doxysubsubsection{\texorpdfstring{remember()}{remember()}}
+{\footnotesize\ttfamily def server.\+remember (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Endpoint HTTP POST\+: Inyecta una nueva traza de conocimiento en la memoria relacional del robot. 
+
+\begin{DoxyReturn}{Returns}
+Response Estado de confirmación JSON. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=341pt]{namespaceserver_af33a447026239d93cda68c6aaf0f423b_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceserver_ae6c14019c222f486daf3cb817aead359}\label{namespaceserver_ae6c14019c222f486daf3cb817aead359}} 
+\index{server@{server}!reminder\_scheduler@{reminder\_scheduler}}
+\index{reminder\_scheduler@{reminder\_scheduler}!server@{server}}
+\doxysubsubsection{\texorpdfstring{reminder\_scheduler()}{reminder\_scheduler()}}
+{\footnotesize\ttfamily def server.\+reminder\+\_\+scheduler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Proceso planificador e hilo demonio (Background Scheduler). 
+
+Se ejecuta de forma infinita en segundo plano cada 5 segundos barriendo la tabla de la base de datos. Si localiza un registro no completado cuya fecha planificada sea igual o menor al tiempo ISO actual, dispara un evento de alarma y conmuta de forma automática su estado a completado ({\ttfamily completed = 1}). Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceserver_ae6c14019c222f486daf3cb817aead359_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceserver_a0e7989b28f33b52fa4ca8d1df7e2387d}\label{namespaceserver_a0e7989b28f33b52fa4ca8d1df7e2387d}} 
+\index{server@{server}!save\_known\_faces@{save\_known\_faces}}
+\index{save\_known\_faces@{save\_known\_faces}!server@{server}}
+\doxysubsubsection{\texorpdfstring{save\_known\_faces()}{save\_known\_faces()}}
+{\footnotesize\ttfamily def server.\+save\+\_\+known\+\_\+faces (\begin{DoxyParamCaption}\item[{}]{names,  }\item[{}]{encodings }\end{DoxyParamCaption})}
+
+
+
+Guarda los embeddings vectoriales de rostros mediante una operación de escritura atómica. 
+
+Escribe el payload binario en un archivo temporal intermedio para posteriormente realizar un desplazamiento atómico ({\ttfamily shutil.\+move}), blindando la base de datos ante corrupciones críticas de datos si el proceso sufre un corte eléctrico imprevisto a mitad de escritura.
+
+
+\begin{DoxyParams}{Parameters}
+{\em names} & Lista consolidada con los nombres de los usuarios indexados. \\
+\hline
+{\em encodings} & Lista de vectores de características ({\ttfamily numpy.\+ndarray}) de los rostros detectados. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespaceserver_ad81539608721e4b8ffad6e7bb45dd34b}\label{namespaceserver_ad81539608721e4b8ffad6e7bb45dd34b}} 
+\index{server@{server}!app@{app}}
+\index{app@{app}!server@{server}}
+\doxysubsubsection{\texorpdfstring{app}{app}}
+{\footnotesize\ttfamily server.\+app = Flask(\+\_\+\+\_\+name\+\_\+\+\_\+)}
+
+
+
+Instancia global de la aplicación web WSGI de Flask. 
+
+\mbox{\Hypertarget{namespaceserver_ad608cdd20e73912822108057ff39cd57}\label{namespaceserver_ad608cdd20e73912822108057ff39cd57}} 
+\index{server@{server}!curr\_dir@{curr\_dir}}
+\index{curr\_dir@{curr\_dir}!server@{server}}
+\doxysubsubsection{\texorpdfstring{curr\_dir}{curr\_dir}}
+{\footnotesize\ttfamily server.\+curr\+\_\+dir = Path(\+\_\+\+\_\+file\+\_\+\+\_\+).resolve().parent}
+
+
+
+Ruta absoluta del directorio raíz donde se localiza el script del servidor. 
+
+\mbox{\Hypertarget{namespaceserver_adc374e9d63944f6b78685b2c7e196133}\label{namespaceserver_adc374e9d63944f6b78685b2c7e196133}} 
+\index{server@{server}!data\_path@{data\_path}}
+\index{data\_path@{data\_path}!server@{server}}
+\doxysubsubsection{\texorpdfstring{data\_path}{data\_path}}
+{\footnotesize\ttfamily string server.\+data\+\_\+path = \mbox{\hyperlink{namespaceserver_ad608cdd20e73912822108057ff39cd57}{curr\+\_\+dir}} / \char`\"{}known\+\_\+faces.\+pkl\char`\"{}}
+
+
+
+Ruta del almacén binario pkl que guarda la base de datos de embeddings vectoriales. 
+
+\mbox{\Hypertarget{namespaceserver_a2a846bc7faada555c48d59290ff4ff90}\label{namespaceserver_a2a846bc7faada555c48d59290ff4ff90}} 
+\index{server@{server}!db\_path@{db\_path}}
+\index{db\_path@{db\_path}!server@{server}}
+\doxysubsubsection{\texorpdfstring{db\_path}{db\_path}}
+{\footnotesize\ttfamily string server.\+db\+\_\+path = curr\+\_\+dir.\+parent / \char`\"{}robot\+\_\+memory.\+db\char`\"{}}
+
+
+
+Ubicación del archivo de base de datos relacional SQLite que aloja la persistencia relacional. 
+
+\mbox{\Hypertarget{namespaceserver_a43e48d45560e05a17f4716d8b28aa82a}\label{namespaceserver_a43e48d45560e05a17f4716d8b28aa82a}} 
+\index{server@{server}!debug@{debug}}
+\index{debug@{debug}!server@{server}}
+\doxysubsubsection{\texorpdfstring{debug}{debug}}
+{\footnotesize\ttfamily server.\+debug}
+
+\mbox{\Hypertarget{namespaceserver_acd26185724747cfa51a174c3ef9835f5}\label{namespaceserver_acd26185724747cfa51a174c3ef9835f5}} 
+\index{server@{server}!exist\_ok@{exist\_ok}}
+\index{exist\_ok@{exist\_ok}!server@{server}}
+\doxysubsubsection{\texorpdfstring{exist\_ok}{exist\_ok}}
+{\footnotesize\ttfamily server.\+exist\+\_\+ok}
+
+\mbox{\Hypertarget{namespaceserver_addb76dcb1b81da9cf62eb9849b07211a}\label{namespaceserver_addb76dcb1b81da9cf62eb9849b07211a}} 
+\index{server@{server}!format@{format}}
+\index{format@{format}!server@{server}}
+\doxysubsubsection{\texorpdfstring{format}{format}}
+{\footnotesize\ttfamily server.\+format}
+
+\mbox{\Hypertarget{namespaceserver_a530b21dd4368739ec3f3eb39a695779a}\label{namespaceserver_a530b21dd4368739ec3f3eb39a695779a}} 
+\index{server@{server}!handlers@{handlers}}
+\index{handlers@{handlers}!server@{server}}
+\doxysubsubsection{\texorpdfstring{handlers}{handlers}}
+{\footnotesize\ttfamily server.\+handlers}
+
+\mbox{\Hypertarget{namespaceserver_ae9fe947fe8af0c8524c72b5978fe9ef7}\label{namespaceserver_ae9fe947fe8af0c8524c72b5978fe9ef7}} 
+\index{server@{server}!host@{host}}
+\index{host@{host}!server@{server}}
+\doxysubsubsection{\texorpdfstring{host}{host}}
+{\footnotesize\ttfamily server.\+host}
+
+\mbox{\Hypertarget{namespaceserver_a7e7accabf1825866d1712d0c58ae84b5}\label{namespaceserver_a7e7accabf1825866d1712d0c58ae84b5}} 
+\index{server@{server}!known\_face\_encodings@{known\_face\_encodings}}
+\index{known\_face\_encodings@{known\_face\_encodings}!server@{server}}
+\doxysubsubsection{\texorpdfstring{known\_face\_encodings}{known\_face\_encodings}}
+{\footnotesize\ttfamily def server.\+known\+\_\+face\+\_\+encodings = \mbox{\hyperlink{namespaceserver_a327eda4f438784fe2bc32e03eb0db11c}{load\+\_\+known\+\_\+faces}}()}
+
+
+
+Vector global en memoria con los nombres ordenados de las caras conocidas. 
+
+Vector global en memoria con los embeddings multidimensionales de referencia. \mbox{\Hypertarget{namespaceserver_a005764c00126daf80eaacfcc2451946c}\label{namespaceserver_a005764c00126daf80eaacfcc2451946c}} 
+\index{server@{server}!level@{level}}
+\index{level@{level}!server@{server}}
+\doxysubsubsection{\texorpdfstring{level}{level}}
+{\footnotesize\ttfamily server.\+level}
+
+\mbox{\Hypertarget{namespaceserver_afb1509a90e83f53c1a46230ab539e4d1}\label{namespaceserver_afb1509a90e83f53c1a46230ab539e4d1}} 
+\index{server@{server}!LOG\_DIR@{LOG\_DIR}}
+\index{LOG\_DIR@{LOG\_DIR}!server@{server}}
+\doxysubsubsection{\texorpdfstring{LOG\_DIR}{LOG\_DIR}}
+{\footnotesize\ttfamily server.\+LOG\+\_\+\+DIR = os.\+path.\+join(os.\+path.\+dirname(\+\_\+\+\_\+file\+\_\+\+\_\+), \char`\"{}logs\char`\"{})}
+
+
+
+Directorio absoluto asignado para el almacenamiento físico de logs de auditoría. 
+
+\mbox{\Hypertarget{namespaceserver_aeb2dbe97404d9e62a682de25f9438ce0}\label{namespaceserver_aeb2dbe97404d9e62a682de25f9438ce0}} 
+\index{server@{server}!log\_file@{log\_file}}
+\index{log\_file@{log\_file}!server@{server}}
+\doxysubsubsection{\texorpdfstring{log\_file}{log\_file}}
+{\footnotesize\ttfamily server.\+log\+\_\+file}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  os.path.join(}
+\DoxyCodeLine{2     LOG\_DIR,}
+\DoxyCodeLine{3     f\textcolor{stringliteral}{"{}server\_\{datetime.now().strftime('\%Y-\/\%m-\/\%d')\}.log"{}}}
+\DoxyCodeLine{4 )}
+
+\end{DoxyCode}
+
+
+Nombre del fichero de log rotativo diario computado de forma dinámica. 
+
+\mbox{\Hypertarget{namespaceserver_abfa1d56012bc320e4b26361390f6fc24}\label{namespaceserver_abfa1d56012bc320e4b26361390f6fc24}} 
+\index{server@{server}!logger@{logger}}
+\index{logger@{logger}!server@{server}}
+\doxysubsubsection{\texorpdfstring{logger}{logger}}
+{\footnotesize\ttfamily server.\+logger = logging.\+get\+Logger(\char`\"{}Face\+Server\char`\"{})}
+
+
+
+Instancia del registrador (logger) asignado para el backend de reconocimiento. 
+
+\mbox{\Hypertarget{namespaceserver_aedfa7dbdd49d96c9d2815603c44c9c9b}\label{namespaceserver_aedfa7dbdd49d96c9d2815603c44c9c9b}} 
+\index{server@{server}!parents@{parents}}
+\index{parents@{parents}!server@{server}}
+\doxysubsubsection{\texorpdfstring{parents}{parents}}
+{\footnotesize\ttfamily server.\+parents}
+
+\mbox{\Hypertarget{namespaceserver_a4f53eb4b01586ad62f9756d1c38d3d1d}\label{namespaceserver_a4f53eb4b01586ad62f9756d1c38d3d1d}} 
+\index{server@{server}!people\_path@{people\_path}}
+\index{people\_path@{people\_path}!server@{server}}
+\doxysubsubsection{\texorpdfstring{people\_path}{people\_path}}
+{\footnotesize\ttfamily string server.\+people\+\_\+path = \mbox{\hyperlink{namespaceserver_ad608cdd20e73912822108057ff39cd57}{curr\+\_\+dir}} / \char`\"{}known\+\_\+persons\char`\"{}}
+
+
+
+Ruta hacia la galería física de imágenes de personas registradas en el sistema. 
+
+\mbox{\Hypertarget{namespaceserver_ae0362f7d7e03199b2fb92f705b5efd32}\label{namespaceserver_ae0362f7d7e03199b2fb92f705b5efd32}} 
+\index{server@{server}!port@{port}}
+\index{port@{port}!server@{server}}
+\doxysubsubsection{\texorpdfstring{port}{port}}
+{\footnotesize\ttfamily server.\+port}
+
+\mbox{\Hypertarget{namespaceserver_a57c6f0724a788f152b231df6b573f2ea}\label{namespaceserver_a57c6f0724a788f152b231df6b573f2ea}} 
+\index{server@{server}!scheduler\_thread@{scheduler\_thread}}
+\index{scheduler\_thread@{scheduler\_thread}!server@{server}}
+\doxysubsubsection{\texorpdfstring{scheduler\_thread}{scheduler\_thread}}
+{\footnotesize\ttfamily server.\+scheduler\+\_\+thread}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  threading.Thread(}
+\DoxyCodeLine{2         target=reminder\_scheduler,}
+\DoxyCodeLine{3         daemon=\textcolor{keyword}{True}  \textcolor{comment}{\# Se configura como Daemon para que muera de forma limpia al tumbar el hilo principal}}
+\DoxyCodeLine{4     )}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceserver_abddd200cc1c593bf02e65de2b8d866b9}\label{namespaceserver_abddd200cc1c593bf02e65de2b8d866b9}} 
+\index{server@{server}!True@{True}}
+\index{True@{True}!server@{server}}
+\doxysubsubsection{\texorpdfstring{True}{True}}
+{\footnotesize\ttfamily server.\+True}
+

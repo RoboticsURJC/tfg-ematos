@@ -1,0 +1,4 @@
+<map id="server.add_reminder" name="server.add_reminder">
+<area shape="rect" id="node1" title="Endpoint HTTP POST: Da de alta un recordatorio validando rigurosamente la estampa temporal." alt="" coords="5,5,161,32"/>
+<area shape="rect" id="node2" href="$namespaceserver.html#aba0f719635d68d7bd245b84b1654c2b5" title="Crea y parametriza una nueva conexión atómica hacia la base de datos SQLite." alt="" coords="209,5,375,32"/>
+</map>

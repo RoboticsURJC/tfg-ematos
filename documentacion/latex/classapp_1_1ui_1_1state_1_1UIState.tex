@@ -1,0 +1,437 @@
+\hypertarget{classapp_1_1ui_1_1state_1_1UIState}{}\doxysection{app.\+ui.\+state.\+UIState Class Reference}
+\label{classapp_1_1ui_1_1state_1_1UIState}\index{app.ui.state.UIState@{app.ui.state.UIState}}
+
+
+Gestión del estado global de la aplicación.  
+
+
+
+
+Inheritance diagram for app.\+ui.\+state.\+UIState\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classapp_1_1ui_1_1state_1_1UIState__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for app.\+ui.\+state.\+UIState\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classapp_1_1ui_1_1state_1_1UIState__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1state_1_1UIState_aa3632f75aaaa03ba12dadadecefce666}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\begin{DoxyCompactList}\small\item\em Inicializa el estado por defecto del sistema. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1state_1_1UIState_aa9b592902e659dff2e2c98de817fe4b4}{set\+\_\+user}} (self, str user)
+\begin{DoxyCompactList}\small\item\em Define el usuario actual y emite notificación. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1state_1_1UIState_aeeb16619f2b9dcc0f493cf009341304b}{clear\+\_\+user}} (self)
+\begin{DoxyCompactList}\small\item\em Limpia el usuario actual y notifica a la UI que no hay sesión activa. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1state_1_1UIState_afeb0a09ded4b151544732454d7f7c168}{set\+\_\+screen}} (self, str screen)
+\begin{DoxyCompactList}\small\item\em Actualiza la pantalla actual y notifica el cambio. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1state_1_1UIState_afe498e25b8c6ae2dbe753d4a017dddf6}{open\+\_\+app}} (self, str app\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Registra la apertura de una aplicación y emite la señal de cambio. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1state_1_1UIState_a78b0d6e8991c435432ea7f193244d230}{close\+\_\+app}} (self)
+\begin{DoxyCompactList}\small\item\em Cierra la aplicación actual en el estado y notifica la desvinculación. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1state_1_1UIState_ada901091479b8358fae1834cf11285a7}{set\+\_\+status}} (self, str message)
+\begin{DoxyCompactList}\small\item\em Actualiza el mensaje de estado mostrado al usuario. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1state_1_1UIState_a83d95ecac78cc7cf370f853c88fe0ce9}{set\+\_\+listening}} (self, bool value)
+\begin{DoxyCompactList}\small\item\em Actualiza el estado de escucha del asistente y emite la señal. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1state_1_1UIState_a19b5ec07f68e74577b2be78c2a8868ad}{set\+\_\+speaking}} (self, bool value)
+\begin{DoxyCompactList}\small\item\em Actualiza el estado de habla del asistente y emite la señal. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1state_1_1UIState_a13141909940bfefa5e802cd2bbc15ac1}{set\+\_\+loading}} (self, bool value)
+\begin{DoxyCompactList}\small\item\em Alterna el estado de carga visual (spinner/busy) en la UI. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1state_1_1UIState_a7fb3615aa117b803814a5a25b947e62c}{set\+\_\+error}} (self, str error\+\_\+message)
+\begin{DoxyCompactList}\small\item\em Almacena un mensaje de error y notifica a los suscriptores. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1state_1_1UIState_a0dd096b43b9c6046442c956e6f86accc}{clear\+\_\+error}} (self)
+\begin{DoxyCompactList}\small\item\em Limpia el registro del último error almacenado en el estado. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1state_1_1UIState_adc614e01d98c946b0ebea1d80450b80b}{set\+\_\+theme}} (self, str theme\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Cambia el tema visual de la aplicación y notifica la actualización. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1state_1_1UIState_af16583f317b381c99da33ce52f0e5fe8}{reset}} (self)
+\begin{DoxyCompactList}\small\item\em Restablece el estado global a sus valores de fábrica. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1state_1_1UIState_aa8653e11ddfadbe8f43f87ccb5f6ac8f}{dump\+\_\+state}} (self)
+\begin{DoxyCompactList}\small\item\em Retorna un snapshot del estado actual para propósitos de log/debug. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1state_1_1UIState_a6748453a9a06a299c0ab0d1d4724ebc5}{current\+\_\+user}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1state_1_1UIState_a0638e7a41142b1703e214ad0cd49ae54}{current\+\_\+screen}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1state_1_1UIState_a53c9575240611ab49e1acabcaaaee4c5}{current\+\_\+app}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1state_1_1UIState_af8c6e53adf46aeef10ddd652b6a3f9e1}{current\+\_\+theme}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1state_1_1UIState_a34a63e3d8b777121b52db332d2095f5c}{is\+\_\+listening}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1state_1_1UIState_af6d936adceca21fcf4c04e7c3d78c45c}{is\+\_\+speaking}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1state_1_1UIState_a92e4a95b94ec0de9a285d6bc76f297ba}{is\+\_\+loading}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1state_1_1UIState_ad1ab0186bce8d052202f06e1cde74b2d}{status\+\_\+message}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1state_1_1UIState_ae4796c08677d6c7f458d9cb3cbed463e}{last\+\_\+error}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1state_1_1UIState_a88980144d177c33f805fd64247ffaff0}{user\+\_\+changed}} = pyqt\+Signal(str)
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1state_1_1UIState_ac16c986fc59f4a8c773ad2fda6673a34}{screen\+\_\+changed}} = pyqt\+Signal(str)
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1state_1_1UIState_a5fc3058913c6cd22706b136d3077f171}{app\+\_\+changed}} = pyqt\+Signal(str)
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1state_1_1UIState_a8f08b0d303e4e7cb99ce42ea680a891e}{status\+\_\+changed}} = pyqt\+Signal(str)
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1state_1_1UIState_aea10dd97415cead4a21ddfe71dc8bb51}{listening\+\_\+changed}} = pyqt\+Signal(bool)
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1state_1_1UIState_a4ab88ff9d29b970cae2316206ca0edae}{speaking\+\_\+changed}} = pyqt\+Signal(bool)
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1state_1_1UIState_ad6cda3ef36037b7465e22fae55d9dd89}{loading\+\_\+changed}} = pyqt\+Signal(bool)
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1state_1_1UIState_aaa2c4972d9025bcf6a16892ebd01fafa}{error\+\_\+occurred}} = pyqt\+Signal(str)
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1state_1_1UIState_af3c6ff90fe2425438f1d23eeb3e89188}{theme\+\_\+changed}} = pyqt\+Signal(str)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Gestión del estado global de la aplicación. 
+
+Centraliza todas las variables de estado críticas y ofrece señales para notificar cambios en tiempo real a los widgets interesados.
+
+@attr user\+\_\+changed Señal al cambiar el usuario activo. @attr screen\+\_\+changed Señal al navegar entre pantallas. @attr app\+\_\+changed Señal al abrir/cerrar una aplicación. @attr status\+\_\+changed Señal al actualizar el mensaje de estado del sistema. @attr listening\+\_\+changed Señal al cambiar el estado de detección de voz. @attr speaking\+\_\+changed Señal al cambiar el estado de síntesis de voz. @attr loading\+\_\+changed Señal de cambio en el estado de carga (busy indicator). @attr error\+\_\+occurred Señal de notificación de errores globales. @attr theme\+\_\+changed Señal al cambiar el tema visual (dark/light). 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classapp_1_1ui_1_1state_1_1UIState_aa3632f75aaaa03ba12dadadecefce666}\label{classapp_1_1ui_1_1state_1_1UIState_aa3632f75aaaa03ba12dadadecefce666}} 
+\index{app.ui.state.UIState@{app.ui.state.UIState}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!app.ui.state.UIState@{app.ui.state.UIState}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def app.\+ui.\+state.\+UIState.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Inicializa el estado por defecto del sistema. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{classapp_1_1ui_1_1state_1_1UIState_aa3632f75aaaa03ba12dadadecefce666_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classapp_1_1ui_1_1state_1_1UIState_a0dd096b43b9c6046442c956e6f86accc}\label{classapp_1_1ui_1_1state_1_1UIState_a0dd096b43b9c6046442c956e6f86accc}} 
+\index{app.ui.state.UIState@{app.ui.state.UIState}!clear\_error@{clear\_error}}
+\index{clear\_error@{clear\_error}!app.ui.state.UIState@{app.ui.state.UIState}}
+\doxysubsubsection{\texorpdfstring{clear\_error()}{clear\_error()}}
+{\footnotesize\ttfamily def app.\+ui.\+state.\+UIState.\+clear\+\_\+error (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Limpia el registro del último error almacenado en el estado. 
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1state_1_1UIState_aeeb16619f2b9dcc0f493cf009341304b}\label{classapp_1_1ui_1_1state_1_1UIState_aeeb16619f2b9dcc0f493cf009341304b}} 
+\index{app.ui.state.UIState@{app.ui.state.UIState}!clear\_user@{clear\_user}}
+\index{clear\_user@{clear\_user}!app.ui.state.UIState@{app.ui.state.UIState}}
+\doxysubsubsection{\texorpdfstring{clear\_user()}{clear\_user()}}
+{\footnotesize\ttfamily def app.\+ui.\+state.\+UIState.\+clear\+\_\+user (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Limpia el usuario actual y notifica a la UI que no hay sesión activa. 
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1state_1_1UIState_a78b0d6e8991c435432ea7f193244d230}\label{classapp_1_1ui_1_1state_1_1UIState_a78b0d6e8991c435432ea7f193244d230}} 
+\index{app.ui.state.UIState@{app.ui.state.UIState}!close\_app@{close\_app}}
+\index{close\_app@{close\_app}!app.ui.state.UIState@{app.ui.state.UIState}}
+\doxysubsubsection{\texorpdfstring{close\_app()}{close\_app()}}
+{\footnotesize\ttfamily def app.\+ui.\+state.\+UIState.\+close\+\_\+app (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Cierra la aplicación actual en el estado y notifica la desvinculación. 
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1state_1_1UIState_aa8653e11ddfadbe8f43f87ccb5f6ac8f}\label{classapp_1_1ui_1_1state_1_1UIState_aa8653e11ddfadbe8f43f87ccb5f6ac8f}} 
+\index{app.ui.state.UIState@{app.ui.state.UIState}!dump\_state@{dump\_state}}
+\index{dump\_state@{dump\_state}!app.ui.state.UIState@{app.ui.state.UIState}}
+\doxysubsubsection{\texorpdfstring{dump\_state()}{dump\_state()}}
+{\footnotesize\ttfamily def app.\+ui.\+state.\+UIState.\+dump\+\_\+state (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Retorna un snapshot del estado actual para propósitos de log/debug. 
+
+\begin{DoxyReturn}{Returns}
+Diccionario con el estado completo del sistema. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classapp_1_1ui_1_1state_1_1UIState_afe498e25b8c6ae2dbe753d4a017dddf6}\label{classapp_1_1ui_1_1state_1_1UIState_afe498e25b8c6ae2dbe753d4a017dddf6}} 
+\index{app.ui.state.UIState@{app.ui.state.UIState}!open\_app@{open\_app}}
+\index{open\_app@{open\_app}!app.ui.state.UIState@{app.ui.state.UIState}}
+\doxysubsubsection{\texorpdfstring{open\_app()}{open\_app()}}
+{\footnotesize\ttfamily def app.\+ui.\+state.\+UIState.\+open\+\_\+app (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{str}]{app\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Registra la apertura de una aplicación y emite la señal de cambio. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em app\+\_\+name} & Identificador de la aplicación que se ha abierto. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classapp_1_1ui_1_1state_1_1UIState_af16583f317b381c99da33ce52f0e5fe8}\label{classapp_1_1ui_1_1state_1_1UIState_af16583f317b381c99da33ce52f0e5fe8}} 
+\index{app.ui.state.UIState@{app.ui.state.UIState}!reset@{reset}}
+\index{reset@{reset}!app.ui.state.UIState@{app.ui.state.UIState}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily def app.\+ui.\+state.\+UIState.\+reset (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Restablece el estado global a sus valores de fábrica. 
+
+Utilizado típicamente para cerrar sesiones y limpiar la UI. \mbox{\Hypertarget{classapp_1_1ui_1_1state_1_1UIState_a7fb3615aa117b803814a5a25b947e62c}\label{classapp_1_1ui_1_1state_1_1UIState_a7fb3615aa117b803814a5a25b947e62c}} 
+\index{app.ui.state.UIState@{app.ui.state.UIState}!set\_error@{set\_error}}
+\index{set\_error@{set\_error}!app.ui.state.UIState@{app.ui.state.UIState}}
+\doxysubsubsection{\texorpdfstring{set\_error()}{set\_error()}}
+{\footnotesize\ttfamily def app.\+ui.\+state.\+UIState.\+set\+\_\+error (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{str}]{error\+\_\+message }\end{DoxyParamCaption})}
+
+
+
+Almacena un mensaje de error y notifica a los suscriptores. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em error\+\_\+message} & Descripción del error ocurrido. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classapp_1_1ui_1_1state_1_1UIState_a83d95ecac78cc7cf370f853c88fe0ce9}\label{classapp_1_1ui_1_1state_1_1UIState_a83d95ecac78cc7cf370f853c88fe0ce9}} 
+\index{app.ui.state.UIState@{app.ui.state.UIState}!set\_listening@{set\_listening}}
+\index{set\_listening@{set\_listening}!app.ui.state.UIState@{app.ui.state.UIState}}
+\doxysubsubsection{\texorpdfstring{set\_listening()}{set\_listening()}}
+{\footnotesize\ttfamily def app.\+ui.\+state.\+UIState.\+set\+\_\+listening (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{bool}]{value }\end{DoxyParamCaption})}
+
+
+
+Actualiza el estado de escucha del asistente y emite la señal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & True si el asistente está escuchando, False en caso contrario. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classapp_1_1ui_1_1state_1_1UIState_a13141909940bfefa5e802cd2bbc15ac1}\label{classapp_1_1ui_1_1state_1_1UIState_a13141909940bfefa5e802cd2bbc15ac1}} 
+\index{app.ui.state.UIState@{app.ui.state.UIState}!set\_loading@{set\_loading}}
+\index{set\_loading@{set\_loading}!app.ui.state.UIState@{app.ui.state.UIState}}
+\doxysubsubsection{\texorpdfstring{set\_loading()}{set\_loading()}}
+{\footnotesize\ttfamily def app.\+ui.\+state.\+UIState.\+set\+\_\+loading (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{bool}]{value }\end{DoxyParamCaption})}
+
+
+
+Alterna el estado de carga visual (spinner/busy) en la UI. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & True para activar indicador de carga, False para desactivarlo. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classapp_1_1ui_1_1state_1_1UIState_afeb0a09ded4b151544732454d7f7c168}\label{classapp_1_1ui_1_1state_1_1UIState_afeb0a09ded4b151544732454d7f7c168}} 
+\index{app.ui.state.UIState@{app.ui.state.UIState}!set\_screen@{set\_screen}}
+\index{set\_screen@{set\_screen}!app.ui.state.UIState@{app.ui.state.UIState}}
+\doxysubsubsection{\texorpdfstring{set\_screen()}{set\_screen()}}
+{\footnotesize\ttfamily def app.\+ui.\+state.\+UIState.\+set\+\_\+screen (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{str}]{screen }\end{DoxyParamCaption})}
+
+
+
+Actualiza la pantalla actual y notifica el cambio. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em screen} & Identificador de la nueva pantalla. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classapp_1_1ui_1_1state_1_1UIState_a19b5ec07f68e74577b2be78c2a8868ad}\label{classapp_1_1ui_1_1state_1_1UIState_a19b5ec07f68e74577b2be78c2a8868ad}} 
+\index{app.ui.state.UIState@{app.ui.state.UIState}!set\_speaking@{set\_speaking}}
+\index{set\_speaking@{set\_speaking}!app.ui.state.UIState@{app.ui.state.UIState}}
+\doxysubsubsection{\texorpdfstring{set\_speaking()}{set\_speaking()}}
+{\footnotesize\ttfamily def app.\+ui.\+state.\+UIState.\+set\+\_\+speaking (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{bool}]{value }\end{DoxyParamCaption})}
+
+
+
+Actualiza el estado de habla del asistente y emite la señal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & True si el asistente está hablando, False en caso contrario. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classapp_1_1ui_1_1state_1_1UIState_ada901091479b8358fae1834cf11285a7}\label{classapp_1_1ui_1_1state_1_1UIState_ada901091479b8358fae1834cf11285a7}} 
+\index{app.ui.state.UIState@{app.ui.state.UIState}!set\_status@{set\_status}}
+\index{set\_status@{set\_status}!app.ui.state.UIState@{app.ui.state.UIState}}
+\doxysubsubsection{\texorpdfstring{set\_status()}{set\_status()}}
+{\footnotesize\ttfamily def app.\+ui.\+state.\+UIState.\+set\+\_\+status (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{str}]{message }\end{DoxyParamCaption})}
+
+
+
+Actualiza el mensaje de estado mostrado al usuario. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & Cadena de texto descriptiva. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classapp_1_1ui_1_1state_1_1UIState_adc614e01d98c946b0ebea1d80450b80b}\label{classapp_1_1ui_1_1state_1_1UIState_adc614e01d98c946b0ebea1d80450b80b}} 
+\index{app.ui.state.UIState@{app.ui.state.UIState}!set\_theme@{set\_theme}}
+\index{set\_theme@{set\_theme}!app.ui.state.UIState@{app.ui.state.UIState}}
+\doxysubsubsection{\texorpdfstring{set\_theme()}{set\_theme()}}
+{\footnotesize\ttfamily def app.\+ui.\+state.\+UIState.\+set\+\_\+theme (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{str}]{theme\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Cambia el tema visual de la aplicación y notifica la actualización. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em theme\+\_\+name} & Nombre del tema (ej\+: \textquotesingle{}dark\textquotesingle{}, \textquotesingle{}light\textquotesingle{}). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classapp_1_1ui_1_1state_1_1UIState_aa9b592902e659dff2e2c98de817fe4b4}\label{classapp_1_1ui_1_1state_1_1UIState_aa9b592902e659dff2e2c98de817fe4b4}} 
+\index{app.ui.state.UIState@{app.ui.state.UIState}!set\_user@{set\_user}}
+\index{set\_user@{set\_user}!app.ui.state.UIState@{app.ui.state.UIState}}
+\doxysubsubsection{\texorpdfstring{set\_user()}{set\_user()}}
+{\footnotesize\ttfamily def app.\+ui.\+state.\+UIState.\+set\+\_\+user (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{str}]{user }\end{DoxyParamCaption})}
+
+
+
+Define el usuario actual y emite notificación. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & Nombre del usuario. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classapp_1_1ui_1_1state_1_1UIState_a5fc3058913c6cd22706b136d3077f171}\label{classapp_1_1ui_1_1state_1_1UIState_a5fc3058913c6cd22706b136d3077f171}} 
+\index{app.ui.state.UIState@{app.ui.state.UIState}!app\_changed@{app\_changed}}
+\index{app\_changed@{app\_changed}!app.ui.state.UIState@{app.ui.state.UIState}}
+\doxysubsubsection{\texorpdfstring{app\_changed}{app\_changed}}
+{\footnotesize\ttfamily app.\+ui.\+state.\+UIState.\+app\+\_\+changed = pyqt\+Signal(str)\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1state_1_1UIState_a53c9575240611ab49e1acabcaaaee4c5}\label{classapp_1_1ui_1_1state_1_1UIState_a53c9575240611ab49e1acabcaaaee4c5}} 
+\index{app.ui.state.UIState@{app.ui.state.UIState}!current\_app@{current\_app}}
+\index{current\_app@{current\_app}!app.ui.state.UIState@{app.ui.state.UIState}}
+\doxysubsubsection{\texorpdfstring{current\_app}{current\_app}}
+{\footnotesize\ttfamily app.\+ui.\+state.\+UIState.\+current\+\_\+app}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1state_1_1UIState_a0638e7a41142b1703e214ad0cd49ae54}\label{classapp_1_1ui_1_1state_1_1UIState_a0638e7a41142b1703e214ad0cd49ae54}} 
+\index{app.ui.state.UIState@{app.ui.state.UIState}!current\_screen@{current\_screen}}
+\index{current\_screen@{current\_screen}!app.ui.state.UIState@{app.ui.state.UIState}}
+\doxysubsubsection{\texorpdfstring{current\_screen}{current\_screen}}
+{\footnotesize\ttfamily app.\+ui.\+state.\+UIState.\+current\+\_\+screen}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1state_1_1UIState_af8c6e53adf46aeef10ddd652b6a3f9e1}\label{classapp_1_1ui_1_1state_1_1UIState_af8c6e53adf46aeef10ddd652b6a3f9e1}} 
+\index{app.ui.state.UIState@{app.ui.state.UIState}!current\_theme@{current\_theme}}
+\index{current\_theme@{current\_theme}!app.ui.state.UIState@{app.ui.state.UIState}}
+\doxysubsubsection{\texorpdfstring{current\_theme}{current\_theme}}
+{\footnotesize\ttfamily app.\+ui.\+state.\+UIState.\+current\+\_\+theme}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1state_1_1UIState_a6748453a9a06a299c0ab0d1d4724ebc5}\label{classapp_1_1ui_1_1state_1_1UIState_a6748453a9a06a299c0ab0d1d4724ebc5}} 
+\index{app.ui.state.UIState@{app.ui.state.UIState}!current\_user@{current\_user}}
+\index{current\_user@{current\_user}!app.ui.state.UIState@{app.ui.state.UIState}}
+\doxysubsubsection{\texorpdfstring{current\_user}{current\_user}}
+{\footnotesize\ttfamily app.\+ui.\+state.\+UIState.\+current\+\_\+user}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1state_1_1UIState_aaa2c4972d9025bcf6a16892ebd01fafa}\label{classapp_1_1ui_1_1state_1_1UIState_aaa2c4972d9025bcf6a16892ebd01fafa}} 
+\index{app.ui.state.UIState@{app.ui.state.UIState}!error\_occurred@{error\_occurred}}
+\index{error\_occurred@{error\_occurred}!app.ui.state.UIState@{app.ui.state.UIState}}
+\doxysubsubsection{\texorpdfstring{error\_occurred}{error\_occurred}}
+{\footnotesize\ttfamily app.\+ui.\+state.\+UIState.\+error\+\_\+occurred = pyqt\+Signal(str)\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1state_1_1UIState_a34a63e3d8b777121b52db332d2095f5c}\label{classapp_1_1ui_1_1state_1_1UIState_a34a63e3d8b777121b52db332d2095f5c}} 
+\index{app.ui.state.UIState@{app.ui.state.UIState}!is\_listening@{is\_listening}}
+\index{is\_listening@{is\_listening}!app.ui.state.UIState@{app.ui.state.UIState}}
+\doxysubsubsection{\texorpdfstring{is\_listening}{is\_listening}}
+{\footnotesize\ttfamily app.\+ui.\+state.\+UIState.\+is\+\_\+listening}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1state_1_1UIState_a92e4a95b94ec0de9a285d6bc76f297ba}\label{classapp_1_1ui_1_1state_1_1UIState_a92e4a95b94ec0de9a285d6bc76f297ba}} 
+\index{app.ui.state.UIState@{app.ui.state.UIState}!is\_loading@{is\_loading}}
+\index{is\_loading@{is\_loading}!app.ui.state.UIState@{app.ui.state.UIState}}
+\doxysubsubsection{\texorpdfstring{is\_loading}{is\_loading}}
+{\footnotesize\ttfamily app.\+ui.\+state.\+UIState.\+is\+\_\+loading}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1state_1_1UIState_af6d936adceca21fcf4c04e7c3d78c45c}\label{classapp_1_1ui_1_1state_1_1UIState_af6d936adceca21fcf4c04e7c3d78c45c}} 
+\index{app.ui.state.UIState@{app.ui.state.UIState}!is\_speaking@{is\_speaking}}
+\index{is\_speaking@{is\_speaking}!app.ui.state.UIState@{app.ui.state.UIState}}
+\doxysubsubsection{\texorpdfstring{is\_speaking}{is\_speaking}}
+{\footnotesize\ttfamily app.\+ui.\+state.\+UIState.\+is\+\_\+speaking}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1state_1_1UIState_ae4796c08677d6c7f458d9cb3cbed463e}\label{classapp_1_1ui_1_1state_1_1UIState_ae4796c08677d6c7f458d9cb3cbed463e}} 
+\index{app.ui.state.UIState@{app.ui.state.UIState}!last\_error@{last\_error}}
+\index{last\_error@{last\_error}!app.ui.state.UIState@{app.ui.state.UIState}}
+\doxysubsubsection{\texorpdfstring{last\_error}{last\_error}}
+{\footnotesize\ttfamily app.\+ui.\+state.\+UIState.\+last\+\_\+error}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1state_1_1UIState_aea10dd97415cead4a21ddfe71dc8bb51}\label{classapp_1_1ui_1_1state_1_1UIState_aea10dd97415cead4a21ddfe71dc8bb51}} 
+\index{app.ui.state.UIState@{app.ui.state.UIState}!listening\_changed@{listening\_changed}}
+\index{listening\_changed@{listening\_changed}!app.ui.state.UIState@{app.ui.state.UIState}}
+\doxysubsubsection{\texorpdfstring{listening\_changed}{listening\_changed}}
+{\footnotesize\ttfamily app.\+ui.\+state.\+UIState.\+listening\+\_\+changed = pyqt\+Signal(bool)\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1state_1_1UIState_ad6cda3ef36037b7465e22fae55d9dd89}\label{classapp_1_1ui_1_1state_1_1UIState_ad6cda3ef36037b7465e22fae55d9dd89}} 
+\index{app.ui.state.UIState@{app.ui.state.UIState}!loading\_changed@{loading\_changed}}
+\index{loading\_changed@{loading\_changed}!app.ui.state.UIState@{app.ui.state.UIState}}
+\doxysubsubsection{\texorpdfstring{loading\_changed}{loading\_changed}}
+{\footnotesize\ttfamily app.\+ui.\+state.\+UIState.\+loading\+\_\+changed = pyqt\+Signal(bool)\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1state_1_1UIState_ac16c986fc59f4a8c773ad2fda6673a34}\label{classapp_1_1ui_1_1state_1_1UIState_ac16c986fc59f4a8c773ad2fda6673a34}} 
+\index{app.ui.state.UIState@{app.ui.state.UIState}!screen\_changed@{screen\_changed}}
+\index{screen\_changed@{screen\_changed}!app.ui.state.UIState@{app.ui.state.UIState}}
+\doxysubsubsection{\texorpdfstring{screen\_changed}{screen\_changed}}
+{\footnotesize\ttfamily app.\+ui.\+state.\+UIState.\+screen\+\_\+changed = pyqt\+Signal(str)\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1state_1_1UIState_a4ab88ff9d29b970cae2316206ca0edae}\label{classapp_1_1ui_1_1state_1_1UIState_a4ab88ff9d29b970cae2316206ca0edae}} 
+\index{app.ui.state.UIState@{app.ui.state.UIState}!speaking\_changed@{speaking\_changed}}
+\index{speaking\_changed@{speaking\_changed}!app.ui.state.UIState@{app.ui.state.UIState}}
+\doxysubsubsection{\texorpdfstring{speaking\_changed}{speaking\_changed}}
+{\footnotesize\ttfamily app.\+ui.\+state.\+UIState.\+speaking\+\_\+changed = pyqt\+Signal(bool)\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1state_1_1UIState_a8f08b0d303e4e7cb99ce42ea680a891e}\label{classapp_1_1ui_1_1state_1_1UIState_a8f08b0d303e4e7cb99ce42ea680a891e}} 
+\index{app.ui.state.UIState@{app.ui.state.UIState}!status\_changed@{status\_changed}}
+\index{status\_changed@{status\_changed}!app.ui.state.UIState@{app.ui.state.UIState}}
+\doxysubsubsection{\texorpdfstring{status\_changed}{status\_changed}}
+{\footnotesize\ttfamily app.\+ui.\+state.\+UIState.\+status\+\_\+changed = pyqt\+Signal(str)\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1state_1_1UIState_ad1ab0186bce8d052202f06e1cde74b2d}\label{classapp_1_1ui_1_1state_1_1UIState_ad1ab0186bce8d052202f06e1cde74b2d}} 
+\index{app.ui.state.UIState@{app.ui.state.UIState}!status\_message@{status\_message}}
+\index{status\_message@{status\_message}!app.ui.state.UIState@{app.ui.state.UIState}}
+\doxysubsubsection{\texorpdfstring{status\_message}{status\_message}}
+{\footnotesize\ttfamily app.\+ui.\+state.\+UIState.\+status\+\_\+message}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1state_1_1UIState_af3c6ff90fe2425438f1d23eeb3e89188}\label{classapp_1_1ui_1_1state_1_1UIState_af3c6ff90fe2425438f1d23eeb3e89188}} 
+\index{app.ui.state.UIState@{app.ui.state.UIState}!theme\_changed@{theme\_changed}}
+\index{theme\_changed@{theme\_changed}!app.ui.state.UIState@{app.ui.state.UIState}}
+\doxysubsubsection{\texorpdfstring{theme\_changed}{theme\_changed}}
+{\footnotesize\ttfamily app.\+ui.\+state.\+UIState.\+theme\+\_\+changed = pyqt\+Signal(str)\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1state_1_1UIState_a88980144d177c33f805fd64247ffaff0}\label{classapp_1_1ui_1_1state_1_1UIState_a88980144d177c33f805fd64247ffaff0}} 
+\index{app.ui.state.UIState@{app.ui.state.UIState}!user\_changed@{user\_changed}}
+\index{user\_changed@{user\_changed}!app.ui.state.UIState@{app.ui.state.UIState}}
+\doxysubsubsection{\texorpdfstring{user\_changed}{user\_changed}}
+{\footnotesize\ttfamily app.\+ui.\+state.\+UIState.\+user\+\_\+changed = pyqt\+Signal(str)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ui/\mbox{\hyperlink{state_8py}{state.\+py}}\end{DoxyCompactItemize}

@@ -1,0 +1,28 @@
+\hypertarget{llm__package_2main_8py}{}\doxysection{llm\+\_\+package/main.py File Reference}
+\label{llm__package_2main_8py}\index{llm\_package/main.py@{llm\_package/main.py}}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacemain}{main}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacemain_ac36f11ba37f67dd7e1523d300c68864a}{main.\+BASE\+\_\+\+DIR}} = os.\+path.\+dirname(os.\+path.\+abspath(\+\_\+\+\_\+file\+\_\+\+\_\+))
+\begin{DoxyCompactList}\small\item\em Ruta absoluta del directorio base donde está alojado este script de orquestación. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacemain_af12265b8cdab1a213b7e6187dbbec3a7}{main.\+DATASET\+\_\+\+PATH}} = os.\+path.\+join(BASE\+\_\+\+DIR, \char`\"{}prompts\char`\"{}, \char`\"{}dataset.\+json\char`\"{})
+\begin{DoxyCompactList}\small\item\em Ruta absoluta del archivo estructurado JSON que contiene la batería de pruebas (prompts). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacemain_ab21a458e1d12852833095bd03f9e14af}{main.\+encoding}}
+\item 
+\mbox{\hyperlink{namespacemain_a56f4b07423d8f18a76a78fd4480d6f6f}{main.\+prompts}} = json.\+load(f)
+\item 
+list \mbox{\hyperlink{namespacemain_ac4161d4c53af6b93521c11d52ceb3de5}{main.\+models}}
+\begin{DoxyCompactList}\small\item\em Vector que almacena las instancias activas de los modelos que participarán en la evaluación comparativa. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacemain_ad3f96f9bbe55ef2159ea73a72c7b2ef8}{main.\+runner}} = Benchmark\+Runner(models)
+\begin{DoxyCompactList}\small\item\em Orquestador del ciclo de vida encargado de iterar y medir las inferencias sobre los modelos. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacemain_afcdcd0c78d3c1a56674ce61170665fa4}{main.\+repeats}}
+\item 
+\mbox{\hyperlink{namespacemain_a902f065d0a2f209fbdcb831324ea96b5}{main.\+results}} = load\+\_\+results()
+\begin{DoxyCompactList}\small\item\em Histórico completo de transacciones recuperado directamente desde el archivo persistente JSONL. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacemain_a3531391ccc0b82b59b614aed6d675a41}{main.\+stats}} = compute\+\_\+stats(results)
+\begin{DoxyCompactList}\small\item\em Diccionario con los agregados estadísticos calculados (medias de latencia, varianza, etc.) por modelo. \end{DoxyCompactList}\end{DoxyCompactItemize}

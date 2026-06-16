@@ -1,0 +1,6 @@
+<map id="app.ui.face_client.FaceClient.keyPressEvent" name="app.ui.face_client.FaceClient.keyPressEvent">
+<area shape="rect" id="node1" title=" " alt="" coords="5,88,240,129"/>
+<area shape="rect" id="node2" href="$classapp_1_1core_1_1robot__controller_1_1RobotController.html#aa5d5a71df683f4b3b8331abc8834636a" title="Destruye u oculta la ventana de la aplicación activa y reconduce al usuario al Launcher principal." alt="" coords="331,29,523,71"/>
+<area shape="rect" id="node3" href="$classapp_1_1ui_1_1face__client_1_1FaceClient.html#a93f43b22f08a225e5c68212248128e0b" title="Detiene los procesos de cámara, timers y cierra la aplicación." alt="" coords="288,95,565,122"/>
+<area shape="rect" id="node4" href="$classapp_1_1ui_1_1state_1_1UIState.html#a78b0d6e8991c435432ea7f193244d230" title="Cierra la aplicación actual en el estado y notifica la desvinculación." alt="" coords="317,146,537,173"/>
+</map>

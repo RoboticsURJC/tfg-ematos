@@ -1,0 +1,152 @@
+\hypertarget{namespaceconfig}{}\doxysection{config Namespace Reference}
+\label{namespaceconfig}\index{config@{config}}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceconfig_a464e5db34b74c0650466629503b90c49}{BASE\+\_\+\+DIR}} = Path(\+\_\+\+\_\+file\+\_\+\+\_\+).resolve().parent
+\begin{DoxyCompactList}\small\item\em Ruta absoluta hacia el directorio base donde se encuentra este archivo de configuración. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{namespaceconfig_a27f3faf6ff2ef620bf2e2657805f2cb3}{STATIC\+\_\+\+DIR}} = \mbox{\hyperlink{namespaceconfig_a464e5db34b74c0650466629503b90c49}{BASE\+\_\+\+DIR}} / \char`\"{}static\char`\"{}
+\begin{DoxyCompactList}\small\item\em Ruta absoluta hacia el directorio encargado de almacenar los archivos estáticos. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{namespaceconfig_abb8f2c63dffd405c72fd31eb0b56c2ea}{LOG\+\_\+\+DIR}} = \mbox{\hyperlink{namespaceconfig_a464e5db34b74c0650466629503b90c49}{BASE\+\_\+\+DIR}} / \char`\"{}logs\char`\"{}
+\begin{DoxyCompactList}\small\item\em Ruta absoluta hacia el directorio encargado de almacenar los ficheros de logs físicos. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceconfig_ac0c7f0873718563f2e88322d0c1808a0}{parents}}
+\item 
+\mbox{\hyperlink{namespaceconfig_a9b2c9e4449f58f693f6f24d6a81b08ee}{True}}
+\item 
+\mbox{\hyperlink{namespaceconfig_a5efb09e6bf59aba1dc9b5aedbf9af6ad}{exist\+\_\+ok}}
+\item 
+string \mbox{\hyperlink{namespaceconfig_abfbe3a8dc80726a23d2a65816089764f}{FACE\+\_\+\+SERVER\+\_\+\+URL}} = \char`\"{}http\+://localhost\+:5000\char`\"{}
+\begin{DoxyCompactList}\small\item\em Dirección URL local y puerto base asignados al microservicio de Reconocimiento Facial. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{namespaceconfig_a638423c8998dd51dca0177a62d0f9b61}{LLM\+\_\+\+SERVER\+\_\+\+URL}} = \char`\"{}http\+://localhost\+:8000\char`\"{}
+\begin{DoxyCompactList}\small\item\em Dirección URL local y puerto base asignados al microservicio del Modelo de Lenguaje (LLM). \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{namespaceconfig_a6190eb3cd371fc4846f41a5f6cf475b1}{HOST}} = \char`\"{}0.\+0.\+0.\+0\char`\"{}
+\begin{DoxyCompactList}\small\item\em Dirección de red (Host) del servidor web del Dashboard (0.\+0.\+0.\+0 permite conexiones de red local). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespaceconfig_a30a8b8fa20fcff7fd871a31b2d6f004c}{PORT}} = 3000
+\begin{DoxyCompactList}\small\item\em Puerto de red por el cual escuchará el servidor de la interfaz del Dashboard. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceconfig_ade6ff917526e7d29c0291a47be14573a}{AZURE\+\_\+\+API\+\_\+\+KEY}} = os.\+getenv(\char`\"{}AZURE\+\_\+\+API\+\_\+\+KEY\char`\"{})
+\begin{DoxyCompactList}\small\item\em Token de autenticación privado para el consumo de modelos Open\+AI a través de Azure AI Model Inference. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceconfig_aed639bc4f02eed4d45be5c254197a0d9}{GROQ\+\_\+\+API\+\_\+\+KEY}} = os.\+getenv(\char`\"{}GROQ\+\_\+\+API\+\_\+\+KEY\char`\"{})
+\begin{DoxyCompactList}\small\item\em Llave de acceso secreta (API Key) necesaria para autenticar las peticiones asíncronas en la infraestructura de Groq. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceconfig_a4888d9f7583ffb88223310bf9a18dd2a}{GEMINI\+\_\+\+API\+\_\+\+KEY}} = os.\+getenv(\char`\"{}GEMINI\+\_\+\+API\+\_\+\+KEY\char`\"{})
+\begin{DoxyCompactList}\small\item\em Credencial privada indispensable para el funcionamiento del cliente oficial del SDK de Google Gemini. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespaceconfig_ade6ff917526e7d29c0291a47be14573a}\label{namespaceconfig_ade6ff917526e7d29c0291a47be14573a}} 
+\index{config@{config}!AZURE\_API\_KEY@{AZURE\_API\_KEY}}
+\index{AZURE\_API\_KEY@{AZURE\_API\_KEY}!config@{config}}
+\doxysubsubsection{\texorpdfstring{AZURE\_API\_KEY}{AZURE\_API\_KEY}}
+{\footnotesize\ttfamily config.\+AZURE\+\_\+\+API\+\_\+\+KEY = os.\+getenv(\char`\"{}AZURE\+\_\+\+API\+\_\+\+KEY\char`\"{})}
+
+
+
+Token de autenticación privado para el consumo de modelos Open\+AI a través de Azure AI Model Inference. 
+
+\mbox{\Hypertarget{namespaceconfig_a464e5db34b74c0650466629503b90c49}\label{namespaceconfig_a464e5db34b74c0650466629503b90c49}} 
+\index{config@{config}!BASE\_DIR@{BASE\_DIR}}
+\index{BASE\_DIR@{BASE\_DIR}!config@{config}}
+\doxysubsubsection{\texorpdfstring{BASE\_DIR}{BASE\_DIR}}
+{\footnotesize\ttfamily config.\+BASE\+\_\+\+DIR = Path(\+\_\+\+\_\+file\+\_\+\+\_\+).resolve().parent}
+
+
+
+Ruta absoluta hacia el directorio base donde se encuentra este archivo de configuración. 
+
+\mbox{\Hypertarget{namespaceconfig_a5efb09e6bf59aba1dc9b5aedbf9af6ad}\label{namespaceconfig_a5efb09e6bf59aba1dc9b5aedbf9af6ad}} 
+\index{config@{config}!exist\_ok@{exist\_ok}}
+\index{exist\_ok@{exist\_ok}!config@{config}}
+\doxysubsubsection{\texorpdfstring{exist\_ok}{exist\_ok}}
+{\footnotesize\ttfamily config.\+exist\+\_\+ok}
+
+\mbox{\Hypertarget{namespaceconfig_abfbe3a8dc80726a23d2a65816089764f}\label{namespaceconfig_abfbe3a8dc80726a23d2a65816089764f}} 
+\index{config@{config}!FACE\_SERVER\_URL@{FACE\_SERVER\_URL}}
+\index{FACE\_SERVER\_URL@{FACE\_SERVER\_URL}!config@{config}}
+\doxysubsubsection{\texorpdfstring{FACE\_SERVER\_URL}{FACE\_SERVER\_URL}}
+{\footnotesize\ttfamily string config.\+FACE\+\_\+\+SERVER\+\_\+\+URL = \char`\"{}http\+://localhost\+:5000\char`\"{}}
+
+
+
+Dirección URL local y puerto base asignados al microservicio de Reconocimiento Facial. 
+
+\mbox{\Hypertarget{namespaceconfig_a4888d9f7583ffb88223310bf9a18dd2a}\label{namespaceconfig_a4888d9f7583ffb88223310bf9a18dd2a}} 
+\index{config@{config}!GEMINI\_API\_KEY@{GEMINI\_API\_KEY}}
+\index{GEMINI\_API\_KEY@{GEMINI\_API\_KEY}!config@{config}}
+\doxysubsubsection{\texorpdfstring{GEMINI\_API\_KEY}{GEMINI\_API\_KEY}}
+{\footnotesize\ttfamily config.\+GEMINI\+\_\+\+API\+\_\+\+KEY = os.\+getenv(\char`\"{}GEMINI\+\_\+\+API\+\_\+\+KEY\char`\"{})}
+
+
+
+Credencial privada indispensable para el funcionamiento del cliente oficial del SDK de Google Gemini. 
+
+\mbox{\Hypertarget{namespaceconfig_aed639bc4f02eed4d45be5c254197a0d9}\label{namespaceconfig_aed639bc4f02eed4d45be5c254197a0d9}} 
+\index{config@{config}!GROQ\_API\_KEY@{GROQ\_API\_KEY}}
+\index{GROQ\_API\_KEY@{GROQ\_API\_KEY}!config@{config}}
+\doxysubsubsection{\texorpdfstring{GROQ\_API\_KEY}{GROQ\_API\_KEY}}
+{\footnotesize\ttfamily config.\+GROQ\+\_\+\+API\+\_\+\+KEY = os.\+getenv(\char`\"{}GROQ\+\_\+\+API\+\_\+\+KEY\char`\"{})}
+
+
+
+Llave de acceso secreta (API Key) necesaria para autenticar las peticiones asíncronas en la infraestructura de Groq. 
+
+\mbox{\Hypertarget{namespaceconfig_a6190eb3cd371fc4846f41a5f6cf475b1}\label{namespaceconfig_a6190eb3cd371fc4846f41a5f6cf475b1}} 
+\index{config@{config}!HOST@{HOST}}
+\index{HOST@{HOST}!config@{config}}
+\doxysubsubsection{\texorpdfstring{HOST}{HOST}}
+{\footnotesize\ttfamily string config.\+HOST = \char`\"{}0.\+0.\+0.\+0\char`\"{}}
+
+
+
+Dirección de red (Host) del servidor web del Dashboard (0.\+0.\+0.\+0 permite conexiones de red local). 
+
+\mbox{\Hypertarget{namespaceconfig_a638423c8998dd51dca0177a62d0f9b61}\label{namespaceconfig_a638423c8998dd51dca0177a62d0f9b61}} 
+\index{config@{config}!LLM\_SERVER\_URL@{LLM\_SERVER\_URL}}
+\index{LLM\_SERVER\_URL@{LLM\_SERVER\_URL}!config@{config}}
+\doxysubsubsection{\texorpdfstring{LLM\_SERVER\_URL}{LLM\_SERVER\_URL}}
+{\footnotesize\ttfamily string config.\+LLM\+\_\+\+SERVER\+\_\+\+URL = \char`\"{}http\+://localhost\+:8000\char`\"{}}
+
+
+
+Dirección URL local y puerto base asignados al microservicio del Modelo de Lenguaje (LLM). 
+
+\mbox{\Hypertarget{namespaceconfig_abb8f2c63dffd405c72fd31eb0b56c2ea}\label{namespaceconfig_abb8f2c63dffd405c72fd31eb0b56c2ea}} 
+\index{config@{config}!LOG\_DIR@{LOG\_DIR}}
+\index{LOG\_DIR@{LOG\_DIR}!config@{config}}
+\doxysubsubsection{\texorpdfstring{LOG\_DIR}{LOG\_DIR}}
+{\footnotesize\ttfamily string config.\+LOG\+\_\+\+DIR = \mbox{\hyperlink{namespaceconfig_a464e5db34b74c0650466629503b90c49}{BASE\+\_\+\+DIR}} / \char`\"{}logs\char`\"{}}
+
+
+
+Ruta absoluta hacia el directorio encargado de almacenar los ficheros de logs físicos. 
+
+\mbox{\Hypertarget{namespaceconfig_ac0c7f0873718563f2e88322d0c1808a0}\label{namespaceconfig_ac0c7f0873718563f2e88322d0c1808a0}} 
+\index{config@{config}!parents@{parents}}
+\index{parents@{parents}!config@{config}}
+\doxysubsubsection{\texorpdfstring{parents}{parents}}
+{\footnotesize\ttfamily config.\+parents}
+
+\mbox{\Hypertarget{namespaceconfig_a30a8b8fa20fcff7fd871a31b2d6f004c}\label{namespaceconfig_a30a8b8fa20fcff7fd871a31b2d6f004c}} 
+\index{config@{config}!PORT@{PORT}}
+\index{PORT@{PORT}!config@{config}}
+\doxysubsubsection{\texorpdfstring{PORT}{PORT}}
+{\footnotesize\ttfamily int config.\+PORT = 3000}
+
+
+
+Puerto de red por el cual escuchará el servidor de la interfaz del Dashboard. 
+
+\mbox{\Hypertarget{namespaceconfig_a27f3faf6ff2ef620bf2e2657805f2cb3}\label{namespaceconfig_a27f3faf6ff2ef620bf2e2657805f2cb3}} 
+\index{config@{config}!STATIC\_DIR@{STATIC\_DIR}}
+\index{STATIC\_DIR@{STATIC\_DIR}!config@{config}}
+\doxysubsubsection{\texorpdfstring{STATIC\_DIR}{STATIC\_DIR}}
+{\footnotesize\ttfamily string config.\+STATIC\+\_\+\+DIR = \mbox{\hyperlink{namespaceconfig_a464e5db34b74c0650466629503b90c49}{BASE\+\_\+\+DIR}} / \char`\"{}static\char`\"{}}
+
+
+
+Ruta absoluta hacia el directorio encargado de almacenar los archivos estáticos. 
+
+\mbox{\Hypertarget{namespaceconfig_a9b2c9e4449f58f693f6f24d6a81b08ee}\label{namespaceconfig_a9b2c9e4449f58f693f6f24d6a81b08ee}} 
+\index{config@{config}!True@{True}}
+\index{True@{True}!config@{config}}
+\doxysubsubsection{\texorpdfstring{True}{True}}
+{\footnotesize\ttfamily config.\+True}
+

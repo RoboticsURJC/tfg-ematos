@@ -1,0 +1,108 @@
+\hypertarget{classmodels_1_1groq__llama_1_1GroqLlama}{}\doxysection{models.\+groq\+\_\+llama.\+Groq\+Llama Class Reference}
+\label{classmodels_1_1groq__llama_1_1GroqLlama}\index{models.groq\_llama.GroqLlama@{models.groq\_llama.GroqLlama}}
+
+
+Adaptador de Llama 3 (Groq) para el pipeline de ejecución de benchmarks del robot.  
+
+
+
+
+Inheritance diagram for models.\+groq\+\_\+llama.\+Groq\+Llama\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=247pt]{classmodels_1_1groq__llama_1_1GroqLlama__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for models.\+groq\+\_\+llama.\+Groq\+Llama\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=247pt]{classmodels_1_1groq__llama_1_1GroqLlama__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classmodels_1_1groq__llama_1_1GroqLlama_a6dd052dda9d9d51133318974e7d2953c}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\begin{DoxyCompactList}\small\item\em Constructor de la clase \mbox{\hyperlink{classmodels_1_1groq__llama_1_1GroqLlama}{Groq\+Llama}}. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classmodels_1_1groq__llama_1_1GroqLlama_a594280747ebfccdcc74471a9ee366c2f}{generate}} (self, prompt)
+\begin{DoxyCompactList}\small\item\em Envía una solicitud de inferencia síncrona al backend de Groq usando el modelo Llama 3.\+3. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmodels_1_1groq__llama_1_1GroqLlama_a795285847ad5420b92606b2ce6177dc5}{client}}
+\begin{DoxyCompactList}\small\item\em Cliente autenticado del SDK nativo de Groq. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Adaptador de Llama 3 (Groq) para el pipeline de ejecución de benchmarks del robot. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classmodels_1_1groq__llama_1_1GroqLlama_a6dd052dda9d9d51133318974e7d2953c}\label{classmodels_1_1groq__llama_1_1GroqLlama_a6dd052dda9d9d51133318974e7d2953c}} 
+\index{models.groq\_llama.GroqLlama@{models.groq\_llama.GroqLlama}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!models.groq\_llama.GroqLlama@{models.groq\_llama.GroqLlama}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def models.\+groq\+\_\+llama.\+Groq\+Llama.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Constructor de la clase \mbox{\hyperlink{classmodels_1_1groq__llama_1_1GroqLlama}{Groq\+Llama}}. 
+
+Inicializa la clase base bajo el identificador técnico \textquotesingle{}llama-\/3-\/groq\textquotesingle{} y configura el cliente seguro de Groq inyectando la clave de acceso privada (API Key). Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{classmodels_1_1groq__llama_1_1GroqLlama_a6dd052dda9d9d51133318974e7d2953c_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classmodels_1_1groq__llama_1_1GroqLlama_a594280747ebfccdcc74471a9ee366c2f}\label{classmodels_1_1groq__llama_1_1GroqLlama_a594280747ebfccdcc74471a9ee366c2f}} 
+\index{models.groq\_llama.GroqLlama@{models.groq\_llama.GroqLlama}!generate@{generate}}
+\index{generate@{generate}!models.groq\_llama.GroqLlama@{models.groq\_llama.GroqLlama}}
+\doxysubsubsection{\texorpdfstring{generate()}{generate()}}
+{\footnotesize\ttfamily def models.\+groq\+\_\+llama.\+Groq\+Llama.\+generate (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{prompt }\end{DoxyParamCaption})}
+
+
+
+Envía una solicitud de inferencia síncrona al backend de Groq usando el modelo Llama 3.\+3. 
+
+Llama de forma bloqueante al endpoint de completions parametrizando el modelo versátil de 70 billones de parámetros ({\ttfamily llama-\/3.\+3-\/70b-\/versatile}) y extrae el texto plano generado.
+
+
+\begin{DoxyParams}{Parameters}
+{\em prompt} & Instrucción o pregunta limpia destinada a ser evaluada por el modelo de lenguaje.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+tuple Una tupla {\ttfamily (content\+\_\+text, extra\+\_\+metadata)} donde\+:
+\begin{DoxyItemize}
+\item {\ttfamily content\+\_\+text} (str)\+: El cuerpo de la respuesta generado por Llama.
+\item {\ttfamily extra\+\_\+metadata} (dict)\+: Un diccionario vacío reservado para telemetría secundaria de tokens. 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classmodels_1_1groq__llama_1_1GroqLlama_a795285847ad5420b92606b2ce6177dc5}\label{classmodels_1_1groq__llama_1_1GroqLlama_a795285847ad5420b92606b2ce6177dc5}} 
+\index{models.groq\_llama.GroqLlama@{models.groq\_llama.GroqLlama}!client@{client}}
+\index{client@{client}!models.groq\_llama.GroqLlama@{models.groq\_llama.GroqLlama}}
+\doxysubsubsection{\texorpdfstring{client}{client}}
+{\footnotesize\ttfamily models.\+groq\+\_\+llama.\+Groq\+Llama.\+client}
+
+
+
+Cliente autenticado del SDK nativo de Groq. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+llm\+\_\+package/models/\mbox{\hyperlink{groq__llama_8py}{groq\+\_\+llama.\+py}}\end{DoxyCompactItemize}

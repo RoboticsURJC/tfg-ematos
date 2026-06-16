@@ -1,0 +1,4 @@
+<map id="simon_says_screen.SimonSaysScreen._draw_menu" name="simon_says_screen.SimonSaysScreen._draw_menu">
+<area shape="rect" id="node1" title="Dibuja la interfaz completa del Menú Principal, selectores de dificultad y récords." alt="" coords="5,5,231,47"/>
+<area shape="rect" id="node2" href="$namespacesimon__says__screen.html#adec696afad24da63db8a0d0fa85a2c7f" title="Algoritmo iterativo de aproximación por convergencia para ajustar el tamaño de fuente." alt="" coords="279,5,432,47"/>
+</map>

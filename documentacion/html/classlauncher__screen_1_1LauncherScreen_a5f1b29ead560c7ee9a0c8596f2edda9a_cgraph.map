@@ -1,0 +1,4 @@
+<map id="launcher_screen.LauncherScreen._quick_poweroff" name="launcher_screen.LauncherScreen._quick_poweroff">
+<area shape="rect" id="node1" title="Ejecuta un apagado seguro del equipo." alt="" coords="5,5,196,47"/>
+<area shape="rect" id="node2" href="$namespacelauncher__screen.html#a7c65ddbb9b8639587816dbc7f68da69c" title=" " alt="" coords="244,13,440,39"/>
+</map>

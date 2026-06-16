@@ -1,0 +1,45 @@
+\hypertarget{logger_8py}{}\doxysection{core/logger.py File Reference}
+\label{logger_8py}\index{core/logger.py@{core/logger.py}}
+
+
+Configuración e inicialización del sistema de logs centralizado del robot.  
+
+
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceapp}{app}}
+\item 
+namespace \mbox{\hyperlink{namespaceapp_1_1core}{app.\+core}}
+\item 
+namespace \mbox{\hyperlink{namespaceapp_1_1core_1_1logger}{app.\+core.\+logger}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceapp_1_1core_1_1logger_ac6faf9b3defd48f7bd70880c99c42e61}{app.\+core.\+logger.\+config\+\_\+path}}
+\begin{DoxyCompactList}\small\item\em Ruta absoluta construida dinámicamente hacia el archivo de configuración JSON. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1core_1_1logger_a60ccfa87a4e6b281a8307b51672c0550}{app.\+core.\+logger.\+encoding}}
+\item 
+\mbox{\hyperlink{namespaceapp_1_1core_1_1logger_a496f897fbe6c9463190d36432899a51a}{app.\+core.\+logger.\+config}} = json.\+load(f)
+\item 
+string \mbox{\hyperlink{namespaceapp_1_1core_1_1logger_a07a9467ed002526418b56f43803f886d}{app.\+core.\+logger.\+SERVER\+\_\+\+URL}} = \char`\"{}http\+://192.\+168.\+1.\+96\+:3000/client-\/log\char`\"{}
+\begin{DoxyCompactList}\small\item\em URL completa y absoluta del endpoint HTTP del Dashboard donde se transmitirán las trazas en tiempo real. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1core_1_1logger_a87fc8fe4bc46a0cfb6051848c6d3d79b}{app.\+core.\+logger.\+logger}} = logging.\+get\+Logger(\char`\"{}robot\char`\"{})
+\begin{DoxyCompactList}\small\item\em Instancia global del Logger bajo el espacio de nombres de la aplicación \char`\"{}robot\char`\"{}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1core_1_1logger_a9a5af6ec0cffe952fe0749bc6f1a64fb}{app.\+core.\+logger.\+console}} = logging.\+Stream\+Handler()
+\begin{DoxyCompactList}\small\item\em Manejador encargado de formatear y volcar los logs directamente en la salida de comandos (stdout/stderr). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1core_1_1logger_a82bb59004f1c993a671756471a5d8eab}{app.\+core.\+logger.\+remote}} = Remote\+Handler(SERVER\+\_\+\+URL)
+\begin{DoxyCompactList}\small\item\em Manejador personalizado encargado de realizar peticiones HTTP POST asíncronas hacia el servidor central. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1core_1_1logger_a80e3b4438e40cdd05dda58cf073d4300}{app.\+core.\+logger.\+propagate}}
+\begin{DoxyCompactList}\small\item\em Desactiva la propagación hacia el Logger raíz (Root Logger) de Python para evitar duplicidad de trazas de librerías terceras. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Configuración e inicialización del sistema de logs centralizado del robot. 
+
+Instancia un objeto Logger único (\char`\"{}robot\char`\"{}) provisto de un doble canal de salida\+:
+\begin{DoxyEnumerate}
+\item Un manejador de consola estándar (Stream\+Handler) para depuración en terminal local.
+\item Un manejador HTTP remoto (Remote\+Handler) conectado al Dashboard web de control. 
+\end{DoxyEnumerate}

@@ -1,0 +1,218 @@
+\hypertarget{namespaceapp_1_1core_1_1assistant}{}\doxysection{app.\+core.\+assistant Namespace Reference}
+\label{namespaceapp_1_1core_1_1assistant}\index{app.core.assistant@{app.core.assistant}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceapp_1_1core_1_1assistant_a4e8e4032209a2113e765e5cf032fd693}{construir\+\_\+prompt}} (usuario, mensaje)
+\begin{DoxyCompactList}\small\item\em Construye el prompt estructurado completo para enviar al modelo de lenguaje. \end{DoxyCompactList}\item 
+str \mbox{\hyperlink{namespaceapp_1_1core_1_1assistant_ad3a93bcba2d1a7401db346874915cdbc}{ask\+\_\+model}} (str prompt)
+\begin{DoxyCompactList}\small\item\em Envía el prompt empaquetado al modelo de lenguaje a través de una petición HTTP POST. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceapp_1_1core_1_1assistant_aa5b5c9f19dce39900edf64aead7266a0}{get\+\_\+time}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene la hora local actual del sistema operativo de la Raspberry Pi o servidor. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceapp_1_1core_1_1assistant_ac7cc32d019cd31efef74d7a0ea615ba5}{get\+\_\+weather}} (city=\char`\"{}Madrid\char`\"{})
+\begin{DoxyCompactList}\small\item\em Consulta las condiciones meteorológicas en tiempo real de una ciudad. \end{DoxyCompactList}\item 
+str \mbox{\hyperlink{namespaceapp_1_1core_1_1assistant_a2ed59e96f3414ddde6f7491c9795284f}{procesar\+\_\+texto}} (str usuario, str texto)
+\begin{DoxyCompactList}\small\item\em Orquesta el flujo principal (Pipeline) para procesar un mensaje del usuario. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespaceapp_1_1core_1_1assistant_a3c5c9ad161724635f1b9f5279490e3db}{TIMEOUT}} = 90
+\begin{DoxyCompactList}\small\item\em Tiempo máximo de espera (en segundos) para las peticiones HTTP del sistema. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{namespaceapp_1_1core_1_1assistant_a50477c25d6528993da3199a5e8d45e15}{PC\+\_\+\+URL}} = \char`\"{}http\+://192.\+168.\+1.\+96\+:8000/generate\char`\"{}
+\begin{DoxyCompactList}\small\item\em URL del API Gateway o servidor LLM local/remoto para la generación de texto. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{namespaceapp_1_1core_1_1assistant_a0710d33c2c39b99df614bde2c949ace9}{PROMPT\+\_\+\+DEL\+\_\+\+SISTEMA}}
+\begin{DoxyCompactList}\small\item\em Prompt principal del sistema que define las directrices éticas y de comportamiento del asistente. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1core_1_1assistant_ada7813e509046e186cae1d0917e6a687}{memoria}} = cargar\+\_\+memoria()
+\begin{DoxyCompactList}\small\item\em Diccionario global de memoria conversacional cargado desde el almacenamiento en disco al inicializar el módulo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceapp_1_1core_1_1assistant_ad3a93bcba2d1a7401db346874915cdbc}\label{namespaceapp_1_1core_1_1assistant_ad3a93bcba2d1a7401db346874915cdbc}} 
+\index{app.core.assistant@{app.core.assistant}!ask\_model@{ask\_model}}
+\index{ask\_model@{ask\_model}!app.core.assistant@{app.core.assistant}}
+\doxysubsubsection{\texorpdfstring{ask\_model()}{ask\_model()}}
+{\footnotesize\ttfamily  str app.\+core.\+assistant.\+ask\+\_\+model (\begin{DoxyParamCaption}\item[{str}]{prompt }\end{DoxyParamCaption})}
+
+
+
+Envía el prompt empaquetado al modelo de lenguaje a través de una petición HTTP POST. 
+
+Realiza la llamada al backend configurado, desempaqueta la respuesta JSON y gestiona las excepciones y variaciones en el formato de salida de algunos servidores de inferencia.
+
+
+\begin{DoxyParams}{Parameters}
+{\em prompt} & Texto consolidado con instrucciones e historial que se enviará al modelo.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+str Texto de salida generado por la Inteligencia Artificial. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em \char`\"{}\char`\"{}} & Retorna una cadena vacía en caso de que ocurra un error de red o timeout. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{namespaceapp_1_1core_1_1assistant_a4e8e4032209a2113e765e5cf032fd693}\label{namespaceapp_1_1core_1_1assistant_a4e8e4032209a2113e765e5cf032fd693}} 
+\index{app.core.assistant@{app.core.assistant}!construir\_prompt@{construir\_prompt}}
+\index{construir\_prompt@{construir\_prompt}!app.core.assistant@{app.core.assistant}}
+\doxysubsubsection{\texorpdfstring{construir\_prompt()}{construir\_prompt()}}
+{\footnotesize\ttfamily def app.\+core.\+assistant.\+construir\+\_\+prompt (\begin{DoxyParamCaption}\item[{}]{usuario,  }\item[{}]{mensaje }\end{DoxyParamCaption})}
+
+
+
+Construye el prompt estructurado completo para enviar al modelo de lenguaje. 
+
+Aglutina las directrices fijas del sistema, el historial de los últimos turnos del usuario en particular y la entrada actual para mantener el contexto.
+
+
+\begin{DoxyParams}{Parameters}
+{\em usuario} & Nombre o identificador único del usuario activo. \\
+\hline
+{\em mensaje} & Mensaje o transcripción de voz actual remitida por el usuario.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+str Prompt formateado multilínea listo para la inferencia de la IA. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceapp_1_1core_1_1assistant_a4e8e4032209a2113e765e5cf032fd693_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceapp_1_1core_1_1assistant_aa5b5c9f19dce39900edf64aead7266a0}\label{namespaceapp_1_1core_1_1assistant_aa5b5c9f19dce39900edf64aead7266a0}} 
+\index{app.core.assistant@{app.core.assistant}!get\_time@{get\_time}}
+\index{get\_time@{get\_time}!app.core.assistant@{app.core.assistant}}
+\doxysubsubsection{\texorpdfstring{get\_time()}{get\_time()}}
+{\footnotesize\ttfamily def app.\+core.\+assistant.\+get\+\_\+time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtiene la hora local actual del sistema operativo de la Raspberry Pi o servidor. 
+
+\begin{DoxyReturn}{Returns}
+str Cadena de texto formateada con precisión de segundos (\char`\"{}\+HH\+:\+MM\+:\+SS\char`\"{}). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceapp_1_1core_1_1assistant_ac7cc32d019cd31efef74d7a0ea615ba5}\label{namespaceapp_1_1core_1_1assistant_ac7cc32d019cd31efef74d7a0ea615ba5}} 
+\index{app.core.assistant@{app.core.assistant}!get\_weather@{get\_weather}}
+\index{get\_weather@{get\_weather}!app.core.assistant@{app.core.assistant}}
+\doxysubsubsection{\texorpdfstring{get\_weather()}{get\_weather()}}
+{\footnotesize\ttfamily def app.\+core.\+assistant.\+get\+\_\+weather (\begin{DoxyParamCaption}\item[{}]{city = {\ttfamily \char`\"{}Madrid\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+Consulta las condiciones meteorológicas en tiempo real de una ciudad. 
+
+Realiza un flujo encadenado de peticiones HTTP utilizando las APIs públicas de Open-\/\+Meteo\+:
+\begin{DoxyEnumerate}
+\item Geocoding API para transformar el nombre de la ciudad en coordenadas geográficas.
+\item Weather API para obtener la temperatura y velocidad del viento actuales mediante dichas coordenadas.
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parameters}
+{\em city} & Nombre textual de la localidad o término de búsqueda a consultar.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+str Cadena resumida lista para el TTS con los grados y viento de la ciudad. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em str} & Mensaje alternativo de error amigable si falla la resolución o conexión de red. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{namespaceapp_1_1core_1_1assistant_a2ed59e96f3414ddde6f7491c9795284f}\label{namespaceapp_1_1core_1_1assistant_a2ed59e96f3414ddde6f7491c9795284f}} 
+\index{app.core.assistant@{app.core.assistant}!procesar\_texto@{procesar\_texto}}
+\index{procesar\_texto@{procesar\_texto}!app.core.assistant@{app.core.assistant}}
+\doxysubsubsection{\texorpdfstring{procesar\_texto()}{procesar\_texto()}}
+{\footnotesize\ttfamily  str app.\+core.\+assistant.\+procesar\+\_\+texto (\begin{DoxyParamCaption}\item[{str}]{usuario,  }\item[{str}]{texto }\end{DoxyParamCaption})}
+
+
+
+Orquesta el flujo principal (Pipeline) para procesar un mensaje del usuario. 
+
+Ejecuta la toma de decisiones del robot siguiendo cuatro etapas claras\+:
+\begin{DoxyEnumerate}
+\item Invoca el módulo analítico para detectar la intención subyacente del texto.
+\item Bifurca el flujo ejecutando una herramienta local rápida (hora, clima) o delegando al LLM.
+\item Anexa el par de interacción pregunta/respuesta a la estructura de datos en memoria.
+\item Sincroniza y escribe la actualización en el almacenamiento persistente en disco.
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parameters}
+{\em usuario} & Nombre o identificador único del usuario que emite el mensaje. \\
+\hline
+{\em texto} & Transcripción o entrada de texto limpia del usuario.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+str Respuesta final resuelta que el asistente debe vocalizar o mostrar en pantalla. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceapp_1_1core_1_1assistant_a2ed59e96f3414ddde6f7491c9795284f_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespaceapp_1_1core_1_1assistant_ada7813e509046e186cae1d0917e6a687}\label{namespaceapp_1_1core_1_1assistant_ada7813e509046e186cae1d0917e6a687}} 
+\index{app.core.assistant@{app.core.assistant}!memoria@{memoria}}
+\index{memoria@{memoria}!app.core.assistant@{app.core.assistant}}
+\doxysubsubsection{\texorpdfstring{memoria}{memoria}}
+{\footnotesize\ttfamily app.\+core.\+assistant.\+memoria = cargar\+\_\+memoria()}
+
+
+
+Diccionario global de memoria conversacional cargado desde el almacenamiento en disco al inicializar el módulo. 
+
+\mbox{\Hypertarget{namespaceapp_1_1core_1_1assistant_a50477c25d6528993da3199a5e8d45e15}\label{namespaceapp_1_1core_1_1assistant_a50477c25d6528993da3199a5e8d45e15}} 
+\index{app.core.assistant@{app.core.assistant}!PC\_URL@{PC\_URL}}
+\index{PC\_URL@{PC\_URL}!app.core.assistant@{app.core.assistant}}
+\doxysubsubsection{\texorpdfstring{PC\_URL}{PC\_URL}}
+{\footnotesize\ttfamily string app.\+core.\+assistant.\+PC\+\_\+\+URL = \char`\"{}http\+://192.\+168.\+1.\+96\+:8000/generate\char`\"{}}
+
+
+
+URL del API Gateway o servidor LLM local/remoto para la generación de texto. 
+
+\mbox{\Hypertarget{namespaceapp_1_1core_1_1assistant_a0710d33c2c39b99df614bde2c949ace9}\label{namespaceapp_1_1core_1_1assistant_a0710d33c2c39b99df614bde2c949ace9}} 
+\index{app.core.assistant@{app.core.assistant}!PROMPT\_DEL\_SISTEMA@{PROMPT\_DEL\_SISTEMA}}
+\index{PROMPT\_DEL\_SISTEMA@{PROMPT\_DEL\_SISTEMA}!app.core.assistant@{app.core.assistant}}
+\doxysubsubsection{\texorpdfstring{PROMPT\_DEL\_SISTEMA}{PROMPT\_DEL\_SISTEMA}}
+{\footnotesize\ttfamily string app.\+core.\+assistant.\+PROMPT\+\_\+\+DEL\+\_\+\+SISTEMA}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{2 \textcolor{stringliteral}{Eres un asistente virtual diseñado para ayudar a personas mayores.}}
+\DoxyCodeLine{3 \textcolor{stringliteral}{}}
+\DoxyCodeLine{4 \textcolor{stringliteral}{Reglas:}}
+\DoxyCodeLine{5 \textcolor{stringliteral}{-\/ Español siempre}}
+\DoxyCodeLine{6 \textcolor{stringliteral}{-\/ Lenguaje claro y amable}}
+\DoxyCodeLine{7 \textcolor{stringliteral}{-\/ Paso a paso si hace falta}}
+\DoxyCodeLine{8 \textcolor{stringliteral}{-\/ Sin tecnicismos}}
+\DoxyCodeLine{9 \textcolor{stringliteral}{"{}"{}"{}}}
+
+\end{DoxyCode}
+
+
+Prompt principal del sistema que define las directrices éticas y de comportamiento del asistente. 
+
+\mbox{\Hypertarget{namespaceapp_1_1core_1_1assistant_a3c5c9ad161724635f1b9f5279490e3db}\label{namespaceapp_1_1core_1_1assistant_a3c5c9ad161724635f1b9f5279490e3db}} 
+\index{app.core.assistant@{app.core.assistant}!TIMEOUT@{TIMEOUT}}
+\index{TIMEOUT@{TIMEOUT}!app.core.assistant@{app.core.assistant}}
+\doxysubsubsection{\texorpdfstring{TIMEOUT}{TIMEOUT}}
+{\footnotesize\ttfamily int app.\+core.\+assistant.\+TIMEOUT = 90}
+
+
+
+Tiempo máximo de espera (en segundos) para las peticiones HTTP del sistema. 
+

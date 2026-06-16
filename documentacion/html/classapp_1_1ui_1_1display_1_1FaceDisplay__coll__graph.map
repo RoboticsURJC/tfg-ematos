@@ -1,0 +1,3 @@
+<map id="app.ui.display.FaceDisplay" name="app.ui.display.FaceDisplay">
+<area shape="rect" id="node1" title="Orquestador de la visualización facial del robot." alt="" coords="5,5,199,347"/>
+</map>

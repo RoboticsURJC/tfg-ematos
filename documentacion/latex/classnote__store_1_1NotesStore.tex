@@ -1,0 +1,142 @@
+\hypertarget{classnote__store_1_1NotesStore}{}\doxysection{note\+\_\+store.\+Notes\+Store Class Reference}
+\label{classnote__store_1_1NotesStore}\index{note\_store.NotesStore@{note\_store.NotesStore}}
+
+
+Clase encargada de la persistencia de datos (CRUD) para las notas del usuario.  
+
+
+
+
+Collaboration diagram for note\+\_\+store.\+Notes\+Store\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{classnote__store_1_1NotesStore__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classnote__store_1_1NotesStore_a653a9878aa111437ada41b55abc8e46c}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\begin{DoxyCompactList}\small\item\em Inicializa el almacén de datos definiendo la ruta del archivo JSON. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classnote__store_1_1NotesStore_af5cde53c114a071dbe58f783945df392}{load}} (self)
+\begin{DoxyCompactList}\small\item\em Carga la lista de notas desde el archivo JSON local. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classnote__store_1_1NotesStore_aedf073e5d198bf0f232c341312fdc523}{save\+\_\+all}} (self)
+\begin{DoxyCompactList}\small\item\em Persiste el estado actual de la lista {\ttfamily self.\+notes} en el archivo JSON. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classnote__store_1_1NotesStore_a9e130456c7d4340e5e8394c9066744ba}{add\+\_\+note}} (self, title, content)
+\begin{DoxyCompactList}\small\item\em Crea una nueva instancia de nota y la guarda de forma persistente. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classnote__store_1_1NotesStore_a13f394991b40877d7f453777764467aa}{search}} (self, text)
+\begin{DoxyCompactList}\small\item\em Realiza una búsqueda insensible a mayúsculas dentro de los campos de las notas. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classnote__store_1_1NotesStore_a7fd8a76b584d07919c1b182ab93b1160}{path}}
+\item 
+\mbox{\hyperlink{classnote__store_1_1NotesStore_af3f3accf76e061ae110105ae2cfe87e7}{notes}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase encargada de la persistencia de datos (CRUD) para las notas del usuario. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classnote__store_1_1NotesStore_a653a9878aa111437ada41b55abc8e46c}\label{classnote__store_1_1NotesStore_a653a9878aa111437ada41b55abc8e46c}} 
+\index{note\_store.NotesStore@{note\_store.NotesStore}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!note\_store.NotesStore@{note\_store.NotesStore}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def note\+\_\+store.\+Notes\+Store.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Inicializa el almacén de datos definiendo la ruta del archivo JSON. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classnote__store_1_1NotesStore_a9e130456c7d4340e5e8394c9066744ba}\label{classnote__store_1_1NotesStore_a9e130456c7d4340e5e8394c9066744ba}} 
+\index{note\_store.NotesStore@{note\_store.NotesStore}!add\_note@{add\_note}}
+\index{add\_note@{add\_note}!note\_store.NotesStore@{note\_store.NotesStore}}
+\doxysubsubsection{\texorpdfstring{add\_note()}{add\_note()}}
+{\footnotesize\ttfamily def note\+\_\+store.\+Notes\+Store.\+add\+\_\+note (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{title,  }\item[{}]{content }\end{DoxyParamCaption})}
+
+
+
+Crea una nueva instancia de nota y la guarda de forma persistente. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em title} & Título descriptivo de la nota. \\
+\hline
+{\em content} & Cuerpo del texto de la nota. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classnote__store_1_1NotesStore_a9e130456c7d4340e5e8394c9066744ba_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classnote__store_1_1NotesStore_af5cde53c114a071dbe58f783945df392}\label{classnote__store_1_1NotesStore_af5cde53c114a071dbe58f783945df392}} 
+\index{note\_store.NotesStore@{note\_store.NotesStore}!load@{load}}
+\index{load@{load}!note\_store.NotesStore@{note\_store.NotesStore}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily def note\+\_\+store.\+Notes\+Store.\+load (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Carga la lista de notas desde el archivo JSON local. 
+
+\begin{DoxyReturn}{Returns}
+list Lista de diccionarios con la estructura de notas. Retorna una lista vacía si el archivo no existe. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classnote__store_1_1NotesStore_aedf073e5d198bf0f232c341312fdc523}\label{classnote__store_1_1NotesStore_aedf073e5d198bf0f232c341312fdc523}} 
+\index{note\_store.NotesStore@{note\_store.NotesStore}!save\_all@{save\_all}}
+\index{save\_all@{save\_all}!note\_store.NotesStore@{note\_store.NotesStore}}
+\doxysubsubsection{\texorpdfstring{save\_all()}{save\_all()}}
+{\footnotesize\ttfamily def note\+\_\+store.\+Notes\+Store.\+save\+\_\+all (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Persiste el estado actual de la lista {\ttfamily self.\+notes} en el archivo JSON. 
+
+\mbox{\Hypertarget{classnote__store_1_1NotesStore_a13f394991b40877d7f453777764467aa}\label{classnote__store_1_1NotesStore_a13f394991b40877d7f453777764467aa}} 
+\index{note\_store.NotesStore@{note\_store.NotesStore}!search@{search}}
+\index{search@{search}!note\_store.NotesStore@{note\_store.NotesStore}}
+\doxysubsubsection{\texorpdfstring{search()}{search()}}
+{\footnotesize\ttfamily def note\+\_\+store.\+Notes\+Store.\+search (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{text }\end{DoxyParamCaption})}
+
+
+
+Realiza una búsqueda insensible a mayúsculas dentro de los campos de las notas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & Cadena de texto a buscar en el título o contenido. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+list Lista filtrada de notas que coinciden con el criterio. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classnote__store_1_1NotesStore_af3f3accf76e061ae110105ae2cfe87e7}\label{classnote__store_1_1NotesStore_af3f3accf76e061ae110105ae2cfe87e7}} 
+\index{note\_store.NotesStore@{note\_store.NotesStore}!notes@{notes}}
+\index{notes@{notes}!note\_store.NotesStore@{note\_store.NotesStore}}
+\doxysubsubsection{\texorpdfstring{notes}{notes}}
+{\footnotesize\ttfamily note\+\_\+store.\+Notes\+Store.\+notes}
+
+\mbox{\Hypertarget{classnote__store_1_1NotesStore_a7fd8a76b584d07919c1b182ab93b1160}\label{classnote__store_1_1NotesStore_a7fd8a76b584d07919c1b182ab93b1160}} 
+\index{note\_store.NotesStore@{note\_store.NotesStore}!path@{path}}
+\index{path@{path}!note\_store.NotesStore@{note\_store.NotesStore}}
+\doxysubsubsection{\texorpdfstring{path}{path}}
+{\footnotesize\ttfamily note\+\_\+store.\+Notes\+Store.\+path}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ui/apps/notes/\mbox{\hyperlink{note__store_8py}{note\+\_\+store.\+py}}\end{DoxyCompactItemize}

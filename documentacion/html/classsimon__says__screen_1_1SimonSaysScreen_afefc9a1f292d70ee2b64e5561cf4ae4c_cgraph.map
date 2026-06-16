@@ -1,0 +1,4 @@
+<map id="simon_says_screen.SimonSaysScreen._update_showing" name="simon_says_screen.SimonSaysScreen._update_showing">
+<area shape="rect" id="node1" title="Máquina de estados secundaria que gestiona el ritmo de parpadeo de los colores." alt="" coords="5,5,231,47"/>
+<area shape="rect" id="node2" href="$classsimon__says__screen_1_1SimonSaysScreen.html#ac7eea7a0dd9cb7d3458910f1766f21ad" title="Lanza de forma asíncrona la reproducción del búfer de sonido indexado." alt="" coords="279,5,504,47"/>
+</map>

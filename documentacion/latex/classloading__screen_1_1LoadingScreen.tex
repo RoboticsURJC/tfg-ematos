@@ -1,0 +1,141 @@
+\hypertarget{classloading__screen_1_1LoadingScreen}{}\doxysection{loading\+\_\+screen.\+Loading\+Screen Class Reference}
+\label{classloading__screen_1_1LoadingScreen}\index{loading\_screen.LoadingScreen@{loading\_screen.LoadingScreen}}
+
+
+Pantalla de carga con animación simple.  
+
+
+
+
+Inheritance diagram for loading\+\_\+screen.\+Loading\+Screen\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{classloading__screen_1_1LoadingScreen__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for loading\+\_\+screen.\+Loading\+Screen\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{classloading__screen_1_1LoadingScreen__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classloading__screen_1_1LoadingScreen_a4b637e9ab48cf09f5f7af7cea067c84b}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, str text=\char`\"{}Cargando\char`\"{})
+\begin{DoxyCompactList}\small\item\em Inicializa la pantalla de carga. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classloading__screen_1_1LoadingScreen_a76a9efbe6167efd46bf795b376058c38}{animate}} (self)
+\begin{DoxyCompactList}\small\item\em Actualiza el texto añadiendo puntos cíclicamente. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classloading__screen_1_1LoadingScreen_a9cdc155ff3a42a12122ac168aa6ebff2}{close\+Event}} (self, event)
+\begin{DoxyCompactList}\small\item\em Detiene el temporizador al cerrar la pantalla para evitar fugas de memoria. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classloading__screen_1_1LoadingScreen_a6e0ebafa7743ec6f25cb8f4d2dad1290}{base\+\_\+text}}
+\item 
+\mbox{\hyperlink{classloading__screen_1_1LoadingScreen_a3825e19a8fbf9f6835f9c90112ca4177}{label}}
+\item 
+\mbox{\hyperlink{classloading__screen_1_1LoadingScreen_afc9fc20184ca2b8b335f9eaebf022e7d}{dots}}
+\item 
+\mbox{\hyperlink{classloading__screen_1_1LoadingScreen_a572c21ad837d6f4da796aba0ef2a02fc}{timer}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Pantalla de carga con animación simple. 
+
+Utiliza un QTimer para alternar el número de puntos al final del texto. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classloading__screen_1_1LoadingScreen_a4b637e9ab48cf09f5f7af7cea067c84b}\label{classloading__screen_1_1LoadingScreen_a4b637e9ab48cf09f5f7af7cea067c84b}} 
+\index{loading\_screen.LoadingScreen@{loading\_screen.LoadingScreen}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!loading\_screen.LoadingScreen@{loading\_screen.LoadingScreen}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def loading\+\_\+screen.\+Loading\+Screen.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{str }]{text = {\ttfamily \char`\"{}Cargando\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+Inicializa la pantalla de carga. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & Texto base a mostrar (por defecto \char`\"{}\+Cargando\char`\"{}). \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=247pt]{classloading__screen_1_1LoadingScreen_a4b637e9ab48cf09f5f7af7cea067c84b_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classloading__screen_1_1LoadingScreen_a76a9efbe6167efd46bf795b376058c38}\label{classloading__screen_1_1LoadingScreen_a76a9efbe6167efd46bf795b376058c38}} 
+\index{loading\_screen.LoadingScreen@{loading\_screen.LoadingScreen}!animate@{animate}}
+\index{animate@{animate}!loading\_screen.LoadingScreen@{loading\_screen.LoadingScreen}}
+\doxysubsubsection{\texorpdfstring{animate()}{animate()}}
+{\footnotesize\ttfamily def loading\+\_\+screen.\+Loading\+Screen.\+animate (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Actualiza el texto añadiendo puntos cíclicamente. 
+
+\mbox{\Hypertarget{classloading__screen_1_1LoadingScreen_a9cdc155ff3a42a12122ac168aa6ebff2}\label{classloading__screen_1_1LoadingScreen_a9cdc155ff3a42a12122ac168aa6ebff2}} 
+\index{loading\_screen.LoadingScreen@{loading\_screen.LoadingScreen}!closeEvent@{closeEvent}}
+\index{closeEvent@{closeEvent}!loading\_screen.LoadingScreen@{loading\_screen.LoadingScreen}}
+\doxysubsubsection{\texorpdfstring{closeEvent()}{closeEvent()}}
+{\footnotesize\ttfamily def loading\+\_\+screen.\+Loading\+Screen.\+close\+Event (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{event }\end{DoxyParamCaption})}
+
+
+
+Detiene el temporizador al cerrar la pantalla para evitar fugas de memoria. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=273pt]{classloading__screen_1_1LoadingScreen_a9cdc155ff3a42a12122ac168aa6ebff2_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classloading__screen_1_1LoadingScreen_a6e0ebafa7743ec6f25cb8f4d2dad1290}\label{classloading__screen_1_1LoadingScreen_a6e0ebafa7743ec6f25cb8f4d2dad1290}} 
+\index{loading\_screen.LoadingScreen@{loading\_screen.LoadingScreen}!base\_text@{base\_text}}
+\index{base\_text@{base\_text}!loading\_screen.LoadingScreen@{loading\_screen.LoadingScreen}}
+\doxysubsubsection{\texorpdfstring{base\_text}{base\_text}}
+{\footnotesize\ttfamily loading\+\_\+screen.\+Loading\+Screen.\+base\+\_\+text}
+
+\mbox{\Hypertarget{classloading__screen_1_1LoadingScreen_afc9fc20184ca2b8b335f9eaebf022e7d}\label{classloading__screen_1_1LoadingScreen_afc9fc20184ca2b8b335f9eaebf022e7d}} 
+\index{loading\_screen.LoadingScreen@{loading\_screen.LoadingScreen}!dots@{dots}}
+\index{dots@{dots}!loading\_screen.LoadingScreen@{loading\_screen.LoadingScreen}}
+\doxysubsubsection{\texorpdfstring{dots}{dots}}
+{\footnotesize\ttfamily loading\+\_\+screen.\+Loading\+Screen.\+dots}
+
+\mbox{\Hypertarget{classloading__screen_1_1LoadingScreen_a3825e19a8fbf9f6835f9c90112ca4177}\label{classloading__screen_1_1LoadingScreen_a3825e19a8fbf9f6835f9c90112ca4177}} 
+\index{loading\_screen.LoadingScreen@{loading\_screen.LoadingScreen}!label@{label}}
+\index{label@{label}!loading\_screen.LoadingScreen@{loading\_screen.LoadingScreen}}
+\doxysubsubsection{\texorpdfstring{label}{label}}
+{\footnotesize\ttfamily loading\+\_\+screen.\+Loading\+Screen.\+label}
+
+\mbox{\Hypertarget{classloading__screen_1_1LoadingScreen_a572c21ad837d6f4da796aba0ef2a02fc}\label{classloading__screen_1_1LoadingScreen_a572c21ad837d6f4da796aba0ef2a02fc}} 
+\index{loading\_screen.LoadingScreen@{loading\_screen.LoadingScreen}!timer@{timer}}
+\index{timer@{timer}!loading\_screen.LoadingScreen@{loading\_screen.LoadingScreen}}
+\doxysubsubsection{\texorpdfstring{timer}{timer}}
+{\footnotesize\ttfamily loading\+\_\+screen.\+Loading\+Screen.\+timer}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ui/screens/\mbox{\hyperlink{loading__screen_8py}{loading\+\_\+screen.\+py}}\end{DoxyCompactItemize}

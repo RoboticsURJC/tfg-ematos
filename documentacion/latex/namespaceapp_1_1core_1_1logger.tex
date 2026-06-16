@@ -1,0 +1,104 @@
+\hypertarget{namespaceapp_1_1core_1_1logger}{}\doxysection{app.\+core.\+logger Namespace Reference}
+\label{namespaceapp_1_1core_1_1logger}\index{app.core.logger@{app.core.logger}}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceapp_1_1core_1_1logger_ac6faf9b3defd48f7bd70880c99c42e61}{config\+\_\+path}}
+\begin{DoxyCompactList}\small\item\em Ruta absoluta construida dinámicamente hacia el archivo de configuración JSON. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1core_1_1logger_a60ccfa87a4e6b281a8307b51672c0550}{encoding}}
+\item 
+\mbox{\hyperlink{namespaceapp_1_1core_1_1logger_a496f897fbe6c9463190d36432899a51a}{config}} = json.\+load(f)
+\item 
+string \mbox{\hyperlink{namespaceapp_1_1core_1_1logger_a07a9467ed002526418b56f43803f886d}{SERVER\+\_\+\+URL}} = \char`\"{}http\+://192.\+168.\+1.\+96\+:3000/client-\/log\char`\"{}
+\begin{DoxyCompactList}\small\item\em URL completa y absoluta del endpoint HTTP del Dashboard donde se transmitirán las trazas en tiempo real. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1core_1_1logger_a87fc8fe4bc46a0cfb6051848c6d3d79b}{logger}} = logging.\+get\+Logger(\char`\"{}robot\char`\"{})
+\begin{DoxyCompactList}\small\item\em Instancia global del Logger bajo el espacio de nombres de la aplicación \char`\"{}robot\char`\"{}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1core_1_1logger_a9a5af6ec0cffe952fe0749bc6f1a64fb}{console}} = logging.\+Stream\+Handler()
+\begin{DoxyCompactList}\small\item\em Manejador encargado de formatear y volcar los logs directamente en la salida de comandos (stdout/stderr). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1core_1_1logger_a82bb59004f1c993a671756471a5d8eab}{remote}} = \mbox{\hyperlink{classapp_1_1core_1_1logs__to__server_1_1RemoteHandler}{Remote\+Handler}}(\mbox{\hyperlink{namespaceapp_1_1core_1_1logger_a07a9467ed002526418b56f43803f886d}{SERVER\+\_\+\+URL}})
+\begin{DoxyCompactList}\small\item\em Manejador personalizado encargado de realizar peticiones HTTP POST asíncronas hacia el servidor central. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1core_1_1logger_a80e3b4438e40cdd05dda58cf073d4300}{propagate}}
+\begin{DoxyCompactList}\small\item\em Desactiva la propagación hacia el Logger raíz (Root Logger) de Python para evitar duplicidad de trazas de librerías terceras. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespaceapp_1_1core_1_1logger_a496f897fbe6c9463190d36432899a51a}\label{namespaceapp_1_1core_1_1logger_a496f897fbe6c9463190d36432899a51a}} 
+\index{app.core.logger@{app.core.logger}!config@{config}}
+\index{config@{config}!app.core.logger@{app.core.logger}}
+\doxysubsubsection{\texorpdfstring{config}{config}}
+{\footnotesize\ttfamily app.\+core.\+logger.\+config = json.\+load(f)}
+
+\mbox{\Hypertarget{namespaceapp_1_1core_1_1logger_ac6faf9b3defd48f7bd70880c99c42e61}\label{namespaceapp_1_1core_1_1logger_ac6faf9b3defd48f7bd70880c99c42e61}} 
+\index{app.core.logger@{app.core.logger}!config\_path@{config\_path}}
+\index{config\_path@{config\_path}!app.core.logger@{app.core.logger}}
+\doxysubsubsection{\texorpdfstring{config\_path}{config\_path}}
+{\footnotesize\ttfamily app.\+core.\+logger.\+config\+\_\+path}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  os.path.join(}
+\DoxyCodeLine{2     os.path.dirname(\_\_file\_\_),}
+\DoxyCodeLine{3     \textcolor{stringliteral}{"{}../config/config.json"{}}}
+\DoxyCodeLine{4 )}
+
+\end{DoxyCode}
+
+
+Ruta absoluta construida dinámicamente hacia el archivo de configuración JSON. 
+
+\mbox{\Hypertarget{namespaceapp_1_1core_1_1logger_a9a5af6ec0cffe952fe0749bc6f1a64fb}\label{namespaceapp_1_1core_1_1logger_a9a5af6ec0cffe952fe0749bc6f1a64fb}} 
+\index{app.core.logger@{app.core.logger}!console@{console}}
+\index{console@{console}!app.core.logger@{app.core.logger}}
+\doxysubsubsection{\texorpdfstring{console}{console}}
+{\footnotesize\ttfamily app.\+core.\+logger.\+console = logging.\+Stream\+Handler()}
+
+
+
+Manejador encargado de formatear y volcar los logs directamente en la salida de comandos (stdout/stderr). 
+
+\mbox{\Hypertarget{namespaceapp_1_1core_1_1logger_a60ccfa87a4e6b281a8307b51672c0550}\label{namespaceapp_1_1core_1_1logger_a60ccfa87a4e6b281a8307b51672c0550}} 
+\index{app.core.logger@{app.core.logger}!encoding@{encoding}}
+\index{encoding@{encoding}!app.core.logger@{app.core.logger}}
+\doxysubsubsection{\texorpdfstring{encoding}{encoding}}
+{\footnotesize\ttfamily app.\+core.\+logger.\+encoding}
+
+\mbox{\Hypertarget{namespaceapp_1_1core_1_1logger_a87fc8fe4bc46a0cfb6051848c6d3d79b}\label{namespaceapp_1_1core_1_1logger_a87fc8fe4bc46a0cfb6051848c6d3d79b}} 
+\index{app.core.logger@{app.core.logger}!logger@{logger}}
+\index{logger@{logger}!app.core.logger@{app.core.logger}}
+\doxysubsubsection{\texorpdfstring{logger}{logger}}
+{\footnotesize\ttfamily app.\+core.\+logger.\+logger = logging.\+get\+Logger(\char`\"{}robot\char`\"{})}
+
+
+
+Instancia global del Logger bajo el espacio de nombres de la aplicación \char`\"{}robot\char`\"{}. 
+
+\mbox{\Hypertarget{namespaceapp_1_1core_1_1logger_a80e3b4438e40cdd05dda58cf073d4300}\label{namespaceapp_1_1core_1_1logger_a80e3b4438e40cdd05dda58cf073d4300}} 
+\index{app.core.logger@{app.core.logger}!propagate@{propagate}}
+\index{propagate@{propagate}!app.core.logger@{app.core.logger}}
+\doxysubsubsection{\texorpdfstring{propagate}{propagate}}
+{\footnotesize\ttfamily app.\+core.\+logger.\+propagate}
+
+
+
+Desactiva la propagación hacia el Logger raíz (Root Logger) de Python para evitar duplicidad de trazas de librerías terceras. 
+
+\mbox{\Hypertarget{namespaceapp_1_1core_1_1logger_a82bb59004f1c993a671756471a5d8eab}\label{namespaceapp_1_1core_1_1logger_a82bb59004f1c993a671756471a5d8eab}} 
+\index{app.core.logger@{app.core.logger}!remote@{remote}}
+\index{remote@{remote}!app.core.logger@{app.core.logger}}
+\doxysubsubsection{\texorpdfstring{remote}{remote}}
+{\footnotesize\ttfamily app.\+core.\+logger.\+remote = \mbox{\hyperlink{classapp_1_1core_1_1logs__to__server_1_1RemoteHandler}{Remote\+Handler}}(\mbox{\hyperlink{namespaceapp_1_1core_1_1logger_a07a9467ed002526418b56f43803f886d}{SERVER\+\_\+\+URL}})}
+
+
+
+Manejador personalizado encargado de realizar peticiones HTTP POST asíncronas hacia el servidor central. 
+
+\mbox{\Hypertarget{namespaceapp_1_1core_1_1logger_a07a9467ed002526418b56f43803f886d}\label{namespaceapp_1_1core_1_1logger_a07a9467ed002526418b56f43803f886d}} 
+\index{app.core.logger@{app.core.logger}!SERVER\_URL@{SERVER\_URL}}
+\index{SERVER\_URL@{SERVER\_URL}!app.core.logger@{app.core.logger}}
+\doxysubsubsection{\texorpdfstring{SERVER\_URL}{SERVER\_URL}}
+{\footnotesize\ttfamily string app.\+core.\+logger.\+SERVER\+\_\+\+URL = \char`\"{}http\+://192.\+168.\+1.\+96\+:3000/client-\/log\char`\"{}}
+
+
+
+URL completa y absoluta del endpoint HTTP del Dashboard donde se transmitirán las trazas en tiempo real. 
+

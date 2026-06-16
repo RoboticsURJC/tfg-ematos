@@ -1,0 +1,4 @@
+<map id="memory_screen.MemoryScreen._spawn_particles" name="memory_screen.MemoryScreen._spawn_particles">
+<area shape="rect" id="node1" title="Genera y siembra aleatoriamente los descriptores cinemáticos para el sistema de partículas." alt="" coords="5,5,239,47"/>
+<area shape="rect" id="node2" href="$classmemory__screen_1_1MemoryScreen.html#a19d8388a31b628497f3a114c6318cb04" title="Calcula los desfases (offsets) espaciales para centrar geométricamente la matriz en la pantalla." alt="" coords="287,5,520,47"/>
+</map>

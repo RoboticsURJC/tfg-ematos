@@ -1,0 +1,4 @@
+<map id="app.core.logs_to_server.RemoteHandler" name="app.core.logs_to_server.RemoteHandler">
+<area shape="rect" id="node1" title="Manejador de logs especializado en la persistencia y centralización remota via HTTP POST." alt="" coords="5,131,185,237"/>
+<area shape="rect" id="node2" title=" " alt="" coords="31,5,160,83"/>
+</map>

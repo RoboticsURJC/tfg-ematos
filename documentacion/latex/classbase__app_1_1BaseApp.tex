@@ -1,0 +1,166 @@
+\hypertarget{classbase__app_1_1BaseApp}{}\doxysection{base\+\_\+app.\+Base\+App Class Reference}
+\label{classbase__app_1_1BaseApp}\index{base\_app.BaseApp@{base\_app.BaseApp}}
+
+
+Clase base para todas las aplicaciones del sistema.  
+
+
+
+
+Inheritance diagram for base\+\_\+app.\+Base\+App\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=189pt]{classbase__app_1_1BaseApp__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for base\+\_\+app.\+Base\+App\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=189pt]{classbase__app_1_1BaseApp__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classbase__app_1_1BaseApp_ae5abb35cef354489e77d78035b8be684}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classbase__app_1_1BaseApp_a88a8b90a94faae20d2d93a76bf0be353}{controller}}=None, \mbox{\hyperlink{classbase__app_1_1BaseApp_a3878e5f53c4e8f577e099dc168356a9e}{engine}}=None)
+\begin{DoxyCompactList}\small\item\em Inicializa la aplicación base. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classbase__app_1_1BaseApp_ad07b47ca6c02a2b675fc6dcf5f357ae2}{on\+\_\+open}} (self)
+\begin{DoxyCompactList}\small\item\em Hook de ciclo de vida\+: llamado automáticamente cuando la app se abre. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classbase__app_1_1BaseApp_a236e8af9c1464c656a063093c0cd53d1}{on\+\_\+close}} (self)
+\begin{DoxyCompactList}\small\item\em Hook de ciclo de vida\+: llamado automáticamente cuando la app se cierra. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classbase__app_1_1BaseApp_a335be8802b819a7048e1e75ec274e693}{back}} (self)
+\begin{DoxyCompactList}\small\item\em Método de navegación para volver al lanzador principal (launcher). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classbase__app_1_1BaseApp_a88a8b90a94faae20d2d93a76bf0be353}{controller}}
+\item 
+\mbox{\hyperlink{classbase__app_1_1BaseApp_a3878e5f53c4e8f577e099dc168356a9e}{engine}}
+\item 
+\mbox{\hyperlink{classbase__app_1_1BaseApp_aa8a581ebffd37db4d30d3a252d689693}{app\+\_\+name}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classbase__app_1_1BaseApp_a09f43c228a9b00a132307a4ea0cb5c02}{open\+\_\+assistant}} = pyqt\+Signal()
+\begin{DoxyCompactList}\small\item\em Señal emitida para solicitar la apertura del asistente de voz/\+IA. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classbase__app_1_1BaseApp_afe692c8063aabb3ffa22ef441c36a6bb}{close\+\_\+app}} = pyqt\+Signal()
+\begin{DoxyCompactList}\small\item\em Señal emitida para solicitar el cierre de la aplicación actual. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase base para todas las aplicaciones del sistema. 
+
+Hereda de QWidget para proporcionar capacidades gráficas y define señales de comunicación necesarias para el gestor de ventanas/controller. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classbase__app_1_1BaseApp_ae5abb35cef354489e77d78035b8be684}\label{classbase__app_1_1BaseApp_ae5abb35cef354489e77d78035b8be684}} 
+\index{base\_app.BaseApp@{base\_app.BaseApp}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!base\_app.BaseApp@{base\_app.BaseApp}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def base\+\_\+app.\+Base\+App.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{controller = {\ttfamily None},  }\item[{}]{engine = {\ttfamily None} }\end{DoxyParamCaption})}
+
+
+
+Inicializa la aplicación base. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em controller} & Referencia al controlador del sistema (navegación). \\
+\hline
+{\em engine} & Referencia al motor de lógica o servicios compartidos. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=197pt]{classbase__app_1_1BaseApp_ae5abb35cef354489e77d78035b8be684_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classbase__app_1_1BaseApp_a335be8802b819a7048e1e75ec274e693}\label{classbase__app_1_1BaseApp_a335be8802b819a7048e1e75ec274e693}} 
+\index{base\_app.BaseApp@{base\_app.BaseApp}!back@{back}}
+\index{back@{back}!base\_app.BaseApp@{base\_app.BaseApp}}
+\doxysubsubsection{\texorpdfstring{back()}{back()}}
+{\footnotesize\ttfamily def base\+\_\+app.\+Base\+App.\+back (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Método de navegación para volver al lanzador principal (launcher). 
+
+\mbox{\Hypertarget{classbase__app_1_1BaseApp_a236e8af9c1464c656a063093c0cd53d1}\label{classbase__app_1_1BaseApp_a236e8af9c1464c656a063093c0cd53d1}} 
+\index{base\_app.BaseApp@{base\_app.BaseApp}!on\_close@{on\_close}}
+\index{on\_close@{on\_close}!base\_app.BaseApp@{base\_app.BaseApp}}
+\doxysubsubsection{\texorpdfstring{on\_close()}{on\_close()}}
+{\footnotesize\ttfamily def base\+\_\+app.\+Base\+App.\+on\+\_\+close (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Hook de ciclo de vida\+: llamado automáticamente cuando la app se cierra. 
+
+Ideal para detener procesos, limpiar recursos o guardar estados temporales. \mbox{\Hypertarget{classbase__app_1_1BaseApp_ad07b47ca6c02a2b675fc6dcf5f357ae2}\label{classbase__app_1_1BaseApp_ad07b47ca6c02a2b675fc6dcf5f357ae2}} 
+\index{base\_app.BaseApp@{base\_app.BaseApp}!on\_open@{on\_open}}
+\index{on\_open@{on\_open}!base\_app.BaseApp@{base\_app.BaseApp}}
+\doxysubsubsection{\texorpdfstring{on\_open()}{on\_open()}}
+{\footnotesize\ttfamily def base\+\_\+app.\+Base\+App.\+on\+\_\+open (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Hook de ciclo de vida\+: llamado automáticamente cuando la app se abre. 
+
+Ideal para iniciar temporizadores, refrescar datos o resetear el estado. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classbase__app_1_1BaseApp_aa8a581ebffd37db4d30d3a252d689693}\label{classbase__app_1_1BaseApp_aa8a581ebffd37db4d30d3a252d689693}} 
+\index{base\_app.BaseApp@{base\_app.BaseApp}!app\_name@{app\_name}}
+\index{app\_name@{app\_name}!base\_app.BaseApp@{base\_app.BaseApp}}
+\doxysubsubsection{\texorpdfstring{app\_name}{app\_name}}
+{\footnotesize\ttfamily base\+\_\+app.\+Base\+App.\+app\+\_\+name}
+
+\mbox{\Hypertarget{classbase__app_1_1BaseApp_afe692c8063aabb3ffa22ef441c36a6bb}\label{classbase__app_1_1BaseApp_afe692c8063aabb3ffa22ef441c36a6bb}} 
+\index{base\_app.BaseApp@{base\_app.BaseApp}!close\_app@{close\_app}}
+\index{close\_app@{close\_app}!base\_app.BaseApp@{base\_app.BaseApp}}
+\doxysubsubsection{\texorpdfstring{close\_app}{close\_app}}
+{\footnotesize\ttfamily base\+\_\+app.\+Base\+App.\+close\+\_\+app = pyqt\+Signal()\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Señal emitida para solicitar el cierre de la aplicación actual. 
+
+\mbox{\Hypertarget{classbase__app_1_1BaseApp_a88a8b90a94faae20d2d93a76bf0be353}\label{classbase__app_1_1BaseApp_a88a8b90a94faae20d2d93a76bf0be353}} 
+\index{base\_app.BaseApp@{base\_app.BaseApp}!controller@{controller}}
+\index{controller@{controller}!base\_app.BaseApp@{base\_app.BaseApp}}
+\doxysubsubsection{\texorpdfstring{controller}{controller}}
+{\footnotesize\ttfamily base\+\_\+app.\+Base\+App.\+controller}
+
+\mbox{\Hypertarget{classbase__app_1_1BaseApp_a3878e5f53c4e8f577e099dc168356a9e}\label{classbase__app_1_1BaseApp_a3878e5f53c4e8f577e099dc168356a9e}} 
+\index{base\_app.BaseApp@{base\_app.BaseApp}!engine@{engine}}
+\index{engine@{engine}!base\_app.BaseApp@{base\_app.BaseApp}}
+\doxysubsubsection{\texorpdfstring{engine}{engine}}
+{\footnotesize\ttfamily base\+\_\+app.\+Base\+App.\+engine}
+
+\mbox{\Hypertarget{classbase__app_1_1BaseApp_a09f43c228a9b00a132307a4ea0cb5c02}\label{classbase__app_1_1BaseApp_a09f43c228a9b00a132307a4ea0cb5c02}} 
+\index{base\_app.BaseApp@{base\_app.BaseApp}!open\_assistant@{open\_assistant}}
+\index{open\_assistant@{open\_assistant}!base\_app.BaseApp@{base\_app.BaseApp}}
+\doxysubsubsection{\texorpdfstring{open\_assistant}{open\_assistant}}
+{\footnotesize\ttfamily base\+\_\+app.\+Base\+App.\+open\+\_\+assistant = pyqt\+Signal()\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Señal emitida para solicitar la apertura del asistente de voz/\+IA. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ui/apps/\mbox{\hyperlink{base__app_8py}{base\+\_\+app.\+py}}\end{DoxyCompactItemize}

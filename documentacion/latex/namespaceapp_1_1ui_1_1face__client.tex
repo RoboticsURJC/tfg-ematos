@@ -1,0 +1,47 @@
+\hypertarget{namespaceapp_1_1ui_1_1face__client}{}\doxysection{app.\+ui.\+face\+\_\+client Namespace Reference}
+\label{namespaceapp_1_1ui_1_1face__client}\index{app.ui.face\_client@{app.ui.face\_client}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classapp_1_1ui_1_1face__client_1_1FaceClient}{Face\+Client}}
+\begin{DoxyCompactList}\small\item\em Interfaz principal de autenticación y registro facial. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classapp_1_1ui_1_1face__client_1_1Worker}{Worker}}
+\begin{DoxyCompactList}\small\item\em Hilo secundario para realizar peticiones HTTP de reconocimiento facial. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceapp_1_1ui_1_1face__client_a484c0adf7957f5fb4d38ade1820e19ee}{config\+\_\+path}}
+\item 
+\mbox{\hyperlink{namespaceapp_1_1ui_1_1face__client_a55037593b9f664cfbf9712e65b90e36d}{config}} = json.\+load(f)
+\item 
+\mbox{\hyperlink{namespaceapp_1_1ui_1_1face__client_a3c999e865b0b1f6af55cf82fc08c729e}{SERVER\+\_\+\+URL}} = \mbox{\hyperlink{namespaceapp_1_1ui_1_1face__client_a55037593b9f664cfbf9712e65b90e36d}{config}}\mbox{[}\char`\"{}server\char`\"{}\mbox{]}\mbox{[}\char`\"{}recognition\+\_\+url\char`\"{}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespaceapp_1_1ui_1_1face__client_a55037593b9f664cfbf9712e65b90e36d}\label{namespaceapp_1_1ui_1_1face__client_a55037593b9f664cfbf9712e65b90e36d}} 
+\index{app.ui.face\_client@{app.ui.face\_client}!config@{config}}
+\index{config@{config}!app.ui.face\_client@{app.ui.face\_client}}
+\doxysubsubsection{\texorpdfstring{config}{config}}
+{\footnotesize\ttfamily app.\+ui.\+face\+\_\+client.\+config = json.\+load(f)}
+
+\mbox{\Hypertarget{namespaceapp_1_1ui_1_1face__client_a484c0adf7957f5fb4d38ade1820e19ee}\label{namespaceapp_1_1ui_1_1face__client_a484c0adf7957f5fb4d38ade1820e19ee}} 
+\index{app.ui.face\_client@{app.ui.face\_client}!config\_path@{config\_path}}
+\index{config\_path@{config\_path}!app.ui.face\_client@{app.ui.face\_client}}
+\doxysubsubsection{\texorpdfstring{config\_path}{config\_path}}
+{\footnotesize\ttfamily app.\+ui.\+face\+\_\+client.\+config\+\_\+path}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  os.path.join(}
+\DoxyCodeLine{2     os.path.dirname(\_\_file\_\_),}
+\DoxyCodeLine{3     \textcolor{stringliteral}{"{}../config/config.json"{}}}
+\DoxyCodeLine{4 )}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceapp_1_1ui_1_1face__client_a3c999e865b0b1f6af55cf82fc08c729e}\label{namespaceapp_1_1ui_1_1face__client_a3c999e865b0b1f6af55cf82fc08c729e}} 
+\index{app.ui.face\_client@{app.ui.face\_client}!SERVER\_URL@{SERVER\_URL}}
+\index{SERVER\_URL@{SERVER\_URL}!app.ui.face\_client@{app.ui.face\_client}}
+\doxysubsubsection{\texorpdfstring{SERVER\_URL}{SERVER\_URL}}
+{\footnotesize\ttfamily app.\+ui.\+face\+\_\+client.\+SERVER\+\_\+\+URL = \mbox{\hyperlink{namespaceapp_1_1ui_1_1face__client_a55037593b9f664cfbf9712e65b90e36d}{config}}\mbox{[}\char`\"{}server\char`\"{}\mbox{]}\mbox{[}\char`\"{}recognition\+\_\+url\char`\"{}\mbox{]}}
+

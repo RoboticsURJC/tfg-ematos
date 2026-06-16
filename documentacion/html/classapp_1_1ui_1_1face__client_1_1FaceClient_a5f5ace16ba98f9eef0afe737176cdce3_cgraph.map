@@ -1,0 +1,4 @@
+<map id="app.ui.face_client.FaceClient.capture_register_photo" name="app.ui.face_client.FaceClient.capture_register_photo">
+<area shape="rect" id="node1" title="Captura y guarda localmente una foto para el set de entrenamiento." alt="" coords="5,5,267,47"/>
+<area shape="rect" id="node2" href="$classapp_1_1ui_1_1face__client_1_1FaceClient.html#a3e909ab926cf131c973decb458eacf5a" title="Envía el set de fotos capturadas al servidor para registrar el nuevo usuario." alt="" coords="315,5,561,47"/>
+</map>

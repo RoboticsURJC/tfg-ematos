@@ -1,0 +1,7 @@
+<map id="word_search_screen.WordSearchScreen.mouseReleaseEvent" name="word_search_screen.WordSearchScreen.mouseReleaseEvent">
+<area shape="rect" id="node1" title="Manejador de liberación del punto de contacto." alt="" coords="5,35,240,76"/>
+<area shape="rect" id="node2" href="$classword__search__screen_1_1WordSearchScreen.html#a5f20368b12ea9b4a8665ab67a3968bae" title="Verifica si la palabra seleccionada coincide con algún elemento de la lista pendiente." alt="" coords="288,5,523,47"/>
+<area shape="rect" id="node4" href="$namespaceroutes__dashboard.html#a8e1c87d3914c53c0d5ed6d8c3dafca9e" title="Vacía el historial de logs de un servicio." alt="" coords="318,71,493,98"/>
+<area shape="rect" id="node3" href="$classword__search__screen_1_1WordSearchScreen.html#a5cc2220bbc67dd963cd9400fc43a17d1" title="Evalúa las dimensiones de la lista léxica y calibra los límites del scroll vertical." alt="" coords="571,5,805,47"/>
+<area shape="rect" id="node5" href="$namespacelog__service.html#ae2983f6bea2c5025c60c12bb9e947d4c" title="Vacía por completo el historial de registros de un servicio específico." alt="" coords="605,71,771,98"/>
+</map>

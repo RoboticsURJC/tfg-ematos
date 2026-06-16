@@ -1,0 +1,4 @@
+<map id="word_search_screen.WordSearchScreen._validate_selection" name="word_search_screen.WordSearchScreen._validate_selection">
+<area shape="rect" id="node1" title="Verifica si la palabra seleccionada coincide con algún elemento de la lista pendiente." alt="" coords="5,5,240,47"/>
+<area shape="rect" id="node2" href="$classword__search__screen_1_1WordSearchScreen.html#a5cc2220bbc67dd963cd9400fc43a17d1" title="Evalúa las dimensiones de la lista léxica y calibra los límites del scroll vertical." alt="" coords="288,5,523,47"/>
+</map>

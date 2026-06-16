@@ -1,0 +1,5 @@
+<map id="runner.BenchmarkRunner.run" name="runner.BenchmarkRunner.run">
+<area shape="rect" id="node1" title="Lanza y orquesta el ciclo de evaluación masiva sobre todos los prompts y modelos configurados." alt="" coords="5,31,216,57"/>
+<area shape="rect" id="node2" href="$classrunner_1_1BenchmarkRunner.html#adb4c1a5aeda9b3dd1e034b9c9575ab8c" title="Ejecuta de forma segura una inferencia controlando excepciones y calculando latencias." alt="" coords="264,5,511,32"/>
+<area shape="rect" id="node3" href="$namespacestorage.html#aa231ada7e3ab017f21ee075d884c82d8" title="Acumula e inyecta de forma permanente un nuevo registro de rendimiento al final del archivo." alt="" coords="312,56,463,83"/>
+</map>

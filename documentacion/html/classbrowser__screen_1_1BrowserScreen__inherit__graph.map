@@ -1,0 +1,4 @@
+<map id="browser_screen.BrowserScreen" name="browser_screen.BrowserScreen">
+<area shape="rect" id="node1" title="Pantalla contenedora encargada de inicializar y supervisar el ciclo de vida del navegador Chromium." alt="" coords="5,131,231,545"/>
+<area shape="rect" id="node2" title=" " alt="" coords="79,5,157,83"/>
+</map>

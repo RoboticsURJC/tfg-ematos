@@ -1,0 +1,3 @@
+<map id="app.core.camera_manager.CameraManager" name="app.core.camera_manager.CameraManager">
+<area shape="rect" id="node1" title="Clase encargada de la inicialización, captura de fotogramas y liberación de la cámara." alt="" coords="5,5,204,171"/>
+</map>

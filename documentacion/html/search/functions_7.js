@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['generate_0',['generate',['../classbase_1_1LLMModel.html#ab2e4dea029a6ea0bf863e2957e3a67a4',1,'base.LLMModel.generate()'],['../classmodels_1_1gemini_1_1GeminiModel.html#ae6b4fa140438a6c2cb9debf1efc71e14',1,'models.gemini.GeminiModel.generate()'],['../classmodels_1_1gpt__azure_1_1GPTAzure.html#ad98f29cb3a54d760c6a3df0f66c57074',1,'models.gpt_azure.GPTAzure.generate()'],['../classmodels_1_1groq__llama_1_1GroqLlama.html#a594280747ebfccdcc74471a9ee366c2f',1,'models.groq_llama.GroqLlama.generate()'],['../classmodels_1_1mistral__llama_1_1MistralServer.html#a1d85786cc7302e927611ac6c084b3b4b',1,'models.mistral_llama.MistralServer.generate()'],['../classmodels_1_1serv__llama_1_1LlamaServer.html#a4c1456f4ba8a1786c9c9ef18f82b665b',1,'models.serv_llama.LlamaServer.generate()'],['../namespacespeaking__server.html#a0eebcc2003f539ed2c986b3bd1d15f70',1,'speaking_server.generate()'],['../namespaceroutes__llm.html#a025b772d230d4ece0ae31ea2bdd84e48',1,'routes_llm.generate()'],['../classllm__service_1_1LLMService.html#acbeb3dd2f1d4e8a6102dee2e831e7b39',1,'llm_service.LLMService.generate()']]],
+  ['generate_5fboard_1',['generate_board',['../namespacegenerate.html#ac32ef11a9853aafa450a68f57d636cb0',1,'generate']]],
+  ['generate_5fscene_2',['generate_scene',['../namespacefind__differences__screen.html#a4c5b9723d04260cbd121e797a30ceedc',1,'find_differences_screen']]],
+  ['generate_5fword_5flist_3',['generate_word_list',['../namespacegenerate.html#a021501468e4f34b9109dd4c692ba0343',1,'generate']]],
+  ['get_4',['get',['../classapp_1_1core_1_1camera__manager_1_1CameraManager.html#a5902995fa433f6e5f91d27305c96c28d',1,'app.core.camera_manager.CameraManager.get()'],['../classapp_1_1core_1_1config_1_1Config.html#ad08b65a7e88dbe548cba128b43661b72',1,'app.core.config.Config.get()']]],
+  ['get_5fall_5flogs_5',['get_all_logs',['../namespacelog__service.html#a90bf579b129226e4ecccb979c22a8651',1,'log_service']]],
+  ['get_5fconnection_6',['get_connection',['../namespaceserver.html#aba0f719635d68d7bd245b84b1654c2b5',1,'server']]],
+  ['get_5fdatetime_5fstr_7',['get_datetime_str',['../classreminder__screen_1_1DateTimePickerDialog.html#a3b62f98469fd3a7cf8175ebd8a2865b0',1,'reminder_screen::DateTimePickerDialog']]],
+  ['get_5fevents_8',['get_events',['../classcalendar__store_1_1CalendarStore.html#a028e3fb3ad616de3f9481993c7766783',1,'calendar_store::CalendarStore']]],
+  ['get_5floader_5fpath_9',['get_loader_path',['../classboot__screen_1_1BootScreen.html#a2864212ccd6cd396943c19e2d8d24f05',1,'boot_screen::BootScreen']]],
+  ['get_5flogs_10',['get_logs',['../namespacelog__service.html#a9d6fb8fa51971ca316e809e128b4ecde',1,'log_service']]],
+  ['get_5fmemories_11',['get_memories',['../namespaceserver.html#a5c813a3761fd8e27d6a25823738826c1',1,'server.get_memories()'],['../namespaceroutes__face.html#aef0e48756ea2d682639ed2389a7fb023',1,'routes_face.get_memories()']]],
+  ['get_5fpending_12',['get_pending',['../classreminder__store_1_1ReminderStore.html#ad48643d96597db2ae56bde106e819eeb',1,'reminder_store::ReminderStore']]],
+  ['get_5frect_13',['get_rect',['../classfind__differences__screen_1_1SceneObject.html#a73f0f3a4cbfaa8f0b401f1743d7c4254',1,'find_differences_screen::SceneObject']]],
+  ['get_5freminders_14',['get_reminders',['../namespaceserver.html#a3fed51e32ced2692d6e597614158aeb7',1,'server']]],
+  ['get_5fstate_15',['get_state',['../classapp_1_1core_1_1state__machine_1_1StateMachine.html#a613f54089d359b2b8e01bd37a8f5682d',1,'app::core::state_machine::StateMachine']]],
+  ['get_5ftime_16',['get_time',['../namespaceapp_1_1core_1_1assistant.html#aa5b5c9f19dce39900edf64aead7266a0',1,'app::core::assistant']]],
+  ['get_5fweather_17',['get_weather',['../namespaceapp_1_1core_1_1assistant.html#ac7cc32d019cd31efef74d7a0ea615ba5',1,'app::core::assistant']]],
+  ['go_18',['go',['../classapp_1_1ui_1_1app__controller_1_1AppController.html#a8370e625746828c75a06848fceb03a66',1,'app::ui::app_controller::AppController']]],
+  ['go_5fback_19',['go_back',['../classnote__screen_1_1NotesScreen.html#a9407be889a3d5539e75bb6e043c55c44',1,'note_screen.NotesScreen.go_back()'],['../classregister__screen_1_1RegisterScreen.html#a5001a9d82c7450f9e9f1d363f6e353ab',1,'register_screen.RegisterScreen.go_back()'],['../classreminder__screen_1_1ReminderScreen.html#a6d80389ddd5e2eb734f74625c8004ce9',1,'reminder_screen.ReminderScreen.go_back()'],['../classgames__screen_1_1GamesScreen.html#a89c28fc9eb83fcb2679959a77080b07a',1,'games_screen.GamesScreen.go_back()'],['../classcalendar__screen_1_1CalendarScreen.html#a38634fa36747b9d329572854ec6a16e1',1,'calendar_screen.CalendarScreen.go_back()']]],
+  ['go_5fback_5fto_5flauncher_20',['go_back_to_launcher',['../classbrowser__screen_1_1BrowserScreen.html#ab3c21b6b1ee851bb01ef0fd1afd18a3f',1,'browser_screen::BrowserScreen']]],
+  ['go_5fregister_21',['go_register',['../classlogin__screen_1_1LoginScreen.html#a6239d5b76266ad479eabe4054816795b',1,'login_screen::LoginScreen']]],
+  ['guardar_5fmemoria_22',['guardar_memoria',['../namespaceapp_1_1core_1_1memory.html#ad16e86321e81e09fb0056e84ffc2abfe',1,'app::core::memory']]]
+];

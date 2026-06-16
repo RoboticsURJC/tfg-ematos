@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" title=" " alt="" coords="5,42,131,69"/>
+<area shape="rect" id="node2" href="$classapp_1_1core_1_1logs__to__server_1_1RemoteHandler.html" title="Manejador de logs especializado en la persistencia y centralización remota via HTTP POST." alt="" coords="200,5,380,47"/>
+<area shape="rect" id="node3" href="$classremote__logger_1_1RemoteHandler.html" title="Clase encargada de empaquetar y transmitir los logs hacia un punto de acceso HTTP remoto." alt="" coords="179,71,401,98"/>
+</map>

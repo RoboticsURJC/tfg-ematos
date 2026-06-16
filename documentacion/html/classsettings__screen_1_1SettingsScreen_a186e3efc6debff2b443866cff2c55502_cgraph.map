@@ -1,0 +1,5 @@
+<map id="settings_screen.SettingsScreen._wifi_enable" name="settings_screen.SettingsScreen._wifi_enable">
+<area shape="rect" id="node1" title="Activa la radio Wi&#45;Fi vía &#39;nmcli&#39;." alt="" coords="5,5,187,47"/>
+<area shape="rect" id="node2" href="$classsettings__screen_1_1SettingsScreen.html#aa154fd8cffd44023858e47e5eeb48504" title="Recargar wifi." alt="" coords="235,5,416,47"/>
+<area shape="rect" id="node3" href="$classsettings__screen_1_1SettingsScreen.html#a90f2b86ab6cca6cd1424f1c3dbe19bd6" title="Recargar wifi con hilos." alt="" coords="464,5,667,47"/>
+</map>

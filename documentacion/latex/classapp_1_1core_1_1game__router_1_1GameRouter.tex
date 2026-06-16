@@ -1,0 +1,91 @@
+\hypertarget{classapp_1_1core_1_1game__router_1_1GameRouter}{}\doxysection{app.\+core.\+game\+\_\+router.\+Game\+Router Class Reference}
+\label{classapp_1_1core_1_1game__router_1_1GameRouter}\index{app.core.game\_router.GameRouter@{app.core.game\_router.GameRouter}}
+
+
+Clase encargada de enrutar y levantar las interfaces gráficas de los diferentes juegos.  
+
+
+
+
+Collaboration diagram for app.\+core.\+game\+\_\+router.\+Game\+Router\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=235pt]{classapp_1_1core_1_1game__router_1_1GameRouter__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1game__router_1_1GameRouter_a6c8eb808534da1cf7a870598fe3d0fe2}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classapp_1_1core_1_1game__router_1_1GameRouter_a799b87ede3f18d54d1aa4980a2040f67}{controller}})
+\begin{DoxyCompactList}\small\item\em Constructor del enrutador de juegos. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1game__router_1_1GameRouter_aecfd3a7c183101d9a02d69000c7e5cbd}{open\+\_\+game}} (self, str game\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Cambia la interfaz actual del robot e inicia el juego cognitivo solicitado de forma asíncrona. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classapp_1_1core_1_1game__router_1_1GameRouter_a799b87ede3f18d54d1aa4980a2040f67}{controller}}
+\begin{DoxyCompactList}\small\item\em Referencia al controlador principal de la aplicación. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase encargada de enrutar y levantar las interfaces gráficas de los diferentes juegos. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classapp_1_1core_1_1game__router_1_1GameRouter_a6c8eb808534da1cf7a870598fe3d0fe2}\label{classapp_1_1core_1_1game__router_1_1GameRouter_a6c8eb808534da1cf7a870598fe3d0fe2}} 
+\index{app.core.game\_router.GameRouter@{app.core.game\_router.GameRouter}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!app.core.game\_router.GameRouter@{app.core.game\_router.GameRouter}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def app.\+core.\+game\+\_\+router.\+Game\+Router.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{controller }\end{DoxyParamCaption})}
+
+
+
+Constructor del enrutador de juegos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em controller} & Instancia del controlador principal del robot (Master Controller) que posee la referencia a la UI. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classapp_1_1core_1_1game__router_1_1GameRouter_aecfd3a7c183101d9a02d69000c7e5cbd}\label{classapp_1_1core_1_1game__router_1_1GameRouter_aecfd3a7c183101d9a02d69000c7e5cbd}} 
+\index{app.core.game\_router.GameRouter@{app.core.game\_router.GameRouter}!open\_game@{open\_game}}
+\index{open\_game@{open\_game}!app.core.game\_router.GameRouter@{app.core.game\_router.GameRouter}}
+\doxysubsubsection{\texorpdfstring{open\_game()}{open\_game()}}
+{\footnotesize\ttfamily def app.\+core.\+game\+\_\+router.\+Game\+Router.\+open\+\_\+game (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{str}]{game\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+Cambia la interfaz actual del robot e inicia el juego cognitivo solicitado de forma asíncrona. 
+
+Extrae el widget contenedor ({\ttfamily stack}) de la UI, posiciona la pantalla objetivo en primer plano y delega la ejecución del método {\ttfamily start()} del juego mediante un disparo único de QTimer.
+
+\begin{DoxyNote}{Note}
+Se utiliza {\ttfamily QTimer.\+single\+Shot(0, ...)} para delegar el arranque del juego al siguiente ciclo del bucle de eventos de Qt. Esto asegura que la pantalla se dibuje y renderice por completo en el hilo principal antes de que la lógica pesada del juego comience a ejecutarse.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em game\+\_\+id} & Identificador único textual del juego a abrir (\textquotesingle{}memory\textquotesingle{}, \textquotesingle{}word\+\_\+search\textquotesingle{}, \textquotesingle{}simon\+\_\+says\textquotesingle{}, \textquotesingle{}find\+\_\+diferences\textquotesingle{}). \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classapp_1_1core_1_1game__router_1_1GameRouter_a799b87ede3f18d54d1aa4980a2040f67}\label{classapp_1_1core_1_1game__router_1_1GameRouter_a799b87ede3f18d54d1aa4980a2040f67}} 
+\index{app.core.game\_router.GameRouter@{app.core.game\_router.GameRouter}!controller@{controller}}
+\index{controller@{controller}!app.core.game\_router.GameRouter@{app.core.game\_router.GameRouter}}
+\doxysubsubsection{\texorpdfstring{controller}{controller}}
+{\footnotesize\ttfamily app.\+core.\+game\+\_\+router.\+Game\+Router.\+controller}
+
+
+
+Referencia al controlador principal de la aplicación. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/\mbox{\hyperlink{game__router_8py}{game\+\_\+router.\+py}}\end{DoxyCompactItemize}

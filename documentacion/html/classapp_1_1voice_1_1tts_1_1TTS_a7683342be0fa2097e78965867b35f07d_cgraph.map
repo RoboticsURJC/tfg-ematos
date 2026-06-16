@@ -1,0 +1,4 @@
+<map id="app.voice.tts.TTS.stop" name="app.voice.tts.TTS.stop">
+<area shape="rect" id="node1" title="Detiene de forma agresiva cualquier proceso de síntesis o audio activo." alt="" coords="5,5,172,32"/>
+<area shape="rect" id="node2" href="$classapp_1_1voice_1_1stt__vosk_1_1VoskSTT.html#a46be0c9a33f07af0990ebf16e6777b69" title="Procesa un bloque de audio y retorna el texto si se ha completado una frase." alt="" coords="220,5,476,32"/>
+</map>

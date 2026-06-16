@@ -1,0 +1,15 @@
+<map id="find_differences_screen.FindDifferencesScreen.exit_game" name="find_differences_screen.FindDifferencesScreen.exit_game">
+<area shape="rect" id="node1" title="Termina la ejecución lúdica activa y cede el control del foco al hub central de juegos." alt="" coords="5,269,245,310"/>
+<area shape="rect" id="node2" href="$classprocess__service_1_1ProcessService.html#a38a173a1d1b4659fc563db90ffbd46c4" title="Detiene de forma segura el microservicio indicado liberando sus recursos." alt="" coords="293,5,553,32"/>
+<area shape="rect" id="node4" href="$classapp_1_1core_1_1assistant__engine_1_1AssistantEngine.html#a017d6284c15f7500b1d7033f17e67ac2" title="Detiene y cancela de forma controlada el ciclo de vida del motor de escucha y voz." alt="" coords="317,81,530,122"/>
+<area shape="rect" id="node5" href="$classbase__pygame__qt__screen_1_1BasePygameQtScreen.html#ac864ebbc0b4d821438369c25cf60f402" title="Detiene y congela de inmediato el temporizador y el procesado del juego." alt="" coords="314,170,533,211"/>
+<area shape="rect" id="node6" href="$classproactive_1_1proactive__scheduler_1_1ProactiveScheduler.html#a1fc10caaa5166a050ca7d9d4c5326234" title="Detiene de forma controlada el hilo de ejecución del scheduler." alt="" coords="298,235,549,277"/>
+<area shape="rect" id="node7" href="$classreminder__scheduler_1_1ReminderScheduler.html#a2295bd876913a5380f7c4c6af1293913" title="Detiene el bucle de ejecución de forma segura." alt="" coords="315,301,532,342"/>
+<area shape="rect" id="node8" href="$classapp_1_1voice_1_1audio__stream_1_1AudioStream.html#a72c9b2b39f5d7f419e7209d7c0640703" title="Detiene la captura de audio." alt="" coords="314,390,533,431"/>
+<area shape="rect" id="node11" href="$classapp_1_1voice_1_1stt__vosk_1_1VoskSTT.html#a757bb43694ddc46fbdce793552210bca" title="Detiene el hilo de captura de audio y marca el servicio como no en ejecución." alt="" coords="306,480,541,507"/>
+<area shape="rect" id="node12" href="$classapp_1_1voice_1_1tts_1_1TTS.html#a7683342be0fa2097e78965867b35f07d" title="Detiene de forma agresiva cualquier proceso de síntesis o audio activo." alt="" coords="340,531,507,557"/>
+<area shape="rect" id="node3" href="$namespacelog__service.html#af8a86650753e2ab9216e190fad59757c" title="Añade una nueva entrada de registro para un servicio específico." alt="" coords="654,5,805,32"/>
+<area shape="rect" id="node9" href="$classapp_1_1llm_1_1client_1_1LLMClient.html#a6486d9e90baafd2d9fa4962cc6de168b" title="Inicia una petición de red por flujo continuo (Streaming) para recibir texto token a token." alt="" coords="615,372,844,399"/>
+<area shape="rect" id="node10" href="$classllm__service_1_1LLMService.html#a0e751c71bc5647aac447d2ada8f87b46" title="Inicializa una conexión HTTP orientada a flujos (streaming) para procesar tokens bajo demanda." alt="" coords="617,423,842,449"/>
+<area shape="rect" id="node13" href="$classapp_1_1voice_1_1stt__vosk_1_1VoskSTT.html#a46be0c9a33f07af0990ebf16e6777b69" title="Procesa un bloque de audio y retorna el texto si se ha completado una frase." alt="" coords="601,531,857,557"/>
+</map>

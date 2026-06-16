@@ -1,0 +1,297 @@
+\hypertarget{classreminder__screen_1_1ReminderScreen}{}\doxysection{reminder\+\_\+screen.\+Reminder\+Screen Class Reference}
+\label{classreminder__screen_1_1ReminderScreen}\index{reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}}
+
+
+Inheritance diagram for reminder\+\_\+screen.\+Reminder\+Screen\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=229pt]{classreminder__screen_1_1ReminderScreen__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for reminder\+\_\+screen.\+Reminder\+Screen\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=229pt]{classreminder__screen_1_1ReminderScreen__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classreminder__screen_1_1ReminderScreen_ad0502eb5e6f3f94f8a666e4548cf8dac}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classreminder__screen_1_1ReminderScreen_a79d4cb6535377ceba280c0c4f64b35b9}{controller}})
+\begin{DoxyCompactList}\small\item\em Inicializa la pantalla de recordatorios. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classreminder__screen_1_1ReminderScreen_a6ed3e97bce6aa3b082aab67a57f9df7e}{hide\+Event}} (self, event)
+\begin{DoxyCompactList}\small\item\em Garantiza el cierre del teclado al ocultar el widget. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classreminder__screen_1_1ReminderScreen_a6d8fc556161847121325cfdd7ee4c71d}{open\+\_\+date\+\_\+picker}} (self)
+\begin{DoxyCompactList}\small\item\em Lanza el selector de fecha y hora. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classreminder__screen_1_1ReminderScreen_af258ef456b74e29be94a4ff4c3dcd6c9}{refresh}} (self)
+\begin{DoxyCompactList}\small\item\em Refresca la lista desde el store. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classreminder__screen_1_1ReminderScreen_a7cd03fff90cdf47cc97ebb8b0f0ce014}{add\+\_\+reminder}} (self)
+\begin{DoxyCompactList}\small\item\em Valida entrada y guarda el recordatorio. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classreminder__screen_1_1ReminderScreen_a01ca408cc6d78adb3d216d5703e0224e}{delete\+\_\+reminder}} (self)
+\begin{DoxyCompactList}\small\item\em Elimina el item seleccionado. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classreminder__screen_1_1ReminderScreen_a6d80389ddd5e2eb734f74625c8004ce9}{go\+\_\+back}} (self)
+\begin{DoxyCompactList}\small\item\em Navegación hacia atrás. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classreminder__screen_1_1ReminderScreen_a79d4cb6535377ceba280c0c4f64b35b9}{controller}}
+\item 
+\mbox{\hyperlink{classreminder__screen_1_1ReminderScreen_aa4c7249d47930d108b12c299dfca1f36}{store}}
+\item 
+\mbox{\hyperlink{classreminder__screen_1_1ReminderScreen_a469854ea604af0e9c1de21812d412552}{title}}
+\item 
+\mbox{\hyperlink{classreminder__screen_1_1ReminderScreen_a2cb68f71ff09c0e228d042977eb6ad85}{btn\+\_\+back}}
+\item 
+\mbox{\hyperlink{classreminder__screen_1_1ReminderScreen_ac7daecd51dd7faa241df31f508542355}{list}}
+\item 
+\mbox{\hyperlink{classreminder__screen_1_1ReminderScreen_a9c710c568a76ad3542cfcba89c9a2e90}{input\+\_\+text}}
+\item 
+\mbox{\hyperlink{classreminder__screen_1_1ReminderScreen_a9d4f68c99e1e9241ea271271275c15be}{date\+\_\+display}}
+\item 
+\mbox{\hyperlink{classreminder__screen_1_1ReminderScreen_a71c0be5e8914e1a674f507c980abec8e}{btn\+\_\+pick\+\_\+date}}
+\item 
+\mbox{\hyperlink{classreminder__screen_1_1ReminderScreen_a1f370d39db39f7ea4a54c12417a27ad3}{btn\+\_\+add}}
+\item 
+\mbox{\hyperlink{classreminder__screen_1_1ReminderScreen_a9153cbc7a785487a3e4094d535cefbce}{btn\+\_\+delete}}
+\item 
+\mbox{\hyperlink{classreminder__screen_1_1ReminderScreen_a1fefc30c950423b040de4f0bad492aa1}{keyboard}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classreminder__screen_1_1ReminderScreen_a982f4dc1009429c53b10b8eb10041bc9}{\+\_\+show\+\_\+keyboard}} (self, target)
+\begin{DoxyCompactList}\small\item\em Despliega el teclado y ajusta el layout. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classreminder__screen_1_1ReminderScreen_a2c7e5cc96f0a961864c06441ef1a4119}{\+\_\+hide\+\_\+keyboard}} (self)
+\begin{DoxyCompactList}\small\item\em Oculta el teclado y restaura el tamaño de la lista. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classreminder__screen_1_1ReminderScreen_a9c1b42ce860f5579f8e58add39ce7b0d}{\+\_\+selected\+\_\+dt}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classreminder__screen_1_1ReminderScreen_ad0502eb5e6f3f94f8a666e4548cf8dac}\label{classreminder__screen_1_1ReminderScreen_ad0502eb5e6f3f94f8a666e4548cf8dac}} 
+\index{reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def reminder\+\_\+screen.\+Reminder\+Screen.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{controller }\end{DoxyParamCaption})}
+
+
+
+Inicializa la pantalla de recordatorios. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em controller} & Controlador principal que gestiona el flujo de UI y datos. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=229pt]{classreminder__screen_1_1ReminderScreen_ad0502eb5e6f3f94f8a666e4548cf8dac_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classreminder__screen_1_1ReminderScreen_a2c7e5cc96f0a961864c06441ef1a4119}\label{classreminder__screen_1_1ReminderScreen_a2c7e5cc96f0a961864c06441ef1a4119}} 
+\index{reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}!\_hide\_keyboard@{\_hide\_keyboard}}
+\index{\_hide\_keyboard@{\_hide\_keyboard}!reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}}
+\doxysubsubsection{\texorpdfstring{\_hide\_keyboard()}{\_hide\_keyboard()}}
+{\footnotesize\ttfamily def reminder\+\_\+screen.\+Reminder\+Screen.\+\_\+hide\+\_\+keyboard (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Oculta el teclado y restaura el tamaño de la lista. 
+
+\mbox{\Hypertarget{classreminder__screen_1_1ReminderScreen_a982f4dc1009429c53b10b8eb10041bc9}\label{classreminder__screen_1_1ReminderScreen_a982f4dc1009429c53b10b8eb10041bc9}} 
+\index{reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}!\_show\_keyboard@{\_show\_keyboard}}
+\index{\_show\_keyboard@{\_show\_keyboard}!reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}}
+\doxysubsubsection{\texorpdfstring{\_show\_keyboard()}{\_show\_keyboard()}}
+{\footnotesize\ttfamily def reminder\+\_\+screen.\+Reminder\+Screen.\+\_\+show\+\_\+keyboard (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{target }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Despliega el teclado y ajusta el layout. 
+
+\mbox{\Hypertarget{classreminder__screen_1_1ReminderScreen_a7cd03fff90cdf47cc97ebb8b0f0ce014}\label{classreminder__screen_1_1ReminderScreen_a7cd03fff90cdf47cc97ebb8b0f0ce014}} 
+\index{reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}!add\_reminder@{add\_reminder}}
+\index{add\_reminder@{add\_reminder}!reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}}
+\doxysubsubsection{\texorpdfstring{add\_reminder()}{add\_reminder()}}
+{\footnotesize\ttfamily def reminder\+\_\+screen.\+Reminder\+Screen.\+add\+\_\+reminder (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Valida entrada y guarda el recordatorio. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classreminder__screen_1_1ReminderScreen_a7cd03fff90cdf47cc97ebb8b0f0ce014_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classreminder__screen_1_1ReminderScreen_a01ca408cc6d78adb3d216d5703e0224e}\label{classreminder__screen_1_1ReminderScreen_a01ca408cc6d78adb3d216d5703e0224e}} 
+\index{reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}!delete\_reminder@{delete\_reminder}}
+\index{delete\_reminder@{delete\_reminder}!reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}}
+\doxysubsubsection{\texorpdfstring{delete\_reminder()}{delete\_reminder()}}
+{\footnotesize\ttfamily def reminder\+\_\+screen.\+Reminder\+Screen.\+delete\+\_\+reminder (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Elimina el item seleccionado. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classreminder__screen_1_1ReminderScreen_a01ca408cc6d78adb3d216d5703e0224e_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classreminder__screen_1_1ReminderScreen_a6d80389ddd5e2eb734f74625c8004ce9}\label{classreminder__screen_1_1ReminderScreen_a6d80389ddd5e2eb734f74625c8004ce9}} 
+\index{reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}!go\_back@{go\_back}}
+\index{go\_back@{go\_back}!reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}}
+\doxysubsubsection{\texorpdfstring{go\_back()}{go\_back()}}
+{\footnotesize\ttfamily def reminder\+\_\+screen.\+Reminder\+Screen.\+go\+\_\+back (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Navegación hacia atrás. 
+
+\mbox{\Hypertarget{classreminder__screen_1_1ReminderScreen_a6ed3e97bce6aa3b082aab67a57f9df7e}\label{classreminder__screen_1_1ReminderScreen_a6ed3e97bce6aa3b082aab67a57f9df7e}} 
+\index{reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}!hideEvent@{hideEvent}}
+\index{hideEvent@{hideEvent}!reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}}
+\doxysubsubsection{\texorpdfstring{hideEvent()}{hideEvent()}}
+{\footnotesize\ttfamily def reminder\+\_\+screen.\+Reminder\+Screen.\+hide\+Event (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{event }\end{DoxyParamCaption})}
+
+
+
+Garantiza el cierre del teclado al ocultar el widget. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classreminder__screen_1_1ReminderScreen_a6ed3e97bce6aa3b082aab67a57f9df7e_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classreminder__screen_1_1ReminderScreen_a6d8fc556161847121325cfdd7ee4c71d}\label{classreminder__screen_1_1ReminderScreen_a6d8fc556161847121325cfdd7ee4c71d}} 
+\index{reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}!open\_date\_picker@{open\_date\_picker}}
+\index{open\_date\_picker@{open\_date\_picker}!reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}}
+\doxysubsubsection{\texorpdfstring{open\_date\_picker()}{open\_date\_picker()}}
+{\footnotesize\ttfamily def reminder\+\_\+screen.\+Reminder\+Screen.\+open\+\_\+date\+\_\+picker (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Lanza el selector de fecha y hora. 
+
+\mbox{\Hypertarget{classreminder__screen_1_1ReminderScreen_af258ef456b74e29be94a4ff4c3dcd6c9}\label{classreminder__screen_1_1ReminderScreen_af258ef456b74e29be94a4ff4c3dcd6c9}} 
+\index{reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}!refresh@{refresh}}
+\index{refresh@{refresh}!reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}}
+\doxysubsubsection{\texorpdfstring{refresh()}{refresh()}}
+{\footnotesize\ttfamily def reminder\+\_\+screen.\+Reminder\+Screen.\+refresh (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Refresca la lista desde el store. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classreminder__screen_1_1ReminderScreen_af258ef456b74e29be94a4ff4c3dcd6c9_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classreminder__screen_1_1ReminderScreen_a9c1b42ce860f5579f8e58add39ce7b0d}\label{classreminder__screen_1_1ReminderScreen_a9c1b42ce860f5579f8e58add39ce7b0d}} 
+\index{reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}!\_selected\_dt@{\_selected\_dt}}
+\index{\_selected\_dt@{\_selected\_dt}!reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}}
+\doxysubsubsection{\texorpdfstring{\_selected\_dt}{\_selected\_dt}}
+{\footnotesize\ttfamily reminder\+\_\+screen.\+Reminder\+Screen.\+\_\+selected\+\_\+dt\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classreminder__screen_1_1ReminderScreen_a1f370d39db39f7ea4a54c12417a27ad3}\label{classreminder__screen_1_1ReminderScreen_a1f370d39db39f7ea4a54c12417a27ad3}} 
+\index{reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}!btn\_add@{btn\_add}}
+\index{btn\_add@{btn\_add}!reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_add}{btn\_add}}
+{\footnotesize\ttfamily reminder\+\_\+screen.\+Reminder\+Screen.\+btn\+\_\+add}
+
+\mbox{\Hypertarget{classreminder__screen_1_1ReminderScreen_a2cb68f71ff09c0e228d042977eb6ad85}\label{classreminder__screen_1_1ReminderScreen_a2cb68f71ff09c0e228d042977eb6ad85}} 
+\index{reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}!btn\_back@{btn\_back}}
+\index{btn\_back@{btn\_back}!reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_back}{btn\_back}}
+{\footnotesize\ttfamily reminder\+\_\+screen.\+Reminder\+Screen.\+btn\+\_\+back}
+
+\mbox{\Hypertarget{classreminder__screen_1_1ReminderScreen_a9153cbc7a785487a3e4094d535cefbce}\label{classreminder__screen_1_1ReminderScreen_a9153cbc7a785487a3e4094d535cefbce}} 
+\index{reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}!btn\_delete@{btn\_delete}}
+\index{btn\_delete@{btn\_delete}!reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_delete}{btn\_delete}}
+{\footnotesize\ttfamily reminder\+\_\+screen.\+Reminder\+Screen.\+btn\+\_\+delete}
+
+\mbox{\Hypertarget{classreminder__screen_1_1ReminderScreen_a71c0be5e8914e1a674f507c980abec8e}\label{classreminder__screen_1_1ReminderScreen_a71c0be5e8914e1a674f507c980abec8e}} 
+\index{reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}!btn\_pick\_date@{btn\_pick\_date}}
+\index{btn\_pick\_date@{btn\_pick\_date}!reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_pick\_date}{btn\_pick\_date}}
+{\footnotesize\ttfamily reminder\+\_\+screen.\+Reminder\+Screen.\+btn\+\_\+pick\+\_\+date}
+
+\mbox{\Hypertarget{classreminder__screen_1_1ReminderScreen_a79d4cb6535377ceba280c0c4f64b35b9}\label{classreminder__screen_1_1ReminderScreen_a79d4cb6535377ceba280c0c4f64b35b9}} 
+\index{reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}!controller@{controller}}
+\index{controller@{controller}!reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}}
+\doxysubsubsection{\texorpdfstring{controller}{controller}}
+{\footnotesize\ttfamily reminder\+\_\+screen.\+Reminder\+Screen.\+controller}
+
+\mbox{\Hypertarget{classreminder__screen_1_1ReminderScreen_a9d4f68c99e1e9241ea271271275c15be}\label{classreminder__screen_1_1ReminderScreen_a9d4f68c99e1e9241ea271271275c15be}} 
+\index{reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}!date\_display@{date\_display}}
+\index{date\_display@{date\_display}!reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}}
+\doxysubsubsection{\texorpdfstring{date\_display}{date\_display}}
+{\footnotesize\ttfamily reminder\+\_\+screen.\+Reminder\+Screen.\+date\+\_\+display}
+
+\mbox{\Hypertarget{classreminder__screen_1_1ReminderScreen_a9c710c568a76ad3542cfcba89c9a2e90}\label{classreminder__screen_1_1ReminderScreen_a9c710c568a76ad3542cfcba89c9a2e90}} 
+\index{reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}!input\_text@{input\_text}}
+\index{input\_text@{input\_text}!reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}}
+\doxysubsubsection{\texorpdfstring{input\_text}{input\_text}}
+{\footnotesize\ttfamily reminder\+\_\+screen.\+Reminder\+Screen.\+input\+\_\+text}
+
+\mbox{\Hypertarget{classreminder__screen_1_1ReminderScreen_a1fefc30c950423b040de4f0bad492aa1}\label{classreminder__screen_1_1ReminderScreen_a1fefc30c950423b040de4f0bad492aa1}} 
+\index{reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}!keyboard@{keyboard}}
+\index{keyboard@{keyboard}!reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}}
+\doxysubsubsection{\texorpdfstring{keyboard}{keyboard}}
+{\footnotesize\ttfamily reminder\+\_\+screen.\+Reminder\+Screen.\+keyboard}
+
+\mbox{\Hypertarget{classreminder__screen_1_1ReminderScreen_ac7daecd51dd7faa241df31f508542355}\label{classreminder__screen_1_1ReminderScreen_ac7daecd51dd7faa241df31f508542355}} 
+\index{reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}!list@{list}}
+\index{list@{list}!reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}}
+\doxysubsubsection{\texorpdfstring{list}{list}}
+{\footnotesize\ttfamily reminder\+\_\+screen.\+Reminder\+Screen.\+list}
+
+\mbox{\Hypertarget{classreminder__screen_1_1ReminderScreen_aa4c7249d47930d108b12c299dfca1f36}\label{classreminder__screen_1_1ReminderScreen_aa4c7249d47930d108b12c299dfca1f36}} 
+\index{reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}!store@{store}}
+\index{store@{store}!reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}}
+\doxysubsubsection{\texorpdfstring{store}{store}}
+{\footnotesize\ttfamily reminder\+\_\+screen.\+Reminder\+Screen.\+store}
+
+\mbox{\Hypertarget{classreminder__screen_1_1ReminderScreen_a469854ea604af0e9c1de21812d412552}\label{classreminder__screen_1_1ReminderScreen_a469854ea604af0e9c1de21812d412552}} 
+\index{reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}!title@{title}}
+\index{title@{title}!reminder\_screen.ReminderScreen@{reminder\_screen.ReminderScreen}}
+\doxysubsubsection{\texorpdfstring{title}{title}}
+{\footnotesize\ttfamily reminder\+\_\+screen.\+Reminder\+Screen.\+title}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ui/apps/reminder/\mbox{\hyperlink{reminder__screen_8py}{reminder\+\_\+screen.\+py}}\end{DoxyCompactItemize}

@@ -1,0 +1,138 @@
+\hypertarget{namespacelog__service}{}\doxysection{log\+\_\+service Namespace Reference}
+\label{namespacelog__service}\index{log\_service@{log\_service}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacelog__service_af8a86650753e2ab9216e190fad59757c}{add\+\_\+log}} (str service, str message)
+\begin{DoxyCompactList}\small\item\em Añade una nueva entrada de registro para un servicio específico. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespacelog__service_a9d6fb8fa51971ca316e809e128b4ecde}{get\+\_\+logs}} (str service)
+\begin{DoxyCompactList}\small\item\em Recupera la lista completa de registros pertenecientes a un servicio. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespacelog__service_ae2983f6bea2c5025c60c12bb9e947d4c}{clear\+\_\+logs}} (str service)
+\begin{DoxyCompactList}\small\item\em Vacía por completo el historial de registros de un servicio específico. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespacelog__service_a90bf579b129226e4ecccb979c22a8651}{get\+\_\+all\+\_\+logs}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene una copia superficial de todo el ecosistema de logs global. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+dictionary \mbox{\hyperlink{namespacelog__service_a442c727a7c1e8658f15d3d5a7395474b}{\+\_\+logs}}
+\begin{DoxyCompactList}\small\item\em Diccionario interno que almacena los registros categorizados por servicio. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacelog__service_a5c27b025767efea9c2dabbb6d7e3a54d}{\+\_\+lock}} = Lock()
+\begin{DoxyCompactList}\small\item\em Cerrojo (Mutex) de sincronización para garantizar la seguridad de hilos al acceder al diccionario de logs. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespacelog__service_a3669392be4e35ab908d7e8b4b50b061a}{MAX\+\_\+\+LOGS}} = 300
+\begin{DoxyCompactList}\small\item\em Límite máximo de líneas de registro que se almacenarán por cada servicio para evitar fugas de memoria. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacelog__service_af8a86650753e2ab9216e190fad59757c}\label{namespacelog__service_af8a86650753e2ab9216e190fad59757c}} 
+\index{log\_service@{log\_service}!add\_log@{add\_log}}
+\index{add\_log@{add\_log}!log\_service@{log\_service}}
+\doxysubsubsection{\texorpdfstring{add\_log()}{add\_log()}}
+{\footnotesize\ttfamily def log\+\_\+service.\+add\+\_\+log (\begin{DoxyParamCaption}\item[{str}]{service,  }\item[{str}]{message }\end{DoxyParamCaption})}
+
+
+
+Añade una nueva entrada de registro para un servicio específico. 
+
+Crea una estructura con la hora exacta y el mensaje recibido, la anexa a la lista del servicio correspondiente y trunca el historial si supera el límite establecido en MAX\+\_\+\+LOGS. Este método está protegido de forma concurrente mediante un cerrojo.
+
+
+\begin{DoxyParams}{Parameters}
+{\em service} & Nombre de la categoría o componente (ej\+: \textquotesingle{}llm\textquotesingle{}, \textquotesingle{}recognition\textquotesingle{}, \textquotesingle{}system\textquotesingle{}). \\
+\hline
+{\em message} & Texto descriptivo del evento o error que se desea registrar. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespacelog__service_ae2983f6bea2c5025c60c12bb9e947d4c}\label{namespacelog__service_ae2983f6bea2c5025c60c12bb9e947d4c}} 
+\index{log\_service@{log\_service}!clear\_logs@{clear\_logs}}
+\index{clear\_logs@{clear\_logs}!log\_service@{log\_service}}
+\doxysubsubsection{\texorpdfstring{clear\_logs()}{clear\_logs()}}
+{\footnotesize\ttfamily def log\+\_\+service.\+clear\+\_\+logs (\begin{DoxyParamCaption}\item[{str}]{service }\end{DoxyParamCaption})}
+
+
+
+Vacía por completo el historial de registros de un servicio específico. 
+
+Reinicia a una lista vacía el canal indicado de manera segura.
+
+
+\begin{DoxyParams}{Parameters}
+{\em service} & Nombre del servicio cuyo log se desea limpiar. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespacelog__service_a90bf579b129226e4ecccb979c22a8651}\label{namespacelog__service_a90bf579b129226e4ecccb979c22a8651}} 
+\index{log\_service@{log\_service}!get\_all\_logs@{get\_all\_logs}}
+\index{get\_all\_logs@{get\_all\_logs}!log\_service@{log\_service}}
+\doxysubsubsection{\texorpdfstring{get\_all\_logs()}{get\_all\_logs()}}
+{\footnotesize\ttfamily def log\+\_\+service.\+get\+\_\+all\+\_\+logs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtiene una copia superficial de todo el ecosistema de logs global. 
+
+Devuelve un volcado completo de todas las categorías en un diccionario para la inspección global del sistema.
+
+\begin{DoxyReturn}{Returns}
+dict Diccionario donde las claves son los nombres de los servicios y los valores son sus listas de logs. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacelog__service_a9d6fb8fa51971ca316e809e128b4ecde}\label{namespacelog__service_a9d6fb8fa51971ca316e809e128b4ecde}} 
+\index{log\_service@{log\_service}!get\_logs@{get\_logs}}
+\index{get\_logs@{get\_logs}!log\_service@{log\_service}}
+\doxysubsubsection{\texorpdfstring{get\_logs()}{get\_logs()}}
+{\footnotesize\ttfamily def log\+\_\+service.\+get\+\_\+logs (\begin{DoxyParamCaption}\item[{str}]{service }\end{DoxyParamCaption})}
+
+
+
+Recupera la lista completa de registros pertenecientes a un servicio. 
+
+Accede al contenedor global bajo exclusión mutua para evitar lecturas sucias concurrentes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em service} & Nombre del servicio a consultar.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+list Lista de diccionarios con formato \{\char`\"{}time\char`\"{}\+: \char`\"{}\+HH\+:\+MM\+:\+SS\char`\"{}, \char`\"{}text\char`\"{}\+: \char`\"{}mensaje\char`\"{}\}. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacelog__service_a5c27b025767efea9c2dabbb6d7e3a54d}\label{namespacelog__service_a5c27b025767efea9c2dabbb6d7e3a54d}} 
+\index{log\_service@{log\_service}!\_lock@{\_lock}}
+\index{\_lock@{\_lock}!log\_service@{log\_service}}
+\doxysubsubsection{\texorpdfstring{\_lock}{\_lock}}
+{\footnotesize\ttfamily log\+\_\+service.\+\_\+lock = Lock()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Cerrojo (Mutex) de sincronización para garantizar la seguridad de hilos al acceder al diccionario de logs. 
+
+\mbox{\Hypertarget{namespacelog__service_a442c727a7c1e8658f15d3d5a7395474b}\label{namespacelog__service_a442c727a7c1e8658f15d3d5a7395474b}} 
+\index{log\_service@{log\_service}!\_logs@{\_logs}}
+\index{\_logs@{\_logs}!log\_service@{log\_service}}
+\doxysubsubsection{\texorpdfstring{\_logs}{\_logs}}
+{\footnotesize\ttfamily dictionary log\+\_\+service.\+\_\+logs\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  \{}
+\DoxyCodeLine{2     \textcolor{stringliteral}{"{}llm"{}}: [],}
+\DoxyCodeLine{3     \textcolor{stringliteral}{"{}recognition"{}}: [],}
+\DoxyCodeLine{4     \textcolor{stringliteral}{"{}system"{}}: []}
+\DoxyCodeLine{5 \}}
+
+\end{DoxyCode}
+
+
+Diccionario interno que almacena los registros categorizados por servicio. 
+
+\mbox{\Hypertarget{namespacelog__service_a3669392be4e35ab908d7e8b4b50b061a}\label{namespacelog__service_a3669392be4e35ab908d7e8b4b50b061a}} 
+\index{log\_service@{log\_service}!MAX\_LOGS@{MAX\_LOGS}}
+\index{MAX\_LOGS@{MAX\_LOGS}!log\_service@{log\_service}}
+\doxysubsubsection{\texorpdfstring{MAX\_LOGS}{MAX\_LOGS}}
+{\footnotesize\ttfamily int log\+\_\+service.\+MAX\+\_\+\+LOGS = 300}
+
+
+
+Límite máximo de líneas de registro que se almacenarán por cada servicio para evitar fugas de memoria. 
+

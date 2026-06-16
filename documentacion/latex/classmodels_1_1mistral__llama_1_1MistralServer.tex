@@ -1,0 +1,115 @@
+\hypertarget{classmodels_1_1mistral__llama_1_1MistralServer}{}\doxysection{models.\+mistral\+\_\+llama.\+Mistral\+Server Class Reference}
+\label{classmodels_1_1mistral__llama_1_1MistralServer}\index{models.mistral\_llama.MistralServer@{models.mistral\_llama.MistralServer}}
+
+
+Adaptador del servidor local Mistral para el pipeline de ejecución de benchmarks del robot.  
+
+
+
+
+Inheritance diagram for models.\+mistral\+\_\+llama.\+Mistral\+Server\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=240pt]{classmodels_1_1mistral__llama_1_1MistralServer__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for models.\+mistral\+\_\+llama.\+Mistral\+Server\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=240pt]{classmodels_1_1mistral__llama_1_1MistralServer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classmodels_1_1mistral__llama_1_1MistralServer_abae1c41c3337fc75f6381cb52e127838}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classmodels_1_1mistral__llama_1_1MistralServer_adddf4a0d69da5cd480dd0ad0054938af}{url}}=\char`\"{}http\+://127.\+0.\+0.\+1\+:8081/completion\char`\"{})
+\begin{DoxyCompactList}\small\item\em Constructor de la clase \mbox{\hyperlink{classmodels_1_1mistral__llama_1_1MistralServer}{Mistral\+Server}}. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classmodels_1_1mistral__llama_1_1MistralServer_a1d85786cc7302e927611ac6c084b3b4b}{generate}} (self, prompt)
+\begin{DoxyCompactList}\small\item\em Envía una solicitud de inferencia síncrona al servidor local Mistral. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmodels_1_1mistral__llama_1_1MistralServer_adddf4a0d69da5cd480dd0ad0054938af}{url}}
+\begin{DoxyCompactList}\small\item\em Dirección URL o socket de red del servidor de inferencia local. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Adaptador del servidor local Mistral para el pipeline de ejecución de benchmarks del robot. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classmodels_1_1mistral__llama_1_1MistralServer_abae1c41c3337fc75f6381cb52e127838}\label{classmodels_1_1mistral__llama_1_1MistralServer_abae1c41c3337fc75f6381cb52e127838}} 
+\index{models.mistral\_llama.MistralServer@{models.mistral\_llama.MistralServer}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!models.mistral\_llama.MistralServer@{models.mistral\_llama.MistralServer}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def models.\+mistral\+\_\+llama.\+Mistral\+Server.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{url = {\ttfamily \char`\"{}http\+://127.0.0.1\+:8081/completion\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+Constructor de la clase \mbox{\hyperlink{classmodels_1_1mistral__llama_1_1MistralServer}{Mistral\+Server}}. 
+
+Invoca al constructor de la clase abstracta padre definiendo el nombre clave \textquotesingle{}mistral-\/7b\textquotesingle{} y parametriza la dirección de red local (Loopback) por defecto para el socket de inferencia.
+
+
+\begin{DoxyParams}{Parameters}
+{\em url} & Dirección URL absoluta del endpoint del servidor de inferencia local. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=240pt]{classmodels_1_1mistral__llama_1_1MistralServer_abae1c41c3337fc75f6381cb52e127838_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classmodels_1_1mistral__llama_1_1MistralServer_a1d85786cc7302e927611ac6c084b3b4b}\label{classmodels_1_1mistral__llama_1_1MistralServer_a1d85786cc7302e927611ac6c084b3b4b}} 
+\index{models.mistral\_llama.MistralServer@{models.mistral\_llama.MistralServer}!generate@{generate}}
+\index{generate@{generate}!models.mistral\_llama.MistralServer@{models.mistral\_llama.MistralServer}}
+\doxysubsubsection{\texorpdfstring{generate()}{generate()}}
+{\footnotesize\ttfamily def models.\+mistral\+\_\+llama.\+Mistral\+Server.\+generate (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{prompt }\end{DoxyParamCaption})}
+
+
+
+Envía una solicitud de inferencia síncrona al servidor local Mistral. 
+
+Construye un payload JSON estructurado inyectando la cadena del prompt y el parámetro de parada {\ttfamily n\+\_\+predict} para limitar la longitud máxima de la generación de tokens.
+
+
+\begin{DoxyParams}{Parameters}
+{\em prompt} & Instrucción o pregunta limpia destinada a ser evaluada por el modelo de lenguaje.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+tuple Una tupla {\ttfamily (content\+\_\+text, extra\+\_\+metadata)} donde\+:
+\begin{DoxyItemize}
+\item {\ttfamily content\+\_\+text} (str)\+: El cuerpo de la respuesta generado por Mistral extraído de la clave \textquotesingle{}content\textquotesingle{}.
+\item {\ttfamily extra\+\_\+metadata} (dict)\+: Un diccionario vacío reservado para metadatos de tokens. 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classmodels_1_1mistral__llama_1_1MistralServer_adddf4a0d69da5cd480dd0ad0054938af}\label{classmodels_1_1mistral__llama_1_1MistralServer_adddf4a0d69da5cd480dd0ad0054938af}} 
+\index{models.mistral\_llama.MistralServer@{models.mistral\_llama.MistralServer}!url@{url}}
+\index{url@{url}!models.mistral\_llama.MistralServer@{models.mistral\_llama.MistralServer}}
+\doxysubsubsection{\texorpdfstring{url}{url}}
+{\footnotesize\ttfamily models.\+mistral\+\_\+llama.\+Mistral\+Server.\+url}
+
+
+
+Dirección URL o socket de red del servidor de inferencia local. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+llm\+\_\+package/models/\mbox{\hyperlink{mistral__llama_8py}{mistral\+\_\+llama.\+py}}\end{DoxyCompactItemize}

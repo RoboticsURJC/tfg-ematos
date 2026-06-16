@@ -1,0 +1,5 @@
+<map id="app.core.robot_controller.RobotController.login" name="app.core.robot_controller.RobotController.login">
+<area shape="rect" id="node1" title="Autentica e inicia la sesión de un usuario y activa los demonios de voz y agenda." alt="" coords="5,29,193,71"/>
+<area shape="rect" id="node2" href="$classapp_1_1core_1_1robot__controller_1_1RobotController.html#a0041a9395a55999537385b3d68a24157" title="Dispara la secuencia de arranque inicial del robot (Boot sequence)." alt="" coords="241,29,429,71"/>
+<area shape="rect" id="node3" href="$classapp_1_1core_1_1robot__controller_1_1RobotController.html#a96e4514d5e2c4bf8eab51f5cd2d32412" title="Establece el estado de inicialización nativo del hardware." alt="" coords="477,29,665,71"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="settings_screen.SettingsScreen._change_volume" name="settings_screen.SettingsScreen._change_volume">
+<area shape="rect" id="node1" title="Ajusta el volumen maestro mediante &#39;amixer&#39;." alt="" coords="5,5,187,47"/>
+<area shape="rect" id="node2" href="$classsettings__screen_1_1SettingsScreen.html#ab12abcb7dc267e7c3fe73a130cf7ebc5" title="Lee el nivel de volumen actual vía amixer." alt="" coords="235,5,416,47"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="launcher_screen.LauncherScreen._quick_volume" name="launcher_screen.LauncherScreen._quick_volume">
+<area shape="rect" id="node1" title="Ajusta el volumen del sistema mediante comandos de shell." alt="" coords="5,5,196,47"/>
+<area shape="rect" id="node2" href="$classlauncher__screen_1_1LauncherScreen.html#a5313411b51aa390c1305e2582e593427" title="Sincroniza la etiqueta visual con el estado real del sistema." alt="" coords="244,5,435,47"/>
+</map>

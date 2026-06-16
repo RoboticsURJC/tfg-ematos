@@ -1,0 +1,3 @@
+<map id="app.core.robot_controller.RobotController.open_app" name="app.core.robot_controller.RobotController.open_app">
+<area shape="rect" id="node1" title="Abre una aplicación del sistema, discriminando si es interna o externa." alt="" coords="5,29,196,71"/>
+</map>

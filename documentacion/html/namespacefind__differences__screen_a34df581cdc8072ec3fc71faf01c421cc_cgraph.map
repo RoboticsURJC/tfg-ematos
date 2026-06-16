@@ -1,0 +1,5 @@
+<map id="find_differences_screen.apply_differences" name="find_differences_screen.apply_differences">
+<area shape="rect" id="node1" title="Toma una escena base y genera una copia mutada inyectando un número determinado de diferencias lógica..." alt="" coords="5,39,220,80"/>
+<area shape="rect" id="node2" href="$namespacefind__differences__screen.html#a1baf99688ab8dbaa2006271c6bc5ef7a" title="Atenúa u oscurece un color RGB aplicando un factor multiplicativo de escala." alt="" coords="268,5,447,47"/>
+<area shape="rect" id="node3" href="$namespacefind__differences__screen.html#aa090a2129d4066fbeec5915788f728c2" title="Intensifica o aclara un color RGB aplicando un factor multiplicativo de escala." alt="" coords="268,71,447,112"/>
+</map>

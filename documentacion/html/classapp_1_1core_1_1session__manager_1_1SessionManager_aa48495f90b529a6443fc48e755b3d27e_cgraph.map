@@ -1,0 +1,4 @@
+<map id="app.core.session_manager.SessionManager.__init__" name="app.core.session_manager.SessionManager.__init__">
+<area shape="rect" id="node1" title="Inicializa el administrador resolviendo la ruta del almacén de datos." alt="" coords="5,5,204,47"/>
+<area shape="rect" id="node2" href="$classapp_1_1core_1_1session__manager_1_1SessionManager.html#a8443066413049208970e5532debe73c3" title="Lee y deserializa el archivo de sesión en disco para restaurar el estado del sistema." alt="" coords="252,5,451,47"/>
+</map>

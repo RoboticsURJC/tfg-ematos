@@ -1,0 +1,313 @@
+\hypertarget{classlauncher__screen_1_1LauncherScreen}{}\doxysection{launcher\+\_\+screen.\+Launcher\+Screen Class Reference}
+\label{classlauncher__screen_1_1LauncherScreen}\index{launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}}
+
+
+Pantalla principal de inicio.  
+
+
+
+
+Inheritance diagram for launcher\+\_\+screen.\+Launcher\+Screen\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{classlauncher__screen_1_1LauncherScreen__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for launcher\+\_\+screen.\+Launcher\+Screen\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{classlauncher__screen_1_1LauncherScreen__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classlauncher__screen_1_1LauncherScreen_ad34cb1e9a6d856ed3388e55b2c1f1b8b}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classlauncher__screen_1_1LauncherScreen_ad860ef2ba71dff01f61b65506fd0c66b}{controller}})
+\begin{DoxyCompactList}\small\item\em Inicializa el launcher y configura el entorno visual. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classlauncher__screen_1_1LauncherScreen_a22f1aca3775c3629cb96c464bba7fb1c}{set\+\_\+user}} (self, user)
+\item 
+def \mbox{\hyperlink{classlauncher__screen_1_1LauncherScreen_a918fe47fc64c7e0c5d04596186e7a199}{update\+\_\+clock}} (self)
+\begin{DoxyCompactList}\small\item\em Actualiza la hora mostrada en la interfaz. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classlauncher__screen_1_1LauncherScreen_af475e3991614505dabdd74439beb6ada}{launch\+\_\+app}} (self, str app\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Notifica al controlador la apertura de una app específica. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classlauncher__screen_1_1LauncherScreen_a0dcc0afa4736a102d0857b3e298c46eb}{logout}} (self)
+\begin{DoxyCompactList}\small\item\em Vuelve a la ventana de login. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classlauncher__screen_1_1LauncherScreen_ad860ef2ba71dff01f61b65506fd0c66b}{controller}}
+\item 
+\mbox{\hyperlink{classlauncher__screen_1_1LauncherScreen_ac6be42decee272ff55768c0688423c0b}{title}}
+\item 
+\mbox{\hyperlink{classlauncher__screen_1_1LauncherScreen_ae63f319039dbf4ccb3185f7c9c840388}{btn\+\_\+vol\+\_\+down}}
+\item 
+\mbox{\hyperlink{classlauncher__screen_1_1LauncherScreen_a476c3c2d0e849f67b632a1a59b84a6f8}{lbl\+\_\+vol\+\_\+quick}}
+\item 
+\mbox{\hyperlink{classlauncher__screen_1_1LauncherScreen_a93f6dae707030d0a13b36e27618a1d35}{btn\+\_\+vol\+\_\+up}}
+\item 
+\mbox{\hyperlink{classlauncher__screen_1_1LauncherScreen_af0e82f472a3aed12a3abc3e790bd6807}{btn\+\_\+quick\+\_\+power}}
+\item 
+\mbox{\hyperlink{classlauncher__screen_1_1LauncherScreen_acec3f5db8a22b6771973843711f4f0a7}{subtitle}}
+\item 
+\mbox{\hyperlink{classlauncher__screen_1_1LauncherScreen_a637b2c7bbec7391a56e3b7ce4263aa49}{clock}}
+\item 
+\mbox{\hyperlink{classlauncher__screen_1_1LauncherScreen_a39987a16281c8177f73ebbe86cfa21ff}{timer}}
+\item 
+\mbox{\hyperlink{classlauncher__screen_1_1LauncherScreen_a640a38116cd8fc107d980541f5458b61}{user\+\_\+label}}
+\item 
+\mbox{\hyperlink{classlauncher__screen_1_1LauncherScreen_a1b2827fff2a12f3c73239f4a302d7f4c}{change\+\_\+user\+\_\+btn}}
+\item 
+\mbox{\hyperlink{classlauncher__screen_1_1LauncherScreen_a7a75bb8badcf5eeb7fa54271848b26c3}{logout\+\_\+btn}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classlauncher__screen_1_1LauncherScreen_a1e7fcb5e75e9dc6841077042346ecb81}{open\+\_\+app}} = pyqt\+Signal(str)
+\begin{DoxyCompactList}\small\item\em Señal emitida al seleccionar una aplicación para su ejecución. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classlauncher__screen_1_1LauncherScreen_af7d1a9386a2a27063fba0ff6639dd632}{\+\_\+quick\+\_\+volume}} (self, int delta)
+\begin{DoxyCompactList}\small\item\em Ajusta el volumen del sistema mediante comandos de shell. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classlauncher__screen_1_1LauncherScreen_a5313411b51aa390c1305e2582e593427}{\+\_\+refresh\+\_\+vol\+\_\+label}} (self)
+\begin{DoxyCompactList}\small\item\em Sincroniza la etiqueta visual con el estado real del sistema. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classlauncher__screen_1_1LauncherScreen_a5f1b29ead560c7ee9a0c8596f2edda9a}{\+\_\+quick\+\_\+poweroff}} (self)
+\begin{DoxyCompactList}\small\item\em Ejecuta un apagado seguro del equipo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Pantalla principal de inicio. 
+
+Organiza los accesos directos a las apps mediante un Grid\+View táctil y proporciona controles globales de sistema en la cabecera. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classlauncher__screen_1_1LauncherScreen_ad34cb1e9a6d856ed3388e55b2c1f1b8b}\label{classlauncher__screen_1_1LauncherScreen_ad34cb1e9a6d856ed3388e55b2c1f1b8b}} 
+\index{launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def launcher\+\_\+screen.\+Launcher\+Screen.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{controller }\end{DoxyParamCaption})}
+
+
+
+Inicializa el launcher y configura el entorno visual. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em controller} & Controlador que gestiona la lógica de navegación y apps. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{classlauncher__screen_1_1LauncherScreen_ad34cb1e9a6d856ed3388e55b2c1f1b8b_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classlauncher__screen_1_1LauncherScreen_a5f1b29ead560c7ee9a0c8596f2edda9a}\label{classlauncher__screen_1_1LauncherScreen_a5f1b29ead560c7ee9a0c8596f2edda9a}} 
+\index{launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}!\_quick\_poweroff@{\_quick\_poweroff}}
+\index{\_quick\_poweroff@{\_quick\_poweroff}!launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}}
+\doxysubsubsection{\texorpdfstring{\_quick\_poweroff()}{\_quick\_poweroff()}}
+{\footnotesize\ttfamily def launcher\+\_\+screen.\+Launcher\+Screen.\+\_\+quick\+\_\+poweroff (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Ejecuta un apagado seguro del equipo. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classlauncher__screen_1_1LauncherScreen_a5f1b29ead560c7ee9a0c8596f2edda9a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classlauncher__screen_1_1LauncherScreen_af7d1a9386a2a27063fba0ff6639dd632}\label{classlauncher__screen_1_1LauncherScreen_af7d1a9386a2a27063fba0ff6639dd632}} 
+\index{launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}!\_quick\_volume@{\_quick\_volume}}
+\index{\_quick\_volume@{\_quick\_volume}!launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}}
+\doxysubsubsection{\texorpdfstring{\_quick\_volume()}{\_quick\_volume()}}
+{\footnotesize\ttfamily def launcher\+\_\+screen.\+Launcher\+Screen.\+\_\+quick\+\_\+volume (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{int}]{delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Ajusta el volumen del sistema mediante comandos de shell. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta} & Incremento/decremento porcentual del volumen. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classlauncher__screen_1_1LauncherScreen_af7d1a9386a2a27063fba0ff6639dd632_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classlauncher__screen_1_1LauncherScreen_a5313411b51aa390c1305e2582e593427}\label{classlauncher__screen_1_1LauncherScreen_a5313411b51aa390c1305e2582e593427}} 
+\index{launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}!\_refresh\_vol\_label@{\_refresh\_vol\_label}}
+\index{\_refresh\_vol\_label@{\_refresh\_vol\_label}!launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}}
+\doxysubsubsection{\texorpdfstring{\_refresh\_vol\_label()}{\_refresh\_vol\_label()}}
+{\footnotesize\ttfamily def launcher\+\_\+screen.\+Launcher\+Screen.\+\_\+refresh\+\_\+vol\+\_\+label (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Sincroniza la etiqueta visual con el estado real del sistema. 
+
+\mbox{\Hypertarget{classlauncher__screen_1_1LauncherScreen_af475e3991614505dabdd74439beb6ada}\label{classlauncher__screen_1_1LauncherScreen_af475e3991614505dabdd74439beb6ada}} 
+\index{launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}!launch\_app@{launch\_app}}
+\index{launch\_app@{launch\_app}!launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}}
+\doxysubsubsection{\texorpdfstring{launch\_app()}{launch\_app()}}
+{\footnotesize\ttfamily def launcher\+\_\+screen.\+Launcher\+Screen.\+launch\+\_\+app (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{str}]{app\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+Notifica al controlador la apertura de una app específica. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em app\+\_\+id} & Identificador único de la aplicación (ej\+: \textquotesingle{}reminder\textquotesingle{}). \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classlauncher__screen_1_1LauncherScreen_af475e3991614505dabdd74439beb6ada_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classlauncher__screen_1_1LauncherScreen_a0dcc0afa4736a102d0857b3e298c46eb}\label{classlauncher__screen_1_1LauncherScreen_a0dcc0afa4736a102d0857b3e298c46eb}} 
+\index{launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}!logout@{logout}}
+\index{logout@{logout}!launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}}
+\doxysubsubsection{\texorpdfstring{logout()}{logout()}}
+{\footnotesize\ttfamily def launcher\+\_\+screen.\+Launcher\+Screen.\+logout (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Vuelve a la ventana de login. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{classlauncher__screen_1_1LauncherScreen_a0dcc0afa4736a102d0857b3e298c46eb_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classlauncher__screen_1_1LauncherScreen_a22f1aca3775c3629cb96c464bba7fb1c}\label{classlauncher__screen_1_1LauncherScreen_a22f1aca3775c3629cb96c464bba7fb1c}} 
+\index{launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}!set\_user@{set\_user}}
+\index{set\_user@{set\_user}!launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}}
+\doxysubsubsection{\texorpdfstring{set\_user()}{set\_user()}}
+{\footnotesize\ttfamily def launcher\+\_\+screen.\+Launcher\+Screen.\+set\+\_\+user (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{user }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classlauncher__screen_1_1LauncherScreen_a918fe47fc64c7e0c5d04596186e7a199}\label{classlauncher__screen_1_1LauncherScreen_a918fe47fc64c7e0c5d04596186e7a199}} 
+\index{launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}!update\_clock@{update\_clock}}
+\index{update\_clock@{update\_clock}!launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}}
+\doxysubsubsection{\texorpdfstring{update\_clock()}{update\_clock()}}
+{\footnotesize\ttfamily def launcher\+\_\+screen.\+Launcher\+Screen.\+update\+\_\+clock (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Actualiza la hora mostrada en la interfaz. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classlauncher__screen_1_1LauncherScreen_af0e82f472a3aed12a3abc3e790bd6807}\label{classlauncher__screen_1_1LauncherScreen_af0e82f472a3aed12a3abc3e790bd6807}} 
+\index{launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}!btn\_quick\_power@{btn\_quick\_power}}
+\index{btn\_quick\_power@{btn\_quick\_power}!launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_quick\_power}{btn\_quick\_power}}
+{\footnotesize\ttfamily launcher\+\_\+screen.\+Launcher\+Screen.\+btn\+\_\+quick\+\_\+power}
+
+\mbox{\Hypertarget{classlauncher__screen_1_1LauncherScreen_ae63f319039dbf4ccb3185f7c9c840388}\label{classlauncher__screen_1_1LauncherScreen_ae63f319039dbf4ccb3185f7c9c840388}} 
+\index{launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}!btn\_vol\_down@{btn\_vol\_down}}
+\index{btn\_vol\_down@{btn\_vol\_down}!launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_vol\_down}{btn\_vol\_down}}
+{\footnotesize\ttfamily launcher\+\_\+screen.\+Launcher\+Screen.\+btn\+\_\+vol\+\_\+down}
+
+\mbox{\Hypertarget{classlauncher__screen_1_1LauncherScreen_a93f6dae707030d0a13b36e27618a1d35}\label{classlauncher__screen_1_1LauncherScreen_a93f6dae707030d0a13b36e27618a1d35}} 
+\index{launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}!btn\_vol\_up@{btn\_vol\_up}}
+\index{btn\_vol\_up@{btn\_vol\_up}!launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_vol\_up}{btn\_vol\_up}}
+{\footnotesize\ttfamily launcher\+\_\+screen.\+Launcher\+Screen.\+btn\+\_\+vol\+\_\+up}
+
+\mbox{\Hypertarget{classlauncher__screen_1_1LauncherScreen_a1b2827fff2a12f3c73239f4a302d7f4c}\label{classlauncher__screen_1_1LauncherScreen_a1b2827fff2a12f3c73239f4a302d7f4c}} 
+\index{launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}!change\_user\_btn@{change\_user\_btn}}
+\index{change\_user\_btn@{change\_user\_btn}!launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}}
+\doxysubsubsection{\texorpdfstring{change\_user\_btn}{change\_user\_btn}}
+{\footnotesize\ttfamily launcher\+\_\+screen.\+Launcher\+Screen.\+change\+\_\+user\+\_\+btn}
+
+\mbox{\Hypertarget{classlauncher__screen_1_1LauncherScreen_a637b2c7bbec7391a56e3b7ce4263aa49}\label{classlauncher__screen_1_1LauncherScreen_a637b2c7bbec7391a56e3b7ce4263aa49}} 
+\index{launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}!clock@{clock}}
+\index{clock@{clock}!launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}}
+\doxysubsubsection{\texorpdfstring{clock}{clock}}
+{\footnotesize\ttfamily launcher\+\_\+screen.\+Launcher\+Screen.\+clock}
+
+\mbox{\Hypertarget{classlauncher__screen_1_1LauncherScreen_ad860ef2ba71dff01f61b65506fd0c66b}\label{classlauncher__screen_1_1LauncherScreen_ad860ef2ba71dff01f61b65506fd0c66b}} 
+\index{launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}!controller@{controller}}
+\index{controller@{controller}!launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}}
+\doxysubsubsection{\texorpdfstring{controller}{controller}}
+{\footnotesize\ttfamily launcher\+\_\+screen.\+Launcher\+Screen.\+controller}
+
+\mbox{\Hypertarget{classlauncher__screen_1_1LauncherScreen_a476c3c2d0e849f67b632a1a59b84a6f8}\label{classlauncher__screen_1_1LauncherScreen_a476c3c2d0e849f67b632a1a59b84a6f8}} 
+\index{launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}!lbl\_vol\_quick@{lbl\_vol\_quick}}
+\index{lbl\_vol\_quick@{lbl\_vol\_quick}!launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}}
+\doxysubsubsection{\texorpdfstring{lbl\_vol\_quick}{lbl\_vol\_quick}}
+{\footnotesize\ttfamily launcher\+\_\+screen.\+Launcher\+Screen.\+lbl\+\_\+vol\+\_\+quick}
+
+\mbox{\Hypertarget{classlauncher__screen_1_1LauncherScreen_a7a75bb8badcf5eeb7fa54271848b26c3}\label{classlauncher__screen_1_1LauncherScreen_a7a75bb8badcf5eeb7fa54271848b26c3}} 
+\index{launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}!logout\_btn@{logout\_btn}}
+\index{logout\_btn@{logout\_btn}!launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}}
+\doxysubsubsection{\texorpdfstring{logout\_btn}{logout\_btn}}
+{\footnotesize\ttfamily launcher\+\_\+screen.\+Launcher\+Screen.\+logout\+\_\+btn}
+
+\mbox{\Hypertarget{classlauncher__screen_1_1LauncherScreen_a1e7fcb5e75e9dc6841077042346ecb81}\label{classlauncher__screen_1_1LauncherScreen_a1e7fcb5e75e9dc6841077042346ecb81}} 
+\index{launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}!open\_app@{open\_app}}
+\index{open\_app@{open\_app}!launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}}
+\doxysubsubsection{\texorpdfstring{open\_app}{open\_app}}
+{\footnotesize\ttfamily launcher\+\_\+screen.\+Launcher\+Screen.\+open\+\_\+app = pyqt\+Signal(str)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Señal emitida al seleccionar una aplicación para su ejecución. 
+
+\mbox{\Hypertarget{classlauncher__screen_1_1LauncherScreen_acec3f5db8a22b6771973843711f4f0a7}\label{classlauncher__screen_1_1LauncherScreen_acec3f5db8a22b6771973843711f4f0a7}} 
+\index{launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}!subtitle@{subtitle}}
+\index{subtitle@{subtitle}!launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}}
+\doxysubsubsection{\texorpdfstring{subtitle}{subtitle}}
+{\footnotesize\ttfamily launcher\+\_\+screen.\+Launcher\+Screen.\+subtitle}
+
+\mbox{\Hypertarget{classlauncher__screen_1_1LauncherScreen_a39987a16281c8177f73ebbe86cfa21ff}\label{classlauncher__screen_1_1LauncherScreen_a39987a16281c8177f73ebbe86cfa21ff}} 
+\index{launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}!timer@{timer}}
+\index{timer@{timer}!launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}}
+\doxysubsubsection{\texorpdfstring{timer}{timer}}
+{\footnotesize\ttfamily launcher\+\_\+screen.\+Launcher\+Screen.\+timer}
+
+\mbox{\Hypertarget{classlauncher__screen_1_1LauncherScreen_ac6be42decee272ff55768c0688423c0b}\label{classlauncher__screen_1_1LauncherScreen_ac6be42decee272ff55768c0688423c0b}} 
+\index{launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}!title@{title}}
+\index{title@{title}!launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}}
+\doxysubsubsection{\texorpdfstring{title}{title}}
+{\footnotesize\ttfamily launcher\+\_\+screen.\+Launcher\+Screen.\+title}
+
+\mbox{\Hypertarget{classlauncher__screen_1_1LauncherScreen_a640a38116cd8fc107d980541f5458b61}\label{classlauncher__screen_1_1LauncherScreen_a640a38116cd8fc107d980541f5458b61}} 
+\index{launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}!user\_label@{user\_label}}
+\index{user\_label@{user\_label}!launcher\_screen.LauncherScreen@{launcher\_screen.LauncherScreen}}
+\doxysubsubsection{\texorpdfstring{user\_label}{user\_label}}
+{\footnotesize\ttfamily launcher\+\_\+screen.\+Launcher\+Screen.\+user\+\_\+label}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ui/screens/\mbox{\hyperlink{launcher__screen_8py}{launcher\+\_\+screen.\+py}}\end{DoxyCompactItemize}

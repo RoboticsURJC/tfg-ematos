@@ -1,0 +1,4 @@
+<map id="routes_dashboard.start_service" name="routes_dashboard.start_service">
+<area shape="rect" id="node1" title="Arranca un servicio del sistema." alt="" coords="5,5,177,47"/>
+<area shape="rect" id="node2" href="$namespacelog__service.html#af8a86650753e2ab9216e190fad59757c" title="Añade una nueva entrada de registro para un servicio específico." alt="" coords="225,13,376,39"/>
+</map>

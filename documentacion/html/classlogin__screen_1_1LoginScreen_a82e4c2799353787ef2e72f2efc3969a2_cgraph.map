@@ -1,0 +1,3 @@
+<map id="login_screen.LoginScreen.__init__" name="login_screen.LoginScreen.__init__">
+<area shape="rect" id="node1" title="Inicializa la pantalla, abre la cámara y configura el layout." alt="" coords="5,29,196,71"/>
+</map>

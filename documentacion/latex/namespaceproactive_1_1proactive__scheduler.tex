@@ -1,0 +1,97 @@
+\hypertarget{namespaceproactive_1_1proactive__scheduler}{}\doxysection{proactive.\+proactive\+\_\+scheduler Namespace Reference}
+\label{namespaceproactive_1_1proactive__scheduler}\index{proactive.proactive\_scheduler@{proactive.proactive\_scheduler}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler}{Proactive\+Scheduler}}
+\begin{DoxyCompactList}\small\item\em Clase encargada de programar y ejecutar disparos proactivos de sugerencias. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \mbox{\hyperlink{namespaceproactive_1_1proactive__scheduler_af7438d3fa6f703a34dce2e02676e0efe}{MEMORY\+\_\+\+SUGGESTIONS}}
+\begin{DoxyCompactList}\small\item\em Colección de ejercicios cognitivos para la estimulación de la memoria. \end{DoxyCompactList}\item 
+list \mbox{\hyperlink{namespaceproactive_1_1proactive__scheduler_ac937e3250422caf27cf72e18793d8bee}{MOBILITY\+\_\+\+SUGGESTIONS}}
+\begin{DoxyCompactList}\small\item\em Colección de ejercicios de movilidad física para mejorar la circulación y reducir la rigidez. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{namespaceproactive_1_1proactive__scheduler_a432ce421303613b5af8455887634dd9a}{DISPLAY\+\_\+\+IDLE}} = \char`\"{}Esperando activación...\char`\"{}
+\begin{DoxyCompactList}\small\item\em Etiqueta de estado para cuando el asistente está en reposo. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{namespaceproactive_1_1proactive__scheduler_a970da7c2ac30663512da31bda682e92d}{DISPLAY\+\_\+\+AWAKE}} = \char`\"{}Escuchando...\char`\"{}
+\begin{DoxyCompactList}\small\item\em Etiqueta de estado para cuando el asistente está procesando voz. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespaceproactive_1_1proactive__scheduler_a6985edc6f78bec5f7c5ddbc3e6f350d8}{SUGGESTION\+\_\+\+TIMEOUT}} = 60
+\begin{DoxyCompactList}\small\item\em Segundos límite de espera para la respuesta de la UI antes de auto-\/cancelar la sugerencia. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespaceproactive_1_1proactive__scheduler_a970da7c2ac30663512da31bda682e92d}\label{namespaceproactive_1_1proactive__scheduler_a970da7c2ac30663512da31bda682e92d}} 
+\index{proactive.proactive\_scheduler@{proactive.proactive\_scheduler}!DISPLAY\_AWAKE@{DISPLAY\_AWAKE}}
+\index{DISPLAY\_AWAKE@{DISPLAY\_AWAKE}!proactive.proactive\_scheduler@{proactive.proactive\_scheduler}}
+\doxysubsubsection{\texorpdfstring{DISPLAY\_AWAKE}{DISPLAY\_AWAKE}}
+{\footnotesize\ttfamily string proactive.\+proactive\+\_\+scheduler.\+DISPLAY\+\_\+\+AWAKE = \char`\"{}Escuchando...\char`\"{}}
+
+
+
+Etiqueta de estado para cuando el asistente está procesando voz. 
+
+\mbox{\Hypertarget{namespaceproactive_1_1proactive__scheduler_a432ce421303613b5af8455887634dd9a}\label{namespaceproactive_1_1proactive__scheduler_a432ce421303613b5af8455887634dd9a}} 
+\index{proactive.proactive\_scheduler@{proactive.proactive\_scheduler}!DISPLAY\_IDLE@{DISPLAY\_IDLE}}
+\index{DISPLAY\_IDLE@{DISPLAY\_IDLE}!proactive.proactive\_scheduler@{proactive.proactive\_scheduler}}
+\doxysubsubsection{\texorpdfstring{DISPLAY\_IDLE}{DISPLAY\_IDLE}}
+{\footnotesize\ttfamily string proactive.\+proactive\+\_\+scheduler.\+DISPLAY\+\_\+\+IDLE = \char`\"{}Esperando activación...\char`\"{}}
+
+
+
+Etiqueta de estado para cuando el asistente está en reposo. 
+
+\mbox{\Hypertarget{namespaceproactive_1_1proactive__scheduler_af7438d3fa6f703a34dce2e02676e0efe}\label{namespaceproactive_1_1proactive__scheduler_af7438d3fa6f703a34dce2e02676e0efe}} 
+\index{proactive.proactive\_scheduler@{proactive.proactive\_scheduler}!MEMORY\_SUGGESTIONS@{MEMORY\_SUGGESTIONS}}
+\index{MEMORY\_SUGGESTIONS@{MEMORY\_SUGGESTIONS}!proactive.proactive\_scheduler@{proactive.proactive\_scheduler}}
+\doxysubsubsection{\texorpdfstring{MEMORY\_SUGGESTIONS}{MEMORY\_SUGGESTIONS}}
+{\footnotesize\ttfamily list proactive.\+proactive\+\_\+scheduler.\+MEMORY\+\_\+\+SUGGESTIONS}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  [}
+\DoxyCodeLine{2     \{}
+\DoxyCodeLine{3         \textcolor{stringliteral}{"{}type"{}}: \textcolor{stringliteral}{"{}memory"{}}, \textcolor{stringliteral}{"{}title"{}}: \textcolor{stringliteral}{"{}Ejercita tu memoria"{}},}
+\DoxyCodeLine{4         \textcolor{stringliteral}{"{}body"{}}: \textcolor{stringliteral}{"{}Es un buen momento para jugar\(\backslash\)na la Sopa de Letras. ¿Te apuntas?"{}},}
+\DoxyCodeLine{5         \textcolor{stringliteral}{"{}icon"{}}: \textcolor{stringliteral}{"{}🔤"{}}, \textcolor{stringliteral}{"{}action"{}}: \textcolor{stringliteral}{"{}wordsearch"{}},}
+\DoxyCodeLine{6         \textcolor{stringliteral}{"{}tts"{}}: \textcolor{stringliteral}{"{}Es un buen momento para ejercitar la memoria. ¿Jugamos a la sopa de letras?"{}},}
+\DoxyCodeLine{7     \},}
+\DoxyCodeLine{8     \{}
+\DoxyCodeLine{9         \textcolor{stringliteral}{"{}type"{}}: \textcolor{stringliteral}{"{}memory"{}}, \textcolor{stringliteral}{"{}title"{}}: \textcolor{stringliteral}{"{}Entrena tu mente"{}},}
+\DoxyCodeLine{10         \textcolor{stringliteral}{"{}body"{}}: \textcolor{stringliteral}{"{}Unas partiditas al Juego de Memoria\(\backslash\)nson perfectas para el cerebro."{}},}
+\DoxyCodeLine{11         \textcolor{stringliteral}{"{}icon"{}}: \textcolor{stringliteral}{"{}🃏"{}}, \textcolor{stringliteral}{"{}action"{}}: \textcolor{stringliteral}{"{}memory"{}},}
+\DoxyCodeLine{12         \textcolor{stringliteral}{"{}tts"{}}: \textcolor{stringliteral}{"{}¿Qué te parece una partida al juego de memoria para mantener la mente ágil?"{}},}
+\DoxyCodeLine{13     \},}
+\DoxyCodeLine{14     \{}
+\DoxyCodeLine{15         \textcolor{stringliteral}{"{}type"{}}: \textcolor{stringliteral}{"{}memory"{}}, \textcolor{stringliteral}{"{}title"{}}: \textcolor{stringliteral}{"{}Pequeño reto mental"{}},}
+\DoxyCodeLine{16         \textcolor{stringliteral}{"{}body"{}}: \textcolor{stringliteral}{"{}Llevas un rato descansando.\(\backslash\)n¡Un juego rápido te vendrá genial!"{}},}
+\DoxyCodeLine{17         \textcolor{stringliteral}{"{}icon"{}}: \textcolor{stringliteral}{"{}🧠"{}}, \textcolor{stringliteral}{"{}action"{}}: \textcolor{stringliteral}{"{}memory"{}},}
+\DoxyCodeLine{18         \textcolor{stringliteral}{"{}tts"{}}: \textcolor{stringliteral}{"{}Un pequeño juego te ayudará a mantenerte activo mentalmente. ¿Empezamos?"{}},}
+\DoxyCodeLine{19     \},}
+\DoxyCodeLine{20 ]}
+
+\end{DoxyCode}
+
+
+Colección de ejercicios cognitivos para la estimulación de la memoria. 
+
+\mbox{\Hypertarget{namespaceproactive_1_1proactive__scheduler_ac937e3250422caf27cf72e18793d8bee}\label{namespaceproactive_1_1proactive__scheduler_ac937e3250422caf27cf72e18793d8bee}} 
+\index{proactive.proactive\_scheduler@{proactive.proactive\_scheduler}!MOBILITY\_SUGGESTIONS@{MOBILITY\_SUGGESTIONS}}
+\index{MOBILITY\_SUGGESTIONS@{MOBILITY\_SUGGESTIONS}!proactive.proactive\_scheduler@{proactive.proactive\_scheduler}}
+\doxysubsubsection{\texorpdfstring{MOBILITY\_SUGGESTIONS}{MOBILITY\_SUGGESTIONS}}
+{\footnotesize\ttfamily list proactive.\+proactive\+\_\+scheduler.\+MOBILITY\+\_\+\+SUGGESTIONS}
+
+
+
+Colección de ejercicios de movilidad física para mejorar la circulación y reducir la rigidez. 
+
+\mbox{\Hypertarget{namespaceproactive_1_1proactive__scheduler_a6985edc6f78bec5f7c5ddbc3e6f350d8}\label{namespaceproactive_1_1proactive__scheduler_a6985edc6f78bec5f7c5ddbc3e6f350d8}} 
+\index{proactive.proactive\_scheduler@{proactive.proactive\_scheduler}!SUGGESTION\_TIMEOUT@{SUGGESTION\_TIMEOUT}}
+\index{SUGGESTION\_TIMEOUT@{SUGGESTION\_TIMEOUT}!proactive.proactive\_scheduler@{proactive.proactive\_scheduler}}
+\doxysubsubsection{\texorpdfstring{SUGGESTION\_TIMEOUT}{SUGGESTION\_TIMEOUT}}
+{\footnotesize\ttfamily int proactive.\+proactive\+\_\+scheduler.\+SUGGESTION\+\_\+\+TIMEOUT = 60}
+
+
+
+Segundos límite de espera para la respuesta de la UI antes de auto-\/cancelar la sugerencia. 
+

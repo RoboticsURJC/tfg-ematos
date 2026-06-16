@@ -1,0 +1,108 @@
+\hypertarget{classmodels_1_1gpt__azure_1_1GPTAzure}{}\doxysection{models.\+gpt\+\_\+azure.\+GPTAzure Class Reference}
+\label{classmodels_1_1gpt__azure_1_1GPTAzure}\index{models.gpt\_azure.GPTAzure@{models.gpt\_azure.GPTAzure}}
+
+
+Adaptador de GPT-\/4 (Azure AI) para el pipeline de ejecución de benchmarks del robot.  
+
+
+
+
+Inheritance diagram for models.\+gpt\+\_\+azure.\+GPTAzure\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=233pt]{classmodels_1_1gpt__azure_1_1GPTAzure__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for models.\+gpt\+\_\+azure.\+GPTAzure\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=233pt]{classmodels_1_1gpt__azure_1_1GPTAzure__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classmodels_1_1gpt__azure_1_1GPTAzure_ab02e5274fdedb2e2aba487f9e6010d8f}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\begin{DoxyCompactList}\small\item\em Constructor de la clase \mbox{\hyperlink{classmodels_1_1gpt__azure_1_1GPTAzure}{GPTAzure}}. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classmodels_1_1gpt__azure_1_1GPTAzure_ad98f29cb3a54d760c6a3df0f66c57074}{generate}} (self, prompt)
+\begin{DoxyCompactList}\small\item\em Envía una solicitud de inferencia síncrona al modelo gpt-\/4o-\/mini alojado en Azure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmodels_1_1gpt__azure_1_1GPTAzure_ab97544c46d438f7f646abaa5d423f083}{client}}
+\begin{DoxyCompactList}\small\item\em Cliente de Open\+AI parametrizado con el endpoint de Azure AI Marketplace. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Adaptador de GPT-\/4 (Azure AI) para el pipeline de ejecución de benchmarks del robot. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classmodels_1_1gpt__azure_1_1GPTAzure_ab02e5274fdedb2e2aba487f9e6010d8f}\label{classmodels_1_1gpt__azure_1_1GPTAzure_ab02e5274fdedb2e2aba487f9e6010d8f}} 
+\index{models.gpt\_azure.GPTAzure@{models.gpt\_azure.GPTAzure}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!models.gpt\_azure.GPTAzure@{models.gpt\_azure.GPTAzure}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def models.\+gpt\+\_\+azure.\+GPTAzure.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Constructor de la clase \mbox{\hyperlink{classmodels_1_1gpt__azure_1_1GPTAzure}{GPTAzure}}. 
+
+Inicializa la clase base bajo el identificador técnico \textquotesingle{}gpt-\/4-\/azure\textquotesingle{} y configura el cliente de Open\+AI para que apunte al Host de inferencia global de Azure AI. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{classmodels_1_1gpt__azure_1_1GPTAzure_ab02e5274fdedb2e2aba487f9e6010d8f_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classmodels_1_1gpt__azure_1_1GPTAzure_ad98f29cb3a54d760c6a3df0f66c57074}\label{classmodels_1_1gpt__azure_1_1GPTAzure_ad98f29cb3a54d760c6a3df0f66c57074}} 
+\index{models.gpt\_azure.GPTAzure@{models.gpt\_azure.GPTAzure}!generate@{generate}}
+\index{generate@{generate}!models.gpt\_azure.GPTAzure@{models.gpt\_azure.GPTAzure}}
+\doxysubsubsection{\texorpdfstring{generate()}{generate()}}
+{\footnotesize\ttfamily def models.\+gpt\+\_\+azure.\+GPTAzure.\+generate (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{prompt }\end{DoxyParamCaption})}
+
+
+
+Envía una solicitud de inferencia síncrona al modelo gpt-\/4o-\/mini alojado en Azure. 
+
+Construye la estructura de mensajería conversacional estándar ({\ttfamily messages}) exigida por la API, ejecuta la llamada de forma bloqueante y extrae el texto plano del primer elemento del vector de elecciones ({\ttfamily choices}).
+
+
+\begin{DoxyParams}{Parameters}
+{\em prompt} & Instrucción o pregunta limpia destinada a ser evaluada por el modelo de lenguaje.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+tuple Una tupla {\ttfamily (content\+\_\+text, extra\+\_\+metadata)} donde\+:
+\begin{DoxyItemize}
+\item {\ttfamily content\+\_\+text} (str)\+: El cuerpo de la respuesta generado por el modelo.
+\item {\ttfamily extra\+\_\+metadata} (dict)\+: Un diccionario vacío reservado para metadatos de tokens. 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classmodels_1_1gpt__azure_1_1GPTAzure_ab97544c46d438f7f646abaa5d423f083}\label{classmodels_1_1gpt__azure_1_1GPTAzure_ab97544c46d438f7f646abaa5d423f083}} 
+\index{models.gpt\_azure.GPTAzure@{models.gpt\_azure.GPTAzure}!client@{client}}
+\index{client@{client}!models.gpt\_azure.GPTAzure@{models.gpt\_azure.GPTAzure}}
+\doxysubsubsection{\texorpdfstring{client}{client}}
+{\footnotesize\ttfamily models.\+gpt\+\_\+azure.\+GPTAzure.\+client}
+
+
+
+Cliente de Open\+AI parametrizado con el endpoint de Azure AI Marketplace. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+llm\+\_\+package/models/\mbox{\hyperlink{gpt__azure_8py}{gpt\+\_\+azure.\+py}}\end{DoxyCompactItemize}

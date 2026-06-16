@@ -1,0 +1,4 @@
+<map id="memory_screen.MemoryScreen" name="memory_screen.MemoryScreen">
+<area shape="rect" id="node1" title="Orquestador gráfico y lógico del minijuego de memoria." alt="" coords="5,131,235,516"/>
+<area shape="rect" id="node2" title=" " alt="" coords="37,5,203,83"/>
+</map>

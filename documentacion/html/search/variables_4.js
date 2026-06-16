@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['data_5fpath_0',['data_path',['../classapp_1_1core_1_1session__manager_1_1SessionManager.html#a36555a6aea3720122975d34a835838f5',1,'app.core.session_manager.SessionManager.data_path()'],['../namespaceserver.html#adc374e9d63944f6b78685b2c7e196133',1,'server.data_path()']]],
+  ['dataset_5fpath_1',['DATASET_PATH',['../namespacemain.html#af12265b8cdab1a213b7e6187dbbec3a7',1,'main']]],
+  ['date_5fdialog_5fstyle_2',['DATE_DIALOG_STYLE',['../namespacereminder__screen.html#a70359666672760a99e9ae3445272f08e',1,'reminder_screen']]],
+  ['date_5fdisplay_3',['date_display',['../classreminder__screen_1_1ReminderScreen.html#a9d4f68c99e1e9241ea271271275c15be',1,'reminder_screen::ReminderScreen']]],
+  ['db_5fpath_4',['db_path',['../namespaceserver.html#a2a846bc7faada555c48d59290ff4ff90',1,'server']]],
+  ['debug_5',['debug',['../namespaceserver.html#a43e48d45560e05a17f4716d8b28aa82a',1,'server']]],
+  ['detail_6',['detail',['../classerror__screen_1_1ErrorScreen.html#a61bfa3dbb8bdbc0837ee4cb5d7139274',1,'error_screen::ErrorScreen']]],
+  ['diff_5ftype_7',['diff_type',['../classfind__differences__screen_1_1Difference.html#abe17079423f1eb3f833aab0dcd115570',1,'find_differences_screen::Difference']]],
+  ['differences_8',['differences',['../classfind__differences__screen_1_1FindDifferencesScreen.html#a05232dc119705529381aa6f6a0682ffa',1,'find_differences_screen::FindDifferencesScreen']]],
+  ['difficulty_9',['difficulty',['../classfind__differences__screen_1_1FindDifferencesScreen.html#a7408b11967f5b1704d7077f0fa981c7d',1,'find_differences_screen.FindDifferencesScreen.difficulty()'],['../classsimon__says__screen_1_1SimonSaysScreen.html#af9c2a95425344ef69fd8ed055baabcbd',1,'simon_says_screen.SimonSaysScreen.difficulty()'],['../classword__search__screen_1_1WordSearchScreen.html#ab40df9139019fd95f6915fbfec3d60ca',1,'word_search_screen.WordSearchScreen.difficulty()']]],
+  ['difficulty_10',['DIFFICULTY',['../namespacesimon__says__screen.html#a692ddf1e3696120eeac7de462a459cff',1,'simon_says_screen.DIFFICULTY()'],['../namespacefind__differences__screen.html#a23c4339ee4096fb282e5b3eeaa3bfef3',1,'find_differences_screen.DIFFICULTY()']]],
+  ['display_11',['display',['../classapp_1_1ui_1_1display_1_1FaceDisplay.html#aa0c43d8b7a32cd09a370b852fff9a91e',1,'app.ui.display.FaceDisplay.display()'],['../classapp_1_1ui_1_1face__client_1_1FaceClient.html#a3b5e2ed2cc35f0f23c2346f96f8dd815',1,'app.ui.face_client.FaceClient.display()'],['../classreminder__scheduler_1_1ReminderScheduler.html#a18220f64f5a802b621591925c0126855',1,'reminder_scheduler.ReminderScheduler.display()'],['../classproactive_1_1proactive__scheduler_1_1ProactiveScheduler.html#ab7247ded6b89b9169cec9fda06f6bc44',1,'proactive.proactive_scheduler.ProactiveScheduler.display()'],['../classapp_1_1ui_1_1app__controller_1_1AppController.html#a341656c547de25b98cedf8e5b455b33c',1,'app.ui.app_controller.AppController.display()'],['../classapp_1_1core_1_1robot__controller_1_1RobotController.html#a9c506175bad46983852fdfeaf3095065',1,'app.core.robot_controller.RobotController.display()'],['../classapp_1_1core_1_1assistant__engine_1_1AssistantEngine.html#a84be7f27efea9145dfbb2f9270dbd2ae',1,'app.core.assistant_engine.AssistantEngine.display()']]],
+  ['display_5fawake_12',['DISPLAY_AWAKE',['../namespaceproactive_1_1proactive__scheduler.html#a970da7c2ac30663512da31bda682e92d',1,'proactive::proactive_scheduler']]],
+  ['display_5fidle_13',['DISPLAY_IDLE',['../namespaceproactive_1_1proactive__scheduler.html#a432ce421303613b5af8455887634dd9a',1,'proactive::proactive_scheduler']]],
+  ['divider_14',['DIVIDER',['../namespaceproactive_1_1proactive__screen.html#acd1a4ac2de8aa01864087963f8b8cef7',1,'proactive::proactive_screen']]],
+  ['dots_15',['dots',['../classloading__screen_1_1LoadingScreen.html#afc9fc20184ca2b8b335f9eaebf022e7d',1,'loading_screen::LoadingScreen']]]
+];

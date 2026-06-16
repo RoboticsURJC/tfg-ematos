@@ -1,0 +1,4 @@
+<map id="settings_screen.SettingsScreen._wifi_refresh" name="settings_screen.SettingsScreen._wifi_refresh">
+<area shape="rect" id="node1" title="Inicia la actualización del estado Wi&#45;Fi en un hilo secundario." alt="" coords="5,5,187,47"/>
+<area shape="rect" id="node2" href="$classsettings__screen_1_1SettingsScreen.html#a90f2b86ab6cca6cd1424f1c3dbe19bd6" title="Recargar wifi con hilos." alt="" coords="235,5,437,47"/>
+</map>

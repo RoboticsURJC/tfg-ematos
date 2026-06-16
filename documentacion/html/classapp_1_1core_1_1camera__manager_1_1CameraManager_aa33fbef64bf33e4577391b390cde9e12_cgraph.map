@@ -1,0 +1,4 @@
+<map id="app.core.camera_manager.CameraManager.read" name="app.core.camera_manager.CameraManager.read">
+<area shape="rect" id="node1" title="Captura y extrae el siguiente frame de video de la cámara activa." alt="" coords="5,29,204,71"/>
+<area shape="rect" id="node2" href="$classapp_1_1core_1_1camera__manager_1_1CameraManager.html#a8b82efa3a6ba5285607d7d23cc23c0c6" title="Abre e inicializa el dispositivo físico de captura de video." alt="" coords="252,29,451,71"/>
+</map>

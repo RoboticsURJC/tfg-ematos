@@ -1,0 +1,4 @@
+<map id="register_screen.RegisterScreen.capture" name="register_screen.RegisterScreen.capture">
+<area shape="rect" id="node1" title="Captura un frame actual y lo añade a la lista de entrenamiento." alt="" coords="5,5,185,47"/>
+<area shape="rect" id="node2" href="$classregister__screen_1_1RegisterScreen.html#a38e9e7e998d98f994f4cd89a32e4dc16" title="Inicia el trabajador de red para enviar las imágenes al servidor." alt="" coords="233,5,413,47"/>
+</map>

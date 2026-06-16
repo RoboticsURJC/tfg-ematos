@@ -1,0 +1,46 @@
+\hypertarget{assistant_8py}{}\doxysection{core/assistant.py File Reference}
+\label{assistant_8py}\index{core/assistant.py@{core/assistant.py}}
+
+
+Pipeline principal del asistente virtual.  
+
+
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceapp}{app}}
+\item 
+namespace \mbox{\hyperlink{namespaceapp_1_1core}{app.\+core}}
+\item 
+namespace \mbox{\hyperlink{namespaceapp_1_1core_1_1assistant}{app.\+core.\+assistant}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceapp_1_1core_1_1assistant_a4e8e4032209a2113e765e5cf032fd693}{app.\+core.\+assistant.\+construir\+\_\+prompt}} (usuario, mensaje)
+\begin{DoxyCompactList}\small\item\em Construye el prompt estructurado completo para enviar al modelo de lenguaje. \end{DoxyCompactList}\item 
+str \mbox{\hyperlink{namespaceapp_1_1core_1_1assistant_ad3a93bcba2d1a7401db346874915cdbc}{app.\+core.\+assistant.\+ask\+\_\+model}} (str prompt)
+\begin{DoxyCompactList}\small\item\em Envía el prompt empaquetado al modelo de lenguaje a través de una petición HTTP POST. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceapp_1_1core_1_1assistant_aa5b5c9f19dce39900edf64aead7266a0}{app.\+core.\+assistant.\+get\+\_\+time}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene la hora local actual del sistema operativo de la Raspberry Pi o servidor. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceapp_1_1core_1_1assistant_ac7cc32d019cd31efef74d7a0ea615ba5}{app.\+core.\+assistant.\+get\+\_\+weather}} (city=\char`\"{}Madrid\char`\"{})
+\begin{DoxyCompactList}\small\item\em Consulta las condiciones meteorológicas en tiempo real de una ciudad. \end{DoxyCompactList}\item 
+str \mbox{\hyperlink{namespaceapp_1_1core_1_1assistant_a2ed59e96f3414ddde6f7491c9795284f}{app.\+core.\+assistant.\+procesar\+\_\+texto}} (str usuario, str texto)
+\begin{DoxyCompactList}\small\item\em Orquesta el flujo principal (Pipeline) para procesar un mensaje del usuario. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespaceapp_1_1core_1_1assistant_a3c5c9ad161724635f1b9f5279490e3db}{app.\+core.\+assistant.\+TIMEOUT}} = 90
+\begin{DoxyCompactList}\small\item\em Tiempo máximo de espera (en segundos) para las peticiones HTTP del sistema. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{namespaceapp_1_1core_1_1assistant_a50477c25d6528993da3199a5e8d45e15}{app.\+core.\+assistant.\+PC\+\_\+\+URL}} = \char`\"{}http\+://192.\+168.\+1.\+96\+:8000/generate\char`\"{}
+\begin{DoxyCompactList}\small\item\em URL del API Gateway o servidor LLM local/remoto para la generación de texto. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{namespaceapp_1_1core_1_1assistant_a0710d33c2c39b99df614bde2c949ace9}{app.\+core.\+assistant.\+PROMPT\+\_\+\+DEL\+\_\+\+SISTEMA}}
+\begin{DoxyCompactList}\small\item\em Prompt principal del sistema que define las directrices éticas y de comportamiento del asistente. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceapp_1_1core_1_1assistant_ada7813e509046e186cae1d0917e6a687}{app.\+core.\+assistant.\+memoria}} = cargar\+\_\+memoria()
+\begin{DoxyCompactList}\small\item\em Diccionario global de memoria conversacional cargado desde el almacenamiento en disco al inicializar el módulo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Pipeline principal del asistente virtual. 
+
+Este módulo coordina secuencialmente la detección de intención, la construcción de prompts dinámicos, las llamadas HTTP al modelo LLM remoto, la ejecución de herramientas locales y el almacenamiento de la memoria persistente. 

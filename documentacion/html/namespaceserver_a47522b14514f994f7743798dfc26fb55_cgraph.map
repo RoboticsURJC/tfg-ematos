@@ -1,0 +1,4 @@
+<map id="server.register" name="server.register">
+<area shape="rect" id="node1" title="Endpoint HTTP POST: Registra un nuevo usuario asociándolo a un set de imágenes facíales." alt="" coords="5,5,121,32"/>
+<area shape="rect" id="node2" href="$namespaceserver.html#a0e7989b28f33b52fa4ca8d1df7e2387d" title="Guarda los embeddings vectoriales de rostros mediante una operación de escritura atómica." alt="" coords="169,5,359,32"/>
+</map>

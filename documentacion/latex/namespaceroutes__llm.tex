@@ -1,0 +1,69 @@
+\hypertarget{namespaceroutes__llm}{}\doxysection{routes\+\_\+llm Namespace Reference}
+\label{namespaceroutes__llm}\index{routes\_llm@{routes\_llm}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceroutes__llm_a025b772d230d4ece0ae31ea2bdd84e48}{generate}} (Generate\+Request payload)
+\begin{DoxyCompactList}\small\item\em Genera una respuesta de texto basada en un prompt. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceroutes__llm_a0315537b7f294c878fa5e080f3508537}{health}} ()
+\begin{DoxyCompactList}\small\item\em Comprueba la disponibilidad y estado del servicio LLM. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceroutes__llm_a5f67b3656bdfb307f92861b8d0829603}{router}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceroutes__llm_a025b772d230d4ece0ae31ea2bdd84e48}\label{namespaceroutes__llm_a025b772d230d4ece0ae31ea2bdd84e48}} 
+\index{routes\_llm@{routes\_llm}!generate@{generate}}
+\index{generate@{generate}!routes\_llm@{routes\_llm}}
+\doxysubsubsection{\texorpdfstring{generate()}{generate()}}
+{\footnotesize\ttfamily def routes\+\_\+llm.\+generate (\begin{DoxyParamCaption}\item[{Generate\+Request}]{payload }\end{DoxyParamCaption})}
+
+
+
+Genera una respuesta de texto basada en un prompt. 
+
+Envía la petición al servicio LLM utilizando el modelo especificado y el texto guía (prompt) proporcionado por el usuario para obtener una respuesta inteligente.
+
+
+\begin{DoxyParams}{Parameters}
+{\em payload} & Objeto Generate\+Request que contiene los campos \textquotesingle{}model\textquotesingle{} y \textquotesingle{}prompt\textquotesingle{}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+dict/str Respuesta generada por el modelo de IA o estructura de error en caso de fallo. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceroutes__llm_a0315537b7f294c878fa5e080f3508537}\label{namespaceroutes__llm_a0315537b7f294c878fa5e080f3508537}} 
+\index{routes\_llm@{routes\_llm}!health@{health}}
+\index{health@{health}!routes\_llm@{routes\_llm}}
+\doxysubsubsection{\texorpdfstring{health()}{health()}}
+{\footnotesize\ttfamily def routes\+\_\+llm.\+health (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Comprueba la disponibilidad y estado del servicio LLM. 
+
+Verifica que el backend de IA (Ollama, Open\+AI API, o el motor local configurado) esté respondiendo correctamente y listo para procesar peticiones.
+
+\begin{DoxyReturn}{Returns}
+dict Estado de salud del servicio (ej\+: \{\char`\"{}status\char`\"{}\+: \char`\"{}healthy\char`\"{}\} o información de conexión). 
+\end{DoxyReturn}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespaceroutes__llm_a5f67b3656bdfb307f92861b8d0829603}\label{namespaceroutes__llm_a5f67b3656bdfb307f92861b8d0829603}} 
+\index{routes\_llm@{routes\_llm}!router@{router}}
+\index{router@{router}!routes\_llm@{routes\_llm}}
+\doxysubsubsection{\texorpdfstring{router}{router}}
+{\footnotesize\ttfamily routes\+\_\+llm.\+router}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  APIRouter(}
+\DoxyCodeLine{2     prefix=\textcolor{stringliteral}{"{}/llm"{}},}
+\DoxyCodeLine{3     tags=[\textcolor{stringliteral}{"{}LLM"{}}]}
+\DoxyCodeLine{4 )}
+
+\end{DoxyCode}

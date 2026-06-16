@@ -1,0 +1,8 @@
+<map id="word_search_screen.WordSearchScreen._draw_game" name="word_search_screen.WordSearchScreen._draw_game">
+<area shape="rect" id="node1" title="Ejecuta la renderización visual de las subcapas de juego activo." alt="" coords="5,107,240,148"/>
+<area shape="rect" id="node2" href="$classword__search__screen_1_1WordSearchScreen.html#a7728323f0948cab18f3305d78ccd8831" title="Renderiza el HUD inferior horizontal que contiene los botones auxiliares de juego." alt="" coords="288,41,523,83"/>
+<area shape="rect" id="node5" href="$classword__search__screen_1_1WordSearchScreen.html#a0dcd4ece2fb168f80ad2c3f9fafb354f" title="Dibuja la rejilla matricial de caracteres combinando los estados lógicos de juego." alt="" coords="288,107,523,148"/>
+<area shape="rect" id="node6" href="$classword__search__screen_1_1WordSearchScreen.html#a757cb0a63f36abb362a90807c6167595" title="Renderiza el panel derecho que aloja el listado dinámico de palabras y su barra de scroll." alt="" coords="288,172,523,213"/>
+<area shape="rect" id="node3" href="$classword__search__screen_1_1WordSearchScreen.html#a89ba1e70da8645750e7a4b403444b8da" title="Helper utilitario para el renderizado de botones secundarios in&#45;game con sombreado plano." alt="" coords="571,5,805,47"/>
+<area shape="rect" id="node4" href="$classfind__differences__screen_1_1FindDifferencesScreen.html#a53b189f6bcf7ed6d03f477c49507e81d" title="Dibuja de forma atómica un botón estilizado con sombras proyectadas y texto centrado." alt="" coords="599,71,777,127"/>
+</map>

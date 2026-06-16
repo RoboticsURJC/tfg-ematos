@@ -1,0 +1,5 @@
+<map id="browser_screen.BrowserScreen._launch_chromium" name="browser_screen.BrowserScreen._launch_chromium">
+<area shape="rect" id="node1" title="Configura y levanta el subproceso independiente de Chromium optimizado para sistemas integrados." alt="" coords="5,39,235,80"/>
+<area shape="rect" id="node2" href="$classbrowser__screen_1_1BrowserScreen.html#a8c1f77849d23f06a086957785f5e54ad" title="Detiene y purga de forma atómica todos los procesos e instancias zombis del navegador y teclados auxi..." alt="" coords="283,5,512,47"/>
+<area shape="rect" id="node3" href="$classbrowser__screen_1_1BrowserScreen.html#aeb8fbd52e02010792e968db28346e5e9" title="Despliega el teclado virtual en pantalla compatible con Wayland/X11 wvkbd&#45;mobintl." alt="" coords="283,71,512,112"/>
+</map>

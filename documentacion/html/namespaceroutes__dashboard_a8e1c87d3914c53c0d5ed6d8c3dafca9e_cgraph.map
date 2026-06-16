@@ -1,0 +1,4 @@
+<map id="routes_dashboard.clear" name="routes_dashboard.clear">
+<area shape="rect" id="node1" title="Vacía el historial de logs de un servicio." alt="" coords="5,5,180,32"/>
+<area shape="rect" id="node2" href="$namespacelog__service.html#ae2983f6bea2c5025c60c12bb9e947d4c" title="Vacía por completo el historial de registros de un servicio específico." alt="" coords="228,5,395,32"/>
+</map>

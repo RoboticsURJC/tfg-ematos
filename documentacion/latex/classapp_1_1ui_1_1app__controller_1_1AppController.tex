@@ -1,0 +1,334 @@
+\hypertarget{classapp_1_1ui_1_1app__controller_1_1AppController}{}\doxysection{app.\+ui.\+app\+\_\+controller.\+App\+Controller Class Reference}
+\label{classapp_1_1ui_1_1app__controller_1_1AppController}\index{app.ui.app\_controller.AppController@{app.ui.app\_controller.AppController}}
+
+
+Orquestador central de navegación y estado de la aplicación.  
+
+
+
+
+Inheritance diagram for app.\+ui.\+app\+\_\+controller.\+App\+Controller\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{classapp_1_1ui_1_1app__controller_1_1AppController__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for app.\+ui.\+app\+\_\+controller.\+App\+Controller\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{classapp_1_1ui_1_1app__controller_1_1AppController__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1app__controller_1_1AppController_a07451303f7235bc634d840f525f2c839}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classapp_1_1ui_1_1app__controller_1_1AppController_a341656c547de25b98cedf8e5b455b33c}{display}}=None, \mbox{\hyperlink{classapp_1_1ui_1_1app__controller_1_1AppController_ab51bdde79a28700321ab64d379a4d973}{engine}}=None)
+\begin{DoxyCompactList}\small\item\em Inicializa el controlador de aplicaciones. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1app__controller_1_1AppController_a602da2d648ad3c2835ca3c4c55f65db2}{register}} (self, str name, \mbox{\hyperlink{classapp_1_1ui_1_1app__controller_1_1AppController_a6ac61b0e5b7eae74f7ee96e05c704579}{widget}})
+\begin{DoxyCompactList}\small\item\em Registra un widget de pantalla en el sistema de navegación. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1app__controller_1_1AppController_a8370e625746828c75a06848fceb03a66}{go}} (self, str name)
+\begin{DoxyCompactList}\small\item\em Realiza la transición a la pantalla especificada. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1app__controller_1_1AppController_a966bcc6dab4a1121229edfabc73d1e72}{start}} (self)
+\begin{DoxyCompactList}\small\item\em Ejecuta el flujo inicial del sistema. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1app__controller_1_1AppController_acbfcd07691cb41abc0ec6f342c8f7702}{on\+\_\+user\+\_\+authenticated}} (self, str user)
+\begin{DoxyCompactList}\small\item\em Gestiona la lógica posterior a una autenticación exitosa. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1app__controller_1_1AppController_a993b4644aff7daeb664c09c7e771f130}{open\+\_\+app}} (self, str app\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Navega a una aplicación específica desde el launcher. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1app__controller_1_1AppController_ab96675012171c2cec5ca4a1854181d59}{open\+\_\+assistant}} (self)
+\begin{DoxyCompactList}\small\item\em Realiza la transición a la pantalla del asistente virtual. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1app__controller_1_1AppController_a83c68ec1575b121c374df21b685865f3}{error}} (self, str message)
+\begin{DoxyCompactList}\small\item\em Fuerza la transición a la pantalla de error global. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1app__controller_1_1AppController_a6ac61b0e5b7eae74f7ee96e05c704579}{widget}} (self)
+\begin{DoxyCompactList}\small\item\em Devuelve el contenedor de pantallas para su integración en el main. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1app__controller_1_1AppController_a341656c547de25b98cedf8e5b455b33c}{display}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1app__controller_1_1AppController_ab51bdde79a28700321ab64d379a4d973}{engine}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1app__controller_1_1AppController_a20d98d4d2677128eaf390fd8f1c09bb8}{stack}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1app__controller_1_1AppController_a9b336c6c7de3323be9e53a1995196ffb}{screens}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1app__controller_1_1AppController_a76e49bb8da0b51f14084db58506f413a}{current\+\_\+user}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1app__controller_1_1AppController_a1f02ffa8e5c2be9a5d9a6a8af8d121bf}{user\+\_\+logged}} = pyqt\+Signal(str)
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1app__controller_1_1AppController_ae222b341e8067848b208ff8f8725f51f}{app\+\_\+changed}} = pyqt\+Signal(str)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1app__controller_1_1AppController_a51711fc528470923d36ff6f09364889b}{\+\_\+on\+\_\+boot\+\_\+finished}} (self)
+\begin{DoxyCompactList}\small\item\em Callback interno al finalizar la secuencia de arranque. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Orquestador central de navegación y estado de la aplicación. 
+
+Actúa como el controlador principal en el patrón MVC, gestionando la transición entre vistas y facilitando la comunicación entre los componentes críticos del sistema (UI, Hardware, IA).
+
+@attr user\+\_\+logged Señal emitida cuando un usuario se autentica correctamente. @attr app\+\_\+changed Señal emitida al realizar una transición entre aplicaciones. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classapp_1_1ui_1_1app__controller_1_1AppController_a07451303f7235bc634d840f525f2c839}\label{classapp_1_1ui_1_1app__controller_1_1AppController_a07451303f7235bc634d840f525f2c839}} 
+\index{app.ui.app\_controller.AppController@{app.ui.app\_controller.AppController}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!app.ui.app\_controller.AppController@{app.ui.app\_controller.AppController}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def app.\+ui.\+app\+\_\+controller.\+App\+Controller.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{display = {\ttfamily None},  }\item[{}]{engine = {\ttfamily None} }\end{DoxyParamCaption})}
+
+
+
+Inicializa el controlador de aplicaciones. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em display} & Objeto de hardware (Face\+Display) para control visual del robot. \\
+\hline
+{\em engine} & Objeto de motor de IA (Assistant\+Engine) para procesamiento. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{classapp_1_1ui_1_1app__controller_1_1AppController_a07451303f7235bc634d840f525f2c839_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classapp_1_1ui_1_1app__controller_1_1AppController_a51711fc528470923d36ff6f09364889b}\label{classapp_1_1ui_1_1app__controller_1_1AppController_a51711fc528470923d36ff6f09364889b}} 
+\index{app.ui.app\_controller.AppController@{app.ui.app\_controller.AppController}!\_on\_boot\_finished@{\_on\_boot\_finished}}
+\index{\_on\_boot\_finished@{\_on\_boot\_finished}!app.ui.app\_controller.AppController@{app.ui.app\_controller.AppController}}
+\doxysubsubsection{\texorpdfstring{\_on\_boot\_finished()}{\_on\_boot\_finished()}}
+{\footnotesize\ttfamily def app.\+ui.\+app\+\_\+controller.\+App\+Controller.\+\_\+on\+\_\+boot\+\_\+finished (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Callback interno al finalizar la secuencia de arranque. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classapp_1_1ui_1_1app__controller_1_1AppController_a51711fc528470923d36ff6f09364889b_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classapp_1_1ui_1_1app__controller_1_1AppController_a83c68ec1575b121c374df21b685865f3}\label{classapp_1_1ui_1_1app__controller_1_1AppController_a83c68ec1575b121c374df21b685865f3}} 
+\index{app.ui.app\_controller.AppController@{app.ui.app\_controller.AppController}!error@{error}}
+\index{error@{error}!app.ui.app\_controller.AppController@{app.ui.app\_controller.AppController}}
+\doxysubsubsection{\texorpdfstring{error()}{error()}}
+{\footnotesize\ttfamily def app.\+ui.\+app\+\_\+controller.\+App\+Controller.\+error (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{str}]{message }\end{DoxyParamCaption})}
+
+
+
+Fuerza la transición a la pantalla de error global. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & Mensaje descriptivo del error a mostrar en la interfaz. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classapp_1_1ui_1_1app__controller_1_1AppController_a83c68ec1575b121c374df21b685865f3_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classapp_1_1ui_1_1app__controller_1_1AppController_a8370e625746828c75a06848fceb03a66}\label{classapp_1_1ui_1_1app__controller_1_1AppController_a8370e625746828c75a06848fceb03a66}} 
+\index{app.ui.app\_controller.AppController@{app.ui.app\_controller.AppController}!go@{go}}
+\index{go@{go}!app.ui.app\_controller.AppController@{app.ui.app\_controller.AppController}}
+\doxysubsubsection{\texorpdfstring{go()}{go()}}
+{\footnotesize\ttfamily def app.\+ui.\+app\+\_\+controller.\+App\+Controller.\+go (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{str}]{name }\end{DoxyParamCaption})}
+
+
+
+Realiza la transición a la pantalla especificada. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Identificador de la pantalla registrada. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Value\+Error} & Si el nombre de la pantalla no está registrado. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classapp_1_1ui_1_1app__controller_1_1AppController_acbfcd07691cb41abc0ec6f342c8f7702}\label{classapp_1_1ui_1_1app__controller_1_1AppController_acbfcd07691cb41abc0ec6f342c8f7702}} 
+\index{app.ui.app\_controller.AppController@{app.ui.app\_controller.AppController}!on\_user\_authenticated@{on\_user\_authenticated}}
+\index{on\_user\_authenticated@{on\_user\_authenticated}!app.ui.app\_controller.AppController@{app.ui.app\_controller.AppController}}
+\doxysubsubsection{\texorpdfstring{on\_user\_authenticated()}{on\_user\_authenticated()}}
+{\footnotesize\ttfamily def app.\+ui.\+app\+\_\+controller.\+App\+Controller.\+on\+\_\+user\+\_\+authenticated (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{str}]{user }\end{DoxyParamCaption})}
+
+
+
+Gestiona la lógica posterior a una autenticación exitosa. 
+
+Notifica al display, al motor de IA y redirige al lanzador principal. 
+\begin{DoxyParams}{Parameters}
+{\em user} & Nombre del usuario autenticado. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classapp_1_1ui_1_1app__controller_1_1AppController_acbfcd07691cb41abc0ec6f342c8f7702_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classapp_1_1ui_1_1app__controller_1_1AppController_a993b4644aff7daeb664c09c7e771f130}\label{classapp_1_1ui_1_1app__controller_1_1AppController_a993b4644aff7daeb664c09c7e771f130}} 
+\index{app.ui.app\_controller.AppController@{app.ui.app\_controller.AppController}!open\_app@{open\_app}}
+\index{open\_app@{open\_app}!app.ui.app\_controller.AppController@{app.ui.app\_controller.AppController}}
+\doxysubsubsection{\texorpdfstring{open\_app()}{open\_app()}}
+{\footnotesize\ttfamily def app.\+ui.\+app\+\_\+controller.\+App\+Controller.\+open\+\_\+app (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{str}]{app\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Navega a una aplicación específica desde el launcher. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em app\+\_\+name} & Identificador de la aplicación destino. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classapp_1_1ui_1_1app__controller_1_1AppController_a993b4644aff7daeb664c09c7e771f130_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classapp_1_1ui_1_1app__controller_1_1AppController_ab96675012171c2cec5ca4a1854181d59}\label{classapp_1_1ui_1_1app__controller_1_1AppController_ab96675012171c2cec5ca4a1854181d59}} 
+\index{app.ui.app\_controller.AppController@{app.ui.app\_controller.AppController}!open\_assistant@{open\_assistant}}
+\index{open\_assistant@{open\_assistant}!app.ui.app\_controller.AppController@{app.ui.app\_controller.AppController}}
+\doxysubsubsection{\texorpdfstring{open\_assistant()}{open\_assistant()}}
+{\footnotesize\ttfamily def app.\+ui.\+app\+\_\+controller.\+App\+Controller.\+open\+\_\+assistant (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Realiza la transición a la pantalla del asistente virtual. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classapp_1_1ui_1_1app__controller_1_1AppController_ab96675012171c2cec5ca4a1854181d59_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classapp_1_1ui_1_1app__controller_1_1AppController_a602da2d648ad3c2835ca3c4c55f65db2}\label{classapp_1_1ui_1_1app__controller_1_1AppController_a602da2d648ad3c2835ca3c4c55f65db2}} 
+\index{app.ui.app\_controller.AppController@{app.ui.app\_controller.AppController}!register@{register}}
+\index{register@{register}!app.ui.app\_controller.AppController@{app.ui.app\_controller.AppController}}
+\doxysubsubsection{\texorpdfstring{register()}{register()}}
+{\footnotesize\ttfamily def app.\+ui.\+app\+\_\+controller.\+App\+Controller.\+register (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{str}]{name,  }\item[{}]{widget }\end{DoxyParamCaption})}
+
+
+
+Registra un widget de pantalla en el sistema de navegación. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Identificador único de la pantalla (key). \\
+\hline
+{\em widget} & Instancia del widget (QWidget) a añadir al stack. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classapp_1_1ui_1_1app__controller_1_1AppController_a966bcc6dab4a1121229edfabc73d1e72}\label{classapp_1_1ui_1_1app__controller_1_1AppController_a966bcc6dab4a1121229edfabc73d1e72}} 
+\index{app.ui.app\_controller.AppController@{app.ui.app\_controller.AppController}!start@{start}}
+\index{start@{start}!app.ui.app\_controller.AppController@{app.ui.app\_controller.AppController}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily def app.\+ui.\+app\+\_\+controller.\+App\+Controller.\+start (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Ejecuta el flujo inicial del sistema. 
+
+Lanza la pantalla de arranque (boot) y establece la conexión de señales para la transición automática a login. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classapp_1_1ui_1_1app__controller_1_1AppController_a966bcc6dab4a1121229edfabc73d1e72_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classapp_1_1ui_1_1app__controller_1_1AppController_a6ac61b0e5b7eae74f7ee96e05c704579}\label{classapp_1_1ui_1_1app__controller_1_1AppController_a6ac61b0e5b7eae74f7ee96e05c704579}} 
+\index{app.ui.app\_controller.AppController@{app.ui.app\_controller.AppController}!widget@{widget}}
+\index{widget@{widget}!app.ui.app\_controller.AppController@{app.ui.app\_controller.AppController}}
+\doxysubsubsection{\texorpdfstring{widget()}{widget()}}
+{\footnotesize\ttfamily def app.\+ui.\+app\+\_\+controller.\+App\+Controller.\+widget (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Devuelve el contenedor de pantallas para su integración en el main. 
+
+\begin{DoxyReturn}{Returns}
+QStacked\+Widget principal de la aplicación. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classapp_1_1ui_1_1app__controller_1_1AppController_ae222b341e8067848b208ff8f8725f51f}\label{classapp_1_1ui_1_1app__controller_1_1AppController_ae222b341e8067848b208ff8f8725f51f}} 
+\index{app.ui.app\_controller.AppController@{app.ui.app\_controller.AppController}!app\_changed@{app\_changed}}
+\index{app\_changed@{app\_changed}!app.ui.app\_controller.AppController@{app.ui.app\_controller.AppController}}
+\doxysubsubsection{\texorpdfstring{app\_changed}{app\_changed}}
+{\footnotesize\ttfamily app.\+ui.\+app\+\_\+controller.\+App\+Controller.\+app\+\_\+changed = pyqt\+Signal(str)\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1app__controller_1_1AppController_a76e49bb8da0b51f14084db58506f413a}\label{classapp_1_1ui_1_1app__controller_1_1AppController_a76e49bb8da0b51f14084db58506f413a}} 
+\index{app.ui.app\_controller.AppController@{app.ui.app\_controller.AppController}!current\_user@{current\_user}}
+\index{current\_user@{current\_user}!app.ui.app\_controller.AppController@{app.ui.app\_controller.AppController}}
+\doxysubsubsection{\texorpdfstring{current\_user}{current\_user}}
+{\footnotesize\ttfamily app.\+ui.\+app\+\_\+controller.\+App\+Controller.\+current\+\_\+user}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1app__controller_1_1AppController_a341656c547de25b98cedf8e5b455b33c}\label{classapp_1_1ui_1_1app__controller_1_1AppController_a341656c547de25b98cedf8e5b455b33c}} 
+\index{app.ui.app\_controller.AppController@{app.ui.app\_controller.AppController}!display@{display}}
+\index{display@{display}!app.ui.app\_controller.AppController@{app.ui.app\_controller.AppController}}
+\doxysubsubsection{\texorpdfstring{display}{display}}
+{\footnotesize\ttfamily app.\+ui.\+app\+\_\+controller.\+App\+Controller.\+display}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1app__controller_1_1AppController_ab51bdde79a28700321ab64d379a4d973}\label{classapp_1_1ui_1_1app__controller_1_1AppController_ab51bdde79a28700321ab64d379a4d973}} 
+\index{app.ui.app\_controller.AppController@{app.ui.app\_controller.AppController}!engine@{engine}}
+\index{engine@{engine}!app.ui.app\_controller.AppController@{app.ui.app\_controller.AppController}}
+\doxysubsubsection{\texorpdfstring{engine}{engine}}
+{\footnotesize\ttfamily app.\+ui.\+app\+\_\+controller.\+App\+Controller.\+engine}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1app__controller_1_1AppController_a9b336c6c7de3323be9e53a1995196ffb}\label{classapp_1_1ui_1_1app__controller_1_1AppController_a9b336c6c7de3323be9e53a1995196ffb}} 
+\index{app.ui.app\_controller.AppController@{app.ui.app\_controller.AppController}!screens@{screens}}
+\index{screens@{screens}!app.ui.app\_controller.AppController@{app.ui.app\_controller.AppController}}
+\doxysubsubsection{\texorpdfstring{screens}{screens}}
+{\footnotesize\ttfamily app.\+ui.\+app\+\_\+controller.\+App\+Controller.\+screens}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1app__controller_1_1AppController_a20d98d4d2677128eaf390fd8f1c09bb8}\label{classapp_1_1ui_1_1app__controller_1_1AppController_a20d98d4d2677128eaf390fd8f1c09bb8}} 
+\index{app.ui.app\_controller.AppController@{app.ui.app\_controller.AppController}!stack@{stack}}
+\index{stack@{stack}!app.ui.app\_controller.AppController@{app.ui.app\_controller.AppController}}
+\doxysubsubsection{\texorpdfstring{stack}{stack}}
+{\footnotesize\ttfamily app.\+ui.\+app\+\_\+controller.\+App\+Controller.\+stack}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1app__controller_1_1AppController_a1f02ffa8e5c2be9a5d9a6a8af8d121bf}\label{classapp_1_1ui_1_1app__controller_1_1AppController_a1f02ffa8e5c2be9a5d9a6a8af8d121bf}} 
+\index{app.ui.app\_controller.AppController@{app.ui.app\_controller.AppController}!user\_logged@{user\_logged}}
+\index{user\_logged@{user\_logged}!app.ui.app\_controller.AppController@{app.ui.app\_controller.AppController}}
+\doxysubsubsection{\texorpdfstring{user\_logged}{user\_logged}}
+{\footnotesize\ttfamily app.\+ui.\+app\+\_\+controller.\+App\+Controller.\+user\+\_\+logged = pyqt\+Signal(str)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ui/\mbox{\hyperlink{app__controller_8py}{app\+\_\+controller.\+py}}\end{DoxyCompactItemize}

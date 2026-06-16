@@ -1,0 +1,380 @@
+\hypertarget{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler}{}\doxysection{proactive.\+proactive\+\_\+scheduler.\+Proactive\+Scheduler Class Reference}
+\label{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler}\index{proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}}
+
+
+Clase encargada de programar y ejecutar disparos proactivos de sugerencias.  
+
+
+
+
+Collaboration diagram for proactive.\+proactive\+\_\+scheduler.\+Proactive\+Scheduler\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=245pt]{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_aae11d274604aa18e87a5562deec4d3f9}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_aabc8cd8ede6dddfa8e51e1c2ec7ecda2}{tts}}, \mbox{\hyperlink{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_ab7247ded6b89b9169cec9fda06f6bc44}{display}}=None, \mbox{\hyperlink{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a8324c03b0ee973f3f31b840e96e320e1}{on\+\_\+suggest}}=None, \mbox{\hyperlink{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_ae1ae78e9e57f2035821da69b304f41b9}{get\+\_\+stt\+\_\+state}}=None, int \mbox{\hyperlink{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_ae366d9884dc11619684e1aa0b6e1f104}{memory\+\_\+interval}}=45 $\ast$60, int \mbox{\hyperlink{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a9a715646007b286b02901cec713e5ee8}{mobility\+\_\+interval}}=30 $\ast$60, int \mbox{\hyperlink{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_af870e5359e081c7ff73414c119c7e9df}{start\+\_\+delay}}=10 $\ast$60)
+\begin{DoxyCompactList}\small\item\em Constructor del planificador proactivo. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_ac849e801063de0ba9833850d9f1e9908}{on\+\_\+suggestion\+\_\+dismissed}} (self)
+\begin{DoxyCompactList}\small\item\em Procesa el cierre de una sugerencia, sea aceptada o rechazada. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_ad6ff1c955a92bc1ed968c2c48e6702c7}{start}} (self)
+\begin{DoxyCompactList}\small\item\em Inicia el hilo de control para el sondeo de sugerencias. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a1fc10caaa5166a050ca7d9d4c5326234}{stop}} (self)
+\begin{DoxyCompactList}\small\item\em Detiene de forma controlada el hilo de ejecución del scheduler. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a89be4768bb28da09674df5e4ed6a4591}{trigger\+\_\+memory}} (self)
+\begin{DoxyCompactList}\small\item\em Inyección manual de una sugerencia de memoria. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_aa82c70ba42956f4d96d1d6f09766031b}{trigger\+\_\+mobility}} (self)
+\begin{DoxyCompactList}\small\item\em Inyección manual de una sugerencia de movilidad. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_aabc8cd8ede6dddfa8e51e1c2ec7ecda2}{tts}}
+\item 
+\mbox{\hyperlink{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_ab7247ded6b89b9169cec9fda06f6bc44}{display}}
+\item 
+\mbox{\hyperlink{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a8324c03b0ee973f3f31b840e96e320e1}{on\+\_\+suggest}}
+\item 
+\mbox{\hyperlink{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_ae1ae78e9e57f2035821da69b304f41b9}{get\+\_\+stt\+\_\+state}}
+\item 
+\mbox{\hyperlink{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_ae366d9884dc11619684e1aa0b6e1f104}{memory\+\_\+interval}}
+\item 
+\mbox{\hyperlink{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a9a715646007b286b02901cec713e5ee8}{mobility\+\_\+interval}}
+\item 
+\mbox{\hyperlink{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_af870e5359e081c7ff73414c119c7e9df}{start\+\_\+delay}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_afeeb3c1e7fd805410e488b8d86b1965a}{\+\_\+restore\+\_\+display}} (self)
+\begin{DoxyCompactList}\small\item\em Función interna para restaurar el texto en pantalla según el estado del STT. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a40c241205c09f5c77fb7541deac393ce}{\+\_\+loop}} (self)
+\begin{DoxyCompactList}\small\item\em Bucle principal de control que gestiona los tiempos de disparo. \end{DoxyCompactList}\item 
+dict \mbox{\hyperlink{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a8b0d0da894fb61895207a5cd8f294752}{\+\_\+pick}} (self, str kind)
+\begin{DoxyCompactList}\small\item\em Selecciona la siguiente sugerencia de la lista, alternando por índice. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a3af12df226e4fd74ccee2bd57c9260a4}{\+\_\+fire}} (self, dict suggestion)
+\begin{DoxyCompactList}\small\item\em Ejecuta el disparo de una sugerencia de forma segura y síncrona. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a63f19245e07bac2d78f71e0c7c79c049}{\+\_\+thread}}
+\item 
+\mbox{\hyperlink{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a7fa41103f78da122764929b87ec54e70}{\+\_\+stop\+\_\+evt}}
+\item 
+\mbox{\hyperlink{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a8a52038e4f6cc261bf91770e44cdefcc}{\+\_\+next\+\_\+type}}
+\item 
+\mbox{\hyperlink{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a968bdf1189b172567b79125dae004981}{\+\_\+mem\+\_\+idx}}
+\item 
+\mbox{\hyperlink{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_af3d63a8ff3234a891fa7769db1f14053}{\+\_\+mob\+\_\+idx}}
+\item 
+\mbox{\hyperlink{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a46eae20faf4014bc8f72e496f29e35a8}{\+\_\+suggestion\+\_\+active}}
+\item 
+\mbox{\hyperlink{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a922bfd0a35b74a19995ca05d47e52eb1}{\+\_\+suggestion\+\_\+fired\+\_\+at}}
+\item 
+\mbox{\hyperlink{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a919453ecf194c8dd68268d787dbd0f10}{\+\_\+fire\+\_\+lock}}
+\item 
+\mbox{\hyperlink{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a2bfae47c06dc532c1896e42d5ddd8ca7}{\+\_\+last\+\_\+memory}}
+\item 
+\mbox{\hyperlink{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_aea09002ea074e967acb486c660743d63}{\+\_\+last\+\_\+mobility}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase encargada de programar y ejecutar disparos proactivos de sugerencias. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_aae11d274604aa18e87a5562deec4d3f9}\label{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_aae11d274604aa18e87a5562deec4d3f9}} 
+\index{proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def proactive.\+proactive\+\_\+scheduler.\+Proactive\+Scheduler.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{tts,  }\item[{}]{display = {\ttfamily None},  }\item[{}]{on\+\_\+suggest = {\ttfamily None},  }\item[{}]{get\+\_\+stt\+\_\+state = {\ttfamily None},  }\item[{int }]{memory\+\_\+interval = {\ttfamily 45~$\ast$~60},  }\item[{int }]{mobility\+\_\+interval = {\ttfamily 30~$\ast$~60},  }\item[{int }]{start\+\_\+delay = {\ttfamily 10~$\ast$~60} }\end{DoxyParamCaption})}
+
+
+
+Constructor del planificador proactivo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tts} & Motor de texto a voz para la locución de las sugerencias. \\
+\hline
+{\em display} & Objeto de control de la pantalla para mostrar mensajes de estado. \\
+\hline
+{\em on\+\_\+suggest} & Callback invocado para renderizar la tarjeta de sugerencia en la UI. \\
+\hline
+{\em get\+\_\+stt\+\_\+state} & Función que devuelve un booleano sobre si el sistema escucha activamente. \\
+\hline
+{\em memory\+\_\+interval} & Intervalo en segundos entre sugerencias de memoria. \\
+\hline
+{\em mobility\+\_\+interval} & Intervalo en segundos entre sugerencias de movilidad. \\
+\hline
+{\em start\+\_\+delay} & Tiempo de espera inicial tras el inicio antes de la primera sugerencia. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a3af12df226e4fd74ccee2bd57c9260a4}\label{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a3af12df226e4fd74ccee2bd57c9260a4}} 
+\index{proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}!\_fire@{\_fire}}
+\index{\_fire@{\_fire}!proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}}
+\doxysubsubsection{\texorpdfstring{\_fire()}{\_fire()}}
+{\footnotesize\ttfamily def proactive.\+proactive\+\_\+scheduler.\+Proactive\+Scheduler.\+\_\+fire (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{dict}]{suggestion }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Ejecuta el disparo de una sugerencia de forma segura y síncrona. 
+
+Utiliza un Lock para evitar colisiones entre el bucle y los disparos manuales. 
+\begin{DoxyParams}{Parameters}
+{\em suggestion} & Objeto que contiene los metadatos de la sugerencia. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a3af12df226e4fd74ccee2bd57c9260a4_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a40c241205c09f5c77fb7541deac393ce}\label{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a40c241205c09f5c77fb7541deac393ce}} 
+\index{proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}!\_loop@{\_loop}}
+\index{\_loop@{\_loop}!proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}}
+\doxysubsubsection{\texorpdfstring{\_loop()}{\_loop()}}
+{\footnotesize\ttfamily def proactive.\+proactive\+\_\+scheduler.\+Proactive\+Scheduler.\+\_\+loop (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Bucle principal de control que gestiona los tiempos de disparo. 
+
+Evalúa el transcurso del tiempo respecto a los intervalos configurados y delega el disparo de las sugerencias. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a40c241205c09f5c77fb7541deac393ce_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a8b0d0da894fb61895207a5cd8f294752}\label{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a8b0d0da894fb61895207a5cd8f294752}} 
+\index{proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}!\_pick@{\_pick}}
+\index{\_pick@{\_pick}!proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}}
+\doxysubsubsection{\texorpdfstring{\_pick()}{\_pick()}}
+{\footnotesize\ttfamily  dict proactive.\+proactive\+\_\+scheduler.\+Proactive\+Scheduler.\+\_\+pick (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{str}]{kind }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Selecciona la siguiente sugerencia de la lista, alternando por índice. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kind} & Tipo de sugerencia (\textquotesingle{}memory\textquotesingle{} o \textquotesingle{}mobility\textquotesingle{}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+dict Diccionario con los datos de la sugerencia seleccionada. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_afeeb3c1e7fd805410e488b8d86b1965a}\label{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_afeeb3c1e7fd805410e488b8d86b1965a}} 
+\index{proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}!\_restore\_display@{\_restore\_display}}
+\index{\_restore\_display@{\_restore\_display}!proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}}
+\doxysubsubsection{\texorpdfstring{\_restore\_display()}{\_restore\_display()}}
+{\footnotesize\ttfamily def proactive.\+proactive\+\_\+scheduler.\+Proactive\+Scheduler.\+\_\+restore\+\_\+display (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Función interna para restaurar el texto en pantalla según el estado del STT. 
+
+\mbox{\Hypertarget{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_ac849e801063de0ba9833850d9f1e9908}\label{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_ac849e801063de0ba9833850d9f1e9908}} 
+\index{proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}!on\_suggestion\_dismissed@{on\_suggestion\_dismissed}}
+\index{on\_suggestion\_dismissed@{on\_suggestion\_dismissed}!proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}}
+\doxysubsubsection{\texorpdfstring{on\_suggestion\_dismissed()}{on\_suggestion\_dismissed()}}
+{\footnotesize\ttfamily def proactive.\+proactive\+\_\+scheduler.\+Proactive\+Scheduler.\+on\+\_\+suggestion\+\_\+dismissed (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Procesa el cierre de una sugerencia, sea aceptada o rechazada. 
+
+Limpia el estado interno y restaura el mensaje del display al modo reposo. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_ac849e801063de0ba9833850d9f1e9908_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_ad6ff1c955a92bc1ed968c2c48e6702c7}\label{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_ad6ff1c955a92bc1ed968c2c48e6702c7}} 
+\index{proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}!start@{start}}
+\index{start@{start}!proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily def proactive.\+proactive\+\_\+scheduler.\+Proactive\+Scheduler.\+start (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Inicia el hilo de control para el sondeo de sugerencias. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_ad6ff1c955a92bc1ed968c2c48e6702c7_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a1fc10caaa5166a050ca7d9d4c5326234}\label{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a1fc10caaa5166a050ca7d9d4c5326234}} 
+\index{proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}!stop@{stop}}
+\index{stop@{stop}!proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily def proactive.\+proactive\+\_\+scheduler.\+Proactive\+Scheduler.\+stop (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Detiene de forma controlada el hilo de ejecución del scheduler. 
+
+\mbox{\Hypertarget{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a89be4768bb28da09674df5e4ed6a4591}\label{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a89be4768bb28da09674df5e4ed6a4591}} 
+\index{proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}!trigger\_memory@{trigger\_memory}}
+\index{trigger\_memory@{trigger\_memory}!proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}}
+\doxysubsubsection{\texorpdfstring{trigger\_memory()}{trigger\_memory()}}
+{\footnotesize\ttfamily def proactive.\+proactive\+\_\+scheduler.\+Proactive\+Scheduler.\+trigger\+\_\+memory (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Inyección manual de una sugerencia de memoria. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a89be4768bb28da09674df5e4ed6a4591_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_aa82c70ba42956f4d96d1d6f09766031b}\label{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_aa82c70ba42956f4d96d1d6f09766031b}} 
+\index{proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}!trigger\_mobility@{trigger\_mobility}}
+\index{trigger\_mobility@{trigger\_mobility}!proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}}
+\doxysubsubsection{\texorpdfstring{trigger\_mobility()}{trigger\_mobility()}}
+{\footnotesize\ttfamily def proactive.\+proactive\+\_\+scheduler.\+Proactive\+Scheduler.\+trigger\+\_\+mobility (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Inyección manual de una sugerencia de movilidad. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_aa82c70ba42956f4d96d1d6f09766031b_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a919453ecf194c8dd68268d787dbd0f10}\label{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a919453ecf194c8dd68268d787dbd0f10}} 
+\index{proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}!\_fire\_lock@{\_fire\_lock}}
+\index{\_fire\_lock@{\_fire\_lock}!proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}}
+\doxysubsubsection{\texorpdfstring{\_fire\_lock}{\_fire\_lock}}
+{\footnotesize\ttfamily proactive.\+proactive\+\_\+scheduler.\+Proactive\+Scheduler.\+\_\+fire\+\_\+lock\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a2bfae47c06dc532c1896e42d5ddd8ca7}\label{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a2bfae47c06dc532c1896e42d5ddd8ca7}} 
+\index{proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}!\_last\_memory@{\_last\_memory}}
+\index{\_last\_memory@{\_last\_memory}!proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}}
+\doxysubsubsection{\texorpdfstring{\_last\_memory}{\_last\_memory}}
+{\footnotesize\ttfamily proactive.\+proactive\+\_\+scheduler.\+Proactive\+Scheduler.\+\_\+last\+\_\+memory\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_aea09002ea074e967acb486c660743d63}\label{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_aea09002ea074e967acb486c660743d63}} 
+\index{proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}!\_last\_mobility@{\_last\_mobility}}
+\index{\_last\_mobility@{\_last\_mobility}!proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}}
+\doxysubsubsection{\texorpdfstring{\_last\_mobility}{\_last\_mobility}}
+{\footnotesize\ttfamily proactive.\+proactive\+\_\+scheduler.\+Proactive\+Scheduler.\+\_\+last\+\_\+mobility\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a968bdf1189b172567b79125dae004981}\label{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a968bdf1189b172567b79125dae004981}} 
+\index{proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}!\_mem\_idx@{\_mem\_idx}}
+\index{\_mem\_idx@{\_mem\_idx}!proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}}
+\doxysubsubsection{\texorpdfstring{\_mem\_idx}{\_mem\_idx}}
+{\footnotesize\ttfamily proactive.\+proactive\+\_\+scheduler.\+Proactive\+Scheduler.\+\_\+mem\+\_\+idx\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_af3d63a8ff3234a891fa7769db1f14053}\label{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_af3d63a8ff3234a891fa7769db1f14053}} 
+\index{proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}!\_mob\_idx@{\_mob\_idx}}
+\index{\_mob\_idx@{\_mob\_idx}!proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}}
+\doxysubsubsection{\texorpdfstring{\_mob\_idx}{\_mob\_idx}}
+{\footnotesize\ttfamily proactive.\+proactive\+\_\+scheduler.\+Proactive\+Scheduler.\+\_\+mob\+\_\+idx\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a8a52038e4f6cc261bf91770e44cdefcc}\label{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a8a52038e4f6cc261bf91770e44cdefcc}} 
+\index{proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}!\_next\_type@{\_next\_type}}
+\index{\_next\_type@{\_next\_type}!proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}}
+\doxysubsubsection{\texorpdfstring{\_next\_type}{\_next\_type}}
+{\footnotesize\ttfamily proactive.\+proactive\+\_\+scheduler.\+Proactive\+Scheduler.\+\_\+next\+\_\+type\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a7fa41103f78da122764929b87ec54e70}\label{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a7fa41103f78da122764929b87ec54e70}} 
+\index{proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}!\_stop\_evt@{\_stop\_evt}}
+\index{\_stop\_evt@{\_stop\_evt}!proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}}
+\doxysubsubsection{\texorpdfstring{\_stop\_evt}{\_stop\_evt}}
+{\footnotesize\ttfamily proactive.\+proactive\+\_\+scheduler.\+Proactive\+Scheduler.\+\_\+stop\+\_\+evt\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a46eae20faf4014bc8f72e496f29e35a8}\label{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a46eae20faf4014bc8f72e496f29e35a8}} 
+\index{proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}!\_suggestion\_active@{\_suggestion\_active}}
+\index{\_suggestion\_active@{\_suggestion\_active}!proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}}
+\doxysubsubsection{\texorpdfstring{\_suggestion\_active}{\_suggestion\_active}}
+{\footnotesize\ttfamily proactive.\+proactive\+\_\+scheduler.\+Proactive\+Scheduler.\+\_\+suggestion\+\_\+active\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a922bfd0a35b74a19995ca05d47e52eb1}\label{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a922bfd0a35b74a19995ca05d47e52eb1}} 
+\index{proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}!\_suggestion\_fired\_at@{\_suggestion\_fired\_at}}
+\index{\_suggestion\_fired\_at@{\_suggestion\_fired\_at}!proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}}
+\doxysubsubsection{\texorpdfstring{\_suggestion\_fired\_at}{\_suggestion\_fired\_at}}
+{\footnotesize\ttfamily proactive.\+proactive\+\_\+scheduler.\+Proactive\+Scheduler.\+\_\+suggestion\+\_\+fired\+\_\+at\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a63f19245e07bac2d78f71e0c7c79c049}\label{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a63f19245e07bac2d78f71e0c7c79c049}} 
+\index{proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}!\_thread@{\_thread}}
+\index{\_thread@{\_thread}!proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}}
+\doxysubsubsection{\texorpdfstring{\_thread}{\_thread}}
+{\footnotesize\ttfamily proactive.\+proactive\+\_\+scheduler.\+Proactive\+Scheduler.\+\_\+thread\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_ab7247ded6b89b9169cec9fda06f6bc44}\label{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_ab7247ded6b89b9169cec9fda06f6bc44}} 
+\index{proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}!display@{display}}
+\index{display@{display}!proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}}
+\doxysubsubsection{\texorpdfstring{display}{display}}
+{\footnotesize\ttfamily proactive.\+proactive\+\_\+scheduler.\+Proactive\+Scheduler.\+display}
+
+\mbox{\Hypertarget{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_ae1ae78e9e57f2035821da69b304f41b9}\label{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_ae1ae78e9e57f2035821da69b304f41b9}} 
+\index{proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}!get\_stt\_state@{get\_stt\_state}}
+\index{get\_stt\_state@{get\_stt\_state}!proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}}
+\doxysubsubsection{\texorpdfstring{get\_stt\_state}{get\_stt\_state}}
+{\footnotesize\ttfamily proactive.\+proactive\+\_\+scheduler.\+Proactive\+Scheduler.\+get\+\_\+stt\+\_\+state}
+
+\mbox{\Hypertarget{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_ae366d9884dc11619684e1aa0b6e1f104}\label{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_ae366d9884dc11619684e1aa0b6e1f104}} 
+\index{proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}!memory\_interval@{memory\_interval}}
+\index{memory\_interval@{memory\_interval}!proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}}
+\doxysubsubsection{\texorpdfstring{memory\_interval}{memory\_interval}}
+{\footnotesize\ttfamily proactive.\+proactive\+\_\+scheduler.\+Proactive\+Scheduler.\+memory\+\_\+interval}
+
+\mbox{\Hypertarget{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a9a715646007b286b02901cec713e5ee8}\label{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a9a715646007b286b02901cec713e5ee8}} 
+\index{proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}!mobility\_interval@{mobility\_interval}}
+\index{mobility\_interval@{mobility\_interval}!proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}}
+\doxysubsubsection{\texorpdfstring{mobility\_interval}{mobility\_interval}}
+{\footnotesize\ttfamily proactive.\+proactive\+\_\+scheduler.\+Proactive\+Scheduler.\+mobility\+\_\+interval}
+
+\mbox{\Hypertarget{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a8324c03b0ee973f3f31b840e96e320e1}\label{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_a8324c03b0ee973f3f31b840e96e320e1}} 
+\index{proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}!on\_suggest@{on\_suggest}}
+\index{on\_suggest@{on\_suggest}!proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}}
+\doxysubsubsection{\texorpdfstring{on\_suggest}{on\_suggest}}
+{\footnotesize\ttfamily proactive.\+proactive\+\_\+scheduler.\+Proactive\+Scheduler.\+on\+\_\+suggest}
+
+\mbox{\Hypertarget{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_af870e5359e081c7ff73414c119c7e9df}\label{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_af870e5359e081c7ff73414c119c7e9df}} 
+\index{proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}!start\_delay@{start\_delay}}
+\index{start\_delay@{start\_delay}!proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}}
+\doxysubsubsection{\texorpdfstring{start\_delay}{start\_delay}}
+{\footnotesize\ttfamily proactive.\+proactive\+\_\+scheduler.\+Proactive\+Scheduler.\+start\+\_\+delay}
+
+\mbox{\Hypertarget{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_aabc8cd8ede6dddfa8e51e1c2ec7ecda2}\label{classproactive_1_1proactive__scheduler_1_1ProactiveScheduler_aabc8cd8ede6dddfa8e51e1c2ec7ecda2}} 
+\index{proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}!tts@{tts}}
+\index{tts@{tts}!proactive.proactive\_scheduler.ProactiveScheduler@{proactive.proactive\_scheduler.ProactiveScheduler}}
+\doxysubsubsection{\texorpdfstring{tts}{tts}}
+{\footnotesize\ttfamily proactive.\+proactive\+\_\+scheduler.\+Proactive\+Scheduler.\+tts}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ui/apps/proactive/\mbox{\hyperlink{proactive__scheduler_8py}{proactive\+\_\+scheduler.\+py}}\end{DoxyCompactItemize}

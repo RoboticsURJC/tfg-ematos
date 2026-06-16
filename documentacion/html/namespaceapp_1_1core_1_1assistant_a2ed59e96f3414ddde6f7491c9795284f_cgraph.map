@@ -1,0 +1,10 @@
+<map id="app.core.assistant.procesar_texto" name="app.core.assistant.procesar_texto">
+<area shape="rect" id="node1" title="Orquesta el flujo principal (Pipeline) para procesar un mensaje del usuario." alt="" coords="5,169,207,211"/>
+<area shape="rect" id="node2" href="$namespaceapp_1_1core_1_1memory.html#a0fd07fc1100456c5f8f0ba00dce143e3" title="Añade una interacción al historial de un usuario." alt="" coords="261,5,451,47"/>
+<area shape="rect" id="node3" href="$namespaceapp_1_1core_1_1assistant.html#ad3a93bcba2d1a7401db346874915cdbc" title="Envía el prompt empaquetado al modelo de lenguaje a través de una petición HTTP POST." alt="" coords="272,71,440,112"/>
+<area shape="rect" id="node4" href="$namespaceapp_1_1core_1_1assistant.html#a4e8e4032209a2113e765e5cf032fd693" title="Construye el prompt estructurado completo para enviar al modelo de lenguaje." alt="" coords="255,136,457,177"/>
+<area shape="rect" id="node6" href="$namespaceapp_1_1core_1_1intent.html#a75fa8afee8a4a84fd53daac9a69a8d21" title="Analiza el texto recibido buscando palabras clave para clasificar la intención del usuario." alt="" coords="267,201,445,243"/>
+<area shape="rect" id="node7" href="$namespaceapp_1_1core_1_1assistant.html#ac7cc32d019cd31efef74d7a0ea615ba5" title="Consulta las condiciones meteorológicas en tiempo real de una ciudad." alt="" coords="273,267,439,308"/>
+<area shape="rect" id="node8" href="$namespaceapp_1_1core_1_1memory.html#ad16e86321e81e09fb0056e84ffc2abfe" title="Guarda la memoria en disco." alt="" coords="261,332,451,373"/>
+<area shape="rect" id="node5" href="$namespaceapp_1_1core_1_1memory.html#a4ffffc8ce49b0c20d92fd6ee7be9226a" title="Obtiene las últimas interacciones de un usuario." alt="" coords="505,136,695,177"/>
+</map>

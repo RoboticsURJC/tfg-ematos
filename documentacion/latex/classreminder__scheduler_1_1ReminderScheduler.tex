@@ -1,0 +1,140 @@
+\hypertarget{classreminder__scheduler_1_1ReminderScheduler}{}\doxysection{reminder\+\_\+scheduler.\+Reminder\+Scheduler Class Reference}
+\label{classreminder__scheduler_1_1ReminderScheduler}\index{reminder\_scheduler.ReminderScheduler@{reminder\_scheduler.ReminderScheduler}}
+
+
+Clase encargada de la ejecución de recordatorios programados.  
+
+
+
+
+Collaboration diagram for reminder\+\_\+scheduler.\+Reminder\+Scheduler\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=243pt]{classreminder__scheduler_1_1ReminderScheduler__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classreminder__scheduler_1_1ReminderScheduler_a410004a891a9523d31839644c629202a}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classreminder__scheduler_1_1ReminderScheduler_a14074605797bc5b0f5e4b7ed52bdb8f8}{store}}, \mbox{\hyperlink{classreminder__scheduler_1_1ReminderScheduler_a7d46435ba1ac81aaeb57278ac924f27d}{tts}}, \mbox{\hyperlink{classreminder__scheduler_1_1ReminderScheduler_a18220f64f5a802b621591925c0126855}{display}}=None)
+\begin{DoxyCompactList}\small\item\em Constructor del planificador. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classreminder__scheduler_1_1ReminderScheduler_a6ecf55859abe983f90f4258189e4aaa0}{start}} (self)
+\begin{DoxyCompactList}\small\item\em Inicia el hilo de ejecución del bucle de recordatorios. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classreminder__scheduler_1_1ReminderScheduler_a2295bd876913a5380f7c4c6af1293913}{stop}} (self)
+\begin{DoxyCompactList}\small\item\em Detiene el bucle de ejecución de forma segura. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classreminder__scheduler_1_1ReminderScheduler_a14074605797bc5b0f5e4b7ed52bdb8f8}{store}}
+\item 
+\mbox{\hyperlink{classreminder__scheduler_1_1ReminderScheduler_a7d46435ba1ac81aaeb57278ac924f27d}{tts}}
+\item 
+\mbox{\hyperlink{classreminder__scheduler_1_1ReminderScheduler_a18220f64f5a802b621591925c0126855}{display}}
+\item 
+\mbox{\hyperlink{classreminder__scheduler_1_1ReminderScheduler_ae052bcf3a1807844be3f5303d65c9f63}{running}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classreminder__scheduler_1_1ReminderScheduler_af13b867f80ae8a60571b7acb62d0abb8}{\+\_\+loop}} (self)
+\begin{DoxyCompactList}\small\item\em Bucle principal de monitoreo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase encargada de la ejecución de recordatorios programados. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classreminder__scheduler_1_1ReminderScheduler_a410004a891a9523d31839644c629202a}\label{classreminder__scheduler_1_1ReminderScheduler_a410004a891a9523d31839644c629202a}} 
+\index{reminder\_scheduler.ReminderScheduler@{reminder\_scheduler.ReminderScheduler}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!reminder\_scheduler.ReminderScheduler@{reminder\_scheduler.ReminderScheduler}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def reminder\+\_\+scheduler.\+Reminder\+Scheduler.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{store,  }\item[{}]{tts,  }\item[{}]{display = {\ttfamily None} }\end{DoxyParamCaption})}
+
+
+
+Constructor del planificador. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em store} & Instancia del almacén de recordatorios (Reminder\+Store). \\
+\hline
+{\em tts} & Motor de texto a voz para notificar al usuario. \\
+\hline
+{\em display} & (Opcional) Objeto para actualizar el estado en pantalla. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classreminder__scheduler_1_1ReminderScheduler_af13b867f80ae8a60571b7acb62d0abb8}\label{classreminder__scheduler_1_1ReminderScheduler_af13b867f80ae8a60571b7acb62d0abb8}} 
+\index{reminder\_scheduler.ReminderScheduler@{reminder\_scheduler.ReminderScheduler}!\_loop@{\_loop}}
+\index{\_loop@{\_loop}!reminder\_scheduler.ReminderScheduler@{reminder\_scheduler.ReminderScheduler}}
+\doxysubsubsection{\texorpdfstring{\_loop()}{\_loop()}}
+{\footnotesize\ttfamily def reminder\+\_\+scheduler.\+Reminder\+Scheduler.\+\_\+loop (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Bucle principal de monitoreo. 
+
+Comprueba cada 5 segundos si existe algún recordatorio pendiente cuya fecha de ejecución esté dentro de un margen de 30 segundos respecto al tiempo actual. \mbox{\Hypertarget{classreminder__scheduler_1_1ReminderScheduler_a6ecf55859abe983f90f4258189e4aaa0}\label{classreminder__scheduler_1_1ReminderScheduler_a6ecf55859abe983f90f4258189e4aaa0}} 
+\index{reminder\_scheduler.ReminderScheduler@{reminder\_scheduler.ReminderScheduler}!start@{start}}
+\index{start@{start}!reminder\_scheduler.ReminderScheduler@{reminder\_scheduler.ReminderScheduler}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily def reminder\+\_\+scheduler.\+Reminder\+Scheduler.\+start (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Inicia el hilo de ejecución del bucle de recordatorios. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classreminder__scheduler_1_1ReminderScheduler_a6ecf55859abe983f90f4258189e4aaa0_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classreminder__scheduler_1_1ReminderScheduler_a2295bd876913a5380f7c4c6af1293913}\label{classreminder__scheduler_1_1ReminderScheduler_a2295bd876913a5380f7c4c6af1293913}} 
+\index{reminder\_scheduler.ReminderScheduler@{reminder\_scheduler.ReminderScheduler}!stop@{stop}}
+\index{stop@{stop}!reminder\_scheduler.ReminderScheduler@{reminder\_scheduler.ReminderScheduler}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily def reminder\+\_\+scheduler.\+Reminder\+Scheduler.\+stop (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Detiene el bucle de ejecución de forma segura. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classreminder__scheduler_1_1ReminderScheduler_a18220f64f5a802b621591925c0126855}\label{classreminder__scheduler_1_1ReminderScheduler_a18220f64f5a802b621591925c0126855}} 
+\index{reminder\_scheduler.ReminderScheduler@{reminder\_scheduler.ReminderScheduler}!display@{display}}
+\index{display@{display}!reminder\_scheduler.ReminderScheduler@{reminder\_scheduler.ReminderScheduler}}
+\doxysubsubsection{\texorpdfstring{display}{display}}
+{\footnotesize\ttfamily reminder\+\_\+scheduler.\+Reminder\+Scheduler.\+display}
+
+\mbox{\Hypertarget{classreminder__scheduler_1_1ReminderScheduler_ae052bcf3a1807844be3f5303d65c9f63}\label{classreminder__scheduler_1_1ReminderScheduler_ae052bcf3a1807844be3f5303d65c9f63}} 
+\index{reminder\_scheduler.ReminderScheduler@{reminder\_scheduler.ReminderScheduler}!running@{running}}
+\index{running@{running}!reminder\_scheduler.ReminderScheduler@{reminder\_scheduler.ReminderScheduler}}
+\doxysubsubsection{\texorpdfstring{running}{running}}
+{\footnotesize\ttfamily reminder\+\_\+scheduler.\+Reminder\+Scheduler.\+running}
+
+\mbox{\Hypertarget{classreminder__scheduler_1_1ReminderScheduler_a14074605797bc5b0f5e4b7ed52bdb8f8}\label{classreminder__scheduler_1_1ReminderScheduler_a14074605797bc5b0f5e4b7ed52bdb8f8}} 
+\index{reminder\_scheduler.ReminderScheduler@{reminder\_scheduler.ReminderScheduler}!store@{store}}
+\index{store@{store}!reminder\_scheduler.ReminderScheduler@{reminder\_scheduler.ReminderScheduler}}
+\doxysubsubsection{\texorpdfstring{store}{store}}
+{\footnotesize\ttfamily reminder\+\_\+scheduler.\+Reminder\+Scheduler.\+store}
+
+\mbox{\Hypertarget{classreminder__scheduler_1_1ReminderScheduler_a7d46435ba1ac81aaeb57278ac924f27d}\label{classreminder__scheduler_1_1ReminderScheduler_a7d46435ba1ac81aaeb57278ac924f27d}} 
+\index{reminder\_scheduler.ReminderScheduler@{reminder\_scheduler.ReminderScheduler}!tts@{tts}}
+\index{tts@{tts}!reminder\_scheduler.ReminderScheduler@{reminder\_scheduler.ReminderScheduler}}
+\doxysubsubsection{\texorpdfstring{tts}{tts}}
+{\footnotesize\ttfamily reminder\+\_\+scheduler.\+Reminder\+Scheduler.\+tts}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ui/apps/reminder/\mbox{\hyperlink{reminder__scheduler_8py}{reminder\+\_\+scheduler.\+py}}\end{DoxyCompactItemize}

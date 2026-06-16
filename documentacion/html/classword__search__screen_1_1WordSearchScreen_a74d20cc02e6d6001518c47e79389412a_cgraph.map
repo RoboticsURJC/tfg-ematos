@@ -1,0 +1,13 @@
+<map id="word_search_screen.WordSearchScreen.start_game" name="word_search_screen.WordSearchScreen.start_game">
+<area shape="rect" id="node1" title="Inicializa las matrices del generador procedimental e inicia una partida nueva." alt="" coords="5,217,240,259"/>
+<area shape="rect" id="node2" href="$classword__search__screen_1_1WordSearchScreen.html#af299de8caa0a843b4b8259a3c9212053" title="Pre&#45;renderiza las letras del alfabeto de la matriz sobre un mapa asociativo en memoria." alt="" coords="288,5,523,47"/>
+<area shape="rect" id="node3" href="$classfind__differences__screen_1_1FindDifferencesScreen.html#a6cdf3bc76266e6c4845292d93d021335" title="Calcula de forma estricta los rectángulos de visualización de los lienzos." alt="" coords="316,71,495,127"/>
+<area shape="rect" id="node4" href="$classsimon__says__screen_1_1SimonSaysScreen.html#aef296cc8b6b4f1c4a975a937940b85b6" title="Distribuye espacialmente 4 inductores circulares idénticos alineados de forma horizontal." alt="" coords="293,152,518,193"/>
+<area shape="rect" id="node5" href="$classword__search__screen_1_1WordSearchScreen.html#ab3ba7ccbe96c60a15ba1b19db528145d" title="Distribuye espacialmente la matriz de juego basándose en la resolución actual del lienzo." alt="" coords="288,217,523,259"/>
+<area shape="rect" id="node6" href="$classword__search__screen_1_1WordSearchScreen.html#a5cc2220bbc67dd963cd9400fc43a17d1" title="Evalúa las dimensiones de la lista léxica y calibra los límites del scroll vertical." alt="" coords="288,283,523,324"/>
+<area shape="rect" id="node7" href="$namespacegenerate.html#ac32ef11a9853aafa450a68f57d636cb0" title="Genera procedimentalmente un nuevo mapa completo de sopa de letras bajo criterios de optimización esp..." alt="" coords="312,373,499,399"/>
+<area shape="rect" id="node11" href="$namespacegenerate.html#a6eec92933c39e8c4be3de8b8af78d39c" title="Configura y altera dinámicamente las dimensiones estructurales de la grilla según el grado de complej..." alt="" coords="321,423,489,450"/>
+<area shape="rect" id="node8" href="$namespacegenerate.html#a496d21facf73697d8c96ec05feef9c96" title="Valida mediante proyección lineal si una palabra puede ser sembrada en una coordenada específica." alt="" coords="577,322,773,349"/>
+<area shape="rect" id="node9" href="$namespacegenerate.html#a021501468e4f34b9109dd4c692ba0343" title="Carga y normaliza el banco de términos lingüísticos desde el sistema de archivos del dispositivo." alt="" coords="571,373,779,399"/>
+<area shape="rect" id="node10" href="$namespacegenerate.html#a46429655209bf6a2ab7da37cabd54629" title="Modifica físicamente las celdas de la matriz e inyecta los caracteres de la palabra validada." alt="" coords="593,423,756,450"/>
+</map>

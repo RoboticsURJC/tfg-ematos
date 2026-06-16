@@ -1,0 +1,30 @@
+<map id="settings_screen.SettingsScreen.__init__" name="settings_screen.SettingsScreen.__init__">
+<area shape="rect" id="node1" title="Inicializa la UI y configura temporizadores de refresco." alt="" coords="5,613,187,655"/>
+<area shape="rect" id="node2" href="$classsettings__screen_1_1SettingsScreen.html#a8c1e07f29ae700af4e3c081b069ac450" title="Deshabilitar bluetooth." alt="" coords="259,5,440,47"/>
+<area shape="rect" id="node5" href="$classsettings__screen_1_1SettingsScreen.html#a722d1a8621e474e7930c954b8c617a08" title="Habilitar bluetooth." alt="" coords="259,71,440,112"/>
+<area shape="rect" id="node6" href="$classsettings__screen_1_1SettingsScreen.html#aa2ea55a1b1e871a6c8046af8b6bfac3b" title="Inicia el escaneo de dispositivos Bluetooth en un hilo separado." alt="" coords="259,136,440,177"/>
+<area shape="rect" id="node10" href="$namespacesettings__screen.html#a84112b5e034e00e815f92ce59eab083d" title="Crea un contenedor estilizado (tarjeta) con borde de color." alt="" coords="268,202,431,229"/>
+<area shape="rect" id="node11" href="$classsettings__screen_1_1SettingsScreen.html#a46a0f5fff76d68f7d428f8a191a156b0" title="Cambia el nivel de volumen actual vía amixer." alt="" coords="259,645,440,687"/>
+<area shape="rect" id="node13" href="$classsettings__screen_1_1SettingsScreen.html#ab8ba21074f1da9d4873d0a8aad77de8a" title="Limpiar logs." alt="" coords="259,319,440,360"/>
+<area shape="rect" id="node14" href="$classsettings__screen_1_1SettingsScreen.html#a0ee5b50ee1c120f43ca0c5bad30b8e14" title="Borrar /tmp." alt="" coords="259,384,440,425"/>
+<area shape="rect" id="node15" href="$classbrowser__screen_1_1BrowserScreen.html#a145983fd51ba7d18acb82d807f5b4d1b" title="Emula el comando de hardware &#39;Atrás&#39; en el historial de navegación." alt="" coords="235,449,464,491"/>
+<area shape="rect" id="node16" href="$classsettings__screen_1_1SettingsScreen.html#a84ec8d73bc4a3031947f04639296d0e7" title="Retorna al lanzador." alt="" coords="259,515,440,556"/>
+<area shape="rect" id="node17" href="$classsettings__screen_1_1SettingsScreen.html#abc1f5e53906c8a6672f55c86a8a07e88" title="Crea un widget de barra de progreso para estadísticas del sistema." alt="" coords="259,580,440,621"/>
+<area shape="rect" id="node18" href="$classsettings__screen_1_1SettingsScreen.html#a7f962f1b4dbbbcccc441a6a2b8a4709f" title="Inicia el escaneo de dispositivos." alt="" coords="255,253,444,295"/>
+<area shape="rect" id="node19" href="$classsettings__screen_1_1SettingsScreen.html#ade3de009d1575209c5ba23c7e93549e4" title="Estado del wifi." alt="" coords="252,711,447,752"/>
+<area shape="rect" id="node20" href="$classsettings__screen_1_1SettingsScreen.html#a2a17b6fd1d3b494e888debe749f21128" title="Ejecuta un comando de apagado seguro." alt="" coords="259,776,440,817"/>
+<area shape="rect" id="node21" href="$classsettings__screen_1_1SettingsScreen.html#ab5a15741c748a8572080acb9cc6664ce" title="Ejecuta un comando de reinicio seguro." alt="" coords="259,841,440,883"/>
+<area shape="rect" id="node22" href="$classsettings__screen_1_1SettingsScreen.html#ac7ba762e944b18ff68a1111701ebf924" title="Actualiza el reloj, fecha y tiempo de actividad (uptime)." alt="" coords="259,907,440,948"/>
+<area shape="rect" id="node23" href="$classsettings__screen_1_1SettingsScreen.html#ab3312067f8be1348e91d8fc080f9639d" title="Lee estadísticas de CPU, RAM, Disco y Temperatura de la Pi." alt="" coords="259,972,440,1013"/>
+<area shape="rect" id="node24" href="$classsettings__screen_1_1SettingsScreen.html#a3ee4ca93e4dce6e5d8aba10632b20499" title="Deshabilitar wifi." alt="" coords="259,1155,440,1196"/>
+<area shape="rect" id="node25" href="$classsettings__screen_1_1SettingsScreen.html#aa154fd8cffd44023858e47e5eeb48504" title="Recargar wifi." alt="" coords="513,1089,694,1131"/>
+<area shape="rect" id="node27" href="$classsettings__screen_1_1SettingsScreen.html#a186e3efc6debff2b443866cff2c55502" title="Habilitar wifi." alt="" coords="259,1089,440,1131"/>
+<area shape="rect" id="node28" href="$classsettings__screen_1_1SettingsScreen.html#ab1f0580699e00e72960dfd9fb9e5b038" title=" " alt="" coords="259,1220,440,1261"/>
+<area shape="rect" id="node3" href="$classsettings__screen_1_1SettingsScreen.html#a64f0829473fc7cb45952f01150170377" title="Recarga el estado de bluetooth." alt="" coords="512,39,695,80"/>
+<area shape="rect" id="node4" href="$classsettings__screen_1_1SettingsScreen.html#a795c99353ff5f5d7c78ce40ee3bf3a2b" title="Lanza comando de aplicaciones internas." alt="" coords="753,39,935,80"/>
+<area shape="rect" id="node7" href="$classsettings__screen_1_1SettingsScreen.html#adf014945e8f90eecbc57bbbd0c2fa4fe" title="Lógica de escaneo (ejecución síncrona en hilo)." alt="" coords="513,136,694,177"/>
+<area shape="rect" id="node8" href="$namespaceroutes__dashboard.html#a8e1c87d3914c53c0d5ed6d8c3dafca9e" title="Vacía el historial de logs de un servicio." alt="" coords="516,231,691,258"/>
+<area shape="rect" id="node9" href="$namespacelog__service.html#ae2983f6bea2c5025c60c12bb9e947d4c" title="Vacía por completo el historial de registros de un servicio específico." alt="" coords="761,231,927,258"/>
+<area shape="rect" id="node12" href="$classsettings__screen_1_1SettingsScreen.html#ab12abcb7dc267e7c3fe73a130cf7ebc5" title="Lee el nivel de volumen actual vía amixer." alt="" coords="513,645,694,687"/>
+<area shape="rect" id="node26" href="$classsettings__screen_1_1SettingsScreen.html#a90f2b86ab6cca6cd1424f1c3dbe19bd6" title="Recargar wifi con hilos." alt="" coords="743,1089,945,1131"/>
+</map>

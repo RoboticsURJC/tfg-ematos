@@ -1,0 +1,425 @@
+\hypertarget{classbrowser__screen_1_1BrowserScreen}{}\doxysection{browser\+\_\+screen.\+Browser\+Screen Class Reference}
+\label{classbrowser__screen_1_1BrowserScreen}\index{browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}}
+
+
+Pantalla contenedora encargada de inicializar y supervisar el ciclo de vida del navegador Chromium.  
+
+
+
+
+Inheritance diagram for browser\+\_\+screen.\+Browser\+Screen\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=249pt]{classbrowser__screen_1_1BrowserScreen__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for browser\+\_\+screen.\+Browser\+Screen\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=249pt]{classbrowser__screen_1_1BrowserScreen__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classbrowser__screen_1_1BrowserScreen_a3028f582d599059ff4e27e41088e89d5}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classbrowser__screen_1_1BrowserScreen_ad343e7d74d152f6ab12bcda95e990f14}{controller}})
+\begin{DoxyCompactList}\small\item\em Constructor de la pantalla \mbox{\hyperlink{classbrowser__screen_1_1BrowserScreen}{Browser\+Screen}}. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classbrowser__screen_1_1BrowserScreen_ad17d6860839adbe51569190901cbef50}{show\+Event}} (self, event)
+\begin{DoxyCompactList}\small\item\em Intercepta el evento de visualización del Widget principal. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classbrowser__screen_1_1BrowserScreen_abd4b73419a6054d17c4c1b68836f7174}{hide\+Event}} (self, event)
+\begin{DoxyCompactList}\small\item\em Intercepta la ocultación de la pantalla para desactivar y liberar recursos. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classbrowser__screen_1_1BrowserScreen_a3dcede94d050edbb6df7aee778f17842}{close\+Event}} (self, event)
+\begin{DoxyCompactList}\small\item\em Asegura la limpieza total de subprocesos cuando el widget es destruido de forma explícita. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classbrowser__screen_1_1BrowserScreen_ab3c21b6b1ee851bb01ef0fd1afd18a3f}{go\+\_\+back\+\_\+to\+\_\+launcher}} (self)
+\begin{DoxyCompactList}\small\item\em Cierra de forma ordenada los componentes del navegador y cede el foco al menú principal (Launcher). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classbrowser__screen_1_1BrowserScreen_ad343e7d74d152f6ab12bcda95e990f14}{controller}}
+\begin{DoxyCompactList}\small\item\em Instancia del controlador central de pantallas. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classbrowser__screen_1_1BrowserScreen_a302b1744ed8b23140958fcefb058ed8f}{btn\+\_\+home}}
+\item 
+\mbox{\hyperlink{classbrowser__screen_1_1BrowserScreen_aeb4749f9cf95128e2182d67ee80120bb}{btn\+\_\+prev}}
+\item 
+\mbox{\hyperlink{classbrowser__screen_1_1BrowserScreen_afd442b2d76b269fe90de9ee36f8bbe83}{btn\+\_\+nav\+\_\+arrow}}
+\item 
+\mbox{\hyperlink{classbrowser__screen_1_1BrowserScreen_ade3aafc5ae9a3047613526f78eeb0da4}{btn\+\_\+next}}
+\item 
+\mbox{\hyperlink{classbrowser__screen_1_1BrowserScreen_a60b20c2a39114c4d77c59c77d2609dbe}{input\+\_\+url}}
+\item 
+\mbox{\hyperlink{classbrowser__screen_1_1BrowserScreen_a69b01231dbc3f975fe63698dfc766806}{btn\+\_\+go}}
+\item 
+\mbox{\hyperlink{classbrowser__screen_1_1BrowserScreen_ae1a8938cd591951a0d63d39422054e47}{initial\+\_\+keyboard}}
+\item 
+\mbox{\hyperlink{classbrowser__screen_1_1BrowserScreen_a54d913485cbf7238eb6e9d5826b71f1a}{btn\+\_\+exit}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classbrowser__screen_1_1BrowserScreen_a5df6302caf8a327105828a70cc5a75b1}{\+\_\+show\+\_\+initial\+\_\+keyboard}} (self)
+\begin{DoxyCompactList}\small\item\em Enlaza el widget del teclado virtual interno de Py\+Qt5 con la barra de entrada de texto. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classbrowser__screen_1_1BrowserScreen_a5c4df700c853b0305e0bd9b1127e4a90}{\+\_\+resolve\+\_\+url}} (self, text)
+\begin{DoxyCompactList}\small\item\em Analiza y sanea la cadena de texto de entrada para determinar si es una dirección URL o un término de búsqueda. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classbrowser__screen_1_1BrowserScreen_ad5159adfdecb0592377f0ef12ee196fd}{\+\_\+on\+\_\+buscar}} (self)
+\begin{DoxyCompactList}\small\item\em Slot asíncrono para el evento de retorno de la barra de direcciones ({\ttfamily Return Pressed}). \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classbrowser__screen_1_1BrowserScreen_aa2015103f665ad044ff7cfebe44f720c}{\+\_\+launch\+\_\+from\+\_\+bar}} (self)
+\begin{DoxyCompactList}\small\item\em Slot asíncrono asignado a la acción del botón físico táctil de \textquotesingle{}Buscar\textquotesingle{}. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classbrowser__screen_1_1BrowserScreen_a145983fd51ba7d18acb82d807f5b4d1b}{\+\_\+go\+\_\+back}} (self)
+\begin{DoxyCompactList}\small\item\em Emula el comando de hardware \textquotesingle{}Atrás\textquotesingle{} en el historial de navegación. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classbrowser__screen_1_1BrowserScreen_a6b6e21417ef0472240a2b9ddf4baf9bf}{\+\_\+go\+\_\+forward}} (self)
+\begin{DoxyCompactList}\small\item\em Emula el comando de hardware \textquotesingle{}Adelante\textquotesingle{} en el historial de navegación. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classbrowser__screen_1_1BrowserScreen_a445c1214765d8f6ee50442342fdf4a57}{\+\_\+launch\+\_\+chromium}} (self, url)
+\begin{DoxyCompactList}\small\item\em Configura y levanta el subproceso independiente de Chromium optimizado para sistemas integrados. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classbrowser__screen_1_1BrowserScreen_aeb8fbd52e02010792e968db28346e5e9}{\+\_\+launch\+\_\+wvkbd}} (self)
+\begin{DoxyCompactList}\small\item\em Despliega el teclado virtual en pantalla compatible con Wayland/\+X11 {\ttfamily wvkbd-\/mobintl}. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classbrowser__screen_1_1BrowserScreen_a8c1f77849d23f06a086957785f5e54ad}{\+\_\+kill\+\_\+all}} (self)
+\begin{DoxyCompactList}\small\item\em Detiene y purga de forma atómica todos los procesos e instancias zombis del navegador y teclados auxiliares. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classbrowser__screen_1_1BrowserScreen_ae2827ba992e69ea8d9ee5946a16331c1}{\+\_\+chromium}}
+\begin{DoxyCompactList}\small\item\em Referencia al subproceso del navegador externo Chromium. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classbrowser__screen_1_1BrowserScreen_a2b01ff469ad8f5550277d973d6a11e63}{\+\_\+wvkbd}}
+\begin{DoxyCompactList}\small\item\em Referencia al subproceso del teclado virtual táctil wvkbd. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Pantalla contenedora encargada de inicializar y supervisar el ciclo de vida del navegador Chromium. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classbrowser__screen_1_1BrowserScreen_a3028f582d599059ff4e27e41088e89d5}\label{classbrowser__screen_1_1BrowserScreen_a3028f582d599059ff4e27e41088e89d5}} 
+\index{browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def browser\+\_\+screen.\+Browser\+Screen.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{controller }\end{DoxyParamCaption})}
+
+
+
+Constructor de la pantalla \mbox{\hyperlink{classbrowser__screen_1_1BrowserScreen}{Browser\+Screen}}. 
+
+Inicializa la interfaz gráfica, distribuye los botones táctiles en layouts e inyecta el widget de teclado inicial de Py\+Qt5.
+
+
+\begin{DoxyParams}{Parameters}
+{\em controller} & Instancia del orquestador o gestor central de la UI de la aplicación. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{classbrowser__screen_1_1BrowserScreen_a3028f582d599059ff4e27e41088e89d5_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classbrowser__screen_1_1BrowserScreen_a145983fd51ba7d18acb82d807f5b4d1b}\label{classbrowser__screen_1_1BrowserScreen_a145983fd51ba7d18acb82d807f5b4d1b}} 
+\index{browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}!\_go\_back@{\_go\_back}}
+\index{\_go\_back@{\_go\_back}!browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}}
+\doxysubsubsection{\texorpdfstring{\_go\_back()}{\_go\_back()}}
+{\footnotesize\ttfamily def browser\+\_\+screen.\+Browser\+Screen.\+\_\+go\+\_\+back (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Emula el comando de hardware \textquotesingle{}Atrás\textquotesingle{} en el historial de navegación. 
+
+Invoca a la herramienta de Linux {\ttfamily xdotool} para inyectar de forma directa la combinación de teclas {\ttfamily Alt + Flecha Izquierda} dentro del servidor de ventanas gráfico X11. \mbox{\Hypertarget{classbrowser__screen_1_1BrowserScreen_a6b6e21417ef0472240a2b9ddf4baf9bf}\label{classbrowser__screen_1_1BrowserScreen_a6b6e21417ef0472240a2b9ddf4baf9bf}} 
+\index{browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}!\_go\_forward@{\_go\_forward}}
+\index{\_go\_forward@{\_go\_forward}!browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}}
+\doxysubsubsection{\texorpdfstring{\_go\_forward()}{\_go\_forward()}}
+{\footnotesize\ttfamily def browser\+\_\+screen.\+Browser\+Screen.\+\_\+go\+\_\+forward (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Emula el comando de hardware \textquotesingle{}Adelante\textquotesingle{} en el historial de navegación. 
+
+Utiliza {\ttfamily xdotool} para inyectar la combinación de teclas {\ttfamily Alt + Flecha Derecha}. \mbox{\Hypertarget{classbrowser__screen_1_1BrowserScreen_a8c1f77849d23f06a086957785f5e54ad}\label{classbrowser__screen_1_1BrowserScreen_a8c1f77849d23f06a086957785f5e54ad}} 
+\index{browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}!\_kill\_all@{\_kill\_all}}
+\index{\_kill\_all@{\_kill\_all}!browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}}
+\doxysubsubsection{\texorpdfstring{\_kill\_all()}{\_kill\_all()}}
+{\footnotesize\ttfamily def browser\+\_\+screen.\+Browser\+Screen.\+\_\+kill\+\_\+all (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Detiene y purga de forma atómica todos los procesos e instancias zombis del navegador y teclados auxiliares. 
+
+Emplea una política de terminación gradual benigna ({\ttfamily terminate}), escalando a interrupción forzada de kernel ({\ttfamily kill}) si el proceso bloquea los descriptores de archivos tras una ventana de 2 segundos. \mbox{\Hypertarget{classbrowser__screen_1_1BrowserScreen_a445c1214765d8f6ee50442342fdf4a57}\label{classbrowser__screen_1_1BrowserScreen_a445c1214765d8f6ee50442342fdf4a57}} 
+\index{browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}!\_launch\_chromium@{\_launch\_chromium}}
+\index{\_launch\_chromium@{\_launch\_chromium}!browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}}
+\doxysubsubsection{\texorpdfstring{\_launch\_chromium()}{\_launch\_chromium()}}
+{\footnotesize\ttfamily def browser\+\_\+screen.\+Browser\+Screen.\+\_\+launch\+\_\+chromium (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{url }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Configura y levanta el subproceso independiente de Chromium optimizado para sistemas integrados. 
+
+Cierra de forma preventiva instancias zombis concurrentes y parametriza un array masivo de flags de aceleración de hardware, omisión de diálogos de error por cuelgues ({\ttfamily -\/-\/noerrdialogs}) y perfiles de color estables para mitigar la fatiga gráfica en pantallas de Raspberry Pi.
+
+
+\begin{DoxyParams}{Parameters}
+{\em url} & Dirección web absoluta que cargará el navegador en su arranque inicial. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbrowser__screen_1_1BrowserScreen_a445c1214765d8f6ee50442342fdf4a57_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbrowser__screen_1_1BrowserScreen_aa2015103f665ad044ff7cfebe44f720c}\label{classbrowser__screen_1_1BrowserScreen_aa2015103f665ad044ff7cfebe44f720c}} 
+\index{browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}!\_launch\_from\_bar@{\_launch\_from\_bar}}
+\index{\_launch\_from\_bar@{\_launch\_from\_bar}!browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}}
+\doxysubsubsection{\texorpdfstring{\_launch\_from\_bar()}{\_launch\_from\_bar()}}
+{\footnotesize\ttfamily def browser\+\_\+screen.\+Browser\+Screen.\+\_\+launch\+\_\+from\+\_\+bar (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Slot asíncrono asignado a la acción del botón físico táctil de \textquotesingle{}Buscar\textquotesingle{}. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbrowser__screen_1_1BrowserScreen_aa2015103f665ad044ff7cfebe44f720c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbrowser__screen_1_1BrowserScreen_aeb8fbd52e02010792e968db28346e5e9}\label{classbrowser__screen_1_1BrowserScreen_aeb8fbd52e02010792e968db28346e5e9}} 
+\index{browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}!\_launch\_wvkbd@{\_launch\_wvkbd}}
+\index{\_launch\_wvkbd@{\_launch\_wvkbd}!browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}}
+\doxysubsubsection{\texorpdfstring{\_launch\_wvkbd()}{\_launch\_wvkbd()}}
+{\footnotesize\ttfamily def browser\+\_\+screen.\+Browser\+Screen.\+\_\+launch\+\_\+wvkbd (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Despliega el teclado virtual en pantalla compatible con Wayland/\+X11 {\ttfamily wvkbd-\/mobintl}. 
+
+Inyecta explícitamente el descriptor del display primario ({\ttfamily DISPLAY\+: \char`\"{}\+:0\char`\"{}}) en el entorno de ejecución para asegurar la correcta superposición geométrica del teclado. \mbox{\Hypertarget{classbrowser__screen_1_1BrowserScreen_ad5159adfdecb0592377f0ef12ee196fd}\label{classbrowser__screen_1_1BrowserScreen_ad5159adfdecb0592377f0ef12ee196fd}} 
+\index{browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}!\_on\_buscar@{\_on\_buscar}}
+\index{\_on\_buscar@{\_on\_buscar}!browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}}
+\doxysubsubsection{\texorpdfstring{\_on\_buscar()}{\_on\_buscar()}}
+{\footnotesize\ttfamily def browser\+\_\+screen.\+Browser\+Screen.\+\_\+on\+\_\+buscar (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Slot asíncrono para el evento de retorno de la barra de direcciones ({\ttfamily Return Pressed}). 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbrowser__screen_1_1BrowserScreen_ad5159adfdecb0592377f0ef12ee196fd_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbrowser__screen_1_1BrowserScreen_a5c4df700c853b0305e0bd9b1127e4a90}\label{classbrowser__screen_1_1BrowserScreen_a5c4df700c853b0305e0bd9b1127e4a90}} 
+\index{browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}!\_resolve\_url@{\_resolve\_url}}
+\index{\_resolve\_url@{\_resolve\_url}!browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}}
+\doxysubsubsection{\texorpdfstring{\_resolve\_url()}{\_resolve\_url()}}
+{\footnotesize\ttfamily def browser\+\_\+screen.\+Browser\+Screen.\+\_\+resolve\+\_\+url (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Analiza y sanea la cadena de texto de entrada para determinar si es una dirección URL o un término de búsqueda. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & Cadena de texto en bruto extraída de la barra de direcciones. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+str Dirección URL absoluta formateada y sanitizada. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classbrowser__screen_1_1BrowserScreen_a5df6302caf8a327105828a70cc5a75b1}\label{classbrowser__screen_1_1BrowserScreen_a5df6302caf8a327105828a70cc5a75b1}} 
+\index{browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}!\_show\_initial\_keyboard@{\_show\_initial\_keyboard}}
+\index{\_show\_initial\_keyboard@{\_show\_initial\_keyboard}!browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}}
+\doxysubsubsection{\texorpdfstring{\_show\_initial\_keyboard()}{\_show\_initial\_keyboard()}}
+{\footnotesize\ttfamily def browser\+\_\+screen.\+Browser\+Screen.\+\_\+show\+\_\+initial\+\_\+keyboard (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Enlaza el widget del teclado virtual interno de Py\+Qt5 con la barra de entrada de texto. 
+
+\mbox{\Hypertarget{classbrowser__screen_1_1BrowserScreen_a3dcede94d050edbb6df7aee778f17842}\label{classbrowser__screen_1_1BrowserScreen_a3dcede94d050edbb6df7aee778f17842}} 
+\index{browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}!closeEvent@{closeEvent}}
+\index{closeEvent@{closeEvent}!browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}}
+\doxysubsubsection{\texorpdfstring{closeEvent()}{closeEvent()}}
+{\footnotesize\ttfamily def browser\+\_\+screen.\+Browser\+Screen.\+close\+Event (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{event }\end{DoxyParamCaption})}
+
+
+
+Asegura la limpieza total de subprocesos cuando el widget es destruido de forma explícita. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Objeto del evento nativo de tipo QClose\+Event. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbrowser__screen_1_1BrowserScreen_a3dcede94d050edbb6df7aee778f17842_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbrowser__screen_1_1BrowserScreen_ab3c21b6b1ee851bb01ef0fd1afd18a3f}\label{classbrowser__screen_1_1BrowserScreen_ab3c21b6b1ee851bb01ef0fd1afd18a3f}} 
+\index{browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}!go\_back\_to\_launcher@{go\_back\_to\_launcher}}
+\index{go\_back\_to\_launcher@{go\_back\_to\_launcher}!browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}}
+\doxysubsubsection{\texorpdfstring{go\_back\_to\_launcher()}{go\_back\_to\_launcher()}}
+{\footnotesize\ttfamily def browser\+\_\+screen.\+Browser\+Screen.\+go\+\_\+back\+\_\+to\+\_\+launcher (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Cierra de forma ordenada los componentes del navegador y cede el foco al menú principal (Launcher). 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbrowser__screen_1_1BrowserScreen_ab3c21b6b1ee851bb01ef0fd1afd18a3f_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbrowser__screen_1_1BrowserScreen_abd4b73419a6054d17c4c1b68836f7174}\label{classbrowser__screen_1_1BrowserScreen_abd4b73419a6054d17c4c1b68836f7174}} 
+\index{browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}!hideEvent@{hideEvent}}
+\index{hideEvent@{hideEvent}!browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}}
+\doxysubsubsection{\texorpdfstring{hideEvent()}{hideEvent()}}
+{\footnotesize\ttfamily def browser\+\_\+screen.\+Browser\+Screen.\+hide\+Event (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{event }\end{DoxyParamCaption})}
+
+
+
+Intercepta la ocultación de la pantalla para desactivar y liberar recursos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Objeto del evento nativo de tipo QHide\+Event. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbrowser__screen_1_1BrowserScreen_abd4b73419a6054d17c4c1b68836f7174_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbrowser__screen_1_1BrowserScreen_ad17d6860839adbe51569190901cbef50}\label{classbrowser__screen_1_1BrowserScreen_ad17d6860839adbe51569190901cbef50}} 
+\index{browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}!showEvent@{showEvent}}
+\index{showEvent@{showEvent}!browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}}
+\doxysubsubsection{\texorpdfstring{showEvent()}{showEvent()}}
+{\footnotesize\ttfamily def browser\+\_\+screen.\+Browser\+Screen.\+show\+Event (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{event }\end{DoxyParamCaption})}
+
+
+
+Intercepta el evento de visualización del Widget principal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Objeto del evento nativo de tipo QShow\+Event. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbrowser__screen_1_1BrowserScreen_ad17d6860839adbe51569190901cbef50_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classbrowser__screen_1_1BrowserScreen_ae2827ba992e69ea8d9ee5946a16331c1}\label{classbrowser__screen_1_1BrowserScreen_ae2827ba992e69ea8d9ee5946a16331c1}} 
+\index{browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}!\_chromium@{\_chromium}}
+\index{\_chromium@{\_chromium}!browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}}
+\doxysubsubsection{\texorpdfstring{\_chromium}{\_chromium}}
+{\footnotesize\ttfamily browser\+\_\+screen.\+Browser\+Screen.\+\_\+chromium\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Referencia al subproceso del navegador externo Chromium. 
+
+\mbox{\Hypertarget{classbrowser__screen_1_1BrowserScreen_a2b01ff469ad8f5550277d973d6a11e63}\label{classbrowser__screen_1_1BrowserScreen_a2b01ff469ad8f5550277d973d6a11e63}} 
+\index{browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}!\_wvkbd@{\_wvkbd}}
+\index{\_wvkbd@{\_wvkbd}!browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}}
+\doxysubsubsection{\texorpdfstring{\_wvkbd}{\_wvkbd}}
+{\footnotesize\ttfamily browser\+\_\+screen.\+Browser\+Screen.\+\_\+wvkbd\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Referencia al subproceso del teclado virtual táctil wvkbd. 
+
+\mbox{\Hypertarget{classbrowser__screen_1_1BrowserScreen_a54d913485cbf7238eb6e9d5826b71f1a}\label{classbrowser__screen_1_1BrowserScreen_a54d913485cbf7238eb6e9d5826b71f1a}} 
+\index{browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}!btn\_exit@{btn\_exit}}
+\index{btn\_exit@{btn\_exit}!browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_exit}{btn\_exit}}
+{\footnotesize\ttfamily browser\+\_\+screen.\+Browser\+Screen.\+btn\+\_\+exit}
+
+\mbox{\Hypertarget{classbrowser__screen_1_1BrowserScreen_a69b01231dbc3f975fe63698dfc766806}\label{classbrowser__screen_1_1BrowserScreen_a69b01231dbc3f975fe63698dfc766806}} 
+\index{browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}!btn\_go@{btn\_go}}
+\index{btn\_go@{btn\_go}!browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_go}{btn\_go}}
+{\footnotesize\ttfamily browser\+\_\+screen.\+Browser\+Screen.\+btn\+\_\+go}
+
+\mbox{\Hypertarget{classbrowser__screen_1_1BrowserScreen_a302b1744ed8b23140958fcefb058ed8f}\label{classbrowser__screen_1_1BrowserScreen_a302b1744ed8b23140958fcefb058ed8f}} 
+\index{browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}!btn\_home@{btn\_home}}
+\index{btn\_home@{btn\_home}!browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_home}{btn\_home}}
+{\footnotesize\ttfamily browser\+\_\+screen.\+Browser\+Screen.\+btn\+\_\+home}
+
+\mbox{\Hypertarget{classbrowser__screen_1_1BrowserScreen_afd442b2d76b269fe90de9ee36f8bbe83}\label{classbrowser__screen_1_1BrowserScreen_afd442b2d76b269fe90de9ee36f8bbe83}} 
+\index{browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}!btn\_nav\_arrow@{btn\_nav\_arrow}}
+\index{btn\_nav\_arrow@{btn\_nav\_arrow}!browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_nav\_arrow}{btn\_nav\_arrow}}
+{\footnotesize\ttfamily browser\+\_\+screen.\+Browser\+Screen.\+btn\+\_\+nav\+\_\+arrow}
+
+\mbox{\Hypertarget{classbrowser__screen_1_1BrowserScreen_ade3aafc5ae9a3047613526f78eeb0da4}\label{classbrowser__screen_1_1BrowserScreen_ade3aafc5ae9a3047613526f78eeb0da4}} 
+\index{browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}!btn\_next@{btn\_next}}
+\index{btn\_next@{btn\_next}!browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_next}{btn\_next}}
+{\footnotesize\ttfamily browser\+\_\+screen.\+Browser\+Screen.\+btn\+\_\+next}
+
+\mbox{\Hypertarget{classbrowser__screen_1_1BrowserScreen_aeb4749f9cf95128e2182d67ee80120bb}\label{classbrowser__screen_1_1BrowserScreen_aeb4749f9cf95128e2182d67ee80120bb}} 
+\index{browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}!btn\_prev@{btn\_prev}}
+\index{btn\_prev@{btn\_prev}!browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_prev}{btn\_prev}}
+{\footnotesize\ttfamily browser\+\_\+screen.\+Browser\+Screen.\+btn\+\_\+prev}
+
+\mbox{\Hypertarget{classbrowser__screen_1_1BrowserScreen_ad343e7d74d152f6ab12bcda95e990f14}\label{classbrowser__screen_1_1BrowserScreen_ad343e7d74d152f6ab12bcda95e990f14}} 
+\index{browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}!controller@{controller}}
+\index{controller@{controller}!browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}}
+\doxysubsubsection{\texorpdfstring{controller}{controller}}
+{\footnotesize\ttfamily browser\+\_\+screen.\+Browser\+Screen.\+controller}
+
+
+
+Instancia del controlador central de pantallas. 
+
+\mbox{\Hypertarget{classbrowser__screen_1_1BrowserScreen_ae1a8938cd591951a0d63d39422054e47}\label{classbrowser__screen_1_1BrowserScreen_ae1a8938cd591951a0d63d39422054e47}} 
+\index{browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}!initial\_keyboard@{initial\_keyboard}}
+\index{initial\_keyboard@{initial\_keyboard}!browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}}
+\doxysubsubsection{\texorpdfstring{initial\_keyboard}{initial\_keyboard}}
+{\footnotesize\ttfamily browser\+\_\+screen.\+Browser\+Screen.\+initial\+\_\+keyboard}
+
+\mbox{\Hypertarget{classbrowser__screen_1_1BrowserScreen_a60b20c2a39114c4d77c59c77d2609dbe}\label{classbrowser__screen_1_1BrowserScreen_a60b20c2a39114c4d77c59c77d2609dbe}} 
+\index{browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}!input\_url@{input\_url}}
+\index{input\_url@{input\_url}!browser\_screen.BrowserScreen@{browser\_screen.BrowserScreen}}
+\doxysubsubsection{\texorpdfstring{input\_url}{input\_url}}
+{\footnotesize\ttfamily browser\+\_\+screen.\+Browser\+Screen.\+input\+\_\+url}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ui/apps/browser/\mbox{\hyperlink{browser__screen_8py}{browser\+\_\+screen.\+py}}\end{DoxyCompactItemize}

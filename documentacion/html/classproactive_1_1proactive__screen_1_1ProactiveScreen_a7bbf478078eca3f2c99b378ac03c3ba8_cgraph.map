@@ -1,0 +1,9 @@
+<map id="proactive.proactive_screen.ProactiveScreen.render" name="proactive.proactive_screen.ProactiveScreen.render">
+<area shape="rect" id="node1" title="Renderiza toda la interfaz." alt="" coords="5,199,232,241"/>
+<area shape="rect" id="node2" href="$classproactive_1_1proactive__screen_1_1ProactiveScreen.html#aabb4d7e4966638b75d2f00325d76e9b5" title="Control central de las animaciones procedimentales." alt="" coords="305,5,490,61"/>
+<area shape="rect" id="node3" href="$classfind__differences__screen_1_1FindDifferencesScreen.html#a22a8cc8892799e951472ad8e86facf8d" title="Genera y pinta un fondo degradado vertical interpolando linealmente las constantes de color." alt="" coords="308,85,487,141"/>
+<area shape="rect" id="node4" href="$classsimon__says__screen_1_1SimonSaysScreen.html#aab0b9d472c5b2cdfdfc2b622be86a157" title="Renderiza el fondo de la pantalla aplicando un gradiente lineal de color vertical." alt="" coords="285,166,510,207"/>
+<area shape="rect" id="node5" href="$classword__search__screen_1_1WordSearchScreen.html#a07d15e130ca6bccd00b1b803076c6c60" title="Renderiza el fondo aplicando un gradiente cromático vertical suavizado." alt="" coords="280,231,515,273"/>
+<area shape="rect" id="node6" href="$classproactive_1_1proactive__screen_1_1ProactiveScreen.html#a411f07f095cbe420aeb2cc4cc9e2090e" title="Dibuja un gradiente vertical de fondo." alt="" coords="305,297,490,353"/>
+<area shape="rect" id="node7" href="$classproactive_1_1proactive__screen_1_1ProactiveScreen.html#a4dbafb10a863c621bd8166b6190c4a1b" title="Ajusta bloques de texto dentro de un ancho máximo." alt="" coords="305,377,490,433"/>
+</map>

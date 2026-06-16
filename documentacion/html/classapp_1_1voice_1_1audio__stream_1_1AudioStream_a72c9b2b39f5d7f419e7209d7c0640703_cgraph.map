@@ -1,0 +1,5 @@
+<map id="app.voice.audio_stream.AudioStream.stop" name="app.voice.audio_stream.AudioStream.stop">
+<area shape="rect" id="node1" title="Detiene la captura de audio." alt="" coords="5,29,224,71"/>
+<area shape="rect" id="node2" href="$classapp_1_1llm_1_1client_1_1LLMClient.html#a6486d9e90baafd2d9fa4962cc6de168b" title="Inicia una petición de red por flujo continuo (Streaming) para recibir texto token a token." alt="" coords="272,11,501,38"/>
+<area shape="rect" id="node3" href="$classllm__service_1_1LLMService.html#a0e751c71bc5647aac447d2ada8f87b46" title="Inicializa una conexión HTTP orientada a flujos (streaming) para procesar tokens bajo demanda." alt="" coords="274,62,499,89"/>
+</map>

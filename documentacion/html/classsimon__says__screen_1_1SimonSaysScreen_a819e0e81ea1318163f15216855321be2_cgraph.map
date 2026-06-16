@@ -1,0 +1,13 @@
+<map id="simon_says_screen.SimonSaysScreen._draw_game" name="simon_says_screen.SimonSaysScreen._draw_game">
+<area shape="rect" id="node1" title="Renderiza el escenario de juego activo orquestando la composición de capas." alt="" coords="5,201,231,243"/>
+<area shape="rect" id="node2" href="$classsimon__says__screen_1_1SimonSaysScreen.html#a3d93cd945e48550eb4c5029a2b005734" title="Genera y dibuja los círculos interactivos en sus respectivas posiciones calculadas." alt="" coords="282,136,507,177"/>
+<area shape="rect" id="node4" href="$classsimon__says__screen_1_1SimonSaysScreen.html#a42575f527880b12e44f47d1e763c7a57" title="Refuerzo cognitivo textual." alt="" coords="282,201,507,243"/>
+<area shape="rect" id="node5" href="$classsimon__says__screen_1_1SimonSaysScreen.html#aca697a01e50a9bfb80e50c663b48310e" title="Compone un telón translúcido superpuesto a pantalla completa para comunicar el resultado." alt="" coords="279,267,511,308"/>
+<area shape="rect" id="node6" href="$classfind__differences__screen_1_1FindDifferencesScreen.html#a2a00c9693cd5bd9719c9871731be9a5e" title="Pinta la barra de pie de página y actualiza el botón de salida parcial." alt="" coords="305,413,484,469"/>
+<area shape="rect" id="node9" href="$classsimon__says__screen_1_1SimonSaysScreen.html#afae9c5a2c01335b4d6ec0a870b127739" title="Dibuja la barra inferior de control que aloja el botón de abortar partida." alt="" coords="282,5,507,47"/>
+<area shape="rect" id="node10" href="$classfind__differences__screen_1_1FindDifferencesScreen.html#a166edcfba2b8493e1c58766b0cfea6c6" title="Renderiza el panel translúcido superior, el progreso mediante esferas y el cronómetro." alt="" coords="305,333,484,389"/>
+<area shape="rect" id="node11" href="$classsimon__says__screen_1_1SimonSaysScreen.html#a709a1de2091da2f96d9a77f38a816758" title="Compone el panel superior (HUD informativo) de control de la partida." alt="" coords="282,71,507,112"/>
+<area shape="rect" id="node3" href="$namespacesimon__says__screen.html#adec696afad24da63db8a0d0fa85a2c7f" title="Algoritmo iterativo de aproximación por convergencia para ajustar el tamaño de fuente." alt="" coords="599,136,753,177"/>
+<area shape="rect" id="node7" href="$classword__search__screen_1_1WordSearchScreen.html#a89ba1e70da8645750e7a4b403444b8da" title="Helper utilitario para el renderizado de botones secundarios in&#45;game con sombreado plano." alt="" coords="559,456,793,497"/>
+<area shape="rect" id="node8" href="$classfind__differences__screen_1_1FindDifferencesScreen.html#a53b189f6bcf7ed6d03f477c49507e81d" title="Dibuja de forma atómica un botón estilizado con sombras proyectadas y texto centrado." alt="" coords="587,375,765,431"/>
+</map>

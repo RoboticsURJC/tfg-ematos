@@ -1,0 +1,115 @@
+\hypertarget{classmodels_1_1serv__llama_1_1LlamaServer}{}\doxysection{models.\+serv\+\_\+llama.\+Llama\+Server Class Reference}
+\label{classmodels_1_1serv__llama_1_1LlamaServer}\index{models.serv\_llama.LlamaServer@{models.serv\_llama.LlamaServer}}
+
+
+Adaptador del servidor llama.\+cpp local para el pipeline de ejecución de benchmarks del robot.  
+
+
+
+
+Inheritance diagram for models.\+serv\+\_\+llama.\+Llama\+Server\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=254pt]{classmodels_1_1serv__llama_1_1LlamaServer__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for models.\+serv\+\_\+llama.\+Llama\+Server\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=254pt]{classmodels_1_1serv__llama_1_1LlamaServer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classmodels_1_1serv__llama_1_1LlamaServer_ac3ead78a6b83bf107907cb12c611097c}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classmodels_1_1serv__llama_1_1LlamaServer_a0b98babeb1b6627523fbc5dac3fb1e35}{url}}=\char`\"{}http\+://127.\+0.\+0.\+1\+:8080/completion\char`\"{})
+\begin{DoxyCompactList}\small\item\em Constructor de la clase \mbox{\hyperlink{classmodels_1_1serv__llama_1_1LlamaServer}{Llama\+Server}}. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classmodels_1_1serv__llama_1_1LlamaServer_a4c1456f4ba8a1786c9c9ef18f82b665b}{generate}} (self, prompt)
+\begin{DoxyCompactList}\small\item\em Envía una solicitud de inferencia síncrona al backend de llama.\+cpp en local. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmodels_1_1serv__llama_1_1LlamaServer_a0b98babeb1b6627523fbc5dac3fb1e35}{url}}
+\begin{DoxyCompactList}\small\item\em Dirección URL o socket de red del servidor de inferencia llama.\+cpp local. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Adaptador del servidor llama.\+cpp local para el pipeline de ejecución de benchmarks del robot. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classmodels_1_1serv__llama_1_1LlamaServer_ac3ead78a6b83bf107907cb12c611097c}\label{classmodels_1_1serv__llama_1_1LlamaServer_ac3ead78a6b83bf107907cb12c611097c}} 
+\index{models.serv\_llama.LlamaServer@{models.serv\_llama.LlamaServer}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!models.serv\_llama.LlamaServer@{models.serv\_llama.LlamaServer}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def models.\+serv\+\_\+llama.\+Llama\+Server.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{url = {\ttfamily \char`\"{}http\+://127.0.0.1\+:8080/completion\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+Constructor de la clase \mbox{\hyperlink{classmodels_1_1serv__llama_1_1LlamaServer}{Llama\+Server}}. 
+
+Invoca al constructor de la clase abstracta padre definiendo el nombre clave \textquotesingle{}llama-\/cpp\textquotesingle{} y parametriza la dirección de red local (Loopback) y puerto por defecto (8080) de la API.
+
+
+\begin{DoxyParams}{Parameters}
+{\em url} & Dirección URL absoluta del endpoint de completado del servidor local. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{classmodels_1_1serv__llama_1_1LlamaServer_ac3ead78a6b83bf107907cb12c611097c_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classmodels_1_1serv__llama_1_1LlamaServer_a4c1456f4ba8a1786c9c9ef18f82b665b}\label{classmodels_1_1serv__llama_1_1LlamaServer_a4c1456f4ba8a1786c9c9ef18f82b665b}} 
+\index{models.serv\_llama.LlamaServer@{models.serv\_llama.LlamaServer}!generate@{generate}}
+\index{generate@{generate}!models.serv\_llama.LlamaServer@{models.serv\_llama.LlamaServer}}
+\doxysubsubsection{\texorpdfstring{generate()}{generate()}}
+{\footnotesize\ttfamily def models.\+serv\+\_\+llama.\+Llama\+Server.\+generate (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{prompt }\end{DoxyParamCaption})}
+
+
+
+Envía una solicitud de inferencia síncrona al backend de llama.\+cpp en local. 
+
+Construye un payload JSON inyectando la cadena del prompt y el parámetro de parada {\ttfamily n\+\_\+predict} para limitar la longitud máxima de la generación de tokens y optimizar la latencia del benchmark.
+
+
+\begin{DoxyParams}{Parameters}
+{\em prompt} & Instrucción o pregunta limpia destinada a ser evaluada por el modelo de lenguaje.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+tuple Una tupla {\ttfamily (content\+\_\+text, extra\+\_\+metadata)} donde\+:
+\begin{DoxyItemize}
+\item {\ttfamily content\+\_\+text} (str)\+: El cuerpo de la respuesta generado por el modelo extraído de la clave \textquotesingle{}content\textquotesingle{}.
+\item {\ttfamily extra\+\_\+metadata} (dict)\+: Un diccionario vacío reservado para metadatos de tokens. 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classmodels_1_1serv__llama_1_1LlamaServer_a0b98babeb1b6627523fbc5dac3fb1e35}\label{classmodels_1_1serv__llama_1_1LlamaServer_a0b98babeb1b6627523fbc5dac3fb1e35}} 
+\index{models.serv\_llama.LlamaServer@{models.serv\_llama.LlamaServer}!url@{url}}
+\index{url@{url}!models.serv\_llama.LlamaServer@{models.serv\_llama.LlamaServer}}
+\doxysubsubsection{\texorpdfstring{url}{url}}
+{\footnotesize\ttfamily models.\+serv\+\_\+llama.\+Llama\+Server.\+url}
+
+
+
+Dirección URL o socket de red del servidor de inferencia llama.\+cpp local. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+llm\+\_\+package/models/\mbox{\hyperlink{serv__llama_8py}{serv\+\_\+llama.\+py}}\end{DoxyCompactItemize}

@@ -1,0 +1,4 @@
+<map id="base_pygame_qt_screen.BasePygameQtScreen.resizeEvent" name="base_pygame_qt_screen.BasePygameQtScreen.resizeEvent">
+<area shape="rect" id="node1" title="Captura las variaciones de escala físicas asignadas por el gestor de ventanas de Qt." alt="" coords="5,29,224,71"/>
+<area shape="rect" id="node2" href="$classbase__pygame__qt__screen_1_1BasePygameQtScreen.html#a695a85f30389e00f25a653721edc30ee" title="Reasigna y recrea de forma atómica la superficie interna de Pygame si las cotas geométricas cambian." alt="" coords="272,29,535,71"/>
+</map>

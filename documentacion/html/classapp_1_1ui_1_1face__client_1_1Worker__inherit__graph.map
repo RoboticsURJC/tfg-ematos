@@ -1,0 +1,4 @@
+<map id="app.ui.face_client.Worker" name="app.ui.face_client.Worker">
+<area shape="rect" id="node1" title="Hilo secundario para realizar peticiones HTTP de reconocimiento facial." alt="" coords="5,131,192,267"/>
+<area shape="rect" id="node2" title=" " alt="" coords="60,5,137,83"/>
+</map>

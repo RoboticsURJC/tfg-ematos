@@ -1,0 +1,4 @@
+<map id="browser_screen.BrowserScreen.showEvent" name="browser_screen.BrowserScreen.showEvent">
+<area shape="rect" id="node1" title="Intercepta el evento de visualización del Widget principal." alt="" coords="5,29,268,71"/>
+<area shape="rect" id="node2" href="$classbrowser__screen_1_1BrowserScreen.html#a5df6302caf8a327105828a70cc5a75b1" title="Enlaza el widget del teclado virtual interno de PyQt5 con la barra de entrada de texto." alt="" coords="316,29,545,71"/>
+</map>

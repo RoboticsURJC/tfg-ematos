@@ -1,0 +1,3 @@
+<map id="app.core.config.Config" name="app.core.config.Config">
+<area shape="rect" id="node1" title="Clase Singleton encargada de leer, almacenar y proveer acceso a los ajustes del sistema." alt="" coords="5,5,172,171"/>
+</map>

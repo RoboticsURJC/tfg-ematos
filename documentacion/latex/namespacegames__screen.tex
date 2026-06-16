@@ -1,0 +1,143 @@
+\hypertarget{namespacegames__screen}{}\doxysection{games\+\_\+screen Namespace Reference}
+\label{namespacegames__screen}\index{games\_screen@{games\_screen}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classgames__screen_1_1GameCard}{Game\+Card}}
+\begin{DoxyCompactList}\small\item\em Componente personalizado interactivo que actúa como tarjeta o disparador táctil de un juego. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classgames__screen_1_1GamesScreen}{Games\+Screen}}
+\begin{DoxyCompactList}\small\item\em Vista de pantalla centralizada que orquesta e ilustra el menú general de la suite de entretenimiento. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+str \mbox{\hyperlink{namespacegames__screen_a258bc30072b625ddeb992975aa5264f8}{\+\_\+write\+\_\+svg}} (str svg\+\_\+text, str color)
+\begin{DoxyCompactList}\small\item\em Inyecta una clave de color hexadecimal en el XML del SVG y lo escribe en el directorio temporal del sistema. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{namespacegames__screen_a5f74e294dd47f139041f638f9c83443a}{\+\_\+\+GAMES\+\_\+\+QSS}}
+\begin{DoxyCompactList}\small\item\em Cadena de texto QSS global que modela los gradientes estéticos y layouts de la ventana de juegos. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{namespacegames__screen_ad76640e05200c6bf493c7c10aa28d22b}{\+\_\+\+SVG\+\_\+\+BRAIN}}
+\begin{DoxyCompactList}\small\item\em Descriptor SVG unificado para el glifo gráfico de Cerebro (Módulo de Memoria). \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{namespacegames__screen_a6f91989350ce4015eefded0a3fdec8c5}{\+\_\+\+SVG\+\_\+\+NUMBER}}
+\begin{DoxyCompactList}\small\item\em Descriptor SVG unificado para el glifo gráfico Numérico (Módulo de Lógica). \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{namespacegames__screen_ae0e94bd432f4736e97c6e1655818247a}{\+\_\+\+SVG\+\_\+\+WORDS}}
+\begin{DoxyCompactList}\small\item\em Descriptor SVG unificado para el glifo gráfico de Texto (Módulo de Palabras). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacegames__screen_a258bc30072b625ddeb992975aa5264f8}\label{namespacegames__screen_a258bc30072b625ddeb992975aa5264f8}} 
+\index{games\_screen@{games\_screen}!\_write\_svg@{\_write\_svg}}
+\index{\_write\_svg@{\_write\_svg}!games\_screen@{games\_screen}}
+\doxysubsubsection{\texorpdfstring{\_write\_svg()}{\_write\_svg()}}
+{\footnotesize\ttfamily  str games\+\_\+screen.\+\_\+write\+\_\+svg (\begin{DoxyParamCaption}\item[{str}]{svg\+\_\+text,  }\item[{str}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Inyecta una clave de color hexadecimal en el XML del SVG y lo escribe en el directorio temporal del sistema. 
+
+{\bfseries{Optimización de renderizado\+:}} Evita cuellos de botella e incompatibilidades de parseo en caliente sobre hilos de ejecución de la Raspberry Pi aislando físicamente el recurso en disco.
+
+
+\begin{DoxyParams}{Parameters}
+{\em svg\+\_\+text} & Cadena con la estructura XML nativa del SVG que posee la directiva comodín \textquotesingle{}ICONCOLOR\textquotesingle{}. \\
+\hline
+{\em color} & Cadena de texto hexadecimal (Ej\+: \textquotesingle{}\#ffffff\textquotesingle{}) con el color final de trazo. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+str Ruta absoluta física hacia la entidad temporal generada (ej\+: {\ttfamily /tmp/tmp\+XXXXXX.svg}). 
+\end{DoxyReturn}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacegames__screen_a5f74e294dd47f139041f638f9c83443a}\label{namespacegames__screen_a5f74e294dd47f139041f638f9c83443a}} 
+\index{games\_screen@{games\_screen}!\_GAMES\_QSS@{\_GAMES\_QSS}}
+\index{\_GAMES\_QSS@{\_GAMES\_QSS}!games\_screen@{games\_screen}}
+\doxysubsubsection{\texorpdfstring{\_GAMES\_QSS}{\_GAMES\_QSS}}
+{\footnotesize\ttfamily string games\+\_\+screen.\+\_\+\+GAMES\+\_\+\+QSS\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Cadena de texto QSS global que modela los gradientes estéticos y layouts de la ventana de juegos. 
+
+\mbox{\Hypertarget{namespacegames__screen_ad76640e05200c6bf493c7c10aa28d22b}\label{namespacegames__screen_ad76640e05200c6bf493c7c10aa28d22b}} 
+\index{games\_screen@{games\_screen}!\_SVG\_BRAIN@{\_SVG\_BRAIN}}
+\index{\_SVG\_BRAIN@{\_SVG\_BRAIN}!games\_screen@{games\_screen}}
+\doxysubsubsection{\texorpdfstring{\_SVG\_BRAIN}{\_SVG\_BRAIN}}
+{\footnotesize\ttfamily string games\+\_\+screen.\+\_\+\+SVG\+\_\+\+BRAIN\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  \textcolor{stringliteral}{"{}"{}"{}<svg xmlns="{}http://www.w3.org/2000/svg"{} viewBox="{}0 0 64 64"{}>}}
+\DoxyCodeLine{2 \textcolor{stringliteral}{  <path d="{}M32 6c-\/5 0-\/9 3-\/10 7-\/1-\/1-\/3-\/2-\/5-\/2-\/4 0-\/7 3-\/7 7}}
+\DoxyCodeLine{3 \textcolor{stringliteral}{           0 1 0 2 1 3C8 22 6 25 6 28c0 4 3 7 7 8-\/1 1-\/1 3-\/1 4}}
+\DoxyCodeLine{4 \textcolor{stringliteral}{           0 5 4 9 9 9 1 0 3 0 4-\/1 1 3 4 6 7 6s6-\/3 7-\/6}}
+\DoxyCodeLine{5 \textcolor{stringliteral}{           c1 1 3 1 4 1 5 0 9-\/4 9-\/9 0-\/1 0-\/3-\/1-\/4 4-\/1 7-\/4 7-\/8}}
+\DoxyCodeLine{6 \textcolor{stringliteral}{           0-\/3-\/2-\/6-\/5-\/7 1-\/1 1-\/2 1-\/3 0-\/4-\/3-\/7-\/7-\/7-\/2 0-\/4 1-\/5 2}}
+\DoxyCodeLine{7 \textcolor{stringliteral}{           -\/1-\/4-\/5-\/7-\/10-\/7z"{}}}
+\DoxyCodeLine{8 \textcolor{stringliteral}{        fill="{}none"{}} stroke=\textcolor{stringliteral}{"{}ICONCOLOR"{}} stroke-\/width=\textcolor{stringliteral}{"{}3.5"{}}}
+\DoxyCodeLine{9         stroke-\/linecap=\textcolor{stringliteral}{"{}round"{}} stroke-\/linejoin=\textcolor{stringliteral}{"{}round"{}}/>}
+\DoxyCodeLine{10   <line x1=\textcolor{stringliteral}{"{}32"{}} y1=\textcolor{stringliteral}{"{}16"{}} x2=\textcolor{stringliteral}{"{}32"{}} y2=\textcolor{stringliteral}{"{}48"{}} stroke=\textcolor{stringliteral}{"{}ICONCOLOR"{}} stroke-\/width=\textcolor{stringliteral}{"{}3"{}}}
+\DoxyCodeLine{11         stroke-\/linecap=\textcolor{stringliteral}{"{}round"{}}/>}
+\DoxyCodeLine{12   <path d=\textcolor{stringliteral}{"{}M22 22 Q27 28 22 34"{}} fill=\textcolor{stringliteral}{"{}none"{}} stroke=\textcolor{stringliteral}{"{}ICONCOLOR"{}}}
+\DoxyCodeLine{13         stroke-\/width=\textcolor{stringliteral}{"{}2.5"{}} stroke-\/linecap=\textcolor{stringliteral}{"{}round"{}}/>}
+\DoxyCodeLine{14   <path d=\textcolor{stringliteral}{"{}M42 22 Q37 28 42 34"{}} fill=\textcolor{stringliteral}{"{}none"{}} stroke=\textcolor{stringliteral}{"{}ICONCOLOR"{}}}
+\DoxyCodeLine{15         stroke-\/width=\textcolor{stringliteral}{"{}2.5"{}} stroke-\/linecap=\textcolor{stringliteral}{"{}round"{}}/>}
+\DoxyCodeLine{16 </svg>\textcolor{stringliteral}{"{}"{}"{}}}
+
+\end{DoxyCode}
+
+
+Descriptor SVG unificado para el glifo gráfico de Cerebro (Módulo de Memoria). 
+
+\mbox{\Hypertarget{namespacegames__screen_a6f91989350ce4015eefded0a3fdec8c5}\label{namespacegames__screen_a6f91989350ce4015eefded0a3fdec8c5}} 
+\index{games\_screen@{games\_screen}!\_SVG\_NUMBER@{\_SVG\_NUMBER}}
+\index{\_SVG\_NUMBER@{\_SVG\_NUMBER}!games\_screen@{games\_screen}}
+\doxysubsubsection{\texorpdfstring{\_SVG\_NUMBER}{\_SVG\_NUMBER}}
+{\footnotesize\ttfamily string games\+\_\+screen.\+\_\+\+SVG\+\_\+\+NUMBER\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  \textcolor{stringliteral}{"{}"{}"{}<svg xmlns="{}http://www.w3.org/2000/svg"{} viewBox="{}0 0 64 64"{}>}}
+\DoxyCodeLine{2 \textcolor{stringliteral}{  <rect x="{}8"{}} y=\textcolor{stringliteral}{"{}8"{}} width=\textcolor{stringliteral}{"{}48"{}} height=\textcolor{stringliteral}{"{}48"{}} rx=\textcolor{stringliteral}{"{}10"{}}}
+\DoxyCodeLine{3         fill=\textcolor{stringliteral}{"{}none"{}} stroke=\textcolor{stringliteral}{"{}ICONCOLOR"{}} stroke-\/width=\textcolor{stringliteral}{"{}3.5"{}}/>}
+\DoxyCodeLine{4   <text x=\textcolor{stringliteral}{"{}32"{}} y=\textcolor{stringliteral}{"{}42"{}} font-\/family=\textcolor{stringliteral}{"{}monospace"{}} font-\/size=\textcolor{stringliteral}{"{}30"{}} font-\/weight=\textcolor{stringliteral}{"{}bold"{}}}
+\DoxyCodeLine{5         text-\/anchor=\textcolor{stringliteral}{"{}middle"{}} fill=\textcolor{stringliteral}{"{}ICONCOLOR"{}}>42</text>}
+\DoxyCodeLine{6   <line x1=\textcolor{stringliteral}{"{}16"{}} y1=\textcolor{stringliteral}{"{}50"{}} x2=\textcolor{stringliteral}{"{}48"{}} y2=\textcolor{stringliteral}{"{}50"{}} stroke=\textcolor{stringliteral}{"{}ICONCOLOR"{}}}
+\DoxyCodeLine{7         stroke-\/width=\textcolor{stringliteral}{"{}2.5"{}} stroke-\/linecap=\textcolor{stringliteral}{"{}round"{}}/>}
+\DoxyCodeLine{8 </svg>\textcolor{stringliteral}{"{}"{}"{}}}
+
+\end{DoxyCode}
+
+
+Descriptor SVG unificado para el glifo gráfico Numérico (Módulo de Lógica). 
+
+\mbox{\Hypertarget{namespacegames__screen_ae0e94bd432f4736e97c6e1655818247a}\label{namespacegames__screen_ae0e94bd432f4736e97c6e1655818247a}} 
+\index{games\_screen@{games\_screen}!\_SVG\_WORDS@{\_SVG\_WORDS}}
+\index{\_SVG\_WORDS@{\_SVG\_WORDS}!games\_screen@{games\_screen}}
+\doxysubsubsection{\texorpdfstring{\_SVG\_WORDS}{\_SVG\_WORDS}}
+{\footnotesize\ttfamily string games\+\_\+screen.\+\_\+\+SVG\+\_\+\+WORDS\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  \textcolor{stringliteral}{"{}"{}"{}<svg xmlns="{}http://www.w3.org/2000/svg"{} viewBox="{}0 0 64 64"{}>}}
+\DoxyCodeLine{2 \textcolor{stringliteral}{  <rect x="{}6"{}} y=\textcolor{stringliteral}{"{}10"{}} width=\textcolor{stringliteral}{"{}52"{}} height=\textcolor{stringliteral}{"{}44"{}} rx=\textcolor{stringliteral}{"{}8"{}}}
+\DoxyCodeLine{3         fill=\textcolor{stringliteral}{"{}none"{}} stroke=\textcolor{stringliteral}{"{}ICONCOLOR"{}} stroke-\/width=\textcolor{stringliteral}{"{}3.5"{}}/>}
+\DoxyCodeLine{4   <line x1=\textcolor{stringliteral}{"{}14"{}} y1=\textcolor{stringliteral}{"{}24"{}} x2=\textcolor{stringliteral}{"{}50"{}} y2=\textcolor{stringliteral}{"{}24"{}} stroke=\textcolor{stringliteral}{"{}ICONCOLOR"{}}}
+\DoxyCodeLine{5         stroke-\/width=\textcolor{stringliteral}{"{}3"{}} stroke-\/linecap=\textcolor{stringliteral}{"{}round"{}}/>}
+\DoxyCodeLine{6   <line x1=\textcolor{stringliteral}{"{}14"{}} y1=\textcolor{stringliteral}{"{}34"{}} x2=\textcolor{stringliteral}{"{}50"{}} y2=\textcolor{stringliteral}{"{}34"{}} stroke=\textcolor{stringliteral}{"{}ICONCOLOR"{}}}
+\DoxyCodeLine{7         stroke-\/width=\textcolor{stringliteral}{"{}3"{}} stroke-\/linecap=\textcolor{stringliteral}{"{}round"{}}/>}
+\DoxyCodeLine{8   <line x1=\textcolor{stringliteral}{"{}14"{}} y1=\textcolor{stringliteral}{"{}44"{}} x2=\textcolor{stringliteral}{"{}36"{}} y2=\textcolor{stringliteral}{"{}44"{}} stroke=\textcolor{stringliteral}{"{}ICONCOLOR"{}}}
+\DoxyCodeLine{9         stroke-\/width=\textcolor{stringliteral}{"{}3"{}} stroke-\/linecap=\textcolor{stringliteral}{"{}round"{}}/>}
+\DoxyCodeLine{10   <circle cx=\textcolor{stringliteral}{"{}54"{}} cy=\textcolor{stringliteral}{"{}14"{}} r=\textcolor{stringliteral}{"{}8"{}} fill=\textcolor{stringliteral}{"{}none"{}}}
+\DoxyCodeLine{11           stroke=\textcolor{stringliteral}{"{}ICONCOLOR"{}} stroke-\/width=\textcolor{stringliteral}{"{}3"{}}/>}
+\DoxyCodeLine{12   <text x=\textcolor{stringliteral}{"{}54"{}} y=\textcolor{stringliteral}{"{}19"{}} font-\/family=\textcolor{stringliteral}{"{}monospace"{}} font-\/size=\textcolor{stringliteral}{"{}12"{}} font-\/weight=\textcolor{stringliteral}{"{}bold"{}}}
+\DoxyCodeLine{13         text-\/anchor=\textcolor{stringliteral}{"{}middle"{}} fill=\textcolor{stringliteral}{"{}ICONCOLOR"{}}>A</text>}
+\DoxyCodeLine{14 </svg>\textcolor{stringliteral}{"{}"{}"{}}}
+
+\end{DoxyCode}
+
+
+Descriptor SVG unificado para el glifo gráfico de Texto (Módulo de Palabras). 
+

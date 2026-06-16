@@ -1,0 +1,4 @@
+<map id="llm_service.LLMService.health" name="llm_service.LLMService.health">
+<area shape="rect" id="node1" title="Verifica si el servidor del modelo de lenguaje está activo y accesible." alt="" coords="5,5,225,32"/>
+<area shape="rect" id="node2" href="$namespacelog__service.html#af8a86650753e2ab9216e190fad59757c" title="Añade una nueva entrada de registro para un servicio específico." alt="" coords="273,5,424,32"/>
+</map>

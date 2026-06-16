@@ -1,0 +1,3 @@
+<map id="app.core.robot_controller.RobotController.logout" name="app.core.robot_controller.RobotController.logout">
+<area shape="rect" id="node1" title="Clausura la sesión activa y detiene de forma segura los hilos de control y audio." alt="" coords="5,29,193,71"/>
+</map>

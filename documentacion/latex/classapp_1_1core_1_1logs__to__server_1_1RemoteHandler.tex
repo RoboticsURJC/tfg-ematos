@@ -1,0 +1,111 @@
+\hypertarget{classapp_1_1core_1_1logs__to__server_1_1RemoteHandler}{}\doxysection{app.\+core.\+logs\+\_\+to\+\_\+server.\+Remote\+Handler Class Reference}
+\label{classapp_1_1core_1_1logs__to__server_1_1RemoteHandler}\index{app.core.logs\_to\_server.RemoteHandler@{app.core.logs\_to\_server.RemoteHandler}}
+
+
+Manejador de logs especializado en la persistencia y centralización remota via HTTP POST.  
+
+
+
+
+Inheritance diagram for app.\+core.\+logs\+\_\+to\+\_\+server.\+Remote\+Handler\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=215pt]{classapp_1_1core_1_1logs__to__server_1_1RemoteHandler__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for app.\+core.\+logs\+\_\+to\+\_\+server.\+Remote\+Handler\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=215pt]{classapp_1_1core_1_1logs__to__server_1_1RemoteHandler__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1logs__to__server_1_1RemoteHandler_a401594be8210b076a3bd230d4f0adf1f}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classapp_1_1core_1_1logs__to__server_1_1RemoteHandler_ab11f01ce4e7d64d861ac4092d5ee5bdd}{url}})
+\begin{DoxyCompactList}\small\item\em Inicializa la instancia del manejador vinculando el socket/url de destino. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1logs__to__server_1_1RemoteHandler_a783a585bd23f20a41bccc3daa4bc2717}{emit}} (self, record)
+\begin{DoxyCompactList}\small\item\em Procesa, formatea y transmite el registro de log de forma activa por red. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classapp_1_1core_1_1logs__to__server_1_1RemoteHandler_ab11f01ce4e7d64d861ac4092d5ee5bdd}{url}}
+\begin{DoxyCompactList}\small\item\em Dirección de red (endpoint) del servidor remoto de recolección de logs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manejador de logs especializado en la persistencia y centralización remota via HTTP POST. 
+
+Intercepta cualquier evento emitido en los niveles configurados (ej\+: DEBUG, INFO) y lo despacha síncronamente por red hacia la base de datos de telemetría. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classapp_1_1core_1_1logs__to__server_1_1RemoteHandler_a401594be8210b076a3bd230d4f0adf1f}\label{classapp_1_1core_1_1logs__to__server_1_1RemoteHandler_a401594be8210b076a3bd230d4f0adf1f}} 
+\index{app.core.logs\_to\_server.RemoteHandler@{app.core.logs\_to\_server.RemoteHandler}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!app.core.logs\_to\_server.RemoteHandler@{app.core.logs\_to\_server.RemoteHandler}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def app.\+core.\+logs\+\_\+to\+\_\+server.\+Remote\+Handler.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{url }\end{DoxyParamCaption})}
+
+
+
+Inicializa la instancia del manejador vinculando el socket/url de destino. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em url} & Dirección URL absoluta del servicio receptor (ej\+: \textquotesingle{}\href{http://192.168.1.96:3000/client-log'}{\texttt{ http\+://192.\+168.\+1.\+96\+:3000/client-\/log\textquotesingle{}}}). \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=215pt]{classapp_1_1core_1_1logs__to__server_1_1RemoteHandler_a401594be8210b076a3bd230d4f0adf1f_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classapp_1_1core_1_1logs__to__server_1_1RemoteHandler_a783a585bd23f20a41bccc3daa4bc2717}\label{classapp_1_1core_1_1logs__to__server_1_1RemoteHandler_a783a585bd23f20a41bccc3daa4bc2717}} 
+\index{app.core.logs\_to\_server.RemoteHandler@{app.core.logs\_to\_server.RemoteHandler}!emit@{emit}}
+\index{emit@{emit}!app.core.logs\_to\_server.RemoteHandler@{app.core.logs\_to\_server.RemoteHandler}}
+\doxysubsubsection{\texorpdfstring{emit()}{emit()}}
+{\footnotesize\ttfamily def app.\+core.\+logs\+\_\+to\+\_\+server.\+Remote\+Handler.\+emit (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{record }\end{DoxyParamCaption})}
+
+
+
+Procesa, formatea y transmite el registro de log de forma activa por red. 
+
+Extrae las propiedades textuales del evento utilizando los formateadores configurados en el objeto padre, construye un diccionario JSON con la clave \textquotesingle{}text\textquotesingle{} y ejecuta una petición HTTP POST.
+
+\begin{DoxyNote}{Note}
+El tiempo de espera (timeout) está limitado estrictamente a 1 segundo. Si el Dashboard está saturado, desconectado o en una IP errónea en la red local de la Raspberry Pi, el hilo no se quedará colgado de forma indefinida y la ejecución del robot continuará con normalidad.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em record} & Instancia de tipo logging.\+Log\+Record que contiene los metadatos inherentes al mensaje generado. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classapp_1_1core_1_1logs__to__server_1_1RemoteHandler_ab11f01ce4e7d64d861ac4092d5ee5bdd}\label{classapp_1_1core_1_1logs__to__server_1_1RemoteHandler_ab11f01ce4e7d64d861ac4092d5ee5bdd}} 
+\index{app.core.logs\_to\_server.RemoteHandler@{app.core.logs\_to\_server.RemoteHandler}!url@{url}}
+\index{url@{url}!app.core.logs\_to\_server.RemoteHandler@{app.core.logs\_to\_server.RemoteHandler}}
+\doxysubsubsection{\texorpdfstring{url}{url}}
+{\footnotesize\ttfamily app.\+core.\+logs\+\_\+to\+\_\+server.\+Remote\+Handler.\+url}
+
+
+
+Dirección de red (endpoint) del servidor remoto de recolección de logs. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/\mbox{\hyperlink{logs__to__server_8py}{logs\+\_\+to\+\_\+server.\+py}}\end{DoxyCompactItemize}

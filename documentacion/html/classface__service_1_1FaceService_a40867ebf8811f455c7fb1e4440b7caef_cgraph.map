@@ -1,0 +1,4 @@
+<map id="face_service.FaceService.register" name="face_service.FaceService.register">
+<area shape="rect" id="node1" title="Registra un nuevo usuario asociándolo a un conjunto de imágenes de entrenamiento." alt="" coords="5,5,244,32"/>
+<area shape="rect" id="node2" href="$namespacelog__service.html#af8a86650753e2ab9216e190fad59757c" title="Añade una nueva entrada de registro para un servicio específico." alt="" coords="292,5,443,32"/>
+</map>

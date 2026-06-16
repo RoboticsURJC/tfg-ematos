@@ -1,0 +1,183 @@
+\hypertarget{classfind__differences__screen_1_1SceneObject}{}\doxysection{find\+\_\+differences\+\_\+screen.\+Scene\+Object Class Reference}
+\label{classfind__differences__screen_1_1SceneObject}\index{find\_differences\_screen.SceneObject@{find\_differences\_screen.SceneObject}}
+
+
+Entidad abstracta que representa una primitiva geométrica dibujable dentro de los lienzos.  
+
+
+
+
+Collaboration diagram for find\+\_\+differences\+\_\+screen.\+Scene\+Object\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{classfind__differences__screen_1_1SceneObject__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classfind__differences__screen_1_1SceneObject_adf0e3b52f3d0a2486536d1a8329f9924}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classfind__differences__screen_1_1SceneObject_a2a046a14330346918c1bcf12f7d524e0}{shape}}, \mbox{\hyperlink{classfind__differences__screen_1_1SceneObject_ae259ced8c30d8b71acd9c0dce60fe59f}{x}}, \mbox{\hyperlink{classfind__differences__screen_1_1SceneObject_a2ccc1b02b141fe0acfa2f80d334e6c6d}{y}}, \mbox{\hyperlink{classfind__differences__screen_1_1SceneObject_a90dee8cbb88d177bb3d7d76ba6f818e4}{w}}, \mbox{\hyperlink{classfind__differences__screen_1_1SceneObject_ad48b9b1d6cfd32e4f894e199e427b42a}{h}}, \mbox{\hyperlink{classfind__differences__screen_1_1SceneObject_a83e983f92ae06accb3d1803e2fc38b41}{color}}, \mbox{\hyperlink{classfind__differences__screen_1_1SceneObject_abe88361b194193e0ee8302a6a677a158}{border\+\_\+color}}=None)
+\begin{DoxyCompactList}\small\item\em Constructor de \mbox{\hyperlink{classfind__differences__screen_1_1SceneObject}{Scene\+Object}}. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classfind__differences__screen_1_1SceneObject_a0cc2b02fbf6dd015109ef843caa82688}{copy}} (self)
+\begin{DoxyCompactList}\small\item\em Duplica la instancia actual para su posterior manipulación o mutación aislada. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classfind__differences__screen_1_1SceneObject_a73f0f3a4cbfaa8f0b401f1743d7c4254}{get\+\_\+rect}} (self, offset\+\_\+x=0, offset\+\_\+y=0)
+\begin{DoxyCompactList}\small\item\em Devuelve el objeto delimitador {\ttfamily pygame.\+Rect} proyectado con offsets globales de pantalla. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classfind__differences__screen_1_1SceneObject_a81a5f581f7f0efa294558b1c04d7172d}{draw}} (self, surface, offset\+\_\+x=0, offset\+\_\+y=0)
+\begin{DoxyCompactList}\small\item\em Renderiza la primitiva geométrica en la superficie destino aplicando los offsets indicados. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classfind__differences__screen_1_1SceneObject_a2a046a14330346918c1bcf12f7d524e0}{shape}}
+\item 
+\mbox{\hyperlink{classfind__differences__screen_1_1SceneObject_ae259ced8c30d8b71acd9c0dce60fe59f}{x}}
+\item 
+\mbox{\hyperlink{classfind__differences__screen_1_1SceneObject_a2ccc1b02b141fe0acfa2f80d334e6c6d}{y}}
+\item 
+\mbox{\hyperlink{classfind__differences__screen_1_1SceneObject_a90dee8cbb88d177bb3d7d76ba6f818e4}{w}}
+\item 
+\mbox{\hyperlink{classfind__differences__screen_1_1SceneObject_ad48b9b1d6cfd32e4f894e199e427b42a}{h}}
+\item 
+\mbox{\hyperlink{classfind__differences__screen_1_1SceneObject_a83e983f92ae06accb3d1803e2fc38b41}{color}}
+\item 
+\mbox{\hyperlink{classfind__differences__screen_1_1SceneObject_abe88361b194193e0ee8302a6a677a158}{border\+\_\+color}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Entidad abstracta que representa una primitiva geométrica dibujable dentro de los lienzos. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classfind__differences__screen_1_1SceneObject_adf0e3b52f3d0a2486536d1a8329f9924}\label{classfind__differences__screen_1_1SceneObject_adf0e3b52f3d0a2486536d1a8329f9924}} 
+\index{find\_differences\_screen.SceneObject@{find\_differences\_screen.SceneObject}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!find\_differences\_screen.SceneObject@{find\_differences\_screen.SceneObject}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def find\+\_\+differences\+\_\+screen.\+Scene\+Object.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{shape,  }\item[{}]{x,  }\item[{}]{y,  }\item[{}]{w,  }\item[{}]{h,  }\item[{}]{color,  }\item[{}]{border\+\_\+color = {\ttfamily None} }\end{DoxyParamCaption})}
+
+
+
+Constructor de \mbox{\hyperlink{classfind__differences__screen_1_1SceneObject}{Scene\+Object}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em shape} & Cadena identificadora de la morfología (\char`\"{}circle\char`\"{} $\vert$ \char`\"{}rect\char`\"{} $\vert$ \char`\"{}triangle\char`\"{}). \\
+\hline
+{\em x} & Coordenada de origen horizontal local. \\
+\hline
+{\em y} & Coordenada de origen vertical local. \\
+\hline
+{\em w} & Ancho de la caja delimitadora del objeto. \\
+\hline
+{\em h} & Alto de la caja delimitadora del objeto. \\
+\hline
+{\em color} & Tupla RGB que define el tono de relleno. \\
+\hline
+{\em border\+\_\+color} & Tupla RGB opcional para el trazo exterior del contorno. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classfind__differences__screen_1_1SceneObject_a0cc2b02fbf6dd015109ef843caa82688}\label{classfind__differences__screen_1_1SceneObject_a0cc2b02fbf6dd015109ef843caa82688}} 
+\index{find\_differences\_screen.SceneObject@{find\_differences\_screen.SceneObject}!copy@{copy}}
+\index{copy@{copy}!find\_differences\_screen.SceneObject@{find\_differences\_screen.SceneObject}}
+\doxysubsubsection{\texorpdfstring{copy()}{copy()}}
+{\footnotesize\ttfamily def find\+\_\+differences\+\_\+screen.\+Scene\+Object.\+copy (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Duplica la instancia actual para su posterior manipulación o mutación aislada. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classfind__differences__screen_1_1SceneObject}{Scene\+Object}} Nueva copia exacta clonada en memoria. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classfind__differences__screen_1_1SceneObject_a81a5f581f7f0efa294558b1c04d7172d}\label{classfind__differences__screen_1_1SceneObject_a81a5f581f7f0efa294558b1c04d7172d}} 
+\index{find\_differences\_screen.SceneObject@{find\_differences\_screen.SceneObject}!draw@{draw}}
+\index{draw@{draw}!find\_differences\_screen.SceneObject@{find\_differences\_screen.SceneObject}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily def find\+\_\+differences\+\_\+screen.\+Scene\+Object.\+draw (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{surface,  }\item[{}]{offset\+\_\+x = {\ttfamily 0},  }\item[{}]{offset\+\_\+y = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Renderiza la primitiva geométrica en la superficie destino aplicando los offsets indicados. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em surface} & Superficie ({\ttfamily pygame.\+Surface}) de dibujo. \\
+\hline
+{\em offset\+\_\+x} & Margen de traslación horizontal. \\
+\hline
+{\em offset\+\_\+y} & Margen de traslación vertical. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classfind__differences__screen_1_1SceneObject_a73f0f3a4cbfaa8f0b401f1743d7c4254}\label{classfind__differences__screen_1_1SceneObject_a73f0f3a4cbfaa8f0b401f1743d7c4254}} 
+\index{find\_differences\_screen.SceneObject@{find\_differences\_screen.SceneObject}!get\_rect@{get\_rect}}
+\index{get\_rect@{get\_rect}!find\_differences\_screen.SceneObject@{find\_differences\_screen.SceneObject}}
+\doxysubsubsection{\texorpdfstring{get\_rect()}{get\_rect()}}
+{\footnotesize\ttfamily def find\+\_\+differences\+\_\+screen.\+Scene\+Object.\+get\+\_\+rect (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{offset\+\_\+x = {\ttfamily 0},  }\item[{}]{offset\+\_\+y = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Devuelve el objeto delimitador {\ttfamily pygame.\+Rect} proyectado con offsets globales de pantalla. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em offset\+\_\+x} & Desplazamiento horizontal del lienzo contenedor. \\
+\hline
+{\em offset\+\_\+y} & Desplazamiento vertical del lienzo contenedor. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pygame.\+Rect Rectángulo absoluto en coordenadas de ventana. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classfind__differences__screen_1_1SceneObject_abe88361b194193e0ee8302a6a677a158}\label{classfind__differences__screen_1_1SceneObject_abe88361b194193e0ee8302a6a677a158}} 
+\index{find\_differences\_screen.SceneObject@{find\_differences\_screen.SceneObject}!border\_color@{border\_color}}
+\index{border\_color@{border\_color}!find\_differences\_screen.SceneObject@{find\_differences\_screen.SceneObject}}
+\doxysubsubsection{\texorpdfstring{border\_color}{border\_color}}
+{\footnotesize\ttfamily find\+\_\+differences\+\_\+screen.\+Scene\+Object.\+border\+\_\+color}
+
+\mbox{\Hypertarget{classfind__differences__screen_1_1SceneObject_a83e983f92ae06accb3d1803e2fc38b41}\label{classfind__differences__screen_1_1SceneObject_a83e983f92ae06accb3d1803e2fc38b41}} 
+\index{find\_differences\_screen.SceneObject@{find\_differences\_screen.SceneObject}!color@{color}}
+\index{color@{color}!find\_differences\_screen.SceneObject@{find\_differences\_screen.SceneObject}}
+\doxysubsubsection{\texorpdfstring{color}{color}}
+{\footnotesize\ttfamily find\+\_\+differences\+\_\+screen.\+Scene\+Object.\+color}
+
+\mbox{\Hypertarget{classfind__differences__screen_1_1SceneObject_ad48b9b1d6cfd32e4f894e199e427b42a}\label{classfind__differences__screen_1_1SceneObject_ad48b9b1d6cfd32e4f894e199e427b42a}} 
+\index{find\_differences\_screen.SceneObject@{find\_differences\_screen.SceneObject}!h@{h}}
+\index{h@{h}!find\_differences\_screen.SceneObject@{find\_differences\_screen.SceneObject}}
+\doxysubsubsection{\texorpdfstring{h}{h}}
+{\footnotesize\ttfamily find\+\_\+differences\+\_\+screen.\+Scene\+Object.\+h}
+
+\mbox{\Hypertarget{classfind__differences__screen_1_1SceneObject_a2a046a14330346918c1bcf12f7d524e0}\label{classfind__differences__screen_1_1SceneObject_a2a046a14330346918c1bcf12f7d524e0}} 
+\index{find\_differences\_screen.SceneObject@{find\_differences\_screen.SceneObject}!shape@{shape}}
+\index{shape@{shape}!find\_differences\_screen.SceneObject@{find\_differences\_screen.SceneObject}}
+\doxysubsubsection{\texorpdfstring{shape}{shape}}
+{\footnotesize\ttfamily find\+\_\+differences\+\_\+screen.\+Scene\+Object.\+shape}
+
+\mbox{\Hypertarget{classfind__differences__screen_1_1SceneObject_a90dee8cbb88d177bb3d7d76ba6f818e4}\label{classfind__differences__screen_1_1SceneObject_a90dee8cbb88d177bb3d7d76ba6f818e4}} 
+\index{find\_differences\_screen.SceneObject@{find\_differences\_screen.SceneObject}!w@{w}}
+\index{w@{w}!find\_differences\_screen.SceneObject@{find\_differences\_screen.SceneObject}}
+\doxysubsubsection{\texorpdfstring{w}{w}}
+{\footnotesize\ttfamily find\+\_\+differences\+\_\+screen.\+Scene\+Object.\+w}
+
+\mbox{\Hypertarget{classfind__differences__screen_1_1SceneObject_ae259ced8c30d8b71acd9c0dce60fe59f}\label{classfind__differences__screen_1_1SceneObject_ae259ced8c30d8b71acd9c0dce60fe59f}} 
+\index{find\_differences\_screen.SceneObject@{find\_differences\_screen.SceneObject}!x@{x}}
+\index{x@{x}!find\_differences\_screen.SceneObject@{find\_differences\_screen.SceneObject}}
+\doxysubsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily find\+\_\+differences\+\_\+screen.\+Scene\+Object.\+x}
+
+\mbox{\Hypertarget{classfind__differences__screen_1_1SceneObject_a2ccc1b02b141fe0acfa2f80d334e6c6d}\label{classfind__differences__screen_1_1SceneObject_a2ccc1b02b141fe0acfa2f80d334e6c6d}} 
+\index{find\_differences\_screen.SceneObject@{find\_differences\_screen.SceneObject}!y@{y}}
+\index{y@{y}!find\_differences\_screen.SceneObject@{find\_differences\_screen.SceneObject}}
+\doxysubsubsection{\texorpdfstring{y}{y}}
+{\footnotesize\ttfamily find\+\_\+differences\+\_\+screen.\+Scene\+Object.\+y}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ui/apps/games/\mbox{\hyperlink{find__differences__screen_8py}{find\+\_\+differences\+\_\+screen.\+py}}\end{DoxyCompactItemize}

@@ -1,0 +1,172 @@
+\hypertarget{classboot__screen_1_1BootScreen}{}\doxysection{boot\+\_\+screen.\+Boot\+Screen Class Reference}
+\label{classboot__screen_1_1BootScreen}\index{boot\_screen.BootScreen@{boot\_screen.BootScreen}}
+
+
+Pantalla de inicio de la aplicación.  
+
+
+
+
+Inheritance diagram for boot\+\_\+screen.\+Boot\+Screen\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{classboot__screen_1_1BootScreen__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for boot\+\_\+screen.\+Boot\+Screen\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{classboot__screen_1_1BootScreen__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classboot__screen_1_1BootScreen_a531d83e4665d963e9b5265b9ada1c2d5}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classboot__screen_1_1BootScreen_ac080958592ed31d5262991b24afb3bd1}{controller}})
+\begin{DoxyCompactList}\small\item\em Inicializa la pantalla de carga. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classboot__screen_1_1BootScreen_a606bad78e7963f0e1cbcf858b1777e78}{paint\+Event}} (self, event)
+\begin{DoxyCompactList}\small\item\em Sobreescritura necesaria para renderizar el fondo CSS en widgets personalizados. \end{DoxyCompactList}\item 
+str \mbox{\hyperlink{classboot__screen_1_1BootScreen_a2864212ccd6cd396943c19e2d8d24f05}{get\+\_\+loader\+\_\+path}} (self)
+\begin{DoxyCompactList}\small\item\em Construye la ruta absoluta hacia el asset del cargador. \end{DoxyCompactList}\item 
+str \mbox{\hyperlink{classboot__screen_1_1BootScreen_a10213b62cbe673093a6600d06bfe626d}{load\+\_\+theme}} (self)
+\begin{DoxyCompactList}\small\item\em Define los estilos CSS para la pantalla de carga. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classboot__screen_1_1BootScreen_a3591faf4b3e7abe6481f8f45e5598daf}{finish}} (self)
+\begin{DoxyCompactList}\small\item\em Emite la señal \textquotesingle{}finished\textquotesingle{} para avisar al controlador que puede continuar. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classboot__screen_1_1BootScreen_ac080958592ed31d5262991b24afb3bd1}{controller}}
+\item 
+\mbox{\hyperlink{classboot__screen_1_1BootScreen_a588a294d8e1a4e8fe3b400b3b375bd85}{loader}}
+\item 
+\mbox{\hyperlink{classboot__screen_1_1BootScreen_a22af0dcf504ee0c66249dbf8c8729d7b}{movie}}
+\item 
+\mbox{\hyperlink{classboot__screen_1_1BootScreen_a53a6472e3c4d4d0afc8a8a5c1e618f5c}{label}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classboot__screen_1_1BootScreen_add5b53550c452493d4f8f10d5b171478}{finished}} = pyqt\+Signal()
+\begin{DoxyCompactList}\small\item\em Señal emitida cuando finaliza el tiempo de carga. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Pantalla de inicio de la aplicación. 
+
+Hereda de QWidget y sobreescribe el ciclo de pintado para asegurar que el fondo (degradado CSS) sea renderizado correctamente. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classboot__screen_1_1BootScreen_a531d83e4665d963e9b5265b9ada1c2d5}\label{classboot__screen_1_1BootScreen_a531d83e4665d963e9b5265b9ada1c2d5}} 
+\index{boot\_screen.BootScreen@{boot\_screen.BootScreen}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!boot\_screen.BootScreen@{boot\_screen.BootScreen}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def boot\+\_\+screen.\+Boot\+Screen.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{controller }\end{DoxyParamCaption})}
+
+
+
+Inicializa la pantalla de carga. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em controller} & Objeto encargado de gestionar la navegación del sistema. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{classboot__screen_1_1BootScreen_a531d83e4665d963e9b5265b9ada1c2d5_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classboot__screen_1_1BootScreen_a3591faf4b3e7abe6481f8f45e5598daf}\label{classboot__screen_1_1BootScreen_a3591faf4b3e7abe6481f8f45e5598daf}} 
+\index{boot\_screen.BootScreen@{boot\_screen.BootScreen}!finish@{finish}}
+\index{finish@{finish}!boot\_screen.BootScreen@{boot\_screen.BootScreen}}
+\doxysubsubsection{\texorpdfstring{finish()}{finish()}}
+{\footnotesize\ttfamily def boot\+\_\+screen.\+Boot\+Screen.\+finish (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Emite la señal \textquotesingle{}finished\textquotesingle{} para avisar al controlador que puede continuar. 
+
+\mbox{\Hypertarget{classboot__screen_1_1BootScreen_a2864212ccd6cd396943c19e2d8d24f05}\label{classboot__screen_1_1BootScreen_a2864212ccd6cd396943c19e2d8d24f05}} 
+\index{boot\_screen.BootScreen@{boot\_screen.BootScreen}!get\_loader\_path@{get\_loader\_path}}
+\index{get\_loader\_path@{get\_loader\_path}!boot\_screen.BootScreen@{boot\_screen.BootScreen}}
+\doxysubsubsection{\texorpdfstring{get\_loader\_path()}{get\_loader\_path()}}
+{\footnotesize\ttfamily  str boot\+\_\+screen.\+Boot\+Screen.\+get\+\_\+loader\+\_\+path (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Construye la ruta absoluta hacia el asset del cargador. 
+
+\mbox{\Hypertarget{classboot__screen_1_1BootScreen_a10213b62cbe673093a6600d06bfe626d}\label{classboot__screen_1_1BootScreen_a10213b62cbe673093a6600d06bfe626d}} 
+\index{boot\_screen.BootScreen@{boot\_screen.BootScreen}!load\_theme@{load\_theme}}
+\index{load\_theme@{load\_theme}!boot\_screen.BootScreen@{boot\_screen.BootScreen}}
+\doxysubsubsection{\texorpdfstring{load\_theme()}{load\_theme()}}
+{\footnotesize\ttfamily  str boot\+\_\+screen.\+Boot\+Screen.\+load\+\_\+theme (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Define los estilos CSS para la pantalla de carga. 
+
+\mbox{\Hypertarget{classboot__screen_1_1BootScreen_a606bad78e7963f0e1cbcf858b1777e78}\label{classboot__screen_1_1BootScreen_a606bad78e7963f0e1cbcf858b1777e78}} 
+\index{boot\_screen.BootScreen@{boot\_screen.BootScreen}!paintEvent@{paintEvent}}
+\index{paintEvent@{paintEvent}!boot\_screen.BootScreen@{boot\_screen.BootScreen}}
+\doxysubsubsection{\texorpdfstring{paintEvent()}{paintEvent()}}
+{\footnotesize\ttfamily def boot\+\_\+screen.\+Boot\+Screen.\+paint\+Event (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{event }\end{DoxyParamCaption})}
+
+
+
+Sobreescritura necesaria para renderizar el fondo CSS en widgets personalizados. 
+
+Utiliza QStyle para dibujar el primitivo de widget sobre el lienzo actual. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classboot__screen_1_1BootScreen_ac080958592ed31d5262991b24afb3bd1}\label{classboot__screen_1_1BootScreen_ac080958592ed31d5262991b24afb3bd1}} 
+\index{boot\_screen.BootScreen@{boot\_screen.BootScreen}!controller@{controller}}
+\index{controller@{controller}!boot\_screen.BootScreen@{boot\_screen.BootScreen}}
+\doxysubsubsection{\texorpdfstring{controller}{controller}}
+{\footnotesize\ttfamily boot\+\_\+screen.\+Boot\+Screen.\+controller}
+
+\mbox{\Hypertarget{classboot__screen_1_1BootScreen_add5b53550c452493d4f8f10d5b171478}\label{classboot__screen_1_1BootScreen_add5b53550c452493d4f8f10d5b171478}} 
+\index{boot\_screen.BootScreen@{boot\_screen.BootScreen}!finished@{finished}}
+\index{finished@{finished}!boot\_screen.BootScreen@{boot\_screen.BootScreen}}
+\doxysubsubsection{\texorpdfstring{finished}{finished}}
+{\footnotesize\ttfamily boot\+\_\+screen.\+Boot\+Screen.\+finished = pyqt\+Signal()\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Señal emitida cuando finaliza el tiempo de carga. 
+
+\mbox{\Hypertarget{classboot__screen_1_1BootScreen_a53a6472e3c4d4d0afc8a8a5c1e618f5c}\label{classboot__screen_1_1BootScreen_a53a6472e3c4d4d0afc8a8a5c1e618f5c}} 
+\index{boot\_screen.BootScreen@{boot\_screen.BootScreen}!label@{label}}
+\index{label@{label}!boot\_screen.BootScreen@{boot\_screen.BootScreen}}
+\doxysubsubsection{\texorpdfstring{label}{label}}
+{\footnotesize\ttfamily boot\+\_\+screen.\+Boot\+Screen.\+label}
+
+\mbox{\Hypertarget{classboot__screen_1_1BootScreen_a588a294d8e1a4e8fe3b400b3b375bd85}\label{classboot__screen_1_1BootScreen_a588a294d8e1a4e8fe3b400b3b375bd85}} 
+\index{boot\_screen.BootScreen@{boot\_screen.BootScreen}!loader@{loader}}
+\index{loader@{loader}!boot\_screen.BootScreen@{boot\_screen.BootScreen}}
+\doxysubsubsection{\texorpdfstring{loader}{loader}}
+{\footnotesize\ttfamily boot\+\_\+screen.\+Boot\+Screen.\+loader}
+
+\mbox{\Hypertarget{classboot__screen_1_1BootScreen_a22af0dcf504ee0c66249dbf8c8729d7b}\label{classboot__screen_1_1BootScreen_a22af0dcf504ee0c66249dbf8c8729d7b}} 
+\index{boot\_screen.BootScreen@{boot\_screen.BootScreen}!movie@{movie}}
+\index{movie@{movie}!boot\_screen.BootScreen@{boot\_screen.BootScreen}}
+\doxysubsubsection{\texorpdfstring{movie}{movie}}
+{\footnotesize\ttfamily boot\+\_\+screen.\+Boot\+Screen.\+movie}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ui/screens/\mbox{\hyperlink{boot__screen_8py}{boot\+\_\+screen.\+py}}\end{DoxyCompactItemize}

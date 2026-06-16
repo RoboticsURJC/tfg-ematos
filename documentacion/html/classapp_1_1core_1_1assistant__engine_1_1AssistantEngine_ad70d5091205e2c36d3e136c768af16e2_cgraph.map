@@ -1,0 +1,9 @@
+<map id="app.core.assistant_engine.AssistantEngine.set_user" name="app.core.assistant_engine.AssistantEngine.set_user">
+<area shape="rect" id="node1" title="Modifica el perfil de usuario activo y genera un saludo adaptado por voz (TTS)." alt="" coords="5,59,245,100"/>
+<area shape="rect" id="node2" href="$classapp_1_1core_1_1assistant__engine_1_1AssistantEngine.html#a0e51d25b0f69be861f63bebf91e70db9" title="Envía una cadena de texto al sintetizador de audio (TTS) y sincroniza los estados gráficos de la cara..." alt="" coords="293,29,517,71"/>
+<area shape="rect" id="node3" href="$classapp_1_1voice_1_1tts_1_1TTS.html#a2bf32878a39173d9c0c33c3e688132ac" title="Inicia la síntesis y reproducción de audio en un hilo independiente." alt="" coords="317,95,494,122"/>
+<area shape="rect" id="node4" href="$classapp_1_1voice_1_1tts_1_1TTS.html#ab55d16da54d4e8e1193a6622bf74936b" title="Elimina formato Markdown y caracteres especiales del texto." alt="" coords="607,45,780,71"/>
+<area shape="rect" id="node5" href="$namespaceroutes__dashboard.html#a8e1c87d3914c53c0d5ed6d8c3dafca9e" title="Vacía el historial de logs de un servicio." alt="" coords="606,95,781,122"/>
+<area shape="rect" id="node7" href="$classapp_1_1voice_1_1stt__vosk_1_1VoskSTT.html#a46be0c9a33f07af0990ebf16e6777b69" title="Procesa un bloque de audio y retorna el texto si se ha completado una frase." alt="" coords="565,146,821,173"/>
+<area shape="rect" id="node6" href="$namespacelog__service.html#ae2983f6bea2c5025c60c12bb9e947d4c" title="Vacía por completo el historial de registros de un servicio específico." alt="" coords="869,95,1036,122"/>
+</map>

@@ -1,0 +1,160 @@
+\hypertarget{classapp_1_1llm_1_1client_1_1LLMClient}{}\doxysection{app.\+llm.\+client.\+LLMClient Class Reference}
+\label{classapp_1_1llm_1_1client_1_1LLMClient}\index{app.llm.client.LLMClient@{app.llm.client.LLMClient}}
+
+
+Clase encargada de la comunicación directa con el servidor de inferencia IA.  
+
+
+
+
+Collaboration diagram for app.\+llm.\+client.\+LLMClient\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{classapp_1_1llm_1_1client_1_1LLMClient__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classapp_1_1llm_1_1client_1_1LLMClient_a32a1375c32b5de0c6cca87f7be7e9b91}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classapp_1_1llm_1_1client_1_1LLMClient_abb3da52a20b22598a2b4a345a6e4b123}{server\+\_\+url}}, \mbox{\hyperlink{classapp_1_1llm_1_1client_1_1LLMClient_a94cade3e857e3a5908c2b72c3c22e48a}{model}}=\char`\"{}groq\char`\"{}, timeout=90)
+\begin{DoxyCompactList}\small\item\em Inicializa los parámetros de red y configura las directrices del modelo. \end{DoxyCompactList}\item 
+str \mbox{\hyperlink{classapp_1_1llm_1_1client_1_1LLMClient_aee2de74d49d27e189551874d37f797ab}{ask}} (self, str prompt)
+\begin{DoxyCompactList}\small\item\em Realiza una consulta síncrona al modelo de lenguaje y devuelve la respuesta consolidada. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1llm_1_1client_1_1LLMClient_a6486d9e90baafd2d9fa4962cc6de168b}{stream}} (self, str prompt)
+\begin{DoxyCompactList}\small\item\em Inicia una petición de red por flujo continuo (Streaming) para recibir texto token a token. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classapp_1_1llm_1_1client_1_1LLMClient_abb3da52a20b22598a2b4a345a6e4b123}{server\+\_\+url}}
+\begin{DoxyCompactList}\small\item\em URL absoluta construida para el endpoint de generación de texto. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classapp_1_1llm_1_1client_1_1LLMClient_a94cade3e857e3a5908c2b72c3c22e48a}{model}}
+\begin{DoxyCompactList}\small\item\em Identificador del modelo o backend de procesamiento. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classapp_1_1llm_1_1client_1_1LLMClient_ab64940f4c9a9a7445c854fe3de45abf0}{timeout}}
+\begin{DoxyCompactList}\small\item\em Tiempo máximo de espera para las transacciones HTTP. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classapp_1_1llm_1_1client_1_1LLMClient_ac14eefef5067ffafecba4ba52fdfebe8}{system\+\_\+prompt}}
+\begin{DoxyCompactList}\small\item\em Directivas fijas del sistema que moldean la personalidad afable y segura del asistente. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase encargada de la comunicación directa con el servidor de inferencia IA. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classapp_1_1llm_1_1client_1_1LLMClient_a32a1375c32b5de0c6cca87f7be7e9b91}\label{classapp_1_1llm_1_1client_1_1LLMClient_a32a1375c32b5de0c6cca87f7be7e9b91}} 
+\index{app.llm.client.LLMClient@{app.llm.client.LLMClient}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!app.llm.client.LLMClient@{app.llm.client.LLMClient}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def app.\+llm.\+client.\+LLMClient.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{server\+\_\+url,  }\item[{}]{model = {\ttfamily \char`\"{}groq\char`\"{}},  }\item[{}]{timeout = {\ttfamily 90} }\end{DoxyParamCaption})}
+
+
+
+Inicializa los parámetros de red y configura las directrices del modelo. 
+
+Limpia la URL base eliminando barras diagonales residuales y anexa el endpoint estricto {\ttfamily /generate} requerido por la arquitectura del servidor de inferencia.
+
+
+\begin{DoxyParams}{Parameters}
+{\em server\+\_\+url} & Dirección IP o DNS base del microservicio de IA. \\
+\hline
+{\em model} & Identificador del motor de inferencia o API a utilizar (por defecto \textquotesingle{}groq\textquotesingle{}). \\
+\hline
+{\em timeout} & Tiempo límite de espera en segundos para la recepción de tokens. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classapp_1_1llm_1_1client_1_1LLMClient_aee2de74d49d27e189551874d37f797ab}\label{classapp_1_1llm_1_1client_1_1LLMClient_aee2de74d49d27e189551874d37f797ab}} 
+\index{app.llm.client.LLMClient@{app.llm.client.LLMClient}!ask@{ask}}
+\index{ask@{ask}!app.llm.client.LLMClient@{app.llm.client.LLMClient}}
+\doxysubsubsection{\texorpdfstring{ask()}{ask()}}
+{\footnotesize\ttfamily  str app.\+llm.\+client.\+LLMClient.\+ask (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{str}]{prompt }\end{DoxyParamCaption})}
+
+
+
+Realiza una consulta síncrona al modelo de lenguaje y devuelve la respuesta consolidada. 
+
+Concatena las directrices del {\ttfamily system\+\_\+prompt} con la entrada actual del usuario, valida el código de estado HTTP ({\ttfamily r.\+raise\+\_\+for\+\_\+status}) y extrae el texto plano generado.
+
+
+\begin{DoxyParams}{Parameters}
+{\em prompt} & Texto estructurado con el contexto e historial enviado por el Pipeline.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+str Texto de respuesta generado de forma completa por la Inteligencia Artificial. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em No he podido generar respuesta.} & Mensaje de salvaguarda amigable ante fallos de timeout o red. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{classapp_1_1llm_1_1client_1_1LLMClient_a6486d9e90baafd2d9fa4962cc6de168b}\label{classapp_1_1llm_1_1client_1_1LLMClient_a6486d9e90baafd2d9fa4962cc6de168b}} 
+\index{app.llm.client.LLMClient@{app.llm.client.LLMClient}!stream@{stream}}
+\index{stream@{stream}!app.llm.client.LLMClient@{app.llm.client.LLMClient}}
+\doxysubsubsection{\texorpdfstring{stream()}{stream()}}
+{\footnotesize\ttfamily def app.\+llm.\+client.\+LLMClient.\+stream (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{str}]{prompt }\end{DoxyParamCaption})}
+
+
+
+Inicia una petición de red por flujo continuo (Streaming) para recibir texto token a token. 
+
+Utiliza la directiva {\ttfamily stream=True} de la librería {\ttfamily requests} e itera sobre las líneas de bytes entrantes mediante un generador de Python ({\ttfamily yield}).
+
+
+\begin{DoxyParams}{Parameters}
+{\em prompt} & Texto consolidado de entrada para la generación por flujo.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+generator Devuelve un generador que emite líneas codificadas en UTF-\/8 conforme llegan del servidor. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classapp_1_1llm_1_1client_1_1LLMClient_a94cade3e857e3a5908c2b72c3c22e48a}\label{classapp_1_1llm_1_1client_1_1LLMClient_a94cade3e857e3a5908c2b72c3c22e48a}} 
+\index{app.llm.client.LLMClient@{app.llm.client.LLMClient}!model@{model}}
+\index{model@{model}!app.llm.client.LLMClient@{app.llm.client.LLMClient}}
+\doxysubsubsection{\texorpdfstring{model}{model}}
+{\footnotesize\ttfamily app.\+llm.\+client.\+LLMClient.\+model}
+
+
+
+Identificador del modelo o backend de procesamiento. 
+
+\mbox{\Hypertarget{classapp_1_1llm_1_1client_1_1LLMClient_abb3da52a20b22598a2b4a345a6e4b123}\label{classapp_1_1llm_1_1client_1_1LLMClient_abb3da52a20b22598a2b4a345a6e4b123}} 
+\index{app.llm.client.LLMClient@{app.llm.client.LLMClient}!server\_url@{server\_url}}
+\index{server\_url@{server\_url}!app.llm.client.LLMClient@{app.llm.client.LLMClient}}
+\doxysubsubsection{\texorpdfstring{server\_url}{server\_url}}
+{\footnotesize\ttfamily app.\+llm.\+client.\+LLMClient.\+server\+\_\+url}
+
+
+
+URL absoluta construida para el endpoint de generación de texto. 
+
+\mbox{\Hypertarget{classapp_1_1llm_1_1client_1_1LLMClient_ac14eefef5067ffafecba4ba52fdfebe8}\label{classapp_1_1llm_1_1client_1_1LLMClient_ac14eefef5067ffafecba4ba52fdfebe8}} 
+\index{app.llm.client.LLMClient@{app.llm.client.LLMClient}!system\_prompt@{system\_prompt}}
+\index{system\_prompt@{system\_prompt}!app.llm.client.LLMClient@{app.llm.client.LLMClient}}
+\doxysubsubsection{\texorpdfstring{system\_prompt}{system\_prompt}}
+{\footnotesize\ttfamily app.\+llm.\+client.\+LLMClient.\+system\+\_\+prompt}
+
+
+
+Directivas fijas del sistema que moldean la personalidad afable y segura del asistente. 
+
+\mbox{\Hypertarget{classapp_1_1llm_1_1client_1_1LLMClient_ab64940f4c9a9a7445c854fe3de45abf0}\label{classapp_1_1llm_1_1client_1_1LLMClient_ab64940f4c9a9a7445c854fe3de45abf0}} 
+\index{app.llm.client.LLMClient@{app.llm.client.LLMClient}!timeout@{timeout}}
+\index{timeout@{timeout}!app.llm.client.LLMClient@{app.llm.client.LLMClient}}
+\doxysubsubsection{\texorpdfstring{timeout}{timeout}}
+{\footnotesize\ttfamily app.\+llm.\+client.\+LLMClient.\+timeout}
+
+
+
+Tiempo máximo de espera para las transacciones HTTP. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+llm/\mbox{\hyperlink{client_8py}{client.\+py}}\end{DoxyCompactItemize}

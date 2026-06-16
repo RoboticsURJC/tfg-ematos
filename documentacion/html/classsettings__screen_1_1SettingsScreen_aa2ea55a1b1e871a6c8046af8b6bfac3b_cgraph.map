@@ -1,0 +1,6 @@
+<map id="settings_screen.SettingsScreen._bt_scan" name="settings_screen.SettingsScreen._bt_scan">
+<area shape="rect" id="node1" title="Inicia el proceso de escaneo en un hilo secundario." alt="" coords="5,35,187,76"/>
+<area shape="rect" id="node2" href="$classsettings__screen_1_1SettingsScreen.html#adf014945e8f90eecbc57bbbd0c2fa4fe" title="Lógica de escaneo (ejecución síncrona en hilo)." alt="" coords="235,5,416,47"/>
+<area shape="rect" id="node3" href="$namespaceroutes__dashboard.html#a8e1c87d3914c53c0d5ed6d8c3dafca9e" title="Vacía el historial de logs de un servicio." alt="" coords="238,71,413,98"/>
+<area shape="rect" id="node4" href="$namespacelog__service.html#ae2983f6bea2c5025c60c12bb9e947d4c" title="Vacía por completo el historial de registros de un servicio específico." alt="" coords="464,71,631,98"/>
+</map>

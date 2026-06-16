@@ -1,0 +1,4 @@
+<map id="settings_screen.SettingsScreen._bt_refresh_state" name="settings_screen.SettingsScreen._bt_refresh_state">
+<area shape="rect" id="node1" title="Consulta el estado (encendido/apagado) del módulo Bluetooth." alt="" coords="5,5,188,47"/>
+<area shape="rect" id="node2" href="$classsettings__screen_1_1SettingsScreen.html#a795c99353ff5f5d7c78ce40ee3bf3a2b" title="Lanza comando de aplicaciones internas." alt="" coords="236,5,417,47"/>
+</map>

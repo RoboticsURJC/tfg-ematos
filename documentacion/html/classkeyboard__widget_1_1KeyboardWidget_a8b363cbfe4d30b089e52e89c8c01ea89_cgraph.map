@@ -1,0 +1,5 @@
+<map id="keyboard_widget.KeyboardWidget._make_button" name="keyboard_widget.KeyboardWidget._make_button">
+<area shape="rect" id="node1" title="Crea y configura un botón del teclado basándose en su función." alt="" coords="5,35,204,76"/>
+<area shape="rect" id="node2" href="$classkeyboard__widget_1_1KeyboardWidget.html#a5675e7e3bc2665bbf8fbc24a631a2c79" title="Slot principal para gestionar eventos de clic en las teclas." alt="" coords="252,5,451,47"/>
+<area shape="rect" id="node3" href="$classkeyboard__widget_1_1KeyboardWidget.html#aaf7719759fbd09a193b5fb5c3cc84e4c" title="Reconstruye la matriz del teclado al cambiar de estado (Mayús)." alt="" coords="499,35,697,76"/>
+</map>

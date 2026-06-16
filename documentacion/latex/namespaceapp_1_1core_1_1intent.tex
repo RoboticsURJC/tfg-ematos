@@ -1,0 +1,36 @@
+\hypertarget{namespaceapp_1_1core_1_1intent}{}\doxysection{app.\+core.\+intent Namespace Reference}
+\label{namespaceapp_1_1core_1_1intent}\index{app.core.intent@{app.core.intent}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+str \mbox{\hyperlink{namespaceapp_1_1core_1_1intent_a75fa8afee8a4a84fd53daac9a69a8d21}{detectar\+\_\+intencion}} (str texto)
+\begin{DoxyCompactList}\small\item\em Analiza el texto recibido buscando palabras clave para clasificar la intención del usuario. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceapp_1_1core_1_1intent_a75fa8afee8a4a84fd53daac9a69a8d21}\label{namespaceapp_1_1core_1_1intent_a75fa8afee8a4a84fd53daac9a69a8d21}} 
+\index{app.core.intent@{app.core.intent}!detectar\_intencion@{detectar\_intencion}}
+\index{detectar\_intencion@{detectar\_intencion}!app.core.intent@{app.core.intent}}
+\doxysubsubsection{\texorpdfstring{detectar\_intencion()}{detectar\_intencion()}}
+{\footnotesize\ttfamily  str app.\+core.\+intent.\+detectar\+\_\+intencion (\begin{DoxyParamCaption}\item[{str}]{texto }\end{DoxyParamCaption})}
+
+
+
+Analiza el texto recibido buscando palabras clave para clasificar la intención del usuario. 
+
+Pasa toda la cadena a minúsculas para normalizar la entrada y realiza búsquedas de subcadenas (substrings) optimizadas mediante comparaciones booleanas iterativas.\hypertarget{namespaceapp_1_1core_1_1intent_autotoc_md0}{}\doxyparagraph{Intenciones soportadas en el sistema\+:}\label{namespaceapp_1_1core_1_1intent_autotoc_md0}
+
+\begin{DoxyItemize}
+\item {\ttfamily \char`\"{}time\char`\"{}}\+: Consultas explícitas sobre la hora cronológica local.
+\item {\ttfamily \char`\"{}weather\char`\"{}}\+: Consultas relacionadas con el estado meteorológico, clima o temperatura.
+\item {\ttfamily \char`\"{}llm\char`\"{}}\+: Intención por defecto. Delegación conversacional abierta al modelo de lenguaje.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em texto} & Cadena de texto o transcripción de audio limpia introducida de forma verbal por el usuario.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+str Identificador textual de la intención detectada de acuerdo a las reglas del sistema. 
+\end{DoxyReturn}

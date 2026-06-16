@@ -1,0 +1,141 @@
+\hypertarget{classgames__screen_1_1GameCard}{}\doxysection{games\+\_\+screen.\+Game\+Card Class Reference}
+\label{classgames__screen_1_1GameCard}\index{games\_screen.GameCard@{games\_screen.GameCard}}
+
+
+Componente personalizado interactivo que actúa como tarjeta o disparador táctil de un juego.  
+
+
+
+
+Inheritance diagram for games\+\_\+screen.\+Game\+Card\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{classgames__screen_1_1GameCard__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for games\+\_\+screen.\+Game\+Card\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{classgames__screen_1_1GameCard__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classgames__screen_1_1GameCard_a17868aaeaa60c550333b376a7550bc04}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classgames__screen_1_1GameCard_af73650c1afa3db095fd054ee5f99fd70}{game\+\_\+id}}, label, svg\+\_\+src, bg, border, hover, fg, parent=None)
+\begin{DoxyCompactList}\small\item\em Constructor de la clase \mbox{\hyperlink{classgames__screen_1_1GameCard}{Game\+Card}}. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classgames__screen_1_1GameCard_a6df6d07736cec1e4e5fbe0699611cf24}{mouse\+Press\+Event}} (self, event)
+\begin{DoxyCompactList}\small\item\em Captura los clicks físicos del ratón o contactos de la pantalla capacitiva. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgames__screen_1_1GameCard_af73650c1afa3db095fd054ee5f99fd70}{game\+\_\+id}}
+\begin{DoxyCompactList}\small\item\em Identificador alfanumérico unívoco del juego gestionado por esta instancia. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgames__screen_1_1GameCard_a4b597479fa421b52f072f0c10a26267d}{clicked}} = pyqt\+Signal(str)
+\begin{DoxyCompactList}\small\item\em Señal asíncrona emitida al registrar un clic completo sobre la tarjeta. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Componente personalizado interactivo que actúa como tarjeta o disparador táctil de un juego. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classgames__screen_1_1GameCard_a17868aaeaa60c550333b376a7550bc04}\label{classgames__screen_1_1GameCard_a17868aaeaa60c550333b376a7550bc04}} 
+\index{games\_screen.GameCard@{games\_screen.GameCard}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!games\_screen.GameCard@{games\_screen.GameCard}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def games\+\_\+screen.\+Game\+Card.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{game\+\_\+id,  }\item[{}]{label,  }\item[{}]{svg\+\_\+src,  }\item[{}]{bg,  }\item[{}]{border,  }\item[{}]{hover,  }\item[{}]{fg,  }\item[{}]{parent = {\ttfamily None} }\end{DoxyParamCaption})}
+
+
+
+Constructor de la clase \mbox{\hyperlink{classgames__screen_1_1GameCard}{Game\+Card}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game\+\_\+id} & Cadena identificadora unívoca asignada al juego destino. \\
+\hline
+{\em label} & Texto descriptivo que se estampará como título inferior. \\
+\hline
+{\em svg\+\_\+src} & Cadena de texto que almacena la especificación XML del icono. \\
+\hline
+{\em bg} & Estilo CSS que define el fondo estático de la tarjeta. \\
+\hline
+{\em border} & Estilo CSS que define la constante de color de los bordes. \\
+\hline
+{\em hover} & Estilo CSS que activa la retroalimentación tonal cuando el puntero sobrevuela el área. \\
+\hline
+{\em fg} & Estilo CSS que define la propiedad de color de fuente y trazo gráfico vectorial. \\
+\hline
+{\em parent} & Puntero de referencia al widget contenedor padre. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=225pt]{classgames__screen_1_1GameCard_a17868aaeaa60c550333b376a7550bc04_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classgames__screen_1_1GameCard_a6df6d07736cec1e4e5fbe0699611cf24}\label{classgames__screen_1_1GameCard_a6df6d07736cec1e4e5fbe0699611cf24}} 
+\index{games\_screen.GameCard@{games\_screen.GameCard}!mousePressEvent@{mousePressEvent}}
+\index{mousePressEvent@{mousePressEvent}!games\_screen.GameCard@{games\_screen.GameCard}}
+\doxysubsubsection{\texorpdfstring{mousePressEvent()}{mousePressEvent()}}
+{\footnotesize\ttfamily def games\+\_\+screen.\+Game\+Card.\+mouse\+Press\+Event (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{event }\end{DoxyParamCaption})}
+
+
+
+Captura los clicks físicos del ratón o contactos de la pantalla capacitiva. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Instancia del evento nativo de tipo QMouse\+Event. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=258pt]{classgames__screen_1_1GameCard_a6df6d07736cec1e4e5fbe0699611cf24_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classgames__screen_1_1GameCard_a4b597479fa421b52f072f0c10a26267d}\label{classgames__screen_1_1GameCard_a4b597479fa421b52f072f0c10a26267d}} 
+\index{games\_screen.GameCard@{games\_screen.GameCard}!clicked@{clicked}}
+\index{clicked@{clicked}!games\_screen.GameCard@{games\_screen.GameCard}}
+\doxysubsubsection{\texorpdfstring{clicked}{clicked}}
+{\footnotesize\ttfamily games\+\_\+screen.\+Game\+Card.\+clicked = pyqt\+Signal(str)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Señal asíncrona emitida al registrar un clic completo sobre la tarjeta. 
+
+Envía el id único del juego. \mbox{\Hypertarget{classgames__screen_1_1GameCard_af73650c1afa3db095fd054ee5f99fd70}\label{classgames__screen_1_1GameCard_af73650c1afa3db095fd054ee5f99fd70}} 
+\index{games\_screen.GameCard@{games\_screen.GameCard}!game\_id@{game\_id}}
+\index{game\_id@{game\_id}!games\_screen.GameCard@{games\_screen.GameCard}}
+\doxysubsubsection{\texorpdfstring{game\_id}{game\_id}}
+{\footnotesize\ttfamily games\+\_\+screen.\+Game\+Card.\+game\+\_\+id}
+
+
+
+Identificador alfanumérico unívoco del juego gestionado por esta instancia. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ui/apps/games/\mbox{\hyperlink{games__screen_8py}{games\+\_\+screen.\+py}}\end{DoxyCompactItemize}

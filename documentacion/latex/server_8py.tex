@@ -1,0 +1,77 @@
+\hypertarget{server_8py}{}\doxysection{server/server.py File Reference}
+\label{server_8py}\index{server/server.py@{server/server.py}}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceserver}{server}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceserver_a6d6c556145e1f23ce86bd83d55e4a1a7}{server.\+log}} (msg, color=\char`\"{}\textbackslash{}033\mbox{[}96m\char`\"{})
+\begin{DoxyCompactList}\small\item\em Imprime mensajes formateados por la salida estándar utilizando códigos de color ANSI. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceserver_a327eda4f438784fe2bc32e03eb0db11c}{server.\+load\+\_\+known\+\_\+faces}} ()
+\begin{DoxyCompactList}\small\item\em Carga los embeddings faciales y nombres de referencia desde el disco duro. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceserver_a0e7989b28f33b52fa4ca8d1df7e2387d}{server.\+save\+\_\+known\+\_\+faces}} (names, encodings)
+\begin{DoxyCompactList}\small\item\em Guarda los embeddings vectoriales de rostros mediante una operación de escritura atómica. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceserver_aba0f719635d68d7bd245b84b1654c2b5}{server.\+get\+\_\+connection}} ()
+\begin{DoxyCompactList}\small\item\em Crea y parametriza una nueva conexión atómica hacia la base de datos SQLite. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceserver_a521aabff96b526d80b0bfea9fd9da272}{server.\+init\+\_\+database}} ()
+\begin{DoxyCompactList}\small\item\em Inicializa la estructura del esquema relacional y crea las tablas si no existen. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceserver_a8999242f0a4e06a634298c90799a33d8}{server.\+recognize}} ()
+\begin{DoxyCompactList}\small\item\em Endpoint HTTP POST\+: Procesa e identifica caras a partir de un fotograma de cámara. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceserver_a47522b14514f994f7743798dfc26fb55}{server.\+register}} ()
+\begin{DoxyCompactList}\small\item\em Endpoint HTTP POST\+: Registra un nuevo usuario asociándolo a un set de imágenes facíales. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceserver_af33a447026239d93cda68c6aaf0f423b}{server.\+remember}} ()
+\begin{DoxyCompactList}\small\item\em Endpoint HTTP POST\+: Inyecta una nueva traza de conocimiento en la memoria relacional del robot. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceserver_a5c813a3761fd8e27d6a25823738826c1}{server.\+get\+\_\+memories}} (user)
+\begin{DoxyCompactList}\small\item\em Endpoint HTTP GET\+: Extrae los últimos 20 hechos o recuerdos guardados asociados a un perfil. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceserver_a7d5830b2cadcd2ee26b6039f49eeb9ed}{server.\+add\+\_\+reminder}} ()
+\begin{DoxyCompactList}\small\item\em Endpoint HTTP POST\+: Da de alta un recordatorio validando rigurosamente la estampa temporal. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceserver_a83c7c42fa7addf41bef1b5ce0beb4eae}{server.\+complete\+\_\+reminder}} (rid)
+\begin{DoxyCompactList}\small\item\em Endpoint HTTP POST\+: Conmuta de forma explícita el bit de completado de una alerta. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceserver_a3fed51e32ced2692d6e597614158aeb7}{server.\+get\+\_\+reminders}} (user)
+\begin{DoxyCompactList}\small\item\em Endpoint HTTP GET\+: Lista cronológicamente todos los recordatorios activos e históricos de un usuario. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceserver_ae6c14019c222f486daf3cb817aead359}{server.\+reminder\+\_\+scheduler}} ()
+\begin{DoxyCompactList}\small\item\em Proceso planificador e hilo demonio (Background Scheduler). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceserver_afb1509a90e83f53c1a46230ab539e4d1}{server.\+LOG\+\_\+\+DIR}} = os.\+path.\+join(os.\+path.\+dirname(\+\_\+\+\_\+file\+\_\+\+\_\+), \char`\"{}logs\char`\"{})
+\begin{DoxyCompactList}\small\item\em Directorio absoluto asignado para el almacenamiento físico de logs de auditoría. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceserver_acd26185724747cfa51a174c3ef9835f5}{server.\+exist\+\_\+ok}}
+\item 
+\mbox{\hyperlink{namespaceserver_aeb2dbe97404d9e62a682de25f9438ce0}{server.\+log\+\_\+file}}
+\begin{DoxyCompactList}\small\item\em Nombre del fichero de log rotativo diario computado de forma dinámica. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceserver_a005764c00126daf80eaacfcc2451946c}{server.\+level}}
+\item 
+\mbox{\hyperlink{namespaceserver_addb76dcb1b81da9cf62eb9849b07211a}{server.\+format}}
+\item 
+\mbox{\hyperlink{namespaceserver_a530b21dd4368739ec3f3eb39a695779a}{server.\+handlers}}
+\item 
+\mbox{\hyperlink{namespaceserver_abfa1d56012bc320e4b26361390f6fc24}{server.\+logger}} = logging.\+get\+Logger(\char`\"{}Face\+Server\char`\"{})
+\begin{DoxyCompactList}\small\item\em Instancia del registrador (logger) asignado para el backend de reconocimiento. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceserver_ad81539608721e4b8ffad6e7bb45dd34b}{server.\+app}} = Flask(\+\_\+\+\_\+name\+\_\+\+\_\+)
+\begin{DoxyCompactList}\small\item\em Instancia global de la aplicación web WSGI de Flask. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceserver_ad608cdd20e73912822108057ff39cd57}{server.\+curr\+\_\+dir}} = Path(\+\_\+\+\_\+file\+\_\+\+\_\+).resolve().parent
+\begin{DoxyCompactList}\small\item\em Ruta absoluta del directorio raíz donde se localiza el script del servidor. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{namespaceserver_adc374e9d63944f6b78685b2c7e196133}{server.\+data\+\_\+path}} = curr\+\_\+dir / \char`\"{}known\+\_\+faces.\+pkl\char`\"{}
+\begin{DoxyCompactList}\small\item\em Ruta del almacén binario pkl que guarda la base de datos de embeddings vectoriales. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{namespaceserver_a4f53eb4b01586ad62f9756d1c38d3d1d}{server.\+people\+\_\+path}} = curr\+\_\+dir / \char`\"{}known\+\_\+persons\char`\"{}
+\begin{DoxyCompactList}\small\item\em Ruta hacia la galería física de imágenes de personas registradas en el sistema. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{namespaceserver_a2a846bc7faada555c48d59290ff4ff90}{server.\+db\+\_\+path}} = curr\+\_\+dir.\+parent / \char`\"{}robot\+\_\+memory.\+db\char`\"{}
+\begin{DoxyCompactList}\small\item\em Ubicación del archivo de base de datos relacional SQLite que aloja la persistencia relacional. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceserver_aedfa7dbdd49d96c9d2815603c44c9c9b}{server.\+parents}}
+\item 
+\mbox{\hyperlink{namespaceserver_abddd200cc1c593bf02e65de2b8d866b9}{server.\+True}}
+\item 
+def \mbox{\hyperlink{namespaceserver_a7e7accabf1825866d1712d0c58ae84b5}{server.\+known\+\_\+face\+\_\+encodings}} = load\+\_\+known\+\_\+faces()
+\begin{DoxyCompactList}\small\item\em Vector global en memoria con los nombres ordenados de las caras conocidas. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceserver_a57c6f0724a788f152b231df6b573f2ea}{server.\+scheduler\+\_\+thread}}
+\item 
+\mbox{\hyperlink{namespaceserver_ae9fe947fe8af0c8524c72b5978fe9ef7}{server.\+host}}
+\item 
+\mbox{\hyperlink{namespaceserver_ae0362f7d7e03199b2fb92f705b5efd32}{server.\+port}}
+\item 
+\mbox{\hyperlink{namespaceserver_a43e48d45560e05a17f4716d8b28aa82a}{server.\+debug}}
+\end{DoxyCompactItemize}

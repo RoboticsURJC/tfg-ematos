@@ -1,0 +1,7 @@
+<map id="browser_screen.BrowserScreen._launch_from_bar" name="browser_screen.BrowserScreen._launch_from_bar">
+<area shape="rect" id="node1" title="Slot asíncrono asignado a la acción del botón físico táctil de &#39;Buscar&#39;." alt="" coords="5,71,235,112"/>
+<area shape="rect" id="node2" href="$classbrowser__screen_1_1BrowserScreen.html#a445c1214765d8f6ee50442342fdf4a57" title="Configura y levanta el subproceso independiente de Chromium optimizado para sistemas integrados." alt="" coords="283,37,512,79"/>
+<area shape="rect" id="node5" href="$classbrowser__screen_1_1BrowserScreen.html#a5c4df700c853b0305e0bd9b1127e4a90" title="Analiza y sanea la cadena de texto de entrada para determinar si es una dirección URL o un término de..." alt="" coords="283,103,512,144"/>
+<area shape="rect" id="node3" href="$classbrowser__screen_1_1BrowserScreen.html#a8c1f77849d23f06a086957785f5e54ad" title="Detiene y purga de forma atómica todos los procesos e instancias zombis del navegador y teclados auxi..." alt="" coords="560,5,789,47"/>
+<area shape="rect" id="node4" href="$classbrowser__screen_1_1BrowserScreen.html#aeb8fbd52e02010792e968db28346e5e9" title="Despliega el teclado virtual en pantalla compatible con Wayland/X11 wvkbd&#45;mobintl." alt="" coords="560,71,789,112"/>
+</map>

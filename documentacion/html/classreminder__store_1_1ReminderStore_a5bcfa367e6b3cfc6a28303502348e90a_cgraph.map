@@ -1,0 +1,6 @@
+<map id="reminder_store.ReminderStore.add" name="reminder_store.ReminderStore.add">
+<area shape="rect" id="node1" title="Añade un nuevo recordatorio a la lista y lo guarda." alt="" coords="5,71,256,98"/>
+<area shape="rect" id="node2" href="$classapp_1_1core_1_1session__manager_1_1SessionManager.html#aa24a3e55f94ded3b6f2e28f7f4c559e9" title="Serializa el estado actual de la sesión en disco en formato JSON." alt="" coords="333,5,532,47"/>
+<area shape="rect" id="node3" href="$classcalendar__store_1_1CalendarStore.html#a3202f87b3854da7f577b8f533ec21305" title="Serializa y escribe el estado actual de la lista de eventos en el disco." alt="" coords="308,71,557,98"/>
+<area shape="rect" id="node4" href="$classreminder__store_1_1ReminderStore.html#a75fe91c7ba45bfeb08fd810fde74d3c2" title="Persiste la lista actual de recordatorios en el archivo JSON." alt="" coords="304,122,561,149"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="face_service.FaceService.remember" name="face_service.FaceService.remember">
+<area shape="rect" id="node1" title="Almacena un nuevo dato o recuerdo textual en el perfil del usuario." alt="" coords="5,5,263,32"/>
+<area shape="rect" id="node2" href="$namespacelog__service.html#af8a86650753e2ab9216e190fad59757c" title="Añade una nueva entrada de registro para un servicio específico." alt="" coords="311,5,461,32"/>
+</map>

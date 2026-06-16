@@ -1,0 +1,783 @@
+\hypertarget{classsimon__says__screen_1_1SimonSaysScreen}{}\doxysection{simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen Class Reference}
+\label{classsimon__says__screen_1_1SimonSaysScreen}\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+
+
+Pantalla interactiva del juego Simón Dice con optimizaciones ergonómicas para adultos mayores.  
+
+
+
+
+Inheritance diagram for simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classsimon__says__screen_1_1SimonSaysScreen__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classsimon__says__screen_1_1SimonSaysScreen__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_a4d4e9fe4a27821f199b33409d42cbc25}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, controller=None, width=1024, height=600)
+\begin{DoxyCompactList}\small\item\em Constructor de la clase \mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen}{Simon\+Says\+Screen}}. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_aaa8167a1a8b897bfa7b25512580de357}{exit\+\_\+game}} (self)
+\begin{DoxyCompactList}\small\item\em Cierra de forma ordenada el sub-\/entorno de ejecución de Pygame y retorna al launcher de Qt. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_a20c98e4a4ca8149e1e7c43051744e1d8}{start\+\_\+game}} (self, str \mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_af9c2a95425344ef69fd8ed055baabcbd}{difficulty}})
+\begin{DoxyCompactList}\small\item\em Inicializa los parámetros de control e inicia una nueva partida. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_a3e57271776b5e381c2b182d6e5464136}{update\+\_\+logic}} (self)
+\begin{DoxyCompactList}\small\item\em Motor cíclico principal para la resolución de tiempos y animaciones por interpolación. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_aef51a11fe464eee9b32dbd406ad82fa7}{mouse\+Press\+Event}} (self, event)
+\begin{DoxyCompactList}\small\item\em Enrutador nativo de la capa de eventos de Qt transformados al entorno físico de Pygame. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_a1df66b7d22f3e7c032d70f6169fd8168}{render}} (self)
+\begin{DoxyCompactList}\small\item\em Orquestador del ciclo de dibujo principal sobre la superficie gráfica activa. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_ac34aa173f2128c4306d6de7333cbb1b2}{state}}
+\item 
+\mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_af9c2a95425344ef69fd8ed055baabcbd}{difficulty}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Máquina de estados lógicos principal (\char`\"{}menu\char`\"{} $\vert$ \char`\"{}showing\char`\"{} $\vert$ \char`\"{}waiting\char`\"{} $\vert$ \char`\"{}correct\char`\"{} $\vert$ \char`\"{}wrong\char`\"{} $\vert$ \char`\"{}win\char`\"{}). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_a9ca7ff38e4eec5551c61a63381361f2a}{sequence}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Clave identificadora de dificultad activa. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_a253222b2eb62b2c15d10e03dec09bf92}{player\+\_\+index}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Vector de enteros {\ttfamily \mbox{[}0-\/3\mbox{]}} que almacena la secuencia de colores de la ronda actual. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_a4d2763c4dce0fc97fe0e0d717a4d6c4d}{show\+\_\+index}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Puntero de control del paso de la secuencia que está ingresando el usuario. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_a4f30f530a78399b54e8da1df98031545}{lit\+\_\+button}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Puntero del paso que está siendo reproducido por el motor en modo \char`\"{}showing\char`\"{}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_af60a056ae8b34e9ef06a7e40b8e226da}{score}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Índice entero del botón actualmente activo/iluminado en pantalla (None si están todos apagados). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_a330096b35e2dd41a1e4c4e43b6c2350c}{record}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Puntuación de la ronda actual (basada en la longitud de la secuencia). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_ad89a1974987d9b9ab306fb0991820910}{FEEDBACK\+\_\+\+DUR}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Temporizador residual para sostener las pantallas superpuestas (overlays) de acierto/error. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_a696a12f838b5292546398b65f65c079c}{btn\+\_\+easy}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Control de estado de resolución de las coordenadas físicas del lienzo. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_a57f99f788b5cc4a432d5b433d3284e0a}{btn\+\_\+medium}}
+\item 
+\mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_a3df804b04876b1ffce351f618fea3b2f}{btn\+\_\+hard}}
+\item 
+\mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_aee9279d836a076b3a62c006c5988e89f}{btn\+\_\+exit}}
+\item 
+\mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_a7e7b0bea8030bafeffb64959e799076a}{btn\+\_\+back}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_a86a43d5a8c84f4f23ad8ab8e3dd3017a}{HEADER\+\_\+H}} = 120
+\item 
+int \mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_a7a06392b17d3baa83171674fa6092cc1}{FOOTER\+\_\+H}} = 68
+\item 
+int \mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_a091e50e3ffbfb02a07d3368961221abc}{LABEL\+\_\+H}} = 110
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_a1babbbe8411f99a203b00d848fbd054f}{\+\_\+init\+\_\+sounds}} (self)
+\begin{DoxyCompactList}\small\item\em Sintetiza matemáticamente ondas senoidales e inicializa el subsistema de sonido. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_ac7eea7a0dd9cb7d3458910f1766f21ad}{\+\_\+play\+\_\+sound}} (self, key)
+\begin{DoxyCompactList}\small\item\em Lanza de forma asíncrona la reproducción del búfer de sonido indexado. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_aef296cc8b6b4f1c4a975a937940b85b6}{\+\_\+calculate\+\_\+layout}} (self)
+\begin{DoxyCompactList}\small\item\em Distribuye espacialmente 4 inductores circulares idénticos alineados de forma horizontal. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_a1e81a6f6987d4378d63c75ab887bcb81}{\+\_\+add\+\_\+to\+\_\+sequence}} (self)
+\begin{DoxyCompactList}\small\item\em Añade un nuevo índice aleatorio {\ttfamily \mbox{[}0-\/3\mbox{]}} a la secuencia para subir el nivel. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_a66dc15c613f829b53f91f938dfe1f5a5}{\+\_\+start\+\_\+showing}} (self)
+\begin{DoxyCompactList}\small\item\em Configura las variables para iniciar la reproducción automática de colores. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_afefc9a1f292d70ee2b64e5561cf4ae4c}{\+\_\+update\+\_\+showing}} (self, dt)
+\begin{DoxyCompactList}\small\item\em Máquina de estados secundaria que gestiona el ritmo de parpadeo de los colores. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_a65706af89fbd04e32db29d57051c9023}{\+\_\+handle\+\_\+press}} (self, pos)
+\begin{DoxyCompactList}\small\item\em Evalúa mediante cálculo analítico de distancias euclidianas la colisión radial de los clicks. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_aab0b9d472c5b2cdfdfc2b622be86a157}{\+\_\+draw\+\_\+bg}} (self)
+\begin{DoxyCompactList}\small\item\em Renderiza el fondo de la pantalla aplicando un gradiente lineal de color vertical. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_af6574e8a27cd3dbbe1cadb2b95694799}{\+\_\+draw\+\_\+menu}} (self)
+\begin{DoxyCompactList}\small\item\em Dibuja la interfaz completa del Menú Principal, selectores de dificultad y récords. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_a819e0e81ea1318163f15216855321be2}{\+\_\+draw\+\_\+game}} (self)
+\begin{DoxyCompactList}\small\item\em Renderiza el escenario de juego activo orquestando la composición de capas. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_a709a1de2091da2f96d9a77f38a816758}{\+\_\+draw\+\_\+header}} (self)
+\begin{DoxyCompactList}\small\item\em Compone el panel superior (HUD informativo) de control de la partida. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_a42575f527880b12e44f47d1e763c7a57}{\+\_\+draw\+\_\+color\+\_\+label}} (self)
+\begin{DoxyCompactList}\small\item\em Refuerzo cognitivo textual. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_a3d93cd945e48550eb4c5029a2b005734}{\+\_\+draw\+\_\+circles}} (self)
+\begin{DoxyCompactList}\small\item\em Genera y dibuja los círculos interactivos en sus respectivas posiciones calculadas. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_afae9c5a2c01335b4d6ec0a870b127739}{\+\_\+draw\+\_\+footer}} (self)
+\begin{DoxyCompactList}\small\item\em Dibuja la barra inferior de control que aloja el botón de abortar partida. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_aca697a01e50a9bfb80e50c663b48310e}{\+\_\+draw\+\_\+feedback\+\_\+overlay}} (self)
+\begin{DoxyCompactList}\small\item\em Compone un telón translúcido superpuesto a pantalla completa para comunicar el resultado. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_a74f9291f953a91968f33b2ec330bdb9a}{\+\_\+draw\+\_\+win}} (self)
+\begin{DoxyCompactList}\small\item\em Renderiza los mensajes e hitos gráficos correspondientes a la victoria por completar el nivel. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_ae112527edfbf1e9227f9d157c78bc671}{\+\_\+phase}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Mejor marca histórica registrada en la sesión de juego. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_a34dc57ec2d353e81a0b729897072bc50}{\+\_\+show\+\_\+timer}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Estado transitorio del reloj interno de reproducción (\char`\"{}ready\char`\"{} $\vert$ \char`\"{}on\char`\"{} $\vert$ \char`\"{}off\char`\"{}). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_a14358d9469e1177b71750581e7851107}{\+\_\+feedback\+\_\+timer}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Acumulador temporal para sincronizar los tiempos de encendido y apagado de luces. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_ad70d019613b1379efbd3327f2e7ca96c}{\+\_\+pulse}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Duración estática en segundos de las animaciones de retroalimentación. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_ab91c91453dbd81e076504acf0f2a68c5}{\+\_\+pulse\+\_\+dir}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Factor normalizado de interpolación {\ttfamily \mbox{[}0.\+0, 1.\+0\mbox{]}} para la animación de pulsación de acierto. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_a3976a4619d719133e5da886ed7d3df84}{\+\_\+sounds}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Dirección matemática del pulso (1 ascendente, -\/1 descendente). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_a583e5a4fd98509956176d1010a213c44}{\+\_\+sounds\+\_\+loaded}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Diccionario que indexa las muestras de sonido dinámicas generadas ({\ttfamily \{id\+: Sound\}}). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_a674c13e3fda168745f52a49c08d79291}{\+\_\+circle\+\_\+centers}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Estado del subsistema de síntesis matemática de sonido de la pantalla. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_a30af38d46b41aed8177eea3efdd8cf30}{\+\_\+circle\+\_\+r}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Colección de tuplas {\ttfamily (x, y)} con el baricentro geométrico calculado para los 4 botones circulares. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen_a7fd8d69677c4695f0d76de201726aa11}{\+\_\+layout\+\_\+done}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Radio óptimo calculado en píxeles para los botones circulares de juego. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Pantalla interactiva del juego Simón Dice con optimizaciones ergonómicas para adultos mayores. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_a4d4e9fe4a27821f199b33409d42cbc25}\label{classsimon__says__screen_1_1SimonSaysScreen_a4d4e9fe4a27821f199b33409d42cbc25}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{controller = {\ttfamily None},  }\item[{}]{width = {\ttfamily 1024},  }\item[{}]{height = {\ttfamily 600} }\end{DoxyParamCaption})}
+
+
+
+Constructor de la clase \mbox{\hyperlink{classsimon__says__screen_1_1SimonSaysScreen}{Simon\+Says\+Screen}}. 
+
+Inicializa la máquina de estados lógicos y define los contenedores de colisión geométrica.
+
+
+\begin{DoxyParams}{Parameters}
+{\em controller} & Instancia del enrutador o máquina de control de interfaces de la app. \\
+\hline
+{\em width} & Dimensión horizontal por defecto del lienzo de dibujo. \\
+\hline
+{\em height} & Dimensión vertical por defecto del lienzo de dibujo. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=249pt]{classsimon__says__screen_1_1SimonSaysScreen_a4d4e9fe4a27821f199b33409d42cbc25_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_a1e81a6f6987d4378d63c75ab887bcb81}\label{classsimon__says__screen_1_1SimonSaysScreen_a1e81a6f6987d4378d63c75ab887bcb81}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!\_add\_to\_sequence@{\_add\_to\_sequence}}
+\index{\_add\_to\_sequence@{\_add\_to\_sequence}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{\_add\_to\_sequence()}{\_add\_to\_sequence()}}
+{\footnotesize\ttfamily def simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+\_\+add\+\_\+to\+\_\+sequence (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Añade un nuevo índice aleatorio {\ttfamily \mbox{[}0-\/3\mbox{]}} a la secuencia para subir el nivel. 
+
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_aef296cc8b6b4f1c4a975a937940b85b6}\label{classsimon__says__screen_1_1SimonSaysScreen_aef296cc8b6b4f1c4a975a937940b85b6}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!\_calculate\_layout@{\_calculate\_layout}}
+\index{\_calculate\_layout@{\_calculate\_layout}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{\_calculate\_layout()}{\_calculate\_layout()}}
+{\footnotesize\ttfamily def simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+\_\+calculate\+\_\+layout (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Distribuye espacialmente 4 inductores circulares idénticos alineados de forma horizontal. 
+
+Calcula de forma dinámica el radio ideal óptimo y equidistante, aislando las zonas sensibles reservadas para el Header, el subpanel textual y el Footer para mitigar solapamientos visuales. \mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_aab0b9d472c5b2cdfdfc2b622be86a157}\label{classsimon__says__screen_1_1SimonSaysScreen_aab0b9d472c5b2cdfdfc2b622be86a157}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!\_draw\_bg@{\_draw\_bg}}
+\index{\_draw\_bg@{\_draw\_bg}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{\_draw\_bg()}{\_draw\_bg()}}
+{\footnotesize\ttfamily def simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+\_\+draw\+\_\+bg (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Renderiza el fondo de la pantalla aplicando un gradiente lineal de color vertical. 
+
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_a3d93cd945e48550eb4c5029a2b005734}\label{classsimon__says__screen_1_1SimonSaysScreen_a3d93cd945e48550eb4c5029a2b005734}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!\_draw\_circles@{\_draw\_circles}}
+\index{\_draw\_circles@{\_draw\_circles}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{\_draw\_circles()}{\_draw\_circles()}}
+{\footnotesize\ttfamily def simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+\_\+draw\+\_\+circles (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Genera y dibuja los círculos interactivos en sus respectivas posiciones calculadas. 
+
+Aplica efectos tridimensionales mediante sombreado alfa simulado y destellos de arco superiores para realzar el estado luminoso (\char`\"{}lit\char`\"{}) de los componentes. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classsimon__says__screen_1_1SimonSaysScreen_a3d93cd945e48550eb4c5029a2b005734_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_a42575f527880b12e44f47d1e763c7a57}\label{classsimon__says__screen_1_1SimonSaysScreen_a42575f527880b12e44f47d1e763c7a57}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!\_draw\_color\_label@{\_draw\_color\_label}}
+\index{\_draw\_color\_label@{\_draw\_color\_label}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{\_draw\_color\_label()}{\_draw\_color\_label()}}
+{\footnotesize\ttfamily def simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+\_\+draw\+\_\+color\+\_\+label (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Refuerzo cognitivo textual. 
+
+Renderiza el nombre del color activo en letras gigantes.
+
+Proporciona una vía secundaria de discriminación a usuarios con daltonismo o fatiga visual. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classsimon__says__screen_1_1SimonSaysScreen_a42575f527880b12e44f47d1e763c7a57_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_aca697a01e50a9bfb80e50c663b48310e}\label{classsimon__says__screen_1_1SimonSaysScreen_aca697a01e50a9bfb80e50c663b48310e}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!\_draw\_feedback\_overlay@{\_draw\_feedback\_overlay}}
+\index{\_draw\_feedback\_overlay@{\_draw\_feedback\_overlay}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{\_draw\_feedback\_overlay()}{\_draw\_feedback\_overlay()}}
+{\footnotesize\ttfamily def simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+\_\+draw\+\_\+feedback\+\_\+overlay (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Compone un telón translúcido superpuesto a pantalla completa para comunicar el resultado. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classsimon__says__screen_1_1SimonSaysScreen_aca697a01e50a9bfb80e50c663b48310e_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_afae9c5a2c01335b4d6ec0a870b127739}\label{classsimon__says__screen_1_1SimonSaysScreen_afae9c5a2c01335b4d6ec0a870b127739}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!\_draw\_footer@{\_draw\_footer}}
+\index{\_draw\_footer@{\_draw\_footer}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{\_draw\_footer()}{\_draw\_footer()}}
+{\footnotesize\ttfamily def simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+\_\+draw\+\_\+footer (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Dibuja la barra inferior de control que aloja el botón de abortar partida. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classsimon__says__screen_1_1SimonSaysScreen_afae9c5a2c01335b4d6ec0a870b127739_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_a819e0e81ea1318163f15216855321be2}\label{classsimon__says__screen_1_1SimonSaysScreen_a819e0e81ea1318163f15216855321be2}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!\_draw\_game@{\_draw\_game}}
+\index{\_draw\_game@{\_draw\_game}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{\_draw\_game()}{\_draw\_game()}}
+{\footnotesize\ttfamily def simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+\_\+draw\+\_\+game (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Renderiza el escenario de juego activo orquestando la composición de capas. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classsimon__says__screen_1_1SimonSaysScreen_a819e0e81ea1318163f15216855321be2_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_a709a1de2091da2f96d9a77f38a816758}\label{classsimon__says__screen_1_1SimonSaysScreen_a709a1de2091da2f96d9a77f38a816758}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!\_draw\_header@{\_draw\_header}}
+\index{\_draw\_header@{\_draw\_header}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{\_draw\_header()}{\_draw\_header()}}
+{\footnotesize\ttfamily def simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+\_\+draw\+\_\+header (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Compone el panel superior (HUD informativo) de control de la partida. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classsimon__says__screen_1_1SimonSaysScreen_a709a1de2091da2f96d9a77f38a816758_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_af6574e8a27cd3dbbe1cadb2b95694799}\label{classsimon__says__screen_1_1SimonSaysScreen_af6574e8a27cd3dbbe1cadb2b95694799}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!\_draw\_menu@{\_draw\_menu}}
+\index{\_draw\_menu@{\_draw\_menu}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{\_draw\_menu()}{\_draw\_menu()}}
+{\footnotesize\ttfamily def simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+\_\+draw\+\_\+menu (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Dibuja la interfaz completa del Menú Principal, selectores de dificultad y récords. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classsimon__says__screen_1_1SimonSaysScreen_af6574e8a27cd3dbbe1cadb2b95694799_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_a74f9291f953a91968f33b2ec330bdb9a}\label{classsimon__says__screen_1_1SimonSaysScreen_a74f9291f953a91968f33b2ec330bdb9a}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!\_draw\_win@{\_draw\_win}}
+\index{\_draw\_win@{\_draw\_win}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{\_draw\_win()}{\_draw\_win()}}
+{\footnotesize\ttfamily def simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+\_\+draw\+\_\+win (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Renderiza los mensajes e hitos gráficos correspondientes a la victoria por completar el nivel. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classsimon__says__screen_1_1SimonSaysScreen_a74f9291f953a91968f33b2ec330bdb9a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_a65706af89fbd04e32db29d57051c9023}\label{classsimon__says__screen_1_1SimonSaysScreen_a65706af89fbd04e32db29d57051c9023}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!\_handle\_press@{\_handle\_press}}
+\index{\_handle\_press@{\_handle\_press}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{\_handle\_press()}{\_handle\_press()}}
+{\footnotesize\ttfamily def simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+\_\+handle\+\_\+press (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Evalúa mediante cálculo analítico de distancias euclidianas la colisión radial de los clicks. 
+
+Aplica un margen de tolerancia perimetral (+12 píxeles) para mitigar imprecisiones asociadas a temblores o baja sensibilidad en pantallas táctiles resistivas/capacitivas.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & Tupla {\ttfamily (x, y)} posicional de entrada. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classsimon__says__screen_1_1SimonSaysScreen_a65706af89fbd04e32db29d57051c9023_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_a1babbbe8411f99a203b00d848fbd054f}\label{classsimon__says__screen_1_1SimonSaysScreen_a1babbbe8411f99a203b00d848fbd054f}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!\_init\_sounds@{\_init\_sounds}}
+\index{\_init\_sounds@{\_init\_sounds}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{\_init\_sounds()}{\_init\_sounds()}}
+{\footnotesize\ttfamily def simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+\_\+init\+\_\+sounds (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Sintetiza matemáticamente ondas senoidales e inicializa el subsistema de sonido. 
+
+{\bfseries{Resiliencia de ejecución\+:}} Utiliza transformaciones de matrices y envolventes exponenciales decrecientes por software a través de Num\+Py. Si las librerías científicas o el hardware del controlador de sonido están ausentes, intercepta la excepción para evitar un fallo crítico (crash). \mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_ac7eea7a0dd9cb7d3458910f1766f21ad}\label{classsimon__says__screen_1_1SimonSaysScreen_ac7eea7a0dd9cb7d3458910f1766f21ad}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!\_play\_sound@{\_play\_sound}}
+\index{\_play\_sound@{\_play\_sound}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{\_play\_sound()}{\_play\_sound()}}
+{\footnotesize\ttfamily def simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+\_\+play\+\_\+sound (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Lanza de forma asíncrona la reproducción del búfer de sonido indexado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Identificador único del recurso sonoro ({\ttfamily int} para colores $\vert$ {\ttfamily str} para efectos). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_a66dc15c613f829b53f91f938dfe1f5a5}\label{classsimon__says__screen_1_1SimonSaysScreen_a66dc15c613f829b53f91f938dfe1f5a5}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!\_start\_showing@{\_start\_showing}}
+\index{\_start\_showing@{\_start\_showing}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{\_start\_showing()}{\_start\_showing()}}
+{\footnotesize\ttfamily def simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+\_\+start\+\_\+showing (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Configura las variables para iniciar la reproducción automática de colores. 
+
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_afefc9a1f292d70ee2b64e5561cf4ae4c}\label{classsimon__says__screen_1_1SimonSaysScreen_afefc9a1f292d70ee2b64e5561cf4ae4c}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!\_update\_showing@{\_update\_showing}}
+\index{\_update\_showing@{\_update\_showing}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{\_update\_showing()}{\_update\_showing()}}
+{\footnotesize\ttfamily def simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+\_\+update\+\_\+showing (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Máquina de estados secundaria que gestiona el ritmo de parpadeo de los colores. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Fracción de tiempo transcurrido (Delta Time). \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classsimon__says__screen_1_1SimonSaysScreen_afefc9a1f292d70ee2b64e5561cf4ae4c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_aaa8167a1a8b897bfa7b25512580de357}\label{classsimon__says__screen_1_1SimonSaysScreen_aaa8167a1a8b897bfa7b25512580de357}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!exit\_game@{exit\_game}}
+\index{exit\_game@{exit\_game}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{exit\_game()}{exit\_game()}}
+{\footnotesize\ttfamily def simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+exit\+\_\+game (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Cierra de forma ordenada el sub-\/entorno de ejecución de Pygame y retorna al launcher de Qt. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classsimon__says__screen_1_1SimonSaysScreen_aaa8167a1a8b897bfa7b25512580de357_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_aef51a11fe464eee9b32dbd406ad82fa7}\label{classsimon__says__screen_1_1SimonSaysScreen_aef51a11fe464eee9b32dbd406ad82fa7}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!mousePressEvent@{mousePressEvent}}
+\index{mousePressEvent@{mousePressEvent}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{mousePressEvent()}{mousePressEvent()}}
+{\footnotesize\ttfamily def simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+mouse\+Press\+Event (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{event }\end{DoxyParamCaption})}
+
+
+
+Enrutador nativo de la capa de eventos de Qt transformados al entorno físico de Pygame. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Instancia del evento nativo de tipo QMouse\+Event. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classsimon__says__screen_1_1SimonSaysScreen_aef51a11fe464eee9b32dbd406ad82fa7_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_a1df66b7d22f3e7c032d70f6169fd8168}\label{classsimon__says__screen_1_1SimonSaysScreen_a1df66b7d22f3e7c032d70f6169fd8168}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!render@{render}}
+\index{render@{render}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily def simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+render (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Orquestador del ciclo de dibujo principal sobre la superficie gráfica activa. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classsimon__says__screen_1_1SimonSaysScreen_a1df66b7d22f3e7c032d70f6169fd8168_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_a20c98e4a4ca8149e1e7c43051744e1d8}\label{classsimon__says__screen_1_1SimonSaysScreen_a20c98e4a4ca8149e1e7c43051744e1d8}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!start\_game@{start\_game}}
+\index{start\_game@{start\_game}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{start\_game()}{start\_game()}}
+{\footnotesize\ttfamily def simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+start\+\_\+game (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{str}]{difficulty }\end{DoxyParamCaption})}
+
+
+
+Inicializa los parámetros de control e inicia una nueva partida. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em difficulty} & Cadena de texto que configura la velocidad del temporizador del juego. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classsimon__says__screen_1_1SimonSaysScreen_a20c98e4a4ca8149e1e7c43051744e1d8_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_a3e57271776b5e381c2b182d6e5464136}\label{classsimon__says__screen_1_1SimonSaysScreen_a3e57271776b5e381c2b182d6e5464136}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!update\_logic@{update\_logic}}
+\index{update\_logic@{update\_logic}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{update\_logic()}{update\_logic()}}
+{\footnotesize\ttfamily def simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+update\+\_\+logic (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Motor cíclico principal para la resolución de tiempos y animaciones por interpolación. 
+
+Controla de forma no bloqueante el paso del tiempo entre destellos y el desvanecimiento de las transiciones de las pantallas superpuestas (overlays) de respuesta. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classsimon__says__screen_1_1SimonSaysScreen_a3e57271776b5e381c2b182d6e5464136_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_a674c13e3fda168745f52a49c08d79291}\label{classsimon__says__screen_1_1SimonSaysScreen_a674c13e3fda168745f52a49c08d79291}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!\_circle\_centers@{\_circle\_centers}}
+\index{\_circle\_centers@{\_circle\_centers}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{\_circle\_centers}{\_circle\_centers}}
+{\footnotesize\ttfamily simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+\_\+circle\+\_\+centers\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\texorpdfstring{$<$}{<} Estado del subsistema de síntesis matemática de sonido de la pantalla. 
+
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_a30af38d46b41aed8177eea3efdd8cf30}\label{classsimon__says__screen_1_1SimonSaysScreen_a30af38d46b41aed8177eea3efdd8cf30}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!\_circle\_r@{\_circle\_r}}
+\index{\_circle\_r@{\_circle\_r}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{\_circle\_r}{\_circle\_r}}
+{\footnotesize\ttfamily simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+\_\+circle\+\_\+r\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\texorpdfstring{$<$}{<} Colección de tuplas {\ttfamily (x, y)} con el baricentro geométrico calculado para los 4 botones circulares. 
+
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_a14358d9469e1177b71750581e7851107}\label{classsimon__says__screen_1_1SimonSaysScreen_a14358d9469e1177b71750581e7851107}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!\_feedback\_timer@{\_feedback\_timer}}
+\index{\_feedback\_timer@{\_feedback\_timer}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{\_feedback\_timer}{\_feedback\_timer}}
+{\footnotesize\ttfamily simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+\_\+feedback\+\_\+timer\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\texorpdfstring{$<$}{<} Acumulador temporal para sincronizar los tiempos de encendido y apagado de luces. 
+
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_a7fd8d69677c4695f0d76de201726aa11}\label{classsimon__says__screen_1_1SimonSaysScreen_a7fd8d69677c4695f0d76de201726aa11}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!\_layout\_done@{\_layout\_done}}
+\index{\_layout\_done@{\_layout\_done}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{\_layout\_done}{\_layout\_done}}
+{\footnotesize\ttfamily simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+\_\+layout\+\_\+done\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\texorpdfstring{$<$}{<} Radio óptimo calculado en píxeles para los botones circulares de juego. 
+
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_ae112527edfbf1e9227f9d157c78bc671}\label{classsimon__says__screen_1_1SimonSaysScreen_ae112527edfbf1e9227f9d157c78bc671}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!\_phase@{\_phase}}
+\index{\_phase@{\_phase}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{\_phase}{\_phase}}
+{\footnotesize\ttfamily simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+\_\+phase\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\texorpdfstring{$<$}{<} Mejor marca histórica registrada en la sesión de juego. 
+
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_ad70d019613b1379efbd3327f2e7ca96c}\label{classsimon__says__screen_1_1SimonSaysScreen_ad70d019613b1379efbd3327f2e7ca96c}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!\_pulse@{\_pulse}}
+\index{\_pulse@{\_pulse}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{\_pulse}{\_pulse}}
+{\footnotesize\ttfamily simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+\_\+pulse\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\texorpdfstring{$<$}{<} Duración estática en segundos de las animaciones de retroalimentación. 
+
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_ab91c91453dbd81e076504acf0f2a68c5}\label{classsimon__says__screen_1_1SimonSaysScreen_ab91c91453dbd81e076504acf0f2a68c5}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!\_pulse\_dir@{\_pulse\_dir}}
+\index{\_pulse\_dir@{\_pulse\_dir}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{\_pulse\_dir}{\_pulse\_dir}}
+{\footnotesize\ttfamily simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+\_\+pulse\+\_\+dir\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\texorpdfstring{$<$}{<} Factor normalizado de interpolación {\ttfamily \mbox{[}0.\+0, 1.\+0\mbox{]}} para la animación de pulsación de acierto. 
+
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_a34dc57ec2d353e81a0b729897072bc50}\label{classsimon__says__screen_1_1SimonSaysScreen_a34dc57ec2d353e81a0b729897072bc50}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!\_show\_timer@{\_show\_timer}}
+\index{\_show\_timer@{\_show\_timer}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{\_show\_timer}{\_show\_timer}}
+{\footnotesize\ttfamily simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+\_\+show\+\_\+timer\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\texorpdfstring{$<$}{<} Estado transitorio del reloj interno de reproducción (\char`\"{}ready\char`\"{} $\vert$ \char`\"{}on\char`\"{} $\vert$ \char`\"{}off\char`\"{}). 
+
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_a3976a4619d719133e5da886ed7d3df84}\label{classsimon__says__screen_1_1SimonSaysScreen_a3976a4619d719133e5da886ed7d3df84}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!\_sounds@{\_sounds}}
+\index{\_sounds@{\_sounds}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{\_sounds}{\_sounds}}
+{\footnotesize\ttfamily simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+\_\+sounds\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\texorpdfstring{$<$}{<} Dirección matemática del pulso (1 ascendente, -\/1 descendente). 
+
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_a583e5a4fd98509956176d1010a213c44}\label{classsimon__says__screen_1_1SimonSaysScreen_a583e5a4fd98509956176d1010a213c44}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!\_sounds\_loaded@{\_sounds\_loaded}}
+\index{\_sounds\_loaded@{\_sounds\_loaded}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{\_sounds\_loaded}{\_sounds\_loaded}}
+{\footnotesize\ttfamily simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+\_\+sounds\+\_\+loaded\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\texorpdfstring{$<$}{<} Diccionario que indexa las muestras de sonido dinámicas generadas ({\ttfamily \{id\+: Sound\}}). 
+
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_a7e7b0bea8030bafeffb64959e799076a}\label{classsimon__says__screen_1_1SimonSaysScreen_a7e7b0bea8030bafeffb64959e799076a}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!btn\_back@{btn\_back}}
+\index{btn\_back@{btn\_back}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_back}{btn\_back}}
+{\footnotesize\ttfamily simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+btn\+\_\+back}
+
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_a696a12f838b5292546398b65f65c079c}\label{classsimon__says__screen_1_1SimonSaysScreen_a696a12f838b5292546398b65f65c079c}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!btn\_easy@{btn\_easy}}
+\index{btn\_easy@{btn\_easy}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_easy}{btn\_easy}}
+{\footnotesize\ttfamily simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+btn\+\_\+easy}
+
+
+
+\texorpdfstring{$<$}{<} Control de estado de resolución de las coordenadas físicas del lienzo. 
+
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_aee9279d836a076b3a62c006c5988e89f}\label{classsimon__says__screen_1_1SimonSaysScreen_aee9279d836a076b3a62c006c5988e89f}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!btn\_exit@{btn\_exit}}
+\index{btn\_exit@{btn\_exit}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_exit}{btn\_exit}}
+{\footnotesize\ttfamily simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+btn\+\_\+exit}
+
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_a3df804b04876b1ffce351f618fea3b2f}\label{classsimon__says__screen_1_1SimonSaysScreen_a3df804b04876b1ffce351f618fea3b2f}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!btn\_hard@{btn\_hard}}
+\index{btn\_hard@{btn\_hard}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_hard}{btn\_hard}}
+{\footnotesize\ttfamily simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+btn\+\_\+hard}
+
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_a57f99f788b5cc4a432d5b433d3284e0a}\label{classsimon__says__screen_1_1SimonSaysScreen_a57f99f788b5cc4a432d5b433d3284e0a}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!btn\_medium@{btn\_medium}}
+\index{btn\_medium@{btn\_medium}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_medium}{btn\_medium}}
+{\footnotesize\ttfamily simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+btn\+\_\+medium}
+
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_af9c2a95425344ef69fd8ed055baabcbd}\label{classsimon__says__screen_1_1SimonSaysScreen_af9c2a95425344ef69fd8ed055baabcbd}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!difficulty@{difficulty}}
+\index{difficulty@{difficulty}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{difficulty}{difficulty}}
+{\footnotesize\ttfamily simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+difficulty}
+
+
+
+\texorpdfstring{$<$}{<} Máquina de estados lógicos principal (\char`\"{}menu\char`\"{} $\vert$ \char`\"{}showing\char`\"{} $\vert$ \char`\"{}waiting\char`\"{} $\vert$ \char`\"{}correct\char`\"{} $\vert$ \char`\"{}wrong\char`\"{} $\vert$ \char`\"{}win\char`\"{}). 
+
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_ad89a1974987d9b9ab306fb0991820910}\label{classsimon__says__screen_1_1SimonSaysScreen_ad89a1974987d9b9ab306fb0991820910}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!FEEDBACK\_DUR@{FEEDBACK\_DUR}}
+\index{FEEDBACK\_DUR@{FEEDBACK\_DUR}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{FEEDBACK\_DUR}{FEEDBACK\_DUR}}
+{\footnotesize\ttfamily simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+FEEDBACK\+\_\+\+DUR}
+
+
+
+\texorpdfstring{$<$}{<} Temporizador residual para sostener las pantallas superpuestas (overlays) de acierto/error. 
+
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_a7a06392b17d3baa83171674fa6092cc1}\label{classsimon__says__screen_1_1SimonSaysScreen_a7a06392b17d3baa83171674fa6092cc1}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!FOOTER\_H@{FOOTER\_H}}
+\index{FOOTER\_H@{FOOTER\_H}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{FOOTER\_H}{FOOTER\_H}}
+{\footnotesize\ttfamily int simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+FOOTER\+\_\+H = 68\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_a86a43d5a8c84f4f23ad8ab8e3dd3017a}\label{classsimon__says__screen_1_1SimonSaysScreen_a86a43d5a8c84f4f23ad8ab8e3dd3017a}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!HEADER\_H@{HEADER\_H}}
+\index{HEADER\_H@{HEADER\_H}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{HEADER\_H}{HEADER\_H}}
+{\footnotesize\ttfamily int simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+HEADER\+\_\+H = 120\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_a091e50e3ffbfb02a07d3368961221abc}\label{classsimon__says__screen_1_1SimonSaysScreen_a091e50e3ffbfb02a07d3368961221abc}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!LABEL\_H@{LABEL\_H}}
+\index{LABEL\_H@{LABEL\_H}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{LABEL\_H}{LABEL\_H}}
+{\footnotesize\ttfamily int simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+LABEL\+\_\+H = 110\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_a4f30f530a78399b54e8da1df98031545}\label{classsimon__says__screen_1_1SimonSaysScreen_a4f30f530a78399b54e8da1df98031545}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!lit\_button@{lit\_button}}
+\index{lit\_button@{lit\_button}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{lit\_button}{lit\_button}}
+{\footnotesize\ttfamily simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+lit\+\_\+button}
+
+
+
+\texorpdfstring{$<$}{<} Puntero del paso que está siendo reproducido por el motor en modo \char`\"{}showing\char`\"{}. 
+
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_a253222b2eb62b2c15d10e03dec09bf92}\label{classsimon__says__screen_1_1SimonSaysScreen_a253222b2eb62b2c15d10e03dec09bf92}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!player\_index@{player\_index}}
+\index{player\_index@{player\_index}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{player\_index}{player\_index}}
+{\footnotesize\ttfamily simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+player\+\_\+index}
+
+
+
+\texorpdfstring{$<$}{<} Vector de enteros {\ttfamily \mbox{[}0-\/3\mbox{]}} que almacena la secuencia de colores de la ronda actual. 
+
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_a330096b35e2dd41a1e4c4e43b6c2350c}\label{classsimon__says__screen_1_1SimonSaysScreen_a330096b35e2dd41a1e4c4e43b6c2350c}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!record@{record}}
+\index{record@{record}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{record}{record}}
+{\footnotesize\ttfamily simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+record}
+
+
+
+\texorpdfstring{$<$}{<} Puntuación de la ronda actual (basada en la longitud de la secuencia). 
+
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_af60a056ae8b34e9ef06a7e40b8e226da}\label{classsimon__says__screen_1_1SimonSaysScreen_af60a056ae8b34e9ef06a7e40b8e226da}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!score@{score}}
+\index{score@{score}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{score}{score}}
+{\footnotesize\ttfamily simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+score}
+
+
+
+\texorpdfstring{$<$}{<} Índice entero del botón actualmente activo/iluminado en pantalla (None si están todos apagados). 
+
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_a9ca7ff38e4eec5551c61a63381361f2a}\label{classsimon__says__screen_1_1SimonSaysScreen_a9ca7ff38e4eec5551c61a63381361f2a}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!sequence@{sequence}}
+\index{sequence@{sequence}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{sequence}{sequence}}
+{\footnotesize\ttfamily simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+sequence}
+
+
+
+\texorpdfstring{$<$}{<} Clave identificadora de dificultad activa. 
+
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_a4d2763c4dce0fc97fe0e0d717a4d6c4d}\label{classsimon__says__screen_1_1SimonSaysScreen_a4d2763c4dce0fc97fe0e0d717a4d6c4d}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!show\_index@{show\_index}}
+\index{show\_index@{show\_index}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{show\_index}{show\_index}}
+{\footnotesize\ttfamily simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+show\+\_\+index}
+
+
+
+\texorpdfstring{$<$}{<} Puntero de control del paso de la secuencia que está ingresando el usuario. 
+
+\mbox{\Hypertarget{classsimon__says__screen_1_1SimonSaysScreen_ac34aa173f2128c4306d6de7333cbb1b2}\label{classsimon__says__screen_1_1SimonSaysScreen_ac34aa173f2128c4306d6de7333cbb1b2}} 
+\index{simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}!state@{state}}
+\index{state@{state}!simon\_says\_screen.SimonSaysScreen@{simon\_says\_screen.SimonSaysScreen}}
+\doxysubsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily simon\+\_\+says\+\_\+screen.\+Simon\+Says\+Screen.\+state}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ui/apps/games/\mbox{\hyperlink{simon__says__screen_8py}{simon\+\_\+says\+\_\+screen.\+py}}\end{DoxyCompactItemize}

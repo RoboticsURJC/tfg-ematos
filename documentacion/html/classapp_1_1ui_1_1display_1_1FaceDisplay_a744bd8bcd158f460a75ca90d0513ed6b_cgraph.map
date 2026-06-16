@@ -1,0 +1,6 @@
+<map id="app.ui.display.FaceDisplay.start" name="app.ui.display.FaceDisplay.start">
+<area shape="rect" id="node1" title="Inicia el hilo secundario de refresco de pantalla." alt="" coords="5,35,231,61"/>
+<area shape="rect" id="node2" href="$classapp_1_1ui_1_1display_1_1FaceDisplay.html#a47f2051d908ea2d29e3468c0c9ea5ea1" title="Bucle principal de ejecución del hilo de renderizado." alt="" coords="279,35,501,61"/>
+<area shape="rect" id="node3" href="$classapp_1_1ui_1_1display_1_1FaceDisplay.html#aee4db24221e2f842722ae8cf30bb5f8a" title="Renderiza un fotograma completo en el buffer de imagen." alt="" coords="549,5,776,32"/>
+<area shape="rect" id="node4" href="$classfind__differences__screen_1_1SceneObject.html#a81a5f581f7f0efa294558b1c04d7172d" title="Renderiza la primitiva geométrica en la superficie destino aplicando los offsets indicados." alt="" coords="573,57,752,98"/>
+</map>

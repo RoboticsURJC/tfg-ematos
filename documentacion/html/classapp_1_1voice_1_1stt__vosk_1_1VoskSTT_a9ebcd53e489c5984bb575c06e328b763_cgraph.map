@@ -1,0 +1,11 @@
+<map id="app.voice.stt_vosk.VoskSTT.listen_loop" name="app.voice.stt_vosk.VoskSTT.listen_loop">
+<area shape="rect" id="node1" title="Bucle principal de escucha." alt="" coords="5,242,283,269"/>
+<area shape="rect" id="node2" href="$classapp_1_1voice_1_1stt__vosk_1_1VoskSTT.html#a7c1d1597941aa8710ea663dd1f862ffe" title="Verifica si el texto reconocido contiene palabras de activación." alt="" coords="368,5,575,47"/>
+<area shape="rect" id="node3" href="$classapp_1_1voice_1_1stt__vosk_1_1VoskSTT.html#aec1a5a1c5bbc57b36c473e6955b1e230" title="Pone al asistente en modo reposo (Wake Word necesaria)." alt="" coords="368,71,575,112"/>
+<area shape="rect" id="node4" href="$classapp_1_1voice_1_1stt__vosk_1_1VoskSTT.html#a32562de2ab877d11547debaaae5fbc39" title="Vacía la cola de audio y resetea el reconocedor (usado tras TTS)." alt="" coords="368,136,575,177"/>
+<area shape="rect" id="node5" href="$classapp_1_1voice_1_1stt__vosk_1_1VoskSTT.html#a270aa3749b212482b924396e69a938dc" title="Verifica si el texto reconocido contiene palabras de interrupción." alt="" coords="368,201,575,243"/>
+<area shape="rect" id="node6" href="$classapp_1_1voice_1_1stt__vosk_1_1VoskSTT.html#ae9fe3cdb0cc95245b0fac442fc8f3e9d" title="Extiende el tiempo de escucha activa tras cada interacción del usuario." alt="" coords="368,267,575,308"/>
+<area shape="rect" id="node7" href="$classapp_1_1voice_1_1stt__vosk_1_1VoskSTT.html#a3f5802678441b812369122c2755bd2dd" title="Despierta al asistente durante un tiempo determinado." alt="" coords="331,333,612,359"/>
+<area shape="rect" id="node8" href="$classapp_1_1voice_1_1stt__vosk_1_1VoskSTT.html#a46be0c9a33f07af0990ebf16e6777b69" title="Procesa un bloque de audio y retorna el texto si se ha completado una frase." alt="" coords="343,383,599,410"/>
+<area shape="rect" id="node9" href="$namespaceapp_1_1voice_1_1audio__stream.html#a8d837b7791de1c7eb52a30a7d8684acb" title="Crea e inicia un AudioStream listo para usar." alt="" coords="365,435,577,476"/>
+</map>

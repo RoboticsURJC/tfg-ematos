@@ -1,0 +1,191 @@
+\hypertarget{classapp_1_1core_1_1session__manager_1_1SessionManager}{}\doxysection{app.\+core.\+session\+\_\+manager.\+Session\+Manager Class Reference}
+\label{classapp_1_1core_1_1session__manager_1_1SessionManager}\index{app.core.session\_manager.SessionManager@{app.core.session\_manager.SessionManager}}
+
+
+Gestor del ciclo de vida de la sesión activa del robot.  
+
+
+
+
+Collaboration diagram for app.\+core.\+session\+\_\+manager.\+Session\+Manager\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=229pt]{classapp_1_1core_1_1session__manager_1_1SessionManager__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1session__manager_1_1SessionManager_aa48495f90b529a6443fc48e755b3d27e}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classapp_1_1core_1_1session__manager_1_1SessionManager_a36555a6aea3720122975d34a835838f5}{data\+\_\+path}}=None)
+\begin{DoxyCompactList}\small\item\em Inicializa el administrador resolviendo la ruta del almacén de datos. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1session__manager_1_1SessionManager_a8c70e10b9dd0eb88f8cf5fe76fbc1237}{login}} (self, username)
+\begin{DoxyCompactList}\small\item\em Establece el perfil del usuario activo en el sistema y congela su marca de tiempo. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1session__manager_1_1SessionManager_a03cacd516b783c756bd22550b5652f8c}{logout}} (self)
+\begin{DoxyCompactList}\small\item\em Invalida y limpia por completo las variables del usuario activo en el sistema. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1session__manager_1_1SessionManager_a046b64256020a9ec86919a2506a0ae7d}{is\+\_\+logged}} (self)
+\begin{DoxyCompactList}\small\item\em Propiedad calculada (Getter) que dictamina si existe una sesión de usuario abierta. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1session__manager_1_1SessionManager_aa24a3e55f94ded3b6f2e28f7f4c559e9}{save}} (self)
+\begin{DoxyCompactList}\small\item\em Serializa el estado actual de la sesión en disco en formato JSON. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1session__manager_1_1SessionManager_a8443066413049208970e5532debe73c3}{load}} (self)
+\begin{DoxyCompactList}\small\item\em Lee y deserializa el archivo de sesión en disco para restaurar el estado del sistema. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classapp_1_1core_1_1session__manager_1_1SessionManager_a36555a6aea3720122975d34a835838f5}{data\+\_\+path}}
+\begin{DoxyCompactList}\small\item\em Ruta del archivo en el disco donde se vuelcan los estados de autenticación. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classapp_1_1core_1_1session__manager_1_1SessionManager_a4f381650244e2ecfd33c4c70c7e69f5d}{current\+\_\+user}}
+\begin{DoxyCompactList}\small\item\em Identificador o nombre de pila del perfil de usuario actualmente autenticado (None si no hay ninguno). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classapp_1_1core_1_1session__manager_1_1SessionManager_ae46f8dc57253ec17d0758c8f3b3126d3}{login\+\_\+time}}
+\begin{DoxyCompactList}\small\item\em Marca de tiempo Unix (epoch) que registra el momento exacto en el que el usuario inició sesión. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Gestor del ciclo de vida de la sesión activa del robot. 
+
+Centraliza los mecanismos de autenticación local, cierre de sesión y la recuperación automática de estados ante reinicios imprevistos del software (failover). 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classapp_1_1core_1_1session__manager_1_1SessionManager_aa48495f90b529a6443fc48e755b3d27e}\label{classapp_1_1core_1_1session__manager_1_1SessionManager_aa48495f90b529a6443fc48e755b3d27e}} 
+\index{app.core.session\_manager.SessionManager@{app.core.session\_manager.SessionManager}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!app.core.session\_manager.SessionManager@{app.core.session\_manager.SessionManager}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def app.\+core.\+session\+\_\+manager.\+Session\+Manager.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{data\+\_\+path = {\ttfamily None} }\end{DoxyParamCaption})}
+
+
+
+Inicializa el administrador resolviendo la ruta del almacén de datos. 
+
+Si no se provee una ruta específica para el archivo de sesión, este calcula por defecto la ubicación en la carpeta de datos del proyecto ({\ttfamily ../data/session.json}) e intenta restaurar el último estado llamando internamente a {\ttfamily \mbox{\hyperlink{classapp_1_1core_1_1session__manager_1_1SessionManager_a8443066413049208970e5532debe73c3}{load()}}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data\+\_\+path} & Ruta absoluta opcional hacia el archivo físico JSON de persistencia. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classapp_1_1core_1_1session__manager_1_1SessionManager_aa48495f90b529a6443fc48e755b3d27e_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classapp_1_1core_1_1session__manager_1_1SessionManager_a046b64256020a9ec86919a2506a0ae7d}\label{classapp_1_1core_1_1session__manager_1_1SessionManager_a046b64256020a9ec86919a2506a0ae7d}} 
+\index{app.core.session\_manager.SessionManager@{app.core.session\_manager.SessionManager}!is\_logged@{is\_logged}}
+\index{is\_logged@{is\_logged}!app.core.session\_manager.SessionManager@{app.core.session\_manager.SessionManager}}
+\doxysubsubsection{\texorpdfstring{is\_logged()}{is\_logged()}}
+{\footnotesize\ttfamily def app.\+core.\+session\+\_\+manager.\+Session\+Manager.\+is\+\_\+logged (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Propiedad calculada (Getter) que dictamina si existe una sesión de usuario abierta. 
+
+\begin{DoxyReturn}{Returns}
+bool True si un usuario válido tiene el control del dispositivo, False en caso contrario. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classapp_1_1core_1_1session__manager_1_1SessionManager_a8443066413049208970e5532debe73c3}\label{classapp_1_1core_1_1session__manager_1_1SessionManager_a8443066413049208970e5532debe73c3}} 
+\index{app.core.session\_manager.SessionManager@{app.core.session\_manager.SessionManager}!load@{load}}
+\index{load@{load}!app.core.session\_manager.SessionManager@{app.core.session\_manager.SessionManager}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily def app.\+core.\+session\+\_\+manager.\+Session\+Manager.\+load (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Lee y deserializa el archivo de sesión en disco para restaurar el estado del sistema. 
+
+Si el archivo no existe en la ruta configurada, el método aborta silenciosamente la ejecución sin alterar las propiedades por defecto. \mbox{\Hypertarget{classapp_1_1core_1_1session__manager_1_1SessionManager_a8c70e10b9dd0eb88f8cf5fe76fbc1237}\label{classapp_1_1core_1_1session__manager_1_1SessionManager_a8c70e10b9dd0eb88f8cf5fe76fbc1237}} 
+\index{app.core.session\_manager.SessionManager@{app.core.session\_manager.SessionManager}!login@{login}}
+\index{login@{login}!app.core.session\_manager.SessionManager@{app.core.session\_manager.SessionManager}}
+\doxysubsubsection{\texorpdfstring{login()}{login()}}
+{\footnotesize\ttfamily def app.\+core.\+session\+\_\+manager.\+Session\+Manager.\+login (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{username }\end{DoxyParamCaption})}
+
+
+
+Establece el perfil del usuario activo en el sistema y congela su marca de tiempo. 
+
+Actualiza las propiedades internas en memoria y llama inmediatamente al método de escritura física {\ttfamily \mbox{\hyperlink{classapp_1_1core_1_1session__manager_1_1SessionManager_aa24a3e55f94ded3b6f2e28f7f4c559e9}{save()}}} para sincronizar el estado.
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & Nombre de pila o identificador del usuario que ha iniciado sesión. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classapp_1_1core_1_1session__manager_1_1SessionManager_a8c70e10b9dd0eb88f8cf5fe76fbc1237_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classapp_1_1core_1_1session__manager_1_1SessionManager_a03cacd516b783c756bd22550b5652f8c}\label{classapp_1_1core_1_1session__manager_1_1SessionManager_a03cacd516b783c756bd22550b5652f8c}} 
+\index{app.core.session\_manager.SessionManager@{app.core.session\_manager.SessionManager}!logout@{logout}}
+\index{logout@{logout}!app.core.session\_manager.SessionManager@{app.core.session\_manager.SessionManager}}
+\doxysubsubsection{\texorpdfstring{logout()}{logout()}}
+{\footnotesize\ttfamily def app.\+core.\+session\+\_\+manager.\+Session\+Manager.\+logout (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Invalida y limpia por completo las variables del usuario activo en el sistema. 
+
+Setea las propiedades a {\ttfamily None} y purga el archivo JSON persistente invocando a {\ttfamily \mbox{\hyperlink{classapp_1_1core_1_1session__manager_1_1SessionManager_aa24a3e55f94ded3b6f2e28f7f4c559e9}{save()}}}. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classapp_1_1core_1_1session__manager_1_1SessionManager_a03cacd516b783c756bd22550b5652f8c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classapp_1_1core_1_1session__manager_1_1SessionManager_aa24a3e55f94ded3b6f2e28f7f4c559e9}\label{classapp_1_1core_1_1session__manager_1_1SessionManager_aa24a3e55f94ded3b6f2e28f7f4c559e9}} 
+\index{app.core.session\_manager.SessionManager@{app.core.session\_manager.SessionManager}!save@{save}}
+\index{save@{save}!app.core.session\_manager.SessionManager@{app.core.session\_manager.SessionManager}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}}
+{\footnotesize\ttfamily def app.\+core.\+session\+\_\+manager.\+Session\+Manager.\+save (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Serializa el estado actual de la sesión en disco en formato JSON. 
+
+Asegura de forma tolerante a fallos la existencia de la estructura de directorios destino mediante {\ttfamily os.\+makedirs} antes de proceder con el volcado físico de datos. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classapp_1_1core_1_1session__manager_1_1SessionManager_a4f381650244e2ecfd33c4c70c7e69f5d}\label{classapp_1_1core_1_1session__manager_1_1SessionManager_a4f381650244e2ecfd33c4c70c7e69f5d}} 
+\index{app.core.session\_manager.SessionManager@{app.core.session\_manager.SessionManager}!current\_user@{current\_user}}
+\index{current\_user@{current\_user}!app.core.session\_manager.SessionManager@{app.core.session\_manager.SessionManager}}
+\doxysubsubsection{\texorpdfstring{current\_user}{current\_user}}
+{\footnotesize\ttfamily app.\+core.\+session\+\_\+manager.\+Session\+Manager.\+current\+\_\+user}
+
+
+
+Identificador o nombre de pila del perfil de usuario actualmente autenticado (None si no hay ninguno). 
+
+\mbox{\Hypertarget{classapp_1_1core_1_1session__manager_1_1SessionManager_a36555a6aea3720122975d34a835838f5}\label{classapp_1_1core_1_1session__manager_1_1SessionManager_a36555a6aea3720122975d34a835838f5}} 
+\index{app.core.session\_manager.SessionManager@{app.core.session\_manager.SessionManager}!data\_path@{data\_path}}
+\index{data\_path@{data\_path}!app.core.session\_manager.SessionManager@{app.core.session\_manager.SessionManager}}
+\doxysubsubsection{\texorpdfstring{data\_path}{data\_path}}
+{\footnotesize\ttfamily app.\+core.\+session\+\_\+manager.\+Session\+Manager.\+data\+\_\+path}
+
+
+
+Ruta del archivo en el disco donde se vuelcan los estados de autenticación. 
+
+\mbox{\Hypertarget{classapp_1_1core_1_1session__manager_1_1SessionManager_ae46f8dc57253ec17d0758c8f3b3126d3}\label{classapp_1_1core_1_1session__manager_1_1SessionManager_ae46f8dc57253ec17d0758c8f3b3126d3}} 
+\index{app.core.session\_manager.SessionManager@{app.core.session\_manager.SessionManager}!login\_time@{login\_time}}
+\index{login\_time@{login\_time}!app.core.session\_manager.SessionManager@{app.core.session\_manager.SessionManager}}
+\doxysubsubsection{\texorpdfstring{login\_time}{login\_time}}
+{\footnotesize\ttfamily app.\+core.\+session\+\_\+manager.\+Session\+Manager.\+login\+\_\+time}
+
+
+
+Marca de tiempo Unix (epoch) que registra el momento exacto en el que el usuario inició sesión. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/\mbox{\hyperlink{session__manager_8py}{session\+\_\+manager.\+py}}\end{DoxyCompactItemize}

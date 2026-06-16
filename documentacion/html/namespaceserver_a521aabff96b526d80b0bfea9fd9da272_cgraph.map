@@ -1,0 +1,4 @@
+<map id="server.init_database" name="server.init_database">
+<area shape="rect" id="node1" title="Inicializa la estructura del esquema relacional y crea las tablas si no existen." alt="" coords="5,5,160,32"/>
+<area shape="rect" id="node2" href="$namespaceserver.html#aba0f719635d68d7bd245b84b1654c2b5" title="Crea y parametriza una nueva conexión atómica hacia la base de datos SQLite." alt="" coords="208,5,373,32"/>
+</map>

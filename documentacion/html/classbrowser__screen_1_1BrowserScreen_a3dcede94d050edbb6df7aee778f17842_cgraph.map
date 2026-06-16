@@ -1,0 +1,4 @@
+<map id="browser_screen.BrowserScreen.closeEvent" name="browser_screen.BrowserScreen.closeEvent">
+<area shape="rect" id="node1" title="Asegura la limpieza total de subprocesos cuando el widget es destruido de forma explícita." alt="" coords="5,29,268,71"/>
+<area shape="rect" id="node2" href="$classbrowser__screen_1_1BrowserScreen.html#a8c1f77849d23f06a086957785f5e54ad" title="Detiene y purga de forma atómica todos los procesos e instancias zombis del navegador y teclados auxi..." alt="" coords="316,29,545,71"/>
+</map>

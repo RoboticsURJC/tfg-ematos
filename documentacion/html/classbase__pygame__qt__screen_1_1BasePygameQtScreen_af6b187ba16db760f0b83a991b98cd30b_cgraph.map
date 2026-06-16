@@ -1,0 +1,3 @@
+<map id="base_pygame_qt_screen.BasePygameQtScreen.keyPressEvent" name="base_pygame_qt_screen.BasePygameQtScreen.keyPressEvent">
+<area shape="rect" id="node1" title="Mapea y traduce las pulsaciones del teclado del core de Qt a flags constantes de Pygame." alt="" coords="5,29,239,71"/>
+</map>

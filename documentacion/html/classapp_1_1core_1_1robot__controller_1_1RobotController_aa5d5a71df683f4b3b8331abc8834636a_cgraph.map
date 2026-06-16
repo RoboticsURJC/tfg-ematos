@@ -1,0 +1,3 @@
+<map id="app.core.robot_controller.RobotController.close_app" name="app.core.robot_controller.RobotController.close_app">
+<area shape="rect" id="node1" title="Destruye u oculta la ventana de la aplicación activa y reconduce al usuario al Launcher principal." alt="" coords="5,29,197,71"/>
+</map>

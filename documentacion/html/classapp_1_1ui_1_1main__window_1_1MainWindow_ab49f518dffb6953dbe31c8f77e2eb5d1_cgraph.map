@@ -1,0 +1,3 @@
+<map id="app.ui.main_window.MainWindow.__init__" name="app.ui.main_window.MainWindow.__init__">
+<area shape="rect" id="node1" title="Inicializa la ventana, instancia todas las pantallas y las registra en el stack." alt="" coords="5,29,252,71"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="server.complete_reminder" name="server.complete_reminder">
+<area shape="rect" id="node1" title="Endpoint HTTP POST: Conmuta de forma explícita el bit de completado de una alerta." alt="" coords="5,5,199,32"/>
+<area shape="rect" id="node2" href="$namespaceserver.html#aba0f719635d68d7bd245b84b1654c2b5" title="Crea y parametriza una nueva conexión atómica hacia la base de datos SQLite." alt="" coords="247,5,412,32"/>
+</map>

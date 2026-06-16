@@ -1,0 +1,3 @@
+<map id="app.voice.stt_vosk.VoskSTT.stop" name="app.voice.stt_vosk.VoskSTT.stop">
+<area shape="rect" id="node1" title="Detiene el hilo de captura de audio y marca el servicio como no en ejecución." alt="" coords="5,29,240,56"/>
+</map>

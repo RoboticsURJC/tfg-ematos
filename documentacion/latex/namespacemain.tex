@@ -1,0 +1,162 @@
+\hypertarget{namespacemain}{}\doxysection{main Namespace Reference}
+\label{namespacemain}\index{main@{main}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacemain_a8602a9a13ea1cb4c85a508646671bdd5}{root}} ()
+\begin{DoxyCompactList}\small\item\em Endpoint raíz del servidor de la API. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacemain_a5fa94f0581009434c7a63791944d6ff4}{app}}
+\item 
+\mbox{\hyperlink{namespacemain_a75935476dce7e7a59f1c6604af9dad37}{name}}
+\item 
+\mbox{\hyperlink{namespacemain_ac36f11ba37f67dd7e1523d300c68864a}{BASE\+\_\+\+DIR}} = os.\+path.\+dirname(os.\+path.\+abspath(\+\_\+\+\_\+file\+\_\+\+\_\+))
+\begin{DoxyCompactList}\small\item\em Ruta absoluta del directorio base donde está alojado este script de orquestación. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacemain_af12265b8cdab1a213b7e6187dbbec3a7}{DATASET\+\_\+\+PATH}} = os.\+path.\+join(\mbox{\hyperlink{namespacemain_ac36f11ba37f67dd7e1523d300c68864a}{BASE\+\_\+\+DIR}}, \char`\"{}prompts\char`\"{}, \char`\"{}dataset.\+json\char`\"{})
+\begin{DoxyCompactList}\small\item\em Ruta absoluta del archivo estructurado JSON que contiene la batería de pruebas (prompts). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacemain_ab21a458e1d12852833095bd03f9e14af}{encoding}}
+\item 
+\mbox{\hyperlink{namespacemain_a56f4b07423d8f18a76a78fd4480d6f6f}{prompts}} = json.\+load(f)
+\item 
+list \mbox{\hyperlink{namespacemain_ac4161d4c53af6b93521c11d52ceb3de5}{models}}
+\begin{DoxyCompactList}\small\item\em Vector que almacena las instancias activas de los modelos que participarán en la evaluación comparativa. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacemain_ad3f96f9bbe55ef2159ea73a72c7b2ef8}{runner}} = Benchmark\+Runner(\mbox{\hyperlink{namespacemain_ac4161d4c53af6b93521c11d52ceb3de5}{models}})
+\begin{DoxyCompactList}\small\item\em Orquestador del ciclo de vida encargado de iterar y medir las inferencias sobre los modelos. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacemain_afcdcd0c78d3c1a56674ce61170665fa4}{repeats}}
+\item 
+\mbox{\hyperlink{namespacemain_a902f065d0a2f209fbdcb831324ea96b5}{results}} = load\+\_\+results()
+\begin{DoxyCompactList}\small\item\em Histórico completo de transacciones recuperado directamente desde el archivo persistente JSONL. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacemain_a3531391ccc0b82b59b614aed6d675a41}{stats}} = compute\+\_\+stats(\mbox{\hyperlink{namespacemain_a902f065d0a2f209fbdcb831324ea96b5}{results}})
+\begin{DoxyCompactList}\small\item\em Diccionario con los agregados estadísticos calculados (medias de latencia, varianza, etc.) por modelo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacemain_a8602a9a13ea1cb4c85a508646671bdd5}\label{namespacemain_a8602a9a13ea1cb4c85a508646671bdd5}} 
+\index{main@{main}!root@{root}}
+\index{root@{root}!main@{main}}
+\doxysubsubsection{\texorpdfstring{root()}{root()}}
+{\footnotesize\ttfamily def main.\+root (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Endpoint raíz del servidor de la API. 
+
+Se encarga de resolver y servir el archivo principal de la interfaz de usuario HTML (Single Page Application) al acceder a la dirección base del Robot.
+
+\begin{DoxyReturn}{Returns}
+File\+Response Instancia de respuesta con el contenido del fichero \textquotesingle{}index.\+html\textquotesingle{}. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacemain_a5fa94f0581009434c7a63791944d6ff4}\label{namespacemain_a5fa94f0581009434c7a63791944d6ff4}} 
+\index{main@{main}!app@{app}}
+\index{app@{app}!main@{main}}
+\doxysubsubsection{\texorpdfstring{app}{app}}
+{\footnotesize\ttfamily main.\+app}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  FastAPI(}
+\DoxyCodeLine{2     title=\textcolor{stringliteral}{"{}Robot API Gateway"{}},}
+\DoxyCodeLine{3     version=\textcolor{stringliteral}{"{}1.0.0"{}}}
+\DoxyCodeLine{4 )}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacemain_ac36f11ba37f67dd7e1523d300c68864a}\label{namespacemain_ac36f11ba37f67dd7e1523d300c68864a}} 
+\index{main@{main}!BASE\_DIR@{BASE\_DIR}}
+\index{BASE\_DIR@{BASE\_DIR}!main@{main}}
+\doxysubsubsection{\texorpdfstring{BASE\_DIR}{BASE\_DIR}}
+{\footnotesize\ttfamily main.\+BASE\+\_\+\+DIR = os.\+path.\+dirname(os.\+path.\+abspath(\+\_\+\+\_\+file\+\_\+\+\_\+))}
+
+
+
+Ruta absoluta del directorio base donde está alojado este script de orquestación. 
+
+\mbox{\Hypertarget{namespacemain_af12265b8cdab1a213b7e6187dbbec3a7}\label{namespacemain_af12265b8cdab1a213b7e6187dbbec3a7}} 
+\index{main@{main}!DATASET\_PATH@{DATASET\_PATH}}
+\index{DATASET\_PATH@{DATASET\_PATH}!main@{main}}
+\doxysubsubsection{\texorpdfstring{DATASET\_PATH}{DATASET\_PATH}}
+{\footnotesize\ttfamily main.\+DATASET\+\_\+\+PATH = os.\+path.\+join(\mbox{\hyperlink{namespacemain_ac36f11ba37f67dd7e1523d300c68864a}{BASE\+\_\+\+DIR}}, \char`\"{}prompts\char`\"{}, \char`\"{}dataset.\+json\char`\"{})}
+
+
+
+Ruta absoluta del archivo estructurado JSON que contiene la batería de pruebas (prompts). 
+
+\mbox{\Hypertarget{namespacemain_ab21a458e1d12852833095bd03f9e14af}\label{namespacemain_ab21a458e1d12852833095bd03f9e14af}} 
+\index{main@{main}!encoding@{encoding}}
+\index{encoding@{encoding}!main@{main}}
+\doxysubsubsection{\texorpdfstring{encoding}{encoding}}
+{\footnotesize\ttfamily main.\+encoding}
+
+\mbox{\Hypertarget{namespacemain_ac4161d4c53af6b93521c11d52ceb3de5}\label{namespacemain_ac4161d4c53af6b93521c11d52ceb3de5}} 
+\index{main@{main}!models@{models}}
+\index{models@{models}!main@{main}}
+\doxysubsubsection{\texorpdfstring{models}{models}}
+{\footnotesize\ttfamily list main.\+models}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  [}
+\DoxyCodeLine{2     GPTAzure(),}
+\DoxyCodeLine{3     GroqLlama(),}
+\DoxyCodeLine{4     GeminiModel(),}
+\DoxyCodeLine{5     \textcolor{comment}{\# LlamaCPP(),  \# Instancia local comentada provisionalmente en esta tanda de pruebas}}
+\DoxyCodeLine{6     MistralServer()}
+\DoxyCodeLine{7 ]}
+
+\end{DoxyCode}
+
+
+Vector que almacena las instancias activas de los modelos que participarán en la evaluación comparativa. 
+
+\mbox{\Hypertarget{namespacemain_a75935476dce7e7a59f1c6604af9dad37}\label{namespacemain_a75935476dce7e7a59f1c6604af9dad37}} 
+\index{main@{main}!name@{name}}
+\index{name@{name}!main@{main}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily main.\+name}
+
+\mbox{\Hypertarget{namespacemain_a56f4b07423d8f18a76a78fd4480d6f6f}\label{namespacemain_a56f4b07423d8f18a76a78fd4480d6f6f}} 
+\index{main@{main}!prompts@{prompts}}
+\index{prompts@{prompts}!main@{main}}
+\doxysubsubsection{\texorpdfstring{prompts}{prompts}}
+{\footnotesize\ttfamily main.\+prompts = json.\+load(f)}
+
+\mbox{\Hypertarget{namespacemain_afcdcd0c78d3c1a56674ce61170665fa4}\label{namespacemain_afcdcd0c78d3c1a56674ce61170665fa4}} 
+\index{main@{main}!repeats@{repeats}}
+\index{repeats@{repeats}!main@{main}}
+\doxysubsubsection{\texorpdfstring{repeats}{repeats}}
+{\footnotesize\ttfamily main.\+repeats}
+
+\mbox{\Hypertarget{namespacemain_a902f065d0a2f209fbdcb831324ea96b5}\label{namespacemain_a902f065d0a2f209fbdcb831324ea96b5}} 
+\index{main@{main}!results@{results}}
+\index{results@{results}!main@{main}}
+\doxysubsubsection{\texorpdfstring{results}{results}}
+{\footnotesize\ttfamily list main.\+results = load\+\_\+results()}
+
+
+
+Histórico completo de transacciones recuperado directamente desde el archivo persistente JSONL. 
+
+\mbox{\Hypertarget{namespacemain_ad3f96f9bbe55ef2159ea73a72c7b2ef8}\label{namespacemain_ad3f96f9bbe55ef2159ea73a72c7b2ef8}} 
+\index{main@{main}!runner@{runner}}
+\index{runner@{runner}!main@{main}}
+\doxysubsubsection{\texorpdfstring{runner}{runner}}
+{\footnotesize\ttfamily main.\+runner = Benchmark\+Runner(\mbox{\hyperlink{namespacemain_ac4161d4c53af6b93521c11d52ceb3de5}{models}})}
+
+
+
+Orquestador del ciclo de vida encargado de iterar y medir las inferencias sobre los modelos. 
+
+\mbox{\Hypertarget{namespacemain_a3531391ccc0b82b59b614aed6d675a41}\label{namespacemain_a3531391ccc0b82b59b614aed6d675a41}} 
+\index{main@{main}!stats@{stats}}
+\index{stats@{stats}!main@{main}}
+\doxysubsubsection{\texorpdfstring{stats}{stats}}
+{\footnotesize\ttfamily main.\+stats = compute\+\_\+stats(\mbox{\hyperlink{namespacemain_a902f065d0a2f209fbdcb831324ea96b5}{results}})}
+
+
+
+Diccionario con los agregados estadísticos calculados (medias de latencia, varianza, etc.) por modelo. 
+

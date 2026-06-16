@@ -1,0 +1,211 @@
+\hypertarget{classprocess__service_1_1ProcessService}{}\doxysection{process\+\_\+service.\+Process\+Service Class Reference}
+\label{classprocess__service_1_1ProcessService}\index{process\_service.ProcessService@{process\_service.ProcessService}}
+
+
+Clase encargada de administrar el arranque y detención controlada de procesos en segundo plano.  
+
+
+
+
+Collaboration diagram for process\+\_\+service.\+Process\+Service\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=251pt]{classprocess__service_1_1ProcessService__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classprocess__service_1_1ProcessService_acf79ba7a0a165187afe8a62b614a94b3}{start}} (cls, str service)
+\begin{DoxyCompactList}\small\item\em Levanta un microservicio en segundo plano de manera asíncrona. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classprocess__service_1_1ProcessService_a38a173a1d1b4659fc563db90ffbd46c4}{stop}} (cls, str service)
+\begin{DoxyCompactList}\small\item\em Detiene de forma segura el microservicio indicado liberando sus recursos. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classprocess__service_1_1ProcessService_a68c39806ab01a758c6e4d971d6783eba}{is\+\_\+running}} (cls, str service)
+\begin{DoxyCompactList}\small\item\em Evalúa si el subproceso asociado a un servicio sigue activo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+dictionary \mbox{\hyperlink{classprocess__service_1_1ProcessService_a22a0e33768cef2c8c264f240c0184b98}{processes}} = \{\}
+\begin{DoxyCompactList}\small\item\em Contenedor en memoria (dict) para almacenar las instancias activas de tipo subprocess.\+Popen. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classprocess__service_1_1ProcessService_afd3ac522b0b2d41f320dc02bd0abfbf8}{BASE\+\_\+\+DIR}} = Path(\+\_\+\+\_\+file\+\_\+\+\_\+).resolve().parents\mbox{[}4\mbox{]}
+\begin{DoxyCompactList}\small\item\em Ruta absoluta calculada hacia el directorio raíz del proyecto (subiendo 4 niveles desde este archivo). \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classprocess__service_1_1ProcessService_aefa4d11021aeb56f8ae52aed68b97bf1}{APP\+\_\+\+DIR}} = \mbox{\hyperlink{classprocess__service_1_1ProcessService_afd3ac522b0b2d41f320dc02bd0abfbf8}{BASE\+\_\+\+DIR}} / \char`\"{}app\char`\"{}
+\begin{DoxyCompactList}\small\item\em Ruta absoluta hacia el subdirectorio \textquotesingle{}app\textquotesingle{} del proyecto. \end{DoxyCompactList}\item 
+dictionary \mbox{\hyperlink{classprocess__service_1_1ProcessService_aea7d451f2deb13c2e87c3025de9fa0c0}{COMMANDS}}
+\begin{DoxyCompactList}\small\item\em Diccionario con los comandos exactos y argumentos que utiliza uvicorn para levantar los servidores ASGI. \end{DoxyCompactList}\item 
+dictionary \mbox{\hyperlink{classprocess__service_1_1ProcessService_a55c9bba757a86238e90dd8f21414949e}{WORKDIR}}
+\begin{DoxyCompactList}\small\item\em Directorios de trabajo asignados a cada proceso para garantizar que Python resuelva las rutas de importación. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase encargada de administrar el arranque y detención controlada de procesos en segundo plano. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprocess__service_1_1ProcessService_a68c39806ab01a758c6e4d971d6783eba}\label{classprocess__service_1_1ProcessService_a68c39806ab01a758c6e4d971d6783eba}} 
+\index{process\_service.ProcessService@{process\_service.ProcessService}!is\_running@{is\_running}}
+\index{is\_running@{is\_running}!process\_service.ProcessService@{process\_service.ProcessService}}
+\doxysubsubsection{\texorpdfstring{is\_running()}{is\_running()}}
+{\footnotesize\ttfamily def process\+\_\+service.\+Process\+Service.\+is\+\_\+running (\begin{DoxyParamCaption}\item[{}]{cls,  }\item[{str}]{service }\end{DoxyParamCaption})}
+
+
+
+Evalúa si el subproceso asociado a un servicio sigue activo. 
+
+Utiliza el método {\ttfamily .poll()} nativo de Python; si retorna {\ttfamily None}, significa que el proceso sigue en ejecución y no ha terminado.
+
+
+\begin{DoxyParams}{Parameters}
+{\em service} & Identificador del servicio a monitorizar.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool Verdadero ({\ttfamily True}) si está corriendo, Falso ({\ttfamily False}) en caso contrario. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classprocess__service_1_1ProcessService_acf79ba7a0a165187afe8a62b614a94b3}\label{classprocess__service_1_1ProcessService_acf79ba7a0a165187afe8a62b614a94b3}} 
+\index{process\_service.ProcessService@{process\_service.ProcessService}!start@{start}}
+\index{start@{start}!process\_service.ProcessService@{process\_service.ProcessService}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily def process\+\_\+service.\+Process\+Service.\+start (\begin{DoxyParamCaption}\item[{}]{cls,  }\item[{str}]{service }\end{DoxyParamCaption})}
+
+
+
+Levanta un microservicio en segundo plano de manera asíncrona. 
+
+Verifica si el servicio existe y si no está corriendo ya. Si pasa los filtros, inicializa una nueva sesión de proceso ({\ttfamily start\+\_\+new\+\_\+session=True}) para encapsular las llamadas de terminal.
+
+
+\begin{DoxyParams}{Parameters}
+{\em service} & Identificador del servicio a iniciar (\textquotesingle{}llm\textquotesingle{} o \textquotesingle{}recognition\textquotesingle{}).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+dict Diccionario con el estado del comando operativo (\textquotesingle{}OK\textquotesingle{} con el PID o \textquotesingle{}ERROR\textquotesingle{} con su traza). 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprocess__service_1_1ProcessService_acf79ba7a0a165187afe8a62b614a94b3_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classprocess__service_1_1ProcessService_a38a173a1d1b4659fc563db90ffbd46c4}\label{classprocess__service_1_1ProcessService_a38a173a1d1b4659fc563db90ffbd46c4}} 
+\index{process\_service.ProcessService@{process\_service.ProcessService}!stop@{stop}}
+\index{stop@{stop}!process\_service.ProcessService@{process\_service.ProcessService}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily def process\+\_\+service.\+Process\+Service.\+stop (\begin{DoxyParamCaption}\item[{}]{cls,  }\item[{str}]{service }\end{DoxyParamCaption})}
+
+
+
+Detiene de forma segura el microservicio indicado liberando sus recursos. 
+
+Obtiene el ID de grupo de proceso (PGID) para enviar una señal de terminación suave ({\ttfamily SIGTERM}) al árbol de procesos de Uvicorn. Si no responde tras un segundo de espera, se fuerza su cierre con {\ttfamily SIGKILL}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em service} & Identificador del servicio a detener (\textquotesingle{}llm\textquotesingle{} o \textquotesingle{}recognition\textquotesingle{}).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+dict Diccionario con el estado del resultado de la cancelación. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprocess__service_1_1ProcessService_a38a173a1d1b4659fc563db90ffbd46c4_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classprocess__service_1_1ProcessService_aefa4d11021aeb56f8ae52aed68b97bf1}\label{classprocess__service_1_1ProcessService_aefa4d11021aeb56f8ae52aed68b97bf1}} 
+\index{process\_service.ProcessService@{process\_service.ProcessService}!APP\_DIR@{APP\_DIR}}
+\index{APP\_DIR@{APP\_DIR}!process\_service.ProcessService@{process\_service.ProcessService}}
+\doxysubsubsection{\texorpdfstring{APP\_DIR}{APP\_DIR}}
+{\footnotesize\ttfamily string process\+\_\+service.\+Process\+Service.\+APP\+\_\+\+DIR = \mbox{\hyperlink{classprocess__service_1_1ProcessService_afd3ac522b0b2d41f320dc02bd0abfbf8}{BASE\+\_\+\+DIR}} / \char`\"{}app\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Ruta absoluta hacia el subdirectorio \textquotesingle{}app\textquotesingle{} del proyecto. 
+
+\mbox{\Hypertarget{classprocess__service_1_1ProcessService_afd3ac522b0b2d41f320dc02bd0abfbf8}\label{classprocess__service_1_1ProcessService_afd3ac522b0b2d41f320dc02bd0abfbf8}} 
+\index{process\_service.ProcessService@{process\_service.ProcessService}!BASE\_DIR@{BASE\_DIR}}
+\index{BASE\_DIR@{BASE\_DIR}!process\_service.ProcessService@{process\_service.ProcessService}}
+\doxysubsubsection{\texorpdfstring{BASE\_DIR}{BASE\_DIR}}
+{\footnotesize\ttfamily process\+\_\+service.\+Process\+Service.\+BASE\+\_\+\+DIR = Path(\+\_\+\+\_\+file\+\_\+\+\_\+).resolve().parents\mbox{[}4\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Ruta absoluta calculada hacia el directorio raíz del proyecto (subiendo 4 niveles desde este archivo). 
+
+\mbox{\Hypertarget{classprocess__service_1_1ProcessService_aea7d451f2deb13c2e87c3025de9fa0c0}\label{classprocess__service_1_1ProcessService_aea7d451f2deb13c2e87c3025de9fa0c0}} 
+\index{process\_service.ProcessService@{process\_service.ProcessService}!COMMANDS@{COMMANDS}}
+\index{COMMANDS@{COMMANDS}!process\_service.ProcessService@{process\_service.ProcessService}}
+\doxysubsubsection{\texorpdfstring{COMMANDS}{COMMANDS}}
+{\footnotesize\ttfamily dictionary process\+\_\+service.\+Process\+Service.\+COMMANDS\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=  \{}
+\DoxyCodeLine{          \textcolor{stringliteral}{"{}llm"{}}: [}
+\DoxyCodeLine{              \textcolor{stringliteral}{"{}python3"{}},}
+\DoxyCodeLine{              \textcolor{stringliteral}{"{}-\/m"{}},}
+\DoxyCodeLine{              \textcolor{stringliteral}{"{}uvicorn"{}},}
+\DoxyCodeLine{              \textcolor{stringliteral}{"{}assistant.app.server.speaking\_server:app"{}},}
+\DoxyCodeLine{              \textcolor{stringliteral}{"{}-\/-\/host"{}}, \textcolor{stringliteral}{"{}0.0.0.0"{}},}
+\DoxyCodeLine{              \textcolor{stringliteral}{"{}-\/-\/port"{}}, \textcolor{stringliteral}{"{}8000"{}}}
+\DoxyCodeLine{          ],}
+\DoxyCodeLine{}
+\DoxyCodeLine{          \textcolor{stringliteral}{"{}recognition"{}}: [}
+\DoxyCodeLine{              \textcolor{stringliteral}{"{}python3"{}},}
+\DoxyCodeLine{              \textcolor{stringliteral}{"{}-\/m"{}},}
+\DoxyCodeLine{              \textcolor{stringliteral}{"{}uvicorn"{}},}
+\DoxyCodeLine{              \textcolor{stringliteral}{"{}assistant.app.server.server:app"{}},}
+\DoxyCodeLine{            \textcolor{comment}{\#   "{}assistant.app.server.face\_server:app"{},              }}
+\DoxyCodeLine{              \textcolor{stringliteral}{"{}-\/-\/host"{}}, \textcolor{stringliteral}{"{}0.0.0.0"{}},}
+\DoxyCodeLine{              \textcolor{stringliteral}{"{}-\/-\/port"{}}, \textcolor{stringliteral}{"{}5000"{}}}
+\DoxyCodeLine{          ]}
+\DoxyCodeLine{      \}}
+
+\end{DoxyCode}
+
+
+Diccionario con los comandos exactos y argumentos que utiliza uvicorn para levantar los servidores ASGI. 
+
+\mbox{\Hypertarget{classprocess__service_1_1ProcessService_a22a0e33768cef2c8c264f240c0184b98}\label{classprocess__service_1_1ProcessService_a22a0e33768cef2c8c264f240c0184b98}} 
+\index{process\_service.ProcessService@{process\_service.ProcessService}!processes@{processes}}
+\index{processes@{processes}!process\_service.ProcessService@{process\_service.ProcessService}}
+\doxysubsubsection{\texorpdfstring{processes}{processes}}
+{\footnotesize\ttfamily dictionary process\+\_\+service.\+Process\+Service.\+processes = \{\}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Contenedor en memoria (dict) para almacenar las instancias activas de tipo subprocess.\+Popen. 
+
+\mbox{\Hypertarget{classprocess__service_1_1ProcessService_a55c9bba757a86238e90dd8f21414949e}\label{classprocess__service_1_1ProcessService_a55c9bba757a86238e90dd8f21414949e}} 
+\index{process\_service.ProcessService@{process\_service.ProcessService}!WORKDIR@{WORKDIR}}
+\index{WORKDIR@{WORKDIR}!process\_service.ProcessService@{process\_service.ProcessService}}
+\doxysubsubsection{\texorpdfstring{WORKDIR}{WORKDIR}}
+{\footnotesize\ttfamily dictionary process\+\_\+service.\+Process\+Service.\+WORKDIR\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=  \{}
+\DoxyCodeLine{        \textcolor{stringliteral}{"{}llm"{}}: str(BASE\_DIR),}
+\DoxyCodeLine{        \textcolor{stringliteral}{"{}recognition"{}}: str(BASE\_DIR)}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+
+
+Directorios de trabajo asignados a cada proceso para garantizar que Python resuelva las rutas de importación. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+api\+\_\+getway/services/\mbox{\hyperlink{process__service_8py}{process\+\_\+service.\+py}}\end{DoxyCompactItemize}

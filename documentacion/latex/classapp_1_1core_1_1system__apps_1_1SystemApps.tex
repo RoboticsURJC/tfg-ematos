@@ -1,0 +1,126 @@
+\hypertarget{classapp_1_1core_1_1system__apps_1_1SystemApps}{}\doxysection{app.\+core.\+system\+\_\+apps.\+System\+Apps Class Reference}
+\label{classapp_1_1core_1_1system__apps_1_1SystemApps}\index{app.core.system\_apps.SystemApps@{app.core.system\_apps.SystemApps}}
+
+
+Clase estática encargada del enrutamiento y ejecución segura de aplicaciones.  
+
+
+
+
+Collaboration diagram for app.\+core.\+system\+\_\+apps.\+System\+Apps\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{classapp_1_1core_1_1system__apps_1_1SystemApps__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1system__apps_1_1SystemApps_ae6c70c95e07b14ff352293418407bb0a}{launch}} (cls, app\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Ejecuta o enruta una aplicación del sistema aplicando filtros de seguridad táctil. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+dictionary \mbox{\hyperlink{classapp_1_1core_1_1system__apps_1_1SystemApps_aa12e19f0bfc59bb13da7b3f0258f214b}{APPS}}
+\begin{DoxyCompactList}\small\item\em Diccionario de mapeo que define el identificador de la aplicación y su comando o ruta interna de ejecución. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classapp_1_1core_1_1system__apps_1_1SystemApps_a9e83c9a9064eb694687db8584848507c}{\+\_\+last\+\_\+launch\+\_\+time}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classapp_1_1core_1_1system__apps_1_1SystemApps_a18a530f6a07c9970ed19accdbfa352db}{\+\_\+last\+\_\+launch\+\_\+time}} = 0
+\begin{DoxyCompactList}\small\item\em Marca de tiempo Unix (en segundos) que registra el momento exacto de la última ejecución exitosa. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classapp_1_1core_1_1system__apps_1_1SystemApps_a1a0752df7f67d536861ab5b928653f56}{\+\_\+cooldown\+\_\+seconds}} = 2.\+0
+\begin{DoxyCompactList}\small\item\em Intervalo de tiempo mínimo (en segundos) requerido entre pulsaciones consecutivas para mitigar clics fantasmas. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase estática encargada del enrutamiento y ejecución segura de aplicaciones. 
+
+Incorpora un mecanismo electrónico/lógico anti-\/rebote (de-\/bounce) para pantallas táctiles. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classapp_1_1core_1_1system__apps_1_1SystemApps_ae6c70c95e07b14ff352293418407bb0a}\label{classapp_1_1core_1_1system__apps_1_1SystemApps_ae6c70c95e07b14ff352293418407bb0a}} 
+\index{app.core.system\_apps.SystemApps@{app.core.system\_apps.SystemApps}!launch@{launch}}
+\index{launch@{launch}!app.core.system\_apps.SystemApps@{app.core.system\_apps.SystemApps}}
+\doxysubsubsection{\texorpdfstring{launch()}{launch()}}
+{\footnotesize\ttfamily def app.\+core.\+system\+\_\+apps.\+System\+Apps.\+launch (\begin{DoxyParamCaption}\item[{}]{cls,  }\item[{}]{app\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+Ejecuta o enruta una aplicación del sistema aplicando filtros de seguridad táctil. 
+
+Evalúa la diferencia de tiempo desde la última pulsación para interceptar dobles clics accidentales. Si el ID de la aplicación está marcado como {\ttfamily internal\+:}, delega el control retornando el prefijo; si es una lista de comandos del sistema, barre el PATH del sistema operativo usando {\ttfamily shutil.\+which} para lanzar el binario disponible en segundo plano de forma no bloqueante.
+
+
+\begin{DoxyParams}{Parameters}
+{\em app\+\_\+id} & Identificador textual único de la aplicación que se desea inicializar.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed Retorna una cadena str con el prefijo \textquotesingle{}internal\+:\textquotesingle{} si la app pertenece a la UI nativa. 
+
+bool Retorna True si la aplicación externa se ejecutó con éxito, o False ante errores o app no registrada. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classapp_1_1core_1_1system__apps_1_1SystemApps_a1a0752df7f67d536861ab5b928653f56}\label{classapp_1_1core_1_1system__apps_1_1SystemApps_a1a0752df7f67d536861ab5b928653f56}} 
+\index{app.core.system\_apps.SystemApps@{app.core.system\_apps.SystemApps}!\_cooldown\_seconds@{\_cooldown\_seconds}}
+\index{\_cooldown\_seconds@{\_cooldown\_seconds}!app.core.system\_apps.SystemApps@{app.core.system\_apps.SystemApps}}
+\doxysubsubsection{\texorpdfstring{\_cooldown\_seconds}{\_cooldown\_seconds}}
+{\footnotesize\ttfamily float app.\+core.\+system\+\_\+apps.\+System\+Apps.\+\_\+cooldown\+\_\+seconds = 2.\+0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Intervalo de tiempo mínimo (en segundos) requerido entre pulsaciones consecutivas para mitigar clics fantasmas. 
+
+\mbox{\Hypertarget{classapp_1_1core_1_1system__apps_1_1SystemApps_a18a530f6a07c9970ed19accdbfa352db}\label{classapp_1_1core_1_1system__apps_1_1SystemApps_a18a530f6a07c9970ed19accdbfa352db}} 
+\index{app.core.system\_apps.SystemApps@{app.core.system\_apps.SystemApps}!\_last\_launch\_time@{\_last\_launch\_time}}
+\index{\_last\_launch\_time@{\_last\_launch\_time}!app.core.system\_apps.SystemApps@{app.core.system\_apps.SystemApps}}
+\doxysubsubsection{\texorpdfstring{\_last\_launch\_time}{\_last\_launch\_time}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int app.\+core.\+system\+\_\+apps.\+System\+Apps.\+\_\+last\+\_\+launch\+\_\+time = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Marca de tiempo Unix (en segundos) que registra el momento exacto de la última ejecución exitosa. 
+
+\mbox{\Hypertarget{classapp_1_1core_1_1system__apps_1_1SystemApps_a9e83c9a9064eb694687db8584848507c}\label{classapp_1_1core_1_1system__apps_1_1SystemApps_a9e83c9a9064eb694687db8584848507c}} 
+\index{app.core.system\_apps.SystemApps@{app.core.system\_apps.SystemApps}!\_last\_launch\_time@{\_last\_launch\_time}}
+\index{\_last\_launch\_time@{\_last\_launch\_time}!app.core.system\_apps.SystemApps@{app.core.system\_apps.SystemApps}}
+\doxysubsubsection{\texorpdfstring{\_last\_launch\_time}{\_last\_launch\_time}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily app.\+core.\+system\+\_\+apps.\+System\+Apps.\+\_\+last\+\_\+launch\+\_\+time\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classapp_1_1core_1_1system__apps_1_1SystemApps_aa12e19f0bfc59bb13da7b3f0258f214b}\label{classapp_1_1core_1_1system__apps_1_1SystemApps_aa12e19f0bfc59bb13da7b3f0258f214b}} 
+\index{app.core.system\_apps.SystemApps@{app.core.system\_apps.SystemApps}!APPS@{APPS}}
+\index{APPS@{APPS}!app.core.system\_apps.SystemApps@{app.core.system\_apps.SystemApps}}
+\doxysubsubsection{\texorpdfstring{APPS}{APPS}}
+{\footnotesize\ttfamily dictionary app.\+core.\+system\+\_\+apps.\+System\+Apps.\+APPS\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=  \{}
+\DoxyCodeLine{        \textcolor{stringliteral}{"{}notes"{}}: \textcolor{stringliteral}{"{}internal:notes"{}},}
+\DoxyCodeLine{        \textcolor{stringliteral}{"{}browser"{}}: \textcolor{stringliteral}{"{}internal:browser"{}},}
+\DoxyCodeLine{        \textcolor{stringliteral}{"{}calendar"{}}: \textcolor{stringliteral}{"{}internal:calendar"{}},}
+\DoxyCodeLine{        \textcolor{stringliteral}{"{}calculator"{}}: [\textcolor{stringliteral}{"{}galculator"{}}, \textcolor{stringliteral}{"{}gnome-\/calculator"{}}, \textcolor{stringliteral}{"{}calc"{}}],}
+\DoxyCodeLine{        \textcolor{stringliteral}{"{}reminder"{}}: \textcolor{stringliteral}{"{}internal:reminder"{}},}
+\DoxyCodeLine{        \textcolor{stringliteral}{"{}games"{}}: \textcolor{stringliteral}{"{}internal:games"{}},}
+\DoxyCodeLine{        \textcolor{stringliteral}{"{}settings"{}}: \textcolor{stringliteral}{"{}internal:settings"{}}}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+
+
+Diccionario de mapeo que define el identificador de la aplicación y su comando o ruta interna de ejecución. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/\mbox{\hyperlink{system__apps_8py}{system\+\_\+apps.\+py}}\end{DoxyCompactItemize}

@@ -1,0 +1,5 @@
+<map id="app.core.config.Config.recognition_url" name="app.core.config.Config.recognition_url">
+<area shape="rect" id="node1" title="Extrae la URL de red configurada específicamente para el microservicio de reconocimiento facial." alt="" coords="5,29,272,56"/>
+<area shape="rect" id="node2" href="$classapp_1_1core_1_1config_1_1Config.html#ad08b65a7e88dbe548cba128b43661b72" title="Accesor genérico para recuperar cualquier clave de primer nivel del archivo de configuración." alt="" coords="579,29,769,56"/>
+<area shape="rect" id="node3" href="$classapp_1_1core_1_1config_1_1Config.html#abdd6de304dd421ec73dd2d75f4184c18" title="Recupera el bloque o sección dedicada a la configuración de los servidores de red." alt="" coords="320,55,531,81"/>
+</map>

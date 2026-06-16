@@ -1,0 +1,165 @@
+\hypertarget{classapp_1_1core_1_1camera__manager_1_1CameraManager}{}\doxysection{app.\+core.\+camera\+\_\+manager.\+Camera\+Manager Class Reference}
+\label{classapp_1_1core_1_1camera__manager_1_1CameraManager}\index{app.core.camera\_manager.CameraManager@{app.core.camera\_manager.CameraManager}}
+
+
+Clase encargada de la inicialización, captura de fotogramas y liberación de la cámara.  
+
+
+
+
+Collaboration diagram for app.\+core.\+camera\+\_\+manager.\+Camera\+Manager\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=229pt]{classapp_1_1core_1_1camera__manager_1_1CameraManager__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1camera__manager_1_1CameraManager_a85941233f68af4894b38e562a85218c5}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\begin{DoxyCompactList}\small\item\em Constructor privado/interno de la clase. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1camera__manager_1_1CameraManager_a5902995fa433f6e5f91d27305c96c28d}{get}} (cls)
+\begin{DoxyCompactList}\small\item\em Recupera la instancia única global del administrador de la cámara. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1camera__manager_1_1CameraManager_a8b82efa3a6ba5285607d7d23cc23c0c6}{open}} (self)
+\begin{DoxyCompactList}\small\item\em Abre e inicializa el dispositivo físico de captura de video. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1camera__manager_1_1CameraManager_aa33fbef64bf33e4577391b390cde9e12}{read}} (self)
+\begin{DoxyCompactList}\small\item\em Captura y extrae el siguiente frame de video de la cámara activa. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1camera__manager_1_1CameraManager_a7c93c5b39eac65fbb041da7b62f206bf}{release}} (self)
+\begin{DoxyCompactList}\small\item\em Libera los recursos de hardware asociados al dispositivo de captura. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classapp_1_1core_1_1camera__manager_1_1CameraManager_ad615e02b0f669602b3f5ab356a0c4a92}{cap}}
+\begin{DoxyCompactList}\small\item\em Objeto de captura de vídeo de Open\+CV (cv2.\+Video\+Capture) o None si está cerrada. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classapp_1_1core_1_1camera__manager_1_1CameraManager_abeb78154d8ab0d971e74bb2f813f02d5}{\+\_\+instance}} = None
+\begin{DoxyCompactList}\small\item\em Instancia única de la clase para el patrón Singleton. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase encargada de la inicialización, captura de fotogramas y liberación de la cámara. 
+
+Evita colisiones de hardware al centralizar el descriptor de archivo de vídeo del sistema. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classapp_1_1core_1_1camera__manager_1_1CameraManager_a85941233f68af4894b38e562a85218c5}\label{classapp_1_1core_1_1camera__manager_1_1CameraManager_a85941233f68af4894b38e562a85218c5}} 
+\index{app.core.camera\_manager.CameraManager@{app.core.camera\_manager.CameraManager}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!app.core.camera\_manager.CameraManager@{app.core.camera\_manager.CameraManager}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def app.\+core.\+camera\+\_\+manager.\+Camera\+Manager.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Constructor privado/interno de la clase. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classapp_1_1core_1_1camera__manager_1_1CameraManager_a5902995fa433f6e5f91d27305c96c28d}\label{classapp_1_1core_1_1camera__manager_1_1CameraManager_a5902995fa433f6e5f91d27305c96c28d}} 
+\index{app.core.camera\_manager.CameraManager@{app.core.camera\_manager.CameraManager}!get@{get}}
+\index{get@{get}!app.core.camera\_manager.CameraManager@{app.core.camera\_manager.CameraManager}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily def app.\+core.\+camera\+\_\+manager.\+Camera\+Manager.\+get (\begin{DoxyParamCaption}\item[{}]{cls }\end{DoxyParamCaption})}
+
+
+
+Recupera la instancia única global del administrador de la cámara. 
+
+Si no se ha instanciado previamente, la crea e inicializa el objeto en memoria.
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classapp_1_1core_1_1camera__manager_1_1CameraManager}{Camera\+Manager}} Instancia única de control de la cámara. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classapp_1_1core_1_1camera__manager_1_1CameraManager_a8b82efa3a6ba5285607d7d23cc23c0c6}\label{classapp_1_1core_1_1camera__manager_1_1CameraManager_a8b82efa3a6ba5285607d7d23cc23c0c6}} 
+\index{app.core.camera\_manager.CameraManager@{app.core.camera\_manager.CameraManager}!open@{open}}
+\index{open@{open}!app.core.camera\_manager.CameraManager@{app.core.camera\_manager.CameraManager}}
+\doxysubsubsection{\texorpdfstring{open()}{open()}}
+{\footnotesize\ttfamily def app.\+core.\+camera\+\_\+manager.\+Camera\+Manager.\+open (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Abre e inicializa el dispositivo físico de captura de video. 
+
+Configura la API del driver nativo para Linux (CAP\+\_\+\+V4\+L2), establece una resolución estándar estricta de 640x480 para economizar procesamiento de CPU en la Raspberry Pi y limita el tamaño del buffer de fotogramas a 1 para garantizar que el último frame leído sea siempre el actual.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Runtime\+Error} & Lanzada si el sistema operativo no puede reclamar el acceso al índice del hardware.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+cv2.\+Video\+Capture Descriptor de captura activo de Open\+CV. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classapp_1_1core_1_1camera__manager_1_1CameraManager_aa33fbef64bf33e4577391b390cde9e12}\label{classapp_1_1core_1_1camera__manager_1_1CameraManager_aa33fbef64bf33e4577391b390cde9e12}} 
+\index{app.core.camera\_manager.CameraManager@{app.core.camera\_manager.CameraManager}!read@{read}}
+\index{read@{read}!app.core.camera\_manager.CameraManager@{app.core.camera\_manager.CameraManager}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily def app.\+core.\+camera\+\_\+manager.\+Camera\+Manager.\+read (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Captura y extrae el siguiente frame de video de la cámara activa. 
+
+Si la cámara se encuentra cerrada al invocar este método, realiza un intento automático de apertura controlada llamando internamente a {\ttfamily \mbox{\hyperlink{classapp_1_1core_1_1camera__manager_1_1CameraManager_a8b82efa3a6ba5285607d7d23cc23c0c6}{open()}}}.
+
+\begin{DoxyReturn}{Returns}
+tuple Una tupla compuesta por {\ttfamily (retval, image)} donde {\ttfamily retval} es un booleano de éxito e {\ttfamily image} es una matriz Num\+Py (BGR) que contiene el fotograma capturado. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classapp_1_1core_1_1camera__manager_1_1CameraManager_aa33fbef64bf33e4577391b390cde9e12_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classapp_1_1core_1_1camera__manager_1_1CameraManager_a7c93c5b39eac65fbb041da7b62f206bf}\label{classapp_1_1core_1_1camera__manager_1_1CameraManager_a7c93c5b39eac65fbb041da7b62f206bf}} 
+\index{app.core.camera\_manager.CameraManager@{app.core.camera\_manager.CameraManager}!release@{release}}
+\index{release@{release}!app.core.camera\_manager.CameraManager@{app.core.camera\_manager.CameraManager}}
+\doxysubsubsection{\texorpdfstring{release()}{release()}}
+{\footnotesize\ttfamily def app.\+core.\+camera\+\_\+manager.\+Camera\+Manager.\+release (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Libera los recursos de hardware asociados al dispositivo de captura. 
+
+Cierra el descriptor de archivo nativo de la cámara para permitir que otras aplicaciones del sistema operativo puedan reutilizar el puerto de vídeo. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=229pt]{classapp_1_1core_1_1camera__manager_1_1CameraManager_a7c93c5b39eac65fbb041da7b62f206bf_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classapp_1_1core_1_1camera__manager_1_1CameraManager_abeb78154d8ab0d971e74bb2f813f02d5}\label{classapp_1_1core_1_1camera__manager_1_1CameraManager_abeb78154d8ab0d971e74bb2f813f02d5}} 
+\index{app.core.camera\_manager.CameraManager@{app.core.camera\_manager.CameraManager}!\_instance@{\_instance}}
+\index{\_instance@{\_instance}!app.core.camera\_manager.CameraManager@{app.core.camera\_manager.CameraManager}}
+\doxysubsubsection{\texorpdfstring{\_instance}{\_instance}}
+{\footnotesize\ttfamily app.\+core.\+camera\+\_\+manager.\+Camera\+Manager.\+\_\+instance = None\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Instancia única de la clase para el patrón Singleton. 
+
+\mbox{\Hypertarget{classapp_1_1core_1_1camera__manager_1_1CameraManager_ad615e02b0f669602b3f5ab356a0c4a92}\label{classapp_1_1core_1_1camera__manager_1_1CameraManager_ad615e02b0f669602b3f5ab356a0c4a92}} 
+\index{app.core.camera\_manager.CameraManager@{app.core.camera\_manager.CameraManager}!cap@{cap}}
+\index{cap@{cap}!app.core.camera\_manager.CameraManager@{app.core.camera\_manager.CameraManager}}
+\doxysubsubsection{\texorpdfstring{cap}{cap}}
+{\footnotesize\ttfamily app.\+core.\+camera\+\_\+manager.\+Camera\+Manager.\+cap}
+
+
+
+Objeto de captura de vídeo de Open\+CV (cv2.\+Video\+Capture) o None si está cerrada. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/\mbox{\hyperlink{camera__manager_8py}{camera\+\_\+manager.\+py}}\end{DoxyCompactItemize}

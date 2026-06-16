@@ -1,0 +1,241 @@
+\hypertarget{classlogin__screen_1_1LoginScreen}{}\doxysection{login\+\_\+screen.\+Login\+Screen Class Reference}
+\label{classlogin__screen_1_1LoginScreen}\index{login\_screen.LoginScreen@{login\_screen.LoginScreen}}
+
+
+Interfaz de login.  
+
+
+
+
+Inheritance diagram for login\+\_\+screen.\+Login\+Screen\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{classlogin__screen_1_1LoginScreen__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for login\+\_\+screen.\+Login\+Screen\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{classlogin__screen_1_1LoginScreen__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classlogin__screen_1_1LoginScreen_a82e4c2799353787ef2e72f2efc3969a2}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classlogin__screen_1_1LoginScreen_aabfaeb8d159300819452e91d2ee315c4}{controller}})
+\begin{DoxyCompactList}\small\item\em Inicializa la pantalla, abre la cámara y configura el layout. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classlogin__screen_1_1LoginScreen_acb44c884f34f2a17ea17ca8e792a7054}{update\+\_\+frame}} (self)
+\begin{DoxyCompactList}\small\item\em Lee el frame actual de la cámara y lo renderiza en la UI. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classlogin__screen_1_1LoginScreen_a5cc949c642c016c13b1a7b22e67e7555}{login}} (self)
+\begin{DoxyCompactList}\small\item\em Prepara la imagen actual y lanza el hilo de reconocimiento facial. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classlogin__screen_1_1LoginScreen_ab2868c2f28a17922e7713a8bfcb87172}{on\+\_\+result}} (self, data)
+\begin{DoxyCompactList}\small\item\em Callback al recibir una respuesta exitosa del servidor. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classlogin__screen_1_1LoginScreen_aa3129cbd29cd8ec3207865cba67f7c89}{on\+\_\+error}} (self, msg)
+\begin{DoxyCompactList}\small\item\em Lanzar error al no recibir una respuesta exitosa del servidor. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classlogin__screen_1_1LoginScreen_a6239d5b76266ad479eabe4054816795b}{go\+\_\+register}} (self)
+\begin{DoxyCompactList}\small\item\em Llamar a la ventana de registro. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classlogin__screen_1_1LoginScreen_a57675ab6a454ba87c856d76118b2a6a3}{show\+Event}} (self, event)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classlogin__screen_1_1LoginScreen_aabfaeb8d159300819452e91d2ee315c4}{controller}}
+\item 
+\mbox{\hyperlink{classlogin__screen_1_1LoginScreen_ad8990387dc03e3a2ac04606f39aafacc}{config}}
+\item 
+\mbox{\hyperlink{classlogin__screen_1_1LoginScreen_ad51fd17d2bc491c7024024cd8853a37a}{current\+\_\+frame}}
+\item 
+\mbox{\hyperlink{classlogin__screen_1_1LoginScreen_aa82f91fa1def14ca552fbd4283b28e7b}{camera}}
+\item 
+\mbox{\hyperlink{classlogin__screen_1_1LoginScreen_af5eb3901250748b2b0c4ed93b81c2a0a}{status}}
+\item 
+\mbox{\hyperlink{classlogin__screen_1_1LoginScreen_a03ac97a1b83706d8c7c3c83ac6463b56}{user\+\_\+label}}
+\item 
+\mbox{\hyperlink{classlogin__screen_1_1LoginScreen_a037cf7b26bd4030919fac7982d33673a}{btn\+\_\+login}}
+\item 
+\mbox{\hyperlink{classlogin__screen_1_1LoginScreen_a51ef4e078a1259afc24a45a97ab85191}{btn\+\_\+register}}
+\item 
+\mbox{\hyperlink{classlogin__screen_1_1LoginScreen_acc12f63eb3aa234223c6f3e4fd52f8a2}{timer}}
+\item 
+\mbox{\hyperlink{classlogin__screen_1_1LoginScreen_a9dc90a25cac2e1dcae8fed6876dc470e}{worker}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interfaz de login. 
+
+Muestra un stream de video en vivo, procesa el reconocimiento facial y gestiona la navegación hacia el registro de usuarios. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classlogin__screen_1_1LoginScreen_a82e4c2799353787ef2e72f2efc3969a2}\label{classlogin__screen_1_1LoginScreen_a82e4c2799353787ef2e72f2efc3969a2}} 
+\index{login\_screen.LoginScreen@{login\_screen.LoginScreen}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!login\_screen.LoginScreen@{login\_screen.LoginScreen}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def login\+\_\+screen.\+Login\+Screen.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{controller }\end{DoxyParamCaption})}
+
+
+
+Inicializa la pantalla, abre la cámara y configura el layout. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em controller} & Controlador principal para la gestión de estados. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{classlogin__screen_1_1LoginScreen_a82e4c2799353787ef2e72f2efc3969a2_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classlogin__screen_1_1LoginScreen_a6239d5b76266ad479eabe4054816795b}\label{classlogin__screen_1_1LoginScreen_a6239d5b76266ad479eabe4054816795b}} 
+\index{login\_screen.LoginScreen@{login\_screen.LoginScreen}!go\_register@{go\_register}}
+\index{go\_register@{go\_register}!login\_screen.LoginScreen@{login\_screen.LoginScreen}}
+\doxysubsubsection{\texorpdfstring{go\_register()}{go\_register()}}
+{\footnotesize\ttfamily def login\+\_\+screen.\+Login\+Screen.\+go\+\_\+register (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Llamar a la ventana de registro. 
+
+\mbox{\Hypertarget{classlogin__screen_1_1LoginScreen_a5cc949c642c016c13b1a7b22e67e7555}\label{classlogin__screen_1_1LoginScreen_a5cc949c642c016c13b1a7b22e67e7555}} 
+\index{login\_screen.LoginScreen@{login\_screen.LoginScreen}!login@{login}}
+\index{login@{login}!login\_screen.LoginScreen@{login\_screen.LoginScreen}}
+\doxysubsubsection{\texorpdfstring{login()}{login()}}
+{\footnotesize\ttfamily def login\+\_\+screen.\+Login\+Screen.\+login (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Prepara la imagen actual y lanza el hilo de reconocimiento facial. 
+
+\mbox{\Hypertarget{classlogin__screen_1_1LoginScreen_aa3129cbd29cd8ec3207865cba67f7c89}\label{classlogin__screen_1_1LoginScreen_aa3129cbd29cd8ec3207865cba67f7c89}} 
+\index{login\_screen.LoginScreen@{login\_screen.LoginScreen}!on\_error@{on\_error}}
+\index{on\_error@{on\_error}!login\_screen.LoginScreen@{login\_screen.LoginScreen}}
+\doxysubsubsection{\texorpdfstring{on\_error()}{on\_error()}}
+{\footnotesize\ttfamily def login\+\_\+screen.\+Login\+Screen.\+on\+\_\+error (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{msg }\end{DoxyParamCaption})}
+
+
+
+Lanzar error al no recibir una respuesta exitosa del servidor. 
+
+\mbox{\Hypertarget{classlogin__screen_1_1LoginScreen_ab2868c2f28a17922e7713a8bfcb87172}\label{classlogin__screen_1_1LoginScreen_ab2868c2f28a17922e7713a8bfcb87172}} 
+\index{login\_screen.LoginScreen@{login\_screen.LoginScreen}!on\_result@{on\_result}}
+\index{on\_result@{on\_result}!login\_screen.LoginScreen@{login\_screen.LoginScreen}}
+\doxysubsubsection{\texorpdfstring{on\_result()}{on\_result()}}
+{\footnotesize\ttfamily def login\+\_\+screen.\+Login\+Screen.\+on\+\_\+result (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{data }\end{DoxyParamCaption})}
+
+
+
+Callback al recibir una respuesta exitosa del servidor. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classlogin__screen_1_1LoginScreen_ab2868c2f28a17922e7713a8bfcb87172_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classlogin__screen_1_1LoginScreen_a57675ab6a454ba87c856d76118b2a6a3}\label{classlogin__screen_1_1LoginScreen_a57675ab6a454ba87c856d76118b2a6a3}} 
+\index{login\_screen.LoginScreen@{login\_screen.LoginScreen}!showEvent@{showEvent}}
+\index{showEvent@{showEvent}!login\_screen.LoginScreen@{login\_screen.LoginScreen}}
+\doxysubsubsection{\texorpdfstring{showEvent()}{showEvent()}}
+{\footnotesize\ttfamily def login\+\_\+screen.\+Login\+Screen.\+show\+Event (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{event }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=249pt]{classlogin__screen_1_1LoginScreen_a57675ab6a454ba87c856d76118b2a6a3_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classlogin__screen_1_1LoginScreen_acb44c884f34f2a17ea17ca8e792a7054}\label{classlogin__screen_1_1LoginScreen_acb44c884f34f2a17ea17ca8e792a7054}} 
+\index{login\_screen.LoginScreen@{login\_screen.LoginScreen}!update\_frame@{update\_frame}}
+\index{update\_frame@{update\_frame}!login\_screen.LoginScreen@{login\_screen.LoginScreen}}
+\doxysubsubsection{\texorpdfstring{update\_frame()}{update\_frame()}}
+{\footnotesize\ttfamily def login\+\_\+screen.\+Login\+Screen.\+update\+\_\+frame (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Lee el frame actual de la cámara y lo renderiza en la UI. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classlogin__screen_1_1LoginScreen_a037cf7b26bd4030919fac7982d33673a}\label{classlogin__screen_1_1LoginScreen_a037cf7b26bd4030919fac7982d33673a}} 
+\index{login\_screen.LoginScreen@{login\_screen.LoginScreen}!btn\_login@{btn\_login}}
+\index{btn\_login@{btn\_login}!login\_screen.LoginScreen@{login\_screen.LoginScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_login}{btn\_login}}
+{\footnotesize\ttfamily login\+\_\+screen.\+Login\+Screen.\+btn\+\_\+login}
+
+\mbox{\Hypertarget{classlogin__screen_1_1LoginScreen_a51ef4e078a1259afc24a45a97ab85191}\label{classlogin__screen_1_1LoginScreen_a51ef4e078a1259afc24a45a97ab85191}} 
+\index{login\_screen.LoginScreen@{login\_screen.LoginScreen}!btn\_register@{btn\_register}}
+\index{btn\_register@{btn\_register}!login\_screen.LoginScreen@{login\_screen.LoginScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_register}{btn\_register}}
+{\footnotesize\ttfamily login\+\_\+screen.\+Login\+Screen.\+btn\+\_\+register}
+
+\mbox{\Hypertarget{classlogin__screen_1_1LoginScreen_aa82f91fa1def14ca552fbd4283b28e7b}\label{classlogin__screen_1_1LoginScreen_aa82f91fa1def14ca552fbd4283b28e7b}} 
+\index{login\_screen.LoginScreen@{login\_screen.LoginScreen}!camera@{camera}}
+\index{camera@{camera}!login\_screen.LoginScreen@{login\_screen.LoginScreen}}
+\doxysubsubsection{\texorpdfstring{camera}{camera}}
+{\footnotesize\ttfamily login\+\_\+screen.\+Login\+Screen.\+camera}
+
+\mbox{\Hypertarget{classlogin__screen_1_1LoginScreen_ad8990387dc03e3a2ac04606f39aafacc}\label{classlogin__screen_1_1LoginScreen_ad8990387dc03e3a2ac04606f39aafacc}} 
+\index{login\_screen.LoginScreen@{login\_screen.LoginScreen}!config@{config}}
+\index{config@{config}!login\_screen.LoginScreen@{login\_screen.LoginScreen}}
+\doxysubsubsection{\texorpdfstring{config}{config}}
+{\footnotesize\ttfamily login\+\_\+screen.\+Login\+Screen.\+config}
+
+\mbox{\Hypertarget{classlogin__screen_1_1LoginScreen_aabfaeb8d159300819452e91d2ee315c4}\label{classlogin__screen_1_1LoginScreen_aabfaeb8d159300819452e91d2ee315c4}} 
+\index{login\_screen.LoginScreen@{login\_screen.LoginScreen}!controller@{controller}}
+\index{controller@{controller}!login\_screen.LoginScreen@{login\_screen.LoginScreen}}
+\doxysubsubsection{\texorpdfstring{controller}{controller}}
+{\footnotesize\ttfamily login\+\_\+screen.\+Login\+Screen.\+controller}
+
+\mbox{\Hypertarget{classlogin__screen_1_1LoginScreen_ad51fd17d2bc491c7024024cd8853a37a}\label{classlogin__screen_1_1LoginScreen_ad51fd17d2bc491c7024024cd8853a37a}} 
+\index{login\_screen.LoginScreen@{login\_screen.LoginScreen}!current\_frame@{current\_frame}}
+\index{current\_frame@{current\_frame}!login\_screen.LoginScreen@{login\_screen.LoginScreen}}
+\doxysubsubsection{\texorpdfstring{current\_frame}{current\_frame}}
+{\footnotesize\ttfamily login\+\_\+screen.\+Login\+Screen.\+current\+\_\+frame}
+
+\mbox{\Hypertarget{classlogin__screen_1_1LoginScreen_af5eb3901250748b2b0c4ed93b81c2a0a}\label{classlogin__screen_1_1LoginScreen_af5eb3901250748b2b0c4ed93b81c2a0a}} 
+\index{login\_screen.LoginScreen@{login\_screen.LoginScreen}!status@{status}}
+\index{status@{status}!login\_screen.LoginScreen@{login\_screen.LoginScreen}}
+\doxysubsubsection{\texorpdfstring{status}{status}}
+{\footnotesize\ttfamily login\+\_\+screen.\+Login\+Screen.\+status}
+
+\mbox{\Hypertarget{classlogin__screen_1_1LoginScreen_acc12f63eb3aa234223c6f3e4fd52f8a2}\label{classlogin__screen_1_1LoginScreen_acc12f63eb3aa234223c6f3e4fd52f8a2}} 
+\index{login\_screen.LoginScreen@{login\_screen.LoginScreen}!timer@{timer}}
+\index{timer@{timer}!login\_screen.LoginScreen@{login\_screen.LoginScreen}}
+\doxysubsubsection{\texorpdfstring{timer}{timer}}
+{\footnotesize\ttfamily login\+\_\+screen.\+Login\+Screen.\+timer}
+
+\mbox{\Hypertarget{classlogin__screen_1_1LoginScreen_a03ac97a1b83706d8c7c3c83ac6463b56}\label{classlogin__screen_1_1LoginScreen_a03ac97a1b83706d8c7c3c83ac6463b56}} 
+\index{login\_screen.LoginScreen@{login\_screen.LoginScreen}!user\_label@{user\_label}}
+\index{user\_label@{user\_label}!login\_screen.LoginScreen@{login\_screen.LoginScreen}}
+\doxysubsubsection{\texorpdfstring{user\_label}{user\_label}}
+{\footnotesize\ttfamily login\+\_\+screen.\+Login\+Screen.\+user\+\_\+label}
+
+\mbox{\Hypertarget{classlogin__screen_1_1LoginScreen_a9dc90a25cac2e1dcae8fed6876dc470e}\label{classlogin__screen_1_1LoginScreen_a9dc90a25cac2e1dcae8fed6876dc470e}} 
+\index{login\_screen.LoginScreen@{login\_screen.LoginScreen}!worker@{worker}}
+\index{worker@{worker}!login\_screen.LoginScreen@{login\_screen.LoginScreen}}
+\doxysubsubsection{\texorpdfstring{worker}{worker}}
+{\footnotesize\ttfamily login\+\_\+screen.\+Login\+Screen.\+worker}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ui/screens/\mbox{\hyperlink{login__screen_8py}{login\+\_\+screen.\+py}}\end{DoxyCompactItemize}

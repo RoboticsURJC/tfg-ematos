@@ -1,0 +1,113 @@
+\hypertarget{classapp_1_1ui_1_1face__client_1_1Worker}{}\doxysection{app.\+ui.\+face\+\_\+client.\+Worker Class Reference}
+\label{classapp_1_1ui_1_1face__client_1_1Worker}\index{app.ui.face\_client.Worker@{app.ui.face\_client.Worker}}
+
+
+Hilo secundario para realizar peticiones HTTP de reconocimiento facial.  
+
+
+
+
+Inheritance diagram for app.\+ui.\+face\+\_\+client.\+Worker\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{classapp_1_1ui_1_1face__client_1_1Worker__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for app.\+ui.\+face\+\_\+client.\+Worker\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{classapp_1_1ui_1_1face__client_1_1Worker__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1face__client_1_1Worker_a7303da30ea643664a3656ede61f29fb8}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classapp_1_1ui_1_1face__client_1_1Worker_a0a82e08371ea41bf30289bd56be5db79}{url}}, \mbox{\hyperlink{classapp_1_1ui_1_1face__client_1_1Worker_a0f2deedc6bece6417e7fc452d61e9526}{image}})
+\item 
+def \mbox{\hyperlink{classapp_1_1ui_1_1face__client_1_1Worker_a52af9e5e6285016d872aa018ef4f57e4}{run}} (self)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1face__client_1_1Worker_a0a82e08371ea41bf30289bd56be5db79}{url}}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1face__client_1_1Worker_a0f2deedc6bece6417e7fc452d61e9526}{image}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1face__client_1_1Worker_a580ddf9c2239d684aa4b28e104be9646}{result\+\_\+signal}} = pyqt\+Signal(dict)
+\item 
+\mbox{\hyperlink{classapp_1_1ui_1_1face__client_1_1Worker_ac727aa5810dacbf0dcb9aff0d3e5ad31}{error\+\_\+signal}} = pyqt\+Signal(str)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Hilo secundario para realizar peticiones HTTP de reconocimiento facial. 
+
+Evita el bloqueo del hilo principal de la UI al realizar operaciones de red (I/O) hacia el servidor de reconocimiento.
+
+@attr result\+\_\+signal Señal que devuelve el JSON de respuesta del servidor. @attr error\+\_\+signal Señal emitida en caso de fallo en la conexión o timeout. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classapp_1_1ui_1_1face__client_1_1Worker_a7303da30ea643664a3656ede61f29fb8}\label{classapp_1_1ui_1_1face__client_1_1Worker_a7303da30ea643664a3656ede61f29fb8}} 
+\index{app.ui.face\_client.Worker@{app.ui.face\_client.Worker}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!app.ui.face\_client.Worker@{app.ui.face\_client.Worker}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def app.\+ui.\+face\+\_\+client.\+Worker.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{url,  }\item[{}]{image }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{classapp_1_1ui_1_1face__client_1_1Worker_a7303da30ea643664a3656ede61f29fb8_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classapp_1_1ui_1_1face__client_1_1Worker_a52af9e5e6285016d872aa018ef4f57e4}\label{classapp_1_1ui_1_1face__client_1_1Worker_a52af9e5e6285016d872aa018ef4f57e4}} 
+\index{app.ui.face\_client.Worker@{app.ui.face\_client.Worker}!run@{run}}
+\index{run@{run}!app.ui.face\_client.Worker@{app.ui.face\_client.Worker}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def app.\+ui.\+face\+\_\+client.\+Worker.\+run (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classapp_1_1ui_1_1face__client_1_1Worker_ac727aa5810dacbf0dcb9aff0d3e5ad31}\label{classapp_1_1ui_1_1face__client_1_1Worker_ac727aa5810dacbf0dcb9aff0d3e5ad31}} 
+\index{app.ui.face\_client.Worker@{app.ui.face\_client.Worker}!error\_signal@{error\_signal}}
+\index{error\_signal@{error\_signal}!app.ui.face\_client.Worker@{app.ui.face\_client.Worker}}
+\doxysubsubsection{\texorpdfstring{error\_signal}{error\_signal}}
+{\footnotesize\ttfamily app.\+ui.\+face\+\_\+client.\+Worker.\+error\+\_\+signal = pyqt\+Signal(str)\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1face__client_1_1Worker_a0f2deedc6bece6417e7fc452d61e9526}\label{classapp_1_1ui_1_1face__client_1_1Worker_a0f2deedc6bece6417e7fc452d61e9526}} 
+\index{app.ui.face\_client.Worker@{app.ui.face\_client.Worker}!image@{image}}
+\index{image@{image}!app.ui.face\_client.Worker@{app.ui.face\_client.Worker}}
+\doxysubsubsection{\texorpdfstring{image}{image}}
+{\footnotesize\ttfamily app.\+ui.\+face\+\_\+client.\+Worker.\+image}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1face__client_1_1Worker_a580ddf9c2239d684aa4b28e104be9646}\label{classapp_1_1ui_1_1face__client_1_1Worker_a580ddf9c2239d684aa4b28e104be9646}} 
+\index{app.ui.face\_client.Worker@{app.ui.face\_client.Worker}!result\_signal@{result\_signal}}
+\index{result\_signal@{result\_signal}!app.ui.face\_client.Worker@{app.ui.face\_client.Worker}}
+\doxysubsubsection{\texorpdfstring{result\_signal}{result\_signal}}
+{\footnotesize\ttfamily app.\+ui.\+face\+\_\+client.\+Worker.\+result\+\_\+signal = pyqt\+Signal(dict)\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classapp_1_1ui_1_1face__client_1_1Worker_a0a82e08371ea41bf30289bd56be5db79}\label{classapp_1_1ui_1_1face__client_1_1Worker_a0a82e08371ea41bf30289bd56be5db79}} 
+\index{app.ui.face\_client.Worker@{app.ui.face\_client.Worker}!url@{url}}
+\index{url@{url}!app.ui.face\_client.Worker@{app.ui.face\_client.Worker}}
+\doxysubsubsection{\texorpdfstring{url}{url}}
+{\footnotesize\ttfamily app.\+ui.\+face\+\_\+client.\+Worker.\+url}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ui/\mbox{\hyperlink{face__client_8py}{face\+\_\+client.\+py}}\end{DoxyCompactItemize}

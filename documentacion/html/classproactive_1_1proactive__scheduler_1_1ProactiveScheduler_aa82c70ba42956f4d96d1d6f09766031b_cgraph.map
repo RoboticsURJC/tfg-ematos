@@ -1,0 +1,6 @@
+<map id="proactive.proactive_scheduler.ProactiveScheduler.trigger_mobility" name="proactive.proactive_scheduler.ProactiveScheduler.trigger_mobility">
+<area shape="rect" id="node1" title="Inyección manual de una sugerencia de movilidad." alt="" coords="5,39,272,95"/>
+<area shape="rect" id="node2" href="$classproactive_1_1proactive__scheduler_1_1ProactiveScheduler.html#a3af12df226e4fd74ccee2bd57c9260a4" title="Ejecuta el disparo de una sugerencia de forma segura y síncrona." alt="" coords="323,13,574,54"/>
+<area shape="rect" id="node4" href="$classproactive_1_1proactive__scheduler_1_1ProactiveScheduler.html#a8b0d0da894fb61895207a5cd8f294752" title="Selecciona la siguiente sugerencia de la lista, alternando por índice." alt="" coords="320,78,577,119"/>
+<area shape="rect" id="node3" href="$classproactive_1_1proactive__scheduler_1_1ProactiveScheduler.html#afeeb3c1e7fd805410e488b8d86b1965a" title="Función interna para restaurar el texto en pantalla según el estado del STT." alt="" coords="625,5,848,61"/>
+</map>

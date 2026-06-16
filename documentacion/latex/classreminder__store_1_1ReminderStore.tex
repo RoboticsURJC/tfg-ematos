@@ -1,0 +1,156 @@
+\hypertarget{classreminder__store_1_1ReminderStore}{}\doxysection{reminder\+\_\+store.\+Reminder\+Store Class Reference}
+\label{classreminder__store_1_1ReminderStore}\index{reminder\_store.ReminderStore@{reminder\_store.ReminderStore}}
+
+
+Clase encargada de la persistencia de los recordatorios en disco.  
+
+
+
+
+Collaboration diagram for reminder\+\_\+store.\+Reminder\+Store\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=247pt]{classreminder__store_1_1ReminderStore__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classreminder__store_1_1ReminderStore_a2d54ace16a8bf38a705dbe3e5280fa68}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\begin{DoxyCompactList}\small\item\em Inicializa la ruta del archivo y carga los datos existentes. \end{DoxyCompactList}\item 
+List\mbox{[}Dict\mbox{[}str, Any\mbox{]}\mbox{]} \mbox{\hyperlink{classreminder__store_1_1ReminderStore_a64ba8f401f521a7dcac64ece852dff9b}{load}} (self)
+\begin{DoxyCompactList}\small\item\em Carga los recordatorios desde el archivo JSON. \end{DoxyCompactList}\item 
+None \mbox{\hyperlink{classreminder__store_1_1ReminderStore_a75fe91c7ba45bfeb08fd810fde74d3c2}{save}} (self)
+\begin{DoxyCompactList}\small\item\em Persiste la lista actual de recordatorios en el archivo JSON. \end{DoxyCompactList}\item 
+None \mbox{\hyperlink{classreminder__store_1_1ReminderStore_a5bcfa367e6b3cfc6a28303502348e90a}{add}} (self, str title, str time\+\_\+str, str rtype=\char`\"{}general\char`\"{})
+\begin{DoxyCompactList}\small\item\em Añade un nuevo recordatorio a la lista y lo guarda. \end{DoxyCompactList}\item 
+List\mbox{[}Dict\mbox{[}str, Any\mbox{]}\mbox{]} \mbox{\hyperlink{classreminder__store_1_1ReminderStore_ad48643d96597db2ae56bde106e819eeb}{get\+\_\+pending}} (self)
+\begin{DoxyCompactList}\small\item\em Filtra y devuelve solo los recordatorios no marcados como completados. \end{DoxyCompactList}\item 
+None \mbox{\hyperlink{classreminder__store_1_1ReminderStore_a2eb383d95bb3e1ac76075db38820f10f}{mark\+\_\+done}} (self, int idx)
+\begin{DoxyCompactList}\small\item\em Marca un recordatorio como completado según su índice. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classreminder__store_1_1ReminderStore_af58e7efbe253dd5f7b4b035d0880fa5e}{path}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase encargada de la persistencia de los recordatorios en disco. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classreminder__store_1_1ReminderStore_a2d54ace16a8bf38a705dbe3e5280fa68}\label{classreminder__store_1_1ReminderStore_a2d54ace16a8bf38a705dbe3e5280fa68}} 
+\index{reminder\_store.ReminderStore@{reminder\_store.ReminderStore}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!reminder\_store.ReminderStore@{reminder\_store.ReminderStore}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def reminder\+\_\+store.\+Reminder\+Store.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Inicializa la ruta del archivo y carga los datos existentes. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classreminder__store_1_1ReminderStore_a5bcfa367e6b3cfc6a28303502348e90a}\label{classreminder__store_1_1ReminderStore_a5bcfa367e6b3cfc6a28303502348e90a}} 
+\index{reminder\_store.ReminderStore@{reminder\_store.ReminderStore}!add@{add}}
+\index{add@{add}!reminder\_store.ReminderStore@{reminder\_store.ReminderStore}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily  None reminder\+\_\+store.\+Reminder\+Store.\+add (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{str}]{title,  }\item[{str}]{time\+\_\+str,  }\item[{str }]{rtype = {\ttfamily \char`\"{}general\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+Añade un nuevo recordatorio a la lista y lo guarda. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em title} & Título del recordatorio. \\
+\hline
+{\em time\+\_\+str} & Fecha y hora en formato \textquotesingle{}YYYY-\/\+MM-\/\+DD HH\+:MM\textquotesingle{}. \\
+\hline
+{\em rtype} & Categoría del recordatorio (por defecto \textquotesingle{}general\textquotesingle{}). \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classreminder__store_1_1ReminderStore_a5bcfa367e6b3cfc6a28303502348e90a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classreminder__store_1_1ReminderStore_ad48643d96597db2ae56bde106e819eeb}\label{classreminder__store_1_1ReminderStore_ad48643d96597db2ae56bde106e819eeb}} 
+\index{reminder\_store.ReminderStore@{reminder\_store.ReminderStore}!get\_pending@{get\_pending}}
+\index{get\_pending@{get\_pending}!reminder\_store.ReminderStore@{reminder\_store.ReminderStore}}
+\doxysubsubsection{\texorpdfstring{get\_pending()}{get\_pending()}}
+{\footnotesize\ttfamily  List\mbox{[}Dict\mbox{[}str, Any\mbox{]}\mbox{]} reminder\+\_\+store.\+Reminder\+Store.\+get\+\_\+pending (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Filtra y devuelve solo los recordatorios no marcados como completados. 
+
+\begin{DoxyReturn}{Returns}
+Lista de diccionarios pendientes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classreminder__store_1_1ReminderStore_a64ba8f401f521a7dcac64ece852dff9b}\label{classreminder__store_1_1ReminderStore_a64ba8f401f521a7dcac64ece852dff9b}} 
+\index{reminder\_store.ReminderStore@{reminder\_store.ReminderStore}!load@{load}}
+\index{load@{load}!reminder\_store.ReminderStore@{reminder\_store.ReminderStore}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily  List\mbox{[}Dict\mbox{[}str, Any\mbox{]}\mbox{]} reminder\+\_\+store.\+Reminder\+Store.\+load (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Carga los recordatorios desde el archivo JSON. 
+
+\begin{DoxyReturn}{Returns}
+Lista de diccionarios de recordatorios. Si el archivo no existe, retorna una lista vacía. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classreminder__store_1_1ReminderStore_a2eb383d95bb3e1ac76075db38820f10f}\label{classreminder__store_1_1ReminderStore_a2eb383d95bb3e1ac76075db38820f10f}} 
+\index{reminder\_store.ReminderStore@{reminder\_store.ReminderStore}!mark\_done@{mark\_done}}
+\index{mark\_done@{mark\_done}!reminder\_store.ReminderStore@{reminder\_store.ReminderStore}}
+\doxysubsubsection{\texorpdfstring{mark\_done()}{mark\_done()}}
+{\footnotesize\ttfamily  None reminder\+\_\+store.\+Reminder\+Store.\+mark\+\_\+done (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{int}]{idx }\end{DoxyParamCaption})}
+
+
+
+Marca un recordatorio como completado según su índice. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em idx} & Índice del recordatorio en la lista. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classreminder__store_1_1ReminderStore_a2eb383d95bb3e1ac76075db38820f10f_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classreminder__store_1_1ReminderStore_a75fe91c7ba45bfeb08fd810fde74d3c2}\label{classreminder__store_1_1ReminderStore_a75fe91c7ba45bfeb08fd810fde74d3c2}} 
+\index{reminder\_store.ReminderStore@{reminder\_store.ReminderStore}!save@{save}}
+\index{save@{save}!reminder\_store.ReminderStore@{reminder\_store.ReminderStore}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}}
+{\footnotesize\ttfamily  None reminder\+\_\+store.\+Reminder\+Store.\+save (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Persiste la lista actual de recordatorios en el archivo JSON. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classreminder__store_1_1ReminderStore_af58e7efbe253dd5f7b4b035d0880fa5e}\label{classreminder__store_1_1ReminderStore_af58e7efbe253dd5f7b4b035d0880fa5e}} 
+\index{reminder\_store.ReminderStore@{reminder\_store.ReminderStore}!path@{path}}
+\index{path@{path}!reminder\_store.ReminderStore@{reminder\_store.ReminderStore}}
+\doxysubsubsection{\texorpdfstring{path}{path}}
+{\footnotesize\ttfamily reminder\+\_\+store.\+Reminder\+Store.\+path}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ui/apps/reminder/\mbox{\hyperlink{reminder__store_8py}{reminder\+\_\+store.\+py}}\end{DoxyCompactItemize}

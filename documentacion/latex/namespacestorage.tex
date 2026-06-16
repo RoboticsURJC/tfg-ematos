@@ -1,0 +1,82 @@
+\hypertarget{namespacestorage}{}\doxysection{storage Namespace Reference}
+\label{namespacestorage}\index{storage@{storage}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacestorage_aa50352d8f1526ffb7ffac18e17f7016f}{load\+\_\+results}} ()
+\begin{DoxyCompactList}\small\item\em Carga y deserializa recursivamente el histórico completo de resultados guardados en disco. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespacestorage_aa231ada7e3ab017f21ee075d884c82d8}{save\+\_\+result}} (result)
+\begin{DoxyCompactList}\small\item\em Acumula e inyecta de forma permanente un nuevo registro de rendimiento al final del archivo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacestorage_a9a879385f36b7fa7b2d964d0de38165c}{BASE\+\_\+\+DIR}} = os.\+path.\+dirname(os.\+path.\+abspath(\+\_\+\+\_\+file\+\_\+\+\_\+))
+\begin{DoxyCompactList}\small\item\em Ruta absoluta del directorio base donde se encuentra alojado este script de persistencia. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacestorage_ae39f55f02fef69b60394ed28d8fa2c0f}{FILE}} = os.\+path.\+join(\mbox{\hyperlink{namespacestorage_a9a879385f36b7fa7b2d964d0de38165c}{BASE\+\_\+\+DIR}}, \char`\"{}..\char`\"{}, \char`\"{}results\char`\"{}, \char`\"{}results.\+jsonl\char`\"{})
+\begin{DoxyCompactList}\small\item\em Ruta absoluta construida de forma dinámica que apunta al fichero físico de almacenamiento JSONL. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacestorage_aa50352d8f1526ffb7ffac18e17f7016f}\label{namespacestorage_aa50352d8f1526ffb7ffac18e17f7016f}} 
+\index{storage@{storage}!load\_results@{load\_results}}
+\index{load\_results@{load\_results}!storage@{storage}}
+\doxysubsubsection{\texorpdfstring{load\_results()}{load\_results()}}
+{\footnotesize\ttfamily def storage.\+load\+\_\+results (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Carga y deserializa recursivamente el histórico completo de resultados guardados en disco. 
+
+Lee de forma secuencial línea por línea el archivo JSONL. Cada línea física representa un objeto JSON independiente, evitándole al sistema tener que parsear arrays masivos en memoria.
+
+\begin{DoxyReturn}{Returns}
+list Una lista de diccionarios Python, donde cada elemento es una interacción o métrica de test. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em \mbox{[}$\,$\mbox{]}} & Retorna una lista vacía si el archivo físico aún no ha sido creado en el sistema de archivos. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{namespacestorage_aa231ada7e3ab017f21ee075d884c82d8}\label{namespacestorage_aa231ada7e3ab017f21ee075d884c82d8}} 
+\index{storage@{storage}!save\_result@{save\_result}}
+\index{save\_result@{save\_result}!storage@{storage}}
+\doxysubsubsection{\texorpdfstring{save\_result()}{save\_result()}}
+{\footnotesize\ttfamily def storage.\+save\+\_\+result (\begin{DoxyParamCaption}\item[{}]{result }\end{DoxyParamCaption})}
+
+
+
+Acumula e inyecta de forma permanente un nuevo registro de rendimiento al final del archivo. 
+
+Estampa de manera automática una marca de tiempo con formato internacional ISO 8601, asegura la existencia del directorio contenedor {\ttfamily ../results/} y realiza un volcado atómico en modo append (`\textquotesingle{}a'\`{}).
+
+\begin{DoxyNote}{Note}
+Se fuerza el parámetro {\ttfamily ensure\+\_\+ascii=False} en la serialización. Esto garantiza que caracteres del idioma español con tildes (como \textquotesingle{}ejecución\textquotesingle{}, \textquotesingle{}puntuación\textquotesingle{}) o la letra \textquotesingle{}ñ\textquotesingle{} se escriban en formato UTF-\/8 legible en lugar de secuencias de escape Unicode complejas de auditar en texto plano.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em result} & Diccionario con la metadata de la partida, métrica de inferencia o rendimiento del juego. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacestorage_a9a879385f36b7fa7b2d964d0de38165c}\label{namespacestorage_a9a879385f36b7fa7b2d964d0de38165c}} 
+\index{storage@{storage}!BASE\_DIR@{BASE\_DIR}}
+\index{BASE\_DIR@{BASE\_DIR}!storage@{storage}}
+\doxysubsubsection{\texorpdfstring{BASE\_DIR}{BASE\_DIR}}
+{\footnotesize\ttfamily storage.\+BASE\+\_\+\+DIR = os.\+path.\+dirname(os.\+path.\+abspath(\+\_\+\+\_\+file\+\_\+\+\_\+))}
+
+
+
+Ruta absoluta del directorio base donde se encuentra alojado este script de persistencia. 
+
+\mbox{\Hypertarget{namespacestorage_ae39f55f02fef69b60394ed28d8fa2c0f}\label{namespacestorage_ae39f55f02fef69b60394ed28d8fa2c0f}} 
+\index{storage@{storage}!FILE@{FILE}}
+\index{FILE@{FILE}!storage@{storage}}
+\doxysubsubsection{\texorpdfstring{FILE}{FILE}}
+{\footnotesize\ttfamily storage.\+FILE = os.\+path.\+join(\mbox{\hyperlink{namespacestorage_a9a879385f36b7fa7b2d964d0de38165c}{BASE\+\_\+\+DIR}}, \char`\"{}..\char`\"{}, \char`\"{}results\char`\"{}, \char`\"{}results.\+jsonl\char`\"{})}
+
+
+
+Ruta absoluta construida de forma dinámica que apunta al fichero físico de almacenamiento JSONL. 
+

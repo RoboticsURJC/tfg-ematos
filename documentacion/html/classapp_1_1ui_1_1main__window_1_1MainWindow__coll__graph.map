@@ -1,0 +1,4 @@
+<map id="app.ui.main_window.MainWindow" name="app.ui.main_window.MainWindow">
+<area shape="rect" id="node1" title="Ventana principal de la aplicación." alt="" coords="5,131,248,575"/>
+<area shape="rect" id="node2" title=" " alt="" coords="87,5,166,83"/>
+</map>

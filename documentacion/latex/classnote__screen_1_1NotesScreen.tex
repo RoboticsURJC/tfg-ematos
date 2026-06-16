@@ -1,0 +1,292 @@
+\hypertarget{classnote__screen_1_1NotesScreen}{}\doxysection{note\+\_\+screen.\+Notes\+Screen Class Reference}
+\label{classnote__screen_1_1NotesScreen}\index{note\_screen.NotesScreen@{note\_screen.NotesScreen}}
+
+
+Interfaz gráfica interactiva para la creación, búsqueda y eliminación de notas.  
+
+
+
+
+Inheritance diagram for note\+\_\+screen.\+Notes\+Screen\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{classnote__screen_1_1NotesScreen__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for note\+\_\+screen.\+Notes\+Screen\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{classnote__screen_1_1NotesScreen__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classnote__screen_1_1NotesScreen_ae4818c537e16f124f144540ec9db80b8}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classnote__screen_1_1NotesScreen_ace64c12c2456312173afdc23e837c54f}{controller}})
+\begin{DoxyCompactList}\small\item\em Constructor de la pantalla de notas. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classnote__screen_1_1NotesScreen_a877224d5f9b00ce6d3c9766b3c1581b5}{refresh}} (self)
+\begin{DoxyCompactList}\small\item\em Sincroniza la vista del componente QList\+Widget con el almacén local persistente. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classnote__screen_1_1NotesScreen_a0f8f270a4f8611ed4787bdafd3be8187}{add\+\_\+note}} (self)
+\begin{DoxyCompactList}\small\item\em Extrae los datos de los formularios y registra una nueva nota en el sistema. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classnote__screen_1_1NotesScreen_a3702c54fd0190068a047b547b38e0a2a}{delete\+\_\+note}} (self)
+\begin{DoxyCompactList}\small\item\em Elimina de forma definitiva la nota seleccionada bajo confirmación del usuario. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classnote__screen_1_1NotesScreen_afd6b4c18ea90837052464ca39ee30373}{hide\+Event}} (self, event)
+\begin{DoxyCompactList}\small\item\em Intercepta el evento de ocultación de la pantalla para replegar el teclado. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classnote__screen_1_1NotesScreen_a9407be889a3d5539e75bb6e043c55c44}{go\+\_\+back}} (self)
+\begin{DoxyCompactList}\small\item\em Solicita al enrutador central el retorno seguro hacia el Launcher principal de Qt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classnote__screen_1_1NotesScreen_ace64c12c2456312173afdc23e837c54f}{controller}}
+\item 
+\mbox{\hyperlink{classnote__screen_1_1NotesScreen_aeb6ffec6ed3b9222389d25b97fb582ee}{store}}
+\item 
+\mbox{\hyperlink{classnote__screen_1_1NotesScreen_aaedf31ff306289a3b19ab9d0679d6718}{btn\+\_\+back}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Componente de persistencia de datos local (JSON wrapper). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnote__screen_1_1NotesScreen_aa84103086d19646d0c5d414b42a5a164}{search}}
+\item 
+\mbox{\hyperlink{classnote__screen_1_1NotesScreen_a7ac2a6f1114fa3b4b6b1cb5e2e63b797}{list}}
+\item 
+\mbox{\hyperlink{classnote__screen_1_1NotesScreen_ae934d3da3c0e847cf26ab88b48bedc54}{title\+\_\+input}}
+\item 
+\mbox{\hyperlink{classnote__screen_1_1NotesScreen_a5323f423f19be2d55492ac986db0357d}{content\+\_\+input}}
+\item 
+\mbox{\hyperlink{classnote__screen_1_1NotesScreen_ad9fb08a92a4f6f9605dfe3343a6e6a41}{btn\+\_\+add}}
+\item 
+\mbox{\hyperlink{classnote__screen_1_1NotesScreen_a250374b50da1842e133447b96561961d}{btn\+\_\+delete}}
+\item 
+\mbox{\hyperlink{classnote__screen_1_1NotesScreen_a2dcd81fd40c659b965a011e20919d364}{keyboard}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classnote__screen_1_1NotesScreen_ad5d1cd837db824c470b1793023d4d74b}{\+\_\+show\+\_\+keyboard}} (self, QLine\+Edit target)
+\begin{DoxyCompactList}\small\item\em Acopla el teclado al campo de texto objetivo y reduce las dimensiones de la lista. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classnote__screen_1_1NotesScreen_aabab3d318ca72cef17cb6984bf42d6c0}{\+\_\+hide\+\_\+keyboard}} (self)
+\begin{DoxyCompactList}\small\item\em Desacopla el teclado virtual y restaura las dimensiones originales de la lista. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interfaz gráfica interactiva para la creación, búsqueda y eliminación de notas. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classnote__screen_1_1NotesScreen_ae4818c537e16f124f144540ec9db80b8}\label{classnote__screen_1_1NotesScreen_ae4818c537e16f124f144540ec9db80b8}} 
+\index{note\_screen.NotesScreen@{note\_screen.NotesScreen}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!note\_screen.NotesScreen@{note\_screen.NotesScreen}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def note\+\_\+screen.\+Notes\+Screen.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{controller }\end{DoxyParamCaption})}
+
+
+
+Constructor de la pantalla de notas. 
+
+Inicializa el gestor de almacenamiento e instala los componentes de la interfaz, incluyendo las redirecciones táctiles hacia el teclado virtual embebido.
+
+
+\begin{DoxyParams}{Parameters}
+{\em controller} & Instancia del enrutador central de la aplicación. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{classnote__screen_1_1NotesScreen_ae4818c537e16f124f144540ec9db80b8_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classnote__screen_1_1NotesScreen_aabab3d318ca72cef17cb6984bf42d6c0}\label{classnote__screen_1_1NotesScreen_aabab3d318ca72cef17cb6984bf42d6c0}} 
+\index{note\_screen.NotesScreen@{note\_screen.NotesScreen}!\_hide\_keyboard@{\_hide\_keyboard}}
+\index{\_hide\_keyboard@{\_hide\_keyboard}!note\_screen.NotesScreen@{note\_screen.NotesScreen}}
+\doxysubsubsection{\texorpdfstring{\_hide\_keyboard()}{\_hide\_keyboard()}}
+{\footnotesize\ttfamily def note\+\_\+screen.\+Notes\+Screen.\+\_\+hide\+\_\+keyboard (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Desacopla el teclado virtual y restaura las dimensiones originales de la lista. 
+
+\mbox{\Hypertarget{classnote__screen_1_1NotesScreen_ad5d1cd837db824c470b1793023d4d74b}\label{classnote__screen_1_1NotesScreen_ad5d1cd837db824c470b1793023d4d74b}} 
+\index{note\_screen.NotesScreen@{note\_screen.NotesScreen}!\_show\_keyboard@{\_show\_keyboard}}
+\index{\_show\_keyboard@{\_show\_keyboard}!note\_screen.NotesScreen@{note\_screen.NotesScreen}}
+\doxysubsubsection{\texorpdfstring{\_show\_keyboard()}{\_show\_keyboard()}}
+{\footnotesize\ttfamily def note\+\_\+screen.\+Notes\+Screen.\+\_\+show\+\_\+keyboard (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{QLine\+Edit}]{target }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Acopla el teclado al campo de texto objetivo y reduce las dimensiones de la lista. 
+
+{\bfseries{Criterio de Accesibilidad\+:}} Reduce el tamaño máximo de la lista de elementos para evitar que el teclado embebido desplace los campos activos fuera de la pantalla útil.
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & Widget QLine\+Edit que recibe el foco de edición actual. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classnote__screen_1_1NotesScreen_a0f8f270a4f8611ed4787bdafd3be8187}\label{classnote__screen_1_1NotesScreen_a0f8f270a4f8611ed4787bdafd3be8187}} 
+\index{note\_screen.NotesScreen@{note\_screen.NotesScreen}!add\_note@{add\_note}}
+\index{add\_note@{add\_note}!note\_screen.NotesScreen@{note\_screen.NotesScreen}}
+\doxysubsubsection{\texorpdfstring{add\_note()}{add\_note()}}
+{\footnotesize\ttfamily def note\+\_\+screen.\+Notes\+Screen.\+add\+\_\+note (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Extrae los datos de los formularios y registra una nueva nota en el sistema. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classnote__screen_1_1NotesScreen_a0f8f270a4f8611ed4787bdafd3be8187_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classnote__screen_1_1NotesScreen_a3702c54fd0190068a047b547b38e0a2a}\label{classnote__screen_1_1NotesScreen_a3702c54fd0190068a047b547b38e0a2a}} 
+\index{note\_screen.NotesScreen@{note\_screen.NotesScreen}!delete\_note@{delete\_note}}
+\index{delete\_note@{delete\_note}!note\_screen.NotesScreen@{note\_screen.NotesScreen}}
+\doxysubsubsection{\texorpdfstring{delete\_note()}{delete\_note()}}
+{\footnotesize\ttfamily def note\+\_\+screen.\+Notes\+Screen.\+delete\+\_\+note (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Elimina de forma definitiva la nota seleccionada bajo confirmación del usuario. 
+
+{\bfseries{Corrección Lógica\+:}} Utiliza la referencia {\ttfamily Qt.\+User\+Role} para encontrar el elemento dentro de la lista global original, evitando corrupciones de borrado erróneo cuando la lista está filtrada. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classnote__screen_1_1NotesScreen_a3702c54fd0190068a047b547b38e0a2a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classnote__screen_1_1NotesScreen_a9407be889a3d5539e75bb6e043c55c44}\label{classnote__screen_1_1NotesScreen_a9407be889a3d5539e75bb6e043c55c44}} 
+\index{note\_screen.NotesScreen@{note\_screen.NotesScreen}!go\_back@{go\_back}}
+\index{go\_back@{go\_back}!note\_screen.NotesScreen@{note\_screen.NotesScreen}}
+\doxysubsubsection{\texorpdfstring{go\_back()}{go\_back()}}
+{\footnotesize\ttfamily def note\+\_\+screen.\+Notes\+Screen.\+go\+\_\+back (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Solicita al enrutador central el retorno seguro hacia el Launcher principal de Qt. 
+
+\mbox{\Hypertarget{classnote__screen_1_1NotesScreen_afd6b4c18ea90837052464ca39ee30373}\label{classnote__screen_1_1NotesScreen_afd6b4c18ea90837052464ca39ee30373}} 
+\index{note\_screen.NotesScreen@{note\_screen.NotesScreen}!hideEvent@{hideEvent}}
+\index{hideEvent@{hideEvent}!note\_screen.NotesScreen@{note\_screen.NotesScreen}}
+\doxysubsubsection{\texorpdfstring{hideEvent()}{hideEvent()}}
+{\footnotesize\ttfamily def note\+\_\+screen.\+Notes\+Screen.\+hide\+Event (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{event }\end{DoxyParamCaption})}
+
+
+
+Intercepta el evento de ocultación de la pantalla para replegar el teclado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Instancia del evento nativo de tipo QHide\+Event. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classnote__screen_1_1NotesScreen_afd6b4c18ea90837052464ca39ee30373_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classnote__screen_1_1NotesScreen_a877224d5f9b00ce6d3c9766b3c1581b5}\label{classnote__screen_1_1NotesScreen_a877224d5f9b00ce6d3c9766b3c1581b5}} 
+\index{note\_screen.NotesScreen@{note\_screen.NotesScreen}!refresh@{refresh}}
+\index{refresh@{refresh}!note\_screen.NotesScreen@{note\_screen.NotesScreen}}
+\doxysubsubsection{\texorpdfstring{refresh()}{refresh()}}
+{\footnotesize\ttfamily def note\+\_\+screen.\+Notes\+Screen.\+refresh (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Sincroniza la vista del componente QList\+Widget con el almacén local persistente. 
+
+Filtra los registros en tiempo real basándose en el criterio del campo de búsqueda. Cada nota guarda una referencia oculta al diccionario original mediante {\ttfamily Qt.\+User\+Role}. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classnote__screen_1_1NotesScreen_a877224d5f9b00ce6d3c9766b3c1581b5_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classnote__screen_1_1NotesScreen_ad9fb08a92a4f6f9605dfe3343a6e6a41}\label{classnote__screen_1_1NotesScreen_ad9fb08a92a4f6f9605dfe3343a6e6a41}} 
+\index{note\_screen.NotesScreen@{note\_screen.NotesScreen}!btn\_add@{btn\_add}}
+\index{btn\_add@{btn\_add}!note\_screen.NotesScreen@{note\_screen.NotesScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_add}{btn\_add}}
+{\footnotesize\ttfamily note\+\_\+screen.\+Notes\+Screen.\+btn\+\_\+add}
+
+\mbox{\Hypertarget{classnote__screen_1_1NotesScreen_aaedf31ff306289a3b19ab9d0679d6718}\label{classnote__screen_1_1NotesScreen_aaedf31ff306289a3b19ab9d0679d6718}} 
+\index{note\_screen.NotesScreen@{note\_screen.NotesScreen}!btn\_back@{btn\_back}}
+\index{btn\_back@{btn\_back}!note\_screen.NotesScreen@{note\_screen.NotesScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_back}{btn\_back}}
+{\footnotesize\ttfamily note\+\_\+screen.\+Notes\+Screen.\+btn\+\_\+back}
+
+
+
+\texorpdfstring{$<$}{<} Componente de persistencia de datos local (JSON wrapper). 
+
+\mbox{\Hypertarget{classnote__screen_1_1NotesScreen_a250374b50da1842e133447b96561961d}\label{classnote__screen_1_1NotesScreen_a250374b50da1842e133447b96561961d}} 
+\index{note\_screen.NotesScreen@{note\_screen.NotesScreen}!btn\_delete@{btn\_delete}}
+\index{btn\_delete@{btn\_delete}!note\_screen.NotesScreen@{note\_screen.NotesScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_delete}{btn\_delete}}
+{\footnotesize\ttfamily note\+\_\+screen.\+Notes\+Screen.\+btn\+\_\+delete}
+
+\mbox{\Hypertarget{classnote__screen_1_1NotesScreen_a5323f423f19be2d55492ac986db0357d}\label{classnote__screen_1_1NotesScreen_a5323f423f19be2d55492ac986db0357d}} 
+\index{note\_screen.NotesScreen@{note\_screen.NotesScreen}!content\_input@{content\_input}}
+\index{content\_input@{content\_input}!note\_screen.NotesScreen@{note\_screen.NotesScreen}}
+\doxysubsubsection{\texorpdfstring{content\_input}{content\_input}}
+{\footnotesize\ttfamily note\+\_\+screen.\+Notes\+Screen.\+content\+\_\+input}
+
+\mbox{\Hypertarget{classnote__screen_1_1NotesScreen_ace64c12c2456312173afdc23e837c54f}\label{classnote__screen_1_1NotesScreen_ace64c12c2456312173afdc23e837c54f}} 
+\index{note\_screen.NotesScreen@{note\_screen.NotesScreen}!controller@{controller}}
+\index{controller@{controller}!note\_screen.NotesScreen@{note\_screen.NotesScreen}}
+\doxysubsubsection{\texorpdfstring{controller}{controller}}
+{\footnotesize\ttfamily note\+\_\+screen.\+Notes\+Screen.\+controller}
+
+\mbox{\Hypertarget{classnote__screen_1_1NotesScreen_a2dcd81fd40c659b965a011e20919d364}\label{classnote__screen_1_1NotesScreen_a2dcd81fd40c659b965a011e20919d364}} 
+\index{note\_screen.NotesScreen@{note\_screen.NotesScreen}!keyboard@{keyboard}}
+\index{keyboard@{keyboard}!note\_screen.NotesScreen@{note\_screen.NotesScreen}}
+\doxysubsubsection{\texorpdfstring{keyboard}{keyboard}}
+{\footnotesize\ttfamily note\+\_\+screen.\+Notes\+Screen.\+keyboard}
+
+\mbox{\Hypertarget{classnote__screen_1_1NotesScreen_a7ac2a6f1114fa3b4b6b1cb5e2e63b797}\label{classnote__screen_1_1NotesScreen_a7ac2a6f1114fa3b4b6b1cb5e2e63b797}} 
+\index{note\_screen.NotesScreen@{note\_screen.NotesScreen}!list@{list}}
+\index{list@{list}!note\_screen.NotesScreen@{note\_screen.NotesScreen}}
+\doxysubsubsection{\texorpdfstring{list}{list}}
+{\footnotesize\ttfamily note\+\_\+screen.\+Notes\+Screen.\+list}
+
+\mbox{\Hypertarget{classnote__screen_1_1NotesScreen_aa84103086d19646d0c5d414b42a5a164}\label{classnote__screen_1_1NotesScreen_aa84103086d19646d0c5d414b42a5a164}} 
+\index{note\_screen.NotesScreen@{note\_screen.NotesScreen}!search@{search}}
+\index{search@{search}!note\_screen.NotesScreen@{note\_screen.NotesScreen}}
+\doxysubsubsection{\texorpdfstring{search}{search}}
+{\footnotesize\ttfamily note\+\_\+screen.\+Notes\+Screen.\+search}
+
+\mbox{\Hypertarget{classnote__screen_1_1NotesScreen_aeb6ffec6ed3b9222389d25b97fb582ee}\label{classnote__screen_1_1NotesScreen_aeb6ffec6ed3b9222389d25b97fb582ee}} 
+\index{note\_screen.NotesScreen@{note\_screen.NotesScreen}!store@{store}}
+\index{store@{store}!note\_screen.NotesScreen@{note\_screen.NotesScreen}}
+\doxysubsubsection{\texorpdfstring{store}{store}}
+{\footnotesize\ttfamily note\+\_\+screen.\+Notes\+Screen.\+store}
+
+\mbox{\Hypertarget{classnote__screen_1_1NotesScreen_ae934d3da3c0e847cf26ab88b48bedc54}\label{classnote__screen_1_1NotesScreen_ae934d3da3c0e847cf26ab88b48bedc54}} 
+\index{note\_screen.NotesScreen@{note\_screen.NotesScreen}!title\_input@{title\_input}}
+\index{title\_input@{title\_input}!note\_screen.NotesScreen@{note\_screen.NotesScreen}}
+\doxysubsubsection{\texorpdfstring{title\_input}{title\_input}}
+{\footnotesize\ttfamily note\+\_\+screen.\+Notes\+Screen.\+title\+\_\+input}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ui/apps/notes/\mbox{\hyperlink{note__screen_8py}{note\+\_\+screen.\+py}}\end{DoxyCompactItemize}

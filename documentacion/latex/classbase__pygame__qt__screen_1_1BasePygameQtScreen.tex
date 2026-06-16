@@ -1,0 +1,424 @@
+\hypertarget{classbase__pygame__qt__screen_1_1BasePygameQtScreen}{}\doxysection{base\+\_\+pygame\+\_\+qt\+\_\+screen.\+Base\+Pygame\+Qt\+Screen Class Reference}
+\label{classbase__pygame__qt__screen_1_1BasePygameQtScreen}\index{base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}}
+
+
+Inicialización del mezclador de audio de bajo nivel.  
+
+
+
+
+Inheritance diagram for base\+\_\+pygame\+\_\+qt\+\_\+screen.\+Base\+Pygame\+Qt\+Screen\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{classbase__pygame__qt__screen_1_1BasePygameQtScreen__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for base\+\_\+pygame\+\_\+qt\+\_\+screen.\+Base\+Pygame\+Qt\+Screen\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{classbase__pygame__qt__screen_1_1BasePygameQtScreen__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classbase__pygame__qt__screen_1_1BasePygameQtScreen_a515faad11cea54ff6811abd9428db1df}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classbase__pygame__qt__screen_1_1BasePygameQtScreen_aabb071f594fee8d5ddb73e4972f12e57}{controller}}=None, width=1024, height=600)
+\begin{DoxyCompactList}\small\item\em Constructor de la clase \mbox{\hyperlink{classbase__pygame__qt__screen_1_1BasePygameQtScreen}{Base\+Pygame\+Qt\+Screen}}. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classbase__pygame__qt__screen_1_1BasePygameQtScreen_ab5d5bb3be1841423980f741f537c96aa}{start}} (self)
+\begin{DoxyCompactList}\small\item\em Inicializa el temporizador de fotogramas y arranca la máquina de refresco lógico. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classbase__pygame__qt__screen_1_1BasePygameQtScreen_ac864ebbc0b4d821438369c25cf60f402}{stop}} (self)
+\begin{DoxyCompactList}\small\item\em Detiene y congela de inmediato el temporizador y el procesado del juego. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classbase__pygame__qt__screen_1_1BasePygameQtScreen_a7a3272c0db0c214ed4e45bebbb45e271}{resize\+Event}} (self, event)
+\begin{DoxyCompactList}\small\item\em Captura las variaciones de escala físicas asignadas por el gestor de ventanas de Qt. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classbase__pygame__qt__screen_1_1BasePygameQtScreen_ab62721bffcf092e7c760b83216ea4983}{show\+Event}} (self, event)
+\begin{DoxyCompactList}\small\item\em Intercepta la visualización inicial de la pantalla para reajustar los búferes de memoria. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classbase__pygame__qt__screen_1_1BasePygameQtScreen_a64c52eb55901a06705b466373518452d}{mouse\+Press\+Event}} (self, qt\+\_\+event)
+\begin{DoxyCompactList}\small\item\em Intercepta la pulsación táctil/ratón de Qt y genera un evento sintético homólogo para Pygame. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classbase__pygame__qt__screen_1_1BasePygameQtScreen_af6b187ba16db760f0b83a991b98cd30b}{key\+Press\+Event}} (self, qt\+\_\+event)
+\begin{DoxyCompactList}\small\item\em Mapea y traduce las pulsaciones del teclado del core de Qt a flags constantes de Pygame. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classbase__pygame__qt__screen_1_1BasePygameQtScreen_aa3a5e25e48078463b56b3161da4ebae4}{update\+\_\+logic}} (self)
+\begin{DoxyCompactList}\small\item\em Método virtual. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classbase__pygame__qt__screen_1_1BasePygameQtScreen_ab9e0f13a35a788c5952ad01f75a2d62a}{render}} (self)
+\begin{DoxyCompactList}\small\item\em Método virtual. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classbase__pygame__qt__screen_1_1BasePygameQtScreen_aabb071f594fee8d5ddb73e4972f12e57}{controller}}
+\begin{DoxyCompactList}\small\item\em Referencia al coordinador o máquina de estados de pantallas de la interfaz. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classbase__pygame__qt__screen_1_1BasePygameQtScreen_ab749e2f2325710bf2df6284c63c53d06}{game\+\_\+width}}
+\begin{DoxyCompactList}\small\item\em Dimensión de anchura de trabajo real asignada a la superficie virtual. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classbase__pygame__qt__screen_1_1BasePygameQtScreen_a4240b36e1d44e7894a40f9f5d2cf8cdd}{game\+\_\+height}}
+\begin{DoxyCompactList}\small\item\em Dimensión de altura de trabajo real asignada a la superficie virtual. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classbase__pygame__qt__screen_1_1BasePygameQtScreen_a1ca0e454821fb661fe84998b44648aa2}{surface}}
+\begin{DoxyCompactList}\small\item\em Superficie física de Pygame (Canvas de memoria en bruto) para el dibujado de primitivas. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classbase__pygame__qt__screen_1_1BasePygameQtScreen_acbeedeb5c7214fb204e764cf4c2db414}{clock}}
+\begin{DoxyCompactList}\small\item\em Reloj interno auxiliar de Pygame utilizado exclusivamente para calcular deltas o limitar FPS lógicos. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classbase__pygame__qt__screen_1_1BasePygameQtScreen_acae972689f5ab026a27e49a14f1e2ff8}{running}}
+\begin{DoxyCompactList}\small\item\em Bandera booleana de estado operativo del Game Loop. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classbase__pygame__qt__screen_1_1BasePygameQtScreen_ad5e35617b0dee9607770c2af6d975e76}{events}}
+\begin{DoxyCompactList}\small\item\em Vector dinámico de eventos sintéticos inyectados desde el subsistema táctil de Qt hacia el juego. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classbase__pygame__qt__screen_1_1BasePygameQtScreen_a5c08140e21a3aab3b3a49ad69e4c77da}{label}}
+\begin{DoxyCompactList}\small\item\em Elemento gráfico de Qt que actúa como viewport o pantalla de proyección de los píxeles renderizados. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classbase__pygame__qt__screen_1_1BasePygameQtScreen_a7b777b2a4e3c0cf2b68df926457b6488}{timer}}
+\begin{DoxyCompactList}\small\item\em Temporizador asíncrono de Qt que orquesta los ticks fijos del frame rate. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classbase__pygame__qt__screen_1_1BasePygameQtScreen_a695a85f30389e00f25a653721edc30ee}{\+\_\+sync\+\_\+surface\+\_\+size}} (self)
+\begin{DoxyCompactList}\small\item\em Reasigna y recrea de forma atómica la superficie interna de Pygame si las cotas geométricas cambian. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classbase__pygame__qt__screen_1_1BasePygameQtScreen_a9bd2bd871431cf84cc56f3e0697fae08}{\+\_\+tick}} (self)
+\begin{DoxyCompactList}\small\item\em Ejecuta una iteración unificada del ciclo del juego (Fase lógica + Fase gráfica). \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classbase__pygame__qt__screen_1_1BasePygameQtScreen_a6c24eaec23d955c115c36371eed59621}{\+\_\+blit\+\_\+to\+\_\+label}} (self)
+\begin{DoxyCompactList}\small\item\em Transfiere los píxeles de la memoria de Pygame hacia el backend de dibujado de Qt. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classbase__pygame__qt__screen_1_1BasePygameQtScreen_a459793b86c65f4e448608173a73cd1bc}{\+\_\+qt\+\_\+to\+\_\+game\+\_\+pos}} (self, pos)
+\begin{DoxyCompactList}\small\item\em Ejecuta una transformación lineal inversa para corregir las coordenadas físicas del widget. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Inicialización del mezclador de audio de bajo nivel. 
+
+Componente contenedor intermedio que hospeda un bucle de ejecución (Game Loop) de Pygame en Qt. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classbase__pygame__qt__screen_1_1BasePygameQtScreen_a515faad11cea54ff6811abd9428db1df}\label{classbase__pygame__qt__screen_1_1BasePygameQtScreen_a515faad11cea54ff6811abd9428db1df}} 
+\index{base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def base\+\_\+pygame\+\_\+qt\+\_\+screen.\+Base\+Pygame\+Qt\+Screen.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{controller = {\ttfamily None},  }\item[{}]{width = {\ttfamily 1024},  }\item[{}]{height = {\ttfamily 600} }\end{DoxyParamCaption})}
+
+
+
+Constructor de la clase \mbox{\hyperlink{classbase__pygame__qt__screen_1_1BasePygameQtScreen}{Base\+Pygame\+Qt\+Screen}}. 
+
+Configura los layouts geométricos de estiramiento y parametriza el temporizador de alta precisión ({\ttfamily QTimer}) que asume las funciones de pulso del reloj gráfico.
+
+
+\begin{DoxyParams}{Parameters}
+{\em controller} & Instancia del controlador central o máquina de estados de la UI. \\
+\hline
+{\em width} & Resolución horizontal virtual nativa deseada para la lógica del juego. \\
+\hline
+{\em height} & Resolución vertical virtual nativa deseada para la lógica del juego. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{classbase__pygame__qt__screen_1_1BasePygameQtScreen_a515faad11cea54ff6811abd9428db1df_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classbase__pygame__qt__screen_1_1BasePygameQtScreen_a6c24eaec23d955c115c36371eed59621}\label{classbase__pygame__qt__screen_1_1BasePygameQtScreen_a6c24eaec23d955c115c36371eed59621}} 
+\index{base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}!\_blit\_to\_label@{\_blit\_to\_label}}
+\index{\_blit\_to\_label@{\_blit\_to\_label}!base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}}
+\doxysubsubsection{\texorpdfstring{\_blit\_to\_label()}{\_blit\_to\_label()}}
+{\footnotesize\ttfamily def base\+\_\+pygame\+\_\+qt\+\_\+screen.\+Base\+Pygame\+Qt\+Screen.\+\_\+blit\+\_\+to\+\_\+label (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Transfiere los píxeles de la memoria de Pygame hacia el backend de dibujado de Qt. 
+
+{\bfseries{Optimización crítica ARM\+:}} Recupera la matriz en 3D mediante {\ttfamily surfarray.\+array3d}, aplica una transposición de ejes ortogonales y fuerza la copia de manera contigua en memoria RAM mediante Num\+Py. Esto elude las corrupciones y cuelgues que provoca la rutina nativa {\ttfamily image.\+tostring} bajo arquitecturas Linux aarch64. \mbox{\Hypertarget{classbase__pygame__qt__screen_1_1BasePygameQtScreen_a459793b86c65f4e448608173a73cd1bc}\label{classbase__pygame__qt__screen_1_1BasePygameQtScreen_a459793b86c65f4e448608173a73cd1bc}} 
+\index{base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}!\_qt\_to\_game\_pos@{\_qt\_to\_game\_pos}}
+\index{\_qt\_to\_game\_pos@{\_qt\_to\_game\_pos}!base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}}
+\doxysubsubsection{\texorpdfstring{\_qt\_to\_game\_pos()}{\_qt\_to\_game\_pos()}}
+{\footnotesize\ttfamily def base\+\_\+pygame\+\_\+qt\+\_\+screen.\+Base\+Pygame\+Qt\+Screen.\+\_\+qt\+\_\+to\+\_\+game\+\_\+pos (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Ejecuta una transformación lineal inversa para corregir las coordenadas físicas del widget. 
+
+Si el contenedor QLabel activa el modo de escalado manteniendo la relación de aspecto ({\ttfamily Keep\+Aspect\+Ratio}), se calculan los offsets espaciales (márgenes muertos o bandas negras) para calcular el píxel real exacto sobre la superficie virtual interna de Pygame.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & Tupla numérica {\ttfamily (x, y)} con las coordenadas brutas recogidas del widget de Qt. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+tupla Coordenadas equivalentes calculadas en la matriz interna de dibujo {\ttfamily (x\+\_\+game, y\+\_\+game)}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classbase__pygame__qt__screen_1_1BasePygameQtScreen_a695a85f30389e00f25a653721edc30ee}\label{classbase__pygame__qt__screen_1_1BasePygameQtScreen_a695a85f30389e00f25a653721edc30ee}} 
+\index{base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}!\_sync\_surface\_size@{\_sync\_surface\_size}}
+\index{\_sync\_surface\_size@{\_sync\_surface\_size}!base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}}
+\doxysubsubsection{\texorpdfstring{\_sync\_surface\_size()}{\_sync\_surface\_size()}}
+{\footnotesize\ttfamily def base\+\_\+pygame\+\_\+qt\+\_\+screen.\+Base\+Pygame\+Qt\+Screen.\+\_\+sync\+\_\+surface\+\_\+size (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reasigna y recrea de forma atómica la superficie interna de Pygame si las cotas geométricas cambian. 
+
+\mbox{\Hypertarget{classbase__pygame__qt__screen_1_1BasePygameQtScreen_a9bd2bd871431cf84cc56f3e0697fae08}\label{classbase__pygame__qt__screen_1_1BasePygameQtScreen_a9bd2bd871431cf84cc56f3e0697fae08}} 
+\index{base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}!\_tick@{\_tick}}
+\index{\_tick@{\_tick}!base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}}
+\doxysubsubsection{\texorpdfstring{\_tick()}{\_tick()}}
+{\footnotesize\ttfamily def base\+\_\+pygame\+\_\+qt\+\_\+screen.\+Base\+Pygame\+Qt\+Screen.\+\_\+tick (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Ejecuta una iteración unificada del ciclo del juego (Fase lógica + Fase gráfica). 
+
+Se ejecuta secuencialmente bajo el hilo principal de Qt. Sincroniza y vacía el vector de eventos de entrada al finalizar cada fotograma para impedir acumulaciones fantasmas de clicks táctiles. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classbase__pygame__qt__screen_1_1BasePygameQtScreen_a9bd2bd871431cf84cc56f3e0697fae08_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbase__pygame__qt__screen_1_1BasePygameQtScreen_af6b187ba16db760f0b83a991b98cd30b}\label{classbase__pygame__qt__screen_1_1BasePygameQtScreen_af6b187ba16db760f0b83a991b98cd30b}} 
+\index{base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}!keyPressEvent@{keyPressEvent}}
+\index{keyPressEvent@{keyPressEvent}!base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}}
+\doxysubsubsection{\texorpdfstring{keyPressEvent()}{keyPressEvent()}}
+{\footnotesize\ttfamily def base\+\_\+pygame\+\_\+qt\+\_\+screen.\+Base\+Pygame\+Qt\+Screen.\+key\+Press\+Event (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{qt\+\_\+event }\end{DoxyParamCaption})}
+
+
+
+Mapea y traduce las pulsaciones del teclado del core de Qt a flags constantes de Pygame. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em qt\+\_\+event} & Instancia del evento nativo de tipo QKey\+Event. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=255pt]{classbase__pygame__qt__screen_1_1BasePygameQtScreen_af6b187ba16db760f0b83a991b98cd30b_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbase__pygame__qt__screen_1_1BasePygameQtScreen_a64c52eb55901a06705b466373518452d}\label{classbase__pygame__qt__screen_1_1BasePygameQtScreen_a64c52eb55901a06705b466373518452d}} 
+\index{base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}!mousePressEvent@{mousePressEvent}}
+\index{mousePressEvent@{mousePressEvent}!base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}}
+\doxysubsubsection{\texorpdfstring{mousePressEvent()}{mousePressEvent()}}
+{\footnotesize\ttfamily def base\+\_\+pygame\+\_\+qt\+\_\+screen.\+Base\+Pygame\+Qt\+Screen.\+mouse\+Press\+Event (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{qt\+\_\+event }\end{DoxyParamCaption})}
+
+
+
+Intercepta la pulsación táctil/ratón de Qt y genera un evento sintético homólogo para Pygame. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em qt\+\_\+event} & Instancia del evento nativo de tipo QMouse\+Event. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbase__pygame__qt__screen_1_1BasePygameQtScreen_a64c52eb55901a06705b466373518452d_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbase__pygame__qt__screen_1_1BasePygameQtScreen_ab9e0f13a35a788c5952ad01f75a2d62a}\label{classbase__pygame__qt__screen_1_1BasePygameQtScreen_ab9e0f13a35a788c5952ad01f75a2d62a}} 
+\index{base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}!render@{render}}
+\index{render@{render}!base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily def base\+\_\+pygame\+\_\+qt\+\_\+screen.\+Base\+Pygame\+Qt\+Screen.\+render (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Método virtual. 
+
+Debe ser sobrescrito por la subclase para inyectar los comandos de dibujo sobre {\ttfamily self.\+surface}. \mbox{\Hypertarget{classbase__pygame__qt__screen_1_1BasePygameQtScreen_a7a3272c0db0c214ed4e45bebbb45e271}\label{classbase__pygame__qt__screen_1_1BasePygameQtScreen_a7a3272c0db0c214ed4e45bebbb45e271}} 
+\index{base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}!resizeEvent@{resizeEvent}}
+\index{resizeEvent@{resizeEvent}!base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}}
+\doxysubsubsection{\texorpdfstring{resizeEvent()}{resizeEvent()}}
+{\footnotesize\ttfamily def base\+\_\+pygame\+\_\+qt\+\_\+screen.\+Base\+Pygame\+Qt\+Screen.\+resize\+Event (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{event }\end{DoxyParamCaption})}
+
+
+
+Captura las variaciones de escala físicas asignadas por el gestor de ventanas de Qt. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Instancia del evento nativo de tipo QResize\+Event. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbase__pygame__qt__screen_1_1BasePygameQtScreen_a7a3272c0db0c214ed4e45bebbb45e271_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbase__pygame__qt__screen_1_1BasePygameQtScreen_ab62721bffcf092e7c760b83216ea4983}\label{classbase__pygame__qt__screen_1_1BasePygameQtScreen_ab62721bffcf092e7c760b83216ea4983}} 
+\index{base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}!showEvent@{showEvent}}
+\index{showEvent@{showEvent}!base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}}
+\doxysubsubsection{\texorpdfstring{showEvent()}{showEvent()}}
+{\footnotesize\ttfamily def base\+\_\+pygame\+\_\+qt\+\_\+screen.\+Base\+Pygame\+Qt\+Screen.\+show\+Event (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{event }\end{DoxyParamCaption})}
+
+
+
+Intercepta la visualización inicial de la pantalla para reajustar los búferes de memoria. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Instancia del evento nativo de tipo QShow\+Event. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbase__pygame__qt__screen_1_1BasePygameQtScreen_ab62721bffcf092e7c760b83216ea4983_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbase__pygame__qt__screen_1_1BasePygameQtScreen_ab5d5bb3be1841423980f741f537c96aa}\label{classbase__pygame__qt__screen_1_1BasePygameQtScreen_ab5d5bb3be1841423980f741f537c96aa}} 
+\index{base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}!start@{start}}
+\index{start@{start}!base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily def base\+\_\+pygame\+\_\+qt\+\_\+screen.\+Base\+Pygame\+Qt\+Screen.\+start (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Inicializa el temporizador de fotogramas y arranca la máquina de refresco lógico. 
+
+Sincroniza las superficies previas y setea el intervalo a 16 milisegundos (frecuencia equivalente a una tasa de refresco estándar de $\sim$60 FPS). Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbase__pygame__qt__screen_1_1BasePygameQtScreen_ab5d5bb3be1841423980f741f537c96aa_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbase__pygame__qt__screen_1_1BasePygameQtScreen_ac864ebbc0b4d821438369c25cf60f402}\label{classbase__pygame__qt__screen_1_1BasePygameQtScreen_ac864ebbc0b4d821438369c25cf60f402}} 
+\index{base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}!stop@{stop}}
+\index{stop@{stop}!base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily def base\+\_\+pygame\+\_\+qt\+\_\+screen.\+Base\+Pygame\+Qt\+Screen.\+stop (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Detiene y congela de inmediato el temporizador y el procesado del juego. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{classbase__pygame__qt__screen_1_1BasePygameQtScreen_ac864ebbc0b4d821438369c25cf60f402_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbase__pygame__qt__screen_1_1BasePygameQtScreen_aa3a5e25e48078463b56b3161da4ebae4}\label{classbase__pygame__qt__screen_1_1BasePygameQtScreen_aa3a5e25e48078463b56b3161da4ebae4}} 
+\index{base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}!update\_logic@{update\_logic}}
+\index{update\_logic@{update\_logic}!base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}}
+\doxysubsubsection{\texorpdfstring{update\_logic()}{update\_logic()}}
+{\footnotesize\ttfamily def base\+\_\+pygame\+\_\+qt\+\_\+screen.\+Base\+Pygame\+Qt\+Screen.\+update\+\_\+logic (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Método virtual. 
+
+Debe ser sobrescrito por la subclase para procesar la lógica, físicas o colisiones del juego. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classbase__pygame__qt__screen_1_1BasePygameQtScreen_acbeedeb5c7214fb204e764cf4c2db414}\label{classbase__pygame__qt__screen_1_1BasePygameQtScreen_acbeedeb5c7214fb204e764cf4c2db414}} 
+\index{base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}!clock@{clock}}
+\index{clock@{clock}!base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}}
+\doxysubsubsection{\texorpdfstring{clock}{clock}}
+{\footnotesize\ttfamily base\+\_\+pygame\+\_\+qt\+\_\+screen.\+Base\+Pygame\+Qt\+Screen.\+clock}
+
+
+
+Reloj interno auxiliar de Pygame utilizado exclusivamente para calcular deltas o limitar FPS lógicos. 
+
+\mbox{\Hypertarget{classbase__pygame__qt__screen_1_1BasePygameQtScreen_aabb071f594fee8d5ddb73e4972f12e57}\label{classbase__pygame__qt__screen_1_1BasePygameQtScreen_aabb071f594fee8d5ddb73e4972f12e57}} 
+\index{base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}!controller@{controller}}
+\index{controller@{controller}!base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}}
+\doxysubsubsection{\texorpdfstring{controller}{controller}}
+{\footnotesize\ttfamily base\+\_\+pygame\+\_\+qt\+\_\+screen.\+Base\+Pygame\+Qt\+Screen.\+controller}
+
+
+
+Referencia al coordinador o máquina de estados de pantallas de la interfaz. 
+
+\mbox{\Hypertarget{classbase__pygame__qt__screen_1_1BasePygameQtScreen_ad5e35617b0dee9607770c2af6d975e76}\label{classbase__pygame__qt__screen_1_1BasePygameQtScreen_ad5e35617b0dee9607770c2af6d975e76}} 
+\index{base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}!events@{events}}
+\index{events@{events}!base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}}
+\doxysubsubsection{\texorpdfstring{events}{events}}
+{\footnotesize\ttfamily base\+\_\+pygame\+\_\+qt\+\_\+screen.\+Base\+Pygame\+Qt\+Screen.\+events}
+
+
+
+Vector dinámico de eventos sintéticos inyectados desde el subsistema táctil de Qt hacia el juego. 
+
+\mbox{\Hypertarget{classbase__pygame__qt__screen_1_1BasePygameQtScreen_a4240b36e1d44e7894a40f9f5d2cf8cdd}\label{classbase__pygame__qt__screen_1_1BasePygameQtScreen_a4240b36e1d44e7894a40f9f5d2cf8cdd}} 
+\index{base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}!game\_height@{game\_height}}
+\index{game\_height@{game\_height}!base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}}
+\doxysubsubsection{\texorpdfstring{game\_height}{game\_height}}
+{\footnotesize\ttfamily base\+\_\+pygame\+\_\+qt\+\_\+screen.\+Base\+Pygame\+Qt\+Screen.\+game\+\_\+height}
+
+
+
+Dimensión de altura de trabajo real asignada a la superficie virtual. 
+
+\mbox{\Hypertarget{classbase__pygame__qt__screen_1_1BasePygameQtScreen_ab749e2f2325710bf2df6284c63c53d06}\label{classbase__pygame__qt__screen_1_1BasePygameQtScreen_ab749e2f2325710bf2df6284c63c53d06}} 
+\index{base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}!game\_width@{game\_width}}
+\index{game\_width@{game\_width}!base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}}
+\doxysubsubsection{\texorpdfstring{game\_width}{game\_width}}
+{\footnotesize\ttfamily base\+\_\+pygame\+\_\+qt\+\_\+screen.\+Base\+Pygame\+Qt\+Screen.\+game\+\_\+width}
+
+
+
+Dimensión de anchura de trabajo real asignada a la superficie virtual. 
+
+\mbox{\Hypertarget{classbase__pygame__qt__screen_1_1BasePygameQtScreen_a5c08140e21a3aab3b3a49ad69e4c77da}\label{classbase__pygame__qt__screen_1_1BasePygameQtScreen_a5c08140e21a3aab3b3a49ad69e4c77da}} 
+\index{base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}!label@{label}}
+\index{label@{label}!base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}}
+\doxysubsubsection{\texorpdfstring{label}{label}}
+{\footnotesize\ttfamily base\+\_\+pygame\+\_\+qt\+\_\+screen.\+Base\+Pygame\+Qt\+Screen.\+label}
+
+
+
+Elemento gráfico de Qt que actúa como viewport o pantalla de proyección de los píxeles renderizados. 
+
+\mbox{\Hypertarget{classbase__pygame__qt__screen_1_1BasePygameQtScreen_acae972689f5ab026a27e49a14f1e2ff8}\label{classbase__pygame__qt__screen_1_1BasePygameQtScreen_acae972689f5ab026a27e49a14f1e2ff8}} 
+\index{base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}!running@{running}}
+\index{running@{running}!base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}}
+\doxysubsubsection{\texorpdfstring{running}{running}}
+{\footnotesize\ttfamily base\+\_\+pygame\+\_\+qt\+\_\+screen.\+Base\+Pygame\+Qt\+Screen.\+running}
+
+
+
+Bandera booleana de estado operativo del Game Loop. 
+
+\mbox{\Hypertarget{classbase__pygame__qt__screen_1_1BasePygameQtScreen_a1ca0e454821fb661fe84998b44648aa2}\label{classbase__pygame__qt__screen_1_1BasePygameQtScreen_a1ca0e454821fb661fe84998b44648aa2}} 
+\index{base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}!surface@{surface}}
+\index{surface@{surface}!base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}}
+\doxysubsubsection{\texorpdfstring{surface}{surface}}
+{\footnotesize\ttfamily base\+\_\+pygame\+\_\+qt\+\_\+screen.\+Base\+Pygame\+Qt\+Screen.\+surface}
+
+
+
+Superficie física de Pygame (Canvas de memoria en bruto) para el dibujado de primitivas. 
+
+\mbox{\Hypertarget{classbase__pygame__qt__screen_1_1BasePygameQtScreen_a7b777b2a4e3c0cf2b68df926457b6488}\label{classbase__pygame__qt__screen_1_1BasePygameQtScreen_a7b777b2a4e3c0cf2b68df926457b6488}} 
+\index{base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}!timer@{timer}}
+\index{timer@{timer}!base\_pygame\_qt\_screen.BasePygameQtScreen@{base\_pygame\_qt\_screen.BasePygameQtScreen}}
+\doxysubsubsection{\texorpdfstring{timer}{timer}}
+{\footnotesize\ttfamily base\+\_\+pygame\+\_\+qt\+\_\+screen.\+Base\+Pygame\+Qt\+Screen.\+timer}
+
+
+
+Temporizador asíncrono de Qt que orquesta los ticks fijos del frame rate. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ui/apps/games/\mbox{\hyperlink{base__pygame__qt__screen_8py}{base\+\_\+pygame\+\_\+qt\+\_\+screen.\+py}}\end{DoxyCompactItemize}

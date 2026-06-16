@@ -1,0 +1,4 @@
+<map id="calendar_screen.CalendarScreen.prev_month" name="calendar_screen.CalendarScreen.prev_month">
+<area shape="rect" id="node1" title="Retrocede una página en el calendario correspondiente a un mes atrás de la fecha actual." alt="" coords="5,5,196,47"/>
+<area shape="rect" id="node2" href="$classcalendar__screen_1_1CalendarScreen.html#abc63bf26ee2c9f4cb8d1702b3e90a23d" title="Sincroniza el texto del encabezado principal con el mes y año bajo visualización." alt="" coords="244,5,435,47"/>
+</map>

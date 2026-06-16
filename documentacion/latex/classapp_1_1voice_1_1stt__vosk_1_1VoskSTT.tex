@@ -1,0 +1,277 @@
+\hypertarget{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT}{}\doxysection{app.\+voice.\+stt\+\_\+vosk.\+Vosk\+STT Class Reference}
+\label{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT}\index{app.voice.stt\_vosk.VoskSTT@{app.voice.stt\_vosk.VoskSTT}}
+
+
+Gestor del motor de reconocimiento de voz.  
+
+
+
+
+Collaboration diagram for app.\+voice.\+stt\+\_\+vosk.\+Vosk\+STT\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_a15ec71474d51e4ccc54ce2d9cef46fe2}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, model\+\_\+path, sample\+\_\+rate=16000)
+\begin{DoxyCompactList}\small\item\em Inicializa el modelo de Vosk y configura la máquina de estados. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_a757bb43694ddc46fbdce793552210bca}{stop}} (self)
+\begin{DoxyCompactList}\small\item\em Detiene el hilo de captura de audio y marca el servicio como no en ejecución. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_a46be0c9a33f07af0990ebf16e6777b69}{process}} (self, data)
+\begin{DoxyCompactList}\small\item\em Procesa un bloque de audio y retorna el texto si se ha completado una frase. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_a3f5802678441b812369122c2755bd2dd}{activar\+\_\+voz}} (self, seconds=\mbox{\hyperlink{namespaceapp_1_1voice_1_1stt__vosk_adc611683324627e2014f8de88846b9fb}{AWAKE\+\_\+\+TIMEOUT}})
+\begin{DoxyCompactList}\small\item\em Despierta al asistente durante un tiempo determinado. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_a9ebcd53e489c5984bb575c06e328b763}{listen\+\_\+loop}} (self, callback, assistant=None, device=None)
+\begin{DoxyCompactList}\small\item\em Bucle principal de escucha. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_a1b24ec024404dcddec189d1e4a7fe641}{model}}
+\item 
+\mbox{\hyperlink{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_ab3571c16f53c1b90c9aa2ee664dbfb76}{rec}}
+\item 
+\mbox{\hyperlink{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_ab470c94ae7ad2ef14c90e7f5dd0ede61}{awake}}
+\item 
+\mbox{\hyperlink{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_a9e7d2182228780a57a96405f14e9e3dd}{awake\+\_\+until}}
+\item 
+\mbox{\hyperlink{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_ad95cc989f2afab5e89d4343570e0e611}{running}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_a32562de2ab877d11547debaaae5fbc39}{\+\_\+flush\+\_\+queue}} (self, q)
+\begin{DoxyCompactList}\small\item\em Vacía la cola de audio y resetea el reconocedor (usado tras TTS). \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_a270aa3749b212482b924396e69a938dc}{\+\_\+is\+\_\+stop\+\_\+command}} (self, text)
+\begin{DoxyCompactList}\small\item\em Verifica si el texto reconocido contiene palabras de interrupción. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_a7c1d1597941aa8710ea663dd1f862ffe}{\+\_\+contiene\+\_\+palabra\+\_\+inicio}} (self, text)
+\begin{DoxyCompactList}\small\item\em Verifica si el texto reconocido contiene palabras de activación. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_ae9fe3cdb0cc95245b0fac442fc8f3e9d}{\+\_\+renovar\+\_\+awake}} (self)
+\begin{DoxyCompactList}\small\item\em Extiende el tiempo de escucha activa tras cada interacción del usuario. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_aec1a5a1c5bbc57b36c473e6955b1e230}{\+\_\+desactivar}} (self, display=None)
+\begin{DoxyCompactList}\small\item\em Pone al asistente en modo reposo (Wake Word necesaria). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_a2a7732313e8fd716ff540d6782b2eaf1}{\+\_\+stream}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Gestor del motor de reconocimiento de voz. 
+
+Mantiene el estado de escucha del asistente y procesa el audio entrante para detectar comandos de activación o instrucciones de voz. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_a15ec71474d51e4ccc54ce2d9cef46fe2}\label{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_a15ec71474d51e4ccc54ce2d9cef46fe2}} 
+\index{app.voice.stt\_vosk.VoskSTT@{app.voice.stt\_vosk.VoskSTT}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!app.voice.stt\_vosk.VoskSTT@{app.voice.stt\_vosk.VoskSTT}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def app.\+voice.\+stt\+\_\+vosk.\+Vosk\+STT.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{model\+\_\+path,  }\item[{}]{sample\+\_\+rate = {\ttfamily 16000} }\end{DoxyParamCaption})}
+
+
+
+Inicializa el modelo de Vosk y configura la máquina de estados. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model\+\_\+path} & Ruta al directorio que contiene el modelo acústico. \\
+\hline
+{\em sample\+\_\+rate} & Frecuencia de muestreo esperada (default 16k\+Hz). \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_a7c1d1597941aa8710ea663dd1f862ffe}\label{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_a7c1d1597941aa8710ea663dd1f862ffe}} 
+\index{app.voice.stt\_vosk.VoskSTT@{app.voice.stt\_vosk.VoskSTT}!\_contiene\_palabra\_inicio@{\_contiene\_palabra\_inicio}}
+\index{\_contiene\_palabra\_inicio@{\_contiene\_palabra\_inicio}!app.voice.stt\_vosk.VoskSTT@{app.voice.stt\_vosk.VoskSTT}}
+\doxysubsubsection{\texorpdfstring{\_contiene\_palabra\_inicio()}{\_contiene\_palabra\_inicio()}}
+{\footnotesize\ttfamily def app.\+voice.\+stt\+\_\+vosk.\+Vosk\+STT.\+\_\+contiene\+\_\+palabra\+\_\+inicio (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Verifica si el texto reconocido contiene palabras de activación. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & Texto reconocido. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True si se detectó una \textquotesingle{}wake word\textquotesingle{}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_aec1a5a1c5bbc57b36c473e6955b1e230}\label{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_aec1a5a1c5bbc57b36c473e6955b1e230}} 
+\index{app.voice.stt\_vosk.VoskSTT@{app.voice.stt\_vosk.VoskSTT}!\_desactivar@{\_desactivar}}
+\index{\_desactivar@{\_desactivar}!app.voice.stt\_vosk.VoskSTT@{app.voice.stt\_vosk.VoskSTT}}
+\doxysubsubsection{\texorpdfstring{\_desactivar()}{\_desactivar()}}
+{\footnotesize\ttfamily def app.\+voice.\+stt\+\_\+vosk.\+Vosk\+STT.\+\_\+desactivar (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{display = {\ttfamily None} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Pone al asistente en modo reposo (Wake Word necesaria). 
+
+\mbox{\Hypertarget{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_a32562de2ab877d11547debaaae5fbc39}\label{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_a32562de2ab877d11547debaaae5fbc39}} 
+\index{app.voice.stt\_vosk.VoskSTT@{app.voice.stt\_vosk.VoskSTT}!\_flush\_queue@{\_flush\_queue}}
+\index{\_flush\_queue@{\_flush\_queue}!app.voice.stt\_vosk.VoskSTT@{app.voice.stt\_vosk.VoskSTT}}
+\doxysubsubsection{\texorpdfstring{\_flush\_queue()}{\_flush\_queue()}}
+{\footnotesize\ttfamily def app.\+voice.\+stt\+\_\+vosk.\+Vosk\+STT.\+\_\+flush\+\_\+queue (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{q }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Vacía la cola de audio y resetea el reconocedor (usado tras TTS). 
+
+\mbox{\Hypertarget{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_a270aa3749b212482b924396e69a938dc}\label{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_a270aa3749b212482b924396e69a938dc}} 
+\index{app.voice.stt\_vosk.VoskSTT@{app.voice.stt\_vosk.VoskSTT}!\_is\_stop\_command@{\_is\_stop\_command}}
+\index{\_is\_stop\_command@{\_is\_stop\_command}!app.voice.stt\_vosk.VoskSTT@{app.voice.stt\_vosk.VoskSTT}}
+\doxysubsubsection{\texorpdfstring{\_is\_stop\_command()}{\_is\_stop\_command()}}
+{\footnotesize\ttfamily def app.\+voice.\+stt\+\_\+vosk.\+Vosk\+STT.\+\_\+is\+\_\+stop\+\_\+command (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Verifica si el texto reconocido contiene palabras de interrupción. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & El texto procesado por el reconocedor. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True si contiene alguna \textquotesingle{}stop word\textquotesingle{}, False en caso contrario. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_ae9fe3cdb0cc95245b0fac442fc8f3e9d}\label{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_ae9fe3cdb0cc95245b0fac442fc8f3e9d}} 
+\index{app.voice.stt\_vosk.VoskSTT@{app.voice.stt\_vosk.VoskSTT}!\_renovar\_awake@{\_renovar\_awake}}
+\index{\_renovar\_awake@{\_renovar\_awake}!app.voice.stt\_vosk.VoskSTT@{app.voice.stt\_vosk.VoskSTT}}
+\doxysubsubsection{\texorpdfstring{\_renovar\_awake()}{\_renovar\_awake()}}
+{\footnotesize\ttfamily def app.\+voice.\+stt\+\_\+vosk.\+Vosk\+STT.\+\_\+renovar\+\_\+awake (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Extiende el tiempo de escucha activa tras cada interacción del usuario. 
+
+\mbox{\Hypertarget{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_a3f5802678441b812369122c2755bd2dd}\label{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_a3f5802678441b812369122c2755bd2dd}} 
+\index{app.voice.stt\_vosk.VoskSTT@{app.voice.stt\_vosk.VoskSTT}!activar\_voz@{activar\_voz}}
+\index{activar\_voz@{activar\_voz}!app.voice.stt\_vosk.VoskSTT@{app.voice.stt\_vosk.VoskSTT}}
+\doxysubsubsection{\texorpdfstring{activar\_voz()}{activar\_voz()}}
+{\footnotesize\ttfamily def app.\+voice.\+stt\+\_\+vosk.\+Vosk\+STT.\+activar\+\_\+voz (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{seconds = {\ttfamily \mbox{\hyperlink{namespaceapp_1_1voice_1_1stt__vosk_adc611683324627e2014f8de88846b9fb}{AWAKE\+\_\+\+TIMEOUT}}} }\end{DoxyParamCaption})}
+
+
+
+Despierta al asistente durante un tiempo determinado. 
+
+\mbox{\Hypertarget{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_a9ebcd53e489c5984bb575c06e328b763}\label{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_a9ebcd53e489c5984bb575c06e328b763}} 
+\index{app.voice.stt\_vosk.VoskSTT@{app.voice.stt\_vosk.VoskSTT}!listen\_loop@{listen\_loop}}
+\index{listen\_loop@{listen\_loop}!app.voice.stt\_vosk.VoskSTT@{app.voice.stt\_vosk.VoskSTT}}
+\doxysubsubsection{\texorpdfstring{listen\_loop()}{listen\_loop()}}
+{\footnotesize\ttfamily def app.\+voice.\+stt\+\_\+vosk.\+Vosk\+STT.\+listen\+\_\+loop (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{callback,  }\item[{}]{assistant = {\ttfamily None},  }\item[{}]{device = {\ttfamily None} }\end{DoxyParamCaption})}
+
+
+
+Bucle principal de escucha. 
+
+Coordina\+:
+\begin{DoxyItemize}
+\item La detección de palabras de parada mientras el TTS habla.
+\item La lógica de \textquotesingle{}despertar\textquotesingle{} mediante wake words.
+\item La limpieza de eco tras finalizar el TTS. 
+\begin{DoxyParams}{Parameters}
+{\em callback} & Función ejecutada al detectar una frase completa. \\
+\hline
+{\em assistant} & Instancia del asistente (para acceder a TTS y display). \\
+\hline
+{\em device} & Dispositivo de audio a utilizar. \\
+\hline
+\end{DoxyParams}
+
+\end{DoxyItemize}Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_a9ebcd53e489c5984bb575c06e328b763_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_a46be0c9a33f07af0990ebf16e6777b69}\label{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_a46be0c9a33f07af0990ebf16e6777b69}} 
+\index{app.voice.stt\_vosk.VoskSTT@{app.voice.stt\_vosk.VoskSTT}!process@{process}}
+\index{process@{process}!app.voice.stt\_vosk.VoskSTT@{app.voice.stt\_vosk.VoskSTT}}
+\doxysubsubsection{\texorpdfstring{process()}{process()}}
+{\footnotesize\ttfamily def app.\+voice.\+stt\+\_\+vosk.\+Vosk\+STT.\+process (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{data }\end{DoxyParamCaption})}
+
+
+
+Procesa un bloque de audio y retorna el texto si se ha completado una frase. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Bloque de audio en bytes (formato int16, 16k\+Hz). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Texto reconocido o string vacío si no hay resultado completo. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_a757bb43694ddc46fbdce793552210bca}\label{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_a757bb43694ddc46fbdce793552210bca}} 
+\index{app.voice.stt\_vosk.VoskSTT@{app.voice.stt\_vosk.VoskSTT}!stop@{stop}}
+\index{stop@{stop}!app.voice.stt\_vosk.VoskSTT@{app.voice.stt\_vosk.VoskSTT}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily def app.\+voice.\+stt\+\_\+vosk.\+Vosk\+STT.\+stop (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Detiene el hilo de captura de audio y marca el servicio como no en ejecución. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_a757bb43694ddc46fbdce793552210bca_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_a2a7732313e8fd716ff540d6782b2eaf1}\label{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_a2a7732313e8fd716ff540d6782b2eaf1}} 
+\index{app.voice.stt\_vosk.VoskSTT@{app.voice.stt\_vosk.VoskSTT}!\_stream@{\_stream}}
+\index{\_stream@{\_stream}!app.voice.stt\_vosk.VoskSTT@{app.voice.stt\_vosk.VoskSTT}}
+\doxysubsubsection{\texorpdfstring{\_stream}{\_stream}}
+{\footnotesize\ttfamily app.\+voice.\+stt\+\_\+vosk.\+Vosk\+STT.\+\_\+stream\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_ab470c94ae7ad2ef14c90e7f5dd0ede61}\label{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_ab470c94ae7ad2ef14c90e7f5dd0ede61}} 
+\index{app.voice.stt\_vosk.VoskSTT@{app.voice.stt\_vosk.VoskSTT}!awake@{awake}}
+\index{awake@{awake}!app.voice.stt\_vosk.VoskSTT@{app.voice.stt\_vosk.VoskSTT}}
+\doxysubsubsection{\texorpdfstring{awake}{awake}}
+{\footnotesize\ttfamily app.\+voice.\+stt\+\_\+vosk.\+Vosk\+STT.\+awake}
+
+\mbox{\Hypertarget{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_a9e7d2182228780a57a96405f14e9e3dd}\label{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_a9e7d2182228780a57a96405f14e9e3dd}} 
+\index{app.voice.stt\_vosk.VoskSTT@{app.voice.stt\_vosk.VoskSTT}!awake\_until@{awake\_until}}
+\index{awake\_until@{awake\_until}!app.voice.stt\_vosk.VoskSTT@{app.voice.stt\_vosk.VoskSTT}}
+\doxysubsubsection{\texorpdfstring{awake\_until}{awake\_until}}
+{\footnotesize\ttfamily app.\+voice.\+stt\+\_\+vosk.\+Vosk\+STT.\+awake\+\_\+until}
+
+\mbox{\Hypertarget{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_a1b24ec024404dcddec189d1e4a7fe641}\label{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_a1b24ec024404dcddec189d1e4a7fe641}} 
+\index{app.voice.stt\_vosk.VoskSTT@{app.voice.stt\_vosk.VoskSTT}!model@{model}}
+\index{model@{model}!app.voice.stt\_vosk.VoskSTT@{app.voice.stt\_vosk.VoskSTT}}
+\doxysubsubsection{\texorpdfstring{model}{model}}
+{\footnotesize\ttfamily app.\+voice.\+stt\+\_\+vosk.\+Vosk\+STT.\+model}
+
+\mbox{\Hypertarget{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_ab3571c16f53c1b90c9aa2ee664dbfb76}\label{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_ab3571c16f53c1b90c9aa2ee664dbfb76}} 
+\index{app.voice.stt\_vosk.VoskSTT@{app.voice.stt\_vosk.VoskSTT}!rec@{rec}}
+\index{rec@{rec}!app.voice.stt\_vosk.VoskSTT@{app.voice.stt\_vosk.VoskSTT}}
+\doxysubsubsection{\texorpdfstring{rec}{rec}}
+{\footnotesize\ttfamily app.\+voice.\+stt\+\_\+vosk.\+Vosk\+STT.\+rec}
+
+\mbox{\Hypertarget{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_ad95cc989f2afab5e89d4343570e0e611}\label{classapp_1_1voice_1_1stt__vosk_1_1VoskSTT_ad95cc989f2afab5e89d4343570e0e611}} 
+\index{app.voice.stt\_vosk.VoskSTT@{app.voice.stt\_vosk.VoskSTT}!running@{running}}
+\index{running@{running}!app.voice.stt\_vosk.VoskSTT@{app.voice.stt\_vosk.VoskSTT}}
+\doxysubsubsection{\texorpdfstring{running}{running}}
+{\footnotesize\ttfamily app.\+voice.\+stt\+\_\+vosk.\+Vosk\+STT.\+running}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+voice/\mbox{\hyperlink{stt__vosk_8py}{stt\+\_\+vosk.\+py}}\end{DoxyCompactItemize}

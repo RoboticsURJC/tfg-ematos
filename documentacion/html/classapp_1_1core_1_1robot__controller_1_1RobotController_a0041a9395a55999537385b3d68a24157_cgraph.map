@@ -1,0 +1,4 @@
+<map id="app.core.robot_controller.RobotController.start" name="app.core.robot_controller.RobotController.start">
+<area shape="rect" id="node1" title="Dispara la secuencia de arranque inicial del robot (Boot sequence)." alt="" coords="5,5,193,47"/>
+<area shape="rect" id="node2" href="$classapp_1_1core_1_1robot__controller_1_1RobotController.html#a96e4514d5e2c4bf8eab51f5cd2d32412" title="Establece el estado de inicialización nativo del hardware." alt="" coords="241,5,429,47"/>
+</map>

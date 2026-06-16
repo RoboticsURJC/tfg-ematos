@@ -1,0 +1,209 @@
+\hypertarget{classapp_1_1core_1_1config_1_1Config}{}\doxysection{app.\+core.\+config.\+Config Class Reference}
+\label{classapp_1_1core_1_1config_1_1Config}\index{app.core.config.Config@{app.core.config.Config}}
+
+
+Clase Singleton encargada de leer, almacenar y proveer acceso a los ajustes del sistema.  
+
+
+
+
+Collaboration diagram for app.\+core.\+config.\+Config\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{classapp_1_1core_1_1config_1_1Config__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1config_1_1Config_aa4f3126f18f2b47916fd228b14662b88}{\+\_\+\+\_\+new\+\_\+\+\_\+}} (cls)
+\begin{DoxyCompactList}\small\item\em Constructor de bajo nivel de Python modificado para implementar el patrón Singleton. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1config_1_1Config_ad08b65a7e88dbe548cba128b43661b72}{get}} (self, key, default=None)
+\begin{DoxyCompactList}\small\item\em Accesor genérico para recuperar cualquier clave de primer nivel del archivo de configuración. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1config_1_1Config_abdd6de304dd421ec73dd2d75f4184c18}{server}} (self)
+\begin{DoxyCompactList}\small\item\em Recupera el bloque o sección dedicada a la configuración de los servidores de red. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1config_1_1Config_a219980af9355022095ec62f4245444e8}{recognition\+\_\+url}} (self)
+\begin{DoxyCompactList}\small\item\em Extrae la URL de red configurada específicamente para el microservicio de reconocimiento facial. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1config_1_1Config_a086dd5f9323a3eaca09f3c2bfa07cbc9}{llm\+\_\+url}} (self)
+\begin{DoxyCompactList}\small\item\em Extrae la URL de red configurada específicamente para el microservicio del modelo de lenguaje (LLM). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1config_1_1Config_a3f020357aa0becb1925f997f753c167c}{\+\_\+load}} (self)
+\begin{DoxyCompactList}\small\item\em Resuelve las rutas del sistema de archivos de forma dinámica y parsea el archivo JSON. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classapp_1_1core_1_1config_1_1Config_aae618f8075cb33a14ac0bef867423dd7}{\+\_\+instance}} = None
+\begin{DoxyCompactList}\small\item\em Instancia única global de la clase (patrón Singleton). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classapp_1_1core_1_1config_1_1Config_a299dc5acd6a6c71d7fe73a511a85be4c}{\+\_\+data}} = None
+\begin{DoxyCompactList}\small\item\em Diccionario en memoria que contiene la estructura completa de datos JSON leída. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase Singleton encargada de leer, almacenar y proveer acceso a los ajustes del sistema. 
+
+Asegura que el archivo de configuración en disco se lea una única vez durante todo El ciclo de vida de la aplicación, manteniendo los datos accesibles en memoria de forma segura. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classapp_1_1core_1_1config_1_1Config_aa4f3126f18f2b47916fd228b14662b88}\label{classapp_1_1core_1_1config_1_1Config_aa4f3126f18f2b47916fd228b14662b88}} 
+\index{app.core.config.Config@{app.core.config.Config}!\_\_new\_\_@{\_\_new\_\_}}
+\index{\_\_new\_\_@{\_\_new\_\_}!app.core.config.Config@{app.core.config.Config}}
+\doxysubsubsection{\texorpdfstring{\_\_new\_\_()}{\_\_new\_\_()}}
+{\footnotesize\ttfamily def app.\+core.\+config.\+Config.\+\_\+\+\_\+new\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{cls }\end{DoxyParamCaption})}
+
+
+
+Constructor de bajo nivel de Python modificado para implementar el patrón Singleton. 
+
+Intercepta la creación de la clase; si la instancia {\ttfamily \+\_\+instance} no existe, Crea el objeto en memoria e invoca automáticamente al método de carga interna {\ttfamily \mbox{\hyperlink{classapp_1_1core_1_1config_1_1Config_a3f020357aa0becb1925f997f753c167c}{\+\_\+load()}}}.
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classapp_1_1core_1_1config_1_1Config}{Config}} La instancia única y centralizada del gestor de configuración. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classapp_1_1core_1_1config_1_1Config_aa4f3126f18f2b47916fd228b14662b88_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classapp_1_1core_1_1config_1_1Config_a3f020357aa0becb1925f997f753c167c}\label{classapp_1_1core_1_1config_1_1Config_a3f020357aa0becb1925f997f753c167c}} 
+\index{app.core.config.Config@{app.core.config.Config}!\_load@{\_load}}
+\index{\_load@{\_load}!app.core.config.Config@{app.core.config.Config}}
+\doxysubsubsection{\texorpdfstring{\_load()}{\_load()}}
+{\footnotesize\ttfamily def app.\+core.\+config.\+Config.\+\_\+load (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Resuelve las rutas del sistema de archivos de forma dinámica y parsea el archivo JSON. 
+
+Sube desde el directorio actual ({\ttfamily app/core/}) un nivel para posicionarse en la raíz Del proyecto, localiza la ruta {\ttfamily ./config/config.json} y vuelca su contenido en el diccionario.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em File\+Not\+Found\+Error} & Lanzada si el archivo físico JSON no se encuentra en la ruta esperada. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classapp_1_1core_1_1config_1_1Config_ad08b65a7e88dbe548cba128b43661b72}\label{classapp_1_1core_1_1config_1_1Config_ad08b65a7e88dbe548cba128b43661b72}} 
+\index{app.core.config.Config@{app.core.config.Config}!get@{get}}
+\index{get@{get}!app.core.config.Config@{app.core.config.Config}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily def app.\+core.\+config.\+Config.\+get (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{key,  }\item[{}]{default = {\ttfamily None} }\end{DoxyParamCaption})}
+
+
+
+Accesor genérico para recuperar cualquier clave de primer nivel del archivo de configuración. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Cadena de texto con el nombre del parámetro o sección que se desea consultar. \\
+\hline
+{\em default} & Valor de salvaguarda (fallback) a retornar en caso de que la clave no exista.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed El valor asociado a la clave (dict, list, str, int, etc.) o el valor por defecto. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{classapp_1_1core_1_1config_1_1Config_ad08b65a7e88dbe548cba128b43661b72_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classapp_1_1core_1_1config_1_1Config_a086dd5f9323a3eaca09f3c2bfa07cbc9}\label{classapp_1_1core_1_1config_1_1Config_a086dd5f9323a3eaca09f3c2bfa07cbc9}} 
+\index{app.core.config.Config@{app.core.config.Config}!llm\_url@{llm\_url}}
+\index{llm\_url@{llm\_url}!app.core.config.Config@{app.core.config.Config}}
+\doxysubsubsection{\texorpdfstring{llm\_url()}{llm\_url()}}
+{\footnotesize\ttfamily def app.\+core.\+config.\+Config.\+llm\+\_\+url (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Extrae la URL de red configurada específicamente para el microservicio del modelo de lenguaje (LLM). 
+
+\begin{DoxyReturn}{Returns}
+str Dirección URL absoluta del servidor de Inteligencia Artificial o None si no se encuentra especificada. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classapp_1_1core_1_1config_1_1Config_a086dd5f9323a3eaca09f3c2bfa07cbc9_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classapp_1_1core_1_1config_1_1Config_a219980af9355022095ec62f4245444e8}\label{classapp_1_1core_1_1config_1_1Config_a219980af9355022095ec62f4245444e8}} 
+\index{app.core.config.Config@{app.core.config.Config}!recognition\_url@{recognition\_url}}
+\index{recognition\_url@{recognition\_url}!app.core.config.Config@{app.core.config.Config}}
+\doxysubsubsection{\texorpdfstring{recognition\_url()}{recognition\_url()}}
+{\footnotesize\ttfamily def app.\+core.\+config.\+Config.\+recognition\+\_\+url (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Extrae la URL de red configurada específicamente para el microservicio de reconocimiento facial. 
+
+\begin{DoxyReturn}{Returns}
+str Dirección URL absoluta del servidor de visión o None si no se encuentra especificada. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classapp_1_1core_1_1config_1_1Config_a219980af9355022095ec62f4245444e8_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classapp_1_1core_1_1config_1_1Config_abdd6de304dd421ec73dd2d75f4184c18}\label{classapp_1_1core_1_1config_1_1Config_abdd6de304dd421ec73dd2d75f4184c18}} 
+\index{app.core.config.Config@{app.core.config.Config}!server@{server}}
+\index{server@{server}!app.core.config.Config@{app.core.config.Config}}
+\doxysubsubsection{\texorpdfstring{server()}{server()}}
+{\footnotesize\ttfamily def app.\+core.\+config.\+Config.\+server (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Recupera el bloque o sección dedicada a la configuración de los servidores de red. 
+
+\begin{DoxyReturn}{Returns}
+dict Diccionario interno con las directivas de red o un diccionario vacío si no está definido. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classapp_1_1core_1_1config_1_1Config_abdd6de304dd421ec73dd2d75f4184c18_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classapp_1_1core_1_1config_1_1Config_a299dc5acd6a6c71d7fe73a511a85be4c}\label{classapp_1_1core_1_1config_1_1Config_a299dc5acd6a6c71d7fe73a511a85be4c}} 
+\index{app.core.config.Config@{app.core.config.Config}!\_data@{\_data}}
+\index{\_data@{\_data}!app.core.config.Config@{app.core.config.Config}}
+\doxysubsubsection{\texorpdfstring{\_data}{\_data}}
+{\footnotesize\ttfamily app.\+core.\+config.\+Config.\+\_\+data = None\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Diccionario en memoria que contiene la estructura completa de datos JSON leída. 
+
+\mbox{\Hypertarget{classapp_1_1core_1_1config_1_1Config_aae618f8075cb33a14ac0bef867423dd7}\label{classapp_1_1core_1_1config_1_1Config_aae618f8075cb33a14ac0bef867423dd7}} 
+\index{app.core.config.Config@{app.core.config.Config}!\_instance@{\_instance}}
+\index{\_instance@{\_instance}!app.core.config.Config@{app.core.config.Config}}
+\doxysubsubsection{\texorpdfstring{\_instance}{\_instance}}
+{\footnotesize\ttfamily app.\+core.\+config.\+Config.\+\_\+instance = None\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Instancia única global de la clase (patrón Singleton). 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/\mbox{\hyperlink{core_2config_8py}{config.\+py}}\end{DoxyCompactItemize}

@@ -1,0 +1,115 @@
+\hypertarget{classlogin__screen_1_1Worker}{}\doxysection{login\+\_\+screen.\+Worker Class Reference}
+\label{classlogin__screen_1_1Worker}\index{login\_screen.Worker@{login\_screen.Worker}}
+
+
+Trabajador en segundo plano para peticiones HTTP de reconocimiento facial.  
+
+
+
+
+Inheritance diagram for login\+\_\+screen.\+Worker\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=195pt]{classlogin__screen_1_1Worker__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for login\+\_\+screen.\+Worker\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=195pt]{classlogin__screen_1_1Worker__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classlogin__screen_1_1Worker_a66bf779cbcf281a2bb406fa0af10eb82}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classlogin__screen_1_1Worker_afe5cd6056ff6538366e216692f7feaa6}{url}}, \mbox{\hyperlink{classlogin__screen_1_1Worker_ad143311f6c45b8d024a05d03424d4afa}{image}})
+\item 
+def \mbox{\hyperlink{classlogin__screen_1_1Worker_acc7eaa3fafdb4673882c824db307698b}{run}} (self)
+\begin{DoxyCompactList}\small\item\em Ejecuta la petición POST al servicio de reconocimiento. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classlogin__screen_1_1Worker_afe5cd6056ff6538366e216692f7feaa6}{url}}
+\item 
+\mbox{\hyperlink{classlogin__screen_1_1Worker_ad143311f6c45b8d024a05d03424d4afa}{image}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classlogin__screen_1_1Worker_a2f345114ef30910600ff1c62ad2fbd96}{result\+\_\+signal}} = pyqt\+Signal(dict)
+\item 
+\mbox{\hyperlink{classlogin__screen_1_1Worker_aa6d26a9cb1ff28b83022e381401cd3bd}{error\+\_\+signal}} = pyqt\+Signal(str)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Trabajador en segundo plano para peticiones HTTP de reconocimiento facial. 
+
+Evita que el hilo principal (UI) se bloquee durante la espera del servicio. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classlogin__screen_1_1Worker_a66bf779cbcf281a2bb406fa0af10eb82}\label{classlogin__screen_1_1Worker_a66bf779cbcf281a2bb406fa0af10eb82}} 
+\index{login\_screen.Worker@{login\_screen.Worker}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!login\_screen.Worker@{login\_screen.Worker}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def login\+\_\+screen.\+Worker.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{url,  }\item[{}]{image }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=197pt]{classlogin__screen_1_1Worker_a66bf779cbcf281a2bb406fa0af10eb82_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classlogin__screen_1_1Worker_acc7eaa3fafdb4673882c824db307698b}\label{classlogin__screen_1_1Worker_acc7eaa3fafdb4673882c824db307698b}} 
+\index{login\_screen.Worker@{login\_screen.Worker}!run@{run}}
+\index{run@{run}!login\_screen.Worker@{login\_screen.Worker}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def login\+\_\+screen.\+Worker.\+run (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Ejecuta la petición POST al servicio de reconocimiento. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classlogin__screen_1_1Worker_aa6d26a9cb1ff28b83022e381401cd3bd}\label{classlogin__screen_1_1Worker_aa6d26a9cb1ff28b83022e381401cd3bd}} 
+\index{login\_screen.Worker@{login\_screen.Worker}!error\_signal@{error\_signal}}
+\index{error\_signal@{error\_signal}!login\_screen.Worker@{login\_screen.Worker}}
+\doxysubsubsection{\texorpdfstring{error\_signal}{error\_signal}}
+{\footnotesize\ttfamily login\+\_\+screen.\+Worker.\+error\+\_\+signal = pyqt\+Signal(str)\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classlogin__screen_1_1Worker_ad143311f6c45b8d024a05d03424d4afa}\label{classlogin__screen_1_1Worker_ad143311f6c45b8d024a05d03424d4afa}} 
+\index{login\_screen.Worker@{login\_screen.Worker}!image@{image}}
+\index{image@{image}!login\_screen.Worker@{login\_screen.Worker}}
+\doxysubsubsection{\texorpdfstring{image}{image}}
+{\footnotesize\ttfamily login\+\_\+screen.\+Worker.\+image}
+
+\mbox{\Hypertarget{classlogin__screen_1_1Worker_a2f345114ef30910600ff1c62ad2fbd96}\label{classlogin__screen_1_1Worker_a2f345114ef30910600ff1c62ad2fbd96}} 
+\index{login\_screen.Worker@{login\_screen.Worker}!result\_signal@{result\_signal}}
+\index{result\_signal@{result\_signal}!login\_screen.Worker@{login\_screen.Worker}}
+\doxysubsubsection{\texorpdfstring{result\_signal}{result\_signal}}
+{\footnotesize\ttfamily login\+\_\+screen.\+Worker.\+result\+\_\+signal = pyqt\+Signal(dict)\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classlogin__screen_1_1Worker_afe5cd6056ff6538366e216692f7feaa6}\label{classlogin__screen_1_1Worker_afe5cd6056ff6538366e216692f7feaa6}} 
+\index{login\_screen.Worker@{login\_screen.Worker}!url@{url}}
+\index{url@{url}!login\_screen.Worker@{login\_screen.Worker}}
+\doxysubsubsection{\texorpdfstring{url}{url}}
+{\footnotesize\ttfamily login\+\_\+screen.\+Worker.\+url}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ui/screens/\mbox{\hyperlink{login__screen_8py}{login\+\_\+screen.\+py}}\end{DoxyCompactItemize}

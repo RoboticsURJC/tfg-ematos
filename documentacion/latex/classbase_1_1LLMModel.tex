@@ -1,0 +1,132 @@
+\hypertarget{classbase_1_1LLMModel}{}\doxysection{base.\+LLMModel Class Reference}
+\label{classbase_1_1LLMModel}\index{base.LLMModel@{base.LLMModel}}
+
+
+Clase base abstracta para la gestión y abstracción de modelos de lenguaje (LLM).  
+
+
+
+
+Collaboration diagram for base.\+LLMModel\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=172pt]{classbase_1_1LLMModel__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classbase_1_1LLMModel_a887c9be98dba05959b2dcdaaa421b4e3}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classbase_1_1LLMModel_ac5d9df2ea9d3dac2e4853518ae7ef78f}{name}})
+\begin{DoxyCompactList}\small\item\em Constructor de la clase base \mbox{\hyperlink{classbase_1_1LLMModel}{LLMModel}}. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classbase_1_1LLMModel_ab2e4dea029a6ea0bf863e2957e3a67a4}{generate}} (self, prompt)
+\begin{DoxyCompactList}\small\item\em Genera una respuesta de texto a partir de una instrucción o prompt estructurado. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classbase_1_1LLMModel_afdc284a1c14fe1dcf6280e8e1d52a543}{benchmark}} (self, prompt)
+\begin{DoxyCompactList}\small\item\em Ejecuta una prueba de rendimiento (benchmark) controlada sobre el método de generación. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classbase_1_1LLMModel_ac5d9df2ea9d3dac2e4853518ae7ef78f}{name}}
+\begin{DoxyCompactList}\small\item\em Nombre identificativo del modelo cargado o enlazado por el cliente. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase base abstracta para la gestión y abstracción de modelos de lenguaje (LLM). 
+
+Define la interfaz común que deben implementar obligatoriamente las subclases (ej\+: Groq\+Client, Local\+Llama, Open\+AIClient) para la generación de texto y evaluación de rendimiento. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classbase_1_1LLMModel_a887c9be98dba05959b2dcdaaa421b4e3}\label{classbase_1_1LLMModel_a887c9be98dba05959b2dcdaaa421b4e3}} 
+\index{base.LLMModel@{base.LLMModel}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!base.LLMModel@{base.LLMModel}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def base.\+LLMModel.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{name }\end{DoxyParamCaption})}
+
+
+
+Constructor de la clase base \mbox{\hyperlink{classbase_1_1LLMModel}{LLMModel}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Nombre comercial o identificador técnico del modelo de lenguaje (ej\+: \textquotesingle{}llama-\/3.\+1-\/8b\textquotesingle{}). \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classbase_1_1LLMModel_afdc284a1c14fe1dcf6280e8e1d52a543}\label{classbase_1_1LLMModel_afdc284a1c14fe1dcf6280e8e1d52a543}} 
+\index{base.LLMModel@{base.LLMModel}!benchmark@{benchmark}}
+\index{benchmark@{benchmark}!base.LLMModel@{base.LLMModel}}
+\doxysubsubsection{\texorpdfstring{benchmark()}{benchmark()}}
+{\footnotesize\ttfamily def base.\+LLMModel.\+benchmark (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{prompt }\end{DoxyParamCaption})}
+
+
+
+Ejecuta una prueba de rendimiento (benchmark) controlada sobre el método de generación. 
+
+Envuelve la llamada al método de inferencia {\ttfamily \mbox{\hyperlink{classbase_1_1LLMModel_ab2e4dea029a6ea0bf863e2957e3a67a4}{generate()}}}, inyecta trazas de depuración en la consola usando metatablas de la clase activa y retorna los datos para auditorías de latencia.
+
+
+\begin{DoxyParams}{Parameters}
+{\em prompt} & Texto de entrada o benchmark estándar para evaluar el comportamiento del modelo.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+tuple Una tupla {\ttfamily (response, extra)} idéntica a la respuesta del método de generación implementado. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbase_1_1LLMModel_afdc284a1c14fe1dcf6280e8e1d52a543_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbase_1_1LLMModel_ab2e4dea029a6ea0bf863e2957e3a67a4}\label{classbase_1_1LLMModel_ab2e4dea029a6ea0bf863e2957e3a67a4}} 
+\index{base.LLMModel@{base.LLMModel}!generate@{generate}}
+\index{generate@{generate}!base.LLMModel@{base.LLMModel}}
+\doxysubsubsection{\texorpdfstring{generate()}{generate()}}
+{\footnotesize\ttfamily def base.\+LLMModel.\+generate (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{prompt }\end{DoxyParamCaption})}
+
+
+
+Genera una respuesta de texto a partir de una instrucción o prompt estructurado. 
+
+Este es un método abstracto puro. Las subclases derivadas deben sobrescribir este método para comunicarse con sus respectivos backends o APIs de inferencia.
+
+
+\begin{DoxyParams}{Parameters}
+{\em prompt} & Cadena de texto limpia que contiene las directivas e historial de usuario.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+tuple Una tupla compuesta por {\ttfamily (response, extra)} donde\+:
+\begin{DoxyItemize}
+\item {\ttfamily response} (str)\+: El texto plano generado por el modelo.
+\item {\ttfamily extra} (dict)\+: Metadatos de la inferencia (tokens por segundo, tiempo de ejecución, etc.).
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Not\+Implemented\+Error} & Lanzada si se invoca el método directamente desde la clase base sin haber sido sobrescrito. \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classbase_1_1LLMModel_ac5d9df2ea9d3dac2e4853518ae7ef78f}\label{classbase_1_1LLMModel_ac5d9df2ea9d3dac2e4853518ae7ef78f}} 
+\index{base.LLMModel@{base.LLMModel}!name@{name}}
+\index{name@{name}!base.LLMModel@{base.LLMModel}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily base.\+LLMModel.\+name}
+
+
+
+Nombre identificativo del modelo cargado o enlazado por el cliente. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+llm\+\_\+package/core/\mbox{\hyperlink{base_8py}{base.\+py}}\end{DoxyCompactItemize}

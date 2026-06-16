@@ -1,0 +1,128 @@
+\hypertarget{classrunner_1_1BenchmarkRunner}{}\doxysection{runner.\+Benchmark\+Runner Class Reference}
+\label{classrunner_1_1BenchmarkRunner}\index{runner.BenchmarkRunner@{runner.BenchmarkRunner}}
+
+
+Clase encargada de coordinar, medir y persistir los tests de estrés y velocidad de las IA.  
+
+
+
+
+Collaboration diagram for runner.\+Benchmark\+Runner\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{classrunner_1_1BenchmarkRunner__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classrunner_1_1BenchmarkRunner_ad7c684e16136461192576bfbed1f8866}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classrunner_1_1BenchmarkRunner_a9d70ac416dffbb1d91e263c970495b56}{models}})
+\begin{DoxyCompactList}\small\item\em Constructor del ejecutor de benchmarks. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classrunner_1_1BenchmarkRunner_adb4c1a5aeda9b3dd1e034b9c9575ab8c}{safe\+\_\+run}} (self, model, prompt)
+\begin{DoxyCompactList}\small\item\em Ejecuta de forma segura una inferencia controlando excepciones y calculando latencias. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classrunner_1_1BenchmarkRunner_a11c654d2801cd9f52a49fc1098e83976}{run}} (self, prompts, repeats=1)
+\begin{DoxyCompactList}\small\item\em Lanza y orquesta el ciclo de evaluación masiva sobre todos los prompts y modelos configurados. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrunner_1_1BenchmarkRunner_a9d70ac416dffbb1d91e263c970495b56}{models}}
+\begin{DoxyCompactList}\small\item\em Colección de modelos de lenguaje que participarán activamente en la ronda de evaluación. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase encargada de coordinar, medir y persistir los tests de estrés y velocidad de las IA. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classrunner_1_1BenchmarkRunner_ad7c684e16136461192576bfbed1f8866}\label{classrunner_1_1BenchmarkRunner_ad7c684e16136461192576bfbed1f8866}} 
+\index{runner.BenchmarkRunner@{runner.BenchmarkRunner}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!runner.BenchmarkRunner@{runner.BenchmarkRunner}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def runner.\+Benchmark\+Runner.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{models }\end{DoxyParamCaption})}
+
+
+
+Constructor del ejecutor de benchmarks. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em models} & Lista de objetos instanciados que heredan de la interfaz base {\ttfamily LLMModel}. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classrunner_1_1BenchmarkRunner_a11c654d2801cd9f52a49fc1098e83976}\label{classrunner_1_1BenchmarkRunner_a11c654d2801cd9f52a49fc1098e83976}} 
+\index{runner.BenchmarkRunner@{runner.BenchmarkRunner}!run@{run}}
+\index{run@{run}!runner.BenchmarkRunner@{runner.BenchmarkRunner}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def runner.\+Benchmark\+Runner.\+run (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{prompts,  }\item[{}]{repeats = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+
+Lanza y orquesta el ciclo de evaluación masiva sobre todos los prompts y modelos configurados. 
+
+Estructura la ejecución mediante tres bucles anidados ({\ttfamily Rondas -\/\texorpdfstring{$>$}{>} Prompts -\/\texorpdfstring{$>$}{>} Modelos}), guarda atómicamente cada resultado parcial en disco delegando en {\ttfamily save\+\_\+result} y aplica una pausa controlada (cooldown) de 500 milisegundos entre llamadas.
+
+\begin{DoxyNote}{Note}
+El retraso de {\ttfamily time.\+sleep(0.\+5)} se introduce de forma estratégica para mitigar el riesgo de bloqueo de IP en servidores remotos por Rate Limiting (peticiones concurrentes excesivas / RPM).
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em prompts} & Lista de cadenas de texto con las preguntas o tests de evaluación sintáctica. \\
+\hline
+{\em repeats} & Número total de iteraciones completas (rondas) que se realizarán para promediar métricas.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+list Lista consolidada con todos los diccionarios de resultados generados durante la prueba. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classrunner_1_1BenchmarkRunner_a11c654d2801cd9f52a49fc1098e83976_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classrunner_1_1BenchmarkRunner_adb4c1a5aeda9b3dd1e034b9c9575ab8c}\label{classrunner_1_1BenchmarkRunner_adb4c1a5aeda9b3dd1e034b9c9575ab8c}} 
+\index{runner.BenchmarkRunner@{runner.BenchmarkRunner}!safe\_run@{safe\_run}}
+\index{safe\_run@{safe\_run}!runner.BenchmarkRunner@{runner.BenchmarkRunner}}
+\doxysubsubsection{\texorpdfstring{safe\_run()}{safe\_run()}}
+{\footnotesize\ttfamily def runner.\+Benchmark\+Runner.\+safe\+\_\+run (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{model,  }\item[{}]{prompt }\end{DoxyParamCaption})}
+
+
+
+Ejecuta de forma segura una inferencia controlando excepciones y calculando latencias. 
+
+Captura marcas de tiempo Unix de alta precisión inmediatamente antes y después del proceso de generación para deducir la latencia total del viaje de red (Round-\/\+Trip Time). Si el modelo genera un timeout o una excepción de API, la función la encapsula limpiamente.
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & Instancia concreta del modelo de lenguaje que se va a testear. \\
+\hline
+{\em prompt} & Texto explícito de la instrucción o comando enviado al modelo.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+dict Diccionario estructurado con el estado de la inferencia, texto generado y telemetría. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classrunner_1_1BenchmarkRunner_a9d70ac416dffbb1d91e263c970495b56}\label{classrunner_1_1BenchmarkRunner_a9d70ac416dffbb1d91e263c970495b56}} 
+\index{runner.BenchmarkRunner@{runner.BenchmarkRunner}!models@{models}}
+\index{models@{models}!runner.BenchmarkRunner@{runner.BenchmarkRunner}}
+\doxysubsubsection{\texorpdfstring{models}{models}}
+{\footnotesize\ttfamily runner.\+Benchmark\+Runner.\+models}
+
+
+
+Colección de modelos de lenguaje que participarán activamente en la ronda de evaluación. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+llm\+\_\+package/core/\mbox{\hyperlink{runner_8py}{runner.\+py}}\end{DoxyCompactItemize}

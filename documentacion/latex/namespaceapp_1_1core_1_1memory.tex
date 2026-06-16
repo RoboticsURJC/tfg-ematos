@@ -1,0 +1,117 @@
+\hypertarget{namespaceapp_1_1core_1_1memory}{}\doxysection{app.\+core.\+memory Namespace Reference}
+\label{namespaceapp_1_1core_1_1memory}\index{app.core.memory@{app.core.memory}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceapp_1_1core_1_1memory_aaeeaf99a97e5962e4d09291f4619ca2f}{cargar\+\_\+memoria}} ()
+\begin{DoxyCompactList}\small\item\em Carga la memoria desde disco. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceapp_1_1core_1_1memory_ad16e86321e81e09fb0056e84ffc2abfe}{guardar\+\_\+memoria}} (dict memoria)
+\begin{DoxyCompactList}\small\item\em Guarda la memoria en disco. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceapp_1_1core_1_1memory_a0fd07fc1100456c5f8f0ba00dce143e3}{agregar\+\_\+interaccion}} (memoria, usuario, texto\+\_\+usuario, respuesta\+\_\+bot)
+\begin{DoxyCompactList}\small\item\em Añade una interacción al historial de un usuario. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceapp_1_1core_1_1memory_a4ffffc8ce49b0c20d92fd6ee7be9226a}{obtener\+\_\+historial}} (memoria, usuario, limite=5)
+\begin{DoxyCompactList}\small\item\em Obtiene las últimas interacciones de un usuario. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{namespaceapp_1_1core_1_1memory_a7697221f507d22dc643040c2abd5798b}{MEMORY\+\_\+\+FILE}} = \char`\"{}memoria\+\_\+usuarios.\+json\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceapp_1_1core_1_1memory_a0fd07fc1100456c5f8f0ba00dce143e3}\label{namespaceapp_1_1core_1_1memory_a0fd07fc1100456c5f8f0ba00dce143e3}} 
+\index{app.core.memory@{app.core.memory}!agregar\_interaccion@{agregar\_interaccion}}
+\index{agregar\_interaccion@{agregar\_interaccion}!app.core.memory@{app.core.memory}}
+\doxysubsubsection{\texorpdfstring{agregar\_interaccion()}{agregar\_interaccion()}}
+{\footnotesize\ttfamily def app.\+core.\+memory.\+agregar\+\_\+interaccion (\begin{DoxyParamCaption}\item[{}]{memoria,  }\item[{}]{usuario,  }\item[{}]{texto\+\_\+usuario,  }\item[{}]{respuesta\+\_\+bot }\end{DoxyParamCaption})}
+
+
+
+Añade una interacción al historial de un usuario. 
+
+Inserta un nuevo registro con el mensaje del usuario, la respuesta del bot y la marca temporal actual.
+
+
+\begin{DoxyParams}{Parameters}
+{\em memoria} & Diccionario de memoria global. \\
+\hline
+{\em usuario} & Nombre o identificador del usuario. \\
+\hline
+{\em texto\+\_\+usuario} & Mensaje enviado por el usuario. \\
+\hline
+{\em respuesta\+\_\+bot} & Respuesta generada por el bot.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+dict Memoria actualizada.
+\end{DoxyReturn}
+Añade una interacción al historial. \mbox{\Hypertarget{namespaceapp_1_1core_1_1memory_aaeeaf99a97e5962e4d09291f4619ca2f}\label{namespaceapp_1_1core_1_1memory_aaeeaf99a97e5962e4d09291f4619ca2f}} 
+\index{app.core.memory@{app.core.memory}!cargar\_memoria@{cargar\_memoria}}
+\index{cargar\_memoria@{cargar\_memoria}!app.core.memory@{app.core.memory}}
+\doxysubsubsection{\texorpdfstring{cargar\_memoria()}{cargar\_memoria()}}
+{\footnotesize\ttfamily def app.\+core.\+memory.\+cargar\+\_\+memoria (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Carga la memoria desde disco. 
+
+Verifica si el archivo de memoria existe y devuelve su contenido como diccionario.
+
+\begin{DoxyReturn}{Returns}
+dict Memoria cargada desde el archivo. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em \{\}} & Si el archivo no existe o ocurre un error.\\
+\hline
+\end{DoxyRetVals}
+Carga la memoria desde disco. \mbox{\Hypertarget{namespaceapp_1_1core_1_1memory_ad16e86321e81e09fb0056e84ffc2abfe}\label{namespaceapp_1_1core_1_1memory_ad16e86321e81e09fb0056e84ffc2abfe}} 
+\index{app.core.memory@{app.core.memory}!guardar\_memoria@{guardar\_memoria}}
+\index{guardar\_memoria@{guardar\_memoria}!app.core.memory@{app.core.memory}}
+\doxysubsubsection{\texorpdfstring{guardar\_memoria()}{guardar\_memoria()}}
+{\footnotesize\ttfamily def app.\+core.\+memory.\+guardar\+\_\+memoria (\begin{DoxyParamCaption}\item[{dict}]{memoria }\end{DoxyParamCaption})}
+
+
+
+Guarda la memoria en disco. 
+
+Serializa el diccionario de memoria en formato JSON.
+
+
+\begin{DoxyParams}{Parameters}
+{\em memoria} & Diccionario con la información a guardar.\\
+\hline
+\end{DoxyParams}
+Guarda la memoria en disco. \mbox{\Hypertarget{namespaceapp_1_1core_1_1memory_a4ffffc8ce49b0c20d92fd6ee7be9226a}\label{namespaceapp_1_1core_1_1memory_a4ffffc8ce49b0c20d92fd6ee7be9226a}} 
+\index{app.core.memory@{app.core.memory}!obtener\_historial@{obtener\_historial}}
+\index{obtener\_historial@{obtener\_historial}!app.core.memory@{app.core.memory}}
+\doxysubsubsection{\texorpdfstring{obtener\_historial()}{obtener\_historial()}}
+{\footnotesize\ttfamily def app.\+core.\+memory.\+obtener\+\_\+historial (\begin{DoxyParamCaption}\item[{}]{memoria,  }\item[{}]{usuario,  }\item[{}]{limite = {\ttfamily 5} }\end{DoxyParamCaption})}
+
+
+
+Obtiene las últimas interacciones de un usuario. 
+
+Recupera un número limitado de mensajes recientes almacenados en el historial.
+
+
+\begin{DoxyParams}{Parameters}
+{\em memoria} & Diccionario de memoria global. \\
+\hline
+{\em usuario} & Nombre o identificador del usuario. \\
+\hline
+{\em limite} & Número máximo de interacciones a devolver.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+list Lista con las últimas interacciones.
+\end{DoxyReturn}
+Devuelve últimas interacciones del usuario. 
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespaceapp_1_1core_1_1memory_a7697221f507d22dc643040c2abd5798b}\label{namespaceapp_1_1core_1_1memory_a7697221f507d22dc643040c2abd5798b}} 
+\index{app.core.memory@{app.core.memory}!MEMORY\_FILE@{MEMORY\_FILE}}
+\index{MEMORY\_FILE@{MEMORY\_FILE}!app.core.memory@{app.core.memory}}
+\doxysubsubsection{\texorpdfstring{MEMORY\_FILE}{MEMORY\_FILE}}
+{\footnotesize\ttfamily string app.\+core.\+memory.\+MEMORY\+\_\+\+FILE = \char`\"{}memoria\+\_\+usuarios.\+json\char`\"{}}
+

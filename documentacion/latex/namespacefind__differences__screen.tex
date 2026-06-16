@@ -1,0 +1,307 @@
+\hypertarget{namespacefind__differences__screen}{}\doxysection{find\+\_\+differences\+\_\+screen Namespace Reference}
+\label{namespacefind__differences__screen}\index{find\_differences\_screen@{find\_differences\_screen}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classfind__differences__screen_1_1Difference}{Difference}}
+\begin{DoxyCompactList}\small\item\em Estructura de control que define una diferencia inyectada entre los dos lienzos. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen}{Find\+Differences\+Screen}}
+\begin{DoxyCompactList}\small\item\em Pantalla del juego encargada de gestionar el ciclo de vida, la lógica y el renderizado. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classfind__differences__screen_1_1SceneObject}{Scene\+Object}}
+\begin{DoxyCompactList}\small\item\em Entidad abstracta que representa una primitiva geométrica dibujable dentro de los lienzos. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacefind__differences__screen_a1baf99688ab8dbaa2006271c6bc5ef7a}{\+\_\+darken}} (color, factor=0.\+7)
+\begin{DoxyCompactList}\small\item\em Atenúa u oscurece un color RGB aplicando un factor multiplicativo de escala. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespacefind__differences__screen_aa090a2129d4066fbeec5915788f728c2}{\+\_\+lighten}} (color, factor=1.\+3)
+\begin{DoxyCompactList}\small\item\em Intensifica o aclara un color RGB aplicando un factor multiplicativo de escala. \end{DoxyCompactList}\item 
+list \mbox{\hyperlink{namespacefind__differences__screen_a4c5b9723d04260cbd121e797a30ceedc}{generate\+\_\+scene}} (int n\+\_\+objects, str theme\+\_\+name, int canvas\+\_\+w, int canvas\+\_\+h)
+\begin{DoxyCompactList}\small\item\em Genera procedimentalmente una colección de objetos distribuidos sobre una rejilla ortogonal desordenada. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespacefind__differences__screen_a34df581cdc8072ec3fc71faf01c421cc}{apply\+\_\+differences}} (list base\+\_\+objects, int n\+\_\+diffs, int canvas\+\_\+w, int canvas\+\_\+h, str theme\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Toma una escena base y genera una copia mutada inyectando un número determinado de diferencias lógicas. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+tuple \mbox{\hyperlink{namespacefind__differences__screen_ac589826ced770f5731ce23cdc81246f7}{P\+\_\+\+BG\+\_\+\+TOP}} = (255, 240, 250)
+\item 
+tuple \mbox{\hyperlink{namespacefind__differences__screen_ae6506e259a77100d6bf49ce3c9030e31}{P\+\_\+\+BG\+\_\+\+BOTTOM}} = (230, 240, 255)
+\item 
+tuple \mbox{\hyperlink{namespacefind__differences__screen_a81fa7d9e4776b2049bf6ddcc818b4132}{P\+\_\+\+TITLE}} = (180, 90, 180)
+\item 
+tuple \mbox{\hyperlink{namespacefind__differences__screen_a1fa5e0b64a790174369ff03bf692f1f1}{P\+\_\+\+SUBTITLE}} = (140, 110, 180)
+\item 
+tuple \mbox{\hyperlink{namespacefind__differences__screen_a26c19012f07153bfc23cbc91bc581ee7}{P\+\_\+\+SHADOW}} = (210, 200, 225)
+\item 
+tuple \mbox{\hyperlink{namespacefind__differences__screen_ad11f89981284cf058cff24184fa3c039}{P\+\_\+\+BTN\+\_\+\+TEXT}} = ( 60, 40, 90)
+\item 
+tuple \mbox{\hyperlink{namespacefind__differences__screen_a5711c9bea420193e1eef9d4a83a91697}{P\+\_\+\+PANEL\+\_\+\+BG}} = (245, 240, 255)
+\item 
+tuple \mbox{\hyperlink{namespacefind__differences__screen_a7734b0a0a4ed28f0645a4b09a5055e1e}{P\+\_\+\+PANEL\+\_\+\+BORDER}} = (200, 180, 230)
+\item 
+tuple \mbox{\hyperlink{namespacefind__differences__screen_aeba7003fd0896355215c0a968224ebb9}{P\+\_\+\+BTN\+\_\+\+BACK}} = (180, 200, 255)
+\item 
+tuple \mbox{\hyperlink{namespacefind__differences__screen_a28a464b542d597b11456fe2f82015722}{P\+\_\+\+BTN\+\_\+\+EASY}} = (150, 230, 180)
+\item 
+tuple \mbox{\hyperlink{namespacefind__differences__screen_aad380f6b9377accc47d7148873496465}{P\+\_\+\+BTN\+\_\+\+MEDIUM}} = (255, 210, 130)
+\item 
+tuple \mbox{\hyperlink{namespacefind__differences__screen_ac9c8fc13b8e86a9f0e2858dbf0ca69b0}{P\+\_\+\+BTN\+\_\+\+HARD}} = (255, 160, 160)
+\item 
+tuple \mbox{\hyperlink{namespacefind__differences__screen_a85536cd6bc100a2602bbd59ac341f812}{P\+\_\+\+BTN\+\_\+\+EXIT}} = (255, 170, 170)
+\item 
+tuple \mbox{\hyperlink{namespacefind__differences__screen_a3ef02e66748cf048dff1cc0d23f57399}{P\+\_\+\+FOUND\+\_\+\+RING}} = ( 80, 200, 120)
+\item 
+tuple \mbox{\hyperlink{namespacefind__differences__screen_a8a1ea5f10e3631c5cb534a76b920ff1f}{P\+\_\+\+MISS\+\_\+\+FLASH}} = (220, 80, 80)
+\item 
+dictionary \mbox{\hyperlink{namespacefind__differences__screen_a23c4339ee4096fb282e5b3eeaa3bfef3}{DIFFICULTY}}
+\begin{DoxyCompactList}\small\item\em Diccionario de configuración de parámetros lógicos indexados por nivel de dificultad. \end{DoxyCompactList}\item 
+dictionary \mbox{\hyperlink{namespacefind__differences__screen_a7d63170448d2a0367fe396932ba8f281}{THEMES}}
+\begin{DoxyCompactList}\small\item\em Estructuras temáticas que definen los fondos, paletas de dibujo y morfologías disponibles para la escena. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacefind__differences__screen_a1baf99688ab8dbaa2006271c6bc5ef7a}\label{namespacefind__differences__screen_a1baf99688ab8dbaa2006271c6bc5ef7a}} 
+\index{find\_differences\_screen@{find\_differences\_screen}!\_darken@{\_darken}}
+\index{\_darken@{\_darken}!find\_differences\_screen@{find\_differences\_screen}}
+\doxysubsubsection{\texorpdfstring{\_darken()}{\_darken()}}
+{\footnotesize\ttfamily def find\+\_\+differences\+\_\+screen.\+\_\+darken (\begin{DoxyParamCaption}\item[{}]{color,  }\item[{}]{factor = {\ttfamily 0.7} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Atenúa u oscurece un color RGB aplicando un factor multiplicativo de escala. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & Tupla {\ttfamily (R, G, B)} original. \\
+\hline
+{\em factor} & Coeficiente flotante de atenuación lineal. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+tuple Tupla {\ttfamily (R, G, B)} resultante normalizada en el rango \mbox{[}0, 255\mbox{]}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacefind__differences__screen_aa090a2129d4066fbeec5915788f728c2}\label{namespacefind__differences__screen_aa090a2129d4066fbeec5915788f728c2}} 
+\index{find\_differences\_screen@{find\_differences\_screen}!\_lighten@{\_lighten}}
+\index{\_lighten@{\_lighten}!find\_differences\_screen@{find\_differences\_screen}}
+\doxysubsubsection{\texorpdfstring{\_lighten()}{\_lighten()}}
+{\footnotesize\ttfamily def find\+\_\+differences\+\_\+screen.\+\_\+lighten (\begin{DoxyParamCaption}\item[{}]{color,  }\item[{}]{factor = {\ttfamily 1.3} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Intensifica o aclara un color RGB aplicando un factor multiplicativo de escala. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & Tupla {\ttfamily (R, G, B)} original. \\
+\hline
+{\em factor} & Coeficiente flotante de amplificación lineal. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+tuple Tupla {\ttfamily (R, G, B)} resultante acotada en el rango \mbox{[}0, 255\mbox{]}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacefind__differences__screen_a34df581cdc8072ec3fc71faf01c421cc}\label{namespacefind__differences__screen_a34df581cdc8072ec3fc71faf01c421cc}} 
+\index{find\_differences\_screen@{find\_differences\_screen}!apply\_differences@{apply\_differences}}
+\index{apply\_differences@{apply\_differences}!find\_differences\_screen@{find\_differences\_screen}}
+\doxysubsubsection{\texorpdfstring{apply\_differences()}{apply\_differences()}}
+{\footnotesize\ttfamily def find\+\_\+differences\+\_\+screen.\+apply\+\_\+differences (\begin{DoxyParamCaption}\item[{list}]{base\+\_\+objects,  }\item[{int}]{n\+\_\+diffs,  }\item[{int}]{canvas\+\_\+w,  }\item[{int}]{canvas\+\_\+h,  }\item[{str}]{theme\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Toma una escena base y genera una copia mutada inyectando un número determinado de diferencias lógicas. 
+
+Selecciona de manera aleatoria objetos para alterar sus atributos de color, escala, eliminar su visibilidad o añadir nuevos componentes huérfanos sobre zonas libres del canvas.
+
+
+\begin{DoxyParams}{Parameters}
+{\em base\+\_\+objects} & Colección original de objetos que componen el lienzo primario A. \\
+\hline
+{\em n\+\_\+diffs} & Número estricto de mutaciones a inyectar en la escena modificada B. \\
+\hline
+{\em canvas\+\_\+w} & Ancho útil de la superficie de renderizado. \\
+\hline
+{\em canvas\+\_\+h} & Alto útil de la superficie de renderizado. \\
+\hline
+{\em theme\+\_\+name} & Identificador del tema gráfico para la extracción de colores de reemplazo. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+tuple Una tupla contenedora de {\ttfamily (lista\+\_\+objetos\+\_\+mutados, lista\+\_\+de\+\_\+instancias\+\_\+\+Difference)}. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacefind__differences__screen_a34df581cdc8072ec3fc71faf01c421cc_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacefind__differences__screen_a4c5b9723d04260cbd121e797a30ceedc}\label{namespacefind__differences__screen_a4c5b9723d04260cbd121e797a30ceedc}} 
+\index{find\_differences\_screen@{find\_differences\_screen}!generate\_scene@{generate\_scene}}
+\index{generate\_scene@{generate\_scene}!find\_differences\_screen@{find\_differences\_screen}}
+\doxysubsubsection{\texorpdfstring{generate\_scene()}{generate\_scene()}}
+{\footnotesize\ttfamily  list find\+\_\+differences\+\_\+screen.\+generate\+\_\+scene (\begin{DoxyParamCaption}\item[{int}]{n\+\_\+objects,  }\item[{str}]{theme\+\_\+name,  }\item[{int}]{canvas\+\_\+w,  }\item[{int}]{canvas\+\_\+h }\end{DoxyParamCaption})}
+
+
+
+Genera procedimentalmente una colección de objetos distribuidos sobre una rejilla ortogonal desordenada. 
+
+Segmenta el lienzo en regiones proporcionales para mitigar colisiones directas o solapamientos masivos de las primitivas geométricas, aplicando variaciones aleatorias de tamaño y posición dentro de cada celda.
+
+
+\begin{DoxyParams}{Parameters}
+{\em n\+\_\+objects} & Número total de elementos que se instanciarán en la escena. \\
+\hline
+{\em theme\+\_\+name} & Identificador de texto de la paleta temática a emplear. \\
+\hline
+{\em canvas\+\_\+w} & Ancho útil de la superficie de renderizado. \\
+\hline
+{\em canvas\+\_\+h} & Alto útil de la superficie de renderizado. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+list Vector relleno de instancias de tipo \mbox{\hyperlink{classfind__differences__screen_1_1SceneObject}{Scene\+Object}}. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacefind__differences__screen_a23c4339ee4096fb282e5b3eeaa3bfef3}\label{namespacefind__differences__screen_a23c4339ee4096fb282e5b3eeaa3bfef3}} 
+\index{find\_differences\_screen@{find\_differences\_screen}!DIFFICULTY@{DIFFICULTY}}
+\index{DIFFICULTY@{DIFFICULTY}!find\_differences\_screen@{find\_differences\_screen}}
+\doxysubsubsection{\texorpdfstring{DIFFICULTY}{DIFFICULTY}}
+{\footnotesize\ttfamily dictionary find\+\_\+differences\+\_\+screen.\+DIFFICULTY}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  \{}
+\DoxyCodeLine{2     \textcolor{stringliteral}{"{}facil"{}}:   \{\textcolor{stringliteral}{"{}n\_objects"{}}: 8,  \textcolor{stringliteral}{"{}n\_diffs"{}}: 3, \textcolor{stringliteral}{"{}time\_limit"{}}: 0\},   \textcolor{comment}{\# Sin límite temporal}}
+\DoxyCodeLine{3     \textcolor{stringliteral}{"{}medio"{}}:   \{\textcolor{stringliteral}{"{}n\_objects"{}}: 12, \textcolor{stringliteral}{"{}n\_diffs"{}}: 5, \textcolor{stringliteral}{"{}time\_limit"{}}: 120\},  \textcolor{comment}{\# 2 minutos}}
+\DoxyCodeLine{4     \textcolor{stringliteral}{"{}dificil"{}}: \{\textcolor{stringliteral}{"{}n\_objects"{}}: 16, \textcolor{stringliteral}{"{}n\_diffs"{}}: 7, \textcolor{stringliteral}{"{}time\_limit"{}}: 90\},   \textcolor{comment}{\# 90 segundos}}
+\DoxyCodeLine{5 \}}
+
+\end{DoxyCode}
+
+
+Diccionario de configuración de parámetros lógicos indexados por nivel de dificultad. 
+
+\mbox{\Hypertarget{namespacefind__differences__screen_ae6506e259a77100d6bf49ce3c9030e31}\label{namespacefind__differences__screen_ae6506e259a77100d6bf49ce3c9030e31}} 
+\index{find\_differences\_screen@{find\_differences\_screen}!P\_BG\_BOTTOM@{P\_BG\_BOTTOM}}
+\index{P\_BG\_BOTTOM@{P\_BG\_BOTTOM}!find\_differences\_screen@{find\_differences\_screen}}
+\doxysubsubsection{\texorpdfstring{P\_BG\_BOTTOM}{P\_BG\_BOTTOM}}
+{\footnotesize\ttfamily tuple find\+\_\+differences\+\_\+screen.\+P\+\_\+\+BG\+\_\+\+BOTTOM = (230, 240, 255)}
+
+\mbox{\Hypertarget{namespacefind__differences__screen_ac589826ced770f5731ce23cdc81246f7}\label{namespacefind__differences__screen_ac589826ced770f5731ce23cdc81246f7}} 
+\index{find\_differences\_screen@{find\_differences\_screen}!P\_BG\_TOP@{P\_BG\_TOP}}
+\index{P\_BG\_TOP@{P\_BG\_TOP}!find\_differences\_screen@{find\_differences\_screen}}
+\doxysubsubsection{\texorpdfstring{P\_BG\_TOP}{P\_BG\_TOP}}
+{\footnotesize\ttfamily tuple find\+\_\+differences\+\_\+screen.\+P\+\_\+\+BG\+\_\+\+TOP = (255, 240, 250)}
+
+\mbox{\Hypertarget{namespacefind__differences__screen_aeba7003fd0896355215c0a968224ebb9}\label{namespacefind__differences__screen_aeba7003fd0896355215c0a968224ebb9}} 
+\index{find\_differences\_screen@{find\_differences\_screen}!P\_BTN\_BACK@{P\_BTN\_BACK}}
+\index{P\_BTN\_BACK@{P\_BTN\_BACK}!find\_differences\_screen@{find\_differences\_screen}}
+\doxysubsubsection{\texorpdfstring{P\_BTN\_BACK}{P\_BTN\_BACK}}
+{\footnotesize\ttfamily tuple find\+\_\+differences\+\_\+screen.\+P\+\_\+\+BTN\+\_\+\+BACK = (180, 200, 255)}
+
+\mbox{\Hypertarget{namespacefind__differences__screen_a28a464b542d597b11456fe2f82015722}\label{namespacefind__differences__screen_a28a464b542d597b11456fe2f82015722}} 
+\index{find\_differences\_screen@{find\_differences\_screen}!P\_BTN\_EASY@{P\_BTN\_EASY}}
+\index{P\_BTN\_EASY@{P\_BTN\_EASY}!find\_differences\_screen@{find\_differences\_screen}}
+\doxysubsubsection{\texorpdfstring{P\_BTN\_EASY}{P\_BTN\_EASY}}
+{\footnotesize\ttfamily tuple find\+\_\+differences\+\_\+screen.\+P\+\_\+\+BTN\+\_\+\+EASY = (150, 230, 180)}
+
+\mbox{\Hypertarget{namespacefind__differences__screen_a85536cd6bc100a2602bbd59ac341f812}\label{namespacefind__differences__screen_a85536cd6bc100a2602bbd59ac341f812}} 
+\index{find\_differences\_screen@{find\_differences\_screen}!P\_BTN\_EXIT@{P\_BTN\_EXIT}}
+\index{P\_BTN\_EXIT@{P\_BTN\_EXIT}!find\_differences\_screen@{find\_differences\_screen}}
+\doxysubsubsection{\texorpdfstring{P\_BTN\_EXIT}{P\_BTN\_EXIT}}
+{\footnotesize\ttfamily tuple find\+\_\+differences\+\_\+screen.\+P\+\_\+\+BTN\+\_\+\+EXIT = (255, 170, 170)}
+
+\mbox{\Hypertarget{namespacefind__differences__screen_ac9c8fc13b8e86a9f0e2858dbf0ca69b0}\label{namespacefind__differences__screen_ac9c8fc13b8e86a9f0e2858dbf0ca69b0}} 
+\index{find\_differences\_screen@{find\_differences\_screen}!P\_BTN\_HARD@{P\_BTN\_HARD}}
+\index{P\_BTN\_HARD@{P\_BTN\_HARD}!find\_differences\_screen@{find\_differences\_screen}}
+\doxysubsubsection{\texorpdfstring{P\_BTN\_HARD}{P\_BTN\_HARD}}
+{\footnotesize\ttfamily tuple find\+\_\+differences\+\_\+screen.\+P\+\_\+\+BTN\+\_\+\+HARD = (255, 160, 160)}
+
+\mbox{\Hypertarget{namespacefind__differences__screen_aad380f6b9377accc47d7148873496465}\label{namespacefind__differences__screen_aad380f6b9377accc47d7148873496465}} 
+\index{find\_differences\_screen@{find\_differences\_screen}!P\_BTN\_MEDIUM@{P\_BTN\_MEDIUM}}
+\index{P\_BTN\_MEDIUM@{P\_BTN\_MEDIUM}!find\_differences\_screen@{find\_differences\_screen}}
+\doxysubsubsection{\texorpdfstring{P\_BTN\_MEDIUM}{P\_BTN\_MEDIUM}}
+{\footnotesize\ttfamily tuple find\+\_\+differences\+\_\+screen.\+P\+\_\+\+BTN\+\_\+\+MEDIUM = (255, 210, 130)}
+
+\mbox{\Hypertarget{namespacefind__differences__screen_ad11f89981284cf058cff24184fa3c039}\label{namespacefind__differences__screen_ad11f89981284cf058cff24184fa3c039}} 
+\index{find\_differences\_screen@{find\_differences\_screen}!P\_BTN\_TEXT@{P\_BTN\_TEXT}}
+\index{P\_BTN\_TEXT@{P\_BTN\_TEXT}!find\_differences\_screen@{find\_differences\_screen}}
+\doxysubsubsection{\texorpdfstring{P\_BTN\_TEXT}{P\_BTN\_TEXT}}
+{\footnotesize\ttfamily tuple find\+\_\+differences\+\_\+screen.\+P\+\_\+\+BTN\+\_\+\+TEXT = ( 60, 40, 90)}
+
+\mbox{\Hypertarget{namespacefind__differences__screen_a3ef02e66748cf048dff1cc0d23f57399}\label{namespacefind__differences__screen_a3ef02e66748cf048dff1cc0d23f57399}} 
+\index{find\_differences\_screen@{find\_differences\_screen}!P\_FOUND\_RING@{P\_FOUND\_RING}}
+\index{P\_FOUND\_RING@{P\_FOUND\_RING}!find\_differences\_screen@{find\_differences\_screen}}
+\doxysubsubsection{\texorpdfstring{P\_FOUND\_RING}{P\_FOUND\_RING}}
+{\footnotesize\ttfamily tuple find\+\_\+differences\+\_\+screen.\+P\+\_\+\+FOUND\+\_\+\+RING = ( 80, 200, 120)}
+
+\mbox{\Hypertarget{namespacefind__differences__screen_a8a1ea5f10e3631c5cb534a76b920ff1f}\label{namespacefind__differences__screen_a8a1ea5f10e3631c5cb534a76b920ff1f}} 
+\index{find\_differences\_screen@{find\_differences\_screen}!P\_MISS\_FLASH@{P\_MISS\_FLASH}}
+\index{P\_MISS\_FLASH@{P\_MISS\_FLASH}!find\_differences\_screen@{find\_differences\_screen}}
+\doxysubsubsection{\texorpdfstring{P\_MISS\_FLASH}{P\_MISS\_FLASH}}
+{\footnotesize\ttfamily tuple find\+\_\+differences\+\_\+screen.\+P\+\_\+\+MISS\+\_\+\+FLASH = (220, 80, 80)}
+
+\mbox{\Hypertarget{namespacefind__differences__screen_a5711c9bea420193e1eef9d4a83a91697}\label{namespacefind__differences__screen_a5711c9bea420193e1eef9d4a83a91697}} 
+\index{find\_differences\_screen@{find\_differences\_screen}!P\_PANEL\_BG@{P\_PANEL\_BG}}
+\index{P\_PANEL\_BG@{P\_PANEL\_BG}!find\_differences\_screen@{find\_differences\_screen}}
+\doxysubsubsection{\texorpdfstring{P\_PANEL\_BG}{P\_PANEL\_BG}}
+{\footnotesize\ttfamily tuple find\+\_\+differences\+\_\+screen.\+P\+\_\+\+PANEL\+\_\+\+BG = (245, 240, 255)}
+
+\mbox{\Hypertarget{namespacefind__differences__screen_a7734b0a0a4ed28f0645a4b09a5055e1e}\label{namespacefind__differences__screen_a7734b0a0a4ed28f0645a4b09a5055e1e}} 
+\index{find\_differences\_screen@{find\_differences\_screen}!P\_PANEL\_BORDER@{P\_PANEL\_BORDER}}
+\index{P\_PANEL\_BORDER@{P\_PANEL\_BORDER}!find\_differences\_screen@{find\_differences\_screen}}
+\doxysubsubsection{\texorpdfstring{P\_PANEL\_BORDER}{P\_PANEL\_BORDER}}
+{\footnotesize\ttfamily tuple find\+\_\+differences\+\_\+screen.\+P\+\_\+\+PANEL\+\_\+\+BORDER = (200, 180, 230)}
+
+\mbox{\Hypertarget{namespacefind__differences__screen_a26c19012f07153bfc23cbc91bc581ee7}\label{namespacefind__differences__screen_a26c19012f07153bfc23cbc91bc581ee7}} 
+\index{find\_differences\_screen@{find\_differences\_screen}!P\_SHADOW@{P\_SHADOW}}
+\index{P\_SHADOW@{P\_SHADOW}!find\_differences\_screen@{find\_differences\_screen}}
+\doxysubsubsection{\texorpdfstring{P\_SHADOW}{P\_SHADOW}}
+{\footnotesize\ttfamily tuple find\+\_\+differences\+\_\+screen.\+P\+\_\+\+SHADOW = (210, 200, 225)}
+
+\mbox{\Hypertarget{namespacefind__differences__screen_a1fa5e0b64a790174369ff03bf692f1f1}\label{namespacefind__differences__screen_a1fa5e0b64a790174369ff03bf692f1f1}} 
+\index{find\_differences\_screen@{find\_differences\_screen}!P\_SUBTITLE@{P\_SUBTITLE}}
+\index{P\_SUBTITLE@{P\_SUBTITLE}!find\_differences\_screen@{find\_differences\_screen}}
+\doxysubsubsection{\texorpdfstring{P\_SUBTITLE}{P\_SUBTITLE}}
+{\footnotesize\ttfamily tuple find\+\_\+differences\+\_\+screen.\+P\+\_\+\+SUBTITLE = (140, 110, 180)}
+
+\mbox{\Hypertarget{namespacefind__differences__screen_a81fa7d9e4776b2049bf6ddcc818b4132}\label{namespacefind__differences__screen_a81fa7d9e4776b2049bf6ddcc818b4132}} 
+\index{find\_differences\_screen@{find\_differences\_screen}!P\_TITLE@{P\_TITLE}}
+\index{P\_TITLE@{P\_TITLE}!find\_differences\_screen@{find\_differences\_screen}}
+\doxysubsubsection{\texorpdfstring{P\_TITLE}{P\_TITLE}}
+{\footnotesize\ttfamily tuple find\+\_\+differences\+\_\+screen.\+P\+\_\+\+TITLE = (180, 90, 180)}
+
+\mbox{\Hypertarget{namespacefind__differences__screen_a7d63170448d2a0367fe396932ba8f281}\label{namespacefind__differences__screen_a7d63170448d2a0367fe396932ba8f281}} 
+\index{find\_differences\_screen@{find\_differences\_screen}!THEMES@{THEMES}}
+\index{THEMES@{THEMES}!find\_differences\_screen@{find\_differences\_screen}}
+\doxysubsubsection{\texorpdfstring{THEMES}{THEMES}}
+{\footnotesize\ttfamily dictionary find\+\_\+differences\+\_\+screen.\+THEMES}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  \{}
+\DoxyCodeLine{2     \textcolor{stringliteral}{"{}jardin"{}}: \{}
+\DoxyCodeLine{3         \textcolor{stringliteral}{"{}bg"{}}:      (210, 235, 200),}
+\DoxyCodeLine{4         \textcolor{stringliteral}{"{}colors"{}}:  [(220, 80, 80), (80, 160, 80), (255, 200, 50), (150, 80, 200), (255, 150, 50), (60, 130, 60), (200, 240, 160)],}
+\DoxyCodeLine{5         \textcolor{stringliteral}{"{}shapes"{}}:  [\textcolor{stringliteral}{"{}circle"{}}, \textcolor{stringliteral}{"{}rect"{}}, \textcolor{stringliteral}{"{}triangle"{}}],}
+\DoxyCodeLine{6     \},}
+\DoxyCodeLine{7     \textcolor{stringliteral}{"{}ciudad"{}}: \{}
+\DoxyCodeLine{8         \textcolor{stringliteral}{"{}bg"{}}:      (200, 210, 230),}
+\DoxyCodeLine{9         \textcolor{stringliteral}{"{}colors"{}}:  [(100, 140, 200), (180, 120, 60), (220, 220, 220), (60, 60, 100), (240, 180, 60), (200, 60, 60), (120, 180, 120)],}
+\DoxyCodeLine{10         \textcolor{stringliteral}{"{}shapes"{}}:  [\textcolor{stringliteral}{"{}rect"{}}, \textcolor{stringliteral}{"{}rect"{}}, \textcolor{stringliteral}{"{}circle"{}}],}
+\DoxyCodeLine{11     \},}
+\DoxyCodeLine{12     \textcolor{stringliteral}{"{}playa"{}}: \{}
+\DoxyCodeLine{13         \textcolor{stringliteral}{"{}bg"{}}:      (200, 230, 255),}
+\DoxyCodeLine{14         \textcolor{stringliteral}{"{}colors"{}}:  [(255, 220, 100), (50, 150, 220), (255, 100, 80), (255, 200, 80), (200, 240, 200), (200, 180, 140), (255, 150, 100)],}
+\DoxyCodeLine{15         \textcolor{stringliteral}{"{}shapes"{}}:  [\textcolor{stringliteral}{"{}circle"{}}, \textcolor{stringliteral}{"{}triangle"{}}, \textcolor{stringliteral}{"{}rect"{}}],}
+\DoxyCodeLine{16     \},}
+\DoxyCodeLine{17 \}}
+
+\end{DoxyCode}
+
+
+Estructuras temáticas que definen los fondos, paletas de dibujo y morfologías disponibles para la escena. 
+

@@ -1,0 +1,200 @@
+\hypertarget{namespacegenerate}{}\doxysection{generate Namespace Reference}
+\label{namespacegenerate}\index{generate@{generate}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacegenerate_a021501468e4f34b9109dd4c692ba0343}{generate\+\_\+word\+\_\+list}} ()
+\begin{DoxyCompactList}\small\item\em Carga y normaliza el banco de términos lingüísticos desde el sistema de archivos del dispositivo. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespacegenerate_a496d21facf73697d8c96ec05feef9c96}{check\+\_\+possibility}} (matrice, word, index, fit\+\_\+dir)
+\begin{DoxyCompactList}\small\item\em Valida mediante proyección lineal si una palabra puede ser sembrada en una coordenada específica. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespacegenerate_a46429655209bf6a2ab7da37cabd54629}{put\+\_\+in\+\_\+word}} (matrice, word, index, fit\+\_\+dir)
+\begin{DoxyCompactList}\small\item\em Modifica físicamente las celdas de la matriz e inyecta los caracteres de la palabra validada. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespacegenerate_ac32ef11a9853aafa450a68f57d636cb0}{generate\+\_\+board}} ()
+\begin{DoxyCompactList}\small\item\em Genera procedimentalmente un nuevo mapa completo de sopa de letras bajo criterios de optimización espacial. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespacegenerate_a6eec92933c39e8c4be3de8b8af78d39c}{set\+\_\+difficulty}} (level)
+\begin{DoxyCompactList}\small\item\em Configura y altera dinámicamente las dimensiones estructurales de la grilla según el grado de complejidad deseado. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespacegenerate_a60ef478263406e90547855fa19936ac7}{GRID\+\_\+\+SIZE}} = 10
+\item 
+int \mbox{\hyperlink{namespacegenerate_a59f2a3e28de68a7ef5deb6c4af43ddbb}{num\+\_\+palabras}} = 10
+\item 
+list \mbox{\hyperlink{namespacegenerate_a11b0c386d2e143a45fbe502648ca8b25}{grid}} = \mbox{[}$\,$\mbox{]}
+\item 
+list \mbox{\hyperlink{namespacegenerate_ac240610ab5c607a75672a1bb25228aec}{words\+\_\+copy}} = \mbox{[}$\,$\mbox{]}
+\item 
+dictionary \mbox{\hyperlink{namespacegenerate_a201953e32a902296aedbef2e895c5700}{word\+\_\+positions}} = \{\}
+\item 
+int \mbox{\hyperlink{namespacegenerate_ac458a5e2219436eb2f9f185dddf0a952}{MAX\+\_\+\+ATTEMPTS}} = 500
+\item 
+dictionary \mbox{\hyperlink{namespacegenerate_ab3ad8a817861d27c0340f1dc819deb9b}{possibilites}}
+\begin{DoxyCompactList}\small\item\em Tuplas de dirección matemática elemental {\ttfamily (dx, dy)} que acotan el juego exclusivamente a ejes ortogonales. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacegenerate_a496d21facf73697d8c96ec05feef9c96}\label{namespacegenerate_a496d21facf73697d8c96ec05feef9c96}} 
+\index{generate@{generate}!check\_possibility@{check\_possibility}}
+\index{check\_possibility@{check\_possibility}!generate@{generate}}
+\doxysubsubsection{\texorpdfstring{check\_possibility()}{check\_possibility()}}
+{\footnotesize\ttfamily def generate.\+check\+\_\+possibility (\begin{DoxyParamCaption}\item[{}]{matrice,  }\item[{}]{word,  }\item[{}]{index,  }\item[{}]{fit\+\_\+dir }\end{DoxyParamCaption})}
+
+
+
+Valida mediante proyección lineal si una palabra puede ser sembrada en una coordenada específica. 
+
+Evalúa de forma preventiva dos criterios críticos\+:
+\begin{DoxyEnumerate}
+\item Desbordamiento de límites físicos del tablero (Out of Bounds).
+\item Colisión de caracteres (evita sobreescrituras a menos que la celda coincida exactamente con la misma letra).
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parameters}
+{\em matrice} & Referencia directa a la matriz bidimensional ({\ttfamily list} de {\ttfamily lists}). \\
+\hline
+{\em word} & Cadena de caracteres del término a validar. \\
+\hline
+{\em index} & Tupla {\ttfamily (x, y)} con la coordenada propuesta para la primera letra del término. \\
+\hline
+{\em fit\+\_\+dir} & Tupla {\ttfamily (dx, dy)} obtenida del diccionario de posibilidades que rige el crecimiento lineal. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool True si la región es apta y segura para la siembra de caracteres; False en caso contrario. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacegenerate_ac32ef11a9853aafa450a68f57d636cb0}\label{namespacegenerate_ac32ef11a9853aafa450a68f57d636cb0}} 
+\index{generate@{generate}!generate\_board@{generate\_board}}
+\index{generate\_board@{generate\_board}!generate@{generate}}
+\doxysubsubsection{\texorpdfstring{generate\_board()}{generate\_board()}}
+{\footnotesize\ttfamily def generate.\+generate\+\_\+board (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Genera procedimentalmente un nuevo mapa completo de sopa de letras bajo criterios de optimización espacial. 
+
+{\bfseries{Algoritmo de escape por recursividad adaptativa\+:}} Si el factor de empaquetamiento espacial colapsa y una palabra no logra situarse tras superar el umbral de seguridad {\ttfamily MAX\+\_\+\+ATTEMPTS}, el motor captura el bloqueo, reduce de forma dinámica la cuota de palabras deseadas en una unidad y reinicia el proceso de generación de forma recursiva para mitigar bucles infinitos de procesamiento en la CPU de la Raspberry Pi. Tras la siembra limpia, rellena el ruido residual con caracteres pseudoaleatorios extraídos del alfabeto anglosajón.
+
+\begin{DoxyReturn}{Returns}
+bool True cuando el tablero logra estructurarse de forma integral y queda listo para el render. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacegenerate_ac32ef11a9853aafa450a68f57d636cb0_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacegenerate_a021501468e4f34b9109dd4c692ba0343}\label{namespacegenerate_a021501468e4f34b9109dd4c692ba0343}} 
+\index{generate@{generate}!generate\_word\_list@{generate\_word\_list}}
+\index{generate\_word\_list@{generate\_word\_list}!generate@{generate}}
+\doxysubsubsection{\texorpdfstring{generate\_word\_list()}{generate\_word\_list()}}
+{\footnotesize\ttfamily def generate.\+generate\+\_\+word\+\_\+list (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Carga y normaliza el banco de términos lingüísticos desde el sistema de archivos del dispositivo. 
+
+Abre el descriptor en modo lectura segura {\ttfamily encoding=\char`\"{}utf-\/8\char`\"{}}. Ante un fallo de entrada/salida (I/O), captura la excepción e inyecta un pool alternativo de palabras hardcodeadas para garantizar la resiliencia del software.
+
+\begin{DoxyReturn}{Returns}
+list Colección de cadenas de texto en mayúsculas listas para su inserción estructural. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacegenerate_a46429655209bf6a2ab7da37cabd54629}\label{namespacegenerate_a46429655209bf6a2ab7da37cabd54629}} 
+\index{generate@{generate}!put\_in\_word@{put\_in\_word}}
+\index{put\_in\_word@{put\_in\_word}!generate@{generate}}
+\doxysubsubsection{\texorpdfstring{put\_in\_word()}{put\_in\_word()}}
+{\footnotesize\ttfamily def generate.\+put\+\_\+in\+\_\+word (\begin{DoxyParamCaption}\item[{}]{matrice,  }\item[{}]{word,  }\item[{}]{index,  }\item[{}]{fit\+\_\+dir }\end{DoxyParamCaption})}
+
+
+
+Modifica físicamente las celdas de la matriz e inyecta los caracteres de la palabra validada. 
+
+Almacena de forma indexada en el diccionario global {\ttfamily word\+\_\+positions} la secuencia exacta de tuplas de coordenadas discretas ocupadas, permitiendo que la interfaz táctil realice comprobaciones instantáneas.
+
+
+\begin{DoxyParams}{Parameters}
+{\em matrice} & Referencia directa a la matriz bidimensional activa de caracteres. \\
+\hline
+{\em word} & Cadena de caracteres del término a inyectar. \\
+\hline
+{\em index} & Tupla {\ttfamily (x, y)} inicial de siembra. \\
+\hline
+{\em fit\+\_\+dir} & Tupla {\ttfamily (dx, dy)} que gobierna la dirección de escritura en la memoria matricial. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespacegenerate_a6eec92933c39e8c4be3de8b8af78d39c}\label{namespacegenerate_a6eec92933c39e8c4be3de8b8af78d39c}} 
+\index{generate@{generate}!set\_difficulty@{set\_difficulty}}
+\index{set\_difficulty@{set\_difficulty}!generate@{generate}}
+\doxysubsubsection{\texorpdfstring{set\_difficulty()}{set\_difficulty()}}
+{\footnotesize\ttfamily def generate.\+set\+\_\+difficulty (\begin{DoxyParamCaption}\item[{}]{level }\end{DoxyParamCaption})}
+
+
+
+Configura y altera dinámicamente las dimensiones estructurales de la grilla según el grado de complejidad deseado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em level} & Cadena de texto identificadora de la dificultad (\char`\"{}facil\char`\"{} $\vert$ \char`\"{}medio\char`\"{} $\vert$ \char`\"{}dificil\char`\"{}). \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacegenerate_a11b0c386d2e143a45fbe502648ca8b25}\label{namespacegenerate_a11b0c386d2e143a45fbe502648ca8b25}} 
+\index{generate@{generate}!grid@{grid}}
+\index{grid@{grid}!generate@{generate}}
+\doxysubsubsection{\texorpdfstring{grid}{grid}}
+{\footnotesize\ttfamily list generate.\+grid = \mbox{[}$\,$\mbox{]}}
+
+\mbox{\Hypertarget{namespacegenerate_a60ef478263406e90547855fa19936ac7}\label{namespacegenerate_a60ef478263406e90547855fa19936ac7}} 
+\index{generate@{generate}!GRID\_SIZE@{GRID\_SIZE}}
+\index{GRID\_SIZE@{GRID\_SIZE}!generate@{generate}}
+\doxysubsubsection{\texorpdfstring{GRID\_SIZE}{GRID\_SIZE}}
+{\footnotesize\ttfamily int generate.\+GRID\+\_\+\+SIZE = 10}
+
+\mbox{\Hypertarget{namespacegenerate_ac458a5e2219436eb2f9f185dddf0a952}\label{namespacegenerate_ac458a5e2219436eb2f9f185dddf0a952}} 
+\index{generate@{generate}!MAX\_ATTEMPTS@{MAX\_ATTEMPTS}}
+\index{MAX\_ATTEMPTS@{MAX\_ATTEMPTS}!generate@{generate}}
+\doxysubsubsection{\texorpdfstring{MAX\_ATTEMPTS}{MAX\_ATTEMPTS}}
+{\footnotesize\ttfamily int generate.\+MAX\+\_\+\+ATTEMPTS = 500}
+
+\mbox{\Hypertarget{namespacegenerate_a59f2a3e28de68a7ef5deb6c4af43ddbb}\label{namespacegenerate_a59f2a3e28de68a7ef5deb6c4af43ddbb}} 
+\index{generate@{generate}!num\_palabras@{num\_palabras}}
+\index{num\_palabras@{num\_palabras}!generate@{generate}}
+\doxysubsubsection{\texorpdfstring{num\_palabras}{num\_palabras}}
+{\footnotesize\ttfamily int generate.\+num\+\_\+palabras = 10}
+
+\mbox{\Hypertarget{namespacegenerate_ab3ad8a817861d27c0340f1dc819deb9b}\label{namespacegenerate_ab3ad8a817861d27c0340f1dc819deb9b}} 
+\index{generate@{generate}!possibilites@{possibilites}}
+\index{possibilites@{possibilites}!generate@{generate}}
+\doxysubsubsection{\texorpdfstring{possibilites}{possibilites}}
+{\footnotesize\ttfamily dictionary generate.\+possibilites}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  \{}
+\DoxyCodeLine{2     \textcolor{stringliteral}{"{}h"{}}: (1, 0),      \textcolor{comment}{\# Derecha}}
+\DoxyCodeLine{3     \textcolor{stringliteral}{"{}h\_inv"{}}: (-\/1, 0), \textcolor{comment}{\# Izquierda}}
+\DoxyCodeLine{4     \textcolor{stringliteral}{"{}v"{}}: (0, 1),      \textcolor{comment}{\# Abajo}}
+\DoxyCodeLine{5     \textcolor{stringliteral}{"{}v\_inv"{}}: (0, -\/1)  \textcolor{comment}{\# Arriba}}
+\DoxyCodeLine{6 \}}
+
+\end{DoxyCode}
+
+
+Tuplas de dirección matemática elemental {\ttfamily (dx, dy)} que acotan el juego exclusivamente a ejes ortogonales. 
+
+\mbox{\Hypertarget{namespacegenerate_a201953e32a902296aedbef2e895c5700}\label{namespacegenerate_a201953e32a902296aedbef2e895c5700}} 
+\index{generate@{generate}!word\_positions@{word\_positions}}
+\index{word\_positions@{word\_positions}!generate@{generate}}
+\doxysubsubsection{\texorpdfstring{word\_positions}{word\_positions}}
+{\footnotesize\ttfamily dictionary generate.\+word\+\_\+positions = \{\}}
+
+\mbox{\Hypertarget{namespacegenerate_ac240610ab5c607a75672a1bb25228aec}\label{namespacegenerate_ac240610ab5c607a75672a1bb25228aec}} 
+\index{generate@{generate}!words\_copy@{words\_copy}}
+\index{words\_copy@{words\_copy}!generate@{generate}}
+\doxysubsubsection{\texorpdfstring{words\_copy}{words\_copy}}
+{\footnotesize\ttfamily list generate.\+words\+\_\+copy = \mbox{[}$\,$\mbox{]}}
+

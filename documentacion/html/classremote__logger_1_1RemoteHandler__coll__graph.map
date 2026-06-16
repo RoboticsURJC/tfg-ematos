@@ -1,0 +1,4 @@
+<map id="remote_logger.RemoteHandler" name="remote_logger.RemoteHandler">
+<area shape="rect" id="node1" title="Clase encargada de empaquetar y transmitir los logs hacia un punto de acceso HTTP remoto." alt="" coords="5,131,228,223"/>
+<area shape="rect" id="node2" title=" " alt="" coords="54,5,179,83"/>
+</map>

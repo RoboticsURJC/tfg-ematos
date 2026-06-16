@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['ready_5fpause_5fsec_0',['READY_PAUSE_SEC',['../namespacesimon__says__screen.html#a8d70bdb4c9818bda96b3e8c723dff821',1,'simon_says_screen']]],
+  ['rec_1',['rec',['../classapp_1_1voice_1_1stt__vosk_1_1VoskSTT.html#ab3571c16f53c1b90c9aa2ee664dbfb76',1,'app::voice::stt_vosk::VoskSTT']]],
+  ['record_2',['record',['../classsimon__says__screen_1_1SimonSaysScreen.html#a330096b35e2dd41a1e4c4e43b6c2350c',1,'simon_says_screen::SimonSaysScreen']]],
+  ['register_5fimages_3',['register_images',['../classapp_1_1ui_1_1face__client_1_1FaceClient.html#af2bb24b4fa0950b2261aea26c80daeb0',1,'app::ui::face_client::FaceClient']]],
+  ['register_5fname_4',['register_name',['../classapp_1_1ui_1_1face__client_1_1FaceClient.html#a5d1456f16915bb19b7fbb6710a477d8c',1,'app::ui::face_client::FaceClient']]],
+  ['register_5fscreen_5',['register_screen',['../classapp_1_1ui_1_1main__window_1_1MainWindow.html#ab5297c56252f7f9d8000db2e563a9fab',1,'app::ui::main_window::MainWindow']]],
+  ['reminder_5fscheduler_6',['reminder_scheduler',['../classapp_1_1core_1_1assistant__engine_1_1AssistantEngine.html#ae2b644067b48750f3b8a68001f755b9c',1,'app.core.assistant_engine.AssistantEngine.reminder_scheduler()'],['../classapp_1_1core_1_1robot__controller_1_1RobotController.html#a68c67ab49f2cb40a2d05400de27693c2',1,'app.core.robot_controller.RobotController.reminder_scheduler()']]],
+  ['reminder_5fscreen_7',['reminder_screen',['../classapp_1_1ui_1_1main__window_1_1MainWindow.html#a1e85ad0cd3b4624c594608c386c8e153',1,'app::ui::main_window::MainWindow']]],
+  ['reminder_5fstore_8',['reminder_store',['../classapp_1_1core_1_1assistant__engine_1_1AssistantEngine.html#a642f62d25e2e0c1ddb4e5c23b6055459',1,'app.core.assistant_engine.AssistantEngine.reminder_store()'],['../classapp_1_1core_1_1robot__controller_1_1RobotController.html#afdbc7051d39c65041243af1519a94fbe',1,'app.core.robot_controller.RobotController.reminder_store()']]],
+  ['remote_9',['remote',['../namespaceapp_1_1core_1_1logger.html#a82bb59004f1c993a671756471a5d8eab',1,'app::core::logger']]],
+  ['repeats_10',['repeats',['../namespacemain.html#afcdcd0c78d3c1a56674ce61170665fa4',1,'main']]],
+  ['result_5fsignal_11',['result_signal',['../classlogin__screen_1_1Worker.html#a2f345114ef30910600ff1c62ad2fbd96',1,'login_screen.Worker.result_signal()'],['../classapp_1_1ui_1_1face__client_1_1Worker.html#a580ddf9c2239d684aa4b28e104be9646',1,'app.ui.face_client.Worker.result_signal()']]],
+  ['results_12',['results',['../namespacemain.html#a902f065d0a2f209fbdcb831324ea96b5',1,'main']]],
+  ['robot_5fhablando_13',['robot_hablando',['../classapp_1_1ui_1_1display_1_1FaceDisplay.html#a29d69276ae22e3a3d464a99330556793',1,'app::ui::display::FaceDisplay']]],
+  ['router_14',['router',['../namespaceroutes__llm.html#a5f67b3656bdfb307f92861b8d0829603',1,'routes_llm.router()'],['../namespaceroutes__face.html#af7cf8cc346055102340305a00fc8f030',1,'routes_face.router()'],['../namespaceroutes__dashboard.html#a31a5fc9d30be4bf524e43abd52a2613f',1,'routes_dashboard.router()']]],
+  ['rows_5flower_15',['ROWS_LOWER',['../namespacekeyboard__widget.html#a7c3271505dab22f3dae5c692d493888f',1,'keyboard_widget']]],
+  ['rows_5fupper_16',['ROWS_UPPER',['../namespacekeyboard__widget.html#a4613b3e3d8d0bf99eb87de010be067ef',1,'keyboard_widget']]],
+  ['runner_17',['runner',['../namespacemain.html#ad3f96f9bbe55ef2159ea73a72c7b2ef8',1,'main']]],
+  ['running_18',['running',['../classapp_1_1voice_1_1stt__vosk_1_1VoskSTT.html#ad95cc989f2afab5e89d4343570e0e611',1,'app.voice.stt_vosk.VoskSTT.running()'],['../classapp_1_1ui_1_1display_1_1FaceDisplay.html#a691b568d30dbcfe8adc55d4936ddd59e',1,'app.ui.display.FaceDisplay.running()'],['../classreminder__scheduler_1_1ReminderScheduler.html#ae052bcf3a1807844be3f5303d65c9f63',1,'reminder_scheduler.ReminderScheduler.running()'],['../classbase__pygame__qt__screen_1_1BasePygameQtScreen.html#acae972689f5ab026a27e49a14f1e2ff8',1,'base_pygame_qt_screen.BasePygameQtScreen.running()'],['../classapp_1_1core_1_1assistant__engine_1_1AssistantEngine.html#a3e8596e1939f2c1b9bf8bca0eeaebd7d',1,'app.core.assistant_engine.AssistantEngine.running()']]]
+];

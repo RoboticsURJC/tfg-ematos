@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['emit_0',['emit',['../classremote__logger_1_1RemoteHandler.html#afd7e842c63ffa46741bffa70dbb237f0',1,'remote_logger.RemoteHandler.emit()'],['../classapp_1_1core_1_1logs__to__server_1_1RemoteHandler.html#a783a585bd23f20a41bccc3daa4bc2717',1,'app.core.logs_to_server.RemoteHandler.emit()']]],
+  ['emotion_1',['emotion',['../classapp_1_1ui_1_1display_1_1FaceDisplay.html#a3c0a7b5a9dd562f9f4182c29974111cc',1,'app::ui::display::FaceDisplay']]],
+  ['encoding_2',['encoding',['../namespaceapp_1_1core_1_1logger.html#a60ccfa87a4e6b281a8307b51672c0550',1,'app.core.logger.encoding()'],['../namespacemain.html#ab21a458e1d12852833095bd03f9e14af',1,'main.encoding()']]],
+  ['encontrar_5fmicro_3',['encontrar_micro',['../namespaceapp_1_1voice_1_1audio__stream.html#a7128105ed9585d11834e780e049f5c63',1,'app::voice::audio_stream']]],
+  ['engine_4',['engine',['../classassistant__screen_1_1AssistantScreen.html#a23e377031d8d3f9d08609598e21a1c4f',1,'assistant_screen.AssistantScreen.engine()'],['../classbase__app_1_1BaseApp.html#a3878e5f53c4e8f577e099dc168356a9e',1,'base_app.BaseApp.engine()'],['../classapp_1_1ui_1_1app__controller_1_1AppController.html#ab51bdde79a28700321ab64d379a4d973',1,'app.ui.app_controller.AppController.engine()']]],
+  ['error_5',['ERROR',['../classapp_1_1core_1_1state__machine_1_1StateMachine.html#a5094bbb2873122d9815204f3db7f546f',1,'app::core::state_machine::StateMachine']]],
+  ['error_6',['error',['../classregister__screen_1_1RegisterWorker.html#ad433cded8ebef7ef429c2d3cd0b0c610',1,'register_screen.RegisterWorker.error()'],['../classapp_1_1ui_1_1app__controller_1_1AppController.html#a83c68ec1575b121c374df21b685865f3',1,'app.ui.app_controller.AppController.error()']]],
+  ['error_5foccurred_7',['error_occurred',['../classapp_1_1ui_1_1state_1_1UIState.html#aaa2c4972d9025bcf6a16892ebd01fafa',1,'app::ui::state::UIState']]],
+  ['error_5fscreen_8',['error_screen',['../classapp_1_1ui_1_1main__window_1_1MainWindow.html#a1e14f6f3b646c932ff551c2848c576b9',1,'app.ui.main_window.MainWindow.error_screen()'],['../namespaceerror__screen.html',1,'error_screen']]],
+  ['error_5fscreen_2epy_9',['error_screen.py',['../error__screen_8py.html',1,'']]],
+  ['error_5fsignal_10',['error_signal',['../classapp_1_1ui_1_1face__client_1_1Worker.html#ac727aa5810dacbf0dcb9aff0d3e5ad31',1,'app.ui.face_client.Worker.error_signal()'],['../classlogin__screen_1_1Worker.html#aa6d26a9cb1ff28b83022e381401cd3bd',1,'login_screen.Worker.error_signal()']]],
+  ['errorscreen_11',['ErrorScreen',['../classerror__screen_1_1ErrorScreen.html',1,'error_screen']]],
+  ['estado_5ftexto_12',['estado_texto',['../classapp_1_1ui_1_1display_1_1FaceDisplay.html#acd3919ea3e126fc519d23a616615c40c',1,'app::ui::display::FaceDisplay']]],
+  ['events_13',['events',['../classcalendar__store_1_1CalendarStore.html#a8b8f65c3eac6cdeb82419cd9a32cf134',1,'calendar_store.CalendarStore.events()'],['../classbase__pygame__qt__screen_1_1BasePygameQtScreen.html#ad5e35617b0dee9607770c2af6d975e76',1,'base_pygame_qt_screen.BasePygameQtScreen.events()']]],
+  ['exist_5fok_14',['exist_ok',['../namespaceconfig.html#a5efb09e6bf59aba1dc9b5aedbf9af6ad',1,'config.exist_ok()'],['../namespaceserver.html#acd26185724747cfa51a174c3ef9835f5',1,'server.exist_ok()'],['../namespacespeaking__server.html#a5d91e0fc64510d5a21cba8a1f9de0e16',1,'speaking_server.exist_ok()']]],
+  ['exit_5fgame_15',['exit_game',['../classfind__differences__screen_1_1FindDifferencesScreen.html#abfc4803a090ab6bdf0e26aa10bfa5031',1,'find_differences_screen.FindDifferencesScreen.exit_game()'],['../classmemory__screen_1_1MemoryScreen.html#a38308aa97c84a2ed508451b35f405b29',1,'memory_screen.MemoryScreen.exit_game()'],['../classsimon__says__screen_1_1SimonSaysScreen.html#aaa8167a1a8b897bfa7b25512580de357',1,'simon_says_screen.SimonSaysScreen.exit_game()'],['../classword__search__screen_1_1WordSearchScreen.html#ab7df2eacfb8e2099064eb127354645a7',1,'word_search_screen.WordSearchScreen.exit_game()']]]
+];

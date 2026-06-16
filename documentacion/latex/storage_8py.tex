@@ -1,0 +1,21 @@
+\hypertarget{storage_8py}{}\doxysection{llm\+\_\+package/core/storage.py File Reference}
+\label{storage_8py}\index{llm\_package/core/storage.py@{llm\_package/core/storage.py}}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacestorage}{storage}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacestorage_aa50352d8f1526ffb7ffac18e17f7016f}{storage.\+load\+\_\+results}} ()
+\begin{DoxyCompactList}\small\item\em Carga y deserializa recursivamente el histórico completo de resultados guardados en disco. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespacestorage_aa231ada7e3ab017f21ee075d884c82d8}{storage.\+save\+\_\+result}} (result)
+\begin{DoxyCompactList}\small\item\em Acumula e inyecta de forma permanente un nuevo registro de rendimiento al final del archivo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacestorage_a9a879385f36b7fa7b2d964d0de38165c}{storage.\+BASE\+\_\+\+DIR}} = os.\+path.\+dirname(os.\+path.\+abspath(\+\_\+\+\_\+file\+\_\+\+\_\+))
+\begin{DoxyCompactList}\small\item\em Ruta absoluta del directorio base donde se encuentra alojado este script de persistencia. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacestorage_ae39f55f02fef69b60394ed28d8fa2c0f}{storage.\+FILE}} = os.\+path.\+join(BASE\+\_\+\+DIR, \char`\"{}..\char`\"{}, \char`\"{}results\char`\"{}, \char`\"{}results.\+jsonl\char`\"{})
+\begin{DoxyCompactList}\small\item\em Ruta absoluta construida de forma dinámica que apunta al fichero físico de almacenamiento JSONL. \end{DoxyCompactList}\end{DoxyCompactItemize}

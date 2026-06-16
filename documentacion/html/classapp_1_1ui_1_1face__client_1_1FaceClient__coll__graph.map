@@ -1,0 +1,4 @@
+<map id="app.ui.face_client.FaceClient" name="app.ui.face_client.FaceClient">
+<area shape="rect" id="node1" title="Interfaz principal de autenticación y registro facial." alt="" coords="5,131,213,487"/>
+<area shape="rect" id="node2" title=" " alt="" coords="70,5,149,83"/>
+</map>

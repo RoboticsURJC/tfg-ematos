@@ -1,0 +1,280 @@
+\hypertarget{classregister__screen_1_1RegisterScreen}{}\doxysection{register\+\_\+screen.\+Register\+Screen Class Reference}
+\label{classregister__screen_1_1RegisterScreen}\index{register\_screen.RegisterScreen@{register\_screen.RegisterScreen}}
+
+
+Interfaz de usuario para el registro facial.  
+
+
+
+
+Inheritance diagram for register\+\_\+screen.\+Register\+Screen\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=215pt]{classregister__screen_1_1RegisterScreen__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for register\+\_\+screen.\+Register\+Screen\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=215pt]{classregister__screen_1_1RegisterScreen__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classregister__screen_1_1RegisterScreen_ad67e6f8c4d1481735777fd65f921cbea}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classregister__screen_1_1RegisterScreen_a8c8765d41960fd37fe3d6dd8401e1fcf}{controller}})
+\begin{DoxyCompactList}\small\item\em Inicializa la UI de registro y los recursos de cámara. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classregister__screen_1_1RegisterScreen_aa399384ce0046b7c69fe4f499aee07f4}{update\+\_\+frame}} (self)
+\begin{DoxyCompactList}\small\item\em Actualiza la visualización de la cámara en tiempo real. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classregister__screen_1_1RegisterScreen_aa92ed2efba71c8980a53ca75b1243520}{capture}} (self)
+\begin{DoxyCompactList}\small\item\em Captura un frame actual y lo añade a la lista de entrenamiento. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classregister__screen_1_1RegisterScreen_a38e9e7e998d98f994f4cd89a32e4dc16}{send}} (self, name)
+\begin{DoxyCompactList}\small\item\em Inicia el trabajador de red para enviar las imágenes al servidor. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classregister__screen_1_1RegisterScreen_a6454a1fc67ffd49b790fa774fe664ab8}{on\+\_\+success}} (self)
+\begin{DoxyCompactList}\small\item\em Maneja el éxito del registro. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classregister__screen_1_1RegisterScreen_aa1616345acb5a58bc0e76181fa6813eb}{on\+\_\+error}} (self, msg)
+\begin{DoxyCompactList}\small\item\em Maneja el error del registro. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classregister__screen_1_1RegisterScreen_a5001a9d82c7450f9e9f1d363f6e353ab}{go\+\_\+back}} (self)
+\begin{DoxyCompactList}\small\item\em Limpia el estado y regresa a la pantalla de login. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classregister__screen_1_1RegisterScreen_a8c8765d41960fd37fe3d6dd8401e1fcf}{controller}}
+\item 
+\mbox{\hyperlink{classregister__screen_1_1RegisterScreen_adf2f38095cd6c093b1e6404aef7731b8}{config}}
+\item 
+\mbox{\hyperlink{classregister__screen_1_1RegisterScreen_a15f90df5d0d2e1c95ffa2d154ba95d35}{frame}}
+\item 
+\mbox{\hyperlink{classregister__screen_1_1RegisterScreen_a88791967e7e4abb6afa134b58a276c1f}{images}}
+\item 
+\mbox{\hyperlink{classregister__screen_1_1RegisterScreen_a620d5fdd7207779ba1a4112c7291ced9}{step}}
+\item 
+\mbox{\hyperlink{classregister__screen_1_1RegisterScreen_adc47cbf5d0495dac90fbf7162068bcb9}{title}}
+\item 
+\mbox{\hyperlink{classregister__screen_1_1RegisterScreen_a49fe6219a6b333b5f7129b3c107d6933}{name\+\_\+input}}
+\item 
+\mbox{\hyperlink{classregister__screen_1_1RegisterScreen_a59050815e2edb3b64ba632adf0504c3d}{step\+\_\+label}}
+\item 
+\mbox{\hyperlink{classregister__screen_1_1RegisterScreen_a1ea18fba9efe7d8080621dfe498eb835}{camera}}
+\item 
+\mbox{\hyperlink{classregister__screen_1_1RegisterScreen_a2edddf3330028059fa27fde08c485461}{progress}}
+\item 
+\mbox{\hyperlink{classregister__screen_1_1RegisterScreen_a5d309ec4954e97e8984960eb48150b57}{btn\+\_\+capture}}
+\item 
+\mbox{\hyperlink{classregister__screen_1_1RegisterScreen_a164bd14d5ddc7c2e2aa4b097fd7278de}{btn\+\_\+back}}
+\item 
+\mbox{\hyperlink{classregister__screen_1_1RegisterScreen_a966afc877bf357859be6e38bf25e8021}{timer}}
+\item 
+\mbox{\hyperlink{classregister__screen_1_1RegisterScreen_a5c402ec4df7eee9f99cebb0eeaad31bd}{worker}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interfaz de usuario para el registro facial. 
+
+Guía al usuario en un proceso de 3 pasos de captura de imagen. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classregister__screen_1_1RegisterScreen_ad67e6f8c4d1481735777fd65f921cbea}\label{classregister__screen_1_1RegisterScreen_ad67e6f8c4d1481735777fd65f921cbea}} 
+\index{register\_screen.RegisterScreen@{register\_screen.RegisterScreen}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!register\_screen.RegisterScreen@{register\_screen.RegisterScreen}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def register\+\_\+screen.\+Register\+Screen.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{controller }\end{DoxyParamCaption})}
+
+
+
+Inicializa la UI de registro y los recursos de cámara. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=215pt]{classregister__screen_1_1RegisterScreen_ad67e6f8c4d1481735777fd65f921cbea_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classregister__screen_1_1RegisterScreen_aa92ed2efba71c8980a53ca75b1243520}\label{classregister__screen_1_1RegisterScreen_aa92ed2efba71c8980a53ca75b1243520}} 
+\index{register\_screen.RegisterScreen@{register\_screen.RegisterScreen}!capture@{capture}}
+\index{capture@{capture}!register\_screen.RegisterScreen@{register\_screen.RegisterScreen}}
+\doxysubsubsection{\texorpdfstring{capture()}{capture()}}
+{\footnotesize\ttfamily def register\+\_\+screen.\+Register\+Screen.\+capture (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Captura un frame actual y lo añade a la lista de entrenamiento. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classregister__screen_1_1RegisterScreen_aa92ed2efba71c8980a53ca75b1243520_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classregister__screen_1_1RegisterScreen_a5001a9d82c7450f9e9f1d363f6e353ab}\label{classregister__screen_1_1RegisterScreen_a5001a9d82c7450f9e9f1d363f6e353ab}} 
+\index{register\_screen.RegisterScreen@{register\_screen.RegisterScreen}!go\_back@{go\_back}}
+\index{go\_back@{go\_back}!register\_screen.RegisterScreen@{register\_screen.RegisterScreen}}
+\doxysubsubsection{\texorpdfstring{go\_back()}{go\_back()}}
+{\footnotesize\ttfamily def register\+\_\+screen.\+Register\+Screen.\+go\+\_\+back (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Limpia el estado y regresa a la pantalla de login. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classregister__screen_1_1RegisterScreen_a5001a9d82c7450f9e9f1d363f6e353ab_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classregister__screen_1_1RegisterScreen_aa1616345acb5a58bc0e76181fa6813eb}\label{classregister__screen_1_1RegisterScreen_aa1616345acb5a58bc0e76181fa6813eb}} 
+\index{register\_screen.RegisterScreen@{register\_screen.RegisterScreen}!on\_error@{on\_error}}
+\index{on\_error@{on\_error}!register\_screen.RegisterScreen@{register\_screen.RegisterScreen}}
+\doxysubsubsection{\texorpdfstring{on\_error()}{on\_error()}}
+{\footnotesize\ttfamily def register\+\_\+screen.\+Register\+Screen.\+on\+\_\+error (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{msg }\end{DoxyParamCaption})}
+
+
+
+Maneja el error del registro. 
+
+\mbox{\Hypertarget{classregister__screen_1_1RegisterScreen_a6454a1fc67ffd49b790fa774fe664ab8}\label{classregister__screen_1_1RegisterScreen_a6454a1fc67ffd49b790fa774fe664ab8}} 
+\index{register\_screen.RegisterScreen@{register\_screen.RegisterScreen}!on\_success@{on\_success}}
+\index{on\_success@{on\_success}!register\_screen.RegisterScreen@{register\_screen.RegisterScreen}}
+\doxysubsubsection{\texorpdfstring{on\_success()}{on\_success()}}
+{\footnotesize\ttfamily def register\+\_\+screen.\+Register\+Screen.\+on\+\_\+success (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Maneja el éxito del registro. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classregister__screen_1_1RegisterScreen_a6454a1fc67ffd49b790fa774fe664ab8_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classregister__screen_1_1RegisterScreen_a38e9e7e998d98f994f4cd89a32e4dc16}\label{classregister__screen_1_1RegisterScreen_a38e9e7e998d98f994f4cd89a32e4dc16}} 
+\index{register\_screen.RegisterScreen@{register\_screen.RegisterScreen}!send@{send}}
+\index{send@{send}!register\_screen.RegisterScreen@{register\_screen.RegisterScreen}}
+\doxysubsubsection{\texorpdfstring{send()}{send()}}
+{\footnotesize\ttfamily def register\+\_\+screen.\+Register\+Screen.\+send (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{name }\end{DoxyParamCaption})}
+
+
+
+Inicia el trabajador de red para enviar las imágenes al servidor. 
+
+\mbox{\Hypertarget{classregister__screen_1_1RegisterScreen_aa399384ce0046b7c69fe4f499aee07f4}\label{classregister__screen_1_1RegisterScreen_aa399384ce0046b7c69fe4f499aee07f4}} 
+\index{register\_screen.RegisterScreen@{register\_screen.RegisterScreen}!update\_frame@{update\_frame}}
+\index{update\_frame@{update\_frame}!register\_screen.RegisterScreen@{register\_screen.RegisterScreen}}
+\doxysubsubsection{\texorpdfstring{update\_frame()}{update\_frame()}}
+{\footnotesize\ttfamily def register\+\_\+screen.\+Register\+Screen.\+update\+\_\+frame (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Actualiza la visualización de la cámara en tiempo real. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classregister__screen_1_1RegisterScreen_a164bd14d5ddc7c2e2aa4b097fd7278de}\label{classregister__screen_1_1RegisterScreen_a164bd14d5ddc7c2e2aa4b097fd7278de}} 
+\index{register\_screen.RegisterScreen@{register\_screen.RegisterScreen}!btn\_back@{btn\_back}}
+\index{btn\_back@{btn\_back}!register\_screen.RegisterScreen@{register\_screen.RegisterScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_back}{btn\_back}}
+{\footnotesize\ttfamily register\+\_\+screen.\+Register\+Screen.\+btn\+\_\+back}
+
+\mbox{\Hypertarget{classregister__screen_1_1RegisterScreen_a5d309ec4954e97e8984960eb48150b57}\label{classregister__screen_1_1RegisterScreen_a5d309ec4954e97e8984960eb48150b57}} 
+\index{register\_screen.RegisterScreen@{register\_screen.RegisterScreen}!btn\_capture@{btn\_capture}}
+\index{btn\_capture@{btn\_capture}!register\_screen.RegisterScreen@{register\_screen.RegisterScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_capture}{btn\_capture}}
+{\footnotesize\ttfamily register\+\_\+screen.\+Register\+Screen.\+btn\+\_\+capture}
+
+\mbox{\Hypertarget{classregister__screen_1_1RegisterScreen_a1ea18fba9efe7d8080621dfe498eb835}\label{classregister__screen_1_1RegisterScreen_a1ea18fba9efe7d8080621dfe498eb835}} 
+\index{register\_screen.RegisterScreen@{register\_screen.RegisterScreen}!camera@{camera}}
+\index{camera@{camera}!register\_screen.RegisterScreen@{register\_screen.RegisterScreen}}
+\doxysubsubsection{\texorpdfstring{camera}{camera}}
+{\footnotesize\ttfamily register\+\_\+screen.\+Register\+Screen.\+camera}
+
+\mbox{\Hypertarget{classregister__screen_1_1RegisterScreen_adf2f38095cd6c093b1e6404aef7731b8}\label{classregister__screen_1_1RegisterScreen_adf2f38095cd6c093b1e6404aef7731b8}} 
+\index{register\_screen.RegisterScreen@{register\_screen.RegisterScreen}!config@{config}}
+\index{config@{config}!register\_screen.RegisterScreen@{register\_screen.RegisterScreen}}
+\doxysubsubsection{\texorpdfstring{config}{config}}
+{\footnotesize\ttfamily register\+\_\+screen.\+Register\+Screen.\+config}
+
+\mbox{\Hypertarget{classregister__screen_1_1RegisterScreen_a8c8765d41960fd37fe3d6dd8401e1fcf}\label{classregister__screen_1_1RegisterScreen_a8c8765d41960fd37fe3d6dd8401e1fcf}} 
+\index{register\_screen.RegisterScreen@{register\_screen.RegisterScreen}!controller@{controller}}
+\index{controller@{controller}!register\_screen.RegisterScreen@{register\_screen.RegisterScreen}}
+\doxysubsubsection{\texorpdfstring{controller}{controller}}
+{\footnotesize\ttfamily register\+\_\+screen.\+Register\+Screen.\+controller}
+
+\mbox{\Hypertarget{classregister__screen_1_1RegisterScreen_a15f90df5d0d2e1c95ffa2d154ba95d35}\label{classregister__screen_1_1RegisterScreen_a15f90df5d0d2e1c95ffa2d154ba95d35}} 
+\index{register\_screen.RegisterScreen@{register\_screen.RegisterScreen}!frame@{frame}}
+\index{frame@{frame}!register\_screen.RegisterScreen@{register\_screen.RegisterScreen}}
+\doxysubsubsection{\texorpdfstring{frame}{frame}}
+{\footnotesize\ttfamily register\+\_\+screen.\+Register\+Screen.\+frame}
+
+\mbox{\Hypertarget{classregister__screen_1_1RegisterScreen_a88791967e7e4abb6afa134b58a276c1f}\label{classregister__screen_1_1RegisterScreen_a88791967e7e4abb6afa134b58a276c1f}} 
+\index{register\_screen.RegisterScreen@{register\_screen.RegisterScreen}!images@{images}}
+\index{images@{images}!register\_screen.RegisterScreen@{register\_screen.RegisterScreen}}
+\doxysubsubsection{\texorpdfstring{images}{images}}
+{\footnotesize\ttfamily register\+\_\+screen.\+Register\+Screen.\+images}
+
+\mbox{\Hypertarget{classregister__screen_1_1RegisterScreen_a49fe6219a6b333b5f7129b3c107d6933}\label{classregister__screen_1_1RegisterScreen_a49fe6219a6b333b5f7129b3c107d6933}} 
+\index{register\_screen.RegisterScreen@{register\_screen.RegisterScreen}!name\_input@{name\_input}}
+\index{name\_input@{name\_input}!register\_screen.RegisterScreen@{register\_screen.RegisterScreen}}
+\doxysubsubsection{\texorpdfstring{name\_input}{name\_input}}
+{\footnotesize\ttfamily register\+\_\+screen.\+Register\+Screen.\+name\+\_\+input}
+
+\mbox{\Hypertarget{classregister__screen_1_1RegisterScreen_a2edddf3330028059fa27fde08c485461}\label{classregister__screen_1_1RegisterScreen_a2edddf3330028059fa27fde08c485461}} 
+\index{register\_screen.RegisterScreen@{register\_screen.RegisterScreen}!progress@{progress}}
+\index{progress@{progress}!register\_screen.RegisterScreen@{register\_screen.RegisterScreen}}
+\doxysubsubsection{\texorpdfstring{progress}{progress}}
+{\footnotesize\ttfamily register\+\_\+screen.\+Register\+Screen.\+progress}
+
+\mbox{\Hypertarget{classregister__screen_1_1RegisterScreen_a620d5fdd7207779ba1a4112c7291ced9}\label{classregister__screen_1_1RegisterScreen_a620d5fdd7207779ba1a4112c7291ced9}} 
+\index{register\_screen.RegisterScreen@{register\_screen.RegisterScreen}!step@{step}}
+\index{step@{step}!register\_screen.RegisterScreen@{register\_screen.RegisterScreen}}
+\doxysubsubsection{\texorpdfstring{step}{step}}
+{\footnotesize\ttfamily register\+\_\+screen.\+Register\+Screen.\+step}
+
+\mbox{\Hypertarget{classregister__screen_1_1RegisterScreen_a59050815e2edb3b64ba632adf0504c3d}\label{classregister__screen_1_1RegisterScreen_a59050815e2edb3b64ba632adf0504c3d}} 
+\index{register\_screen.RegisterScreen@{register\_screen.RegisterScreen}!step\_label@{step\_label}}
+\index{step\_label@{step\_label}!register\_screen.RegisterScreen@{register\_screen.RegisterScreen}}
+\doxysubsubsection{\texorpdfstring{step\_label}{step\_label}}
+{\footnotesize\ttfamily register\+\_\+screen.\+Register\+Screen.\+step\+\_\+label}
+
+\mbox{\Hypertarget{classregister__screen_1_1RegisterScreen_a966afc877bf357859be6e38bf25e8021}\label{classregister__screen_1_1RegisterScreen_a966afc877bf357859be6e38bf25e8021}} 
+\index{register\_screen.RegisterScreen@{register\_screen.RegisterScreen}!timer@{timer}}
+\index{timer@{timer}!register\_screen.RegisterScreen@{register\_screen.RegisterScreen}}
+\doxysubsubsection{\texorpdfstring{timer}{timer}}
+{\footnotesize\ttfamily register\+\_\+screen.\+Register\+Screen.\+timer}
+
+\mbox{\Hypertarget{classregister__screen_1_1RegisterScreen_adc47cbf5d0495dac90fbf7162068bcb9}\label{classregister__screen_1_1RegisterScreen_adc47cbf5d0495dac90fbf7162068bcb9}} 
+\index{register\_screen.RegisterScreen@{register\_screen.RegisterScreen}!title@{title}}
+\index{title@{title}!register\_screen.RegisterScreen@{register\_screen.RegisterScreen}}
+\doxysubsubsection{\texorpdfstring{title}{title}}
+{\footnotesize\ttfamily register\+\_\+screen.\+Register\+Screen.\+title}
+
+\mbox{\Hypertarget{classregister__screen_1_1RegisterScreen_a5c402ec4df7eee9f99cebb0eeaad31bd}\label{classregister__screen_1_1RegisterScreen_a5c402ec4df7eee9f99cebb0eeaad31bd}} 
+\index{register\_screen.RegisterScreen@{register\_screen.RegisterScreen}!worker@{worker}}
+\index{worker@{worker}!register\_screen.RegisterScreen@{register\_screen.RegisterScreen}}
+\doxysubsubsection{\texorpdfstring{worker}{worker}}
+{\footnotesize\ttfamily register\+\_\+screen.\+Register\+Screen.\+worker}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ui/screens/\mbox{\hyperlink{register__screen_8py}{register\+\_\+screen.\+py}}\end{DoxyCompactItemize}

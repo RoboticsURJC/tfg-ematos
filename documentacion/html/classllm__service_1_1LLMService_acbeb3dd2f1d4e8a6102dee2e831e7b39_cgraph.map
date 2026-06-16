@@ -1,0 +1,4 @@
+<map id="llm_service.LLMService.generate" name="llm_service.LLMService.generate">
+<area shape="rect" id="node1" title="Envía una petición de generación de texto al modelo especificado." alt="" coords="5,5,243,32"/>
+<area shape="rect" id="node2" href="$namespacelog__service.html#af8a86650753e2ab9216e190fad59757c" title="Añade una nueva entrada de registro para un servicio específico." alt="" coords="291,5,441,32"/>
+</map>

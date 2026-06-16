@@ -1,0 +1,6 @@
+<map id="generate.generate_board" name="generate.generate_board">
+<area shape="rect" id="node1" title="Genera procedimentalmente un nuevo mapa completo de sopa de letras bajo criterios de optimización esp..." alt="" coords="5,56,192,83"/>
+<area shape="rect" id="node2" href="$namespacegenerate.html#a496d21facf73697d8c96ec05feef9c96" title="Valida mediante proyección lineal si una palabra puede ser sembrada en una coordenada específica." alt="" coords="246,5,442,32"/>
+<area shape="rect" id="node3" href="$namespacegenerate.html#a021501468e4f34b9109dd4c692ba0343" title="Carga y normaliza el banco de términos lingüísticos desde el sistema de archivos del dispositivo." alt="" coords="240,56,448,83"/>
+<area shape="rect" id="node4" href="$namespacegenerate.html#a46429655209bf6a2ab7da37cabd54629" title="Modifica físicamente las celdas de la matriz e inyecta los caracteres de la palabra validada." alt="" coords="263,107,425,133"/>
+</map>

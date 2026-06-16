@@ -1,0 +1,4 @@
+<map id="proactive.proactive_scheduler.ProactiveScheduler.on_suggestion_dismissed" name="proactive.proactive_scheduler.ProactiveScheduler.on_suggestion_dismissed">
+<area shape="rect" id="node1" title="Procesa el cierre de una sugerencia, sea aceptada o rechazada." alt="" coords="5,5,244,61"/>
+<area shape="rect" id="node2" href="$classproactive_1_1proactive__scheduler_1_1ProactiveScheduler.html#afeeb3c1e7fd805410e488b8d86b1965a" title="Función interna para restaurar el texto en pantalla según el estado del STT." alt="" coords="292,5,515,61"/>
+</map>

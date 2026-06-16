@@ -1,0 +1,4 @@
+<map id="app.ui.app_controller.AppController" name="app.ui.app_controller.AppController">
+<area shape="rect" id="node1" title="Orquestador central de navegación y estado de la aplicación." alt="" coords="5,131,200,443"/>
+<area shape="rect" id="node2" title=" " alt="" coords="65,5,140,83"/>
+</map>

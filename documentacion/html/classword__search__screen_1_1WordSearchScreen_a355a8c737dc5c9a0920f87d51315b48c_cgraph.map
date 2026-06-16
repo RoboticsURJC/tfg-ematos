@@ -1,0 +1,4 @@
+<map id="word_search_screen.WordSearchScreen._handle_grid_drag" name="word_search_screen.WordSearchScreen._handle_grid_drag">
+<area shape="rect" id="node1" title="Analiza la posición del arrastre para expandir de forma lineal la palabra activa." alt="" coords="5,5,240,47"/>
+<area shape="rect" id="node2" href="$classword__search__screen_1_1WordSearchScreen.html#a96930fe9d47b71d8606215882a59beac" title="Algoritmo analítico de restricción ortogonal y diagonal para vectores de celdas." alt="" coords="288,5,523,47"/>
+</map>

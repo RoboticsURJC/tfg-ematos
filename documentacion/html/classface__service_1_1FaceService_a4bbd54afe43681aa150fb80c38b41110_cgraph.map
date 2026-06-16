@@ -1,0 +1,4 @@
+<map id="face_service.FaceService.recognize" name="face_service.FaceService.recognize">
+<area shape="rect" id="node1" title="Envía una imagen para identificar el rostro presente en ella." alt="" coords="5,5,257,32"/>
+<area shape="rect" id="node2" href="$namespacelog__service.html#af8a86650753e2ab9216e190fad59757c" title="Añade una nueva entrada de registro para un servicio específico." alt="" coords="305,5,456,32"/>
+</map>

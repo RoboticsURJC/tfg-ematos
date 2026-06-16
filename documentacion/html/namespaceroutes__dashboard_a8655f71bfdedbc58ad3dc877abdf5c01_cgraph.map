@@ -1,0 +1,4 @@
+<map id="routes_dashboard.logs" name="routes_dashboard.logs">
+<area shape="rect" id="node1" title="Recupera los logs específicos de un servicio." alt="" coords="5,5,175,32"/>
+<area shape="rect" id="node2" href="$namespacelog__service.html#a9d6fb8fa51971ca316e809e128b4ecde" title="Recupera la lista completa de registros pertenecientes a un servicio." alt="" coords="223,5,377,32"/>
+</map>

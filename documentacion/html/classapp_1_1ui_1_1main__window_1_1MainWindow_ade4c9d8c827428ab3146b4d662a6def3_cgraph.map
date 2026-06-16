@@ -1,0 +1,5 @@
+<map id="app.ui.main_window.MainWindow._on_proactive_dismiss" name="app.ui.main_window.MainWindow._on_proactive_dismiss">
+<area shape="rect" id="node1" title="Callback para manejar el rechazo de una sugerencia proactiva." alt="" coords="5,39,252,80"/>
+<area shape="rect" id="node2" href="$classapp_1_1ui_1_1main__window_1_1MainWindow.html#a7fdc15001415171e90a3119afde65176" title="Limpia y libera memoria de la pantalla proactiva dinámica." alt="" coords="317,5,563,47"/>
+<area shape="rect" id="node3" href="$classapp_1_1ui_1_1main__window_1_1MainWindow.html#a9de1cb784d0a8dc3ce6a0806194b1f54" title="Cambia a la pantalla de launcher." alt="" coords="300,71,580,112"/>
+</map>

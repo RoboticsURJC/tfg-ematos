@@ -1,0 +1,64 @@
+\hypertarget{find__differences__screen_8py}{}\doxysection{ui/apps/games/find\+\_\+differences\+\_\+screen.py File Reference}
+\label{find__differences__screen_8py}\index{ui/apps/games/find\_differences\_screen.py@{ui/apps/games/find\_differences\_screen.py}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classfind__differences__screen_1_1SceneObject}{find\+\_\+differences\+\_\+screen.\+Scene\+Object}}
+\begin{DoxyCompactList}\small\item\em Entidad abstracta que representa una primitiva geométrica dibujable dentro de los lienzos. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classfind__differences__screen_1_1Difference}{find\+\_\+differences\+\_\+screen.\+Difference}}
+\begin{DoxyCompactList}\small\item\em Estructura de control que define una diferencia inyectada entre los dos lienzos. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classfind__differences__screen_1_1FindDifferencesScreen}{find\+\_\+differences\+\_\+screen.\+Find\+Differences\+Screen}}
+\begin{DoxyCompactList}\small\item\em Pantalla del juego encargada de gestionar el ciclo de vida, la lógica y el renderizado. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacefind__differences__screen}{find\+\_\+differences\+\_\+screen}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacefind__differences__screen_a1baf99688ab8dbaa2006271c6bc5ef7a}{find\+\_\+differences\+\_\+screen.\+\_\+darken}} (color, factor=0.\+7)
+\begin{DoxyCompactList}\small\item\em Atenúa u oscurece un color RGB aplicando un factor multiplicativo de escala. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespacefind__differences__screen_aa090a2129d4066fbeec5915788f728c2}{find\+\_\+differences\+\_\+screen.\+\_\+lighten}} (color, factor=1.\+3)
+\begin{DoxyCompactList}\small\item\em Intensifica o aclara un color RGB aplicando un factor multiplicativo de escala. \end{DoxyCompactList}\item 
+list \mbox{\hyperlink{namespacefind__differences__screen_a4c5b9723d04260cbd121e797a30ceedc}{find\+\_\+differences\+\_\+screen.\+generate\+\_\+scene}} (int n\+\_\+objects, str theme\+\_\+name, int canvas\+\_\+w, int canvas\+\_\+h)
+\begin{DoxyCompactList}\small\item\em Genera procedimentalmente una colección de objetos distribuidos sobre una rejilla ortogonal desordenada. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespacefind__differences__screen_a34df581cdc8072ec3fc71faf01c421cc}{find\+\_\+differences\+\_\+screen.\+apply\+\_\+differences}} (list base\+\_\+objects, int n\+\_\+diffs, int canvas\+\_\+w, int canvas\+\_\+h, str theme\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Toma una escena base y genera una copia mutada inyectando un número determinado de diferencias lógicas. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+tuple \mbox{\hyperlink{namespacefind__differences__screen_ac589826ced770f5731ce23cdc81246f7}{find\+\_\+differences\+\_\+screen.\+P\+\_\+\+BG\+\_\+\+TOP}} = (255, 240, 250)
+\item 
+tuple \mbox{\hyperlink{namespacefind__differences__screen_ae6506e259a77100d6bf49ce3c9030e31}{find\+\_\+differences\+\_\+screen.\+P\+\_\+\+BG\+\_\+\+BOTTOM}} = (230, 240, 255)
+\item 
+tuple \mbox{\hyperlink{namespacefind__differences__screen_a81fa7d9e4776b2049bf6ddcc818b4132}{find\+\_\+differences\+\_\+screen.\+P\+\_\+\+TITLE}} = (180, 90, 180)
+\item 
+tuple \mbox{\hyperlink{namespacefind__differences__screen_a1fa5e0b64a790174369ff03bf692f1f1}{find\+\_\+differences\+\_\+screen.\+P\+\_\+\+SUBTITLE}} = (140, 110, 180)
+\item 
+tuple \mbox{\hyperlink{namespacefind__differences__screen_a26c19012f07153bfc23cbc91bc581ee7}{find\+\_\+differences\+\_\+screen.\+P\+\_\+\+SHADOW}} = (210, 200, 225)
+\item 
+tuple \mbox{\hyperlink{namespacefind__differences__screen_ad11f89981284cf058cff24184fa3c039}{find\+\_\+differences\+\_\+screen.\+P\+\_\+\+BTN\+\_\+\+TEXT}} = ( 60, 40, 90)
+\item 
+tuple \mbox{\hyperlink{namespacefind__differences__screen_a5711c9bea420193e1eef9d4a83a91697}{find\+\_\+differences\+\_\+screen.\+P\+\_\+\+PANEL\+\_\+\+BG}} = (245, 240, 255)
+\item 
+tuple \mbox{\hyperlink{namespacefind__differences__screen_a7734b0a0a4ed28f0645a4b09a5055e1e}{find\+\_\+differences\+\_\+screen.\+P\+\_\+\+PANEL\+\_\+\+BORDER}} = (200, 180, 230)
+\item 
+tuple \mbox{\hyperlink{namespacefind__differences__screen_aeba7003fd0896355215c0a968224ebb9}{find\+\_\+differences\+\_\+screen.\+P\+\_\+\+BTN\+\_\+\+BACK}} = (180, 200, 255)
+\item 
+tuple \mbox{\hyperlink{namespacefind__differences__screen_a28a464b542d597b11456fe2f82015722}{find\+\_\+differences\+\_\+screen.\+P\+\_\+\+BTN\+\_\+\+EASY}} = (150, 230, 180)
+\item 
+tuple \mbox{\hyperlink{namespacefind__differences__screen_aad380f6b9377accc47d7148873496465}{find\+\_\+differences\+\_\+screen.\+P\+\_\+\+BTN\+\_\+\+MEDIUM}} = (255, 210, 130)
+\item 
+tuple \mbox{\hyperlink{namespacefind__differences__screen_ac9c8fc13b8e86a9f0e2858dbf0ca69b0}{find\+\_\+differences\+\_\+screen.\+P\+\_\+\+BTN\+\_\+\+HARD}} = (255, 160, 160)
+\item 
+tuple \mbox{\hyperlink{namespacefind__differences__screen_a85536cd6bc100a2602bbd59ac341f812}{find\+\_\+differences\+\_\+screen.\+P\+\_\+\+BTN\+\_\+\+EXIT}} = (255, 170, 170)
+\item 
+tuple \mbox{\hyperlink{namespacefind__differences__screen_a3ef02e66748cf048dff1cc0d23f57399}{find\+\_\+differences\+\_\+screen.\+P\+\_\+\+FOUND\+\_\+\+RING}} = ( 80, 200, 120)
+\item 
+tuple \mbox{\hyperlink{namespacefind__differences__screen_a8a1ea5f10e3631c5cb534a76b920ff1f}{find\+\_\+differences\+\_\+screen.\+P\+\_\+\+MISS\+\_\+\+FLASH}} = (220, 80, 80)
+\item 
+dictionary \mbox{\hyperlink{namespacefind__differences__screen_a23c4339ee4096fb282e5b3eeaa3bfef3}{find\+\_\+differences\+\_\+screen.\+DIFFICULTY}}
+\begin{DoxyCompactList}\small\item\em Diccionario de configuración de parámetros lógicos indexados por nivel de dificultad. \end{DoxyCompactList}\item 
+dictionary \mbox{\hyperlink{namespacefind__differences__screen_a7d63170448d2a0367fe396932ba8f281}{find\+\_\+differences\+\_\+screen.\+THEMES}}
+\begin{DoxyCompactList}\small\item\em Estructuras temáticas que definen los fondos, paletas de dibujo y morfologías disponibles para la escena. \end{DoxyCompactList}\end{DoxyCompactItemize}

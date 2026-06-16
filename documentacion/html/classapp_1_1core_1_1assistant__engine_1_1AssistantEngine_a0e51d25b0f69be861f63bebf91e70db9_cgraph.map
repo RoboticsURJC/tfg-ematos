@@ -1,0 +1,3 @@
+<map id="app.core.assistant_engine.AssistantEngine.speak" name="app.core.assistant_engine.AssistantEngine.speak">
+<area shape="rect" id="node1" title="Envía una cadena de texto al sintetizador de audio (TTS) y sincroniza los estados gráficos de la cara..." alt="" coords="5,29,229,71"/>
+</map>

@@ -1,0 +1,189 @@
+\hypertarget{classapp_1_1voice_1_1tts_1_1TTS}{}\doxysection{app.\+voice.\+tts.\+TTS Class Reference}
+\label{classapp_1_1voice_1_1tts_1_1TTS}\index{app.voice.tts.TTS@{app.voice.tts.TTS}}
+
+
+Gestor de síntesis de voz.  
+
+
+
+
+Collaboration diagram for app.\+voice.\+tts.\+TTS\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{classapp_1_1voice_1_1tts_1_1TTS__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classapp_1_1voice_1_1tts_1_1TTS_a7feb95ad98067dedeab128d4a7d5ff4c}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classapp_1_1voice_1_1tts_1_1TTS_add47f76ad2e18bb8a3944780fc3e9c71}{lang}}=\char`\"{}es-\/ES\char`\"{})
+\begin{DoxyCompactList}\small\item\em Inicializa el motor \mbox{\hyperlink{classapp_1_1voice_1_1tts_1_1TTS}{TTS}}. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1voice_1_1tts_1_1TTS_ab55d16da54d4e8e1193a6622bf74936b}{clean}} (self, text)
+\begin{DoxyCompactList}\small\item\em Elimina formato Markdown y caracteres especiales del texto. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1voice_1_1tts_1_1TTS_a2bf32878a39173d9c0c33c3e688132ac}{speak}} (self, text, on\+\_\+done=None)
+\begin{DoxyCompactList}\small\item\em Inicia la síntesis y reproducción de audio en un hilo independiente. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1voice_1_1tts_1_1TTS_a9134c0ae63958caa655c94678deb97f7}{wait\+\_\+until\+\_\+done}} (self, timeout=None)
+\begin{DoxyCompactList}\small\item\em Bloquea la ejecución hasta que la reproducción actual finalice. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1voice_1_1tts_1_1TTS_a7683342be0fa2097e78965867b35f07d}{stop}} (self)
+\begin{DoxyCompactList}\small\item\em Detiene de forma agresiva cualquier proceso de síntesis o audio activo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classapp_1_1voice_1_1tts_1_1TTS_add47f76ad2e18bb8a3944780fc3e9c71}{lang}}
+\item 
+\mbox{\hyperlink{classapp_1_1voice_1_1tts_1_1TTS_abe5d57d075ece2ddfafda16fdf7d07a3}{process}}
+\item 
+\mbox{\hyperlink{classapp_1_1voice_1_1tts_1_1TTS_a54be2ddf9c6bc524c157198e82f5ea6a}{is\+\_\+speaking}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classapp_1_1voice_1_1tts_1_1TTS_a1b5001a3c4ee8208e40051da1d259c6c}{\+\_\+done\+\_\+event}}
+\item 
+\mbox{\hyperlink{classapp_1_1voice_1_1tts_1_1TTS_ab75a115ae432bb3c3b8fe6937f7c6eda}{\+\_\+stop\+\_\+event}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Gestor de síntesis de voz. 
+
+Mantiene el estado de la reproducción, gestiona la interrupción de procesos de audio y normaliza el texto para mejorar la calidad de lectura. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classapp_1_1voice_1_1tts_1_1TTS_a7feb95ad98067dedeab128d4a7d5ff4c}\label{classapp_1_1voice_1_1tts_1_1TTS_a7feb95ad98067dedeab128d4a7d5ff4c}} 
+\index{app.voice.tts.TTS@{app.voice.tts.TTS}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!app.voice.tts.TTS@{app.voice.tts.TTS}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def app.\+voice.\+tts.\+TTS.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{lang = {\ttfamily \char`\"{}es-\/ES\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+Inicializa el motor \mbox{\hyperlink{classapp_1_1voice_1_1tts_1_1TTS}{TTS}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lang} & Código de idioma (default\+: \char`\"{}es-\/\+ES\char`\"{}). \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classapp_1_1voice_1_1tts_1_1TTS_ab55d16da54d4e8e1193a6622bf74936b}\label{classapp_1_1voice_1_1tts_1_1TTS_ab55d16da54d4e8e1193a6622bf74936b}} 
+\index{app.voice.tts.TTS@{app.voice.tts.TTS}!clean@{clean}}
+\index{clean@{clean}!app.voice.tts.TTS@{app.voice.tts.TTS}}
+\doxysubsubsection{\texorpdfstring{clean()}{clean()}}
+{\footnotesize\ttfamily def app.\+voice.\+tts.\+TTS.\+clean (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{text }\end{DoxyParamCaption})}
+
+
+
+Elimina formato Markdown y caracteres especiales del texto. 
+
+Filtra asteriscos, encabezados, bloques de código, links y otros símbolos que podrían ser leídos literalmente por el motor de síntesis. 
+\begin{DoxyParams}{Parameters}
+{\em text} & Texto original. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Texto normalizado listo para ser sintetizado. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classapp_1_1voice_1_1tts_1_1TTS_a2bf32878a39173d9c0c33c3e688132ac}\label{classapp_1_1voice_1_1tts_1_1TTS_a2bf32878a39173d9c0c33c3e688132ac}} 
+\index{app.voice.tts.TTS@{app.voice.tts.TTS}!speak@{speak}}
+\index{speak@{speak}!app.voice.tts.TTS@{app.voice.tts.TTS}}
+\doxysubsubsection{\texorpdfstring{speak()}{speak()}}
+{\footnotesize\ttfamily def app.\+voice.\+tts.\+TTS.\+speak (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{text,  }\item[{}]{on\+\_\+done = {\ttfamily None} }\end{DoxyParamCaption})}
+
+
+
+Inicia la síntesis y reproducción de audio en un hilo independiente. 
+
+Activa {\ttfamily is\+\_\+speaking} inmediatamente para sincronizar con el STT, genera el audio y gestiona la interrupción del proceso vía {\ttfamily \+\_\+stop\+\_\+event}. 
+\begin{DoxyParams}{Parameters}
+{\em text} & Texto a pronunciar. \\
+\hline
+{\em on\+\_\+done} & Callback opcional a ejecutar al finalizar. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classapp_1_1voice_1_1tts_1_1TTS_a2bf32878a39173d9c0c33c3e688132ac_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classapp_1_1voice_1_1tts_1_1TTS_a7683342be0fa2097e78965867b35f07d}\label{classapp_1_1voice_1_1tts_1_1TTS_a7683342be0fa2097e78965867b35f07d}} 
+\index{app.voice.tts.TTS@{app.voice.tts.TTS}!stop@{stop}}
+\index{stop@{stop}!app.voice.tts.TTS@{app.voice.tts.TTS}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily def app.\+voice.\+tts.\+TTS.\+stop (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Detiene de forma agresiva cualquier proceso de síntesis o audio activo. 
+
+Utiliza {\ttfamily SIGKILL} para asegurar que el hardware de audio se libere inmediatamente, limpiando también procesos residuales con {\ttfamily pkill}. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classapp_1_1voice_1_1tts_1_1TTS_a7683342be0fa2097e78965867b35f07d_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classapp_1_1voice_1_1tts_1_1TTS_a9134c0ae63958caa655c94678deb97f7}\label{classapp_1_1voice_1_1tts_1_1TTS_a9134c0ae63958caa655c94678deb97f7}} 
+\index{app.voice.tts.TTS@{app.voice.tts.TTS}!wait\_until\_done@{wait\_until\_done}}
+\index{wait\_until\_done@{wait\_until\_done}!app.voice.tts.TTS@{app.voice.tts.TTS}}
+\doxysubsubsection{\texorpdfstring{wait\_until\_done()}{wait\_until\_done()}}
+{\footnotesize\ttfamily def app.\+voice.\+tts.\+TTS.\+wait\+\_\+until\+\_\+done (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{timeout = {\ttfamily None} }\end{DoxyParamCaption})}
+
+
+
+Bloquea la ejecución hasta que la reproducción actual finalice. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em timeout} & Tiempo máximo de espera en segundos. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True si finalizó, False si hubo timeout. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classapp_1_1voice_1_1tts_1_1TTS_a1b5001a3c4ee8208e40051da1d259c6c}\label{classapp_1_1voice_1_1tts_1_1TTS_a1b5001a3c4ee8208e40051da1d259c6c}} 
+\index{app.voice.tts.TTS@{app.voice.tts.TTS}!\_done\_event@{\_done\_event}}
+\index{\_done\_event@{\_done\_event}!app.voice.tts.TTS@{app.voice.tts.TTS}}
+\doxysubsubsection{\texorpdfstring{\_done\_event}{\_done\_event}}
+{\footnotesize\ttfamily app.\+voice.\+tts.\+TTS.\+\_\+done\+\_\+event\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classapp_1_1voice_1_1tts_1_1TTS_ab75a115ae432bb3c3b8fe6937f7c6eda}\label{classapp_1_1voice_1_1tts_1_1TTS_ab75a115ae432bb3c3b8fe6937f7c6eda}} 
+\index{app.voice.tts.TTS@{app.voice.tts.TTS}!\_stop\_event@{\_stop\_event}}
+\index{\_stop\_event@{\_stop\_event}!app.voice.tts.TTS@{app.voice.tts.TTS}}
+\doxysubsubsection{\texorpdfstring{\_stop\_event}{\_stop\_event}}
+{\footnotesize\ttfamily app.\+voice.\+tts.\+TTS.\+\_\+stop\+\_\+event\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classapp_1_1voice_1_1tts_1_1TTS_a54be2ddf9c6bc524c157198e82f5ea6a}\label{classapp_1_1voice_1_1tts_1_1TTS_a54be2ddf9c6bc524c157198e82f5ea6a}} 
+\index{app.voice.tts.TTS@{app.voice.tts.TTS}!is\_speaking@{is\_speaking}}
+\index{is\_speaking@{is\_speaking}!app.voice.tts.TTS@{app.voice.tts.TTS}}
+\doxysubsubsection{\texorpdfstring{is\_speaking}{is\_speaking}}
+{\footnotesize\ttfamily app.\+voice.\+tts.\+TTS.\+is\+\_\+speaking}
+
+\mbox{\Hypertarget{classapp_1_1voice_1_1tts_1_1TTS_add47f76ad2e18bb8a3944780fc3e9c71}\label{classapp_1_1voice_1_1tts_1_1TTS_add47f76ad2e18bb8a3944780fc3e9c71}} 
+\index{app.voice.tts.TTS@{app.voice.tts.TTS}!lang@{lang}}
+\index{lang@{lang}!app.voice.tts.TTS@{app.voice.tts.TTS}}
+\doxysubsubsection{\texorpdfstring{lang}{lang}}
+{\footnotesize\ttfamily app.\+voice.\+tts.\+TTS.\+lang}
+
+\mbox{\Hypertarget{classapp_1_1voice_1_1tts_1_1TTS_abe5d57d075ece2ddfafda16fdf7d07a3}\label{classapp_1_1voice_1_1tts_1_1TTS_abe5d57d075ece2ddfafda16fdf7d07a3}} 
+\index{app.voice.tts.TTS@{app.voice.tts.TTS}!process@{process}}
+\index{process@{process}!app.voice.tts.TTS@{app.voice.tts.TTS}}
+\doxysubsubsection{\texorpdfstring{process}{process}}
+{\footnotesize\ttfamily app.\+voice.\+tts.\+TTS.\+process}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+voice/\mbox{\hyperlink{tts_8py}{tts.\+py}}\end{DoxyCompactItemize}

@@ -1,0 +1,4 @@
+<map id="word_search_screen.WordSearchScreen.update_logic" name="word_search_screen.WordSearchScreen.update_logic">
+<area shape="rect" id="node1" title="Comprueba de forma asíncrona la condición de victoria por vaciado de lista." alt="" coords="5,5,240,47"/>
+<area shape="rect" id="node2" href="$classword__search__screen_1_1WordSearchScreen.html#a8e395cb5ecb6b185b0704266a76ab12b" title="Gestiona las variables de control al completar con éxito todas las palabras del panel." alt="" coords="288,5,523,47"/>
+</map>

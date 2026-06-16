@@ -1,0 +1,4 @@
+<map id="loading_screen.LoadingScreen" name="loading_screen.LoadingScreen">
+<area shape="rect" id="node1" title="Pantalla de carga con animación simple." alt="" coords="5,131,224,281"/>
+<area shape="rect" id="node2" title=" " alt="" coords="75,5,154,83"/>
+</map>

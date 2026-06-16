@@ -1,0 +1,7 @@
+<map id="simon_says_screen.SimonSaysScreen.update_logic" name="simon_says_screen.SimonSaysScreen.update_logic">
+<area shape="rect" id="node1" title="Motor cíclico principal para la resolución de tiempos y animaciones por interpolación." alt="" coords="5,71,231,112"/>
+<area shape="rect" id="node2" href="$classsimon__says__screen_1_1SimonSaysScreen.html#a1e81a6f6987d4378d63c75ab887bcb81" title="Añade un nuevo índice aleatorio [0&#45;3] a la secuencia para subir el nivel." alt="" coords="279,5,504,47"/>
+<area shape="rect" id="node3" href="$classsimon__says__screen_1_1SimonSaysScreen.html#a66dc15c613f829b53f91f938dfe1f5a5" title="Configura las variables para iniciar la reproducción automática de colores." alt="" coords="279,71,504,112"/>
+<area shape="rect" id="node4" href="$classsimon__says__screen_1_1SimonSaysScreen.html#afefc9a1f292d70ee2b64e5561cf4ae4c" title="Máquina de estados secundaria que gestiona el ritmo de parpadeo de los colores." alt="" coords="279,136,504,177"/>
+<area shape="rect" id="node5" href="$classsimon__says__screen_1_1SimonSaysScreen.html#ac7eea7a0dd9cb7d3458910f1766f21ad" title="Lanza de forma asíncrona la reproducción del búfer de sonido indexado." alt="" coords="552,136,777,177"/>
+</map>

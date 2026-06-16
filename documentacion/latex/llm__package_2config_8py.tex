@@ -1,0 +1,27 @@
+\hypertarget{llm__package_2config_8py}{}\doxysection{llm\+\_\+package/config.py File Reference}
+\label{llm__package_2config_8py}\index{llm\_package/config.py@{llm\_package/config.py}}
+
+
+Módulo central de configuración y carga de variables de entorno del sistema.  
+
+
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceconfig}{config}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceconfig_ade6ff917526e7d29c0291a47be14573a}{config.\+AZURE\+\_\+\+API\+\_\+\+KEY}} = os.\+getenv(\char`\"{}AZURE\+\_\+\+API\+\_\+\+KEY\char`\"{})
+\begin{DoxyCompactList}\small\item\em Token de autenticación privado para el consumo de modelos Open\+AI a través de Azure AI Model Inference. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceconfig_aed639bc4f02eed4d45be5c254197a0d9}{config.\+GROQ\+\_\+\+API\+\_\+\+KEY}} = os.\+getenv(\char`\"{}GROQ\+\_\+\+API\+\_\+\+KEY\char`\"{})
+\begin{DoxyCompactList}\small\item\em Llave de acceso secreta (API Key) necesaria para autenticar las peticiones asíncronas en la infraestructura de Groq. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceconfig_a4888d9f7583ffb88223310bf9a18dd2a}{config.\+GEMINI\+\_\+\+API\+\_\+\+KEY}} = os.\+getenv(\char`\"{}GEMINI\+\_\+\+API\+\_\+\+KEY\char`\"{})
+\begin{DoxyCompactList}\small\item\em Credencial privada indispensable para el funcionamiento del cliente oficial del SDK de Google Gemini. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Módulo central de configuración y carga de variables de entorno del sistema. 
+
+Consume la librería {\ttfamily python-\/dotenv} para deserializar el archivo oculto {\ttfamily .env} e inyectar de forma segura las credenciales y llaves privadas en las variables del sistema operativo. 

@@ -1,0 +1,4 @@
+<map id="app.ui.app_controller.AppController.error" name="app.ui.app_controller.AppController.error">
+<area shape="rect" id="node1" title="Fuerza la transición a la pantalla de error global." alt="" coords="5,5,192,47"/>
+<area shape="rect" id="node2" href="$classapp_1_1ui_1_1app__controller_1_1AppController.html#a8370e625746828c75a06848fceb03a66" title="Realiza la transición a la pantalla especificada." alt="" coords="240,5,427,47"/>
+</map>

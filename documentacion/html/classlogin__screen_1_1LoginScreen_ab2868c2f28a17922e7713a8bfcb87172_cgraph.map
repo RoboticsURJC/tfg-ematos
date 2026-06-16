@@ -1,0 +1,4 @@
+<map id="login_screen.LoginScreen.on_result" name="login_screen.LoginScreen.on_result">
+<area shape="rect" id="node1" title="Callback al recibir una respuesta exitosa del servidor." alt="" coords="5,5,212,47"/>
+<area shape="rect" id="node2" href="$classlogin__screen_1_1LoginScreen.html#a5cc949c642c016c13b1a7b22e67e7555" title="Prepara la imagen actual y lanza el hilo de reconocimiento facial." alt="" coords="260,13,483,39"/>
+</map>

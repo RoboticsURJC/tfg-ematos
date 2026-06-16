@@ -1,0 +1,421 @@
+\hypertarget{classcalendar__screen_1_1CalendarScreen}{}\doxysection{calendar\+\_\+screen.\+Calendar\+Screen Class Reference}
+\label{classcalendar__screen_1_1CalendarScreen}\index{calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}}
+
+
+Componento de pantalla unificado para la visualización de la agenda táctil del robot.  
+
+
+
+
+Inheritance diagram for calendar\+\_\+screen.\+Calendar\+Screen\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{classcalendar__screen_1_1CalendarScreen__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for calendar\+\_\+screen.\+Calendar\+Screen\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{classcalendar__screen_1_1CalendarScreen__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classcalendar__screen_1_1CalendarScreen_ab9a7b2b080fe1c1591bf96f84ee89108}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classcalendar__screen_1_1CalendarScreen_a803a6507a6562dfdadb94c294f9f6757}{controller}})
+\begin{DoxyCompactList}\small\item\em Constructor de la pantalla \mbox{\hyperlink{classcalendar__screen_1_1CalendarScreen}{Calendar\+Screen}}. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classcalendar__screen_1_1CalendarScreen_abc63bf26ee2c9f4cb8d1702b3e90a23d}{update\+\_\+header}} (self)
+\begin{DoxyCompactList}\small\item\em Sincroniza el texto del encabezado principal con el mes y año bajo visualización. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classcalendar__screen_1_1CalendarScreen_a3a1a4f63d1ad7ed6a6556c5b8bb4c24e}{prev\+\_\+month}} (self)
+\begin{DoxyCompactList}\small\item\em Retrocede una página en el calendario correspondiente a un mes atrás de la fecha actual. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classcalendar__screen_1_1CalendarScreen_ac4fe23ec79aa72957c5515bf64cb06b5}{next\+\_\+month}} (self)
+\begin{DoxyCompactList}\small\item\em Avanza una página en el calendario correspondiente a un mes adelante de la fecha actual. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classcalendar__screen_1_1CalendarScreen_ac571a5da84040909a8e774a36e42d790}{date\+\_\+changed}} (self, date)
+\begin{DoxyCompactList}\small\item\em Slot asíncrono que se dispara cuando el usuario presiona un día en la cuadrícula. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classcalendar__screen_1_1CalendarScreen_ad7d7057756ab86ac3735e41738308de5}{refresh}} (self)
+\begin{DoxyCompactList}\small\item\em Sincroniza la lista visual de tareas y repinta los días destacados. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classcalendar__screen_1_1CalendarScreen_a1b6622a0d8aaa974ec92b207d363db6b}{add\+\_\+event}} (self)
+\begin{DoxyCompactList}\small\item\em Da de alta un nuevo evento en el día en curso. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classcalendar__screen_1_1CalendarScreen_a0dfe9f0765d127b1d85a4e61725b595a}{delete\+\_\+event}} (self)
+\begin{DoxyCompactList}\small\item\em Remueve el evento seleccionado de la agenda bajo confirmación de diálogo. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classcalendar__screen_1_1CalendarScreen_a0f1a3545f3729b3b7f1ce049450dd3d5}{mark\+\_\+events\+\_\+on\+\_\+calendar}} (self)
+\begin{DoxyCompactList}\small\item\em Resalta visualmente las casillas del calendario que contienen recordatorios agendados. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classcalendar__screen_1_1CalendarScreen_af8491b1eec1b9138fa6b59d4640ee4b6}{hide\+Event}} (self, event)
+\begin{DoxyCompactList}\small\item\em Intercepta la ocultación de la ventana para replegar el teclado de forma segura. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classcalendar__screen_1_1CalendarScreen_a38634fa36747b9d329572854ec6a16e1}{go\+\_\+back}} (self)
+\begin{DoxyCompactList}\small\item\em Cierra el módulo de agenda actual regresando la interfaz al menú principal (Launcher). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcalendar__screen_1_1CalendarScreen_a803a6507a6562dfdadb94c294f9f6757}{controller}}
+\begin{DoxyCompactList}\small\item\em Referencia al controlador de UI general de la aplicación. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcalendar__screen_1_1CalendarScreen_a84094a4b8e04c942155099e0b65fc7e4}{store}}
+\begin{DoxyCompactList}\small\item\em Gestor binario/\+JSON encargado del almacenamiento e indexación física de las tareas en disco. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcalendar__screen_1_1CalendarScreen_aebb73a3d9466d9b080ef88d6bf038d95}{current\+\_\+date}}
+\begin{DoxyCompactList}\small\item\em Instancia de control de tiempo que almacena de forma activa el día seleccionado por el usuario. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcalendar__screen_1_1CalendarScreen_a10b2eb487f7ccafcd6e16f2b43e4c3b0}{btn\+\_\+prev}}
+\item 
+\mbox{\hyperlink{classcalendar__screen_1_1CalendarScreen_a87b064b06326b5b5230e061daa974db6}{header}}
+\item 
+\mbox{\hyperlink{classcalendar__screen_1_1CalendarScreen_af8f6ecb8147e73818a324edc194531f5}{btn\+\_\+next}}
+\item 
+\mbox{\hyperlink{classcalendar__screen_1_1CalendarScreen_a35f4e99c526a405cccc3562364fea83d}{calendar}}
+\item 
+\mbox{\hyperlink{classcalendar__screen_1_1CalendarScreen_aea83e5a20dddb86cbce36921ae0067a1}{panel\+\_\+title}}
+\item 
+\mbox{\hyperlink{classcalendar__screen_1_1CalendarScreen_a6751268cf4217f29c859b54154bc74f1}{list}}
+\item 
+\mbox{\hyperlink{classcalendar__screen_1_1CalendarScreen_abfa5fcb21fe620a9e9f2ea3ef931e577}{input}}
+\item 
+\mbox{\hyperlink{classcalendar__screen_1_1CalendarScreen_aa70337bd704f04247f24c504104e9318}{btn\+\_\+add}}
+\item 
+\mbox{\hyperlink{classcalendar__screen_1_1CalendarScreen_a5f4d39bb7693c802fed81a43b7a91b6a}{btn\+\_\+delete}}
+\item 
+\mbox{\hyperlink{classcalendar__screen_1_1CalendarScreen_ac9a3de5b30441fac1240c547b103c2d7}{btn\+\_\+back}}
+\item 
+\mbox{\hyperlink{classcalendar__screen_1_1CalendarScreen_a94a3f79b9139849c9c657837a7984481}{keyboard}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classcalendar__screen_1_1CalendarScreen_aa05784725e7253c6e18fcad56d58c5d8}{\+\_\+show\+\_\+keyboard}} (self, QLine\+Edit target)
+\begin{DoxyCompactList}\small\item\em Despliega el teclado táctil en pantalla y encoge proporcionalmente la lista de eventos. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classcalendar__screen_1_1CalendarScreen_a67ae6b5dddfc781ccc12a5082270695d}{\+\_\+hide\+\_\+keyboard}} (self)
+\begin{DoxyCompactList}\small\item\em Oculta de la interfaz el teclado virtual y restaura las dimensiones originales de la lista de eventos. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Componento de pantalla unificado para la visualización de la agenda táctil del robot. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcalendar__screen_1_1CalendarScreen_ab9a7b2b080fe1c1591bf96f84ee89108}\label{classcalendar__screen_1_1CalendarScreen_ab9a7b2b080fe1c1591bf96f84ee89108}} 
+\index{calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def calendar\+\_\+screen.\+Calendar\+Screen.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{controller }\end{DoxyParamCaption})}
+
+
+
+Constructor de la pantalla \mbox{\hyperlink{classcalendar__screen_1_1CalendarScreen}{Calendar\+Screen}}. 
+
+Instancia el motor de almacenamiento de eventos local, modela los layouts relacionales e inicializa las propiedades de los componentes gráficos del calendario y lista de recordatorios.
+
+
+\begin{DoxyParams}{Parameters}
+{\em controller} & Instancia del orquestador central que gestiona las transiciones de pantalla en la interfaz. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{classcalendar__screen_1_1CalendarScreen_ab9a7b2b080fe1c1591bf96f84ee89108_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcalendar__screen_1_1CalendarScreen_a67ae6b5dddfc781ccc12a5082270695d}\label{classcalendar__screen_1_1CalendarScreen_a67ae6b5dddfc781ccc12a5082270695d}} 
+\index{calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}!\_hide\_keyboard@{\_hide\_keyboard}}
+\index{\_hide\_keyboard@{\_hide\_keyboard}!calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}}
+\doxysubsubsection{\texorpdfstring{\_hide\_keyboard()}{\_hide\_keyboard()}}
+{\footnotesize\ttfamily def calendar\+\_\+screen.\+Calendar\+Screen.\+\_\+hide\+\_\+keyboard (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Oculta de la interfaz el teclado virtual y restaura las dimensiones originales de la lista de eventos. 
+
+\mbox{\Hypertarget{classcalendar__screen_1_1CalendarScreen_aa05784725e7253c6e18fcad56d58c5d8}\label{classcalendar__screen_1_1CalendarScreen_aa05784725e7253c6e18fcad56d58c5d8}} 
+\index{calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}!\_show\_keyboard@{\_show\_keyboard}}
+\index{\_show\_keyboard@{\_show\_keyboard}!calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}}
+\doxysubsubsection{\texorpdfstring{\_show\_keyboard()}{\_show\_keyboard()}}
+{\footnotesize\ttfamily def calendar\+\_\+screen.\+Calendar\+Screen.\+\_\+show\+\_\+keyboard (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{QLine\+Edit}]{target }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Despliega el teclado táctil en pantalla y encoge proporcionalmente la lista de eventos. 
+
+Modifica dinámicamente los límites de altura de {\ttfamily QList\+Widget} para posibilitar la completitud visual del teclado en resoluciones limitadas de Raspberry Pi sin ocultar los campos de entrada.
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & Puntero al control de texto {\ttfamily QLine\+Edit} que recibirá los caracteres inyectados. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classcalendar__screen_1_1CalendarScreen_a1b6622a0d8aaa974ec92b207d363db6b}\label{classcalendar__screen_1_1CalendarScreen_a1b6622a0d8aaa974ec92b207d363db6b}} 
+\index{calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}!add\_event@{add\_event}}
+\index{add\_event@{add\_event}!calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}}
+\doxysubsubsection{\texorpdfstring{add\_event()}{add\_event()}}
+{\footnotesize\ttfamily def calendar\+\_\+screen.\+Calendar\+Screen.\+add\+\_\+event (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Da de alta un nuevo evento en el día en curso. 
+
+Sanea la cadena ingresada por el usuario. Si contiene caracteres válidos, confirma el registro en la persistencia del Store, oculta el teclado virtual táctil y refresca la vista. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcalendar__screen_1_1CalendarScreen_a1b6622a0d8aaa974ec92b207d363db6b_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcalendar__screen_1_1CalendarScreen_ac571a5da84040909a8e774a36e42d790}\label{classcalendar__screen_1_1CalendarScreen_ac571a5da84040909a8e774a36e42d790}} 
+\index{calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}!date\_changed@{date\_changed}}
+\index{date\_changed@{date\_changed}!calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}}
+\doxysubsubsection{\texorpdfstring{date\_changed()}{date\_changed()}}
+{\footnotesize\ttfamily def calendar\+\_\+screen.\+Calendar\+Screen.\+date\+\_\+changed (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{date }\end{DoxyParamCaption})}
+
+
+
+Slot asíncrono que se dispara cuando el usuario presiona un día en la cuadrícula. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & Instancia de objeto {\ttfamily QDate} del día pulsado. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcalendar__screen_1_1CalendarScreen_ac571a5da84040909a8e774a36e42d790_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcalendar__screen_1_1CalendarScreen_a0dfe9f0765d127b1d85a4e61725b595a}\label{classcalendar__screen_1_1CalendarScreen_a0dfe9f0765d127b1d85a4e61725b595a}} 
+\index{calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}!delete\_event@{delete\_event}}
+\index{delete\_event@{delete\_event}!calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}}
+\doxysubsubsection{\texorpdfstring{delete\_event()}{delete\_event()}}
+{\footnotesize\ttfamily def calendar\+\_\+screen.\+Calendar\+Screen.\+delete\+\_\+event (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Remueve el evento seleccionado de la agenda bajo confirmación de diálogo. 
+
+Recupera el índice de fila activo en el widget gráfico. Si existe una selección válida, despliega un cuadro modal de advertencia ({\ttfamily QMessage\+Box}). Tras la aprobación, sincroniza el borrado con el Store utilizando un contador de offset. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcalendar__screen_1_1CalendarScreen_a0dfe9f0765d127b1d85a4e61725b595a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcalendar__screen_1_1CalendarScreen_a38634fa36747b9d329572854ec6a16e1}\label{classcalendar__screen_1_1CalendarScreen_a38634fa36747b9d329572854ec6a16e1}} 
+\index{calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}!go\_back@{go\_back}}
+\index{go\_back@{go\_back}!calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}}
+\doxysubsubsection{\texorpdfstring{go\_back()}{go\_back()}}
+{\footnotesize\ttfamily def calendar\+\_\+screen.\+Calendar\+Screen.\+go\+\_\+back (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Cierra el módulo de agenda actual regresando la interfaz al menú principal (Launcher). 
+
+\mbox{\Hypertarget{classcalendar__screen_1_1CalendarScreen_af8491b1eec1b9138fa6b59d4640ee4b6}\label{classcalendar__screen_1_1CalendarScreen_af8491b1eec1b9138fa6b59d4640ee4b6}} 
+\index{calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}!hideEvent@{hideEvent}}
+\index{hideEvent@{hideEvent}!calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}}
+\doxysubsubsection{\texorpdfstring{hideEvent()}{hideEvent()}}
+{\footnotesize\ttfamily def calendar\+\_\+screen.\+Calendar\+Screen.\+hide\+Event (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{event }\end{DoxyParamCaption})}
+
+
+
+Intercepta la ocultación de la ventana para replegar el teclado de forma segura. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Objeto del evento nativo de tipo QHide\+Event. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcalendar__screen_1_1CalendarScreen_af8491b1eec1b9138fa6b59d4640ee4b6_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcalendar__screen_1_1CalendarScreen_a0f1a3545f3729b3b7f1ce049450dd3d5}\label{classcalendar__screen_1_1CalendarScreen_a0f1a3545f3729b3b7f1ce049450dd3d5}} 
+\index{calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}!mark\_events\_on\_calendar@{mark\_events\_on\_calendar}}
+\index{mark\_events\_on\_calendar@{mark\_events\_on\_calendar}!calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}}
+\doxysubsubsection{\texorpdfstring{mark\_events\_on\_calendar()}{mark\_events\_on\_calendar()}}
+{\footnotesize\ttfamily def calendar\+\_\+screen.\+Calendar\+Screen.\+mark\+\_\+events\+\_\+on\+\_\+calendar (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Resalta visualmente las casillas del calendario que contienen recordatorios agendados. 
+
+Genera un pincel y formato de celda personalizado ({\ttfamily QText\+Char\+Format}) con fondo coral y texto blanco, barriendo el listado global para estampar el formato en las celdas del mes actual. \mbox{\Hypertarget{classcalendar__screen_1_1CalendarScreen_ac4fe23ec79aa72957c5515bf64cb06b5}\label{classcalendar__screen_1_1CalendarScreen_ac4fe23ec79aa72957c5515bf64cb06b5}} 
+\index{calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}!next\_month@{next\_month}}
+\index{next\_month@{next\_month}!calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}}
+\doxysubsubsection{\texorpdfstring{next\_month()}{next\_month()}}
+{\footnotesize\ttfamily def calendar\+\_\+screen.\+Calendar\+Screen.\+next\+\_\+month (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Avanza una página en el calendario correspondiente a un mes adelante de la fecha actual. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcalendar__screen_1_1CalendarScreen_ac4fe23ec79aa72957c5515bf64cb06b5_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcalendar__screen_1_1CalendarScreen_a3a1a4f63d1ad7ed6a6556c5b8bb4c24e}\label{classcalendar__screen_1_1CalendarScreen_a3a1a4f63d1ad7ed6a6556c5b8bb4c24e}} 
+\index{calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}!prev\_month@{prev\_month}}
+\index{prev\_month@{prev\_month}!calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}}
+\doxysubsubsection{\texorpdfstring{prev\_month()}{prev\_month()}}
+{\footnotesize\ttfamily def calendar\+\_\+screen.\+Calendar\+Screen.\+prev\+\_\+month (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Retrocede una página en el calendario correspondiente a un mes atrás de la fecha actual. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcalendar__screen_1_1CalendarScreen_a3a1a4f63d1ad7ed6a6556c5b8bb4c24e_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcalendar__screen_1_1CalendarScreen_ad7d7057756ab86ac3735e41738308de5}\label{classcalendar__screen_1_1CalendarScreen_ad7d7057756ab86ac3735e41738308de5}} 
+\index{calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}!refresh@{refresh}}
+\index{refresh@{refresh}!calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}}
+\doxysubsubsection{\texorpdfstring{refresh()}{refresh()}}
+{\footnotesize\ttfamily def calendar\+\_\+screen.\+Calendar\+Screen.\+refresh (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Sincroniza la lista visual de tareas y repinta los días destacados. 
+
+Limpia la instancia de {\ttfamily QList\+Widget}, consulta las cadenas correspondientes en el {\ttfamily Calendar\+Store}, inyecta los nuevos registros físicos y actualiza las marcas estéticas del calendario. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcalendar__screen_1_1CalendarScreen_ad7d7057756ab86ac3735e41738308de5_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcalendar__screen_1_1CalendarScreen_abc63bf26ee2c9f4cb8d1702b3e90a23d}\label{classcalendar__screen_1_1CalendarScreen_abc63bf26ee2c9f4cb8d1702b3e90a23d}} 
+\index{calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}!update\_header@{update\_header}}
+\index{update\_header@{update\_header}!calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}}
+\doxysubsubsection{\texorpdfstring{update\_header()}{update\_header()}}
+{\footnotesize\ttfamily def calendar\+\_\+screen.\+Calendar\+Screen.\+update\+\_\+header (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Sincroniza el texto del encabezado principal con el mes y año bajo visualización. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcalendar__screen_1_1CalendarScreen_aa70337bd704f04247f24c504104e9318}\label{classcalendar__screen_1_1CalendarScreen_aa70337bd704f04247f24c504104e9318}} 
+\index{calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}!btn\_add@{btn\_add}}
+\index{btn\_add@{btn\_add}!calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_add}{btn\_add}}
+{\footnotesize\ttfamily calendar\+\_\+screen.\+Calendar\+Screen.\+btn\+\_\+add}
+
+\mbox{\Hypertarget{classcalendar__screen_1_1CalendarScreen_ac9a3de5b30441fac1240c547b103c2d7}\label{classcalendar__screen_1_1CalendarScreen_ac9a3de5b30441fac1240c547b103c2d7}} 
+\index{calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}!btn\_back@{btn\_back}}
+\index{btn\_back@{btn\_back}!calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_back}{btn\_back}}
+{\footnotesize\ttfamily calendar\+\_\+screen.\+Calendar\+Screen.\+btn\+\_\+back}
+
+\mbox{\Hypertarget{classcalendar__screen_1_1CalendarScreen_a5f4d39bb7693c802fed81a43b7a91b6a}\label{classcalendar__screen_1_1CalendarScreen_a5f4d39bb7693c802fed81a43b7a91b6a}} 
+\index{calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}!btn\_delete@{btn\_delete}}
+\index{btn\_delete@{btn\_delete}!calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_delete}{btn\_delete}}
+{\footnotesize\ttfamily calendar\+\_\+screen.\+Calendar\+Screen.\+btn\+\_\+delete}
+
+\mbox{\Hypertarget{classcalendar__screen_1_1CalendarScreen_af8f6ecb8147e73818a324edc194531f5}\label{classcalendar__screen_1_1CalendarScreen_af8f6ecb8147e73818a324edc194531f5}} 
+\index{calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}!btn\_next@{btn\_next}}
+\index{btn\_next@{btn\_next}!calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_next}{btn\_next}}
+{\footnotesize\ttfamily calendar\+\_\+screen.\+Calendar\+Screen.\+btn\+\_\+next}
+
+\mbox{\Hypertarget{classcalendar__screen_1_1CalendarScreen_a10b2eb487f7ccafcd6e16f2b43e4c3b0}\label{classcalendar__screen_1_1CalendarScreen_a10b2eb487f7ccafcd6e16f2b43e4c3b0}} 
+\index{calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}!btn\_prev@{btn\_prev}}
+\index{btn\_prev@{btn\_prev}!calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}}
+\doxysubsubsection{\texorpdfstring{btn\_prev}{btn\_prev}}
+{\footnotesize\ttfamily calendar\+\_\+screen.\+Calendar\+Screen.\+btn\+\_\+prev}
+
+\mbox{\Hypertarget{classcalendar__screen_1_1CalendarScreen_a35f4e99c526a405cccc3562364fea83d}\label{classcalendar__screen_1_1CalendarScreen_a35f4e99c526a405cccc3562364fea83d}} 
+\index{calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}!calendar@{calendar}}
+\index{calendar@{calendar}!calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}}
+\doxysubsubsection{\texorpdfstring{calendar}{calendar}}
+{\footnotesize\ttfamily calendar\+\_\+screen.\+Calendar\+Screen.\+calendar}
+
+\mbox{\Hypertarget{classcalendar__screen_1_1CalendarScreen_a803a6507a6562dfdadb94c294f9f6757}\label{classcalendar__screen_1_1CalendarScreen_a803a6507a6562dfdadb94c294f9f6757}} 
+\index{calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}!controller@{controller}}
+\index{controller@{controller}!calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}}
+\doxysubsubsection{\texorpdfstring{controller}{controller}}
+{\footnotesize\ttfamily calendar\+\_\+screen.\+Calendar\+Screen.\+controller}
+
+
+
+Referencia al controlador de UI general de la aplicación. 
+
+\mbox{\Hypertarget{classcalendar__screen_1_1CalendarScreen_aebb73a3d9466d9b080ef88d6bf038d95}\label{classcalendar__screen_1_1CalendarScreen_aebb73a3d9466d9b080ef88d6bf038d95}} 
+\index{calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}!current\_date@{current\_date}}
+\index{current\_date@{current\_date}!calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}}
+\doxysubsubsection{\texorpdfstring{current\_date}{current\_date}}
+{\footnotesize\ttfamily calendar\+\_\+screen.\+Calendar\+Screen.\+current\+\_\+date}
+
+
+
+Instancia de control de tiempo que almacena de forma activa el día seleccionado por el usuario. 
+
+\mbox{\Hypertarget{classcalendar__screen_1_1CalendarScreen_a87b064b06326b5b5230e061daa974db6}\label{classcalendar__screen_1_1CalendarScreen_a87b064b06326b5b5230e061daa974db6}} 
+\index{calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}!header@{header}}
+\index{header@{header}!calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}}
+\doxysubsubsection{\texorpdfstring{header}{header}}
+{\footnotesize\ttfamily calendar\+\_\+screen.\+Calendar\+Screen.\+header}
+
+\mbox{\Hypertarget{classcalendar__screen_1_1CalendarScreen_abfa5fcb21fe620a9e9f2ea3ef931e577}\label{classcalendar__screen_1_1CalendarScreen_abfa5fcb21fe620a9e9f2ea3ef931e577}} 
+\index{calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}!input@{input}}
+\index{input@{input}!calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}}
+\doxysubsubsection{\texorpdfstring{input}{input}}
+{\footnotesize\ttfamily calendar\+\_\+screen.\+Calendar\+Screen.\+input}
+
+\mbox{\Hypertarget{classcalendar__screen_1_1CalendarScreen_a94a3f79b9139849c9c657837a7984481}\label{classcalendar__screen_1_1CalendarScreen_a94a3f79b9139849c9c657837a7984481}} 
+\index{calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}!keyboard@{keyboard}}
+\index{keyboard@{keyboard}!calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}}
+\doxysubsubsection{\texorpdfstring{keyboard}{keyboard}}
+{\footnotesize\ttfamily calendar\+\_\+screen.\+Calendar\+Screen.\+keyboard}
+
+\mbox{\Hypertarget{classcalendar__screen_1_1CalendarScreen_a6751268cf4217f29c859b54154bc74f1}\label{classcalendar__screen_1_1CalendarScreen_a6751268cf4217f29c859b54154bc74f1}} 
+\index{calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}!list@{list}}
+\index{list@{list}!calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}}
+\doxysubsubsection{\texorpdfstring{list}{list}}
+{\footnotesize\ttfamily calendar\+\_\+screen.\+Calendar\+Screen.\+list}
+
+\mbox{\Hypertarget{classcalendar__screen_1_1CalendarScreen_aea83e5a20dddb86cbce36921ae0067a1}\label{classcalendar__screen_1_1CalendarScreen_aea83e5a20dddb86cbce36921ae0067a1}} 
+\index{calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}!panel\_title@{panel\_title}}
+\index{panel\_title@{panel\_title}!calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}}
+\doxysubsubsection{\texorpdfstring{panel\_title}{panel\_title}}
+{\footnotesize\ttfamily calendar\+\_\+screen.\+Calendar\+Screen.\+panel\+\_\+title}
+
+\mbox{\Hypertarget{classcalendar__screen_1_1CalendarScreen_a84094a4b8e04c942155099e0b65fc7e4}\label{classcalendar__screen_1_1CalendarScreen_a84094a4b8e04c942155099e0b65fc7e4}} 
+\index{calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}!store@{store}}
+\index{store@{store}!calendar\_screen.CalendarScreen@{calendar\_screen.CalendarScreen}}
+\doxysubsubsection{\texorpdfstring{store}{store}}
+{\footnotesize\ttfamily calendar\+\_\+screen.\+Calendar\+Screen.\+store}
+
+
+
+Gestor binario/\+JSON encargado del almacenamiento e indexación física de las tareas en disco. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ui/apps/calendar/\mbox{\hyperlink{calendar__screen_8py}{calendar\+\_\+screen.\+py}}\end{DoxyCompactItemize}

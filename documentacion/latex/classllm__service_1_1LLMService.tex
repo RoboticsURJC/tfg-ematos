@@ -1,0 +1,206 @@
+\hypertarget{classllm__service_1_1LLMService}{}\doxysection{llm\+\_\+service.\+LLMService Class Reference}
+\label{classllm__service_1_1LLMService}\index{llm\_service.LLMService@{llm\_service.LLMService}}
+
+
+Clase estática que encapsula las operaciones con el motor de Inteligencia Artificial (LLM).  
+
+
+
+
+Collaboration diagram for llm\+\_\+service.\+LLMService\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{classllm__service_1_1LLMService__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classllm__service_1_1LLMService_a59cdb127281c62cfb3645ad9b296a657}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classllm__service_1_1LLMService_af932b4335fa8c2ed50d5491a037d13f9}{base\+\_\+url}}, \mbox{\hyperlink{classllm__service_1_1LLMService_ab81c5324e1cec179729af085f494341f}{model}}=\char`\"{}llama3\char`\"{}, timeout=60)
+\begin{DoxyCompactList}\small\item\em Constructor de la clase \mbox{\hyperlink{classllm__service_1_1LLMService}{LLMService}}. \end{DoxyCompactList}\item 
+str \mbox{\hyperlink{classllm__service_1_1LLMService_af807e266ce18717b78008f0828ce14fe}{ask}} (self, str prompt)
+\begin{DoxyCompactList}\small\item\em Envía una instrucción al modelo y aguarda de forma bloqueante la respuesta completa. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classllm__service_1_1LLMService_a0e751c71bc5647aac447d2ada8f87b46}{stream}} (self, str prompt)
+\begin{DoxyCompactList}\small\item\em Inicializa una conexión HTTP orientada a flujos (streaming) para procesar tokens bajo demanda. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classllm__service_1_1LLMService_acbeb3dd2f1d4e8a6102dee2e831e7b39}{generate}} (str \mbox{\hyperlink{classllm__service_1_1LLMService_ab81c5324e1cec179729af085f494341f}{model}}, str prompt)
+\begin{DoxyCompactList}\small\item\em Envía una petición de generación de texto al modelo especificado. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classllm__service_1_1LLMService_a10b032c40bfe0f45a0968539e324bc58}{health}} ()
+\begin{DoxyCompactList}\small\item\em Verifica si el servidor del modelo de lenguaje está activo y accesible. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classllm__service_1_1LLMService_af932b4335fa8c2ed50d5491a037d13f9}{base\+\_\+url}}
+\begin{DoxyCompactList}\small\item\em URL limpia absoluta para las llamadas de red del servicio. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classllm__service_1_1LLMService_ab81c5324e1cec179729af085f494341f}{model}}
+\begin{DoxyCompactList}\small\item\em Identificador del modelo por defecto (ej\+: \textquotesingle{}llama3\textquotesingle{}, \textquotesingle{}groq\textquotesingle{}, \textquotesingle{}gemini\textquotesingle{}). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classllm__service_1_1LLMService_a84eba044f028da5e5008ced65149dd81}{timeout}}
+\begin{DoxyCompactList}\small\item\em Ventana máxima de espera de paquetes de red. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase estática que encapsula las operaciones con el motor de Inteligencia Artificial (LLM). 
+
+Clase encargada de abstraer el consumo de servicios de inferencia LLM. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classllm__service_1_1LLMService_a59cdb127281c62cfb3645ad9b296a657}\label{classllm__service_1_1LLMService_a59cdb127281c62cfb3645ad9b296a657}} 
+\index{llm\_service.LLMService@{llm\_service.LLMService}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!llm\_service.LLMService@{llm\_service.LLMService}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def llm\+\_\+service.\+LLMService.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{base\+\_\+url,  }\item[{}]{model = {\ttfamily \char`\"{}llama3\char`\"{}},  }\item[{}]{timeout = {\ttfamily 60} }\end{DoxyParamCaption})}
+
+
+
+Constructor de la clase \mbox{\hyperlink{classllm__service_1_1LLMService}{LLMService}}. 
+
+Sanea la URL de entrada eliminando barras residuales finales para prevenir errores de formateo en las concatenaciones de los strings de ruta de endpoints.
+
+
+\begin{DoxyParams}{Parameters}
+{\em base\+\_\+url} & Dirección IP o DNS base donde escucha el microservicio de inferencia. \\
+\hline
+{\em model} & Cadena identificativa del modelo por defecto a instanciar en la API. \\
+\hline
+{\em timeout} & Tiempo límite de gracia (en segundos) antes de abortar la petición por falta de respuesta. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classllm__service_1_1LLMService_af807e266ce18717b78008f0828ce14fe}\label{classllm__service_1_1LLMService_af807e266ce18717b78008f0828ce14fe}} 
+\index{llm\_service.LLMService@{llm\_service.LLMService}!ask@{ask}}
+\index{ask@{ask}!llm\_service.LLMService@{llm\_service.LLMService}}
+\doxysubsubsection{\texorpdfstring{ask()}{ask()}}
+{\footnotesize\ttfamily  str llm\+\_\+service.\+LLMService.\+ask (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{str}]{prompt }\end{DoxyParamCaption})}
+
+
+
+Envía una instrucción al modelo y aguarda de forma bloqueante la respuesta completa. 
+
+Envía el flag {\ttfamily stream\+: False} en el payload. Valida los códigos de estado HTTP y extrae de forma directa el texto generado del campo estructurado de respuesta.
+
+
+\begin{DoxyParams}{Parameters}
+{\em prompt} & Texto plano con la instrucción o pregunta dirigida al modelo.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+str Texto de respuesta consolidado devuelto por la API de inferencia. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classllm__service_1_1LLMService_acbeb3dd2f1d4e8a6102dee2e831e7b39}\label{classllm__service_1_1LLMService_acbeb3dd2f1d4e8a6102dee2e831e7b39}} 
+\index{llm\_service.LLMService@{llm\_service.LLMService}!generate@{generate}}
+\index{generate@{generate}!llm\_service.LLMService@{llm\_service.LLMService}}
+\doxysubsubsection{\texorpdfstring{generate()}{generate()}}
+{\footnotesize\ttfamily def llm\+\_\+service.\+LLMService.\+generate (\begin{DoxyParamCaption}\item[{str}]{model,  }\item[{str}]{prompt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Envía una petición de generación de texto al modelo especificado. 
+
+Registra el inicio de la inferencia, realiza una llamada HTTP POST al microservicio y maneja el almacenamiento de los resultados o respuestas en el log.
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & Nombre o identificador del modelo LLM que procesará el texto (ej\+: \textquotesingle{}llama3\textquotesingle{}, \textquotesingle{}mistral\textquotesingle{}). \\
+\hline
+{\em prompt} & Texto descriptivo, instrucción o consulta que sirve de entrada para el modelo.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+dict Diccionario con la respuesta del microservicio que incluye el estado, texto generado y métricas, o estructura de error si falla. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classllm__service_1_1LLMService_acbeb3dd2f1d4e8a6102dee2e831e7b39_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classllm__service_1_1LLMService_a10b032c40bfe0f45a0968539e324bc58}\label{classllm__service_1_1LLMService_a10b032c40bfe0f45a0968539e324bc58}} 
+\index{llm\_service.LLMService@{llm\_service.LLMService}!health@{health}}
+\index{health@{health}!llm\_service.LLMService@{llm\_service.LLMService}}
+\doxysubsubsection{\texorpdfstring{health()}{health()}}
+{\footnotesize\ttfamily def llm\+\_\+service.\+LLMService.\+health (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Verifica si el servidor del modelo de lenguaje está activo y accesible. 
+
+Realiza una llamada rápida HTTP GET a la raíz de la URL del LLM para monitorizar su disponibilidad.
+
+\begin{DoxyReturn}{Returns}
+dict Estado del servicio devuelto por el backend si está activo, o un diccionario con estado \{\char`\"{}status\char`\"{}\+: \char`\"{}\+OFFLINE\char`\"{}\} ante cualquier fallo de conexión. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classllm__service_1_1LLMService_a10b032c40bfe0f45a0968539e324bc58_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classllm__service_1_1LLMService_a0e751c71bc5647aac447d2ada8f87b46}\label{classllm__service_1_1LLMService_a0e751c71bc5647aac447d2ada8f87b46}} 
+\index{llm\_service.LLMService@{llm\_service.LLMService}!stream@{stream}}
+\index{stream@{stream}!llm\_service.LLMService@{llm\_service.LLMService}}
+\doxysubsubsection{\texorpdfstring{stream()}{stream()}}
+{\footnotesize\ttfamily def llm\+\_\+service.\+LLMService.\+stream (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{str}]{prompt }\end{DoxyParamCaption})}
+
+
+
+Inicializa una conexión HTTP orientada a flujos (streaming) para procesar tokens bajo demanda. 
+
+Activa el parámetro {\ttfamily stream=True} en el cliente HTTP de {\ttfamily requests}. Genera un bucle no bloqueante de memoria que lee las líneas binarias entrantes del socket, transformándolas en un generador nativo de Python a través de la directiva {\ttfamily yield}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em prompt} & Texto plano con la instrucción o consulta enviada al modelo.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+generator Emite de forma asíncrona fragmentos (tokens) de texto decodificados en UTF-\/8. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classllm__service_1_1LLMService_af932b4335fa8c2ed50d5491a037d13f9}\label{classllm__service_1_1LLMService_af932b4335fa8c2ed50d5491a037d13f9}} 
+\index{llm\_service.LLMService@{llm\_service.LLMService}!base\_url@{base\_url}}
+\index{base\_url@{base\_url}!llm\_service.LLMService@{llm\_service.LLMService}}
+\doxysubsubsection{\texorpdfstring{base\_url}{base\_url}}
+{\footnotesize\ttfamily llm\+\_\+service.\+LLMService.\+base\+\_\+url}
+
+
+
+URL limpia absoluta para las llamadas de red del servicio. 
+
+\mbox{\Hypertarget{classllm__service_1_1LLMService_ab81c5324e1cec179729af085f494341f}\label{classllm__service_1_1LLMService_ab81c5324e1cec179729af085f494341f}} 
+\index{llm\_service.LLMService@{llm\_service.LLMService}!model@{model}}
+\index{model@{model}!llm\_service.LLMService@{llm\_service.LLMService}}
+\doxysubsubsection{\texorpdfstring{model}{model}}
+{\footnotesize\ttfamily llm\+\_\+service.\+LLMService.\+model}
+
+
+
+Identificador del modelo por defecto (ej\+: \textquotesingle{}llama3\textquotesingle{}, \textquotesingle{}groq\textquotesingle{}, \textquotesingle{}gemini\textquotesingle{}). 
+
+\mbox{\Hypertarget{classllm__service_1_1LLMService_a84eba044f028da5e5008ced65149dd81}\label{classllm__service_1_1LLMService_a84eba044f028da5e5008ced65149dd81}} 
+\index{llm\_service.LLMService@{llm\_service.LLMService}!timeout@{timeout}}
+\index{timeout@{timeout}!llm\_service.LLMService@{llm\_service.LLMService}}
+\doxysubsubsection{\texorpdfstring{timeout}{timeout}}
+{\footnotesize\ttfamily llm\+\_\+service.\+LLMService.\+timeout}
+
+
+
+Ventana máxima de espera de paquetes de red. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+api\+\_\+getway/services/\mbox{\hyperlink{api__getway_2services_2llm__service_8py}{llm\+\_\+service.\+py}}\item 
+services/\mbox{\hyperlink{services_2llm__service_8py}{llm\+\_\+service.\+py}}\end{DoxyCompactItemize}

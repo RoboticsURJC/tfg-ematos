@@ -1,0 +1,8 @@
+<map id="memory_screen.MemoryScreen._menu" name="memory_screen.MemoryScreen._menu">
+<area shape="rect" id="node1" title="Renderiza los elementos de la interfaz de usuario, textos y formas asociadas a la vista de Menú." alt="" coords="5,64,283,91"/>
+<area shape="rect" id="node2" href="$classmemory__screen_1_1MemoryScreen.html#a0962ca789682113ae6d23d215d0b04d4" title="Canalizador centralizado del ciclo de dibujado." alt="" coords="331,64,605,91"/>
+<area shape="rect" id="node3" href="$classmemory__screen_1_1MemoryScreen.html#a91b159d90c19f0f819b02f00ac72bd22" title="Dibuja un gradiente cromático vertical en tiempo real directamente en la superficie principal." alt="" coords="653,5,909,32"/>
+<area shape="rect" id="node4" href="$classmemory__screen_1_1MemoryScreen.html#a4a6453991298638967547a62e4b00b7b" title="Renderiza el tablero de juego activo, las tarjetas, los bordes de estado de control y el HUD." alt="" coords="665,57,898,98"/>
+<area shape="rect" id="node5" href="$classmemory__screen_1_1MemoryScreen.html#a19d8388a31b628497f3a114c6318cb04" title="Calcula los desfases (offsets) espaciales para centrar geométricamente la matriz en la pantalla." alt="" coords="957,23,1191,65"/>
+<area shape="rect" id="node6" href="$classmemory__screen_1_1MemoryScreen.html#a3e84b74c5da33dc744720e2436069f0d" title="Genera la caja de colisión y dibujo asociada al HUD inferior." alt="" coords="957,89,1191,130"/>
+</map>

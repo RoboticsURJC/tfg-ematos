@@ -1,0 +1,5 @@
+<map id="app.ui.display.FaceDisplay.loop" name="app.ui.display.FaceDisplay.loop">
+<area shape="rect" id="node1" title="Bucle principal de ejecución del hilo de renderizado." alt="" coords="5,35,228,61"/>
+<area shape="rect" id="node2" href="$classapp_1_1ui_1_1display_1_1FaceDisplay.html#aee4db24221e2f842722ae8cf30bb5f8a" title="Renderiza un fotograma completo en el buffer de imagen." alt="" coords="276,5,503,32"/>
+<area shape="rect" id="node3" href="$classfind__differences__screen_1_1SceneObject.html#a81a5f581f7f0efa294558b1c04d7172d" title="Renderiza la primitiva geométrica en la superficie destino aplicando los offsets indicados." alt="" coords="300,57,479,98"/>
+</map>

@@ -1,0 +1,400 @@
+\hypertarget{classapp_1_1core_1_1robot__controller_1_1RobotController}{}\doxysection{app.\+core.\+robot\+\_\+controller.\+Robot\+Controller Class Reference}
+\label{classapp_1_1core_1_1robot__controller_1_1RobotController}\index{app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}}
+
+
+Controlador central y núcleo lógico del sistema robótico.  
+
+
+
+
+Collaboration diagram for app.\+core.\+robot\+\_\+controller.\+Robot\+Controller\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=233pt]{classapp_1_1core_1_1robot__controller_1_1RobotController__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1robot__controller_1_1RobotController_a93f0ac7b93f771cd06f17e9d58eeadb6}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\begin{DoxyCompactList}\small\item\em Inicializa todos los subsistemas fundamentales del hardware y software del robot. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1robot__controller_1_1RobotController_afa7388701f6ac1cc14e963d499101f55}{on\+\_\+proactive\+\_\+dismissed}} (self)
+\begin{DoxyCompactList}\small\item\em Comunica al planificador que la tarjeta o modal de sugerencia proactiva ha sido cerrada. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1robot__controller_1_1RobotController_a04d9be4b68e672302b060f7e984b72db}{set\+\_\+ui}} (self, \mbox{\hyperlink{classapp_1_1core_1_1robot__controller_1_1RobotController_ac4e95493d772b71d2132bc6d068c3ea6}{ui}})
+\begin{DoxyCompactList}\small\item\em Registra de forma bidireccional la referencia hacia la interfaz gráfica de ventanas. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1robot__controller_1_1RobotController_a0041a9395a55999537385b3d68a24157}{start}} (self)
+\begin{DoxyCompactList}\small\item\em Dispara la secuencia de arranque inicial del robot (Boot sequence). \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1robot__controller_1_1RobotController_a96e4514d5e2c4bf8eab51f5cd2d32412}{boot}} (self)
+\begin{DoxyCompactList}\small\item\em Establece el estado de inicialización nativo del hardware. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1robot__controller_1_1RobotController_a6abbf33108301196146ecb080b0568d5}{login}} (self, username)
+\begin{DoxyCompactList}\small\item\em Autentica e inicia la sesión de un usuario y activa los demonios de voz y agenda. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1robot__controller_1_1RobotController_ad6d62bbfd1f7ab356a240e846f40b4eb}{logout}} (self)
+\begin{DoxyCompactList}\small\item\em Clausura la sesión activa y detiene de forma segura los hilos de control y audio. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1robot__controller_1_1RobotController_a7e9dbe59cb9bd4d077f6969df5511458}{open\+\_\+game}} (self, game\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Delega en el enrutador de juegos la apertura de una aplicación cognitiva. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1robot__controller_1_1RobotController_ab6f5bdc95722f320cbc53473abb670db}{open\+\_\+app}} (self, app\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Abre una aplicación del sistema, discriminando si es interna o externa. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1robot__controller_1_1RobotController_aa5d5a71df683f4b3b8331abc8834636a}{close\+\_\+app}} (self)
+\begin{DoxyCompactList}\small\item\em Destruye u oculta la ventana de la aplicación activa y reconduce al usuario al Launcher principal. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1robot__controller_1_1RobotController_a46832b3ec02fdc35efab1f7ebc42d408}{shutdown}} (self)
+\begin{DoxyCompactList}\small\item\em Apaga el sistema de forma ordenada y libera descriptores de audio y vídeo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classapp_1_1core_1_1robot__controller_1_1RobotController_ac4e95493d772b71d2132bc6d068c3ea6}{ui}}
+\begin{DoxyCompactList}\small\item\em Referencia directa hacia la ventana o vista principal de la UI gráfica (Py\+Qt5 Main\+Window). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classapp_1_1core_1_1robot__controller_1_1RobotController_a382b9a9f83ee9159707f62f5ba846083}{state\+\_\+machine}}
+\begin{DoxyCompactList}\small\item\em Instancia de la máquina de estados finitos que rige el flujo operativo del robot. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classapp_1_1core_1_1robot__controller_1_1RobotController_aec7b7ac7414ff9615e8de7cdf476c856}{session}}
+\begin{DoxyCompactList}\small\item\em Gestor encargado del control de perfiles y sesiones activas. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classapp_1_1core_1_1robot__controller_1_1RobotController_a480628db8e2456d7b03e1b8e69db5784}{calendar\+\_\+store}}
+\begin{DoxyCompactList}\small\item\em Repositorio en memoria del calendario de citas y eventos médicos. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classapp_1_1core_1_1robot__controller_1_1RobotController_afdbc7051d39c65041243af1519a94fbe}{reminder\+\_\+store}}
+\begin{DoxyCompactList}\small\item\em Repositorio de base de datos local para alertas y recordatorios de pastillas. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classapp_1_1core_1_1robot__controller_1_1RobotController_a78351e92581d81f613f9c695fb7d3487}{game\+\_\+router}}
+\begin{DoxyCompactList}\small\item\em Enrutador lógico de pantallas para los minijuegos de estimulación cognitiva. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classapp_1_1core_1_1robot__controller_1_1RobotController_a056190543dfd291693940e01ff7d9f77}{ui\+\_\+state}}
+\begin{DoxyCompactList}\small\item\em Objeto de datos reactivo que encapsula el estado actual de la interfaz de usuario. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classapp_1_1core_1_1robot__controller_1_1RobotController_a9c506175bad46983852fdfeaf3095065}{display}}
+\begin{DoxyCompactList}\small\item\em Controlador encargado del renderizado de la cara animada en la matriz o pantalla secundaria. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classapp_1_1core_1_1robot__controller_1_1RobotController_aeb07dfdcdadf48f034e1b669164b6f7e}{assistant}}
+\begin{DoxyCompactList}\small\item\em Motor conversacional central (integra el STT Vosk, TTS y lógica de reintentos LLM). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classapp_1_1core_1_1robot__controller_1_1RobotController_a68c67ab49f2cb40a2d05400de27693c2}{reminder\+\_\+scheduler}}
+\begin{DoxyCompactList}\small\item\em Planificador en segundo plano que vigila y dispara las alarmas de medicación cronometradas. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classapp_1_1core_1_1robot__controller_1_1RobotController_ad91e6387744cf887474f7bb8f3379451}{proactive\+\_\+scheduler}}
+\begin{DoxyCompactList}\small\item\em Planificador de sugerencias proactivas autónomas (rutinas de ejercicios cognitivos y recordatorios físicos). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classapp_1_1core_1_1robot__controller_1_1RobotController_a070689c5204faef0fb02015c42bd1822}{\+\_\+on\+\_\+proactive\+\_\+suggest}} (self, dict suggestion)
+\begin{DoxyCompactList}\small\item\em Método callback interno invocado de forma automática por el Proactive\+Scheduler. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Controlador central y núcleo lógico del sistema robótico. 
+
+Coordina de manera asíncrona y mediante hilos el Assistant\+Engine, el Face\+Display, el Session\+Manager, la State\+Machine y la interfaz gráfica de ventanas de Py\+Qt5. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classapp_1_1core_1_1robot__controller_1_1RobotController_a93f0ac7b93f771cd06f17e9d58eeadb6}\label{classapp_1_1core_1_1robot__controller_1_1RobotController_a93f0ac7b93f771cd06f17e9d58eeadb6}} 
+\index{app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def app.\+core.\+robot\+\_\+controller.\+Robot\+Controller.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Inicializa todos los subsistemas fundamentales del hardware y software del robot. 
+
+Resuelve de forma dinámica y absoluta la ruta hacia {\ttfamily config/config.\+json}, parsea las variables de red para el servidor de inferencia LLM y levanta las rutinas de los planificadores (schedulers) de alertas y sugerencias proactivas. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classapp_1_1core_1_1robot__controller_1_1RobotController_a070689c5204faef0fb02015c42bd1822}\label{classapp_1_1core_1_1robot__controller_1_1RobotController_a070689c5204faef0fb02015c42bd1822}} 
+\index{app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}!\_on\_proactive\_suggest@{\_on\_proactive\_suggest}}
+\index{\_on\_proactive\_suggest@{\_on\_proactive\_suggest}!app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}}
+\doxysubsubsection{\texorpdfstring{\_on\_proactive\_suggest()}{\_on\_proactive\_suggest()}}
+{\footnotesize\ttfamily def app.\+core.\+robot\+\_\+controller.\+Robot\+Controller.\+\_\+on\+\_\+proactive\+\_\+suggest (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{dict}]{suggestion }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Método callback interno invocado de forma automática por el Proactive\+Scheduler. 
+
+Intercepta la aparición de una nueva sugerencia autonómica y la emite hacia el hilo principal de Py\+Qt5 mediante el sistema de señales seguro de Qt.
+
+
+\begin{DoxyParams}{Parameters}
+{\em suggestion} & Diccionario con la metadata de la sugerencia (título, tipo, descripción). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classapp_1_1core_1_1robot__controller_1_1RobotController_a96e4514d5e2c4bf8eab51f5cd2d32412}\label{classapp_1_1core_1_1robot__controller_1_1RobotController_a96e4514d5e2c4bf8eab51f5cd2d32412}} 
+\index{app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}!boot@{boot}}
+\index{boot@{boot}!app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}}
+\doxysubsubsection{\texorpdfstring{boot()}{boot()}}
+{\footnotesize\ttfamily def app.\+core.\+robot\+\_\+controller.\+Robot\+Controller.\+boot (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Establece el estado de inicialización nativo del hardware. 
+
+\mbox{\Hypertarget{classapp_1_1core_1_1robot__controller_1_1RobotController_aa5d5a71df683f4b3b8331abc8834636a}\label{classapp_1_1core_1_1robot__controller_1_1RobotController_aa5d5a71df683f4b3b8331abc8834636a}} 
+\index{app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}!close\_app@{close\_app}}
+\index{close\_app@{close\_app}!app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}}
+\doxysubsubsection{\texorpdfstring{close\_app()}{close\_app()}}
+{\footnotesize\ttfamily def app.\+core.\+robot\+\_\+controller.\+Robot\+Controller.\+close\+\_\+app (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Destruye u oculta la ventana de la aplicación activa y reconduce al usuario al Launcher principal. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{classapp_1_1core_1_1robot__controller_1_1RobotController_aa5d5a71df683f4b3b8331abc8834636a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classapp_1_1core_1_1robot__controller_1_1RobotController_a6abbf33108301196146ecb080b0568d5}\label{classapp_1_1core_1_1robot__controller_1_1RobotController_a6abbf33108301196146ecb080b0568d5}} 
+\index{app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}!login@{login}}
+\index{login@{login}!app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}}
+\doxysubsubsection{\texorpdfstring{login()}{login()}}
+{\footnotesize\ttfamily def app.\+core.\+robot\+\_\+controller.\+Robot\+Controller.\+login (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{username }\end{DoxyParamCaption})}
+
+
+
+Autentica e inicia la sesión de un usuario y activa los demonios de voz y agenda. 
+
+Sincroniza el nombre de usuario con el Launcher, arranca el hilo de escucha continua del STT, inicializa el reloj del planificador de recordatorios y el de estimulación proactiva.
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & Nombre de pila o identificador del usuario que toma el control del dispositivo. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classapp_1_1core_1_1robot__controller_1_1RobotController_a6abbf33108301196146ecb080b0568d5_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classapp_1_1core_1_1robot__controller_1_1RobotController_ad6d62bbfd1f7ab356a240e846f40b4eb}\label{classapp_1_1core_1_1robot__controller_1_1RobotController_ad6d62bbfd1f7ab356a240e846f40b4eb}} 
+\index{app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}!logout@{logout}}
+\index{logout@{logout}!app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}}
+\doxysubsubsection{\texorpdfstring{logout()}{logout()}}
+{\footnotesize\ttfamily def app.\+core.\+robot\+\_\+controller.\+Robot\+Controller.\+logout (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Clausura la sesión activa y detiene de forma segura los hilos de control y audio. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=221pt]{classapp_1_1core_1_1robot__controller_1_1RobotController_ad6d62bbfd1f7ab356a240e846f40b4eb_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classapp_1_1core_1_1robot__controller_1_1RobotController_afa7388701f6ac1cc14e963d499101f55}\label{classapp_1_1core_1_1robot__controller_1_1RobotController_afa7388701f6ac1cc14e963d499101f55}} 
+\index{app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}!on\_proactive\_dismissed@{on\_proactive\_dismissed}}
+\index{on\_proactive\_dismissed@{on\_proactive\_dismissed}!app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}}
+\doxysubsubsection{\texorpdfstring{on\_proactive\_dismissed()}{on\_proactive\_dismissed()}}
+{\footnotesize\ttfamily def app.\+core.\+robot\+\_\+controller.\+Robot\+Controller.\+on\+\_\+proactive\+\_\+dismissed (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Comunica al planificador que la tarjeta o modal de sugerencia proactiva ha sido cerrada. 
+
+Debe invocarse obligatoriamente desde el hilo de la UI cuando el usuario interactúe con los botones de acción (\textquotesingle{}Aceptar\textquotesingle{} o \textquotesingle{}Ahora no\textquotesingle{}) para restaurar el display gráfico facial. \mbox{\Hypertarget{classapp_1_1core_1_1robot__controller_1_1RobotController_ab6f5bdc95722f320cbc53473abb670db}\label{classapp_1_1core_1_1robot__controller_1_1RobotController_ab6f5bdc95722f320cbc53473abb670db}} 
+\index{app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}!open\_app@{open\_app}}
+\index{open\_app@{open\_app}!app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}}
+\doxysubsubsection{\texorpdfstring{open\_app()}{open\_app()}}
+{\footnotesize\ttfamily def app.\+core.\+robot\+\_\+controller.\+Robot\+Controller.\+open\+\_\+app (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{app\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Abre una aplicación del sistema, discriminando si es interna o externa. 
+
+Evalúa la respuesta devuelta por el lanzador estático; si detecta el prefijo \textquotesingle{}internal\textquotesingle{}, conmuta de forma limpia los paneles de Py\+Qt5 de la aplicación sin invocar subprocesos.
+
+
+\begin{DoxyParams}{Parameters}
+{\em app\+\_\+name} & Nombre clave de la aplicación solicitada. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{classapp_1_1core_1_1robot__controller_1_1RobotController_ab6f5bdc95722f320cbc53473abb670db_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classapp_1_1core_1_1robot__controller_1_1RobotController_a7e9dbe59cb9bd4d077f6969df5511458}\label{classapp_1_1core_1_1robot__controller_1_1RobotController_a7e9dbe59cb9bd4d077f6969df5511458}} 
+\index{app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}!open\_game@{open\_game}}
+\index{open\_game@{open\_game}!app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}}
+\doxysubsubsection{\texorpdfstring{open\_game()}{open\_game()}}
+{\footnotesize\ttfamily def app.\+core.\+robot\+\_\+controller.\+Robot\+Controller.\+open\+\_\+game (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{game\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+Delega en el enrutador de juegos la apertura de una aplicación cognitiva. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game\+\_\+id} & Identificador textual de la pantalla de juego (\textquotesingle{}memory\textquotesingle{}, \textquotesingle{}simon\+\_\+says\textquotesingle{}, etc). \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{classapp_1_1core_1_1robot__controller_1_1RobotController_a7e9dbe59cb9bd4d077f6969df5511458_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classapp_1_1core_1_1robot__controller_1_1RobotController_a04d9be4b68e672302b060f7e984b72db}\label{classapp_1_1core_1_1robot__controller_1_1RobotController_a04d9be4b68e672302b060f7e984b72db}} 
+\index{app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}!set\_ui@{set\_ui}}
+\index{set\_ui@{set\_ui}!app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}}
+\doxysubsubsection{\texorpdfstring{set\_ui()}{set\_ui()}}
+{\footnotesize\ttfamily def app.\+core.\+robot\+\_\+controller.\+Robot\+Controller.\+set\+\_\+ui (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{ui }\end{DoxyParamCaption})}
+
+
+
+Registra de forma bidireccional la referencia hacia la interfaz gráfica de ventanas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ui} & Objeto que representa la ventana gráfica principal unificada. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classapp_1_1core_1_1robot__controller_1_1RobotController_a46832b3ec02fdc35efab1f7ebc42d408}\label{classapp_1_1core_1_1robot__controller_1_1RobotController_a46832b3ec02fdc35efab1f7ebc42d408}} 
+\index{app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}!shutdown@{shutdown}}
+\index{shutdown@{shutdown}!app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}}
+\doxysubsubsection{\texorpdfstring{shutdown()}{shutdown()}}
+{\footnotesize\ttfamily def app.\+core.\+robot\+\_\+controller.\+Robot\+Controller.\+shutdown (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Apaga el sistema de forma ordenada y libera descriptores de audio y vídeo. 
+
+Transiciona el estado a SHUTDOWN, apaga los bucles de escucha del motor de voz, cancela los hilos de los schedulers y clausura de forma nativa la UI de Py\+Qt5. \mbox{\Hypertarget{classapp_1_1core_1_1robot__controller_1_1RobotController_a0041a9395a55999537385b3d68a24157}\label{classapp_1_1core_1_1robot__controller_1_1RobotController_a0041a9395a55999537385b3d68a24157}} 
+\index{app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}!start@{start}}
+\index{start@{start}!app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily def app.\+core.\+robot\+\_\+controller.\+Robot\+Controller.\+start (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Dispara la secuencia de arranque inicial del robot (Boot sequence). 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classapp_1_1core_1_1robot__controller_1_1RobotController_a0041a9395a55999537385b3d68a24157_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classapp_1_1core_1_1robot__controller_1_1RobotController_aeb07dfdcdadf48f034e1b669164b6f7e}\label{classapp_1_1core_1_1robot__controller_1_1RobotController_aeb07dfdcdadf48f034e1b669164b6f7e}} 
+\index{app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}!assistant@{assistant}}
+\index{assistant@{assistant}!app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}}
+\doxysubsubsection{\texorpdfstring{assistant}{assistant}}
+{\footnotesize\ttfamily app.\+core.\+robot\+\_\+controller.\+Robot\+Controller.\+assistant}
+
+
+
+Motor conversacional central (integra el STT Vosk, TTS y lógica de reintentos LLM). 
+
+\mbox{\Hypertarget{classapp_1_1core_1_1robot__controller_1_1RobotController_a480628db8e2456d7b03e1b8e69db5784}\label{classapp_1_1core_1_1robot__controller_1_1RobotController_a480628db8e2456d7b03e1b8e69db5784}} 
+\index{app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}!calendar\_store@{calendar\_store}}
+\index{calendar\_store@{calendar\_store}!app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}}
+\doxysubsubsection{\texorpdfstring{calendar\_store}{calendar\_store}}
+{\footnotesize\ttfamily app.\+core.\+robot\+\_\+controller.\+Robot\+Controller.\+calendar\+\_\+store}
+
+
+
+Repositorio en memoria del calendario de citas y eventos médicos. 
+
+\mbox{\Hypertarget{classapp_1_1core_1_1robot__controller_1_1RobotController_a9c506175bad46983852fdfeaf3095065}\label{classapp_1_1core_1_1robot__controller_1_1RobotController_a9c506175bad46983852fdfeaf3095065}} 
+\index{app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}!display@{display}}
+\index{display@{display}!app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}}
+\doxysubsubsection{\texorpdfstring{display}{display}}
+{\footnotesize\ttfamily app.\+core.\+robot\+\_\+controller.\+Robot\+Controller.\+display}
+
+
+
+Controlador encargado del renderizado de la cara animada en la matriz o pantalla secundaria. 
+
+\mbox{\Hypertarget{classapp_1_1core_1_1robot__controller_1_1RobotController_a78351e92581d81f613f9c695fb7d3487}\label{classapp_1_1core_1_1robot__controller_1_1RobotController_a78351e92581d81f613f9c695fb7d3487}} 
+\index{app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}!game\_router@{game\_router}}
+\index{game\_router@{game\_router}!app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}}
+\doxysubsubsection{\texorpdfstring{game\_router}{game\_router}}
+{\footnotesize\ttfamily app.\+core.\+robot\+\_\+controller.\+Robot\+Controller.\+game\+\_\+router}
+
+
+
+Enrutador lógico de pantallas para los minijuegos de estimulación cognitiva. 
+
+\mbox{\Hypertarget{classapp_1_1core_1_1robot__controller_1_1RobotController_ad91e6387744cf887474f7bb8f3379451}\label{classapp_1_1core_1_1robot__controller_1_1RobotController_ad91e6387744cf887474f7bb8f3379451}} 
+\index{app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}!proactive\_scheduler@{proactive\_scheduler}}
+\index{proactive\_scheduler@{proactive\_scheduler}!app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}}
+\doxysubsubsection{\texorpdfstring{proactive\_scheduler}{proactive\_scheduler}}
+{\footnotesize\ttfamily app.\+core.\+robot\+\_\+controller.\+Robot\+Controller.\+proactive\+\_\+scheduler}
+
+
+
+Planificador de sugerencias proactivas autónomas (rutinas de ejercicios cognitivos y recordatorios físicos). 
+
+\mbox{\Hypertarget{classapp_1_1core_1_1robot__controller_1_1RobotController_a68c67ab49f2cb40a2d05400de27693c2}\label{classapp_1_1core_1_1robot__controller_1_1RobotController_a68c67ab49f2cb40a2d05400de27693c2}} 
+\index{app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}!reminder\_scheduler@{reminder\_scheduler}}
+\index{reminder\_scheduler@{reminder\_scheduler}!app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}}
+\doxysubsubsection{\texorpdfstring{reminder\_scheduler}{reminder\_scheduler}}
+{\footnotesize\ttfamily app.\+core.\+robot\+\_\+controller.\+Robot\+Controller.\+reminder\+\_\+scheduler}
+
+
+
+Planificador en segundo plano que vigila y dispara las alarmas de medicación cronometradas. 
+
+\mbox{\Hypertarget{classapp_1_1core_1_1robot__controller_1_1RobotController_afdbc7051d39c65041243af1519a94fbe}\label{classapp_1_1core_1_1robot__controller_1_1RobotController_afdbc7051d39c65041243af1519a94fbe}} 
+\index{app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}!reminder\_store@{reminder\_store}}
+\index{reminder\_store@{reminder\_store}!app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}}
+\doxysubsubsection{\texorpdfstring{reminder\_store}{reminder\_store}}
+{\footnotesize\ttfamily app.\+core.\+robot\+\_\+controller.\+Robot\+Controller.\+reminder\+\_\+store}
+
+
+
+Repositorio de base de datos local para alertas y recordatorios de pastillas. 
+
+\mbox{\Hypertarget{classapp_1_1core_1_1robot__controller_1_1RobotController_aec7b7ac7414ff9615e8de7cdf476c856}\label{classapp_1_1core_1_1robot__controller_1_1RobotController_aec7b7ac7414ff9615e8de7cdf476c856}} 
+\index{app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}!session@{session}}
+\index{session@{session}!app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}}
+\doxysubsubsection{\texorpdfstring{session}{session}}
+{\footnotesize\ttfamily app.\+core.\+robot\+\_\+controller.\+Robot\+Controller.\+session}
+
+
+
+Gestor encargado del control de perfiles y sesiones activas. 
+
+\mbox{\Hypertarget{classapp_1_1core_1_1robot__controller_1_1RobotController_a382b9a9f83ee9159707f62f5ba846083}\label{classapp_1_1core_1_1robot__controller_1_1RobotController_a382b9a9f83ee9159707f62f5ba846083}} 
+\index{app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}!state\_machine@{state\_machine}}
+\index{state\_machine@{state\_machine}!app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}}
+\doxysubsubsection{\texorpdfstring{state\_machine}{state\_machine}}
+{\footnotesize\ttfamily app.\+core.\+robot\+\_\+controller.\+Robot\+Controller.\+state\+\_\+machine}
+
+
+
+Instancia de la máquina de estados finitos que rige el flujo operativo del robot. 
+
+\mbox{\Hypertarget{classapp_1_1core_1_1robot__controller_1_1RobotController_ac4e95493d772b71d2132bc6d068c3ea6}\label{classapp_1_1core_1_1robot__controller_1_1RobotController_ac4e95493d772b71d2132bc6d068c3ea6}} 
+\index{app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}!ui@{ui}}
+\index{ui@{ui}!app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}}
+\doxysubsubsection{\texorpdfstring{ui}{ui}}
+{\footnotesize\ttfamily app.\+core.\+robot\+\_\+controller.\+Robot\+Controller.\+ui}
+
+
+
+Referencia directa hacia la ventana o vista principal de la UI gráfica (Py\+Qt5 Main\+Window). 
+
+\mbox{\Hypertarget{classapp_1_1core_1_1robot__controller_1_1RobotController_a056190543dfd291693940e01ff7d9f77}\label{classapp_1_1core_1_1robot__controller_1_1RobotController_a056190543dfd291693940e01ff7d9f77}} 
+\index{app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}!ui\_state@{ui\_state}}
+\index{ui\_state@{ui\_state}!app.core.robot\_controller.RobotController@{app.core.robot\_controller.RobotController}}
+\doxysubsubsection{\texorpdfstring{ui\_state}{ui\_state}}
+{\footnotesize\ttfamily app.\+core.\+robot\+\_\+controller.\+Robot\+Controller.\+ui\+\_\+state}
+
+
+
+Objeto de datos reactivo que encapsula el estado actual de la interfaz de usuario. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/\mbox{\hyperlink{robot__controller_8py}{robot\+\_\+controller.\+py}}\end{DoxyCompactItemize}

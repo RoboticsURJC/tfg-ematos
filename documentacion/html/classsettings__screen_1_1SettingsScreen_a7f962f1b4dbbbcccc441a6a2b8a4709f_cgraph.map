@@ -1,0 +1,5 @@
+<map id="settings_screen.SettingsScreen._on_bt_scan_done" name="settings_screen.SettingsScreen._on_bt_scan_done">
+<area shape="rect" id="node1" title="Slot que recibe la lista de dispositivos escaneados y actualiza el QListWidget." alt="" coords="5,5,195,47"/>
+<area shape="rect" id="node2" href="$namespaceroutes__dashboard.html#a8e1c87d3914c53c0d5ed6d8c3dafca9e" title="Vacía el historial de logs de un servicio." alt="" coords="243,13,417,39"/>
+<area shape="rect" id="node3" href="$namespacelog__service.html#ae2983f6bea2c5025c60c12bb9e947d4c" title="Vacía por completo el historial de registros de un servicio específico." alt="" coords="465,13,632,39"/>
+</map>

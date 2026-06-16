@@ -1,0 +1,3 @@
+<map id="app.core.config.Config.get" name="app.core.config.Config.get">
+<area shape="rect" id="node1" title="Accesor genérico para recuperar cualquier clave de primer nivel del archivo de configuración." alt="" coords="5,29,196,56"/>
+</map>
