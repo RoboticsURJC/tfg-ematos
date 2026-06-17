@@ -15,6 +15,7 @@ import re
 import json
 import socket
 import threading
+import concurrent.futures
 import requests
 import dateparser
 
@@ -57,6 +58,57 @@ MEMORY_FILE = "memoria_usuarios.json"
 ## Tiempo máximo de espera por defecto (en segundos) para solicitudes de red.
 TIMEOUT = 90
 
+PALABRAS_EVENTO = [
+    "médico", "medico",
+    "dentista",
+    "hospital",
+    "cardiólogo", "cardiologo",
+    "enfermera",
+    "análisis", "analisis",
+    "farmacia",
+    "rehabilitación", "rehabilitacion",
+    "peluquería", "peluqueria",
+    "cumpleaños", "cumpleanos",
+    "vacuna",
+    "especialista",
+    "consulta",
+    "boda",
+    "comunión", "comunion",
+    "operación", "operacion",
+    "revisión", "revision",
+]
+
+PALABRAS_RECORDATORIO = [
+    "pastilla",
+    "pastillas",
+    "medicina",
+    "medicación",
+    "medicacion",
+    "medicamento",
+    "medicamentos",
+    "inyección",
+    "inyeccion",
+    "tomar",
+    "llamar"
+]
+
+# Pistas léxicas para saber si una frase contiene una referencia temporal,
+# sin necesidad de que la frase ENTERA sea "parseable" como fecha (que es
+# lo que exige dateparser.parse y por lo que casi nunca detecta nada en
+# frases reales con más palabras alrededor).
+PISTAS_TEMPORALES = [
+    "lunes", "martes", "miércoles", "miercoles", "jueves",
+    "viernes", "sábado", "sabado", "domingo",
+    "enero", "febrero", "marzo", "abril", "mayo", "junio", "julio",
+    "agosto", "septiembre", "octubre", "noviembre", "diciembre",
+    "hoy", "mañana", "pasado mañana",
+    "mediodía", "mediodia", "medianoche",
+    "que viene", "próximo", "proximo", "siguiente",
+    "esta semana", "este mes", "la semana que viene",
+    "a las", "a la una", "en punto",
+    "dentro de", "minutos", "horas", "media hora"
+]
+
 
 # =========================================================
 # AssistantEngine
@@ -87,12 +139,18 @@ class AssistantEngine:
         self.calendar_store = calendar_store 
         self.reminder_store = reminder_store
         self.reminder_scheduler = None
+        self.on_reminder_created = None
+        self.on_calendar_created = None
         
         ## Nombre o ID del perfil de usuario actualmente interactuando.
         self.user = "invitado"
         
         ## Bandera de control para saber si el bucle de escucha asíncrono está encendido.
         self.running = False
+
+        ## Tiempo máximo (segundos) que se espera a la respuesta del LLM antes de
+        ## abandonar y devolver fallback, para evitar cuelgues silenciosos.
+        self.llm_timeout = llm_timeout or TIMEOUT
 
         # Cliente LLM (None si no hay URL configurada)
         if server_url:
@@ -192,29 +250,118 @@ class AssistantEngine:
     # DETECCIÓN DE INTENCIÓN
     # =========================================================
 
+    def _contiene_referencia_temporal(self, text):
+        """
+        @brief Comprueba si la frase contiene alguna pista de fecha/hora.
+        @details A diferencia de dateparser.parse() (que exige que casi toda la
+        cadena sea una fecha y por eso nunca detecta nada en frases reales como
+        "tengo cita el martes a las diez"), esta función solo busca pistas
+        léxicas dentro de la frase, sin importar qué más se diga alrededor.
+        @param text Texto en minúsculas.
+        @return bool True si se detecta alguna referencia temporal.
+        """
+        if any(p in text for p in PISTAS_TEMPORALES):
+            return True
+        # Patrón numérico de hora suelto, ej. "a las 9", "9:30"
+        if re.search(r"\b\d{1,2}[:h]\d{2}\b", text):
+            return True
+        return False
+
     def _detectar_intencion(self, text):
         """
         @brief Clasifica y mapea el texto del usuario para identificar comandos conocidos o herramientas nativas.
         @param text Transcripción en texto limpio y minúsculas generada por el STT.
         @return str Identificador de la intención ('time', 'weather', 'reminder', 'calendar', o 'llm').
         """
-        if any(x in text for x in ["hora", "qué hora", "que hora", "dime la hora"]):
-            return "time"
-        if any(x in text for x in ["clima", "tiempo", "qué tiempo", "que tiempo", "temperatura"]):
-            return "weather"
-            
-        if any(x in text for x in ["recuerdame", "recuérdame", "avisame", "avísame", 
-           "alarma", "medicación", "pastilla", "medicina"
-        ]): 
-            return "reminder"
-            
+        
+        text = text.lower().strip()
+
+        # Hora
         if any(x in text for x in [
-            "citas", "eventos", "agenda", "calendario", 
-            "qué tengo", "que tengo", "mis planes", "mi semana",
-            "martes", "lunes", "proximo", "hoy", "mi mes"
+            "qué hora",
+            "que hora",
+            "dime la hora",
+            "hora es"
+        ]):
+            return "time"
+
+        # Tiempo
+        if any(x in text for x in [
+            "clima",
+            "tiempo",
+            "temperatura",
+            "llover",
+            "lluvia"
+        ]):
+            return "weather"
+
+        # Consultar recordatorios
+        if any(x in text for x in [
+            "mis recordatorios",
+            "qué recordatorios",
+            "que recordatorios",
+            "tengo recordatorios",
+            "recordatorios pendientes",
+            "mis alarmas",
+            "qué alarmas",
+            "que alarmas"
+        ]):
+            return "reminder_query"
+
+        # Crear recordatorio
+        if any(x in text for x in [
+            "recuérdame",
+            "recuerdame",
+            "avísame",
+            "avisame"
+        ]):
+            return "reminder_add"
+
+        # Consultar calendario
+        if any(x in text for x in [
+            "qué tengo",
+            "que tengo",
+            "mis citas",
+            "mis eventos",
+            "mi agenda",
+            "esta semana",
+            "este mes",
+            "la semana que viene"
         ]):
             return "calendar"
-        
+
+        # Frases naturales con fecha/hora (ej. "el martes tengo cita con el médico",
+        # "el sábado tomar la pastilla a las nueve"), sin necesidad de un verbo
+        # disparador explícito como "recuérdame" o "apunta".
+        if self._contiene_referencia_temporal(text):
+
+            if any(x in text for x in PALABRAS_EVENTO):
+                return "calendar_add"
+
+            if any(x in text for x in PALABRAS_RECORDATORIO):
+                return "reminder_add"
+
+        # Añadir evento explícito
+        if any(x in text for x in [
+            "añade cita",
+            "añade evento",
+            "agrega cita",
+            "agrega evento",
+            "apunta",
+            "pon una cita",
+            "pon un evento",
+            "crear evento",
+            "calendario"
+        ]):
+            return "calendar_add"
+
+        # Añadir recordatorio explícito
+        if any(x in text for x in [
+            "recordatorio",
+            "alarma"
+        ]):
+            return "reminder_add"
+
         return "llm"
 
     # =========================================================
@@ -258,7 +405,7 @@ class AssistantEngine:
             "PREFER_DATES_FROM": "future",
             "RELATIVE_BASE": datetime.now()
         }
-        fecha = dateparser.parse(texto, settings=settings)
+        fecha = dateparser.parse(texto, languages=["es"], settings=settings)
         return fecha
         
     def _rango_temporal(self, texto):
@@ -301,96 +448,524 @@ class AssistantEngine:
              return f, f
          
         return None, None
+    
+    def _palabras_a_numeros(self, texto):
+        """
+        @brief Convierte números en letra a dígitos para facilitar el parsing temporal.
+        """
+         
+        tabla = {
+        "cero": "0", "una": "1", "uno": "1", "dos": "2", "tres": "3",
+        "cuatro": "4", "cinco": "5", "seis": "6", "siete": "7", "ocho": "8",
+        "nueve": "9", "diez": "10", "once": "11", "doce": "12", "trece": "13",
+        "catorce": "14", "quince": "15", "dieciséis": "16", "dieciseis": "16",
+        "diecisiete": "17", "dieciocho": "18", "diecinueve": "19",
+        "veinte": "20", "veintiuna": "21", "veintiuno": "21", "veintidós": "22",
+        "veintidos": "22", "veintitrés": "23", "veintitres": "23",
+        }
+        
+        for palabra, numero in tabla.items():
+            texto = re.sub(rf"\b{palabra}\b", numero, texto)
+        
+        return texto
+    
+         
+    
+    def _normalizar_hora(self, texto):
+        """
+        @brief Convierte expresiones como 'las tres de la tarde' a 'las 15:00',
+        y formas coloquiales como 'y media'/'y cuarto'/'menos cuarto' a minutos.
+        """
+        # "X y media" / "X y cuarto" / "X menos cuarto" → "X:30" / "X:15" / "(X-1):45"
+        # Se hace ANTES de las conversiones de tarde/noche para que estas últimas
+        # puedan capturar también los minutos.
+        texto = re.sub(r"\b(\d{1,2})\s*y\s*media\b", lambda m: f"{m.group(1)}:30", texto)
+        texto = re.sub(r"\b(\d{1,2})\s*y\s*cuarto\b", lambda m: f"{m.group(1)}:15", texto)
+        texto = re.sub(
+            r"\b(\d{1,2})\s*menos\s*cuarto\b",
+            lambda m: f"{int(m.group(1)) - 1 if int(m.group(1)) > 1 else 12}:45",
+            texto
+        )
+
+        # "a las X de la tarde/noche" → suma 12 si < 12
+        def _tarde(m):
+            h = int(m.group(1))
+            mins = m.group(2) if m.group(2) else "00"
+            if h != 12:
+                h += 12
+            return f"a las {h}:{mins}"
+
+        def _manana_franja(m):
+            h = int(m.group(1))
+            mins = m.group(2) if m.group(2) else "00"
+            if h == 12:
+                h = 0
+            return f"a las {h}:{mins}"
+
+        def _mediodia(m):
+            mins = m.group(1) if m.group(1) else "00"
+            return f"a las 12:{mins}"
+
+        # "a las X de la tarde/noche"
+        texto = re.sub(r"a las (\d{1,2})(?::(\d{2}))?\s*de la tarde", _tarde, texto)
+        texto = re.sub(r"a las (\d{1,2})(?::(\d{2}))?\s*de la noche", _tarde, texto)
+        texto = re.sub(r"a las (\d{1,2})(?::(\d{2}))?\s*de la mañana", _manana_franja, texto)
+        texto = re.sub(r"a las (\d{1,2})(?::(\d{2}))?\s*del mediodía", _mediodia, texto)
+        texto = re.sub(r"a las (\d{1,2})(?::(\d{2}))?\s*del mediodia", _mediodia, texto)
+
+        # "las ocho de la tarde" sin "a"
+        texto = re.sub(r"\blas (\d{1,2})(?::(\d{2}))?\s*de la tarde", _tarde, texto)
+        texto = re.sub(r"\blas (\d{1,2})(?::(\d{2}))?\s*de la noche", _tarde, texto)
+        texto = re.sub(r"\blas (\d{1,2})(?::(\d{2}))?\s*de la mañana", _manana_franja, texto)
+
+        return texto
+
+
+    def _extraer_hora(self, texto):
+        """
+        @brief Extrae hora del texto y devuelve (hora_dt, texto_sin_hora).
+        @return (None, texto) si no encuentra hora.
+        """
+        now = datetime.now()
+
+        # Patrón "mañana a las HH"
+        m = re.search(r"mañana\s+a las\s+(\d{1,2})(?::(\d{2}))?", texto)
+        if m:
+            h, mn = int(m.group(1)), int(m.group(2)) if m.group(2) else 0
+            when = (now + timedelta(days=1)).replace(hour=h, minute=mn, second=0, microsecond=0)
+            texto_limpio = texto[:m.start()] + texto[m.end():]
+            return when, texto_limpio.strip()
+
+        # "dentro de X minutos" / "en X minutos"
+        m = re.search(r"(?:en|dentro de)\s+(\d+)\s*minutos?", texto)
+        if m:
+            when = now + timedelta(minutes=int(m.group(1)))
+            texto_limpio = texto[:m.start()] + texto[m.end():]
+            return when, texto_limpio.strip()
+
+        # "dentro de X horas" / "en X horas"
+        m = re.search(r"(?:en|dentro de)\s+(\d+)\s*horas?", texto)
+        if m:
+            when = now + timedelta(hours=int(m.group(1)))
+            texto_limpio = texto[:m.start()] + texto[m.end():]
+            return when, texto_limpio.strip()
+
+        # "media hora" / "en media hora" / "dentro de media hora"
+        m = re.search(r"(?:en\s+|dentro de\s+)?media hora", texto)
+        if m:
+            when = now + timedelta(minutes=30)
+            texto_limpio = texto[:m.start()] + texto[m.end():]
+            return when, texto_limpio.strip()
+
+        # "a mediodía" / "a mediodia"
+        m = re.search(r"a (?:mediodía|mediodia)", texto)
+        if m:
+            when = now.replace(hour=12, minute=0, second=0, microsecond=0)
+            if when <= now:
+                when += timedelta(days=1)
+            texto_limpio = texto[:m.start()] + texto[m.end():]
+            return when, texto_limpio.strip()
+
+        # "a medianoche"
+        m = re.search(r"a medianoche", texto)
+        if m:
+            when = now.replace(hour=0, minute=0, second=0, microsecond=0)
+            if when <= now:
+                when += timedelta(days=1)
+            texto_limpio = texto[:m.start()] + texto[m.end():]
+            return when, texto_limpio.strip()
+
+        # "a la una[:MM]" (caso especial sin plural; si la 1 de la madrugada ya
+        # pasó, se interpreta como la 1 de la tarde, que es lo más natural)
+        m = re.search(r"a la una(?::(\d{2}))?", texto)
+        if m:
+            mn = int(m.group(1)) if m.group(1) else 0
+            when = now.replace(hour=1, minute=mn, second=0, microsecond=0)
+            if when <= now:
+                when = when.replace(hour=13)
+                if when <= now:
+                    when += timedelta(days=1)
+            texto_limpio = texto[:m.start()] + texto[m.end():]
+            return when, texto_limpio.strip()
+
+        # Patrón "a las HH:MM" o "a las HH"
+        m = re.search(r"a las\s+(\d{1,2})(?::(\d{2}))?", texto)
+        if m:
+            h, mn = int(m.group(1)), int(m.group(2)) if m.group(2) else 0
+            when = now.replace(hour=h, minute=mn, second=0, microsecond=0)
+            if when <= now:
+                when += timedelta(days=1)
+            texto_limpio = texto[:m.start()] + texto[m.end():]
+            return when, texto_limpio.strip()
+
+        return None, texto
+
+    def _extraer_fecha(self, texto):
+        """
+        @brief Extrae fecha del texto y devuelve (fecha_dt, texto_sin_fecha).
+        @return (None, texto) si no encuentra fecha.
+        """
+        now = datetime.now()
+
+        dias = {
+            "lunes": 0, "martes": 1, "miércoles": 2, "miercoles": 2,
+            "jueves": 3, "viernes": 4, "sábado": 5, "sabado": 5, "domingo": 6
+        }
+        meses = {
+            "enero": 1, "febrero": 2, "marzo": 3, "abril": 4, "mayo": 5,
+            "junio": 6, "julio": 7, "agosto": 8, "septiembre": 9,
+            "octubre": 10, "noviembre": 11, "diciembre": 12
+        }
+
+        # "el 5 de julio", "el 12 de marzo"
+        m = re.search(
+            r"el\s+(\d{1,2})\s+de\s+(enero|febrero|marzo|abril|mayo|junio|julio|"
+            r"agosto|septiembre|octubre|noviembre|diciembre)", texto
+        )
+        if m:
+            dia_n = int(m.group(1))
+            mes_n = meses[m.group(2)]
+            año = now.year
+            fecha = datetime(año, mes_n, dia_n)
+            if fecha.date() < now.date():
+                fecha = datetime(año + 1, mes_n, dia_n)
+            texto_limpio = texto[:m.start()] + texto[m.end():]
+            return fecha, texto_limpio.strip()
+
+        # "pasado mañana" (debe comprobarse ANTES que "mañana" a solas,
+        # porque la contiene como subcadena)
+        if re.search(r"\bpasado\s+mañana\b", texto):
+            fecha = now + timedelta(days=2)
+            texto_limpio = re.sub(r"\bpasado\s+mañana\b", "", texto).strip()
+            return fecha, texto_limpio
+
+        # "hoy"
+        if re.search(r"\bhoy\b", texto):
+            fecha = now
+            texto_limpio = re.sub(r"\bhoy\b", "", texto).strip()
+            return fecha, texto_limpio
+
+        # "mañana" (sin hora asociada, ya gestionado en _extraer_hora)
+        if re.search(r"\bmañana\b", texto):
+            fecha = now + timedelta(days=1)
+            texto_limpio = re.sub(r"\bmañana\b", "", texto).strip()
+            return fecha, texto_limpio
+
+        # Día de la semana
+        for dia, num in dias.items():
+            if re.search(rf"\b{dia}\b", texto):
+                dias_hasta = (num - now.weekday()) % 7
+                if dias_hasta == 0:
+                    dias_hasta = 7
+                fecha = now + timedelta(days=dias_hasta)
+                texto_limpio = re.sub(rf"\b{dia}\b", "", texto).strip()
+                # "próximo lunes" → eliminar también "próximo"
+                texto_limpio = re.sub(r"\b(próximo|proximo|siguiente|el|que viene)\b", "", texto_limpio).strip()
+                return fecha, texto_limpio
+
+        # Fallback dateparser
+        fecha = self._parse_fecha(texto)
+        if fecha:
+            return fecha, texto
+
+        return None, texto
+
+    def _limpiar_titulo(self, texto):
+        """ @brief Elimina preposiciones y palabras residuales del título."""
+        texto = texto.lower()
+
+        basura = [
+
+            "recuérdame",
+            "recuerdame",
+            "avísame",
+            "avisame",
+
+            "añade",
+            "agrega",
+            "pon",
+            "apunta",
+
+            "recordatorio",
+            "alarma",
+
+            "mañana",
+            "hoy",
+
+            "a las",
+            "las",
+
+            "para",
+            "de",
+            "del",
+            "el",
+            "la",
+            "los",
+            "las",
+
+            "que",
+            "sobre",
+
+            "tengo",
+            "que viene",
+        ]
+
+        for palabra in basura:
+            texto = re.sub(rf"\b{re.escape(palabra)}\b", " ", texto)
+
+        texto = re.sub(r"\d{1,2}:\d{2}", " ", texto)
+        texto = re.sub(r"\d+", " ", texto)
+
+        meses = (
+            "enero febrero marzo abril mayo junio julio agosto "
+            "septiembre octubre noviembre diciembre"
+        ).split()
+
+        for mes in meses:
+            texto = re.sub(rf"\b{mes}\b", " ", texto)
+
+        texto = re.sub(r"\s+", " ", texto)
+
+        return texto.strip()
+
+               
+    def _crear_recordatorio(self, texto):
+        """
+        @brief Procesa una orden verbal para programar un nuevo recordatorio de alerta.
+        @details Extrae tanto la FECHA ("el martes", "mañana", "el 5 de julio"...)
+        como la HORA ("a las nueve", "en 20 minutos"...) y combina ambas, igual
+        que se hace para los eventos de calendario. Si solo se da una de las dos,
+        se usa esa; si no se da ninguna, se programa para dentro de 5 minutos.
+
+        @param texto Transcripción del comando de voz.
+        @return str Mensaje de confirmación del éxito de la operación.
+        """
+        logger.info("[ASSISTANT ENGINE] Crear recordartorio")
+    
+        try:
+            if not self.reminder_store:
+                return "No tengo acceso al sistema de recordatorios"
             
-    def _get_calendar_events(self, text):
-        """
-        @brief Filtra y lee los eventos agendados dentro del rango temporal solicitado por voz.
-        @param text Texto con la consulta cronológica sobre la agenda.
-        @return str Frase descriptiva conteniendo las citas de la agenda para ser narradas por TTS.
-        """
-        inicio, fin = self._rango_temporal(text)
+            t = texto.lower().strip()
+            
+            # Eliminar palabras clave de activación
+            for kw in ["recuérdame", "recuerdame", "avísame", "avisame",
+                    "pon un recordatorio", "añade un recordatorio",
+                    "pon recordatorio", "alarma", "medicina", "medicación"]:
+                t = t.replace(kw, "").strip()
+            
+            t = self._palabras_a_numeros(t)
+            t = self._normalizar_hora(t)
+            
+            logger.info(f"[ASSISTANT ENGINE] Texto normalizado {t}")
+
+            # Extraer fecha y hora por separado y combinarlas (antes este método
+            # llamaba dos veces a _extraer_hora y nunca a _extraer_fecha, por lo
+            # que cualquier fecha mencionada ("el martes"...) se ignoraba siempre).
+            fecha, t_sin_fecha = self._extraer_fecha(t)
+            hora_dt, titulo = self._extraer_hora(t_sin_fecha)
+
+            if fecha and hora_dt:
+                when = fecha.replace(
+                    hour=hora_dt.hour, minute=hora_dt.minute,
+                    second=0, microsecond=0
+                )
+            elif fecha and not hora_dt:
+                when = fecha
+            elif hora_dt and not fecha:
+                when = hora_dt
+            else:
+                when = None
+
+            if not when:
+                when = datetime.now() + timedelta(minutes=5)
+
+            # Limpiar título
+            titulo = self._limpiar_titulo(titulo)
+            if not titulo:
+                if "pastilla" in texto:
+                    titulo = "Tomar pastilla"
+                elif "medicina" in texto:
+                    titulo = "Tomar medicina"
+                elif "medicamento" in texto:
+                    titulo = "Tomar medicamento"
+                else:
+                    titulo = "Recordatorio"
+
+            self.reminder_store.add(titulo, when.strftime("%Y-%m-%d %H:%M"))
+
+            if self.on_reminder_created:
+                self.on_reminder_created()
+
+            logger.info(f"[REMINDER] '{titulo}' → {when.strftime('%H:%M %d/%m')}")
+            return f"Recordatorio '{titulo}' añadido para las {when.strftime('%H:%M')} del {when.strftime('%d/%m')}."
+
+        except Exception as e:
+            logger.error(f"[REMINDER] Fallo: {e}")
+            return "No he podido crear el recordatorio."
+
         
+    def _consultar_recordatorios(self, texto):
+        """
+        @brief Consulta los recordatorios pendientes y los narra por voz.
+        @param texto Transcripción de la consulta del usuario.
+        @return str Frase con los recordatorios pendientes.
+        """
+        if not self.reminder_store:
+            return "No tengo acceso al sistema de recordatorios."
+
+        # Recargar desde disco por si hay cambios recientes
+        self.reminder_store.reminders = self.reminder_store.load()
+        pendientes = self.reminder_store.get_pending()
+
+        if not pendientes:
+            return "No tienes recordatorios pendientes."
+
+        # Filtrar por rango temporal si se menciona
+        inicio, fin = self._rango_temporal(texto)
+
+        if inicio:
+            filtrados = []
+            for r in pendientes:
+                try:
+                    fecha = datetime.strptime(r["time"], "%Y-%m-%d %H:%M").date()
+                    if inicio <= fecha <= fin:
+                        filtrados.append(r)
+                except Exception:
+                    continue
+            if not filtrados:
+                return "No tienes recordatorios en ese periodo."
+            pendientes = filtrados
+
+        if len(pendientes) == 1:
+            r = pendientes[0]
+            partes = r["time"].split()
+            return f"Tienes un recordatorio: {r['title']} a las {partes[1]} del {partes[0]}."
+
+        resultado = f"Tienes {len(pendientes)} recordatorios pendientes: "
+        items = []
+        for r in pendientes[:5]:
+            partes = r["time"].split()
+            items.append(f"{r['title']} a las {partes[1]}")
+        resultado += ", ".join(items)
+        if len(pendientes) > 5:
+            resultado += f" y {len(pendientes) - 5} más"
+        return resultado + "."
+
+
+    def _get_calendar_events(self, texto):
+        """
+        @brief Consulta los eventos pendientes y los narra por voz.
+        @param texto Transcripción de la consulta del usuario.
+        @return str Frase con los eventos pendientes.
+        """
+
+        if not self.calendar_store:
+            return "No tengo acceso al calendario."
+
+        # Recargar desde disco
+        self.calendar_store.events = self.calendar_store.load()
+
+        inicio, fin = self._rango_temporal(texto)
+
         if not inicio:
-            return "No he entendido bien la fecha que quieres consultar"
- 
+            # Sin rango → hoy
+            inicio = fin = datetime.now().date()
+
         resultados = []
-        
         for event in self.calendar_store.events:
             try:
                 fecha = datetime.strptime(event["date"], "%Y-%m-%d").date()
                 if inicio <= fecha <= fin:
                     resultados.append(event)
             except Exception:
-                logger.error("[ASSISTANT ENGINE] error creando la fecha del calendario")
                 continue
-                
+
         if not resultados:
-            return "No tienes eventos en este periodo."
-            
+            if inicio == fin:
+                return f"No tienes eventos el {inicio.strftime('%d/%m/%Y')}."
+            return f"No tienes eventos entre el {inicio.strftime('%d/%m/%Y')} y el {fin.strftime('%d/%m/%Y')}."
+
         if inicio == fin:
-            intro = f"Tiene esto el {inicio.strftime('%d/%m/%Y')}: "
+            intro = f"El {inicio.strftime('%d/%m/%Y')} tienes: "
         else:
-            intro = f"Tienes estos eventos entre el {inicio.strftime('%d/%m/%Y')} y el {fin.strftime('%d/%m/%Y')}: "
-            
-        return intro + " ".join(
-           f"{e['title']} ({e['date']})." for e in resultados
-        )  
-            
-    def _crear_recordatorio(self, texto):
-        """
-        @brief Procesa una orden verbal para programar un nuevo recordatorio de alerta.
-        @details Extrae mediante expresiones regulares patrones de tiempo numéricos ('minutos', 'horas') 
-        y agenda el objeto en el repositorio persistente.
+            intro = f"Entre el {inicio.strftime('%d/%m/%Y')} y el {fin.strftime('%d/%m/%Y')} tienes: "
+
+        eventos_str = ", ".join(e["title"] for e in resultados)
+        return intro + eventos_str + "."
         
-        @param texto Transcripción del comando de voz.
-        @return str Mensaje de confirmación del éxito de la operación.
+    def _añadir_evento_calendario(self, texto):
         """
-        logger.info("[ASSISTANT ENGINE] Crear recordartorio")
+        @brief Añade evento al calendario que escucha.
+        @param texto Transcripción de la consulta del usuario.
+        """
+        if not self.calendar_store:
+            return "No tengo acceso al calendario."
+
         try:
-            if not self.reminder_store:
-                return "No tengo acceso al sistema de recordatorios"
-            
-            texto_original = texto.lower()
-            comando_limpio = re.sub(r"(recu[eé]rdame|recuerdame|av[ií]same|avisame)", "", texto_original).strip()
-        
-            minutos = None
-            horas = None
-        
-            m_min = re.search(r"(\d+)\s*min", comando_limpio)
-            m_h = re.search(r"(\d+)\s*hora", comando_limpio)
-            
-            # Calcular fecha exacta del recordatorio
-            when = datetime.now()
-        
-            if m_min:
-               minutos = int(m_min.group(1))
-               when += timedelta(minutes=minutos)
-            
-            if m_h:
-               when += timedelta(hours=int(m_h.group(1)))
-        
-            # Si no se especifica explícitamente el tiempo, aplica salvaguarda de 5 minutos
-            if not minutos and not horas:
-                when += timedelta(minutes=5)
-            else:
-                when += timedelta(minutes=5)
-        
-            mensaje = re.sub(r"\d+\s*(minutos?|horas?) ", "", comando_limpio).strip()
-        
-            if not mensaje:
-                mensaje = "Recordatario sin título"
-               
-            self.reminder_store.add(
-                mensaje,
-                when.strftime("%Y-%m-%d %H:%M")
-            )
-        
-            logger.info("[ASSISTANT ENGINE] Recordatorio añadido correctamente")
-            return "Recordatorio añadido correctamente"
-        
+            t = texto.lower().strip()
+
+            for kw in ["añade", "agrega", "pon", "apunta", "añadir", "agregar",
+                    "un evento", "una cita", "al calendario", "en el calendario",
+                    "nueva cita", "nuevo evento"]:
+                t = t.replace(kw, "").strip()
+
+            t = self._palabras_a_numeros(t)
+            t = self._normalizar_hora(t)
+
+            logger.info(f"[ASSISTANT ENGINE] Texto calendario normalizado {t}")
+
+            # Extraer fecha y hora por separado
+            fecha, t_sin_fecha = self._extraer_fecha(t)
+            hora_dt, titulo = self._extraer_hora(t_sin_fecha)
+
+            # Si encontramos hora, combinar con la fecha
+            if fecha and hora_dt:
+                fecha = fecha.replace(
+                    hour=hora_dt.hour,
+                    minute=hora_dt.minute,
+                    second=0, microsecond=0
+                )
+            elif not fecha and hora_dt:
+                fecha = hora_dt
+
+            if not fecha:
+                return ("No he entendido la fecha. Puedes decir por ejemplo: "
+                        "añade al calendario médico el martes a las diez, "
+                        "o cita médico el 5 de julio.")
+
+            # Limpiar título
+            titulo = self._limpiar_titulo(titulo)
+
+            if titulo.startswith("tengo "):
+                titulo = titulo[6:]
+
+            if titulo.startswith("voy al "):
+                titulo = titulo[7:]
+
+            if titulo.startswith("ir al "):
+                titulo = titulo[6:]
+
+            titulo = titulo.strip()
+
+            if not titulo:
+                titulo = "Evento"
+
+            self.calendar_store.add_event(fecha.strftime("%Y-%m-%d"), titulo)
+
+            if self.on_calendar_created:
+                self.on_calendar_created()
+
+            fecha_str = fecha.strftime("%d/%m/%Y")
+            hora_str = fecha.strftime("%H:%M") if hora_dt else ""
+            respuesta = f"Evento '{titulo}' añadido para el {fecha_str}"
+            if hora_str:
+                respuesta += f" a las {hora_str}"
+            return respuesta + "."
+
         except Exception as e:
-            logger.info(f"[ASSISTANT ENGINE] Fallo al crear recordatorio {e}")
-            return "No he podido crear el recordatorio"
+            logger.error(f"[CALENDAR] Fallo: {e}")
+            return "No he podido añadir el evento al calendario."
         
     def _construir_prompt(self, mensaje):
         """
@@ -412,13 +987,27 @@ class AssistantEngine:
     def _ask_model(self, prompt):
         """
         @brief Realiza la invocación de red hacia la interfaz de inferencia del LLMClient.
+        @details Se ejecuta con un techo de tiempo duro (self.llm_timeout). Si el
+        cliente LLM se queda colgado por cualquier motivo (DNS, socket, etc. que
+        no respete su propio timeout interno), esto evita que el asistente se
+        quede esperando indefinidamente sin responder nada.
         @param prompt Texto formateado completo con el contexto.
         @return str Respuesta generada por la IA o cadena vacía si no hay cliente o falla.
         """
         if not self.llm:
             logger.warning("[LLM] no hay cliente configurado")
             return ""
-        return self.llm.ask(prompt)
+
+        try:
+            with concurrent.futures.ThreadPoolExecutor(max_workers=1) as ex:
+                future = ex.submit(self.llm.ask, prompt)
+                return future.result(timeout=self.llm_timeout) or ""
+        except concurrent.futures.TimeoutError:
+            logger.error("[LLM] tiempo de espera agotado, sin respuesta")
+            return ""
+        except Exception as e:
+            logger.error(f"[LLM] error: {e}")
+            return ""
 
     # =========================================================
     # PROCESAMIENTO PRINCIPAL
@@ -430,8 +1019,9 @@ class AssistantEngine:
         @param texto Transcripción de la entrada del usuario.
         @return str Texto de salida generado que el robot debe responder.
         """
-        logger.info(f"[USER:{self.user}] {texto}")
+        logger.info(f"[ASSISTANT ENGINE] USER:{self.user} {texto}")
         intent = self._detectar_intencion(texto)
+        logger.info(f"[ASSISTANT ENGINE] {intent} ")
 
         if intent == "time":
             logger.info("Consultado hora")
@@ -440,14 +1030,35 @@ class AssistantEngine:
         elif intent == "weather":
             if self.display:
                 self.display.set_estado("Consultando clima...")
-                logger.info("Consultado clima")
+                logger.info("[ASSISTANT ENGINE] Consultado clima")
             respuesta = self._get_weather()
             
         elif intent == "calendar":
+            if self.display:
+                self.display.set_estado("Consultando calendario...")
+                logger.info("[ASSISTANT ENGINE] Consultado calendario")
             respuesta = self._get_calendar_events(texto) 
         
-        elif intent == "reminder":
+        elif intent == "calendar_add": 
+            if self.display:
+                self.display.set_estado("Añadiendo al calendario...")
+                logger.info("[ASSISTANT ENGINE] Añadiendo al calendario")
+                
+            respuesta = self._añadir_evento_calendario(texto) 
+        
+        elif intent == "reminder_add":
+            if self.display:
+                self.display.set_estado("Añadiendo a recordatorios...")
+                logger.info("[ASSISTANT ENGINE] Añadiendo a recordatorios")
+            
             respuesta = self._crear_recordatorio(texto)
+                        
+        elif intent == "reminder_query":
+            if self.display:
+                self.display.set_estado("Consultando recordatorios...")
+                logger.info("[ASSISTANT ENGINE] Consultado recordatorios")
+                
+            respuesta = self._consultar_recordatorios(texto)
         
         else:
             if self.display:
@@ -478,7 +1089,7 @@ class AssistantEngine:
         })
         self._guardar_memoria()
 
-        logger.info(f"[BOT] {respuesta}")
+        logger.info(f"[ASSISTANT ENGINE] (ROJAZZ) {respuesta}")
         logger.info("-" * 50)
         return respuesta
 
@@ -514,8 +1125,16 @@ class AssistantEngine:
                    self.display.set_estado("Escuchando...") 
                else:
                    self.display.set_estado("Esperando activación...") 
-            
-        self.tts.speak(text, on_done=_fin)
+
+        try:
+            self.tts.speak(text, on_done=_fin)
+        except Exception as e:
+            # Si el TTS falla aquí sin protección, el hilo de escucha (daemon)
+            # muere en silencio y el asistente se queda "colgado" sin avisar.
+            logger.error(f"[TTS] error al hablar: {e}")
+            if self.display:
+                self.display.set_talking(False)
+                self.display.set_estado("Escuchando...")
         
     def start(self):
         """
@@ -540,25 +1159,39 @@ class AssistantEngine:
         """
         @brief Bucle de consumo interno para procesar el texto obtenido del transcriptor de audio.
         @details Intercepta comandos de parada en tiempo real antes de procesar intenciones complejas.
+        Todo el cuerpo va envuelto en try/except: al ser un hilo daemon, una
+        excepción sin capturar lo mata en silencio (sin log visible para el
+        usuario) y el asistente se queda "escuchando" para siempre sin
+        responder nunca más. Esa es la causa más probable de los cuelgues.
         """
         def _on_text(text):
-            if self.display:
-                self.display.set_estado(f"Escuchado: {text[:20]}")
+            try:
+                if not text or not isinstance(text, str) or not text.strip():
+                    return
 
-            # Interrupción inmediata por comandos de pánico o parada de locución
-            if any(x in text for x in ["calla", "para", "silencio", "cállate"]):
-                self.tts.stop()
+                if self.display:
+                    self.display.set_estado(f"Escuchado: {text[:20]}")
+
+                # Interrupción inmediata por comandos de pánico o parada de locución
+                if any(x in text for x in ["calla", "para", "silencio", "cállate"]):
+                    self.tts.stop()
+                    if self.display:
+                        self.display.set_estado("Escuchando...")
+                    return
+
+                try:
+                    respuesta = self._procesar_texto(text)
+                except Exception as e:
+                    logger.error(f"[ASSISTANT] error procesando: {e}")
+                    respuesta = "He tenido un problema al procesar tu mensaje."
+
+                self.speak(respuesta)
+
+            except Exception as e:
+                # Red de seguridad final: nunca dejar morir el hilo en silencio.
+                logger.error(f"[ASSISTANT] error inesperado en _on_text: {e}")
                 if self.display:
                     self.display.set_estado("Escuchando...")
-                return
-
-            try:
-                respuesta = self._procesar_texto(text)
-            except Exception as e:
-                logger.error(f"[ASSISTANT] error procesando: {e}")
-                respuesta = "He tenido un problema al procesar tu mensaje."
-
-            self.speak(respuesta)
 
         self.stt.listen_loop(_on_text, assistant=self, device=self.mic_device)
 
