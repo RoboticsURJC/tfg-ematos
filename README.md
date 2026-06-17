@@ -24,3 +24,4 @@ Toda la documentación detallada (desarrollo, experimentos y resultados) está d
 **[Ver wiki del proyecto](https://github.com/RoboticsURJC/tfg-ematos/wiki)**.
 
 
+Además la documentación del código se encuentra en **[Documentación código](https://github.com/RoboticsURJC/tfg-ematos/blob/main/documentacion/latex/refman.pdf)**.
