@@ -88,8 +88,7 @@ Fuerza la validación del campo de tiempo mediante {\ttfamily fromisoformat()} p
 \begin{DoxyReturn}{Returns}
 Response Estado de confirmación JSON con código de error HTTP en caso de fecha desalineada. 
 \end{DoxyReturn}
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -114,8 +113,7 @@ Endpoint HTTP POST\+: Conmuta de forma explícita el bit de completado de una al
 \begin{DoxyReturn}{Returns}
 Response Estado de confirmación JSON. 
 \end{DoxyReturn}
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -155,8 +153,7 @@ Endpoint HTTP GET\+: Extrae los últimos 20 hechos o recuerdos guardados asociad
 \begin{DoxyReturn}{Returns}
 Response Array JSON con la estructura completa de los registros coincidentes. 
 \end{DoxyReturn}
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -181,8 +178,7 @@ Endpoint HTTP GET\+: Lista cronológicamente todos los recordatorios activos e h
 \begin{DoxyReturn}{Returns}
 Response Lista de objetos JSON mapeados. 
 \end{DoxyReturn}
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -199,8 +195,7 @@ Here is the call graph for this function\+:
 
 Inicializa la estructura del esquema relacional y crea las tablas si no existen. 
 
-Levanta de forma automática las tablas de entidad {\ttfamily reminders} (alertas de medicación y tareas) y {\ttfamily memories} (registro conversacional de la memoria semántica a largo plazo del robot). Here is the call graph for this function\+:
-\nopagebreak
+Levanta de forma automática las tablas de entidad {\ttfamily reminders} (alertas de medicación y tareas) y {\ttfamily memories} (registro conversacional de la memoria semántica a largo plazo del robot). Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -258,8 +253,7 @@ Decodifica una trama binaria desde base64, reconstruye el arreglo matricial de c
 \begin{DoxyReturn}{Returns}
 Response Objeto JSON con el array de nombres identificados ({\ttfamily recognized}) y códigos HTTP estándar. 
 \end{DoxyReturn}
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -281,8 +275,7 @@ Crea de forma dinámica la estructura física del perfil en disco, barre la cole
 \begin{DoxyReturn}{Returns}
 Response Objeto de respuesta JSON reflejando el estatus de la operación ({\ttfamily ok}/{\ttfamily error}). 
 \end{DoxyReturn}
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -302,8 +295,7 @@ Endpoint HTTP POST\+: Inyecta una nueva traza de conocimiento en la memoria rela
 \begin{DoxyReturn}{Returns}
 Response Estado de confirmación JSON. 
 \end{DoxyReturn}
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -320,8 +312,7 @@ Here is the call graph for this function\+:
 
 Proceso planificador e hilo demonio (Background Scheduler). 
 
-Se ejecuta de forma infinita en segundo plano cada 5 segundos barriendo la tabla de la base de datos. Si localiza un registro no completado cuya fecha planificada sea igual o menor al tiempo ISO actual, dispara un evento de alarma y conmuta de forma automática su estado a completado ({\ttfamily completed = 1}). Here is the call graph for this function\+:
-\nopagebreak
+Se ejecuta de forma infinita en segundo plano cada 5 segundos barriendo la tabla de la base de datos. Si localiza un registro no completado cuya fecha planificada sea igual o menor al tiempo ISO actual, dispara un evento de alarma y conmuta de forma automática su estado a completado ({\ttfamily completed = 1}). Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

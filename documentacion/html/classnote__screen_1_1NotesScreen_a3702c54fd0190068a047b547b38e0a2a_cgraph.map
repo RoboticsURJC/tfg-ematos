@@ -1,10 +1,10 @@
 <map id="note_screen.NotesScreen.delete_note" name="note_screen.NotesScreen.delete_note">
 <area shape="rect" id="node1" title="Elimina de forma definitiva la nota seleccionada bajo confirmación del usuario." alt="" coords="5,85,273,112"/>
-<area shape="rect" id="node2" href="$classcalendar__screen_1_1CalendarScreen.html#ad7d7057756ab86ac3735e41738308de5" title="Sincroniza la lista visual de tareas y repinta los días destacados." alt="" coords="345,13,535,54"/>
+<area shape="rect" id="node2" href="$classcalendar__screen_1_1CalendarScreen.html#ad7d7057756ab86ac3735e41738308de5" title=" " alt="" coords="345,13,535,54"/>
 <area shape="rect" id="node6" href="$classnote__screen_1_1NotesScreen.html#a877224d5f9b00ce6d3c9766b3c1581b5" title="Sincroniza la vista del componente QListWidget con el almacén local persistente." alt="" coords="321,144,559,171"/>
 <area shape="rect" id="node8" href="$classreminder__screen_1_1ReminderScreen.html#af258ef456b74e29be94a4ff4c3dcd6c9" title="Refresca la lista desde el store." alt="" coords="341,78,539,119"/>
 <area shape="rect" id="node3" href="$namespaceroutes__dashboard.html#a8e1c87d3914c53c0d5ed6d8c3dafca9e" title="Vacía el historial de logs de un servicio." alt="" coords="627,85,801,112"/>
-<area shape="rect" id="node5" href="$classcalendar__screen_1_1CalendarScreen.html#a0f1a3545f3729b3b7f1ce049450dd3d5" title="Resalta visualmente las casillas del calendario que contienen recordatorios agendados." alt="" coords="619,5,809,61"/>
+<area shape="rect" id="node5" href="$classcalendar__screen_1_1CalendarScreen.html#a0f1a3545f3729b3b7f1ce049450dd3d5" title=" " alt="" coords="619,5,809,61"/>
 <area shape="rect" id="node4" href="$namespacelog__service.html#ae2983f6bea2c5025c60c12bb9e947d4c" title="Vacía por completo el historial de registros de un servicio específico." alt="" coords="869,85,1036,112"/>
 <area shape="rect" id="node7" href="$classnote__store_1_1NotesStore.html#a13f394991b40877d7f453777764467aa" title="Realiza una búsqueda insensible a mayúsculas dentro de los campos de las notas." alt="" coords="607,144,821,171"/>
 </map>

@@ -5,8 +5,10 @@ var searchData=
   ['objects_5fb_2',['objects_b',['../classfind__differences__screen_1_1FindDifferencesScreen.html#a051595bd48deec4ecc35ffa7ad7912e1',1,'find_differences_screen::FindDifferencesScreen']]],
   ['on_5faccept_3',['on_accept',['../classproactive_1_1proactive__screen_1_1ProactiveScreen.html#aea4058adc7324d2d1d01755a430657e3',1,'proactive::proactive_screen::ProactiveScreen']]],
   ['on_5fauthenticated_4',['on_authenticated',['../classapp_1_1ui_1_1face__client_1_1FaceClient.html#ac1910e3375d7ee175c6a5e6f1ef4a806',1,'app::ui::face_client::FaceClient']]],
-  ['on_5fdismiss_5',['on_dismiss',['../classproactive_1_1proactive__screen_1_1ProactiveScreen.html#a271a1ee58f858be864d7731da4d11230',1,'proactive::proactive_screen::ProactiveScreen']]],
-  ['on_5fsuggest_6',['on_suggest',['../classproactive_1_1proactive__scheduler_1_1ProactiveScheduler.html#a8324c03b0ee973f3f31b840e96e320e1',1,'proactive::proactive_scheduler::ProactiveScheduler']]],
-  ['open_5fapp_7',['open_app',['../classlauncher__screen_1_1LauncherScreen.html#a1e7fcb5e75e9dc6841077042346ecb81',1,'launcher_screen::LauncherScreen']]],
-  ['open_5fassistant_8',['open_assistant',['../classbase__app_1_1BaseApp.html#a09f43c228a9b00a132307a4ea0cb5c02',1,'base_app::BaseApp']]]
+  ['on_5fcalendar_5fcreated_5',['on_calendar_created',['../classapp_1_1core_1_1assistant__engine_1_1AssistantEngine.html#a2a4a3e2cf89fea1d5bb86d66c5523aab',1,'app::core::assistant_engine::AssistantEngine']]],
+  ['on_5fdismiss_6',['on_dismiss',['../classproactive_1_1proactive__screen_1_1ProactiveScreen.html#a271a1ee58f858be864d7731da4d11230',1,'proactive::proactive_screen::ProactiveScreen']]],
+  ['on_5freminder_5fcreated_7',['on_reminder_created',['../classapp_1_1core_1_1assistant__engine_1_1AssistantEngine.html#a8dc7009faf8df45dce54e22a6fb02750',1,'app::core::assistant_engine::AssistantEngine']]],
+  ['on_5fsuggest_8',['on_suggest',['../classproactive_1_1proactive__scheduler_1_1ProactiveScheduler.html#a8324c03b0ee973f3f31b840e96e320e1',1,'proactive::proactive_scheduler::ProactiveScheduler']]],
+  ['open_5fapp_9',['open_app',['../classlauncher__screen_1_1LauncherScreen.html#a1e7fcb5e75e9dc6841077042346ecb81',1,'launcher_screen::LauncherScreen']]],
+  ['open_5fassistant_10',['open_assistant',['../classbase__app_1_1BaseApp.html#a09f43c228a9b00a132307a4ea0cb5c02',1,'base_app::BaseApp']]]
 ];

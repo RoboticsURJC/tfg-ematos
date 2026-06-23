@@ -1,0 +1,9 @@
+<map id="app.core.assistant_engine.AssistantEngine._añadir_evento_calendario" name="app.core.assistant_engine.AssistantEngine._añadir_evento_calendario">
+<area shape="rect" id="node1" title="Añade evento al calendario que escucha." alt="" coords="5,165,203,221"/>
+<area shape="rect" id="node2" href="$classapp_1_1core_1_1assistant__engine_1_1AssistantEngine.html#a8d40a136ca95239635b3409620d7a3cd" title="Extrae fecha del texto y devuelve (fecha_dt, texto_sin_fecha)." alt="" coords="251,5,436,61"/>
+<area shape="rect" id="node4" href="$classapp_1_1core_1_1assistant__engine_1_1AssistantEngine.html#a433a842dcab8f3368201684acba0a99a" title="Extrae hora del texto y devuelve (hora_dt, texto_sin_hora)." alt="" coords="251,85,436,141"/>
+<area shape="rect" id="node5" href="$classapp_1_1core_1_1assistant__engine_1_1AssistantEngine.html#ac305dec542e17c0e6c815a87f4e083e6" title="Elimina preposiciones y palabras residuales del título." alt="" coords="251,165,436,221"/>
+<area shape="rect" id="node6" href="$classapp_1_1core_1_1assistant__engine_1_1AssistantEngine.html#ae3326aadfd0b734996c2dc999e78a93d" title="Convierte expresiones como &#39;las tres de la tarde&#39; a &#39;las 15:00&#39;, y formas coloquiales como &#39;y media&#39;/..." alt="" coords="251,245,436,301"/>
+<area shape="rect" id="node7" href="$classapp_1_1core_1_1assistant__engine_1_1AssistantEngine.html#a9ffec2ff7ba9632dfb2e09a36e655205" title="Convierte números en letra a dígitos para facilitar el parsing temporal." alt="" coords="251,325,436,381"/>
+<area shape="rect" id="node3" href="$classapp_1_1core_1_1assistant__engine_1_1AssistantEngine.html#a9a21ecd3bd3e064b3e1417260c58d824" title="Transforma expresiones complejas de lenguaje natural a un objeto datetime estructurado." alt="" coords="484,5,669,61"/>
+</map>

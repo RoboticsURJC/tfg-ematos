@@ -1,13 +1,13 @@
 <map id="calendar_screen.CalendarScreen.add_event" name="calendar_screen.CalendarScreen.add_event">
-<area shape="rect" id="node1" title="Da de alta un nuevo evento en el día en curso." alt="" coords="5,201,196,243"/>
-<area shape="rect" id="node2" href="$classcalendar__screen_1_1CalendarScreen.html#a67ae6b5dddfc781ccc12a5082270695d" title="Oculta de la interfaz el teclado virtual y restaura las dimensiones originales de la lista de eventos..." alt="" coords="267,5,458,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,201,196,243"/>
+<area shape="rect" id="node2" href="$classcalendar__screen_1_1CalendarScreen.html#a67ae6b5dddfc781ccc12a5082270695d" title=" " alt="" coords="267,5,458,47"/>
 <area shape="rect" id="node3" href="$classnote__screen_1_1NotesScreen.html#aabab3d318ca72cef17cb6984bf42d6c0" title="Desacopla el teclado virtual y restaura las dimensiones originales de la lista." alt="" coords="267,71,458,112"/>
 <area shape="rect" id="node4" href="$classreminder__screen_1_1ReminderScreen.html#a2c7e5cc96f0a961864c06441ef1a4119" title="Oculta el teclado y restaura el tamaño de la lista." alt="" coords="263,136,462,177"/>
 <area shape="rect" id="node5" href="$namespaceroutes__dashboard.html#a8e1c87d3914c53c0d5ed6d8c3dafca9e" title="Vacía el historial de logs de un servicio." alt="" coords="549,263,724,290"/>
-<area shape="rect" id="node7" href="$classcalendar__screen_1_1CalendarScreen.html#ad7d7057756ab86ac3735e41738308de5" title="Sincroniza la lista visual de tareas y repinta los días destacados." alt="" coords="267,319,458,360"/>
+<area shape="rect" id="node7" href="$classcalendar__screen_1_1CalendarScreen.html#ad7d7057756ab86ac3735e41738308de5" title=" " alt="" coords="267,319,458,360"/>
 <area shape="rect" id="node9" href="$classnote__screen_1_1NotesScreen.html#a877224d5f9b00ce6d3c9766b3c1581b5" title="Sincroniza la vista del componente QListWidget con el almacén local persistente." alt="" coords="244,385,481,411"/>
 <area shape="rect" id="node11" href="$classreminder__screen_1_1ReminderScreen.html#af258ef456b74e29be94a4ff4c3dcd6c9" title="Refresca la lista desde el store." alt="" coords="263,201,462,243"/>
 <area shape="rect" id="node6" href="$namespacelog__service.html#ae2983f6bea2c5025c60c12bb9e947d4c" title="Vacía por completo el historial de registros de un servicio específico." alt="" coords="792,263,959,290"/>
-<area shape="rect" id="node8" href="$classcalendar__screen_1_1CalendarScreen.html#a0f1a3545f3729b3b7f1ce049450dd3d5" title="Resalta visualmente las casillas del calendario que contienen recordatorios agendados." alt="" coords="541,314,732,370"/>
+<area shape="rect" id="node8" href="$classcalendar__screen_1_1CalendarScreen.html#a0f1a3545f3729b3b7f1ce049450dd3d5" title=" " alt="" coords="541,314,732,370"/>
 <area shape="rect" id="node10" href="$classnote__store_1_1NotesStore.html#a13f394991b40877d7f453777764467aa" title="Realiza una búsqueda insensible a mayúsculas dentro de los campos de las notas." alt="" coords="529,394,744,421"/>
 </map>

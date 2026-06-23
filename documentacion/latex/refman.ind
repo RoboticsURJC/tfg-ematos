@@ -1,0 +1,3737 @@
+\begin{theindex}
+
+  \item {\_GAMES}
+    \subitem {games\_screen.GamesScreen}, \hyperpage{243}
+  \item {\_GAMES\_QSS}
+    \subitem {games\_screen}, \hyperpage{49}
+  \item {\_LAUNCHER\_QSS}
+    \subitem {launcher\_screen}, \hyperpage{56}
+  \item {\_SVG\_BRAIN}
+    \subitem {games\_screen}, \hyperpage{49}
+  \item {\_SVG\_NUMBER}
+    \subitem {games\_screen}, \hyperpage{49}
+  \item {\_SVG\_POWER}
+    \subitem {launcher\_screen}, \hyperpage{56}
+  \item {\_SVG\_VOL\_DOWN}
+    \subitem {launcher\_screen}, \hyperpage{56}
+  \item {\_SVG\_VOL\_UP}
+    \subitem {launcher\_screen}, \hyperpage{57}
+  \item {\_SVG\_WORDS}
+    \subitem {games\_screen}, \hyperpage{49}
+  \item {\_\_init\_\_}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{116}
+    \subitem {app.core.camera\_manager.CameraManager}, \hyperpage{187}
+    \subitem {app.core.game\_router.GameRouter}, \hyperpage{239}
+    \subitem {app.core.logs\_to\_server.RemoteHandler}, \hyperpage{379}
+    \subitem {app.core.robot\_controller.RobotController}, 
+		\hyperpage{385}
+    \subitem {app.core.session\_manager.SessionManager}, 
+		\hyperpage{397}
+    \subitem {app.core.state\_machine.StateMachine}, \hyperpage{447}
+    \subitem {app.llm.client.LLMClient}, \hyperpage{270}
+    \subitem {app.ui.app\_controller.AppController}, \hyperpage{107}
+    \subitem {app.ui.display.FaceDisplay}, \hyperpage{212}
+    \subitem {app.ui.face\_client.FaceClient}, \hyperpage{205}
+    \subitem {app.ui.face\_client.Worker}, \hyperpage{496}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{295}
+    \subitem {app.ui.state.UIState}, \hyperpage{461}
+    \subitem {app.voice.audio\_stream.AudioStream}, \hyperpage{137}
+    \subitem {app.voice.stt\_vosk.VoskSTT}, \hyperpage{469}
+    \subitem {app.voice.tts.TTS}, \hyperpage{454}
+    \subitem {assistant\_screen.AssistantScreen}, \hyperpage{133}
+    \subitem {base.LLMModel}, \hyperpage{274}
+    \subitem {base\_app.BaseApp}, \hyperpage{141}
+    \subitem {base\_pygame\_qt\_screen.BasePygameQtScreen}, 
+		\hyperpage{146}
+    \subitem {boot\_screen.BootScreen}, \hyperpage{160}
+    \subitem {browser\_screen.BrowserScreen}, \hyperpage{165}
+    \subitem {calendar\_screen.CalendarScreen}, \hyperpage{175}
+    \subitem {calendar\_store.CalendarStore}, \hyperpage{183}
+    \subitem {error\_screen.ErrorScreen}, \hyperpage{200}
+    \subitem {find\_differences\_screen.Difference}, \hyperpage{198}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{223}
+    \subitem {find\_differences\_screen.SceneObject}, \hyperpage{393}
+    \subitem {games\_screen.GameCard}, \hyperpage{236}
+    \subitem {games\_screen.GamesScreen}, \hyperpage{242}
+    \subitem {keyboard\_widget.KeyboardWidget}, \hyperpage{255}
+    \subitem {launcher\_screen.LauncherScreen}, \hyperpage{261}
+    \subitem {llm\_service.LLMService}, \hyperpage{277}
+    \subitem {loading\_screen.LoadingScreen}, \hyperpage{282}
+    \subitem {login\_screen.LoginScreen}, \hyperpage{287}
+    \subitem {login\_screen.Worker}, \hyperpage{498}
+    \subitem {memory\_screen.MemoryScreen}, \hyperpage{307}
+    \subitem {models.gemini.GeminiModel}, \hyperpage{246}
+    \subitem {models.gpt\_azure.GPTAzure}, \hyperpage{249}
+    \subitem {models.groq\_llama.GroqLlama}, \hyperpage{251}
+    \subitem {models.mistral\_llama.MistralServer}, \hyperpage{316}
+    \subitem {models.serv\_llama.LlamaServer}, \hyperpage{268}
+    \subitem {note\_screen.NotesScreen}, \hyperpage{320}
+    \subitem {note\_store.NotesStore}, \hyperpage{326}
+    \subitem {proactive.proactive\_scheduler.ProactiveScheduler}, 
+		\hyperpage{330}
+    \subitem {proactive.proactive\_screen.ProactiveScreen}, 
+		\hyperpage{339}
+    \subitem {register\_screen.RegisterScreen}, \hyperpage{355}
+    \subitem {register\_screen.RegisterWorker}, \hyperpage{362}
+    \subitem {reminder\_scheduler.ReminderScheduler}, \hyperpage{364}
+    \subitem {reminder\_screen.DateTimePickerDialog}, \hyperpage{195}
+    \subitem {reminder\_screen.ReminderScreen}, \hyperpage{369}
+    \subitem {reminder\_store.ReminderStore}, \hyperpage{375}
+    \subitem {remote\_logger.RemoteHandler}, \hyperpage{382}
+    \subitem {runner.BenchmarkRunner}, \hyperpage{155}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{406}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{431}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{478}
+  \item {\_\_init\_\_.py}, \hyperpage{501}
+  \item {\_\_new\_\_}
+    \subitem {app.core.config.Config}, \hyperpage{191}
+  \item {\_add\_to\_sequence}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{431}
+  \item {\_anim\_brain}
+    \subitem {proactive.proactive\_screen.ProactiveScreen}, 
+		\hyperpage{340}
+  \item {\_anim\_breath}
+    \subitem {proactive.proactive\_screen.ProactiveScreen}, 
+		\hyperpage{340}
+  \item {\_anim\_hands}
+    \subitem {proactive.proactive\_screen.ProactiveScreen}, 
+		\hyperpage{340}
+  \item {\_anim\_neck}
+    \subitem {proactive.proactive\_screen.ProactiveScreen}, 
+		\hyperpage{341}
+  \item {\_anim\_shoulders}
+    \subitem {proactive.proactive\_screen.ProactiveScreen}, 
+		\hyperpage{341}
+  \item {\_anim\_walk}
+    \subitem {proactive.proactive\_screen.ProactiveScreen}, 
+		\hyperpage{341}
+  \item {\_appear}
+    \subitem {proactive.proactive\_screen.ProactiveScreen}, 
+		\hyperpage{346}
+  \item {\_ask\_model}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{117}
+  \item {\_añadir\_evento\_calendario}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{117}
+  \item {\_bg}
+    \subitem {memory\_screen.MemoryScreen}, \hyperpage{307}
+  \item {\_blit\_to\_label}
+    \subitem {base\_pygame\_qt\_screen.BasePygameQtScreen}, 
+		\hyperpage{146}
+  \item {\_board}
+    \subitem {memory\_screen.MemoryScreen}, \hyperpage{308}
+  \item {\_bt\_disable}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{407}
+  \item {\_bt\_enable}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{408}
+  \item {\_bt\_refresh\_state}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{408, 409}
+  \item {\_bt\_scan}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{409, 410}
+  \item {\_bt\_scan\_done}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{422}
+  \item {\_bt\_scan\_thread}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{410}
+  \item {\_btn}
+    \subitem {proactive.proactive\_screen.ProactiveScreen}, 
+		\hyperpage{342}
+  \item {\_build\_keys}
+    \subitem {keyboard\_widget.KeyboardWidget}, \hyperpage{255}
+  \item {\_cache\_letters}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{479}
+  \item {\_calculate\_layout}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{224}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{431}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{479}
+  \item {\_callback}
+    \subitem {app.voice.audio\_stream.AudioStream}, \hyperpage{137}
+  \item {\_canvas\_a\_surf}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{231}
+  \item {\_canvas\_b\_surf}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{231}
+  \item {\_card}
+    \subitem {settings\_screen}, \hyperpage{92}
+  \item {\_cargar\_memoria}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{118}
+  \item {\_change\_volume}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{410, 411}
+  \item {\_chromium}
+    \subitem {browser\_screen.BrowserScreen}, \hyperpage{171}
+  \item {\_circle\_centers}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{441}
+  \item {\_circle\_r}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{442}
+  \item {\_clean\_logs}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{411}
+  \item {\_clean\_tmp}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{412}
+  \item {\_clock\_timer}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{422}
+  \item {\_construir\_prompt}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{118}
+  \item {\_consultar\_recordatorios}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{119}
+  \item {\_contiene\_palabra\_inicio}
+    \subitem {app.voice.stt\_vosk.VoskSTT}, \hyperpage{469}
+  \item {\_contiene\_referencia\_temporal}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{119}
+  \item {\_cooldown\_seconds}
+    \subitem {app.core.system\_apps.SystemApps}, \hyperpage{452}
+  \item {\_crear\_recordatorio}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{120}
+  \item {\_create}
+    \subitem {memory\_screen.MemoryScreen}, \hyperpage{308}
+  \item {\_darken}
+    \subitem {find\_differences\_screen}, \hyperpage{43}
+  \item {\_data}
+    \subitem {app.core.config.Config}, \hyperpage{193}
+  \item {\_desactivar}
+    \subitem {app.voice.stt\_vosk.VoskSTT}, \hyperpage{470}
+  \item {\_detectar\_intencion}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{120}
+  \item {\_dismissed}
+    \subitem {proactive.proactive\_screen.ProactiveScreen}, 
+		\hyperpage{346}
+  \item {\_done\_event}
+    \subitem {app.voice.tts.TTS}, \hyperpage{456}
+  \item {\_draw\_animation}
+    \subitem {proactive.proactive\_screen.ProactiveScreen}, 
+		\hyperpage{342}
+  \item {\_draw\_bg}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{224}
+    \subitem {proactive.proactive\_screen.ProactiveScreen}, 
+		\hyperpage{343}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{432}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{479}
+  \item {\_draw\_board}
+    \subitem {memory\_screen.MemoryScreen}, \hyperpage{308}
+  \item {\_draw\_bottom\_bar}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{480}
+  \item {\_draw\_button}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{224}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{480}
+  \item {\_draw\_buttons}
+    \subitem {proactive.proactive\_screen.ProactiveScreen}, 
+		\hyperpage{343}
+  \item {\_draw\_canvases}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{225}
+  \item {\_draw\_circles}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{432}
+  \item {\_draw\_color\_label}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{432}
+  \item {\_draw\_feedback\_overlay}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{433}
+  \item {\_draw\_footer}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{225}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{433}
+  \item {\_draw\_found\_rings}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{225}
+  \item {\_draw\_game}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{225}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{434}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{480}
+  \item {\_draw\_grid}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{481}
+  \item {\_draw\_header}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{226}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{434}
+  \item {\_draw\_menu}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{226}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{435}
+  \item {\_draw\_menu\_btn}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{481}
+  \item {\_draw\_menu\_dinamico}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{482}
+  \item {\_draw\_miss\_flashes}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{227}
+  \item {\_draw\_tag}
+    \subitem {proactive.proactive\_screen.ProactiveScreen}, 
+		\hyperpage{344}
+  \item {\_draw\_timeout\_overlay}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{227}
+  \item {\_draw\_win}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{435}
+  \item {\_draw\_win\_overlay}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{227}
+  \item {\_draw\_words}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{483}
+  \item {\_elapsed}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{232}
+  \item {\_extraer\_fecha}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{121}
+  \item {\_extraer\_hora}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{121}
+  \item {\_feedback\_timer}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{442}
+  \item {\_figure}
+    \subitem {proactive.proactive\_screen.ProactiveScreen}, 
+		\hyperpage{344}
+  \item {\_fire}
+    \subitem {proactive.proactive\_scheduler.ProactiveScheduler}, 
+		\hyperpage{331}
+  \item {\_fire\_lock}
+    \subitem {proactive.proactive\_scheduler.ProactiveScheduler}, 
+		\hyperpage{334}
+  \item {\_fit\_font}
+    \subitem {simon\_says\_screen}, \hyperpage{93}
+  \item {\_flush\_queue}
+    \subitem {app.voice.stt\_vosk.VoskSTT}, \hyperpage{470}
+  \item {\_found\_rings}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{232}
+  \item {\_get\_calendar\_events}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{122}
+  \item {\_get\_hint\_cell}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{483}
+  \item {\_get\_time}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{122}
+  \item {\_get\_weather}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{122}
+  \item {\_go\_back}
+    \subitem {browser\_screen.BrowserScreen}, \hyperpage{166}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{412}
+  \item {\_go\_forward}
+    \subitem {browser\_screen.BrowserScreen}, \hyperpage{166}
+  \item {\_grid}
+    \subitem {keyboard\_widget.KeyboardWidget}, \hyperpage{258}
+  \item {\_guardar\_memoria}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{123}
+  \item {\_handle\_canvas\_click}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{227}
+  \item {\_handle\_grid\_click}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{483}
+  \item {\_handle\_grid\_drag}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{484}
+  \item {\_handle\_press}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{436}
+  \item {\_hay\_internet}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{123}
+  \item {\_hide\_keyboard}
+    \subitem {calendar\_screen.CalendarScreen}, \hyperpage{176}
+    \subitem {note\_screen.NotesScreen}, \hyperpage{321}
+    \subitem {reminder\_screen.ReminderScreen}, \hyperpage{370}
+  \item {\_init\_sounds}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{436}
+  \item {\_instance}
+    \subitem {app.core.camera\_manager.CameraManager}, \hyperpage{189}
+    \subitem {app.core.config.Config}, \hyperpage{194}
+  \item {\_is\_stop\_command}
+    \subitem {app.voice.stt\_vosk.VoskSTT}, \hyperpage{470}
+  \item {\_is\_straight\_line}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{484}
+  \item {\_kill\_all}
+    \subitem {browser\_screen.BrowserScreen}, \hyperpage{166}
+  \item {\_last\_launch\_time}
+    \subitem {app.core.system\_apps.SystemApps}, \hyperpage{452}
+  \item {\_last\_memory}
+    \subitem {proactive.proactive\_scheduler.ProactiveScheduler}, 
+		\hyperpage{334}
+  \item {\_last\_mobility}
+    \subitem {proactive.proactive\_scheduler.ProactiveScheduler}, 
+		\hyperpage{334}
+  \item {\_launch}
+    \subitem {games\_screen.GamesScreen}, \hyperpage{243}
+  \item {\_launch\_chromium}
+    \subitem {browser\_screen.BrowserScreen}, \hyperpage{167}
+  \item {\_launch\_from\_bar}
+    \subitem {browser\_screen.BrowserScreen}, \hyperpage{167}
+  \item {\_launch\_wvkbd}
+    \subitem {browser\_screen.BrowserScreen}, \hyperpage{168}
+  \item {\_layout\_done}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{442}
+  \item {\_lighten}
+    \subitem {find\_differences\_screen}, \hyperpage{43}
+  \item {\_limpiar\_titulo}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{123}
+  \item {\_load}
+    \subitem {app.core.config.Config}, \hyperpage{191}
+  \item {\_lock}
+    \subitem {log\_service}, \hyperpage{60}
+  \item {\_logs}
+    \subitem {log\_service}, \hyperpage{60}
+  \item {\_loop}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{123}
+    \subitem {proactive.proactive\_scheduler.ProactiveScheduler}, 
+		\hyperpage{331}
+    \subitem {reminder\_scheduler.ReminderScheduler}, \hyperpage{365}
+  \item {\_maint\_clear\_timer}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{422}
+  \item {\_make\_button}
+    \subitem {keyboard\_widget.KeyboardWidget}, \hyperpage{256}
+  \item {\_make\_stat}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{412}
+  \item {\_mem\_idx}
+    \subitem {proactive.proactive\_scheduler.ProactiveScheduler}, 
+		\hyperpage{334}
+  \item {\_menu}
+    \subitem {memory\_screen.MemoryScreen}, \hyperpage{309}
+  \item {\_miss\_flashes}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{232}
+  \item {\_mob\_idx}
+    \subitem {proactive.proactive\_scheduler.ProactiveScheduler}, 
+		\hyperpage{334}
+  \item {\_mouse\_pressed}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{491}
+  \item {\_next\_type}
+    \subitem {proactive.proactive\_scheduler.ProactiveScheduler}, 
+		\hyperpage{335}
+  \item {\_normalizar\_hora}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{124}
+  \item {\_on\_boot\_finished}
+    \subitem {app.ui.app\_controller.AppController}, \hyperpage{108}
+  \item {\_on\_bt\_scan\_done}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{413}
+  \item {\_on\_buscar}
+    \subitem {browser\_screen.BrowserScreen}, \hyperpage{168}
+  \item {\_on\_key}
+    \subitem {keyboard\_widget.KeyboardWidget}, \hyperpage{256}
+  \item {\_on\_proactive\_accept}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{296}
+  \item {\_on\_proactive\_dismiss}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{296}
+  \item {\_on\_proactive\_suggest}
+    \subitem {app.core.robot\_controller.RobotController}, 
+		\hyperpage{386}
+  \item {\_on\_wifi\_info\_done}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{414}
+  \item {\_palabras\_a\_numeros}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{124}
+  \item {\_parse\_fecha}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{125}
+  \item {\_phase}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{442}
+  \item {\_pick}
+    \subitem {proactive.proactive\_scheduler.ProactiveScheduler}, 
+		\hyperpage{332}
+  \item {\_play\_sound}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{436}
+  \item {\_procesar\_texto}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{125}
+  \item {\_pulse}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{442}
+  \item {\_pulse\_dir}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{442}
+  \item {\_qt\_to\_game\_pos}
+    \subitem {base\_pygame\_qt\_screen.BasePygameQtScreen}, 
+		\hyperpage{146}
+  \item {\_quick\_poweroff}
+    \subitem {launcher\_screen.LauncherScreen}, \hyperpage{262}
+  \item {\_quick\_volume}
+    \subitem {launcher\_screen.LauncherScreen}, \hyperpage{262}
+  \item {\_rango\_temporal}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{126}
+  \item {\_refresh\_vol\_label}
+    \subitem {launcher\_screen.LauncherScreen}, \hyperpage{263}
+  \item {\_remove\_proactive\_screen}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{297}
+  \item {\_render\_canvas\_a}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{228}
+  \item {\_render\_canvas\_b}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{228}
+  \item {\_render\_wrapped\_text}
+    \subitem {proactive.proactive\_screen.ProactiveScreen}, 
+		\hyperpage{345}
+  \item {\_renovar\_awake}
+    \subitem {app.voice.stt\_vosk.VoskSTT}, \hyperpage{471}
+  \item {\_reset}
+    \subitem {memory\_screen.MemoryScreen}, \hyperpage{309}
+  \item {\_resolve\_url}
+    \subitem {browser\_screen.BrowserScreen}, \hyperpage{168}
+  \item {\_restore\_display}
+    \subitem {proactive.proactive\_scheduler.ProactiveScheduler}, 
+		\hyperpage{332}
+  \item {\_ring\_pulse}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{232}
+  \item {\_run\_cmd}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{414}
+  \item {\_safe\_poweroff}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{415}
+  \item {\_safe\_restart}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{415}
+  \item {\_selected\_dt}
+    \subitem {reminder\_screen.ReminderScreen}, \hyperpage{373}
+  \item {\_show\_initial\_keyboard}
+    \subitem {browser\_screen.BrowserScreen}, \hyperpage{169}
+  \item {\_show\_keyboard}
+    \subitem {calendar\_screen.CalendarScreen}, \hyperpage{176}
+    \subitem {note\_screen.NotesScreen}, \hyperpage{321}
+    \subitem {reminder\_screen.ReminderScreen}, \hyperpage{370}
+  \item {\_show\_proactive\_slot}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{297}
+  \item {\_show\_timer}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{443}
+  \item {\_sounds}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{443}
+  \item {\_sounds\_loaded}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{443}
+  \item {\_spawn\_particles}
+    \subitem {memory\_screen.MemoryScreen}, \hyperpage{309}
+  \item {\_start\_showing}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{437}
+  \item {\_stop\_event}
+    \subitem {app.voice.tts.TTS}, \hyperpage{456}
+  \item {\_stop\_evt}
+    \subitem {proactive.proactive\_scheduler.ProactiveScheduler}, 
+		\hyperpage{335}
+  \item {\_stream}
+    \subitem {app.voice.stt\_vosk.VoskSTT}, \hyperpage{473}
+  \item {\_suggestion\_active}
+    \subitem {proactive.proactive\_scheduler.ProactiveScheduler}, 
+		\hyperpage{335}
+  \item {\_suggestion\_fired\_at}
+    \subitem {proactive.proactive\_scheduler.ProactiveScheduler}, 
+		\hyperpage{335}
+  \item {\_svg\_icon}
+    \subitem {launcher\_screen}, \hyperpage{56}
+  \item {\_sync\_surface\_size}
+    \subitem {base\_pygame\_qt\_screen.BasePygameQtScreen}, 
+		\hyperpage{147}
+  \item {\_sys\_timer}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{422}
+  \item {\_t}
+    \subitem {proactive.proactive\_screen.ProactiveScreen}, 
+		\hyperpage{346}
+  \item {\_target}
+    \subitem {keyboard\_widget.KeyboardWidget}, \hyperpage{258}
+  \item {\_thread}
+    \subitem {proactive.proactive\_scheduler.ProactiveScheduler}, 
+		\hyperpage{335}
+  \item {\_tick}
+    \subitem {base\_pygame\_qt\_screen.BasePygameQtScreen}, 
+		\hyperpage{147}
+  \item {\_time\_limit}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{232}
+  \item {\_ui\_bar}
+    \subitem {memory\_screen.MemoryScreen}, \hyperpage{310}
+  \item {\_update\_clock}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{415, 416}
+  \item {\_update\_scroll\_range}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{485}
+  \item {\_update\_showing}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{437}
+  \item {\_update\_system}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{416}
+  \item {\_update\_volume}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{416}
+  \item {\_upper}
+    \subitem {keyboard\_widget.KeyboardWidget}, \hyperpage{258}
+  \item {\_validate\_selection}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{485}
+  \item {\_web\_search}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{127}
+  \item {\_wifi\_disable}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{416, 417}
+  \item {\_wifi\_enable}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{417}
+  \item {\_wifi\_info\_done}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{422}
+  \item {\_wifi\_refresh}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{418}
+  \item {\_wifi\_refresh\_thread}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{418, 419}
+  \item {\_win}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{485}
+  \item {\_win\_timer}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{232}
+  \item {\_wrap\_stat}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{419}
+  \item {\_write\_svg}
+    \subitem {games\_screen}, \hyperpage{48}
+  \item {\_wvkbd}
+    \subitem {browser\_screen.BrowserScreen}, \hyperpage{171}
+
+  \indexspace
+
+  \item {activar\_voz}
+    \subitem {app.voice.stt\_vosk.VoskSTT}, \hyperpage{471}
+  \item {add}
+    \subitem {reminder\_store.ReminderStore}, \hyperpage{375}
+  \item {add\_event}
+    \subitem {calendar\_screen.CalendarScreen}, \hyperpage{176}
+    \subitem {calendar\_store.CalendarStore}, \hyperpage{183}
+  \item {add\_log}
+    \subitem {log\_service}, \hyperpage{58}
+  \item {add\_note}
+    \subitem {note\_screen.NotesScreen}, \hyperpage{321}
+    \subitem {note\_store.NotesStore}, \hyperpage{326}
+  \item {add\_reminder}
+    \subitem {reminder\_screen.ReminderScreen}, \hyperpage{370}
+    \subitem {server}, \hyperpage{83}
+  \item {agregar\_interaccion}
+    \subitem {app.core.memory}, \hyperpage{26}
+  \item {all\_logs}
+    \subitem {routes\_dashboard}, \hyperpage{74}
+  \item {ANIM\_ACCENT}
+    \subitem {proactive.proactive\_screen}, \hyperpage{69}
+  \item {ANIM\_CIRCLE\_BG}
+    \subitem {proactive.proactive\_screen}, \hyperpage{69}
+  \item {ANIM\_CIRCLE\_BR}
+    \subitem {proactive.proactive\_screen}, \hyperpage{69}
+  \item {ANIM\_CLOTHES}
+    \subitem {proactive.proactive\_screen}, \hyperpage{70}
+  \item {ANIM\_HAIR}
+    \subitem {proactive.proactive\_screen}, \hyperpage{70}
+  \item {ANIM\_SKIN}
+    \subitem {proactive.proactive\_screen}, \hyperpage{70}
+  \item {animate}
+    \subitem {loading\_screen.LoadingScreen}, \hyperpage{283}
+  \item {animation\_phase}
+    \subitem {app.ui.display.FaceDisplay}, \hyperpage{214}
+  \item {api\_getway/api/routes\_dashboard.py}, \hyperpage{501}
+  \item {api\_getway/api/routes\_face.py}, \hyperpage{502}
+  \item {api\_getway/api/routes\_llm.py}, \hyperpage{503}
+  \item {api\_getway/config.py}, \hyperpage{503}
+  \item {api\_getway/main.py}, \hyperpage{505}
+  \item {api\_getway/models/schemas.py}, \hyperpage{506}
+  \item {api\_getway/services/face\_service.py}, \hyperpage{506}
+  \item {api\_getway/services/llm\_service.py}, \hyperpage{521}
+  \item {api\_getway/services/log\_service.py}, \hyperpage{507}
+  \item {api\_getway/services/process\_service.py}, \hyperpage{507}
+  \item {APP}
+    \subitem {app.core.state\_machine.StateMachine}, \hyperpage{448}
+  \item {app}, \hyperpage{13}
+    \subitem {main}, \hyperpage{62}
+    \subitem {server}, \hyperpage{89}
+    \subitem {speaking\_server}, \hyperpage{97}
+  \item {app.button}, \hyperpage{13}
+    \subitem {button}, \hyperpage{14}
+    \subitem {BUTTON\_PIN}, \hyperpage{15}
+    \subitem {click\_times}, \hyperpage{15}
+    \subitem {handle\_click}, \hyperpage{13}
+    \subitem {is\_ui\_running}, \hyperpage{14}
+    \subitem {reboot\_system}, \hyperpage{14}
+    \subitem {start\_stop\_ui}, \hyperpage{14}
+    \subitem {when\_pressed}, \hyperpage{15}
+  \item {app.core}, \hyperpage{15}
+  \item {app.core.assistant}, \hyperpage{16}
+    \subitem {ask\_model}, \hyperpage{16}
+    \subitem {construir\_prompt}, \hyperpage{17}
+    \subitem {get\_time}, \hyperpage{17}
+    \subitem {get\_weather}, \hyperpage{17}
+    \subitem {memoria}, \hyperpage{19}
+    \subitem {PC\_URL}, \hyperpage{19}
+    \subitem {procesar\_texto}, \hyperpage{18}
+    \subitem {PROMPT\_DEL\_SISTEMA}, \hyperpage{19}
+    \subitem {TIMEOUT}, \hyperpage{20}
+  \item {app.core.assistant\_engine}, \hyperpage{20}
+    \subitem {MEMORY\_FILE}, \hyperpage{20}
+    \subitem {PALABRAS\_EVENTO}, \hyperpage{21}
+    \subitem {PALABRAS\_RECORDATORIO}, \hyperpage{21}
+    \subitem {PISTAS\_TEMPORALES}, \hyperpage{21}
+    \subitem {PROMPT\_DEL\_SISTEMA}, \hyperpage{21}
+    \subitem {TIMEOUT}, \hyperpage{22}
+  \item {app.core.assistant\_engine.AssistantEngine}, \hyperpage{113}
+    \subitem {\_\_init\_\_}, \hyperpage{116}
+    \subitem {\_ask\_model}, \hyperpage{117}
+    \subitem {\_añadir\_evento\_calendario}, \hyperpage{117}
+    \subitem {\_cargar\_memoria}, \hyperpage{118}
+    \subitem {\_construir\_prompt}, \hyperpage{118}
+    \subitem {\_consultar\_recordatorios}, \hyperpage{119}
+    \subitem {\_contiene\_referencia\_temporal}, \hyperpage{119}
+    \subitem {\_crear\_recordatorio}, \hyperpage{120}
+    \subitem {\_detectar\_intencion}, \hyperpage{120}
+    \subitem {\_extraer\_fecha}, \hyperpage{121}
+    \subitem {\_extraer\_hora}, \hyperpage{121}
+    \subitem {\_get\_calendar\_events}, \hyperpage{122}
+    \subitem {\_get\_time}, \hyperpage{122}
+    \subitem {\_get\_weather}, \hyperpage{122}
+    \subitem {\_guardar\_memoria}, \hyperpage{123}
+    \subitem {\_hay\_internet}, \hyperpage{123}
+    \subitem {\_limpiar\_titulo}, \hyperpage{123}
+    \subitem {\_loop}, \hyperpage{123}
+    \subitem {\_normalizar\_hora}, \hyperpage{124}
+    \subitem {\_palabras\_a\_numeros}, \hyperpage{124}
+    \subitem {\_parse\_fecha}, \hyperpage{125}
+    \subitem {\_procesar\_texto}, \hyperpage{125}
+    \subitem {\_rango\_temporal}, \hyperpage{126}
+    \subitem {\_web\_search}, \hyperpage{127}
+    \subitem {calendar\_store}, \hyperpage{129}
+    \subitem {display}, \hyperpage{130}
+    \subitem {llm}, \hyperpage{130}
+    \subitem {llm\_timeout}, \hyperpage{130}
+    \subitem {memoria}, \hyperpage{130}
+    \subitem {mic\_device}, \hyperpage{130}
+    \subitem {on\_calendar\_created}, \hyperpage{130}
+    \subitem {on\_reminder\_created}, \hyperpage{130}
+    \subitem {reminder\_scheduler}, \hyperpage{131}
+    \subitem {reminder\_store}, \hyperpage{131}
+    \subitem {running}, \hyperpage{131}
+    \subitem {set\_user}, \hyperpage{127}
+    \subitem {speak}, \hyperpage{128}
+    \subitem {start}, \hyperpage{128}
+    \subitem {stop}, \hyperpage{129}
+    \subitem {stt}, \hyperpage{131}
+    \subitem {tts}, \hyperpage{131}
+    \subitem {ui\_state}, \hyperpage{131}
+    \subitem {user}, \hyperpage{131}
+  \item {app.core.camera\_manager}, \hyperpage{22}
+  \item {app.core.camera\_manager.CameraManager}, \hyperpage{186}
+    \subitem {\_\_init\_\_}, \hyperpage{187}
+    \subitem {\_instance}, \hyperpage{189}
+    \subitem {cap}, \hyperpage{189}
+    \subitem {get}, \hyperpage{187}
+    \subitem {open}, \hyperpage{187}
+    \subitem {read}, \hyperpage{188}
+    \subitem {release}, \hyperpage{188}
+  \item {app.core.config}, \hyperpage{22}
+  \item {app.core.config.Config}, \hyperpage{189}
+    \subitem {\_\_new\_\_}, \hyperpage{191}
+    \subitem {\_data}, \hyperpage{193}
+    \subitem {\_instance}, \hyperpage{194}
+    \subitem {\_load}, \hyperpage{191}
+    \subitem {get}, \hyperpage{191}
+    \subitem {llm\_url}, \hyperpage{192}
+    \subitem {recognition\_url}, \hyperpage{192}
+    \subitem {server}, \hyperpage{193}
+  \item {app.core.game\_router}, \hyperpage{22}
+  \item {app.core.game\_router.GameRouter}, \hyperpage{239}
+    \subitem {\_\_init\_\_}, \hyperpage{239}
+    \subitem {controller}, \hyperpage{240}
+    \subitem {open\_game}, \hyperpage{240}
+  \item {app.core.intent}, \hyperpage{23}
+    \subitem {detectar\_intencion}, \hyperpage{23}
+  \item {app.core.logger}, \hyperpage{23}
+    \subitem {config}, \hyperpage{24}
+    \subitem {config\_path}, \hyperpage{24}
+    \subitem {console}, \hyperpage{24}
+    \subitem {encoding}, \hyperpage{24}
+    \subitem {logger}, \hyperpage{24}
+    \subitem {propagate}, \hyperpage{25}
+    \subitem {remote}, \hyperpage{25}
+    \subitem {SERVER\_URL}, \hyperpage{25}
+  \item {app.core.logs\_to\_server}, \hyperpage{25}
+  \item {app.core.logs\_to\_server.RemoteHandler}, \hyperpage{378}
+    \subitem {\_\_init\_\_}, \hyperpage{379}
+    \subitem {emit}, \hyperpage{380}
+    \subitem {url}, \hyperpage{380}
+  \item {app.core.memory}, \hyperpage{25}
+    \subitem {agregar\_interaccion}, \hyperpage{26}
+    \subitem {cargar\_memoria}, \hyperpage{26}
+    \subitem {guardar\_memoria}, \hyperpage{27}
+    \subitem {MEMORY\_FILE}, \hyperpage{27}
+    \subitem {obtener\_historial}, \hyperpage{27}
+  \item {app.core.robot\_controller}, \hyperpage{28}
+  \item {app.core.robot\_controller.RobotController}, \hyperpage{383}
+    \subitem {\_\_init\_\_}, \hyperpage{385}
+    \subitem {\_on\_proactive\_suggest}, \hyperpage{386}
+    \subitem {assistant}, \hyperpage{390}
+    \subitem {boot}, \hyperpage{386}
+    \subitem {calendar\_store}, \hyperpage{390}
+    \subitem {close\_app}, \hyperpage{386}
+    \subitem {display}, \hyperpage{391}
+    \subitem {game\_router}, \hyperpage{391}
+    \subitem {login}, \hyperpage{387}
+    \subitem {logout}, \hyperpage{387}
+    \subitem {on\_proactive\_dismissed}, \hyperpage{388}
+    \subitem {open\_app}, \hyperpage{388}
+    \subitem {open\_game}, \hyperpage{389}
+    \subitem {proactive\_scheduler}, \hyperpage{391}
+    \subitem {reminder\_scheduler}, \hyperpage{391}
+    \subitem {reminder\_store}, \hyperpage{391}
+    \subitem {session}, \hyperpage{391}
+    \subitem {set\_ui}, \hyperpage{389}
+    \subitem {shutdown}, \hyperpage{390}
+    \subitem {start}, \hyperpage{390}
+    \subitem {state\_machine}, \hyperpage{392}
+    \subitem {ui}, \hyperpage{392}
+    \subitem {ui\_state}, \hyperpage{392}
+  \item {app.core.session\_manager}, \hyperpage{28}
+  \item {app.core.session\_manager.SessionManager}, \hyperpage{396}
+    \subitem {\_\_init\_\_}, \hyperpage{397}
+    \subitem {current\_user}, \hyperpage{400}
+    \subitem {data\_path}, \hyperpage{400}
+    \subitem {is\_logged}, \hyperpage{398}
+    \subitem {load}, \hyperpage{398}
+    \subitem {login}, \hyperpage{398}
+    \subitem {login\_time}, \hyperpage{400}
+    \subitem {logout}, \hyperpage{399}
+    \subitem {save}, \hyperpage{399}
+  \item {app.core.state\_machine}, \hyperpage{28}
+  \item {app.core.state\_machine.StateMachine}, \hyperpage{446}
+    \subitem {\_\_init\_\_}, \hyperpage{447}
+    \subitem {APP}, \hyperpage{448}
+    \subitem {ASSISTANT}, \hyperpage{449}
+    \subitem {BOOT}, \hyperpage{449}
+    \subitem {current\_state}, \hyperpage{449}
+    \subitem {ERROR}, \hyperpage{449}
+    \subitem {get\_state}, \hyperpage{447}
+    \subitem {HOME}, \hyperpage{449}
+    \subitem {is\_state}, \hyperpage{448}
+    \subitem {LOGIN}, \hyperpage{449}
+    \subitem {set\_state}, \hyperpage{448}
+    \subitem {SETTINGS}, \hyperpage{450}
+    \subitem {SHUTDOWN}, \hyperpage{450}
+  \item {app.core.system\_apps}, \hyperpage{28}
+  \item {app.core.system\_apps.SystemApps}, \hyperpage{450}
+    \subitem {\_cooldown\_seconds}, \hyperpage{452}
+    \subitem {\_last\_launch\_time}, \hyperpage{452}
+    \subitem {APPS}, \hyperpage{452}
+    \subitem {launch}, \hyperpage{451}
+  \item {app.led\_status}, \hyperpage{28}
+    \subitem {blink}, \hyperpage{29}
+    \subitem {BLUE\_PIN}, \hyperpage{29}
+    \subitem {color}, \hyperpage{29}
+    \subitem {GREEN\_PIN}, \hyperpage{29}
+    \subitem {led}, \hyperpage{29}
+    \subitem {mode}, \hyperpage{30}
+    \subitem {RED\_PIN}, \hyperpage{30}
+  \item {app.llm}, \hyperpage{30}
+  \item {app.llm.client}, \hyperpage{30}
+  \item {app.llm.client.LLMClient}, \hyperpage{269}
+    \subitem {\_\_init\_\_}, \hyperpage{270}
+    \subitem {ask}, \hyperpage{271}
+    \subitem {model}, \hyperpage{272}
+    \subitem {server\_url}, \hyperpage{272}
+    \subitem {stream}, \hyperpage{271}
+    \subitem {system\_prompt}, \hyperpage{272}
+    \subitem {timeout}, \hyperpage{272}
+  \item {app.main}, \hyperpage{30}
+    \subitem {main}, \hyperpage{30}
+    \subitem {shutdown}, \hyperpage{31}
+  \item {app.ui}, \hyperpage{31}
+  \item {app.ui.app\_controller}, \hyperpage{31}
+  \item {app.ui.app\_controller.AppController}, \hyperpage{105}
+    \subitem {\_\_init\_\_}, \hyperpage{107}
+    \subitem {\_on\_boot\_finished}, \hyperpage{108}
+    \subitem {app\_changed}, \hyperpage{112}
+    \subitem {current\_user}, \hyperpage{112}
+    \subitem {display}, \hyperpage{112}
+    \subitem {engine}, \hyperpage{112}
+    \subitem {error}, \hyperpage{108}
+    \subitem {go}, \hyperpage{109}
+    \subitem {on\_user\_authenticated}, \hyperpage{109}
+    \subitem {open\_app}, \hyperpage{110}
+    \subitem {open\_assistant}, \hyperpage{110}
+    \subitem {register}, \hyperpage{111}
+    \subitem {screens}, \hyperpage{112}
+    \subitem {stack}, \hyperpage{112}
+    \subitem {start}, \hyperpage{111}
+    \subitem {user\_logged}, \hyperpage{113}
+    \subitem {widget}, \hyperpage{111}
+  \item {app.ui.display}, \hyperpage{31}
+  \item {app.ui.display.FaceDisplay}, \hyperpage{211}
+    \subitem {\_\_init\_\_}, \hyperpage{212}
+    \subitem {animation\_phase}, \hyperpage{214}
+    \subitem {blink\_end}, \hyperpage{214}
+    \subitem {blink\_max}, \hyperpage{214}
+    \subitem {blink\_min}, \hyperpage{215}
+    \subitem {config}, \hyperpage{215}
+    \subitem {display}, \hyperpage{215}
+    \subitem {draw}, \hyperpage{212}
+    \subitem {emotion}, \hyperpage{215}
+    \subitem {estado\_texto}, \hyperpage{215}
+    \subitem {font}, \hyperpage{215}
+    \subitem {fps}, \hyperpage{215}
+    \subitem {loop}, \hyperpage{213}
+    \subitem {next\_blink}, \hyperpage{215}
+    \subitem {robot\_hablando}, \hyperpage{216}
+    \subitem {running}, \hyperpage{216}
+    \subitem {set\_emotion}, \hyperpage{213}
+    \subitem {set\_estado}, \hyperpage{213}
+    \subitem {set\_talking}, \hyperpage{214}
+    \subitem {start}, \hyperpage{214}
+  \item {app.ui.face\_client}, \hyperpage{32}
+    \subitem {config}, \hyperpage{32}
+    \subitem {config\_path}, \hyperpage{32}
+    \subitem {SERVER\_URL}, \hyperpage{32}
+  \item {app.ui.face\_client.FaceClient}, \hyperpage{202}
+    \subitem {\_\_init\_\_}, \hyperpage{205}
+    \subitem {btn\_capture}, \hyperpage{208}
+    \subitem {btn\_exit}, \hyperpage{208}
+    \subitem {btn\_login}, \hyperpage{208}
+    \subitem {btn\_register}, \hyperpage{208}
+    \subitem {camera}, \hyperpage{209}
+    \subitem {cap}, \hyperpage{209}
+    \subitem {capture\_register\_photo}, \hyperpage{206}
+    \subitem {close\_app}, \hyperpage{206}
+    \subitem {current\_frame}, \hyperpage{209}
+    \subitem {display}, \hyperpage{209}
+    \subitem {finish\_register}, \hyperpage{206}
+    \subitem {keyPressEvent}, \hyperpage{207}
+    \subitem {logged\_in}, \hyperpage{209}
+    \subitem {login}, \hyperpage{207}
+    \subitem {on\_authenticated}, \hyperpage{209}
+    \subitem {on\_error}, \hyperpage{207}
+    \subitem {on\_result}, \hyperpage{207}
+    \subitem {progress}, \hyperpage{209}
+    \subitem {register\_images}, \hyperpage{209}
+    \subitem {register\_name}, \hyperpage{210}
+    \subitem {server\_url}, \hyperpage{210}
+    \subitem {start\_register}, \hyperpage{208}
+    \subitem {status}, \hyperpage{210}
+    \subitem {timer}, \hyperpage{210}
+    \subitem {title}, \hyperpage{210}
+    \subitem {update\_frame}, \hyperpage{208}
+    \subitem {worker}, \hyperpage{210}
+  \item {app.ui.face\_client.Worker}, \hyperpage{494}
+    \subitem {\_\_init\_\_}, \hyperpage{496}
+    \subitem {error\_signal}, \hyperpage{496}
+    \subitem {image}, \hyperpage{496}
+    \subitem {result\_signal}, \hyperpage{497}
+    \subitem {run}, \hyperpage{496}
+    \subitem {url}, \hyperpage{497}
+  \item {app.ui.main\_window}, \hyperpage{32}
+  \item {app.ui.main\_window.MainWindow}, \hyperpage{291}
+    \subitem {\_\_init\_\_}, \hyperpage{295}
+    \subitem {\_on\_proactive\_accept}, \hyperpage{296}
+    \subitem {\_on\_proactive\_dismiss}, \hyperpage{296}
+    \subitem {\_remove\_proactive\_screen}, \hyperpage{297}
+    \subitem {\_show\_proactive\_slot}, \hyperpage{297}
+    \subitem {assistant\_screen}, \hyperpage{300}
+    \subitem {boot\_screen}, \hyperpage{300}
+    \subitem {browser\_screen}, \hyperpage{300}
+    \subitem {calendar\_screen}, \hyperpage{300}
+    \subitem {controller}, \hyperpage{301}
+    \subitem {error\_screen}, \hyperpage{301}
+    \subitem {find\_differences\_screen}, \hyperpage{301}
+    \subitem {games\_screen}, \hyperpage{301}
+    \subitem {launcher\_screen}, \hyperpage{301}
+    \subitem {login\_screen}, \hyperpage{301}
+    \subitem {memory\_screen}, \hyperpage{301}
+    \subitem {note\_screen}, \hyperpage{301}
+    \subitem {proactive\_screen}, \hyperpage{302}
+    \subitem {refresh\_calendar\_signal}, \hyperpage{302}
+    \subitem {refresh\_reminders\_signal}, \hyperpage{302}
+    \subitem {register\_screen}, \hyperpage{302}
+    \subitem {reminder\_screen}, \hyperpage{302}
+    \subitem {settings\_screen}, \hyperpage{302}
+    \subitem {show\_assistant}, \hyperpage{297}
+    \subitem {show\_boot}, \hyperpage{297}
+    \subitem {show\_browser}, \hyperpage{298}
+    \subitem {show\_calendar}, \hyperpage{298}
+    \subitem {show\_error}, \hyperpage{298}
+    \subitem {show\_find\_differences}, \hyperpage{298}
+    \subitem {show\_games}, \hyperpage{298}
+    \subitem {show\_launcher}, \hyperpage{298}
+    \subitem {show\_login}, \hyperpage{299}
+    \subitem {show\_memory}, \hyperpage{299}
+    \subitem {show\_notes}, \hyperpage{299}
+    \subitem {show\_proactive\_signal}, \hyperpage{302}
+    \subitem {show\_register}, \hyperpage{299}
+    \subitem {show\_reminder}, \hyperpage{299}
+    \subitem {show\_settings}, \hyperpage{299}
+    \subitem {show\_simon\_says}, \hyperpage{300}
+    \subitem {show\_word\_search}, \hyperpage{300}
+    \subitem {simon\_says\_screen}, \hyperpage{302}
+    \subitem {stack}, \hyperpage{303}
+    \subitem {word\_search\_screen}, \hyperpage{303}
+  \item {app.ui.state}, \hyperpage{33}
+  \item {app.ui.state.UIState}, \hyperpage{457}
+    \subitem {\_\_init\_\_}, \hyperpage{461}
+    \subitem {app\_changed}, \hyperpage{465}
+    \subitem {clear\_error}, \hyperpage{461}
+    \subitem {clear\_user}, \hyperpage{461}
+    \subitem {close\_app}, \hyperpage{462}
+    \subitem {current\_app}, \hyperpage{465}
+    \subitem {current\_screen}, \hyperpage{465}
+    \subitem {current\_theme}, \hyperpage{465}
+    \subitem {current\_user}, \hyperpage{465}
+    \subitem {dump\_state}, \hyperpage{462}
+    \subitem {error\_occurred}, \hyperpage{466}
+    \subitem {is\_listening}, \hyperpage{466}
+    \subitem {is\_loading}, \hyperpage{466}
+    \subitem {is\_speaking}, \hyperpage{466}
+    \subitem {last\_error}, \hyperpage{466}
+    \subitem {listening\_changed}, \hyperpage{466}
+    \subitem {loading\_changed}, \hyperpage{466}
+    \subitem {open\_app}, \hyperpage{462}
+    \subitem {reset}, \hyperpage{462}
+    \subitem {screen\_changed}, \hyperpage{466}
+    \subitem {set\_error}, \hyperpage{463}
+    \subitem {set\_listening}, \hyperpage{463}
+    \subitem {set\_loading}, \hyperpage{463}
+    \subitem {set\_screen}, \hyperpage{463}
+    \subitem {set\_speaking}, \hyperpage{464}
+    \subitem {set\_status}, \hyperpage{464}
+    \subitem {set\_theme}, \hyperpage{464}
+    \subitem {set\_user}, \hyperpage{465}
+    \subitem {speaking\_changed}, \hyperpage{467}
+    \subitem {status\_changed}, \hyperpage{467}
+    \subitem {status\_message}, \hyperpage{467}
+    \subitem {theme\_changed}, \hyperpage{467}
+    \subitem {user\_changed}, \hyperpage{467}
+  \item {app.ui.theme}, \hyperpage{33}
+    \subitem {MAIN\_STYLE}, \hyperpage{33}
+  \item {app.voice}, \hyperpage{33}
+  \item {app.voice.audio\_stream}, \hyperpage{33}
+    \subitem {encontrar\_micro}, \hyperpage{34}
+    \subitem {start\_stream}, \hyperpage{35}
+  \item {app.voice.audio\_stream.AudioStream}, \hyperpage{136}
+    \subitem {\_\_init\_\_}, \hyperpage{137}
+    \subitem {\_callback}, \hyperpage{137}
+    \subitem {q}, \hyperpage{138}
+    \subitem {samplerate}, \hyperpage{139}
+    \subitem {start}, \hyperpage{138}
+    \subitem {stop}, \hyperpage{138}
+    \subitem {stream}, \hyperpage{139}
+  \item {app.voice.stt\_vosk}, \hyperpage{35}
+    \subitem {AWAKE\_TIMEOUT}, \hyperpage{35}
+    \subitem {STOP\_WORDS}, \hyperpage{36}
+    \subitem {WAKE\_WORDS}, \hyperpage{36}
+  \item {app.voice.stt\_vosk.VoskSTT}, \hyperpage{468}
+    \subitem {\_\_init\_\_}, \hyperpage{469}
+    \subitem {\_contiene\_palabra\_inicio}, \hyperpage{469}
+    \subitem {\_desactivar}, \hyperpage{470}
+    \subitem {\_flush\_queue}, \hyperpage{470}
+    \subitem {\_is\_stop\_command}, \hyperpage{470}
+    \subitem {\_renovar\_awake}, \hyperpage{471}
+    \subitem {\_stream}, \hyperpage{473}
+    \subitem {activar\_voz}, \hyperpage{471}
+    \subitem {awake}, \hyperpage{473}
+    \subitem {awake\_until}, \hyperpage{473}
+    \subitem {listen\_loop}, \hyperpage{471}
+    \subitem {model}, \hyperpage{473}
+    \subitem {process}, \hyperpage{472}
+    \subitem {rec}, \hyperpage{473}
+    \subitem {running}, \hyperpage{473}
+    \subitem {stop}, \hyperpage{472}
+  \item {app.voice.tts}, \hyperpage{36}
+  \item {app.voice.tts.TTS}, \hyperpage{453}
+    \subitem {\_\_init\_\_}, \hyperpage{454}
+    \subitem {\_done\_event}, \hyperpage{456}
+    \subitem {\_stop\_event}, \hyperpage{456}
+    \subitem {clean}, \hyperpage{454}
+    \subitem {is\_speaking}, \hyperpage{456}
+    \subitem {lang}, \hyperpage{456}
+    \subitem {process}, \hyperpage{456}
+    \subitem {speak}, \hyperpage{454}
+    \subitem {stop}, \hyperpage{455}
+    \subitem {wait\_until\_done}, \hyperpage{455}
+  \item {app\_changed}
+    \subitem {app.ui.app\_controller.AppController}, \hyperpage{112}
+    \subitem {app.ui.state.UIState}, \hyperpage{465}
+  \item {APP\_DIR}
+    \subitem {process\_service.ProcessService}, \hyperpage{351}
+  \item {app\_name}
+    \subitem {base\_app.BaseApp}, \hyperpage{142}
+  \item {apply\_differences}
+    \subitem {find\_differences\_screen}, \hyperpage{43}
+  \item {APPS}
+    \subitem {app.core.system\_apps.SystemApps}, \hyperpage{452}
+  \item {ask}
+    \subitem {app.llm.client.LLMClient}, \hyperpage{271}
+    \subitem {llm\_service.LLMService}, \hyperpage{278}
+  \item {ask\_model}
+    \subitem {app.core.assistant}, \hyperpage{16}
+  \item {ASSISTANT}
+    \subitem {app.core.state\_machine.StateMachine}, \hyperpage{449}
+  \item {assistant}
+    \subitem {app.core.robot\_controller.RobotController}, 
+		\hyperpage{390}
+  \item {assistant\_screen}, \hyperpage{36}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{300}
+  \item {assistant\_screen.AssistantScreen}, \hyperpage{132}
+    \subitem {\_\_init\_\_}, \hyperpage{133}
+    \subitem {engine}, \hyperpage{135}
+    \subitem {set\_state}, \hyperpage{135}
+    \subitem {state}, \hyperpage{135}
+    \subitem {title}, \hyperpage{135}
+  \item {awake}
+    \subitem {app.voice.stt\_vosk.VoskSTT}, \hyperpage{473}
+  \item {AWAKE\_TIMEOUT}
+    \subitem {app.voice.stt\_vosk}, \hyperpage{35}
+  \item {awake\_until}
+    \subitem {app.voice.stt\_vosk.VoskSTT}, \hyperpage{473}
+  \item {AZURE\_API\_KEY}
+    \subitem {config}, \hyperpage{39}
+
+  \indexspace
+
+  \item {back}
+    \subitem {base\_app.BaseApp}, \hyperpage{141}
+  \item {back\_btn}
+    \subitem {games\_screen.GamesScreen}, \hyperpage{244}
+  \item {back\_requested}
+    \subitem {games\_screen.GamesScreen}, \hyperpage{244}
+  \item {bar\_cpu}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{422}
+  \item {bar\_disk}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{422}
+  \item {bar\_ram}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{422}
+  \item {bar\_vol}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{423}
+  \item {base}, \hyperpage{36}
+  \item {base.LLMModel}, \hyperpage{273}
+    \subitem {\_\_init\_\_}, \hyperpage{274}
+    \subitem {benchmark}, \hyperpage{274}
+    \subitem {generate}, \hyperpage{275}
+    \subitem {name}, \hyperpage{276}
+  \item {base\_app}, \hyperpage{36}
+  \item {base\_app.BaseApp}, \hyperpage{139}
+    \subitem {\_\_init\_\_}, \hyperpage{141}
+    \subitem {app\_name}, \hyperpage{142}
+    \subitem {back}, \hyperpage{141}
+    \subitem {close\_app}, \hyperpage{142}
+    \subitem {controller}, \hyperpage{142}
+    \subitem {engine}, \hyperpage{142}
+    \subitem {on\_close}, \hyperpage{141}
+    \subitem {on\_open}, \hyperpage{142}
+    \subitem {open\_assistant}, \hyperpage{142}
+  \item {BASE\_DIR}
+    \subitem {config}, \hyperpage{39}
+    \subitem {main}, \hyperpage{62}
+    \subitem {process\_service.ProcessService}, \hyperpage{351}
+    \subitem {storage}, \hyperpage{100}
+  \item {base\_pygame\_qt\_screen}, \hyperpage{37}
+  \item {base\_pygame\_qt\_screen.BasePygameQtScreen}, \hyperpage{143}
+    \subitem {\_\_init\_\_}, \hyperpage{146}
+    \subitem {\_blit\_to\_label}, \hyperpage{146}
+    \subitem {\_qt\_to\_game\_pos}, \hyperpage{146}
+    \subitem {\_sync\_surface\_size}, \hyperpage{147}
+    \subitem {\_tick}, \hyperpage{147}
+    \subitem {clock}, \hyperpage{153}
+    \subitem {controller}, \hyperpage{153}
+    \subitem {events}, \hyperpage{153}
+    \subitem {game\_height}, \hyperpage{153}
+    \subitem {game\_width}, \hyperpage{153}
+    \subitem {keyPressEvent}, \hyperpage{148}
+    \subitem {label}, \hyperpage{154}
+    \subitem {mousePressEvent}, \hyperpage{150}
+    \subitem {render}, \hyperpage{150}
+    \subitem {resizeEvent}, \hyperpage{151}
+    \subitem {running}, \hyperpage{154}
+    \subitem {showEvent}, \hyperpage{151}
+    \subitem {start}, \hyperpage{152}
+    \subitem {stop}, \hyperpage{152}
+    \subitem {surface}, \hyperpage{154}
+    \subitem {timer}, \hyperpage{154}
+    \subitem {update\_logic}, \hyperpage{152}
+  \item {base\_text}
+    \subitem {loading\_screen.LoadingScreen}, \hyperpage{284}
+  \item {base\_url}
+    \subitem {llm\_service.LLMService}, \hyperpage{280}
+  \item {benchmark}
+    \subitem {base.LLMModel}, \hyperpage{274}
+  \item {BG\_BOTTOM}
+    \subitem {proactive.proactive\_screen}, \hyperpage{70}
+  \item {BG\_TOP}
+    \subitem {proactive.proactive\_screen}, \hyperpage{70}
+  \item {blink}
+    \subitem {app.led\_status}, \hyperpage{29}
+  \item {blink\_end}
+    \subitem {app.ui.display.FaceDisplay}, \hyperpage{214}
+  \item {blink\_max}
+    \subitem {app.ui.display.FaceDisplay}, \hyperpage{214}
+  \item {blink\_min}
+    \subitem {app.ui.display.FaceDisplay}, \hyperpage{215}
+  \item {BLUE\_PIN}
+    \subitem {app.led\_status}, \hyperpage{29}
+  \item {BODY\_COL}
+    \subitem {proactive.proactive\_screen}, \hyperpage{70}
+  \item {BOOT}
+    \subitem {app.core.state\_machine.StateMachine}, \hyperpage{449}
+  \item {boot}
+    \subitem {app.core.robot\_controller.RobotController}, 
+		\hyperpage{386}
+  \item {boot\_screen}, \hyperpage{37}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{300}
+  \item {boot\_screen.BootScreen}, \hyperpage{157}
+    \subitem {\_\_init\_\_}, \hyperpage{160}
+    \subitem {controller}, \hyperpage{161}
+    \subitem {finish}, \hyperpage{160}
+    \subitem {finished}, \hyperpage{161}
+    \subitem {get\_loader\_path}, \hyperpage{160}
+    \subitem {label}, \hyperpage{161}
+    \subitem {load\_theme}, \hyperpage{161}
+    \subitem {loader}, \hyperpage{162}
+    \subitem {movie}, \hyperpage{162}
+    \subitem {paintEvent}, \hyperpage{161}
+  \item {border\_color}
+    \subitem {find\_differences\_screen.SceneObject}, \hyperpage{395}
+  \item {browser\_screen}, \hyperpage{37}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{300}
+    \subitem {HOME\_URL}, \hyperpage{37}
+    \subitem {STYLE}, \hyperpage{37}
+  \item {browser\_screen.BrowserScreen}, \hyperpage{162}
+    \subitem {\_\_init\_\_}, \hyperpage{165}
+    \subitem {\_chromium}, \hyperpage{171}
+    \subitem {\_go\_back}, \hyperpage{166}
+    \subitem {\_go\_forward}, \hyperpage{166}
+    \subitem {\_kill\_all}, \hyperpage{166}
+    \subitem {\_launch\_chromium}, \hyperpage{167}
+    \subitem {\_launch\_from\_bar}, \hyperpage{167}
+    \subitem {\_launch\_wvkbd}, \hyperpage{168}
+    \subitem {\_on\_buscar}, \hyperpage{168}
+    \subitem {\_resolve\_url}, \hyperpage{168}
+    \subitem {\_show\_initial\_keyboard}, \hyperpage{169}
+    \subitem {\_wvkbd}, \hyperpage{171}
+    \subitem {btn\_exit}, \hyperpage{171}
+    \subitem {btn\_go}, \hyperpage{171}
+    \subitem {btn\_home}, \hyperpage{171}
+    \subitem {btn\_nav\_arrow}, \hyperpage{171}
+    \subitem {btn\_next}, \hyperpage{172}
+    \subitem {btn\_prev}, \hyperpage{172}
+    \subitem {closeEvent}, \hyperpage{169}
+    \subitem {controller}, \hyperpage{172}
+    \subitem {go\_back\_to\_launcher}, \hyperpage{169}
+    \subitem {hideEvent}, \hyperpage{170}
+    \subitem {initial\_keyboard}, \hyperpage{172}
+    \subitem {input\_url}, \hyperpage{172}
+    \subitem {showEvent}, \hyperpage{170}
+  \item {btn\_add}
+    \subitem {calendar\_screen.CalendarScreen}, \hyperpage{179}
+    \subitem {note\_screen.NotesScreen}, \hyperpage{323}
+    \subitem {reminder\_screen.ReminderScreen}, \hyperpage{373}
+  \item {btn\_back}
+    \subitem {calendar\_screen.CalendarScreen}, \hyperpage{180}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{233}
+    \subitem {note\_screen.NotesScreen}, \hyperpage{323}
+    \subitem {register\_screen.RegisterScreen}, \hyperpage{357}
+    \subitem {reminder\_screen.ReminderScreen}, \hyperpage{373}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{423}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{443}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{491}
+  \item {btn\_bt\_off}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{423}
+  \item {btn\_bt\_on}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{423}
+  \item {btn\_bt\_scan}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{423}
+  \item {btn\_capture}
+    \subitem {app.ui.face\_client.FaceClient}, \hyperpage{208}
+    \subitem {register\_screen.RegisterScreen}, \hyperpage{357}
+  \item {btn\_clean\_logs}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{423}
+  \item {btn\_clean\_tmp}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{423}
+  \item {btn\_delete}
+    \subitem {calendar\_screen.CalendarScreen}, \hyperpage{180}
+    \subitem {note\_screen.NotesScreen}, \hyperpage{324}
+    \subitem {reminder\_screen.ReminderScreen}, \hyperpage{373}
+  \item {btn\_easy}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{233}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{443}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{491}
+  \item {btn\_exit}
+    \subitem {app.ui.face\_client.FaceClient}, \hyperpage{208}
+    \subitem {browser\_screen.BrowserScreen}, \hyperpage{171}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{233}
+    \subitem {memory\_screen.MemoryScreen}, \hyperpage{312}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{443}
+  \item {btn\_game\_back}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{491}
+  \item {btn\_go}
+    \subitem {browser\_screen.BrowserScreen}, \hyperpage{171}
+  \item {btn\_hard}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{233}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{444}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{491}
+  \item {btn\_hint}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{491}
+  \item {btn\_home}
+    \subitem {browser\_screen.BrowserScreen}, \hyperpage{171}
+  \item {btn\_ingame\_exit}
+    \subitem {memory\_screen.MemoryScreen}, \hyperpage{312}
+  \item {btn\_login}
+    \subitem {app.ui.face\_client.FaceClient}, \hyperpage{208}
+    \subitem {login\_screen.LoginScreen}, \hyperpage{289}
+  \item {btn\_medium}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{233}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{444}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{491}
+  \item {btn\_nav\_arrow}
+    \subitem {browser\_screen.BrowserScreen}, \hyperpage{171}
+  \item {btn\_next}
+    \subitem {browser\_screen.BrowserScreen}, \hyperpage{172}
+    \subitem {calendar\_screen.CalendarScreen}, \hyperpage{180}
+  \item {btn\_no}
+    \subitem {proactive.proactive\_screen.ProactiveScreen}, 
+		\hyperpage{347}
+  \item {BTN\_NO\_BG}
+    \subitem {proactive.proactive\_screen}, \hyperpage{70}
+  \item {BTN\_NO\_BORDER}
+    \subitem {proactive.proactive\_screen}, \hyperpage{70}
+  \item {BTN\_NO\_TEXT}
+    \subitem {proactive.proactive\_screen}, \hyperpage{71}
+  \item {btn\_pick\_date}
+    \subitem {reminder\_screen.ReminderScreen}, \hyperpage{373}
+  \item {btn\_play}
+    \subitem {memory\_screen.MemoryScreen}, \hyperpage{312}
+  \item {btn\_poweroff}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{423}
+  \item {btn\_prev}
+    \subitem {browser\_screen.BrowserScreen}, \hyperpage{172}
+    \subitem {calendar\_screen.CalendarScreen}, \hyperpage{180}
+  \item {btn\_quick\_power}
+    \subitem {launcher\_screen.LauncherScreen}, \hyperpage{265}
+  \item {btn\_register}
+    \subitem {app.ui.face\_client.FaceClient}, \hyperpage{208}
+    \subitem {login\_screen.LoginScreen}, \hyperpage{289}
+  \item {btn\_restart}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{424}
+  \item {btn\_vol\_down}
+    \subitem {launcher\_screen.LauncherScreen}, \hyperpage{265}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{424}
+  \item {btn\_vol\_up}
+    \subitem {launcher\_screen.LauncherScreen}, \hyperpage{265}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{424}
+  \item {btn\_wifi\_off}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{424}
+  \item {btn\_wifi\_on}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{424}
+  \item {btn\_wifi\_refresh}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{424}
+  \item {btn\_yes}
+    \subitem {proactive.proactive\_screen.ProactiveScreen}, 
+		\hyperpage{347}
+  \item {BTN\_YES\_BG}
+    \subitem {proactive.proactive\_screen}, \hyperpage{71}
+  \item {BTN\_YES\_BORDER}
+    \subitem {proactive.proactive\_screen}, \hyperpage{71}
+  \item {BTN\_YES\_TEXT}
+    \subitem {proactive.proactive\_screen}, \hyperpage{71}
+  \item {button}
+    \subitem {app.button}, \hyperpage{14}
+  \item {button.py}, \hyperpage{508}
+  \item {BUTTON\_PIN}
+    \subitem {app.button}, \hyperpage{15}
+
+  \indexspace
+
+  \item {calendar}
+    \subitem {calendar\_screen.CalendarScreen}, \hyperpage{180}
+    \subitem {reminder\_screen.DateTimePickerDialog}, \hyperpage{196}
+  \item {calendar\_screen}, \hyperpage{38}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{300}
+    \subitem {STYLE}, \hyperpage{38}
+  \item {calendar\_screen.CalendarScreen}, \hyperpage{173}
+    \subitem {\_\_init\_\_}, \hyperpage{175}
+    \subitem {\_hide\_keyboard}, \hyperpage{176}
+    \subitem {\_show\_keyboard}, \hyperpage{176}
+    \subitem {add\_event}, \hyperpage{176}
+    \subitem {btn\_add}, \hyperpage{179}
+    \subitem {btn\_back}, \hyperpage{180}
+    \subitem {btn\_delete}, \hyperpage{180}
+    \subitem {btn\_next}, \hyperpage{180}
+    \subitem {btn\_prev}, \hyperpage{180}
+    \subitem {calendar}, \hyperpage{180}
+    \subitem {controller}, \hyperpage{180}
+    \subitem {current\_date}, \hyperpage{180}
+    \subitem {date\_changed}, \hyperpage{176}
+    \subitem {delete\_event}, \hyperpage{177}
+    \subitem {go\_back}, \hyperpage{177}
+    \subitem {header}, \hyperpage{180}
+    \subitem {hideEvent}, \hyperpage{177}
+    \subitem {input}, \hyperpage{181}
+    \subitem {keyboard}, \hyperpage{181}
+    \subitem {list}, \hyperpage{181}
+    \subitem {mark\_events\_on\_calendar}, \hyperpage{178}
+    \subitem {next\_month}, \hyperpage{178}
+    \subitem {panel\_title}, \hyperpage{181}
+    \subitem {prev\_month}, \hyperpage{178}
+    \subitem {refresh}, \hyperpage{179}
+    \subitem {store}, \hyperpage{181}
+    \subitem {update\_header}, \hyperpage{179}
+  \item {calendar\_store}, \hyperpage{38}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{129}
+    \subitem {app.core.robot\_controller.RobotController}, 
+		\hyperpage{390}
+  \item {calendar\_store.CalendarStore}, \hyperpage{182}
+    \subitem {\_\_init\_\_}, \hyperpage{183}
+    \subitem {add\_event}, \hyperpage{183}
+    \subitem {delete\_event}, \hyperpage{183}
+    \subitem {events}, \hyperpage{185}
+    \subitem {get\_events}, \hyperpage{184}
+    \subitem {load}, \hyperpage{184}
+    \subitem {path}, \hyperpage{185}
+    \subitem {save}, \hyperpage{185}
+  \item {camera}
+    \subitem {app.ui.face\_client.FaceClient}, \hyperpage{209}
+    \subitem {login\_screen.LoginScreen}, \hyperpage{289}
+    \subitem {register\_screen.RegisterScreen}, \hyperpage{358}
+  \item {canvas\_rect\_a}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{233}
+  \item {canvas\_rect\_b}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{233}
+  \item {cap}
+    \subitem {app.core.camera\_manager.CameraManager}, \hyperpage{189}
+    \subitem {app.ui.face\_client.FaceClient}, \hyperpage{209}
+  \item {capture}
+    \subitem {register\_screen.RegisterScreen}, \hyperpage{356}
+  \item {capture\_register\_photo}
+    \subitem {app.ui.face\_client.FaceClient}, \hyperpage{206}
+  \item {cargar\_memoria}
+    \subitem {app.core.memory}, \hyperpage{26}
+  \item {celebration}
+    \subitem {memory\_screen.MemoryScreen}, \hyperpage{312}
+  \item {CELL}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{491}
+  \item {change\_user\_btn}
+    \subitem {launcher\_screen.LauncherScreen}, \hyperpage{265}
+  \item {check\_possibility}
+    \subitem {generate}, \hyperpage{50}
+  \item {clean}
+    \subitem {app.voice.tts.TTS}, \hyperpage{454}
+  \item {clear}
+    \subitem {routes\_dashboard}, \hyperpage{74}
+  \item {clear\_error}
+    \subitem {app.ui.state.UIState}, \hyperpage{461}
+  \item {clear\_logs}
+    \subitem {log\_service}, \hyperpage{59}
+  \item {clear\_user}
+    \subitem {app.ui.state.UIState}, \hyperpage{461}
+  \item {click\_times}
+    \subitem {app.button}, \hyperpage{15}
+  \item {clicked}
+    \subitem {games\_screen.GameCard}, \hyperpage{238}
+  \item {client}
+    \subitem {models.gemini.GeminiModel}, \hyperpage{247}
+    \subitem {models.gpt\_azure.GPTAzure}, \hyperpage{250}
+    \subitem {models.groq\_llama.GroqLlama}, \hyperpage{252}
+  \item {clock}
+    \subitem {base\_pygame\_qt\_screen.BasePygameQtScreen}, 
+		\hyperpage{153}
+    \subitem {launcher\_screen.LauncherScreen}, \hyperpage{265}
+  \item {close\_app}
+    \subitem {app.core.robot\_controller.RobotController}, 
+		\hyperpage{386}
+    \subitem {app.ui.face\_client.FaceClient}, \hyperpage{206}
+    \subitem {app.ui.state.UIState}, \hyperpage{462}
+    \subitem {base\_app.BaseApp}, \hyperpage{142}
+  \item {closeEvent}
+    \subitem {browser\_screen.BrowserScreen}, \hyperpage{169}
+    \subitem {loading\_screen.LoadingScreen}, \hyperpage{283}
+  \item {color}
+    \subitem {app.led\_status}, \hyperpage{29}
+    \subitem {find\_differences\_screen.SceneObject}, \hyperpage{395}
+  \item {cols}
+    \subitem {memory\_screen.MemoryScreen}, \hyperpage{312}
+  \item {COMMANDS}
+    \subitem {process\_service.ProcessService}, \hyperpage{351}
+  \item {common/remote\_logger.py}, \hyperpage{508}
+  \item {complete\_reminder}
+    \subitem {server}, \hyperpage{83}
+  \item {config}, \hyperpage{39}
+    \subitem {app.core.logger}, \hyperpage{24}
+    \subitem {app.ui.display.FaceDisplay}, \hyperpage{215}
+    \subitem {app.ui.face\_client}, \hyperpage{32}
+    \subitem {AZURE\_API\_KEY}, \hyperpage{39}
+    \subitem {BASE\_DIR}, \hyperpage{39}
+    \subitem {exist\_ok}, \hyperpage{39}
+    \subitem {FACE\_SERVER\_URL}, \hyperpage{40}
+    \subitem {GEMINI\_API\_KEY}, \hyperpage{40}
+    \subitem {GROQ\_API\_KEY}, \hyperpage{40}
+    \subitem {HOST}, \hyperpage{40}
+    \subitem {LLM\_SERVER\_URL}, \hyperpage{40}
+    \subitem {LOG\_DIR}, \hyperpage{40}
+    \subitem {login\_screen.LoginScreen}, \hyperpage{290}
+    \subitem {parents}, \hyperpage{41}
+    \subitem {PORT}, \hyperpage{41}
+    \subitem {register\_screen.RegisterScreen}, \hyperpage{358}
+    \subitem {STATIC\_DIR}, \hyperpage{41}
+    \subitem {True}, \hyperpage{41}
+  \item {config\_path}
+    \subitem {app.core.logger}, \hyperpage{24}
+    \subitem {app.ui.face\_client}, \hyperpage{32}
+  \item {confirmed}
+    \subitem {keyboard\_widget.KeyboardWidget}, \hyperpage{258}
+  \item {console}
+    \subitem {app.core.logger}, \hyperpage{24}
+  \item {construir\_prompt}
+    \subitem {app.core.assistant}, \hyperpage{17}
+  \item {content\_input}
+    \subitem {note\_screen.NotesScreen}, \hyperpage{324}
+  \item {controller}
+    \subitem {app.core.game\_router.GameRouter}, \hyperpage{240}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{301}
+    \subitem {base\_app.BaseApp}, \hyperpage{142}
+    \subitem {base\_pygame\_qt\_screen.BasePygameQtScreen}, 
+		\hyperpage{153}
+    \subitem {boot\_screen.BootScreen}, \hyperpage{161}
+    \subitem {browser\_screen.BrowserScreen}, \hyperpage{172}
+    \subitem {calendar\_screen.CalendarScreen}, \hyperpage{180}
+    \subitem {error\_screen.ErrorScreen}, \hyperpage{201}
+    \subitem {games\_screen.GamesScreen}, \hyperpage{244}
+    \subitem {launcher\_screen.LauncherScreen}, \hyperpage{265}
+    \subitem {login\_screen.LoginScreen}, \hyperpage{290}
+    \subitem {note\_screen.NotesScreen}, \hyperpage{324}
+    \subitem {register\_screen.RegisterScreen}, \hyperpage{358}
+    \subitem {reminder\_screen.ReminderScreen}, \hyperpage{373}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{424}
+  \item {copy}
+    \subitem {find\_differences\_screen.SceneObject}, \hyperpage{394}
+  \item {core/\_\_init\_\_.py}, \hyperpage{501}
+  \item {core/assistant.py}, \hyperpage{509}
+  \item {core/assistant\_engine.py}, \hyperpage{510}
+  \item {core/camera\_manager.py}, \hyperpage{510}
+  \item {core/config.py}, \hyperpage{504}
+  \item {core/game\_router.py}, \hyperpage{511}
+  \item {core/intent.py}, \hyperpage{511}
+  \item {core/logger.py}, \hyperpage{512}
+  \item {core/logs\_to\_server.py}, \hyperpage{512}
+  \item {core/memory.py}, \hyperpage{513}
+  \item {core/robot\_controller.py}, \hyperpage{513}
+  \item {core/session\_manager.py}, \hyperpage{514}
+  \item {core/state\_machine.py}, \hyperpage{514}
+  \item {core/system\_apps.py}, \hyperpage{515}
+  \item {curr\_dir}
+    \subitem {server}, \hyperpage{89}
+  \item {current\_app}
+    \subitem {app.ui.state.UIState}, \hyperpage{465}
+  \item {current\_date}
+    \subitem {calendar\_screen.CalendarScreen}, \hyperpage{180}
+  \item {current\_dir}
+    \subitem {memory\_screen.MemoryScreen}, \hyperpage{313}
+  \item {current\_frame}
+    \subitem {app.ui.face\_client.FaceClient}, \hyperpage{209}
+    \subitem {login\_screen.LoginScreen}, \hyperpage{290}
+  \item {current\_path}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{492}
+  \item {current\_screen}
+    \subitem {app.ui.state.UIState}, \hyperpage{465}
+  \item {current\_state}
+    \subitem {app.core.state\_machine.StateMachine}, \hyperpage{449}
+  \item {current\_theme}
+    \subitem {app.ui.state.UIState}, \hyperpage{465}
+  \item {current\_user}
+    \subitem {app.core.session\_manager.SessionManager}, 
+		\hyperpage{400}
+    \subitem {app.ui.app\_controller.AppController}, \hyperpage{112}
+    \subitem {app.ui.state.UIState}, \hyperpage{465}
+
+  \indexspace
+
+  \item {data\_path}
+    \subitem {app.core.session\_manager.SessionManager}, 
+		\hyperpage{400}
+    \subitem {server}, \hyperpage{89}
+  \item {DATASET\_PATH}
+    \subitem {main}, \hyperpage{62}
+  \item {date\_changed}
+    \subitem {calendar\_screen.CalendarScreen}, \hyperpage{176}
+  \item {DATE\_DIALOG\_STYLE}
+    \subitem {reminder\_screen}, \hyperpage{73}
+  \item {date\_display}
+    \subitem {reminder\_screen.ReminderScreen}, \hyperpage{373}
+  \item {db\_path}
+    \subitem {server}, \hyperpage{89}
+  \item {debug}
+    \subitem {server}, \hyperpage{89}
+  \item {delete\_event}
+    \subitem {calendar\_screen.CalendarScreen}, \hyperpage{177}
+    \subitem {calendar\_store.CalendarStore}, \hyperpage{183}
+  \item {delete\_note}
+    \subitem {note\_screen.NotesScreen}, \hyperpage{322}
+  \item {delete\_reminder}
+    \subitem {reminder\_screen.ReminderScreen}, \hyperpage{371}
+  \item {detach}
+    \subitem {keyboard\_widget.KeyboardWidget}, \hyperpage{257}
+  \item {detail}
+    \subitem {error\_screen.ErrorScreen}, \hyperpage{202}
+  \item {detectar\_intencion}
+    \subitem {app.core.intent}, \hyperpage{23}
+  \item {diff\_type}
+    \subitem {find\_differences\_screen.Difference}, \hyperpage{198}
+  \item {differences}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{234}
+  \item {DIFFICULTY}
+    \subitem {find\_differences\_screen}, \hyperpage{45}
+    \subitem {simon\_says\_screen}, \hyperpage{94}
+  \item {difficulty}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{234}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{444}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{492}
+  \item {display}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{130}
+    \subitem {app.core.robot\_controller.RobotController}, 
+		\hyperpage{391}
+    \subitem {app.ui.app\_controller.AppController}, \hyperpage{112}
+    \subitem {app.ui.display.FaceDisplay}, \hyperpage{215}
+    \subitem {app.ui.face\_client.FaceClient}, \hyperpage{209}
+    \subitem {proactive.proactive\_scheduler.ProactiveScheduler}, 
+		\hyperpage{335}
+    \subitem {reminder\_scheduler.ReminderScheduler}, \hyperpage{366}
+  \item {DISPLAY\_AWAKE}
+    \subitem {proactive.proactive\_scheduler}, \hyperpage{67}
+  \item {DISPLAY\_IDLE}
+    \subitem {proactive.proactive\_scheduler}, \hyperpage{68}
+  \item {DIVIDER}
+    \subitem {proactive.proactive\_screen}, \hyperpage{71}
+  \item {dots}
+    \subitem {loading\_screen.LoadingScreen}, \hyperpage{284}
+  \item {draw}
+    \subitem {app.ui.display.FaceDisplay}, \hyperpage{212}
+    \subitem {find\_differences\_screen.SceneObject}, \hyperpage{394}
+  \item {dump\_state}
+    \subitem {app.ui.state.UIState}, \hyperpage{462}
+
+  \indexspace
+
+  \item {emit}
+    \subitem {app.core.logs\_to\_server.RemoteHandler}, \hyperpage{380}
+    \subitem {remote\_logger.RemoteHandler}, \hyperpage{382}
+  \item {emotion}
+    \subitem {app.ui.display.FaceDisplay}, \hyperpage{215}
+  \item {encoding}
+    \subitem {app.core.logger}, \hyperpage{24}
+    \subitem {main}, \hyperpage{62}
+  \item {encontrar\_micro}
+    \subitem {app.voice.audio\_stream}, \hyperpage{34}
+  \item {engine}
+    \subitem {app.ui.app\_controller.AppController}, \hyperpage{112}
+    \subitem {assistant\_screen.AssistantScreen}, \hyperpage{135}
+    \subitem {base\_app.BaseApp}, \hyperpage{142}
+  \item {ERROR}
+    \subitem {app.core.state\_machine.StateMachine}, \hyperpage{449}
+  \item {error}
+    \subitem {app.ui.app\_controller.AppController}, \hyperpage{108}
+    \subitem {register\_screen.RegisterWorker}, \hyperpage{362}
+  \item {error\_occurred}
+    \subitem {app.ui.state.UIState}, \hyperpage{466}
+  \item {error\_screen}, \hyperpage{41}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{301}
+  \item {error\_screen.ErrorScreen}, \hyperpage{199}
+    \subitem {\_\_init\_\_}, \hyperpage{200}
+    \subitem {controller}, \hyperpage{201}
+    \subitem {detail}, \hyperpage{202}
+    \subitem {label}, \hyperpage{202}
+    \subitem {set\_message}, \hyperpage{201}
+  \item {error\_signal}
+    \subitem {app.ui.face\_client.Worker}, \hyperpage{496}
+    \subitem {login\_screen.Worker}, \hyperpage{499}
+  \item {estado\_texto}
+    \subitem {app.ui.display.FaceDisplay}, \hyperpage{215}
+  \item {events}
+    \subitem {base\_pygame\_qt\_screen.BasePygameQtScreen}, 
+		\hyperpage{153}
+    \subitem {calendar\_store.CalendarStore}, \hyperpage{185}
+  \item {exist\_ok}
+    \subitem {config}, \hyperpage{39}
+    \subitem {server}, \hyperpage{89}
+    \subitem {speaking\_server}, \hyperpage{97}
+  \item {exit\_game}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{228}
+    \subitem {memory\_screen.MemoryScreen}, \hyperpage{310}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{437}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{485}
+
+  \indexspace
+
+  \item {f\_body}
+    \subitem {proactive.proactive\_screen.ProactiveScreen}, 
+		\hyperpage{347}
+  \item {f\_btn}
+    \subitem {proactive.proactive\_screen.ProactiveScreen}, 
+		\hyperpage{347}
+  \item {f\_tag}
+    \subitem {proactive.proactive\_screen.ProactiveScreen}, 
+		\hyperpage{347}
+  \item {f\_title}
+    \subitem {proactive.proactive\_screen.ProactiveScreen}, 
+		\hyperpage{347}
+  \item {FACE\_SERVER\_URL}
+    \subitem {config}, \hyperpage{40}
+  \item {face\_service}, \hyperpage{41}
+    \subitem {FACE\_URL}, \hyperpage{42}
+  \item {face\_service.FaceService}, \hyperpage{216}
+    \subitem {memories}, \hyperpage{217}
+    \subitem {recognize}, \hyperpage{217}
+    \subitem {register}, \hyperpage{218}
+    \subitem {remember}, \hyperpage{218}
+  \item {FACE\_URL}
+    \subitem {face\_service}, \hyperpage{42}
+  \item {FEEDBACK\_DUR}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{444}
+  \item {FILE}
+    \subitem {storage}, \hyperpage{100}
+  \item {find\_differences\_screen}, \hyperpage{42}
+    \subitem {\_darken}, \hyperpage{43}
+    \subitem {\_lighten}, \hyperpage{43}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{301}
+    \subitem {apply\_differences}, \hyperpage{43}
+    \subitem {DIFFICULTY}, \hyperpage{45}
+    \subitem {generate\_scene}, \hyperpage{44}
+    \subitem {P\_BG\_BOTTOM}, \hyperpage{45}
+    \subitem {P\_BG\_TOP}, \hyperpage{45}
+    \subitem {P\_BTN\_BACK}, \hyperpage{45}
+    \subitem {P\_BTN\_EASY}, \hyperpage{45}
+    \subitem {P\_BTN\_EXIT}, \hyperpage{46}
+    \subitem {P\_BTN\_HARD}, \hyperpage{46}
+    \subitem {P\_BTN\_MEDIUM}, \hyperpage{46}
+    \subitem {P\_BTN\_TEXT}, \hyperpage{46}
+    \subitem {P\_FOUND\_RING}, \hyperpage{46}
+    \subitem {P\_MISS\_FLASH}, \hyperpage{46}
+    \subitem {P\_PANEL\_BG}, \hyperpage{46}
+    \subitem {P\_PANEL\_BORDER}, \hyperpage{46}
+    \subitem {P\_SHADOW}, \hyperpage{47}
+    \subitem {P\_SUBTITLE}, \hyperpage{47}
+    \subitem {P\_TITLE}, \hyperpage{47}
+    \subitem {THEMES}, \hyperpage{47}
+  \item {find\_differences\_screen.Difference}, \hyperpage{197}
+    \subitem {\_\_init\_\_}, \hyperpage{198}
+    \subitem {diff\_type}, \hyperpage{198}
+    \subitem {found}, \hyperpage{198}
+    \subitem {obj\_index}, \hyperpage{198}
+    \subitem {zone}, \hyperpage{198}
+  \item {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{219}
+    \subitem {\_\_init\_\_}, \hyperpage{223}
+    \subitem {\_calculate\_layout}, \hyperpage{224}
+    \subitem {\_canvas\_a\_surf}, \hyperpage{231}
+    \subitem {\_canvas\_b\_surf}, \hyperpage{231}
+    \subitem {\_draw\_bg}, \hyperpage{224}
+    \subitem {\_draw\_button}, \hyperpage{224}
+    \subitem {\_draw\_canvases}, \hyperpage{225}
+    \subitem {\_draw\_footer}, \hyperpage{225}
+    \subitem {\_draw\_found\_rings}, \hyperpage{225}
+    \subitem {\_draw\_game}, \hyperpage{225}
+    \subitem {\_draw\_header}, \hyperpage{226}
+    \subitem {\_draw\_menu}, \hyperpage{226}
+    \subitem {\_draw\_miss\_flashes}, \hyperpage{227}
+    \subitem {\_draw\_timeout\_overlay}, \hyperpage{227}
+    \subitem {\_draw\_win\_overlay}, \hyperpage{227}
+    \subitem {\_elapsed}, \hyperpage{232}
+    \subitem {\_found\_rings}, \hyperpage{232}
+    \subitem {\_handle\_canvas\_click}, \hyperpage{227}
+    \subitem {\_miss\_flashes}, \hyperpage{232}
+    \subitem {\_render\_canvas\_a}, \hyperpage{228}
+    \subitem {\_render\_canvas\_b}, \hyperpage{228}
+    \subitem {\_ring\_pulse}, \hyperpage{232}
+    \subitem {\_time\_limit}, \hyperpage{232}
+    \subitem {\_win\_timer}, \hyperpage{232}
+    \subitem {btn\_back}, \hyperpage{233}
+    \subitem {btn\_easy}, \hyperpage{233}
+    \subitem {btn\_exit}, \hyperpage{233}
+    \subitem {btn\_hard}, \hyperpage{233}
+    \subitem {btn\_medium}, \hyperpage{233}
+    \subitem {canvas\_rect\_a}, \hyperpage{233}
+    \subitem {canvas\_rect\_b}, \hyperpage{233}
+    \subitem {differences}, \hyperpage{234}
+    \subitem {difficulty}, \hyperpage{234}
+    \subitem {exit\_game}, \hyperpage{228}
+    \subitem {mousePressEvent}, \hyperpage{228}
+    \subitem {objects\_a}, \hyperpage{234}
+    \subitem {objects\_b}, \hyperpage{234}
+    \subitem {render}, \hyperpage{229}
+    \subitem {start\_game}, \hyperpage{230}
+    \subitem {state}, \hyperpage{234}
+    \subitem {theme\_name}, \hyperpage{234}
+    \subitem {update\_logic}, \hyperpage{231}
+  \item {find\_differences\_screen.SceneObject}, \hyperpage{392}
+    \subitem {\_\_init\_\_}, \hyperpage{393}
+    \subitem {border\_color}, \hyperpage{395}
+    \subitem {color}, \hyperpage{395}
+    \subitem {copy}, \hyperpage{394}
+    \subitem {draw}, \hyperpage{394}
+    \subitem {get\_rect}, \hyperpage{394}
+    \subitem {h}, \hyperpage{395}
+    \subitem {shape}, \hyperpage{395}
+    \subitem {w}, \hyperpage{395}
+    \subitem {x}, \hyperpage{395}
+    \subitem {y}, \hyperpage{396}
+  \item {finish}
+    \subitem {boot\_screen.BootScreen}, \hyperpage{160}
+  \item {finish\_register}
+    \subitem {app.ui.face\_client.FaceClient}, \hyperpage{206}
+  \item {finished}
+    \subitem {boot\_screen.BootScreen}, \hyperpage{161}
+  \item {first}
+    \subitem {memory\_screen.MemoryScreen}, \hyperpage{313}
+  \item {font}
+    \subitem {app.ui.display.FaceDisplay}, \hyperpage{215}
+    \subitem {memory\_screen.MemoryScreen}, \hyperpage{313}
+  \item {FOOTER\_H}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{444}
+  \item {format}
+    \subitem {server}, \hyperpage{90}
+    \subitem {speaking\_server}, \hyperpage{97}
+  \item {found}
+    \subitem {find\_differences\_screen.Difference}, \hyperpage{198}
+  \item {fps}
+    \subitem {app.ui.display.FaceDisplay}, \hyperpage{215}
+  \item {frame}
+    \subitem {register\_screen.RegisterScreen}, \hyperpage{358}
+
+  \indexspace
+
+  \item {game\_height}
+    \subitem {base\_pygame\_qt\_screen.BasePygameQtScreen}, 
+		\hyperpage{153}
+  \item {game\_id}
+    \subitem {games\_screen.GameCard}, \hyperpage{238}
+  \item {game\_router}
+    \subitem {app.core.robot\_controller.RobotController}, 
+		\hyperpage{391}
+  \item {game\_state}
+    \subitem {memory\_screen.MemoryScreen}, \hyperpage{313}
+  \item {game\_width}
+    \subitem {base\_pygame\_qt\_screen.BasePygameQtScreen}, 
+		\hyperpage{153}
+  \item {games\_screen}, \hyperpage{48}
+    \subitem {\_GAMES\_QSS}, \hyperpage{49}
+    \subitem {\_SVG\_BRAIN}, \hyperpage{49}
+    \subitem {\_SVG\_NUMBER}, \hyperpage{49}
+    \subitem {\_SVG\_WORDS}, \hyperpage{49}
+    \subitem {\_write\_svg}, \hyperpage{48}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{301}
+  \item {games\_screen.GameCard}, \hyperpage{235}
+    \subitem {\_\_init\_\_}, \hyperpage{236}
+    \subitem {clicked}, \hyperpage{238}
+    \subitem {game\_id}, \hyperpage{238}
+    \subitem {mousePressEvent}, \hyperpage{237}
+  \item {games\_screen.GamesScreen}, \hyperpage{241}
+    \subitem {\_GAMES}, \hyperpage{243}
+    \subitem {\_\_init\_\_}, \hyperpage{242}
+    \subitem {\_launch}, \hyperpage{243}
+    \subitem {back\_btn}, \hyperpage{244}
+    \subitem {back\_requested}, \hyperpage{244}
+    \subitem {controller}, \hyperpage{244}
+    \subitem {go\_back}, \hyperpage{243}
+  \item {GEMINI\_API\_KEY}
+    \subitem {config}, \hyperpage{40}
+  \item {generate}, \hyperpage{50}
+    \subitem {base.LLMModel}, \hyperpage{275}
+    \subitem {check\_possibility}, \hyperpage{50}
+    \subitem {generate\_board}, \hyperpage{51}
+    \subitem {generate\_word\_list}, \hyperpage{52}
+    \subitem {grid}, \hyperpage{53}
+    \subitem {GRID\_SIZE}, \hyperpage{53}
+    \subitem {llm\_service.LLMService}, \hyperpage{278}
+    \subitem {MAX\_ATTEMPTS}, \hyperpage{53}
+    \subitem {models.gemini.GeminiModel}, \hyperpage{246}
+    \subitem {models.gpt\_azure.GPTAzure}, \hyperpage{249}
+    \subitem {models.groq\_llama.GroqLlama}, \hyperpage{252}
+    \subitem {models.mistral\_llama.MistralServer}, \hyperpage{317}
+    \subitem {models.serv\_llama.LlamaServer}, \hyperpage{268}
+    \subitem {num\_palabras}, \hyperpage{53}
+    \subitem {possibilites}, \hyperpage{54}
+    \subitem {put\_in\_word}, \hyperpage{52}
+    \subitem {routes\_llm}, \hyperpage{80}
+    \subitem {set\_difficulty}, \hyperpage{53}
+    \subitem {speaking\_server}, \hyperpage{96}
+    \subitem {word\_positions}, \hyperpage{54}
+    \subitem {words\_copy}, \hyperpage{54}
+  \item {generate\_board}
+    \subitem {generate}, \hyperpage{51}
+  \item {generate\_scene}
+    \subitem {find\_differences\_screen}, \hyperpage{44}
+  \item {generate\_word\_list}
+    \subitem {generate}, \hyperpage{52}
+  \item {get}
+    \subitem {app.core.camera\_manager.CameraManager}, \hyperpage{187}
+    \subitem {app.core.config.Config}, \hyperpage{191}
+  \item {get\_all\_logs}
+    \subitem {log\_service}, \hyperpage{59}
+  \item {get\_connection}
+    \subitem {server}, \hyperpage{84}
+  \item {get\_datetime\_str}
+    \subitem {reminder\_screen.DateTimePickerDialog}, \hyperpage{196}
+  \item {get\_events}
+    \subitem {calendar\_store.CalendarStore}, \hyperpage{184}
+  \item {get\_loader\_path}
+    \subitem {boot\_screen.BootScreen}, \hyperpage{160}
+  \item {get\_logs}
+    \subitem {log\_service}, \hyperpage{59}
+  \item {get\_memories}
+    \subitem {routes\_face}, \hyperpage{78}
+    \subitem {server}, \hyperpage{84}
+  \item {get\_pending}
+    \subitem {reminder\_store.ReminderStore}, \hyperpage{376}
+  \item {get\_rect}
+    \subitem {find\_differences\_screen.SceneObject}, \hyperpage{394}
+  \item {get\_reminders}
+    \subitem {server}, \hyperpage{85}
+  \item {get\_state}
+    \subitem {app.core.state\_machine.StateMachine}, \hyperpage{447}
+  \item {get\_stt\_state}
+    \subitem {proactive.proactive\_scheduler.ProactiveScheduler}, 
+		\hyperpage{335}
+  \item {get\_time}
+    \subitem {app.core.assistant}, \hyperpage{17}
+  \item {get\_weather}
+    \subitem {app.core.assistant}, \hyperpage{17}
+  \item {go}
+    \subitem {app.ui.app\_controller.AppController}, \hyperpage{109}
+  \item {go\_back}
+    \subitem {calendar\_screen.CalendarScreen}, \hyperpage{177}
+    \subitem {games\_screen.GamesScreen}, \hyperpage{243}
+    \subitem {note\_screen.NotesScreen}, \hyperpage{322}
+    \subitem {register\_screen.RegisterScreen}, \hyperpage{356}
+    \subitem {reminder\_screen.ReminderScreen}, \hyperpage{371}
+  \item {go\_back\_to\_launcher}
+    \subitem {browser\_screen.BrowserScreen}, \hyperpage{169}
+  \item {go\_register}
+    \subitem {login\_screen.LoginScreen}, \hyperpage{288}
+  \item {GREEN\_PIN}
+    \subitem {app.led\_status}, \hyperpage{29}
+  \item {grid}
+    \subitem {generate}, \hyperpage{53}
+  \item {GRID\_POS}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{492}
+  \item {GRID\_SIZE}
+    \subitem {generate}, \hyperpage{53}
+  \item {GROQ\_API\_KEY}
+    \subitem {config}, \hyperpage{40}
+  \item {guardar\_memoria}
+    \subitem {app.core.memory}, \hyperpage{27}
+
+  \indexspace
+
+  \item {h}
+    \subitem {find\_differences\_screen.SceneObject}, \hyperpage{395}
+  \item {handle\_click}
+    \subitem {app.button}, \hyperpage{13}
+  \item {handlers}
+    \subitem {server}, \hyperpage{90}
+    \subitem {speaking\_server}, \hyperpage{97}
+  \item {header}
+    \subitem {calendar\_screen.CalendarScreen}, \hyperpage{180}
+  \item {HEADER\_H}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{444}
+  \item {health}
+    \subitem {llm\_service.LLMService}, \hyperpage{279}
+    \subitem {routes\_llm}, \hyperpage{81}
+  \item {hidden}
+    \subitem {memory\_screen.MemoryScreen}, \hyperpage{313}
+  \item {hideEvent}
+    \subitem {browser\_screen.BrowserScreen}, \hyperpage{170}
+    \subitem {calendar\_screen.CalendarScreen}, \hyperpage{177}
+    \subitem {note\_screen.NotesScreen}, \hyperpage{322}
+    \subitem {reminder\_screen.ReminderScreen}, \hyperpage{371}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{419, 420}
+  \item {hint\_cell}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{492}
+  \item {HOME}
+    \subitem {app.core.state\_machine.StateMachine}, \hyperpage{449}
+  \item {HOME\_URL}
+    \subitem {browser\_screen}, \hyperpage{37}
+  \item {HOST}
+    \subitem {config}, \hyperpage{40}
+  \item {host}
+    \subitem {server}, \hyperpage{90}
+  \item {hour\_spin}
+    \subitem {reminder\_screen.DateTimePickerDialog}, \hyperpage{196}
+
+  \indexspace
+
+  \item {image}
+    \subitem {app.ui.face\_client.Worker}, \hyperpage{496}
+    \subitem {login\_screen.Worker}, \hyperpage{499}
+  \item {images}
+    \subitem {register\_screen.RegisterScreen}, \hyperpage{358}
+    \subitem {register\_screen.RegisterWorker}, \hyperpage{363}
+  \item {INFO\_H}
+    \subitem {memory\_screen.MemoryScreen}, \hyperpage{313}
+  \item {init\_database}
+    \subitem {server}, \hyperpage{85}
+  \item {initial\_keyboard}
+    \subitem {browser\_screen.BrowserScreen}, \hyperpage{172}
+  \item {input}
+    \subitem {calendar\_screen.CalendarScreen}, \hyperpage{181}
+  \item {input\_text}
+    \subitem {reminder\_screen.ReminderScreen}, \hyperpage{373}
+  \item {input\_url}
+    \subitem {browser\_screen.BrowserScreen}, \hyperpage{172}
+  \item {is\_listening}
+    \subitem {app.ui.state.UIState}, \hyperpage{466}
+  \item {is\_loading}
+    \subitem {app.ui.state.UIState}, \hyperpage{466}
+  \item {is\_logged}
+    \subitem {app.core.session\_manager.SessionManager}, 
+		\hyperpage{398}
+  \item {is\_running}
+    \subitem {process\_service.ProcessService}, \hyperpage{349}
+  \item {is\_speaking}
+    \subitem {app.ui.state.UIState}, \hyperpage{466}
+    \subitem {app.voice.tts.TTS}, \hyperpage{456}
+  \item {is\_state}
+    \subitem {app.core.state\_machine.StateMachine}, \hyperpage{448}
+  \item {is\_ui\_running}
+    \subitem {app.button}, \hyperpage{14}
+
+  \indexspace
+
+  \item {KB\_STYLE}
+    \subitem {keyboard\_widget}, \hyperpage{55}
+  \item {keyboard}
+    \subitem {calendar\_screen.CalendarScreen}, \hyperpage{181}
+    \subitem {note\_screen.NotesScreen}, \hyperpage{324}
+    \subitem {reminder\_screen.ReminderScreen}, \hyperpage{374}
+  \item {keyboard\_widget}, \hyperpage{54}
+    \subitem {KB\_STYLE}, \hyperpage{55}
+    \subitem {ROWS\_LOWER}, \hyperpage{55}
+    \subitem {ROWS\_UPPER}, \hyperpage{55}
+  \item {keyboard\_widget.KeyboardWidget}, \hyperpage{253}
+    \subitem {\_\_init\_\_}, \hyperpage{255}
+    \subitem {\_build\_keys}, \hyperpage{255}
+    \subitem {\_grid}, \hyperpage{258}
+    \subitem {\_make\_button}, \hyperpage{256}
+    \subitem {\_on\_key}, \hyperpage{256}
+    \subitem {\_target}, \hyperpage{258}
+    \subitem {\_upper}, \hyperpage{258}
+    \subitem {confirmed}, \hyperpage{258}
+    \subitem {detach}, \hyperpage{257}
+    \subitem {set\_target}, \hyperpage{257}
+  \item {keyPressEvent}
+    \subitem {app.ui.face\_client.FaceClient}, \hyperpage{207}
+    \subitem {base\_pygame\_qt\_screen.BasePygameQtScreen}, 
+		\hyperpage{148}
+  \item {known\_face\_encodings}
+    \subitem {server}, \hyperpage{90}
+
+  \indexspace
+
+  \item {label}
+    \subitem {base\_pygame\_qt\_screen.BasePygameQtScreen}, 
+		\hyperpage{154}
+    \subitem {boot\_screen.BootScreen}, \hyperpage{161}
+    \subitem {error\_screen.ErrorScreen}, \hyperpage{202}
+    \subitem {loading\_screen.LoadingScreen}, \hyperpage{284}
+  \item {LABEL\_H}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{444}
+  \item {lang}
+    \subitem {app.voice.tts.TTS}, \hyperpage{456}
+  \item {last\_error}
+    \subitem {app.ui.state.UIState}, \hyperpage{466}
+  \item {launch}
+    \subitem {app.core.system\_apps.SystemApps}, \hyperpage{451}
+  \item {launch\_app}
+    \subitem {launcher\_screen.LauncherScreen}, \hyperpage{263}
+  \item {launcher\_screen}, \hyperpage{55}
+    \subitem {\_LAUNCHER\_QSS}, \hyperpage{56}
+    \subitem {\_SVG\_POWER}, \hyperpage{56}
+    \subitem {\_SVG\_VOL\_DOWN}, \hyperpage{56}
+    \subitem {\_SVG\_VOL\_UP}, \hyperpage{57}
+    \subitem {\_svg\_icon}, \hyperpage{56}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{301}
+  \item {launcher\_screen.LauncherScreen}, \hyperpage{258}
+    \subitem {\_\_init\_\_}, \hyperpage{261}
+    \subitem {\_quick\_poweroff}, \hyperpage{262}
+    \subitem {\_quick\_volume}, \hyperpage{262}
+    \subitem {\_refresh\_vol\_label}, \hyperpage{263}
+    \subitem {btn\_quick\_power}, \hyperpage{265}
+    \subitem {btn\_vol\_down}, \hyperpage{265}
+    \subitem {btn\_vol\_up}, \hyperpage{265}
+    \subitem {change\_user\_btn}, \hyperpage{265}
+    \subitem {clock}, \hyperpage{265}
+    \subitem {controller}, \hyperpage{265}
+    \subitem {launch\_app}, \hyperpage{263}
+    \subitem {lbl\_vol\_quick}, \hyperpage{265}
+    \subitem {logout}, \hyperpage{264}
+    \subitem {logout\_btn}, \hyperpage{265}
+    \subitem {open\_app}, \hyperpage{266}
+    \subitem {set\_user}, \hyperpage{264}
+    \subitem {subtitle}, \hyperpage{266}
+    \subitem {timer}, \hyperpage{266}
+    \subitem {title}, \hyperpage{266}
+    \subitem {update\_clock}, \hyperpage{264}
+    \subitem {user\_label}, \hyperpage{266}
+  \item {lbl\_bt\_state}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{424}
+  \item {lbl\_date}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{425}
+  \item {lbl\_maint\_status}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{425}
+  \item {lbl\_temp}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{425}
+  \item {lbl\_time}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{425}
+  \item {lbl\_uptime}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{425}
+  \item {lbl\_vol}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{425}
+  \item {lbl\_vol\_quick}
+    \subitem {launcher\_screen.LauncherScreen}, \hyperpage{265}
+  \item {lbl\_wifi\_ip}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{425}
+  \item {lbl\_wifi\_net}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{425}
+  \item {led}
+    \subitem {app.led\_status}, \hyperpage{29}
+  \item {led\_status.py}, \hyperpage{515}
+  \item {letter\_cache}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{492}
+  \item {level}
+    \subitem {memory\_screen.MemoryScreen}, \hyperpage{313}
+    \subitem {server}, \hyperpage{90}
+    \subitem {speaking\_server}, \hyperpage{98}
+  \item {list}
+    \subitem {calendar\_screen.CalendarScreen}, \hyperpage{181}
+    \subitem {note\_screen.NotesScreen}, \hyperpage{324}
+    \subitem {reminder\_screen.ReminderScreen}, \hyperpage{374}
+  \item {list\_bt}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{426}
+  \item {listen\_loop}
+    \subitem {app.voice.stt\_vosk.VoskSTT}, \hyperpage{471}
+  \item {listening\_changed}
+    \subitem {app.ui.state.UIState}, \hyperpage{466}
+  \item {lit\_button}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{445}
+  \item {llm}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{130}
+  \item {llm/\_\_init\_\_.py}, \hyperpage{501}
+  \item {llm/client.py}, \hyperpage{516}
+  \item {llm\_package/config.py}, \hyperpage{504}
+  \item {llm\_package/core/base.py}, \hyperpage{516}
+  \item {llm\_package/core/runner.py}, \hyperpage{517}
+  \item {llm\_package/core/storage.py}, \hyperpage{517}
+  \item {llm\_package/main.py}, \hyperpage{505}
+  \item {llm\_package/models/\_\_init\_\_.py}, \hyperpage{501}
+  \item {llm\_package/models/gemini.py}, \hyperpage{518}
+  \item {llm\_package/models/gpt\_azure.py}, \hyperpage{518}
+  \item {llm\_package/models/groq\_llama.py}, \hyperpage{518}
+  \item {llm\_package/models/mistral\_llama.py}, \hyperpage{518}
+  \item {llm\_package/models/serv\_llama.py}, \hyperpage{519}
+  \item {LLM\_SERVER\_URL}
+    \subitem {config}, \hyperpage{40}
+  \item {llm\_service}, \hyperpage{57}
+    \subitem {LLM\_URL}, \hyperpage{57}
+  \item {llm\_service.LLMService}, \hyperpage{276}
+    \subitem {\_\_init\_\_}, \hyperpage{277}
+    \subitem {ask}, \hyperpage{278}
+    \subitem {base\_url}, \hyperpage{280}
+    \subitem {generate}, \hyperpage{278}
+    \subitem {health}, \hyperpage{279}
+    \subitem {model}, \hyperpage{280}
+    \subitem {stream}, \hyperpage{279}
+    \subitem {timeout}, \hyperpage{280}
+  \item {llm\_timeout}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{130}
+  \item {LLM\_URL}
+    \subitem {llm\_service}, \hyperpage{57}
+  \item {llm\_url}
+    \subitem {app.core.config.Config}, \hyperpage{192}
+  \item {load}
+    \subitem {app.core.session\_manager.SessionManager}, 
+		\hyperpage{398}
+    \subitem {calendar\_store.CalendarStore}, \hyperpage{184}
+    \subitem {note\_store.NotesStore}, \hyperpage{327}
+    \subitem {reminder\_store.ReminderStore}, \hyperpage{376}
+  \item {load\_known\_faces}
+    \subitem {server}, \hyperpage{86}
+  \item {load\_results}
+    \subitem {storage}, \hyperpage{99}
+  \item {load\_theme}
+    \subitem {boot\_screen.BootScreen}, \hyperpage{161}
+  \item {loader}
+    \subitem {boot\_screen.BootScreen}, \hyperpage{162}
+  \item {loading\_changed}
+    \subitem {app.ui.state.UIState}, \hyperpage{466}
+  \item {loading\_screen}, \hyperpage{58}
+  \item {loading\_screen.LoadingScreen}, \hyperpage{281}
+    \subitem {\_\_init\_\_}, \hyperpage{282}
+    \subitem {animate}, \hyperpage{283}
+    \subitem {base\_text}, \hyperpage{284}
+    \subitem {closeEvent}, \hyperpage{283}
+    \subitem {dots}, \hyperpage{284}
+    \subitem {label}, \hyperpage{284}
+    \subitem {timer}, \hyperpage{284}
+  \item {lock}
+    \subitem {memory\_screen.MemoryScreen}, \hyperpage{314}
+  \item {lock\_time}
+    \subitem {memory\_screen.MemoryScreen}, \hyperpage{314}
+  \item {log}
+    \subitem {server}, \hyperpage{86}
+  \item {LOG\_DIR}
+    \subitem {config}, \hyperpage{40}
+    \subitem {server}, \hyperpage{90}
+    \subitem {speaking\_server}, \hyperpage{98}
+  \item {log\_file}
+    \subitem {server}, \hyperpage{90}
+    \subitem {speaking\_server}, \hyperpage{98}
+  \item {log\_service}, \hyperpage{58}
+    \subitem {\_lock}, \hyperpage{60}
+    \subitem {\_logs}, \hyperpage{60}
+    \subitem {add\_log}, \hyperpage{58}
+    \subitem {clear\_logs}, \hyperpage{59}
+    \subitem {get\_all\_logs}, \hyperpage{59}
+    \subitem {get\_logs}, \hyperpage{59}
+    \subitem {MAX\_LOGS}, \hyperpage{60}
+  \item {logged\_in}
+    \subitem {app.ui.face\_client.FaceClient}, \hyperpage{209}
+  \item {logger}
+    \subitem {app.core.logger}, \hyperpage{24}
+    \subitem {server}, \hyperpage{91}
+    \subitem {speaking\_server}, \hyperpage{98}
+  \item {LOGIN}
+    \subitem {app.core.state\_machine.StateMachine}, \hyperpage{449}
+  \item {login}
+    \subitem {app.core.robot\_controller.RobotController}, 
+		\hyperpage{387}
+    \subitem {app.core.session\_manager.SessionManager}, 
+		\hyperpage{398}
+    \subitem {app.ui.face\_client.FaceClient}, \hyperpage{207}
+    \subitem {login\_screen.LoginScreen}, \hyperpage{288}
+  \item {login\_screen}, \hyperpage{60}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{301}
+    \subitem {STYLE}, \hyperpage{61}
+  \item {login\_screen.LoginScreen}, \hyperpage{284}
+    \subitem {\_\_init\_\_}, \hyperpage{287}
+    \subitem {btn\_login}, \hyperpage{289}
+    \subitem {btn\_register}, \hyperpage{289}
+    \subitem {camera}, \hyperpage{289}
+    \subitem {config}, \hyperpage{290}
+    \subitem {controller}, \hyperpage{290}
+    \subitem {current\_frame}, \hyperpage{290}
+    \subitem {go\_register}, \hyperpage{288}
+    \subitem {login}, \hyperpage{288}
+    \subitem {on\_error}, \hyperpage{288}
+    \subitem {on\_result}, \hyperpage{288}
+    \subitem {showEvent}, \hyperpage{288}
+    \subitem {status}, \hyperpage{290}
+    \subitem {timer}, \hyperpage{290}
+    \subitem {update\_frame}, \hyperpage{289}
+    \subitem {user\_label}, \hyperpage{290}
+    \subitem {worker}, \hyperpage{290}
+  \item {login\_screen.Worker}, \hyperpage{497}
+    \subitem {\_\_init\_\_}, \hyperpage{498}
+    \subitem {error\_signal}, \hyperpage{499}
+    \subitem {image}, \hyperpage{499}
+    \subitem {result\_signal}, \hyperpage{499}
+    \subitem {run}, \hyperpage{499}
+    \subitem {url}, \hyperpage{500}
+  \item {login\_time}
+    \subitem {app.core.session\_manager.SessionManager}, 
+		\hyperpage{400}
+  \item {logout}
+    \subitem {app.core.robot\_controller.RobotController}, 
+		\hyperpage{387}
+    \subitem {app.core.session\_manager.SessionManager}, 
+		\hyperpage{399}
+    \subitem {launcher\_screen.LauncherScreen}, \hyperpage{264}
+  \item {logout\_btn}
+    \subitem {launcher\_screen.LauncherScreen}, \hyperpage{265}
+  \item {logs}
+    \subitem {routes\_dashboard}, \hyperpage{75}
+  \item {loop}
+    \subitem {app.ui.display.FaceDisplay}, \hyperpage{213}
+
+  \indexspace
+
+  \item {M\_BTN\_BACK\_BG}
+    \subitem {word\_search\_screen}, \hyperpage{101}
+  \item {M\_BTN\_BACK\_BRD}
+    \subitem {word\_search\_screen}, \hyperpage{101}
+  \item {M\_BTN\_EASY\_BG}
+    \subitem {word\_search\_screen}, \hyperpage{101}
+  \item {M\_BTN\_EASY\_BRD}
+    \subitem {word\_search\_screen}, \hyperpage{102}
+  \item {M\_BTN\_HARD\_BG}
+    \subitem {word\_search\_screen}, \hyperpage{102}
+  \item {M\_BTN\_HARD\_BRD}
+    \subitem {word\_search\_screen}, \hyperpage{102}
+  \item {M\_BTN\_MED\_BG}
+    \subitem {word\_search\_screen}, \hyperpage{102}
+  \item {M\_BTN\_MED\_BRD}
+    \subitem {word\_search\_screen}, \hyperpage{102}
+  \item {M\_BTN\_TEXT}
+    \subitem {word\_search\_screen}, \hyperpage{102}
+  \item {m\_f\_btn}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{492}
+  \item {m\_f\_subtitle}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{493}
+  \item {m\_f\_title}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{493}
+  \item {main}, \hyperpage{61}
+    \subitem {app}, \hyperpage{62}
+    \subitem {app.main}, \hyperpage{30}
+    \subitem {BASE\_DIR}, \hyperpage{62}
+    \subitem {DATASET\_PATH}, \hyperpage{62}
+    \subitem {encoding}, \hyperpage{62}
+    \subitem {models}, \hyperpage{62}
+    \subitem {name}, \hyperpage{62}
+    \subitem {prompts}, \hyperpage{63}
+    \subitem {repeats}, \hyperpage{63}
+    \subitem {results}, \hyperpage{63}
+    \subitem {root}, \hyperpage{61}
+    \subitem {runner}, \hyperpage{63}
+    \subitem {stats}, \hyperpage{63}
+  \item {main.py}, \hyperpage{506}
+  \item {MAIN\_STYLE}
+    \subitem {app.ui.theme}, \hyperpage{33}
+  \item {mark\_done}
+    \subitem {reminder\_store.ReminderStore}, \hyperpage{376}
+  \item {mark\_events\_on\_calendar}
+    \subitem {calendar\_screen.CalendarScreen}, \hyperpage{178}
+  \item {MAX\_ATTEMPTS}
+    \subitem {generate}, \hyperpage{53}
+  \item {MAX\_LOGS}
+    \subitem {log\_service}, \hyperpage{60}
+  \item {max\_scroll}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{493}
+  \item {memoria}
+    \subitem {app.core.assistant}, \hyperpage{19}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{130}
+  \item {memories}
+    \subitem {face\_service.FaceService}, \hyperpage{217}
+  \item {MEMORY\_FILE}
+    \subitem {app.core.assistant\_engine}, \hyperpage{20}
+    \subitem {app.core.memory}, \hyperpage{27}
+  \item {memory\_interval}
+    \subitem {proactive.proactive\_scheduler.ProactiveScheduler}, 
+		\hyperpage{335}
+  \item {memory\_screen}, \hyperpage{63}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{301}
+    \subitem {P\_BAR}, \hyperpage{64}
+    \subitem {P\_BG\_BOTTOM}, \hyperpage{64}
+    \subitem {P\_BG\_TOP}, \hyperpage{64}
+    \subitem {P\_BORDER}, \hyperpage{64}
+    \subitem {P\_BTN}, \hyperpage{64}
+    \subitem {P\_BTN\_EXIT}, \hyperpage{64}
+    \subitem {P\_BTN\_TEXT}, \hyperpage{65}
+    \subitem {P\_MATCHED}, \hyperpage{65}
+    \subitem {P\_SUBTITLE}, \hyperpage{65}
+    \subitem {P\_TITLE}, \hyperpage{65}
+  \item {memory\_screen.MemoryScreen}, \hyperpage{303}
+    \subitem {\_\_init\_\_}, \hyperpage{307}
+    \subitem {\_bg}, \hyperpage{307}
+    \subitem {\_board}, \hyperpage{308}
+    \subitem {\_create}, \hyperpage{308}
+    \subitem {\_draw\_board}, \hyperpage{308}
+    \subitem {\_menu}, \hyperpage{309}
+    \subitem {\_reset}, \hyperpage{309}
+    \subitem {\_spawn\_particles}, \hyperpage{309}
+    \subitem {\_ui\_bar}, \hyperpage{310}
+    \subitem {btn\_exit}, \hyperpage{312}
+    \subitem {btn\_ingame\_exit}, \hyperpage{312}
+    \subitem {btn\_play}, \hyperpage{312}
+    \subitem {celebration}, \hyperpage{312}
+    \subitem {cols}, \hyperpage{312}
+    \subitem {current\_dir}, \hyperpage{313}
+    \subitem {exit\_game}, \hyperpage{310}
+    \subitem {first}, \hyperpage{313}
+    \subitem {font}, \hyperpage{313}
+    \subitem {game\_state}, \hyperpage{313}
+    \subitem {hidden}, \hyperpage{313}
+    \subitem {INFO\_H}, \hyperpage{313}
+    \subitem {level}, \hyperpage{313}
+    \subitem {lock}, \hyperpage{314}
+    \subitem {lock\_time}, \hyperpage{314}
+    \subitem {particles}, \hyperpage{314}
+    \subitem {render}, \hyperpage{311}
+    \subitem {second}, \hyperpage{314}
+    \subitem {sound\_flip}, \hyperpage{314}
+    \subitem {sound\_win}, \hyperpage{314}
+    \subitem {sound\_wrong}, \hyperpage{314}
+    \subitem {SQUARE}, \hyperpage{315}
+    \subitem {start\_time}, \hyperpage{315}
+    \subitem {title\_font}, \hyperpage{315}
+    \subitem {update\_logic}, \hyperpage{311}
+  \item {MEMORY\_SUGGESTIONS}
+    \subitem {proactive.proactive\_scheduler}, \hyperpage{68}
+  \item {mic\_device}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{130}
+  \item {min\_spin}
+    \subitem {reminder\_screen.DateTimePickerDialog}, \hyperpage{196}
+  \item {mobility\_interval}
+    \subitem {proactive.proactive\_scheduler.ProactiveScheduler}, 
+		\hyperpage{336}
+  \item {MOBILITY\_SUGGESTIONS}
+    \subitem {proactive.proactive\_scheduler}, \hyperpage{68}
+  \item {mode}
+    \subitem {app.led\_status}, \hyperpage{30}
+  \item {model}
+    \subitem {app.llm.client.LLMClient}, \hyperpage{272}
+    \subitem {app.voice.stt\_vosk.VoskSTT}, \hyperpage{473}
+    \subitem {llm\_service.LLMService}, \hyperpage{280}
+  \item {models}, \hyperpage{65}
+    \subitem {main}, \hyperpage{62}
+    \subitem {runner.BenchmarkRunner}, \hyperpage{157}
+    \subitem {speaking\_server}, \hyperpage{98}
+  \item {models.gemini}, \hyperpage{65}
+  \item {models.gemini.GeminiModel}, \hyperpage{245}
+    \subitem {\_\_init\_\_}, \hyperpage{246}
+    \subitem {client}, \hyperpage{247}
+    \subitem {generate}, \hyperpage{246}
+  \item {models.gpt\_azure}, \hyperpage{66}
+  \item {models.gpt\_azure.GPTAzure}, \hyperpage{247}
+    \subitem {\_\_init\_\_}, \hyperpage{249}
+    \subitem {client}, \hyperpage{250}
+    \subitem {generate}, \hyperpage{249}
+  \item {models.groq\_llama}, \hyperpage{66}
+  \item {models.groq\_llama.GroqLlama}, \hyperpage{250}
+    \subitem {\_\_init\_\_}, \hyperpage{251}
+    \subitem {client}, \hyperpage{252}
+    \subitem {generate}, \hyperpage{252}
+  \item {models.mistral\_llama}, \hyperpage{66}
+  \item {models.mistral\_llama.MistralServer}, \hyperpage{315}
+    \subitem {\_\_init\_\_}, \hyperpage{316}
+    \subitem {generate}, \hyperpage{317}
+    \subitem {url}, \hyperpage{317}
+  \item {models.serv\_llama}, \hyperpage{66}
+  \item {models.serv\_llama.LlamaServer}, \hyperpage{267}
+    \subitem {\_\_init\_\_}, \hyperpage{268}
+    \subitem {generate}, \hyperpage{268}
+    \subitem {url}, \hyperpage{269}
+  \item {mouseMoveEvent}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{486}
+  \item {mousePressEvent}
+    \subitem {base\_pygame\_qt\_screen.BasePygameQtScreen}, 
+		\hyperpage{150}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{228}
+    \subitem {games\_screen.GameCard}, \hyperpage{237}
+    \subitem {proactive.proactive\_screen.ProactiveScreen}, 
+		\hyperpage{345}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{438}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{487}
+  \item {mouseReleaseEvent}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{488}
+  \item {movie}
+    \subitem {boot\_screen.BootScreen}, \hyperpage{162}
+
+  \indexspace
+
+  \item {name}
+    \subitem {base.LLMModel}, \hyperpage{276}
+    \subitem {main}, \hyperpage{62}
+    \subitem {register\_screen.RegisterWorker}, \hyperpage{363}
+  \item {name\_input}
+    \subitem {register\_screen.RegisterScreen}, \hyperpage{358}
+  \item {next\_blink}
+    \subitem {app.ui.display.FaceDisplay}, \hyperpage{215}
+  \item {next\_month}
+    \subitem {calendar\_screen.CalendarScreen}, \hyperpage{178}
+  \item {note\_screen}, \hyperpage{66}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{301}
+    \subitem {STYLE}, \hyperpage{66}
+  \item {note\_screen.NotesScreen}, \hyperpage{318}
+    \subitem {\_\_init\_\_}, \hyperpage{320}
+    \subitem {\_hide\_keyboard}, \hyperpage{321}
+    \subitem {\_show\_keyboard}, \hyperpage{321}
+    \subitem {add\_note}, \hyperpage{321}
+    \subitem {btn\_add}, \hyperpage{323}
+    \subitem {btn\_back}, \hyperpage{323}
+    \subitem {btn\_delete}, \hyperpage{324}
+    \subitem {content\_input}, \hyperpage{324}
+    \subitem {controller}, \hyperpage{324}
+    \subitem {delete\_note}, \hyperpage{322}
+    \subitem {go\_back}, \hyperpage{322}
+    \subitem {hideEvent}, \hyperpage{322}
+    \subitem {keyboard}, \hyperpage{324}
+    \subitem {list}, \hyperpage{324}
+    \subitem {refresh}, \hyperpage{323}
+    \subitem {search}, \hyperpage{324}
+    \subitem {store}, \hyperpage{324}
+    \subitem {title\_input}, \hyperpage{325}
+  \item {note\_store}, \hyperpage{67}
+  \item {note\_store.NotesStore}, \hyperpage{325}
+    \subitem {\_\_init\_\_}, \hyperpage{326}
+    \subitem {add\_note}, \hyperpage{326}
+    \subitem {load}, \hyperpage{327}
+    \subitem {notes}, \hyperpage{328}
+    \subitem {path}, \hyperpage{328}
+    \subitem {save\_all}, \hyperpage{327}
+    \subitem {search}, \hyperpage{327}
+  \item {notes}
+    \subitem {note\_store.NotesStore}, \hyperpage{328}
+  \item {num\_palabras}
+    \subitem {generate}, \hyperpage{53}
+
+  \indexspace
+
+  \item {obj\_index}
+    \subitem {find\_differences\_screen.Difference}, \hyperpage{198}
+  \item {objects\_a}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{234}
+  \item {objects\_b}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{234}
+  \item {obtener\_historial}
+    \subitem {app.core.memory}, \hyperpage{27}
+  \item {on\_accept}
+    \subitem {proactive.proactive\_screen.ProactiveScreen}, 
+		\hyperpage{347}
+  \item {on\_authenticated}
+    \subitem {app.ui.face\_client.FaceClient}, \hyperpage{209}
+  \item {on\_calendar\_created}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{130}
+  \item {on\_close}
+    \subitem {base\_app.BaseApp}, \hyperpage{141}
+  \item {on\_dismiss}
+    \subitem {proactive.proactive\_screen.ProactiveScreen}, 
+		\hyperpage{347}
+  \item {on\_error}
+    \subitem {app.ui.face\_client.FaceClient}, \hyperpage{207}
+    \subitem {login\_screen.LoginScreen}, \hyperpage{288}
+    \subitem {register\_screen.RegisterScreen}, \hyperpage{356}
+  \item {on\_open}
+    \subitem {base\_app.BaseApp}, \hyperpage{142}
+  \item {on\_proactive\_dismissed}
+    \subitem {app.core.robot\_controller.RobotController}, 
+		\hyperpage{388}
+  \item {on\_reminder\_created}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{130}
+  \item {on\_result}
+    \subitem {app.ui.face\_client.FaceClient}, \hyperpage{207}
+    \subitem {login\_screen.LoginScreen}, \hyperpage{288}
+  \item {on\_success}
+    \subitem {register\_screen.RegisterScreen}, \hyperpage{356}
+  \item {on\_suggest}
+    \subitem {proactive.proactive\_scheduler.ProactiveScheduler}, 
+		\hyperpage{336}
+  \item {on\_suggestion\_dismissed}
+    \subitem {proactive.proactive\_scheduler.ProactiveScheduler}, 
+		\hyperpage{332}
+  \item {on\_user\_authenticated}
+    \subitem {app.ui.app\_controller.AppController}, \hyperpage{109}
+  \item {open}
+    \subitem {app.core.camera\_manager.CameraManager}, \hyperpage{187}
+  \item {open\_app}
+    \subitem {app.core.robot\_controller.RobotController}, 
+		\hyperpage{388}
+    \subitem {app.ui.app\_controller.AppController}, \hyperpage{110}
+    \subitem {app.ui.state.UIState}, \hyperpage{462}
+    \subitem {launcher\_screen.LauncherScreen}, \hyperpage{266}
+  \item {open\_assistant}
+    \subitem {app.ui.app\_controller.AppController}, \hyperpage{110}
+    \subitem {base\_app.BaseApp}, \hyperpage{142}
+  \item {open\_date\_picker}
+    \subitem {reminder\_screen.ReminderScreen}, \hyperpage{372}
+  \item {open\_game}
+    \subitem {app.core.game\_router.GameRouter}, \hyperpage{240}
+    \subitem {app.core.robot\_controller.RobotController}, 
+		\hyperpage{389}
+
+  \indexspace
+
+  \item {P\_ACCENT}
+    \subitem {word\_search\_screen}, \hyperpage{102}
+  \item {P\_BACK\_BG}
+    \subitem {simon\_says\_screen}, \hyperpage{94}
+  \item {P\_BAR}
+    \subitem {memory\_screen}, \hyperpage{64}
+  \item {P\_BG\_BOTTOM}
+    \subitem {find\_differences\_screen}, \hyperpage{45}
+    \subitem {memory\_screen}, \hyperpage{64}
+    \subitem {simon\_says\_screen}, \hyperpage{94}
+    \subitem {word\_search\_screen}, \hyperpage{102}
+  \item {P\_BG\_TOP}
+    \subitem {find\_differences\_screen}, \hyperpage{45}
+    \subitem {memory\_screen}, \hyperpage{64}
+    \subitem {simon\_says\_screen}, \hyperpage{94}
+    \subitem {word\_search\_screen}, \hyperpage{103}
+  \item {P\_BORDER}
+    \subitem {memory\_screen}, \hyperpage{64}
+  \item {P\_BTN}
+    \subitem {memory\_screen}, \hyperpage{64}
+  \item {P\_BTN\_BACK}
+    \subitem {find\_differences\_screen}, \hyperpage{45}
+    \subitem {word\_search\_screen}, \hyperpage{103}
+  \item {P\_BTN\_EASY}
+    \subitem {find\_differences\_screen}, \hyperpage{45}
+  \item {P\_BTN\_EXIT}
+    \subitem {find\_differences\_screen}, \hyperpage{46}
+    \subitem {memory\_screen}, \hyperpage{64}
+  \item {P\_BTN\_HARD}
+    \subitem {find\_differences\_screen}, \hyperpage{46}
+  \item {P\_BTN\_HINT}
+    \subitem {word\_search\_screen}, \hyperpage{103}
+  \item {P\_BTN\_MEDIUM}
+    \subitem {find\_differences\_screen}, \hyperpage{46}
+  \item {P\_BTN\_TEXT}
+    \subitem {find\_differences\_screen}, \hyperpage{46}
+    \subitem {memory\_screen}, \hyperpage{65}
+    \subitem {simon\_says\_screen}, \hyperpage{94}
+    \subitem {word\_search\_screen}, \hyperpage{103}
+  \item {P\_CELL\_BORDER}
+    \subitem {word\_search\_screen}, \hyperpage{103}
+  \item {P\_CELL\_FOUND}
+    \subitem {word\_search\_screen}, \hyperpage{103}
+  \item {P\_CELL\_HINT}
+    \subitem {word\_search\_screen}, \hyperpage{103}
+  \item {P\_CELL\_NORMAL}
+    \subitem {word\_search\_screen}, \hyperpage{103}
+  \item {P\_CELL\_SELECT}
+    \subitem {word\_search\_screen}, \hyperpage{104}
+  \item {P\_FOUND\_RING}
+    \subitem {find\_differences\_screen}, \hyperpage{46}
+  \item {P\_MATCHED}
+    \subitem {memory\_screen}, \hyperpage{65}
+  \item {P\_MISS\_FLASH}
+    \subitem {find\_differences\_screen}, \hyperpage{46}
+  \item {P\_PANEL\_BG}
+    \subitem {find\_differences\_screen}, \hyperpage{46}
+  \item {P\_PANEL\_BORDER}
+    \subitem {find\_differences\_screen}, \hyperpage{46}
+    \subitem {simon\_says\_screen}, \hyperpage{94}
+    \subitem {word\_search\_screen}, \hyperpage{104}
+  \item {P\_SHADOW}
+    \subitem {find\_differences\_screen}, \hyperpage{47}
+    \subitem {simon\_says\_screen}, \hyperpage{95}
+    \subitem {word\_search\_screen}, \hyperpage{104}
+  \item {P\_SUBTITLE}
+    \subitem {find\_differences\_screen}, \hyperpage{47}
+    \subitem {memory\_screen}, \hyperpage{65}
+    \subitem {simon\_says\_screen}, \hyperpage{95}
+    \subitem {word\_search\_screen}, \hyperpage{104}
+  \item {P\_TITLE}
+    \subitem {find\_differences\_screen}, \hyperpage{47}
+    \subitem {memory\_screen}, \hyperpage{65}
+    \subitem {simon\_says\_screen}, \hyperpage{95}
+    \subitem {word\_search\_screen}, \hyperpage{104}
+  \item {P\_WORD\_DONE}
+    \subitem {word\_search\_screen}, \hyperpage{104}
+  \item {P\_WORD\_PANEL}
+    \subitem {word\_search\_screen}, \hyperpage{104}
+  \item {P\_WORD\_PENDING}
+    \subitem {word\_search\_screen}, \hyperpage{104}
+  \item {P\_WORD\_STRIKE}
+    \subitem {word\_search\_screen}, \hyperpage{104}
+  \item {paintEvent}
+    \subitem {boot\_screen.BootScreen}, \hyperpage{161}
+  \item {PALABRAS\_EVENTO}
+    \subitem {app.core.assistant\_engine}, \hyperpage{21}
+  \item {PALABRAS\_RECORDATORIO}
+    \subitem {app.core.assistant\_engine}, \hyperpage{21}
+  \item {panel\_title}
+    \subitem {calendar\_screen.CalendarScreen}, \hyperpage{181}
+  \item {parents}
+    \subitem {config}, \hyperpage{41}
+    \subitem {server}, \hyperpage{91}
+  \item {particles}
+    \subitem {memory\_screen.MemoryScreen}, \hyperpage{314}
+  \item {path}
+    \subitem {calendar\_store.CalendarStore}, \hyperpage{185}
+    \subitem {note\_store.NotesStore}, \hyperpage{328}
+    \subitem {reminder\_store.ReminderStore}, \hyperpage{377}
+  \item {PC\_URL}
+    \subitem {app.core.assistant}, \hyperpage{19}
+  \item {people\_path}
+    \subitem {server}, \hyperpage{91}
+  \item {PISTAS\_TEMPORALES}
+    \subitem {app.core.assistant\_engine}, \hyperpage{21}
+  \item {player\_index}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{445}
+  \item {PORT}
+    \subitem {config}, \hyperpage{41}
+  \item {port}
+    \subitem {server}, \hyperpage{91}
+  \item {possibilites}
+    \subitem {generate}, \hyperpage{54}
+  \item {prev\_month}
+    \subitem {calendar\_screen.CalendarScreen}, \hyperpage{178}
+  \item {proactive}, \hyperpage{67}
+  \item {proactive.proactive\_scheduler}, \hyperpage{67}
+    \subitem {DISPLAY\_AWAKE}, \hyperpage{67}
+    \subitem {DISPLAY\_IDLE}, \hyperpage{68}
+    \subitem {MEMORY\_SUGGESTIONS}, \hyperpage{68}
+    \subitem {MOBILITY\_SUGGESTIONS}, \hyperpage{68}
+    \subitem {SUGGESTION\_TIMEOUT}, \hyperpage{68}
+  \item {proactive.proactive\_scheduler.ProactiveScheduler}, 
+		\hyperpage{328}
+    \subitem {\_\_init\_\_}, \hyperpage{330}
+    \subitem {\_fire}, \hyperpage{331}
+    \subitem {\_fire\_lock}, \hyperpage{334}
+    \subitem {\_last\_memory}, \hyperpage{334}
+    \subitem {\_last\_mobility}, \hyperpage{334}
+    \subitem {\_loop}, \hyperpage{331}
+    \subitem {\_mem\_idx}, \hyperpage{334}
+    \subitem {\_mob\_idx}, \hyperpage{334}
+    \subitem {\_next\_type}, \hyperpage{335}
+    \subitem {\_pick}, \hyperpage{332}
+    \subitem {\_restore\_display}, \hyperpage{332}
+    \subitem {\_stop\_evt}, \hyperpage{335}
+    \subitem {\_suggestion\_active}, \hyperpage{335}
+    \subitem {\_suggestion\_fired\_at}, \hyperpage{335}
+    \subitem {\_thread}, \hyperpage{335}
+    \subitem {display}, \hyperpage{335}
+    \subitem {get\_stt\_state}, \hyperpage{335}
+    \subitem {memory\_interval}, \hyperpage{335}
+    \subitem {mobility\_interval}, \hyperpage{336}
+    \subitem {on\_suggest}, \hyperpage{336}
+    \subitem {on\_suggestion\_dismissed}, \hyperpage{332}
+    \subitem {start}, \hyperpage{333}
+    \subitem {start\_delay}, \hyperpage{336}
+    \subitem {stop}, \hyperpage{333}
+    \subitem {trigger\_memory}, \hyperpage{333}
+    \subitem {trigger\_mobility}, \hyperpage{333}
+    \subitem {tts}, \hyperpage{336}
+  \item {proactive.proactive\_screen}, \hyperpage{69}
+    \subitem {ANIM\_ACCENT}, \hyperpage{69}
+    \subitem {ANIM\_CIRCLE\_BG}, \hyperpage{69}
+    \subitem {ANIM\_CIRCLE\_BR}, \hyperpage{69}
+    \subitem {ANIM\_CLOTHES}, \hyperpage{70}
+    \subitem {ANIM\_HAIR}, \hyperpage{70}
+    \subitem {ANIM\_SKIN}, \hyperpage{70}
+    \subitem {BG\_BOTTOM}, \hyperpage{70}
+    \subitem {BG\_TOP}, \hyperpage{70}
+    \subitem {BODY\_COL}, \hyperpage{70}
+    \subitem {BTN\_NO\_BG}, \hyperpage{70}
+    \subitem {BTN\_NO\_BORDER}, \hyperpage{70}
+    \subitem {BTN\_NO\_TEXT}, \hyperpage{71}
+    \subitem {BTN\_YES\_BG}, \hyperpage{71}
+    \subitem {BTN\_YES\_BORDER}, \hyperpage{71}
+    \subitem {BTN\_YES\_TEXT}, \hyperpage{71}
+    \subitem {DIVIDER}, \hyperpage{71}
+    \subitem {SHADOW\_COL}, \hyperpage{71}
+    \subitem {TAG\_MEM\_BG}, \hyperpage{71}
+    \subitem {TAG\_MEM\_FG}, \hyperpage{71}
+    \subitem {TAG\_MOB\_BG}, \hyperpage{72}
+    \subitem {TAG\_MOB\_FG}, \hyperpage{72}
+    \subitem {TITLE\_COL}, \hyperpage{72}
+    \subitem {WHITE}, \hyperpage{72}
+  \item {proactive.proactive\_screen.ProactiveScreen}, \hyperpage{337}
+    \subitem {\_\_init\_\_}, \hyperpage{339}
+    \subitem {\_anim\_brain}, \hyperpage{340}
+    \subitem {\_anim\_breath}, \hyperpage{340}
+    \subitem {\_anim\_hands}, \hyperpage{340}
+    \subitem {\_anim\_neck}, \hyperpage{341}
+    \subitem {\_anim\_shoulders}, \hyperpage{341}
+    \subitem {\_anim\_walk}, \hyperpage{341}
+    \subitem {\_appear}, \hyperpage{346}
+    \subitem {\_btn}, \hyperpage{342}
+    \subitem {\_dismissed}, \hyperpage{346}
+    \subitem {\_draw\_animation}, \hyperpage{342}
+    \subitem {\_draw\_bg}, \hyperpage{343}
+    \subitem {\_draw\_buttons}, \hyperpage{343}
+    \subitem {\_draw\_tag}, \hyperpage{344}
+    \subitem {\_figure}, \hyperpage{344}
+    \subitem {\_render\_wrapped\_text}, \hyperpage{345}
+    \subitem {\_t}, \hyperpage{346}
+    \subitem {btn\_no}, \hyperpage{347}
+    \subitem {btn\_yes}, \hyperpage{347}
+    \subitem {f\_body}, \hyperpage{347}
+    \subitem {f\_btn}, \hyperpage{347}
+    \subitem {f\_tag}, \hyperpage{347}
+    \subitem {f\_title}, \hyperpage{347}
+    \subitem {mousePressEvent}, \hyperpage{345}
+    \subitem {on\_accept}, \hyperpage{347}
+    \subitem {on\_dismiss}, \hyperpage{347}
+    \subitem {render}, \hyperpage{345}
+    \subitem {suggestion}, \hyperpage{348}
+    \subitem {update\_logic}, \hyperpage{346}
+  \item {proactive\_scheduler}
+    \subitem {app.core.robot\_controller.RobotController}, 
+		\hyperpage{391}
+  \item {proactive\_screen}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{302}
+  \item {procesar\_texto}
+    \subitem {app.core.assistant}, \hyperpage{18}
+  \item {process}
+    \subitem {app.voice.stt\_vosk.VoskSTT}, \hyperpage{472}
+    \subitem {app.voice.tts.TTS}, \hyperpage{456}
+  \item {process\_service}, \hyperpage{72}
+  \item {process\_service.ProcessService}, \hyperpage{348}
+    \subitem {APP\_DIR}, \hyperpage{351}
+    \subitem {BASE\_DIR}, \hyperpage{351}
+    \subitem {COMMANDS}, \hyperpage{351}
+    \subitem {is\_running}, \hyperpage{349}
+    \subitem {processes}, \hyperpage{351}
+    \subitem {start}, \hyperpage{349}
+    \subitem {stop}, \hyperpage{350}
+    \subitem {WORKDIR}, \hyperpage{352}
+  \item {processes}
+    \subitem {process\_service.ProcessService}, \hyperpage{351}
+  \item {progress}
+    \subitem {app.ui.face\_client.FaceClient}, \hyperpage{209}
+    \subitem {register\_screen.RegisterScreen}, \hyperpage{358}
+  \item {PROMPT\_DEL\_SISTEMA}
+    \subitem {app.core.assistant}, \hyperpage{19}
+    \subitem {app.core.assistant\_engine}, \hyperpage{21}
+  \item {prompts}
+    \subitem {main}, \hyperpage{63}
+  \item {propagate}
+    \subitem {app.core.logger}, \hyperpage{25}
+  \item {put\_in\_word}
+    \subitem {generate}, \hyperpage{52}
+
+  \indexspace
+
+  \item {q}
+    \subitem {app.voice.audio\_stream.AudioStream}, \hyperpage{138}
+
+  \indexspace
+
+  \item {read}
+    \subitem {app.core.camera\_manager.CameraManager}, \hyperpage{188}
+  \item {READY\_PAUSE\_SEC}
+    \subitem {simon\_says\_screen}, \hyperpage{95}
+  \item {reboot\_system}
+    \subitem {app.button}, \hyperpage{14}
+  \item {rec}
+    \subitem {app.voice.stt\_vosk.VoskSTT}, \hyperpage{473}
+  \item {recognition\_url}
+    \subitem {app.core.config.Config}, \hyperpage{192}
+  \item {recognize}
+    \subitem {face\_service.FaceService}, \hyperpage{217}
+    \subitem {routes\_face}, \hyperpage{78}
+    \subitem {server}, \hyperpage{86}
+  \item {record}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{445}
+  \item {RED\_PIN}
+    \subitem {app.led\_status}, \hyperpage{30}
+  \item {refresh}
+    \subitem {calendar\_screen.CalendarScreen}, \hyperpage{179}
+    \subitem {note\_screen.NotesScreen}, \hyperpage{323}
+    \subitem {reminder\_screen.ReminderScreen}, \hyperpage{372}
+  \item {refresh\_calendar\_signal}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{302}
+  \item {refresh\_reminders\_signal}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{302}
+  \item {register}
+    \subitem {app.ui.app\_controller.AppController}, \hyperpage{111}
+    \subitem {face\_service.FaceService}, \hyperpage{218}
+    \subitem {routes\_face}, \hyperpage{79}
+    \subitem {server}, \hyperpage{87}
+  \item {register\_images}
+    \subitem {app.ui.face\_client.FaceClient}, \hyperpage{209}
+  \item {register\_name}
+    \subitem {app.ui.face\_client.FaceClient}, \hyperpage{210}
+  \item {register\_screen}, \hyperpage{72}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{302}
+  \item {register\_screen.RegisterScreen}, \hyperpage{352}
+    \subitem {\_\_init\_\_}, \hyperpage{355}
+    \subitem {btn\_back}, \hyperpage{357}
+    \subitem {btn\_capture}, \hyperpage{357}
+    \subitem {camera}, \hyperpage{358}
+    \subitem {capture}, \hyperpage{356}
+    \subitem {config}, \hyperpage{358}
+    \subitem {controller}, \hyperpage{358}
+    \subitem {frame}, \hyperpage{358}
+    \subitem {go\_back}, \hyperpage{356}
+    \subitem {images}, \hyperpage{358}
+    \subitem {name\_input}, \hyperpage{358}
+    \subitem {on\_error}, \hyperpage{356}
+    \subitem {on\_success}, \hyperpage{356}
+    \subitem {progress}, \hyperpage{358}
+    \subitem {send}, \hyperpage{357}
+    \subitem {step}, \hyperpage{358}
+    \subitem {step\_label}, \hyperpage{359}
+    \subitem {timer}, \hyperpage{359}
+    \subitem {title}, \hyperpage{359}
+    \subitem {update\_frame}, \hyperpage{357}
+    \subitem {worker}, \hyperpage{359}
+  \item {register\_screen.RegisterWorker}, \hyperpage{360}
+    \subitem {\_\_init\_\_}, \hyperpage{362}
+    \subitem {error}, \hyperpage{362}
+    \subitem {images}, \hyperpage{363}
+    \subitem {name}, \hyperpage{363}
+    \subitem {run}, \hyperpage{362}
+    \subitem {success}, \hyperpage{363}
+    \subitem {url}, \hyperpage{363}
+  \item {release}
+    \subitem {app.core.camera\_manager.CameraManager}, \hyperpage{188}
+  \item {remember}
+    \subitem {face\_service.FaceService}, \hyperpage{218}
+    \subitem {routes\_face}, \hyperpage{79}
+    \subitem {server}, \hyperpage{87}
+  \item {reminder\_scheduler}, \hyperpage{73}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{131}
+    \subitem {app.core.robot\_controller.RobotController}, 
+		\hyperpage{391}
+    \subitem {server}, \hyperpage{88}
+  \item {reminder\_scheduler.ReminderScheduler}, \hyperpage{363}
+    \subitem {\_\_init\_\_}, \hyperpage{364}
+    \subitem {\_loop}, \hyperpage{365}
+    \subitem {display}, \hyperpage{366}
+    \subitem {running}, \hyperpage{366}
+    \subitem {start}, \hyperpage{365}
+    \subitem {stop}, \hyperpage{365}
+    \subitem {store}, \hyperpage{366}
+    \subitem {tts}, \hyperpage{366}
+  \item {reminder\_screen}, \hyperpage{73}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{302}
+    \subitem {DATE\_DIALOG\_STYLE}, \hyperpage{73}
+    \subitem {STYLE}, \hyperpage{73}
+  \item {reminder\_screen.DateTimePickerDialog}, \hyperpage{194}
+    \subitem {\_\_init\_\_}, \hyperpage{195}
+    \subitem {calendar}, \hyperpage{196}
+    \subitem {get\_datetime\_str}, \hyperpage{196}
+    \subitem {hour\_spin}, \hyperpage{196}
+    \subitem {min\_spin}, \hyperpage{196}
+  \item {reminder\_screen.ReminderScreen}, \hyperpage{367}
+    \subitem {\_\_init\_\_}, \hyperpage{369}
+    \subitem {\_hide\_keyboard}, \hyperpage{370}
+    \subitem {\_selected\_dt}, \hyperpage{373}
+    \subitem {\_show\_keyboard}, \hyperpage{370}
+    \subitem {add\_reminder}, \hyperpage{370}
+    \subitem {btn\_add}, \hyperpage{373}
+    \subitem {btn\_back}, \hyperpage{373}
+    \subitem {btn\_delete}, \hyperpage{373}
+    \subitem {btn\_pick\_date}, \hyperpage{373}
+    \subitem {controller}, \hyperpage{373}
+    \subitem {date\_display}, \hyperpage{373}
+    \subitem {delete\_reminder}, \hyperpage{371}
+    \subitem {go\_back}, \hyperpage{371}
+    \subitem {hideEvent}, \hyperpage{371}
+    \subitem {input\_text}, \hyperpage{373}
+    \subitem {keyboard}, \hyperpage{374}
+    \subitem {list}, \hyperpage{374}
+    \subitem {open\_date\_picker}, \hyperpage{372}
+    \subitem {refresh}, \hyperpage{372}
+    \subitem {store}, \hyperpage{374}
+    \subitem {title}, \hyperpage{374}
+  \item {reminder\_store}, \hyperpage{73}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{131}
+    \subitem {app.core.robot\_controller.RobotController}, 
+		\hyperpage{391}
+  \item {reminder\_store.ReminderStore}, \hyperpage{374}
+    \subitem {\_\_init\_\_}, \hyperpage{375}
+    \subitem {add}, \hyperpage{375}
+    \subitem {get\_pending}, \hyperpage{376}
+    \subitem {load}, \hyperpage{376}
+    \subitem {mark\_done}, \hyperpage{376}
+    \subitem {path}, \hyperpage{377}
+    \subitem {save}, \hyperpage{377}
+  \item {remote}
+    \subitem {app.core.logger}, \hyperpage{25}
+  \item {remote\_logger}, \hyperpage{74}
+  \item {remote\_logger.RemoteHandler}, \hyperpage{380}
+    \subitem {\_\_init\_\_}, \hyperpage{382}
+    \subitem {emit}, \hyperpage{382}
+    \subitem {url}, \hyperpage{383}
+  \item {render}
+    \subitem {base\_pygame\_qt\_screen.BasePygameQtScreen}, 
+		\hyperpage{150}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{229}
+    \subitem {memory\_screen.MemoryScreen}, \hyperpage{311}
+    \subitem {proactive.proactive\_screen.ProactiveScreen}, 
+		\hyperpage{345}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{439}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{489}
+  \item {repeats}
+    \subitem {main}, \hyperpage{63}
+  \item {reset}
+    \subitem {app.ui.state.UIState}, \hyperpage{462}
+  \item {resizeEvent}
+    \subitem {base\_pygame\_qt\_screen.BasePygameQtScreen}, 
+		\hyperpage{151}
+  \item {result\_signal}
+    \subitem {app.ui.face\_client.Worker}, \hyperpage{497}
+    \subitem {login\_screen.Worker}, \hyperpage{499}
+  \item {results}
+    \subitem {main}, \hyperpage{63}
+  \item {robot\_hablando}
+    \subitem {app.ui.display.FaceDisplay}, \hyperpage{216}
+  \item {root}
+    \subitem {main}, \hyperpage{61}
+    \subitem {speaking\_server}, \hyperpage{97}
+  \item {router}
+    \subitem {routes\_dashboard}, \hyperpage{77}
+    \subitem {routes\_face}, \hyperpage{80}
+    \subitem {routes\_llm}, \hyperpage{81}
+  \item {routes\_dashboard}, \hyperpage{74}
+    \subitem {all\_logs}, \hyperpage{74}
+    \subitem {clear}, \hyperpage{74}
+    \subitem {logs}, \hyperpage{75}
+    \subitem {router}, \hyperpage{77}
+    \subitem {start\_service}, \hyperpage{76}
+    \subitem {status}, \hyperpage{76}
+    \subitem {stop\_service}, \hyperpage{77}
+  \item {routes\_face}, \hyperpage{78}
+    \subitem {get\_memories}, \hyperpage{78}
+    \subitem {recognize}, \hyperpage{78}
+    \subitem {register}, \hyperpage{79}
+    \subitem {remember}, \hyperpage{79}
+    \subitem {router}, \hyperpage{80}
+  \item {routes\_llm}, \hyperpage{80}
+    \subitem {generate}, \hyperpage{80}
+    \subitem {health}, \hyperpage{81}
+    \subitem {router}, \hyperpage{81}
+  \item {ROWS\_LOWER}
+    \subitem {keyboard\_widget}, \hyperpage{55}
+  \item {ROWS\_UPPER}
+    \subitem {keyboard\_widget}, \hyperpage{55}
+  \item {run}
+    \subitem {app.ui.face\_client.Worker}, \hyperpage{496}
+    \subitem {login\_screen.Worker}, \hyperpage{499}
+    \subitem {register\_screen.RegisterWorker}, \hyperpage{362}
+    \subitem {runner.BenchmarkRunner}, \hyperpage{156}
+  \item {runner}, \hyperpage{81}
+    \subitem {main}, \hyperpage{63}
+  \item {runner.BenchmarkRunner}, \hyperpage{155}
+    \subitem {\_\_init\_\_}, \hyperpage{155}
+    \subitem {models}, \hyperpage{157}
+    \subitem {run}, \hyperpage{156}
+    \subitem {safe\_run}, \hyperpage{156}
+  \item {running}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{131}
+    \subitem {app.ui.display.FaceDisplay}, \hyperpage{216}
+    \subitem {app.voice.stt\_vosk.VoskSTT}, \hyperpage{473}
+    \subitem {base\_pygame\_qt\_screen.BasePygameQtScreen}, 
+		\hyperpage{154}
+    \subitem {reminder\_scheduler.ReminderScheduler}, \hyperpage{366}
+
+  \indexspace
+
+  \item {safe\_run}
+    \subitem {runner.BenchmarkRunner}, \hyperpage{156}
+  \item {samplerate}
+    \subitem {app.voice.audio\_stream.AudioStream}, \hyperpage{139}
+  \item {save}
+    \subitem {app.core.session\_manager.SessionManager}, 
+		\hyperpage{399}
+    \subitem {calendar\_store.CalendarStore}, \hyperpage{185}
+    \subitem {reminder\_store.ReminderStore}, \hyperpage{377}
+  \item {save\_all}
+    \subitem {note\_store.NotesStore}, \hyperpage{327}
+  \item {save\_known\_faces}
+    \subitem {server}, \hyperpage{88}
+  \item {save\_result}
+    \subitem {storage}, \hyperpage{99}
+  \item {scheduler\_thread}
+    \subitem {server}, \hyperpage{91}
+  \item {schemas}, \hyperpage{82}
+  \item {score}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{445}
+  \item {screen\_changed}
+    \subitem {app.ui.state.UIState}, \hyperpage{466}
+  \item {screens}
+    \subitem {app.ui.app\_controller.AppController}, \hyperpage{112}
+  \item {scroll\_offset}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{493}
+  \item {search}
+    \subitem {note\_screen.NotesScreen}, \hyperpage{324}
+    \subitem {note\_store.NotesStore}, \hyperpage{327}
+  \item {second}
+    \subitem {memory\_screen.MemoryScreen}, \hyperpage{314}
+  \item {selected}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{493}
+  \item {send}
+    \subitem {register\_screen.RegisterScreen}, \hyperpage{357}
+  \item {sequence}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{445}
+  \item {server}, \hyperpage{82}
+    \subitem {add\_reminder}, \hyperpage{83}
+    \subitem {app}, \hyperpage{89}
+    \subitem {app.core.config.Config}, \hyperpage{193}
+    \subitem {complete\_reminder}, \hyperpage{83}
+    \subitem {curr\_dir}, \hyperpage{89}
+    \subitem {data\_path}, \hyperpage{89}
+    \subitem {db\_path}, \hyperpage{89}
+    \subitem {debug}, \hyperpage{89}
+    \subitem {exist\_ok}, \hyperpage{89}
+    \subitem {format}, \hyperpage{90}
+    \subitem {get\_connection}, \hyperpage{84}
+    \subitem {get\_memories}, \hyperpage{84}
+    \subitem {get\_reminders}, \hyperpage{85}
+    \subitem {handlers}, \hyperpage{90}
+    \subitem {host}, \hyperpage{90}
+    \subitem {init\_database}, \hyperpage{85}
+    \subitem {known\_face\_encodings}, \hyperpage{90}
+    \subitem {level}, \hyperpage{90}
+    \subitem {load\_known\_faces}, \hyperpage{86}
+    \subitem {log}, \hyperpage{86}
+    \subitem {LOG\_DIR}, \hyperpage{90}
+    \subitem {log\_file}, \hyperpage{90}
+    \subitem {logger}, \hyperpage{91}
+    \subitem {parents}, \hyperpage{91}
+    \subitem {people\_path}, \hyperpage{91}
+    \subitem {port}, \hyperpage{91}
+    \subitem {recognize}, \hyperpage{86}
+    \subitem {register}, \hyperpage{87}
+    \subitem {remember}, \hyperpage{87}
+    \subitem {reminder\_scheduler}, \hyperpage{88}
+    \subitem {save\_known\_faces}, \hyperpage{88}
+    \subitem {scheduler\_thread}, \hyperpage{91}
+    \subitem {True}, \hyperpage{91}
+  \item {server/server.py}, \hyperpage{519}
+  \item {server/speaking\_server.py}, \hyperpage{520}
+  \item {SERVER\_URL}
+    \subitem {app.core.logger}, \hyperpage{25}
+    \subitem {app.ui.face\_client}, \hyperpage{32}
+  \item {server\_url}
+    \subitem {app.llm.client.LLMClient}, \hyperpage{272}
+    \subitem {app.ui.face\_client.FaceClient}, \hyperpage{210}
+  \item {services/llm\_service.py}, \hyperpage{521}
+  \item {session}
+    \subitem {app.core.robot\_controller.RobotController}, 
+		\hyperpage{391}
+  \item {set\_difficulty}
+    \subitem {generate}, \hyperpage{53}
+  \item {set\_emotion}
+    \subitem {app.ui.display.FaceDisplay}, \hyperpage{213}
+  \item {set\_error}
+    \subitem {app.ui.state.UIState}, \hyperpage{463}
+  \item {set\_estado}
+    \subitem {app.ui.display.FaceDisplay}, \hyperpage{213}
+  \item {set\_listening}
+    \subitem {app.ui.state.UIState}, \hyperpage{463}
+  \item {set\_loading}
+    \subitem {app.ui.state.UIState}, \hyperpage{463}
+  \item {set\_message}
+    \subitem {error\_screen.ErrorScreen}, \hyperpage{201}
+  \item {set\_screen}
+    \subitem {app.ui.state.UIState}, \hyperpage{463}
+  \item {set\_speaking}
+    \subitem {app.ui.state.UIState}, \hyperpage{464}
+  \item {set\_state}
+    \subitem {app.core.state\_machine.StateMachine}, \hyperpage{448}
+    \subitem {assistant\_screen.AssistantScreen}, \hyperpage{135}
+  \item {set\_status}
+    \subitem {app.ui.state.UIState}, \hyperpage{464}
+  \item {set\_talking}
+    \subitem {app.ui.display.FaceDisplay}, \hyperpage{214}
+  \item {set\_target}
+    \subitem {keyboard\_widget.KeyboardWidget}, \hyperpage{257}
+  \item {set\_theme}
+    \subitem {app.ui.state.UIState}, \hyperpage{464}
+  \item {set\_ui}
+    \subitem {app.core.robot\_controller.RobotController}, 
+		\hyperpage{389}
+  \item {set\_user}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{127}
+    \subitem {app.ui.state.UIState}, \hyperpage{465}
+    \subitem {launcher\_screen.LauncherScreen}, \hyperpage{264}
+  \item {SETTINGS}
+    \subitem {app.core.state\_machine.StateMachine}, \hyperpage{450}
+  \item {settings\_screen}, \hyperpage{92}
+    \subitem {\_card}, \hyperpage{92}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{302}
+    \subitem {STYLE}, \hyperpage{92}
+  \item {settings\_screen.SettingsScreen}, \hyperpage{400}
+    \subitem {\_\_init\_\_}, \hyperpage{406}
+    \subitem {\_bt\_disable}, \hyperpage{407}
+    \subitem {\_bt\_enable}, \hyperpage{408}
+    \subitem {\_bt\_refresh\_state}, \hyperpage{408, 409}
+    \subitem {\_bt\_scan}, \hyperpage{409, 410}
+    \subitem {\_bt\_scan\_done}, \hyperpage{422}
+    \subitem {\_bt\_scan\_thread}, \hyperpage{410}
+    \subitem {\_change\_volume}, \hyperpage{410, 411}
+    \subitem {\_clean\_logs}, \hyperpage{411}
+    \subitem {\_clean\_tmp}, \hyperpage{412}
+    \subitem {\_clock\_timer}, \hyperpage{422}
+    \subitem {\_go\_back}, \hyperpage{412}
+    \subitem {\_maint\_clear\_timer}, \hyperpage{422}
+    \subitem {\_make\_stat}, \hyperpage{412}
+    \subitem {\_on\_bt\_scan\_done}, \hyperpage{413}
+    \subitem {\_on\_wifi\_info\_done}, \hyperpage{414}
+    \subitem {\_run\_cmd}, \hyperpage{414}
+    \subitem {\_safe\_poweroff}, \hyperpage{415}
+    \subitem {\_safe\_restart}, \hyperpage{415}
+    \subitem {\_sys\_timer}, \hyperpage{422}
+    \subitem {\_update\_clock}, \hyperpage{415, 416}
+    \subitem {\_update\_system}, \hyperpage{416}
+    \subitem {\_update\_volume}, \hyperpage{416}
+    \subitem {\_wifi\_disable}, \hyperpage{416, 417}
+    \subitem {\_wifi\_enable}, \hyperpage{417}
+    \subitem {\_wifi\_info\_done}, \hyperpage{422}
+    \subitem {\_wifi\_refresh}, \hyperpage{418}
+    \subitem {\_wifi\_refresh\_thread}, \hyperpage{418, 419}
+    \subitem {\_wrap\_stat}, \hyperpage{419}
+    \subitem {bar\_cpu}, \hyperpage{422}
+    \subitem {bar\_disk}, \hyperpage{422}
+    \subitem {bar\_ram}, \hyperpage{422}
+    \subitem {bar\_vol}, \hyperpage{423}
+    \subitem {btn\_back}, \hyperpage{423}
+    \subitem {btn\_bt\_off}, \hyperpage{423}
+    \subitem {btn\_bt\_on}, \hyperpage{423}
+    \subitem {btn\_bt\_scan}, \hyperpage{423}
+    \subitem {btn\_clean\_logs}, \hyperpage{423}
+    \subitem {btn\_clean\_tmp}, \hyperpage{423}
+    \subitem {btn\_poweroff}, \hyperpage{423}
+    \subitem {btn\_restart}, \hyperpage{424}
+    \subitem {btn\_vol\_down}, \hyperpage{424}
+    \subitem {btn\_vol\_up}, \hyperpage{424}
+    \subitem {btn\_wifi\_off}, \hyperpage{424}
+    \subitem {btn\_wifi\_on}, \hyperpage{424}
+    \subitem {btn\_wifi\_refresh}, \hyperpage{424}
+    \subitem {controller}, \hyperpage{424}
+    \subitem {hideEvent}, \hyperpage{419, 420}
+    \subitem {lbl\_bt\_state}, \hyperpage{424}
+    \subitem {lbl\_date}, \hyperpage{425}
+    \subitem {lbl\_maint\_status}, \hyperpage{425}
+    \subitem {lbl\_temp}, \hyperpage{425}
+    \subitem {lbl\_time}, \hyperpage{425}
+    \subitem {lbl\_uptime}, \hyperpage{425}
+    \subitem {lbl\_vol}, \hyperpage{425}
+    \subitem {lbl\_wifi\_ip}, \hyperpage{425}
+    \subitem {lbl\_wifi\_net}, \hyperpage{425}
+    \subitem {list\_bt}, \hyperpage{426}
+    \subitem {showEvent}, \hyperpage{420, 421}
+  \item {SHADOW\_COL}
+    \subitem {proactive.proactive\_screen}, \hyperpage{71}
+  \item {shape}
+    \subitem {find\_differences\_screen.SceneObject}, \hyperpage{395}
+  \item {show\_assistant}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{297}
+  \item {show\_boot}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{297}
+  \item {show\_browser}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{298}
+  \item {show\_calendar}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{298}
+  \item {show\_error}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{298}
+  \item {show\_find\_differences}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{298}
+  \item {show\_games}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{298}
+  \item {show\_index}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{445}
+  \item {show\_launcher}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{298}
+  \item {show\_login}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{299}
+  \item {show\_memory}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{299}
+  \item {show\_notes}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{299}
+  \item {show\_proactive\_signal}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{302}
+  \item {show\_register}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{299}
+  \item {show\_reminder}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{299}
+  \item {show\_settings}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{299}
+  \item {show\_simon\_says}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{300}
+  \item {show\_word\_search}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{300}
+  \item {showEvent}
+    \subitem {base\_pygame\_qt\_screen.BasePygameQtScreen}, 
+		\hyperpage{151}
+    \subitem {browser\_screen.BrowserScreen}, \hyperpage{170}
+    \subitem {login\_screen.LoginScreen}, \hyperpage{288}
+    \subitem {settings\_screen.SettingsScreen}, \hyperpage{420, 421}
+  \item {SHUTDOWN}
+    \subitem {app.core.state\_machine.StateMachine}, \hyperpage{450}
+  \item {shutdown}
+    \subitem {app.core.robot\_controller.RobotController}, 
+		\hyperpage{390}
+    \subitem {app.main}, \hyperpage{31}
+  \item {SIMON\_BUTTONS}
+    \subitem {simon\_says\_screen}, \hyperpage{95}
+  \item {simon\_says\_screen}, \hyperpage{93}
+    \subitem {\_fit\_font}, \hyperpage{93}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{302}
+    \subitem {DIFFICULTY}, \hyperpage{94}
+    \subitem {P\_BACK\_BG}, \hyperpage{94}
+    \subitem {P\_BG\_BOTTOM}, \hyperpage{94}
+    \subitem {P\_BG\_TOP}, \hyperpage{94}
+    \subitem {P\_BTN\_TEXT}, \hyperpage{94}
+    \subitem {P\_PANEL\_BORDER}, \hyperpage{94}
+    \subitem {P\_SHADOW}, \hyperpage{95}
+    \subitem {P\_SUBTITLE}, \hyperpage{95}
+    \subitem {P\_TITLE}, \hyperpage{95}
+    \subitem {READY\_PAUSE\_SEC}, \hyperpage{95}
+    \subitem {SIMON\_BUTTONS}, \hyperpage{95}
+  \item {simon\_says\_screen.SimonSaysScreen}, \hyperpage{426}
+    \subitem {\_\_init\_\_}, \hyperpage{431}
+    \subitem {\_add\_to\_sequence}, \hyperpage{431}
+    \subitem {\_calculate\_layout}, \hyperpage{431}
+    \subitem {\_circle\_centers}, \hyperpage{441}
+    \subitem {\_circle\_r}, \hyperpage{442}
+    \subitem {\_draw\_bg}, \hyperpage{432}
+    \subitem {\_draw\_circles}, \hyperpage{432}
+    \subitem {\_draw\_color\_label}, \hyperpage{432}
+    \subitem {\_draw\_feedback\_overlay}, \hyperpage{433}
+    \subitem {\_draw\_footer}, \hyperpage{433}
+    \subitem {\_draw\_game}, \hyperpage{434}
+    \subitem {\_draw\_header}, \hyperpage{434}
+    \subitem {\_draw\_menu}, \hyperpage{435}
+    \subitem {\_draw\_win}, \hyperpage{435}
+    \subitem {\_feedback\_timer}, \hyperpage{442}
+    \subitem {\_handle\_press}, \hyperpage{436}
+    \subitem {\_init\_sounds}, \hyperpage{436}
+    \subitem {\_layout\_done}, \hyperpage{442}
+    \subitem {\_phase}, \hyperpage{442}
+    \subitem {\_play\_sound}, \hyperpage{436}
+    \subitem {\_pulse}, \hyperpage{442}
+    \subitem {\_pulse\_dir}, \hyperpage{442}
+    \subitem {\_show\_timer}, \hyperpage{443}
+    \subitem {\_sounds}, \hyperpage{443}
+    \subitem {\_sounds\_loaded}, \hyperpage{443}
+    \subitem {\_start\_showing}, \hyperpage{437}
+    \subitem {\_update\_showing}, \hyperpage{437}
+    \subitem {btn\_back}, \hyperpage{443}
+    \subitem {btn\_easy}, \hyperpage{443}
+    \subitem {btn\_exit}, \hyperpage{443}
+    \subitem {btn\_hard}, \hyperpage{444}
+    \subitem {btn\_medium}, \hyperpage{444}
+    \subitem {difficulty}, \hyperpage{444}
+    \subitem {exit\_game}, \hyperpage{437}
+    \subitem {FEEDBACK\_DUR}, \hyperpage{444}
+    \subitem {FOOTER\_H}, \hyperpage{444}
+    \subitem {HEADER\_H}, \hyperpage{444}
+    \subitem {LABEL\_H}, \hyperpage{444}
+    \subitem {lit\_button}, \hyperpage{445}
+    \subitem {mousePressEvent}, \hyperpage{438}
+    \subitem {player\_index}, \hyperpage{445}
+    \subitem {record}, \hyperpage{445}
+    \subitem {render}, \hyperpage{439}
+    \subitem {score}, \hyperpage{445}
+    \subitem {sequence}, \hyperpage{445}
+    \subitem {show\_index}, \hyperpage{445}
+    \subitem {start\_game}, \hyperpage{440}
+    \subitem {state}, \hyperpage{446}
+    \subitem {update\_logic}, \hyperpage{441}
+  \item {sound\_flip}
+    \subitem {memory\_screen.MemoryScreen}, \hyperpage{314}
+  \item {sound\_win}
+    \subitem {memory\_screen.MemoryScreen}, \hyperpage{314}
+  \item {sound\_wrong}
+    \subitem {memory\_screen.MemoryScreen}, \hyperpage{314}
+  \item {speak}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{128}
+    \subitem {app.voice.tts.TTS}, \hyperpage{454}
+  \item {speaking\_changed}
+    \subitem {app.ui.state.UIState}, \hyperpage{467}
+  \item {speaking\_server}, \hyperpage{96}
+    \subitem {app}, \hyperpage{97}
+    \subitem {exist\_ok}, \hyperpage{97}
+    \subitem {format}, \hyperpage{97}
+    \subitem {generate}, \hyperpage{96}
+    \subitem {handlers}, \hyperpage{97}
+    \subitem {level}, \hyperpage{98}
+    \subitem {LOG\_DIR}, \hyperpage{98}
+    \subitem {log\_file}, \hyperpage{98}
+    \subitem {logger}, \hyperpage{98}
+    \subitem {models}, \hyperpage{98}
+    \subitem {root}, \hyperpage{97}
+  \item {SQUARE}
+    \subitem {memory\_screen.MemoryScreen}, \hyperpage{315}
+  \item {stack}
+    \subitem {app.ui.app\_controller.AppController}, \hyperpage{112}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{303}
+  \item {start}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{128}
+    \subitem {app.core.robot\_controller.RobotController}, 
+		\hyperpage{390}
+    \subitem {app.ui.app\_controller.AppController}, \hyperpage{111}
+    \subitem {app.ui.display.FaceDisplay}, \hyperpage{214}
+    \subitem {app.voice.audio\_stream.AudioStream}, \hyperpage{138}
+    \subitem {base\_pygame\_qt\_screen.BasePygameQtScreen}, 
+		\hyperpage{152}
+    \subitem {proactive.proactive\_scheduler.ProactiveScheduler}, 
+		\hyperpage{333}
+    \subitem {process\_service.ProcessService}, \hyperpage{349}
+    \subitem {reminder\_scheduler.ReminderScheduler}, \hyperpage{365}
+  \item {start\_delay}
+    \subitem {proactive.proactive\_scheduler.ProactiveScheduler}, 
+		\hyperpage{336}
+  \item {start\_game}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{230}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{440}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{489}
+  \item {start\_register}
+    \subitem {app.ui.face\_client.FaceClient}, \hyperpage{208}
+  \item {start\_service}
+    \subitem {routes\_dashboard}, \hyperpage{76}
+  \item {start\_stop\_ui}
+    \subitem {app.button}, \hyperpage{14}
+  \item {start\_stream}
+    \subitem {app.voice.audio\_stream}, \hyperpage{35}
+  \item {start\_time}
+    \subitem {memory\_screen.MemoryScreen}, \hyperpage{315}
+  \item {state}
+    \subitem {assistant\_screen.AssistantScreen}, \hyperpage{135}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{234}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{446}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{493}
+  \item {state\_machine}
+    \subitem {app.core.robot\_controller.RobotController}, 
+		\hyperpage{392}
+  \item {STATIC\_DIR}
+    \subitem {config}, \hyperpage{41}
+  \item {stats}
+    \subitem {main}, \hyperpage{63}
+  \item {status}
+    \subitem {app.ui.face\_client.FaceClient}, \hyperpage{210}
+    \subitem {login\_screen.LoginScreen}, \hyperpage{290}
+    \subitem {routes\_dashboard}, \hyperpage{76}
+  \item {status\_changed}
+    \subitem {app.ui.state.UIState}, \hyperpage{467}
+  \item {status\_message}
+    \subitem {app.ui.state.UIState}, \hyperpage{467}
+  \item {step}
+    \subitem {register\_screen.RegisterScreen}, \hyperpage{358}
+  \item {step\_label}
+    \subitem {register\_screen.RegisterScreen}, \hyperpage{359}
+  \item {stop}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{129}
+    \subitem {app.voice.audio\_stream.AudioStream}, \hyperpage{138}
+    \subitem {app.voice.stt\_vosk.VoskSTT}, \hyperpage{472}
+    \subitem {app.voice.tts.TTS}, \hyperpage{455}
+    \subitem {base\_pygame\_qt\_screen.BasePygameQtScreen}, 
+		\hyperpage{152}
+    \subitem {proactive.proactive\_scheduler.ProactiveScheduler}, 
+		\hyperpage{333}
+    \subitem {process\_service.ProcessService}, \hyperpage{350}
+    \subitem {reminder\_scheduler.ReminderScheduler}, \hyperpage{365}
+  \item {stop\_service}
+    \subitem {routes\_dashboard}, \hyperpage{77}
+  \item {STOP\_WORDS}
+    \subitem {app.voice.stt\_vosk}, \hyperpage{36}
+  \item {storage}, \hyperpage{99}
+    \subitem {BASE\_DIR}, \hyperpage{100}
+    \subitem {FILE}, \hyperpage{100}
+    \subitem {load\_results}, \hyperpage{99}
+    \subitem {save\_result}, \hyperpage{99}
+  \item {store}
+    \subitem {calendar\_screen.CalendarScreen}, \hyperpage{181}
+    \subitem {note\_screen.NotesScreen}, \hyperpage{324}
+    \subitem {reminder\_scheduler.ReminderScheduler}, \hyperpage{366}
+    \subitem {reminder\_screen.ReminderScreen}, \hyperpage{374}
+  \item {stream}
+    \subitem {app.llm.client.LLMClient}, \hyperpage{271}
+    \subitem {app.voice.audio\_stream.AudioStream}, \hyperpage{139}
+    \subitem {llm\_service.LLMService}, \hyperpage{279}
+  \item {stt}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{131}
+  \item {STYLE}
+    \subitem {browser\_screen}, \hyperpage{37}
+    \subitem {calendar\_screen}, \hyperpage{38}
+    \subitem {login\_screen}, \hyperpage{61}
+    \subitem {note\_screen}, \hyperpage{66}
+    \subitem {reminder\_screen}, \hyperpage{73}
+    \subitem {settings\_screen}, \hyperpage{92}
+  \item {subtitle}
+    \subitem {launcher\_screen.LauncherScreen}, \hyperpage{266}
+  \item {success}
+    \subitem {register\_screen.RegisterWorker}, \hyperpage{363}
+  \item {suggestion}
+    \subitem {proactive.proactive\_screen.ProactiveScreen}, 
+		\hyperpage{348}
+  \item {SUGGESTION\_TIMEOUT}
+    \subitem {proactive.proactive\_scheduler}, \hyperpage{68}
+  \item {surface}
+    \subitem {base\_pygame\_qt\_screen.BasePygameQtScreen}, 
+		\hyperpage{154}
+  \item {system\_prompt}
+    \subitem {app.llm.client.LLMClient}, \hyperpage{272}
+
+  \indexspace
+
+  \item {TAG\_MEM\_BG}
+    \subitem {proactive.proactive\_screen}, \hyperpage{71}
+  \item {TAG\_MEM\_FG}
+    \subitem {proactive.proactive\_screen}, \hyperpage{71}
+  \item {TAG\_MOB\_BG}
+    \subitem {proactive.proactive\_screen}, \hyperpage{72}
+  \item {TAG\_MOB\_FG}
+    \subitem {proactive.proactive\_screen}, \hyperpage{72}
+  \item {theme\_changed}
+    \subitem {app.ui.state.UIState}, \hyperpage{467}
+  \item {theme\_name}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{234}
+  \item {THEMES}
+    \subitem {find\_differences\_screen}, \hyperpage{47}
+  \item {TIMEOUT}
+    \subitem {app.core.assistant}, \hyperpage{20}
+    \subitem {app.core.assistant\_engine}, \hyperpage{22}
+  \item {timeout}
+    \subitem {app.llm.client.LLMClient}, \hyperpage{272}
+    \subitem {llm\_service.LLMService}, \hyperpage{280}
+  \item {timer}
+    \subitem {app.ui.face\_client.FaceClient}, \hyperpage{210}
+    \subitem {base\_pygame\_qt\_screen.BasePygameQtScreen}, 
+		\hyperpage{154}
+    \subitem {launcher\_screen.LauncherScreen}, \hyperpage{266}
+    \subitem {loading\_screen.LoadingScreen}, \hyperpage{284}
+    \subitem {login\_screen.LoginScreen}, \hyperpage{290}
+    \subitem {register\_screen.RegisterScreen}, \hyperpage{359}
+  \item {title}
+    \subitem {app.ui.face\_client.FaceClient}, \hyperpage{210}
+    \subitem {assistant\_screen.AssistantScreen}, \hyperpage{135}
+    \subitem {launcher\_screen.LauncherScreen}, \hyperpage{266}
+    \subitem {register\_screen.RegisterScreen}, \hyperpage{359}
+    \subitem {reminder\_screen.ReminderScreen}, \hyperpage{374}
+  \item {TITLE\_COL}
+    \subitem {proactive.proactive\_screen}, \hyperpage{72}
+  \item {title\_font}
+    \subitem {memory\_screen.MemoryScreen}, \hyperpage{315}
+  \item {title\_input}
+    \subitem {note\_screen.NotesScreen}, \hyperpage{325}
+  \item {trigger\_memory}
+    \subitem {proactive.proactive\_scheduler.ProactiveScheduler}, 
+		\hyperpage{333}
+  \item {trigger\_mobility}
+    \subitem {proactive.proactive\_scheduler.ProactiveScheduler}, 
+		\hyperpage{333}
+  \item {True}
+    \subitem {config}, \hyperpage{41}
+    \subitem {server}, \hyperpage{91}
+  \item {tts}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{131}
+    \subitem {proactive.proactive\_scheduler.ProactiveScheduler}, 
+		\hyperpage{336}
+    \subitem {reminder\_scheduler.ReminderScheduler}, \hyperpage{366}
+
+  \indexspace
+
+  \item {ui}
+    \subitem {app.core.robot\_controller.RobotController}, 
+		\hyperpage{392}
+  \item {ui/\_\_init\_\_.py}, \hyperpage{501}
+  \item {ui/app\_controller.py}, \hyperpage{522}
+  \item {ui/apps/base\_app.py}, \hyperpage{522}
+  \item {ui/apps/browser/browser\_screen.py}, \hyperpage{522}
+  \item {ui/apps/calendar/calendar\_screen.py}, \hyperpage{523}
+  \item {ui/apps/calendar/calendar\_store.py}, \hyperpage{523}
+  \item {ui/apps/games/base\_pygame\_qt\_screen.py}, \hyperpage{524}
+  \item {ui/apps/games/find\_differences\_screen.py}, \hyperpage{524}
+  \item {ui/apps/games/games\_screen.py}, \hyperpage{525}
+  \item {ui/apps/games/generate.py}, \hyperpage{526}
+  \item {ui/apps/games/memory\_screen.py}, \hyperpage{526}
+  \item {ui/apps/games/simon\_says\_screen.py}, \hyperpage{527}
+  \item {ui/apps/games/word\_search\_screen.py}, \hyperpage{528}
+  \item {ui/apps/notes/note\_screen.py}, \hyperpage{528}
+  \item {ui/apps/notes/note\_store.py}, \hyperpage{529}
+  \item {ui/apps/proactive/\_\_init\_\_.py}, \hyperpage{501}
+  \item {ui/apps/proactive/proactive\_scheduler.py}, \hyperpage{529}
+  \item {ui/apps/proactive/proactive\_screen.py}, \hyperpage{530}
+  \item {ui/apps/reminder/reminder\_scheduler.py}, \hyperpage{530}
+  \item {ui/apps/reminder/reminder\_screen.py}, \hyperpage{531}
+  \item {ui/apps/reminder/reminder\_store.py}, \hyperpage{531}
+  \item {ui/apps/settings/settings\_screen.py}, \hyperpage{535}
+  \item {ui/display.py}, \hyperpage{531}
+  \item {ui/face\_client.py}, \hyperpage{532}
+  \item {ui/main\_window.py}, \hyperpage{532}
+  \item {ui/screens/assistant\_screen.py}, \hyperpage{532}
+  \item {ui/screens/boot\_screen.py}, \hyperpage{533}
+  \item {ui/screens/error\_screen.py}, \hyperpage{533}
+  \item {ui/screens/launcher\_screen.py}, \hyperpage{533}
+  \item {ui/screens/loading\_screen.py}, \hyperpage{534}
+  \item {ui/screens/login\_screen.py}, \hyperpage{534}
+  \item {ui/screens/register\_screen.py}, \hyperpage{534}
+  \item {ui/screens/settings\_screen.py}, \hyperpage{535}
+  \item {ui/state.py}, \hyperpage{535}
+  \item {ui/theme.py}, \hyperpage{536}
+  \item {ui/widgets/keyboard\_widget.py}, \hyperpage{536}
+  \item {ui\_state}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{131}
+    \subitem {app.core.robot\_controller.RobotController}, 
+		\hyperpage{392}
+  \item {update\_clock}
+    \subitem {launcher\_screen.LauncherScreen}, \hyperpage{264}
+  \item {update\_frame}
+    \subitem {app.ui.face\_client.FaceClient}, \hyperpage{208}
+    \subitem {login\_screen.LoginScreen}, \hyperpage{289}
+    \subitem {register\_screen.RegisterScreen}, \hyperpage{357}
+  \item {update\_header}
+    \subitem {calendar\_screen.CalendarScreen}, \hyperpage{179}
+  \item {update\_logic}
+    \subitem {base\_pygame\_qt\_screen.BasePygameQtScreen}, 
+		\hyperpage{152}
+    \subitem {find\_differences\_screen.FindDifferencesScreen}, 
+		\hyperpage{231}
+    \subitem {memory\_screen.MemoryScreen}, \hyperpage{311}
+    \subitem {proactive.proactive\_screen.ProactiveScreen}, 
+		\hyperpage{346}
+    \subitem {simon\_says\_screen.SimonSaysScreen}, \hyperpage{441}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{490}
+  \item {url}
+    \subitem {app.core.logs\_to\_server.RemoteHandler}, \hyperpage{380}
+    \subitem {app.ui.face\_client.Worker}, \hyperpage{497}
+    \subitem {login\_screen.Worker}, \hyperpage{500}
+    \subitem {models.mistral\_llama.MistralServer}, \hyperpage{317}
+    \subitem {models.serv\_llama.LlamaServer}, \hyperpage{269}
+    \subitem {register\_screen.RegisterWorker}, \hyperpage{363}
+    \subitem {remote\_logger.RemoteHandler}, \hyperpage{383}
+  \item {user}
+    \subitem {app.core.assistant\_engine.AssistantEngine}, 
+		\hyperpage{131}
+  \item {user\_changed}
+    \subitem {app.ui.state.UIState}, \hyperpage{467}
+  \item {user\_label}
+    \subitem {launcher\_screen.LauncherScreen}, \hyperpage{266}
+    \subitem {login\_screen.LoginScreen}, \hyperpage{290}
+  \item {user\_logged}
+    \subitem {app.ui.app\_controller.AppController}, \hyperpage{113}
+
+  \indexspace
+
+  \item {voice/\_\_init\_\_.py}, \hyperpage{501}
+  \item {voice/audio\_stream.py}, \hyperpage{536}
+  \item {voice/stt\_vosk.py}, \hyperpage{537}
+  \item {voice/tts.py}, \hyperpage{537}
+
+  \indexspace
+
+  \item {w}
+    \subitem {find\_differences\_screen.SceneObject}, \hyperpage{395}
+  \item {wait\_until\_done}
+    \subitem {app.voice.tts.TTS}, \hyperpage{455}
+  \item {WAKE\_WORDS}
+    \subitem {app.voice.stt\_vosk}, \hyperpage{36}
+  \item {when\_pressed}
+    \subitem {app.button}, \hyperpage{15}
+  \item {WHITE}
+    \subitem {proactive.proactive\_screen}, \hyperpage{72}
+  \item {widget}
+    \subitem {app.ui.app\_controller.AppController}, \hyperpage{111}
+  \item {WORD\_LIST\_X}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{493}
+  \item {WORD\_LIST\_Y}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{494}
+  \item {word\_positions}
+    \subitem {generate}, \hyperpage{54}
+  \item {word\_search\_screen}, \hyperpage{100}
+    \subitem {app.ui.main\_window.MainWindow}, \hyperpage{303}
+    \subitem {M\_BTN\_BACK\_BG}, \hyperpage{101}
+    \subitem {M\_BTN\_BACK\_BRD}, \hyperpage{101}
+    \subitem {M\_BTN\_EASY\_BG}, \hyperpage{101}
+    \subitem {M\_BTN\_EASY\_BRD}, \hyperpage{102}
+    \subitem {M\_BTN\_HARD\_BG}, \hyperpage{102}
+    \subitem {M\_BTN\_HARD\_BRD}, \hyperpage{102}
+    \subitem {M\_BTN\_MED\_BG}, \hyperpage{102}
+    \subitem {M\_BTN\_MED\_BRD}, \hyperpage{102}
+    \subitem {M\_BTN\_TEXT}, \hyperpage{102}
+    \subitem {P\_ACCENT}, \hyperpage{102}
+    \subitem {P\_BG\_BOTTOM}, \hyperpage{102}
+    \subitem {P\_BG\_TOP}, \hyperpage{103}
+    \subitem {P\_BTN\_BACK}, \hyperpage{103}
+    \subitem {P\_BTN\_HINT}, \hyperpage{103}
+    \subitem {P\_BTN\_TEXT}, \hyperpage{103}
+    \subitem {P\_CELL\_BORDER}, \hyperpage{103}
+    \subitem {P\_CELL\_FOUND}, \hyperpage{103}
+    \subitem {P\_CELL\_HINT}, \hyperpage{103}
+    \subitem {P\_CELL\_NORMAL}, \hyperpage{103}
+    \subitem {P\_CELL\_SELECT}, \hyperpage{104}
+    \subitem {P\_PANEL\_BORDER}, \hyperpage{104}
+    \subitem {P\_SHADOW}, \hyperpage{104}
+    \subitem {P\_SUBTITLE}, \hyperpage{104}
+    \subitem {P\_TITLE}, \hyperpage{104}
+    \subitem {P\_WORD\_DONE}, \hyperpage{104}
+    \subitem {P\_WORD\_PANEL}, \hyperpage{104}
+    \subitem {P\_WORD\_PENDING}, \hyperpage{104}
+    \subitem {P\_WORD\_STRIKE}, \hyperpage{104}
+  \item {word\_search\_screen.WordSearchScreen}, \hyperpage{474}
+    \subitem {\_\_init\_\_}, \hyperpage{478}
+    \subitem {\_cache\_letters}, \hyperpage{479}
+    \subitem {\_calculate\_layout}, \hyperpage{479}
+    \subitem {\_draw\_bg}, \hyperpage{479}
+    \subitem {\_draw\_bottom\_bar}, \hyperpage{480}
+    \subitem {\_draw\_button}, \hyperpage{480}
+    \subitem {\_draw\_game}, \hyperpage{480}
+    \subitem {\_draw\_grid}, \hyperpage{481}
+    \subitem {\_draw\_menu\_btn}, \hyperpage{481}
+    \subitem {\_draw\_menu\_dinamico}, \hyperpage{482}
+    \subitem {\_draw\_words}, \hyperpage{483}
+    \subitem {\_get\_hint\_cell}, \hyperpage{483}
+    \subitem {\_handle\_grid\_click}, \hyperpage{483}
+    \subitem {\_handle\_grid\_drag}, \hyperpage{484}
+    \subitem {\_is\_straight\_line}, \hyperpage{484}
+    \subitem {\_mouse\_pressed}, \hyperpage{491}
+    \subitem {\_update\_scroll\_range}, \hyperpage{485}
+    \subitem {\_validate\_selection}, \hyperpage{485}
+    \subitem {\_win}, \hyperpage{485}
+    \subitem {btn\_back}, \hyperpage{491}
+    \subitem {btn\_easy}, \hyperpage{491}
+    \subitem {btn\_game\_back}, \hyperpage{491}
+    \subitem {btn\_hard}, \hyperpage{491}
+    \subitem {btn\_hint}, \hyperpage{491}
+    \subitem {btn\_medium}, \hyperpage{491}
+    \subitem {CELL}, \hyperpage{491}
+    \subitem {current\_path}, \hyperpage{492}
+    \subitem {difficulty}, \hyperpage{492}
+    \subitem {exit\_game}, \hyperpage{485}
+    \subitem {GRID\_POS}, \hyperpage{492}
+    \subitem {hint\_cell}, \hyperpage{492}
+    \subitem {letter\_cache}, \hyperpage{492}
+    \subitem {m\_f\_btn}, \hyperpage{492}
+    \subitem {m\_f\_subtitle}, \hyperpage{493}
+    \subitem {m\_f\_title}, \hyperpage{493}
+    \subitem {max\_scroll}, \hyperpage{493}
+    \subitem {mouseMoveEvent}, \hyperpage{486}
+    \subitem {mousePressEvent}, \hyperpage{487}
+    \subitem {mouseReleaseEvent}, \hyperpage{488}
+    \subitem {render}, \hyperpage{489}
+    \subitem {scroll\_offset}, \hyperpage{493}
+    \subitem {selected}, \hyperpage{493}
+    \subitem {start\_game}, \hyperpage{489}
+    \subitem {state}, \hyperpage{493}
+    \subitem {update\_logic}, \hyperpage{490}
+    \subitem {WORD\_LIST\_X}, \hyperpage{493}
+    \subitem {WORD\_LIST\_Y}, \hyperpage{494}
+    \subitem {words\_to\_guess}, \hyperpage{494}
+  \item {words\_copy}
+    \subitem {generate}, \hyperpage{54}
+  \item {words\_to\_guess}
+    \subitem {word\_search\_screen.WordSearchScreen}, \hyperpage{494}
+  \item {WORKDIR}
+    \subitem {process\_service.ProcessService}, \hyperpage{352}
+  \item {worker}
+    \subitem {app.ui.face\_client.FaceClient}, \hyperpage{210}
+    \subitem {login\_screen.LoginScreen}, \hyperpage{290}
+    \subitem {register\_screen.RegisterScreen}, \hyperpage{359}
+
+  \indexspace
+
+  \item {x}
+    \subitem {find\_differences\_screen.SceneObject}, \hyperpage{395}
+
+  \indexspace
+
+  \item {y}
+    \subitem {find\_differences\_screen.SceneObject}, \hyperpage{396}
+
+  \indexspace
+
+  \item {zone}
+    \subitem {find\_differences\_screen.Difference}, \hyperpage{198}
+
+\end{theindex}

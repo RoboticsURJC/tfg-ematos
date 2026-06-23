@@ -2,11 +2,6 @@
 \label{classproactive_1_1proactive__screen_1_1ProactiveScreen}\index{proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}}
 
 
-Pantalla UI proactiva que presenta sugerencias interactivas.  
-
-
-
-
 Inheritance diagram for proactive.\+proactive\+\_\+screen.\+Proactive\+Screen\+:
 \nopagebreak
 \begin{figure}[H]
@@ -29,13 +24,13 @@ Collaboration diagram for proactive.\+proactive\+\_\+screen.\+Proactive\+Screen\
 \begin{DoxyCompactItemize}
 \item 
 def \mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_af82f927537665db40ca5f67fab480e09}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_a46d008cff89156b81a10546875a77a08}{suggestion}}, controller=None, \mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_aea4058adc7324d2d1d01755a430657e3}{on\+\_\+accept}}=None, \mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_a271a1ee58f858be864d7731da4d11230}{on\+\_\+dismiss}}=None, width=1024, height=600)
-\begin{DoxyCompactList}\small\item\em Inicializa la pantalla proactiva. \end{DoxyCompactList}\item 
+\item 
 def \mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_a4837f9fe51755869885493f8d4cd076b}{update\+\_\+logic}} (self)
-\begin{DoxyCompactList}\small\item\em Actualiza la animación de aparición y el contador de tiempo interno. \end{DoxyCompactList}\item 
+\item 
 def \mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_a597f1b767cbdeb33a5bfb6ad2388a942}{mouse\+Press\+Event}} (self, event)
-\begin{DoxyCompactList}\small\item\em Gestiona la interacción táctil/ratón calculando colisiones dinámicas. \end{DoxyCompactList}\item 
+\item 
 def \mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_a7bbf478078eca3f2c99b378ac03c3ba8}{render}} (self)
-\begin{DoxyCompactList}\small\item\em Renderiza toda la interfaz. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -61,13 +56,31 @@ def \mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_a7bb
 \begin{DoxyCompactItemize}
 \item 
 def \mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_a411f07f095cbe420aeb2cc4cc9e2090e}{\+\_\+draw\+\_\+bg}} (self, W, H)
-\begin{DoxyCompactList}\small\item\em Dibuja un gradiente vertical de fondo. \end{DoxyCompactList}\item 
+\item 
+def \mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_a4e6aec6ff2ddd9ce462db72baf3ea8f6}{\+\_\+draw\+\_\+tag}} (self, dy)
+\item 
 def \mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_a4dbafb10a863c621bd8166b6190c4a1b}{\+\_\+render\+\_\+wrapped\+\_\+text}} (self, text, font, color, max\+\_\+width)
-\begin{DoxyCompactList}\small\item\em Ajusta bloques de texto dentro de un ancho máximo. \end{DoxyCompactList}\item 
+\item 
 def \mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_aabb4d7e4966638b75d2f00325d76e9b5}{\+\_\+draw\+\_\+animation}} (self, cx, cy, r)
-\begin{DoxyCompactList}\small\item\em Control central de las animaciones procedimentales. \end{DoxyCompactList}\item 
+\item 
 def \mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_a545ee41e991488b64242004a570245e5}{\+\_\+figure}} (self, cx, cy, r, head\+\_\+tilt=0.\+0)
-\begin{DoxyCompactList}\small\item\em Dibuja un personaje humanoide estilizado. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_acc6e8988cd1ef04a93ccc4819d97da0a}{\+\_\+anim\+\_\+shoulders}} (self, cx, cy, r)
+\item 
+def \mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_a2f79c1101192dc6c16a631efc39edd00}{\+\_\+anim\+\_\+neck}} (self, cx, cy, r)
+\item 
+def \mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_a8fc114e32848392ab07574e58d7b2146}{\+\_\+anim\+\_\+breath}} (self, cx, cy, r)
+\item 
+def \mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_a6ee7b404bed7821ac2701aa5806db36d}{\+\_\+anim\+\_\+hands}} (self, cx, cy, r)
+\item 
+def \mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_abf104aaad952d390f43affb9176a563e}{\+\_\+anim\+\_\+walk}} (self, cx, cy, r)
+\item 
+def \mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_a710a05d1b3072a61be4862386d29b353}{\+\_\+anim\+\_\+brain}} (self, cx, cy, r)
+\item 
+def \mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_aaaddd9e402a3d87f919aa4d87d5a9296}{\+\_\+draw\+\_\+buttons}} (self)
+\item 
+def \mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_a9cac4a3aac17eb7f3d7a1c2e00862000}{\+\_\+btn}} (self, rect, text, bg, border, txt\+\_\+color)
+\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -79,9 +92,6 @@ def \mbox{\hyperlink{classproactive_1_1proactive__screen_1_1ProactiveScreen_a545
 \end{DoxyCompactItemize}
 
 
-\doxysubsection{Detailed Description}
-Pantalla UI proactiva que presenta sugerencias interactivas. 
-
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classproactive_1_1proactive__screen_1_1ProactiveScreen_af82f927537665db40ca5f67fab480e09}\label{classproactive_1_1proactive__screen_1_1ProactiveScreen_af82f927537665db40ca5f67fab480e09}} 
 \index{proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}!\_\_init\_\_@{\_\_init\_\_}}
@@ -89,25 +99,6 @@ Pantalla UI proactiva que presenta sugerencias interactivas.
 \doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
 {\footnotesize\ttfamily def proactive.\+proactive\+\_\+screen.\+Proactive\+Screen.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{suggestion,  }\item[{}]{controller = {\ttfamily None},  }\item[{}]{on\+\_\+accept = {\ttfamily None},  }\item[{}]{on\+\_\+dismiss = {\ttfamily None},  }\item[{}]{width = {\ttfamily 1024},  }\item[{}]{height = {\ttfamily 600} }\end{DoxyParamCaption})}
 
-
-
-Inicializa la pantalla proactiva. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em suggestion} & Diccionario con los datos de la sugerencia (tipo, título, cuerpo, etc.). \\
-\hline
-{\em controller} & Objeto controlador del sistema. \\
-\hline
-{\em on\+\_\+accept} & Callback cuando el usuario acepta la propuesta. \\
-\hline
-{\em on\+\_\+dismiss} & Callback cuando el usuario descarta la propuesta. \\
-\hline
-{\em width} & Ancho base de la ventana. \\
-\hline
-{\em height} & Alto base de la ventana. \\
-\hline
-\end{DoxyParams}
 Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -119,35 +110,141 @@ Here is the call graph for this function\+:
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classproactive_1_1proactive__screen_1_1ProactiveScreen_a710a05d1b3072a61be4862386d29b353}\label{classproactive_1_1proactive__screen_1_1ProactiveScreen_a710a05d1b3072a61be4862386d29b353}} 
+\index{proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}!\_anim\_brain@{\_anim\_brain}}
+\index{\_anim\_brain@{\_anim\_brain}!proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}}
+\doxysubsubsection{\texorpdfstring{\_anim\_brain()}{\_anim\_brain()}}
+{\footnotesize\ttfamily def proactive.\+proactive\+\_\+screen.\+Proactive\+Screen.\+\_\+anim\+\_\+brain (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{cx,  }\item[{}]{cy,  }\item[{}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classproactive_1_1proactive__screen_1_1ProactiveScreen_a8fc114e32848392ab07574e58d7b2146}\label{classproactive_1_1proactive__screen_1_1ProactiveScreen_a8fc114e32848392ab07574e58d7b2146}} 
+\index{proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}!\_anim\_breath@{\_anim\_breath}}
+\index{\_anim\_breath@{\_anim\_breath}!proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}}
+\doxysubsubsection{\texorpdfstring{\_anim\_breath()}{\_anim\_breath()}}
+{\footnotesize\ttfamily def proactive.\+proactive\+\_\+screen.\+Proactive\+Screen.\+\_\+anim\+\_\+breath (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{cx,  }\item[{}]{cy,  }\item[{}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classproactive_1_1proactive__screen_1_1ProactiveScreen_a8fc114e32848392ab07574e58d7b2146_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classproactive_1_1proactive__screen_1_1ProactiveScreen_a6ee7b404bed7821ac2701aa5806db36d}\label{classproactive_1_1proactive__screen_1_1ProactiveScreen_a6ee7b404bed7821ac2701aa5806db36d}} 
+\index{proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}!\_anim\_hands@{\_anim\_hands}}
+\index{\_anim\_hands@{\_anim\_hands}!proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}}
+\doxysubsubsection{\texorpdfstring{\_anim\_hands()}{\_anim\_hands()}}
+{\footnotesize\ttfamily def proactive.\+proactive\+\_\+screen.\+Proactive\+Screen.\+\_\+anim\+\_\+hands (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{cx,  }\item[{}]{cy,  }\item[{}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classproactive_1_1proactive__screen_1_1ProactiveScreen_a2f79c1101192dc6c16a631efc39edd00}\label{classproactive_1_1proactive__screen_1_1ProactiveScreen_a2f79c1101192dc6c16a631efc39edd00}} 
+\index{proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}!\_anim\_neck@{\_anim\_neck}}
+\index{\_anim\_neck@{\_anim\_neck}!proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}}
+\doxysubsubsection{\texorpdfstring{\_anim\_neck()}{\_anim\_neck()}}
+{\footnotesize\ttfamily def proactive.\+proactive\+\_\+screen.\+Proactive\+Screen.\+\_\+anim\+\_\+neck (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{cx,  }\item[{}]{cy,  }\item[{}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classproactive_1_1proactive__screen_1_1ProactiveScreen_a2f79c1101192dc6c16a631efc39edd00_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classproactive_1_1proactive__screen_1_1ProactiveScreen_acc6e8988cd1ef04a93ccc4819d97da0a}\label{classproactive_1_1proactive__screen_1_1ProactiveScreen_acc6e8988cd1ef04a93ccc4819d97da0a}} 
+\index{proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}!\_anim\_shoulders@{\_anim\_shoulders}}
+\index{\_anim\_shoulders@{\_anim\_shoulders}!proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}}
+\doxysubsubsection{\texorpdfstring{\_anim\_shoulders()}{\_anim\_shoulders()}}
+{\footnotesize\ttfamily def proactive.\+proactive\+\_\+screen.\+Proactive\+Screen.\+\_\+anim\+\_\+shoulders (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{cx,  }\item[{}]{cy,  }\item[{}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classproactive_1_1proactive__screen_1_1ProactiveScreen_acc6e8988cd1ef04a93ccc4819d97da0a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classproactive_1_1proactive__screen_1_1ProactiveScreen_abf104aaad952d390f43affb9176a563e}\label{classproactive_1_1proactive__screen_1_1ProactiveScreen_abf104aaad952d390f43affb9176a563e}} 
+\index{proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}!\_anim\_walk@{\_anim\_walk}}
+\index{\_anim\_walk@{\_anim\_walk}!proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}}
+\doxysubsubsection{\texorpdfstring{\_anim\_walk()}{\_anim\_walk()}}
+{\footnotesize\ttfamily def proactive.\+proactive\+\_\+screen.\+Proactive\+Screen.\+\_\+anim\+\_\+walk (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{cx,  }\item[{}]{cy,  }\item[{}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classproactive_1_1proactive__screen_1_1ProactiveScreen_abf104aaad952d390f43affb9176a563e_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classproactive_1_1proactive__screen_1_1ProactiveScreen_a9cac4a3aac17eb7f3d7a1c2e00862000}\label{classproactive_1_1proactive__screen_1_1ProactiveScreen_a9cac4a3aac17eb7f3d7a1c2e00862000}} 
+\index{proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}!\_btn@{\_btn}}
+\index{\_btn@{\_btn}!proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}}
+\doxysubsubsection{\texorpdfstring{\_btn()}{\_btn()}}
+{\footnotesize\ttfamily def proactive.\+proactive\+\_\+screen.\+Proactive\+Screen.\+\_\+btn (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{rect,  }\item[{}]{text,  }\item[{}]{bg,  }\item[{}]{border,  }\item[{}]{txt\+\_\+color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classproactive_1_1proactive__screen_1_1ProactiveScreen_a9cac4a3aac17eb7f3d7a1c2e00862000_cgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{classproactive_1_1proactive__screen_1_1ProactiveScreen_aabb4d7e4966638b75d2f00325d76e9b5}\label{classproactive_1_1proactive__screen_1_1ProactiveScreen_aabb4d7e4966638b75d2f00325d76e9b5}} 
 \index{proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}!\_draw\_animation@{\_draw\_animation}}
 \index{\_draw\_animation@{\_draw\_animation}!proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}}
 \doxysubsubsection{\texorpdfstring{\_draw\_animation()}{\_draw\_animation()}}
 {\footnotesize\ttfamily def proactive.\+proactive\+\_\+screen.\+Proactive\+Screen.\+\_\+draw\+\_\+animation (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{cx,  }\item[{}]{cy,  }\item[{}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
-
-
-Control central de las animaciones procedimentales. 
-
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classproactive_1_1proactive__screen_1_1ProactiveScreen_aabb4d7e4966638b75d2f00325d76e9b5_cgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{classproactive_1_1proactive__screen_1_1ProactiveScreen_a411f07f095cbe420aeb2cc4cc9e2090e}\label{classproactive_1_1proactive__screen_1_1ProactiveScreen_a411f07f095cbe420aeb2cc4cc9e2090e}} 
 \index{proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}!\_draw\_bg@{\_draw\_bg}}
 \index{\_draw\_bg@{\_draw\_bg}!proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}}
 \doxysubsubsection{\texorpdfstring{\_draw\_bg()}{\_draw\_bg()}}
 {\footnotesize\ttfamily def proactive.\+proactive\+\_\+screen.\+Proactive\+Screen.\+\_\+draw\+\_\+bg (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{W,  }\item[{}]{H }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+\mbox{\Hypertarget{classproactive_1_1proactive__screen_1_1ProactiveScreen_aaaddd9e402a3d87f919aa4d87d5a9296}\label{classproactive_1_1proactive__screen_1_1ProactiveScreen_aaaddd9e402a3d87f919aa4d87d5a9296}} 
+\index{proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}!\_draw\_buttons@{\_draw\_buttons}}
+\index{\_draw\_buttons@{\_draw\_buttons}!proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}}
+\doxysubsubsection{\texorpdfstring{\_draw\_buttons()}{\_draw\_buttons()}}
+{\footnotesize\ttfamily def proactive.\+proactive\+\_\+screen.\+Proactive\+Screen.\+\_\+draw\+\_\+buttons (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classproactive_1_1proactive__screen_1_1ProactiveScreen_aaaddd9e402a3d87f919aa4d87d5a9296_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classproactive_1_1proactive__screen_1_1ProactiveScreen_a4e6aec6ff2ddd9ce462db72baf3ea8f6}\label{classproactive_1_1proactive__screen_1_1ProactiveScreen_a4e6aec6ff2ddd9ce462db72baf3ea8f6}} 
+\index{proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}!\_draw\_tag@{\_draw\_tag}}
+\index{\_draw\_tag@{\_draw\_tag}!proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}}
+\doxysubsubsection{\texorpdfstring{\_draw\_tag()}{\_draw\_tag()}}
+{\footnotesize\ttfamily def proactive.\+proactive\+\_\+screen.\+Proactive\+Screen.\+\_\+draw\+\_\+tag (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{dy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
-Dibuja un gradiente vertical de fondo. 
-
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classproactive_1_1proactive__screen_1_1ProactiveScreen_a4e6aec6ff2ddd9ce462db72baf3ea8f6_cgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{classproactive_1_1proactive__screen_1_1ProactiveScreen_a545ee41e991488b64242004a570245e5}\label{classproactive_1_1proactive__screen_1_1ProactiveScreen_a545ee41e991488b64242004a570245e5}} 
 \index{proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}!\_figure@{\_figure}}
 \index{\_figure@{\_figure}!proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}}
 \doxysubsubsection{\texorpdfstring{\_figure()}{\_figure()}}
 {\footnotesize\ttfamily def proactive.\+proactive\+\_\+screen.\+Proactive\+Screen.\+\_\+figure (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{cx,  }\item[{}]{cy,  }\item[{}]{r,  }\item[{}]{head\+\_\+tilt = {\ttfamily 0.0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Dibuja un personaje humanoide estilizado. 
 
 \mbox{\Hypertarget{classproactive_1_1proactive__screen_1_1ProactiveScreen_a4dbafb10a863c621bd8166b6190c4a1b}\label{classproactive_1_1proactive__screen_1_1ProactiveScreen_a4dbafb10a863c621bd8166b6190c4a1b}} 
 \index{proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}!\_render\_wrapped\_text@{\_render\_wrapped\_text}}
@@ -155,25 +252,12 @@ Dibuja un personaje humanoide estilizado.
 \doxysubsubsection{\texorpdfstring{\_render\_wrapped\_text()}{\_render\_wrapped\_text()}}
 {\footnotesize\ttfamily def proactive.\+proactive\+\_\+screen.\+Proactive\+Screen.\+\_\+render\+\_\+wrapped\+\_\+text (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{text,  }\item[{}]{font,  }\item[{}]{color,  }\item[{}]{max\+\_\+width }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
-
-
-Ajusta bloques de texto dentro de un ancho máximo. 
-
 \mbox{\Hypertarget{classproactive_1_1proactive__screen_1_1ProactiveScreen_a597f1b767cbdeb33a5bfb6ad2388a942}\label{classproactive_1_1proactive__screen_1_1ProactiveScreen_a597f1b767cbdeb33a5bfb6ad2388a942}} 
 \index{proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}!mousePressEvent@{mousePressEvent}}
 \index{mousePressEvent@{mousePressEvent}!proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}}
 \doxysubsubsection{\texorpdfstring{mousePressEvent()}{mousePressEvent()}}
 {\footnotesize\ttfamily def proactive.\+proactive\+\_\+screen.\+Proactive\+Screen.\+mouse\+Press\+Event (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{event }\end{DoxyParamCaption})}
 
-
-
-Gestiona la interacción táctil/ratón calculando colisiones dinámicas. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em event} & Evento de entrada de Qt. \\
-\hline
-\end{DoxyParams}
 Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -188,11 +272,7 @@ Here is the call graph for this function\+:
 \doxysubsubsection{\texorpdfstring{render()}{render()}}
 {\footnotesize\ttfamily def proactive.\+proactive\+\_\+screen.\+Proactive\+Screen.\+render (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
 
-
-
-Renderiza toda la interfaz. 
-
-Recalcula posiciones basándose en el tamaño real de la superficie. Here is the call graph for this function\+:
+Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -205,10 +285,6 @@ Recalcula posiciones basándose en el tamaño real de la superficie. Here is the
 \index{update\_logic@{update\_logic}!proactive.proactive\_screen.ProactiveScreen@{proactive.proactive\_screen.ProactiveScreen}}
 \doxysubsubsection{\texorpdfstring{update\_logic()}{update\_logic()}}
 {\footnotesize\ttfamily def proactive.\+proactive\+\_\+screen.\+Proactive\+Screen.\+update\+\_\+logic (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
-
-
-
-Actualiza la animación de aparición y el contador de tiempo interno. 
 
 
 

@@ -13,7 +13,13 @@ string \mbox{\hyperlink{namespaceapp_1_1core_1_1assistant__engine_aefa0f3f077e8e
 string \mbox{\hyperlink{namespaceapp_1_1core_1_1assistant__engine_addd6aaea4b651732aac6aaa0d8cb0d5f}{MEMORY\+\_\+\+FILE}} = \char`\"{}memoria\+\_\+usuarios.\+json\char`\"{}
 \begin{DoxyCompactList}\small\item\em Nombre del fichero JSON local para guardar la persistencia del historial. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{namespaceapp_1_1core_1_1assistant__engine_a9261b930a2c9e577f0d9a1dc67c12bf9}{TIMEOUT}} = 90
-\begin{DoxyCompactList}\small\item\em Tiempo máximo de espera por defecto (en segundos) para solicitudes de red. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Tiempo máximo de espera por defecto (en segundos) para solicitudes de red. \end{DoxyCompactList}\item 
+list \mbox{\hyperlink{namespaceapp_1_1core_1_1assistant__engine_adc8d4bd16ec4a0ff2a724cb4fdacda8e}{PALABRAS\+\_\+\+EVENTO}}
+\item 
+list \mbox{\hyperlink{namespaceapp_1_1core_1_1assistant__engine_a3d6a524414d2812c4f15adbf6ecf43ee}{PALABRAS\+\_\+\+RECORDATORIO}}
+\item 
+list \mbox{\hyperlink{namespaceapp_1_1core_1_1assistant__engine_a7e1a15f9bae7880c6345dc2d7e0f3a57}{PISTAS\+\_\+\+TEMPORALES}}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Variable Documentation}
@@ -27,6 +33,80 @@ int \mbox{\hyperlink{namespaceapp_1_1core_1_1assistant__engine_a9261b930a2c9e577
 
 Nombre del fichero JSON local para guardar la persistencia del historial. 
 
+\mbox{\Hypertarget{namespaceapp_1_1core_1_1assistant__engine_adc8d4bd16ec4a0ff2a724cb4fdacda8e}\label{namespaceapp_1_1core_1_1assistant__engine_adc8d4bd16ec4a0ff2a724cb4fdacda8e}} 
+\index{app.core.assistant\_engine@{app.core.assistant\_engine}!PALABRAS\_EVENTO@{PALABRAS\_EVENTO}}
+\index{PALABRAS\_EVENTO@{PALABRAS\_EVENTO}!app.core.assistant\_engine@{app.core.assistant\_engine}}
+\doxysubsubsection{\texorpdfstring{PALABRAS\_EVENTO}{PALABRAS\_EVENTO}}
+{\footnotesize\ttfamily list app.\+core.\+assistant\+\_\+engine.\+PALABRAS\+\_\+\+EVENTO}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  [}
+\DoxyCodeLine{2     \textcolor{stringliteral}{"{}médico"{}}, \textcolor{stringliteral}{"{}medico"{}},}
+\DoxyCodeLine{3     \textcolor{stringliteral}{"{}dentista"{}},}
+\DoxyCodeLine{4     \textcolor{stringliteral}{"{}hospital"{}},}
+\DoxyCodeLine{5     \textcolor{stringliteral}{"{}cardiólogo"{}}, \textcolor{stringliteral}{"{}cardiologo"{}},}
+\DoxyCodeLine{6     \textcolor{stringliteral}{"{}enfermera"{}},}
+\DoxyCodeLine{7     \textcolor{stringliteral}{"{}análisis"{}}, \textcolor{stringliteral}{"{}analisis"{}},}
+\DoxyCodeLine{8     \textcolor{stringliteral}{"{}farmacia"{}},}
+\DoxyCodeLine{9     \textcolor{stringliteral}{"{}rehabilitación"{}}, \textcolor{stringliteral}{"{}rehabilitacion"{}},}
+\DoxyCodeLine{10     \textcolor{stringliteral}{"{}peluquería"{}}, \textcolor{stringliteral}{"{}peluqueria"{}},}
+\DoxyCodeLine{11     \textcolor{stringliteral}{"{}cumpleaños"{}}, \textcolor{stringliteral}{"{}cumpleanos"{}},}
+\DoxyCodeLine{12     \textcolor{stringliteral}{"{}vacuna"{}},}
+\DoxyCodeLine{13     \textcolor{stringliteral}{"{}especialista"{}},}
+\DoxyCodeLine{14     \textcolor{stringliteral}{"{}consulta"{}},}
+\DoxyCodeLine{15     \textcolor{stringliteral}{"{}boda"{}},}
+\DoxyCodeLine{16     \textcolor{stringliteral}{"{}comunión"{}}, \textcolor{stringliteral}{"{}comunion"{}},}
+\DoxyCodeLine{17     \textcolor{stringliteral}{"{}operación"{}}, \textcolor{stringliteral}{"{}operacion"{}},}
+\DoxyCodeLine{18     \textcolor{stringliteral}{"{}revisión"{}}, \textcolor{stringliteral}{"{}revision"{}},}
+\DoxyCodeLine{19 ]}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceapp_1_1core_1_1assistant__engine_a3d6a524414d2812c4f15adbf6ecf43ee}\label{namespaceapp_1_1core_1_1assistant__engine_a3d6a524414d2812c4f15adbf6ecf43ee}} 
+\index{app.core.assistant\_engine@{app.core.assistant\_engine}!PALABRAS\_RECORDATORIO@{PALABRAS\_RECORDATORIO}}
+\index{PALABRAS\_RECORDATORIO@{PALABRAS\_RECORDATORIO}!app.core.assistant\_engine@{app.core.assistant\_engine}}
+\doxysubsubsection{\texorpdfstring{PALABRAS\_RECORDATORIO}{PALABRAS\_RECORDATORIO}}
+{\footnotesize\ttfamily list app.\+core.\+assistant\+\_\+engine.\+PALABRAS\+\_\+\+RECORDATORIO}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  [}
+\DoxyCodeLine{2     \textcolor{stringliteral}{"{}pastilla"{}},}
+\DoxyCodeLine{3     \textcolor{stringliteral}{"{}pastillas"{}},}
+\DoxyCodeLine{4     \textcolor{stringliteral}{"{}medicina"{}},}
+\DoxyCodeLine{5     \textcolor{stringliteral}{"{}medicación"{}},}
+\DoxyCodeLine{6     \textcolor{stringliteral}{"{}medicacion"{}},}
+\DoxyCodeLine{7     \textcolor{stringliteral}{"{}medicamento"{}},}
+\DoxyCodeLine{8     \textcolor{stringliteral}{"{}medicamentos"{}},}
+\DoxyCodeLine{9     \textcolor{stringliteral}{"{}inyección"{}},}
+\DoxyCodeLine{10     \textcolor{stringliteral}{"{}inyeccion"{}},}
+\DoxyCodeLine{11     \textcolor{stringliteral}{"{}tomar"{}},}
+\DoxyCodeLine{12     \textcolor{stringliteral}{"{}llamar"{}}}
+\DoxyCodeLine{13 ]}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceapp_1_1core_1_1assistant__engine_a7e1a15f9bae7880c6345dc2d7e0f3a57}\label{namespaceapp_1_1core_1_1assistant__engine_a7e1a15f9bae7880c6345dc2d7e0f3a57}} 
+\index{app.core.assistant\_engine@{app.core.assistant\_engine}!PISTAS\_TEMPORALES@{PISTAS\_TEMPORALES}}
+\index{PISTAS\_TEMPORALES@{PISTAS\_TEMPORALES}!app.core.assistant\_engine@{app.core.assistant\_engine}}
+\doxysubsubsection{\texorpdfstring{PISTAS\_TEMPORALES}{PISTAS\_TEMPORALES}}
+{\footnotesize\ttfamily list app.\+core.\+assistant\+\_\+engine.\+PISTAS\+\_\+\+TEMPORALES}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  [}
+\DoxyCodeLine{2     \textcolor{stringliteral}{"{}lunes"{}}, \textcolor{stringliteral}{"{}martes"{}}, \textcolor{stringliteral}{"{}miércoles"{}}, \textcolor{stringliteral}{"{}miercoles"{}}, \textcolor{stringliteral}{"{}jueves"{}},}
+\DoxyCodeLine{3     \textcolor{stringliteral}{"{}viernes"{}}, \textcolor{stringliteral}{"{}sábado"{}}, \textcolor{stringliteral}{"{}sabado"{}}, \textcolor{stringliteral}{"{}domingo"{}},}
+\DoxyCodeLine{4     \textcolor{stringliteral}{"{}enero"{}}, \textcolor{stringliteral}{"{}febrero"{}}, \textcolor{stringliteral}{"{}marzo"{}}, \textcolor{stringliteral}{"{}abril"{}}, \textcolor{stringliteral}{"{}mayo"{}}, \textcolor{stringliteral}{"{}junio"{}}, \textcolor{stringliteral}{"{}julio"{}},}
+\DoxyCodeLine{5     \textcolor{stringliteral}{"{}agosto"{}}, \textcolor{stringliteral}{"{}septiembre"{}}, \textcolor{stringliteral}{"{}octubre"{}}, \textcolor{stringliteral}{"{}noviembre"{}}, \textcolor{stringliteral}{"{}diciembre"{}},}
+\DoxyCodeLine{6     \textcolor{stringliteral}{"{}hoy"{}}, \textcolor{stringliteral}{"{}mañana"{}}, \textcolor{stringliteral}{"{}pasado mañana"{}},}
+\DoxyCodeLine{7     \textcolor{stringliteral}{"{}mediodía"{}}, \textcolor{stringliteral}{"{}mediodia"{}}, \textcolor{stringliteral}{"{}medianoche"{}},}
+\DoxyCodeLine{8     \textcolor{stringliteral}{"{}que viene"{}}, \textcolor{stringliteral}{"{}próximo"{}}, \textcolor{stringliteral}{"{}proximo"{}}, \textcolor{stringliteral}{"{}siguiente"{}},}
+\DoxyCodeLine{9     \textcolor{stringliteral}{"{}esta semana"{}}, \textcolor{stringliteral}{"{}este mes"{}}, \textcolor{stringliteral}{"{}la semana que viene"{}},}
+\DoxyCodeLine{10     \textcolor{stringliteral}{"{}a las"{}}, \textcolor{stringliteral}{"{}a la una"{}}, \textcolor{stringliteral}{"{}en punto"{}},}
+\DoxyCodeLine{11     \textcolor{stringliteral}{"{}dentro de"{}}, \textcolor{stringliteral}{"{}minutos"{}}, \textcolor{stringliteral}{"{}horas"{}}, \textcolor{stringliteral}{"{}media hora"{}}}
+\DoxyCodeLine{12 ]}
+
+\end{DoxyCode}
 \mbox{\Hypertarget{namespaceapp_1_1core_1_1assistant__engine_aefa0f3f077e8ee22c1c5dd31b73fc6e4}\label{namespaceapp_1_1core_1_1assistant__engine_aefa0f3f077e8ee22c1c5dd31b73fc6e4}} 
 \index{app.core.assistant\_engine@{app.core.assistant\_engine}!PROMPT\_DEL\_SISTEMA@{PROMPT\_DEL\_SISTEMA}}
 \index{PROMPT\_DEL\_SISTEMA@{PROMPT\_DEL\_SISTEMA}!app.core.assistant\_engine@{app.core.assistant\_engine}}

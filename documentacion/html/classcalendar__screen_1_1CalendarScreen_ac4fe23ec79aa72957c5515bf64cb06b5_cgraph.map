@@ -1,4 +1,4 @@
 <map id="calendar_screen.CalendarScreen.next_month" name="calendar_screen.CalendarScreen.next_month">
-<area shape="rect" id="node1" title="Avanza una página en el calendario correspondiente a un mes adelante de la fecha actual." alt="" coords="5,5,196,47"/>
-<area shape="rect" id="node2" href="$classcalendar__screen_1_1CalendarScreen.html#abc63bf26ee2c9f4cb8d1702b3e90a23d" title="Sincroniza el texto del encabezado principal con el mes y año bajo visualización." alt="" coords="244,5,435,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,196,47"/>
+<area shape="rect" id="node2" href="$classcalendar__screen_1_1CalendarScreen.html#abc63bf26ee2c9f4cb8d1702b3e90a23d" title=" " alt="" coords="244,5,435,47"/>
 </map>

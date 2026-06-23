@@ -1,0 +1,5 @@
+<map id="app.core.assistant_engine.AssistantEngine._get_calendar_events" name="app.core.assistant_engine.AssistantEngine._get_calendar_events">
+<area shape="rect" id="node1" title="Consulta los eventos pendientes y los narra por voz." alt="" coords="5,5,191,61"/>
+<area shape="rect" id="node2" href="$classapp_1_1core_1_1assistant__engine_1_1AssistantEngine.html#aa7555d19c229c6b24390a33fb3b79ba7" title="Determina los límites temporales (fecha de inicio y fin) según los adverbios utilizados." alt="" coords="239,5,424,61"/>
+<area shape="rect" id="node3" href="$classapp_1_1core_1_1assistant__engine_1_1AssistantEngine.html#a9a21ecd3bd3e064b3e1417260c58d824" title="Transforma expresiones complejas de lenguaje natural a un objeto datetime estructurado." alt="" coords="472,5,657,61"/>
+</map>

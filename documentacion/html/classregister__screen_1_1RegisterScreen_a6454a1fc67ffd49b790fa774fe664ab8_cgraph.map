@@ -1,6 +1,6 @@
 <map id="register_screen.RegisterScreen.on_success" name="register_screen.RegisterScreen.on_success">
 <area shape="rect" id="node1" title="Maneja el éxito del registro." alt="" coords="5,115,185,156"/>
-<area shape="rect" id="node2" href="$classcalendar__screen_1_1CalendarScreen.html#a38634fa36747b9d329572854ec6a16e1" title="Cierra el módulo de agenda actual regresando la interfaz al menú principal (Launcher)." alt="" coords="272,5,463,47"/>
+<area shape="rect" id="node2" href="$classcalendar__screen_1_1CalendarScreen.html#a38634fa36747b9d329572854ec6a16e1" title=" " alt="" coords="272,5,463,47"/>
 <area shape="rect" id="node3" href="$classgames__screen_1_1GamesScreen.html#a89c28fc9eb83fcb2679959a77080b07a" title="Interrumpe la visualización de la vista actual emitiendo las señales de retorno hacia el Launcher." alt="" coords="233,71,501,98"/>
 <area shape="rect" id="node4" href="$classnote__screen_1_1NotesScreen.html#a9407be889a3d5539e75bb6e043c55c44" title="Solicita al enrutador central el retorno seguro hacia el Launcher principal de Qt." alt="" coords="245,122,490,149"/>
 <area shape="rect" id="node5" href="$classreminder__screen_1_1ReminderScreen.html#a6d80389ddd5e2eb734f74625c8004ce9" title="Navegación hacia atrás." alt="" coords="268,173,467,215"/>

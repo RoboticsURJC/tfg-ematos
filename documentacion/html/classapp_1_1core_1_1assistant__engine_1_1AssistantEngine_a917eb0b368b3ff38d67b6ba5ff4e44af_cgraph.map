@@ -1,0 +1,4 @@
+<map id="app.core.assistant_engine.AssistantEngine._detectar_intencion" name="app.core.assistant_engine.AssistantEngine._detectar_intencion">
+<area shape="rect" id="node1" title="Clasifica y mapea el texto del usuario para identificar comandos conocidos o herramientas nativas." alt="" coords="5,5,191,61"/>
+<area shape="rect" id="node2" href="$classapp_1_1core_1_1assistant__engine_1_1AssistantEngine.html#a20b18a98b65c4de6798f4ad973a99d64" title="Comprueba si la frase contiene alguna pista de fecha/hora." alt="" coords="239,5,463,61"/>
+</map>

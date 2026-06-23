@@ -1,4 +1,4 @@
 <map id="proactive.proactive_screen.ProactiveScreen.mousePressEvent" name="proactive.proactive_screen.ProactiveScreen.mousePressEvent">
-<area shape="rect" id="node1" title="Gestiona la interacción táctil/ratón calculando colisiones dinámicas." alt="" coords="5,5,235,61"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,235,61"/>
 <area shape="rect" id="node2" href="$classbase__pygame__qt__screen_1_1BasePygameQtScreen.html#a459793b86c65f4e448608173a73cd1bc" title="Ejecuta una transformación lineal inversa para corregir las coordenadas físicas del widget." alt="" coords="283,13,535,54"/>
 </map>

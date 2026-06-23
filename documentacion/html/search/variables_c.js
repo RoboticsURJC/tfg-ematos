@@ -17,7 +17,7 @@ var searchData=
   ['max_5flogs_14',['MAX_LOGS',['../namespacelog__service.html#a3669392be4e35ab908d7e8b4b50b061a',1,'log_service']]],
   ['max_5fscroll_15',['max_scroll',['../classword__search__screen_1_1WordSearchScreen.html#ac98d7f28f339dd0752b48fb6e2446842',1,'word_search_screen::WordSearchScreen']]],
   ['memoria_16',['memoria',['../namespaceapp_1_1core_1_1assistant.html#ada7813e509046e186cae1d0917e6a687',1,'app.core.assistant.memoria()'],['../classapp_1_1core_1_1assistant__engine_1_1AssistantEngine.html#a687b161a3bdb1940ef2ac4e618932a49',1,'app.core.assistant_engine.AssistantEngine.memoria()']]],
-  ['memory_5ffile_17',['MEMORY_FILE',['../namespaceapp_1_1core_1_1memory.html#a7697221f507d22dc643040c2abd5798b',1,'app.core.memory.MEMORY_FILE()'],['../namespaceapp_1_1core_1_1assistant__engine.html#addd6aaea4b651732aac6aaa0d8cb0d5f',1,'app.core.assistant_engine.MEMORY_FILE()']]],
+  ['memory_5ffile_17',['MEMORY_FILE',['../namespaceapp_1_1core_1_1assistant__engine.html#addd6aaea4b651732aac6aaa0d8cb0d5f',1,'app.core.assistant_engine.MEMORY_FILE()'],['../namespaceapp_1_1core_1_1memory.html#a7697221f507d22dc643040c2abd5798b',1,'app.core.memory.MEMORY_FILE()']]],
   ['memory_5finterval_18',['memory_interval',['../classproactive_1_1proactive__scheduler_1_1ProactiveScheduler.html#ae366d9884dc11619684e1aa0b6e1f104',1,'proactive::proactive_scheduler::ProactiveScheduler']]],
   ['memory_5fscreen_19',['memory_screen',['../classapp_1_1ui_1_1main__window_1_1MainWindow.html#a44d230f045c8571fdf9741e3585d7f4b',1,'app::ui::main_window::MainWindow']]],
   ['memory_5fsuggestions_20',['MEMORY_SUGGESTIONS',['../namespaceproactive_1_1proactive__scheduler.html#af7438d3fa6f703a34dce2e02676e0efe',1,'proactive::proactive_scheduler']]],
@@ -25,7 +25,8 @@ var searchData=
   ['min_5fspin_22',['min_spin',['../classreminder__screen_1_1DateTimePickerDialog.html#a4df4d3f1bbd1bcc4fbf295ad33f63f15',1,'reminder_screen::DateTimePickerDialog']]],
   ['mobility_5finterval_23',['mobility_interval',['../classproactive_1_1proactive__scheduler_1_1ProactiveScheduler.html#a9a715646007b286b02901cec713e5ee8',1,'proactive::proactive_scheduler::ProactiveScheduler']]],
   ['mobility_5fsuggestions_24',['MOBILITY_SUGGESTIONS',['../namespaceproactive_1_1proactive__scheduler.html#ac937e3250422caf27cf72e18793d8bee',1,'proactive::proactive_scheduler']]],
-  ['model_25',['model',['../classapp_1_1voice_1_1stt__vosk_1_1VoskSTT.html#a1b24ec024404dcddec189d1e4a7fe641',1,'app.voice.stt_vosk.VoskSTT.model()'],['../classapp_1_1llm_1_1client_1_1LLMClient.html#a94cade3e857e3a5908c2b72c3c22e48a',1,'app.llm.client.LLMClient.model()'],['../classllm__service_1_1LLMService.html#ab81c5324e1cec179729af085f494341f',1,'llm_service.LLMService.model()']]],
-  ['models_26',['models',['../classrunner_1_1BenchmarkRunner.html#a9d70ac416dffbb1d91e263c970495b56',1,'runner.BenchmarkRunner.models()'],['../namespacemain.html#ac4161d4c53af6b93521c11d52ceb3de5',1,'main.models()'],['../namespacespeaking__server.html#af135daa74e94fe8ea454a96b21a4a8c0',1,'speaking_server.models()']]],
-  ['movie_27',['movie',['../classboot__screen_1_1BootScreen.html#a22af0dcf504ee0c66249dbf8c8729d7b',1,'boot_screen::BootScreen']]]
+  ['mode_25',['mode',['../namespaceapp_1_1led__status.html#a2faa067b5aab49341ef64ae204ab9562',1,'app::led_status']]],
+  ['model_26',['model',['../classapp_1_1voice_1_1stt__vosk_1_1VoskSTT.html#a1b24ec024404dcddec189d1e4a7fe641',1,'app.voice.stt_vosk.VoskSTT.model()'],['../classapp_1_1llm_1_1client_1_1LLMClient.html#a94cade3e857e3a5908c2b72c3c22e48a',1,'app.llm.client.LLMClient.model()'],['../classllm__service_1_1LLMService.html#ab81c5324e1cec179729af085f494341f',1,'llm_service.LLMService.model()']]],
+  ['models_27',['models',['../classrunner_1_1BenchmarkRunner.html#a9d70ac416dffbb1d91e263c970495b56',1,'runner.BenchmarkRunner.models()'],['../namespacemain.html#ac4161d4c53af6b93521c11d52ceb3de5',1,'main.models()'],['../namespacespeaking__server.html#af135daa74e94fe8ea454a96b21a4a8c0',1,'speaking_server.models()']]],
+  ['movie_28',['movie',['../classboot__screen_1_1BootScreen.html#a22af0dcf504ee0c66249dbf8c8729d7b',1,'boot_screen::BootScreen']]]
 ];

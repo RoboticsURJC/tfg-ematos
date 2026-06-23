@@ -8,7 +8,7 @@ var searchData=
   ['hint_5fcell_5',['hint_cell',['../classword__search__screen_1_1WordSearchScreen.html#a87df929c5df223b283c677ac1bdbc609',1,'word_search_screen::WordSearchScreen']]],
   ['home_6',['HOME',['../classapp_1_1core_1_1state__machine_1_1StateMachine.html#ad7a0487744bc14131a57a956fcc2560b',1,'app::core::state_machine::StateMachine']]],
   ['home_5furl_7',['HOME_URL',['../namespacebrowser__screen.html#a621e8d316c86bc39ec060f2ccd910b2a',1,'browser_screen']]],
-  ['host_8',['host',['../namespaceserver.html#ae9fe947fe8af0c8524c72b5978fe9ef7',1,'server']]],
-  ['host_9',['HOST',['../namespaceconfig.html#a6190eb3cd371fc4846f41a5f6cf475b1',1,'config']]],
+  ['host_8',['HOST',['../namespaceconfig.html#a6190eb3cd371fc4846f41a5f6cf475b1',1,'config']]],
+  ['host_9',['host',['../namespaceserver.html#ae9fe947fe8af0c8524c72b5978fe9ef7',1,'server']]],
   ['hour_5fspin_10',['hour_spin',['../classreminder__screen_1_1DateTimePickerDialog.html#a0f9fd178e706260501b9499a79a6c3d4',1,'reminder_screen::DateTimePickerDialog']]]
 ];

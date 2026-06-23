@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: app.core.assistant_engine Namespace Reference</title>
+<title>Robot Asistente para estimulación cognitiva de personas mayores: app.core.assistant_engine Namespace Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">Robot Asistente para estimulación cognitiva de personas mayores<span id="projectnumber">&#160;v1.0</span>
    </div>
+   <div id="projectbrief">Sistema asistente con visión, voz e interfaz de usuario</div>
   </td>
  </tr>
  </tbody>
@@ -90,6 +91,12 @@ Variables</h2></td></tr>
 <tr class="memitem:a9261b930a2c9e577f0d9a1dc67c12bf9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapp_1_1core_1_1assistant__engine.html#a9261b930a2c9e577f0d9a1dc67c12bf9">TIMEOUT</a> = 90</td></tr>
 <tr class="memdesc:a9261b930a2c9e577f0d9a1dc67c12bf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tiempo máximo de espera por defecto (en segundos) para solicitudes de red.  <a href="namespaceapp_1_1core_1_1assistant__engine.html#a9261b930a2c9e577f0d9a1dc67c12bf9">More...</a><br /></td></tr>
 <tr class="separator:a9261b930a2c9e577f0d9a1dc67c12bf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc8d4bd16ec4a0ff2a724cb4fdacda8e"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapp_1_1core_1_1assistant__engine.html#adc8d4bd16ec4a0ff2a724cb4fdacda8e">PALABRAS_EVENTO</a></td></tr>
+<tr class="separator:adc8d4bd16ec4a0ff2a724cb4fdacda8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d6a524414d2812c4f15adbf6ecf43ee"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapp_1_1core_1_1assistant__engine.html#a3d6a524414d2812c4f15adbf6ecf43ee">PALABRAS_RECORDATORIO</a></td></tr>
+<tr class="separator:a3d6a524414d2812c4f15adbf6ecf43ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e1a15f9bae7880c6345dc2d7e0f3a57"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapp_1_1core_1_1assistant__engine.html#a7e1a15f9bae7880c6345dc2d7e0f3a57">PISTAS_TEMPORALES</a></td></tr>
+<tr class="separator:a7e1a15f9bae7880c6345dc2d7e0f3a57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Variable Documentation</h2>
 <a id="addd6aaea4b651732aac6aaa0d8cb0d5f" name="addd6aaea4b651732aac6aaa0d8cb0d5f"></a>
@@ -106,6 +113,92 @@ Variables</h2></td></tr>
 
 <p>Nombre del fichero JSON local para guardar la persistencia del historial. </p>
 
+</div>
+</div>
+<a id="adc8d4bd16ec4a0ff2a724cb4fdacda8e" name="adc8d4bd16ec4a0ff2a724cb4fdacda8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc8d4bd16ec4a0ff2a724cb4fdacda8e">&#9670;&nbsp;</a></span>PALABRAS_EVENTO</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">list app.core.assistant_engine.PALABRAS_EVENTO</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line"><span class="lineno">    1</span>=  [</div>
+<div class="line"><span class="lineno">    2</span>    <span class="stringliteral">&quot;médico&quot;</span>, <span class="stringliteral">&quot;medico&quot;</span>,</div>
+<div class="line"><span class="lineno">    3</span>    <span class="stringliteral">&quot;dentista&quot;</span>,</div>
+<div class="line"><span class="lineno">    4</span>    <span class="stringliteral">&quot;hospital&quot;</span>,</div>
+<div class="line"><span class="lineno">    5</span>    <span class="stringliteral">&quot;cardiólogo&quot;</span>, <span class="stringliteral">&quot;cardiologo&quot;</span>,</div>
+<div class="line"><span class="lineno">    6</span>    <span class="stringliteral">&quot;enfermera&quot;</span>,</div>
+<div class="line"><span class="lineno">    7</span>    <span class="stringliteral">&quot;análisis&quot;</span>, <span class="stringliteral">&quot;analisis&quot;</span>,</div>
+<div class="line"><span class="lineno">    8</span>    <span class="stringliteral">&quot;farmacia&quot;</span>,</div>
+<div class="line"><span class="lineno">    9</span>    <span class="stringliteral">&quot;rehabilitación&quot;</span>, <span class="stringliteral">&quot;rehabilitacion&quot;</span>,</div>
+<div class="line"><span class="lineno">   10</span>    <span class="stringliteral">&quot;peluquería&quot;</span>, <span class="stringliteral">&quot;peluqueria&quot;</span>,</div>
+<div class="line"><span class="lineno">   11</span>    <span class="stringliteral">&quot;cumpleaños&quot;</span>, <span class="stringliteral">&quot;cumpleanos&quot;</span>,</div>
+<div class="line"><span class="lineno">   12</span>    <span class="stringliteral">&quot;vacuna&quot;</span>,</div>
+<div class="line"><span class="lineno">   13</span>    <span class="stringliteral">&quot;especialista&quot;</span>,</div>
+<div class="line"><span class="lineno">   14</span>    <span class="stringliteral">&quot;consulta&quot;</span>,</div>
+<div class="line"><span class="lineno">   15</span>    <span class="stringliteral">&quot;boda&quot;</span>,</div>
+<div class="line"><span class="lineno">   16</span>    <span class="stringliteral">&quot;comunión&quot;</span>, <span class="stringliteral">&quot;comunion&quot;</span>,</div>
+<div class="line"><span class="lineno">   17</span>    <span class="stringliteral">&quot;operación&quot;</span>, <span class="stringliteral">&quot;operacion&quot;</span>,</div>
+<div class="line"><span class="lineno">   18</span>    <span class="stringliteral">&quot;revisión&quot;</span>, <span class="stringliteral">&quot;revision&quot;</span>,</div>
+<div class="line"><span class="lineno">   19</span>]</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a3d6a524414d2812c4f15adbf6ecf43ee" name="a3d6a524414d2812c4f15adbf6ecf43ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d6a524414d2812c4f15adbf6ecf43ee">&#9670;&nbsp;</a></span>PALABRAS_RECORDATORIO</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">list app.core.assistant_engine.PALABRAS_RECORDATORIO</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line"><span class="lineno">    1</span>=  [</div>
+<div class="line"><span class="lineno">    2</span>    <span class="stringliteral">&quot;pastilla&quot;</span>,</div>
+<div class="line"><span class="lineno">    3</span>    <span class="stringliteral">&quot;pastillas&quot;</span>,</div>
+<div class="line"><span class="lineno">    4</span>    <span class="stringliteral">&quot;medicina&quot;</span>,</div>
+<div class="line"><span class="lineno">    5</span>    <span class="stringliteral">&quot;medicación&quot;</span>,</div>
+<div class="line"><span class="lineno">    6</span>    <span class="stringliteral">&quot;medicacion&quot;</span>,</div>
+<div class="line"><span class="lineno">    7</span>    <span class="stringliteral">&quot;medicamento&quot;</span>,</div>
+<div class="line"><span class="lineno">    8</span>    <span class="stringliteral">&quot;medicamentos&quot;</span>,</div>
+<div class="line"><span class="lineno">    9</span>    <span class="stringliteral">&quot;inyección&quot;</span>,</div>
+<div class="line"><span class="lineno">   10</span>    <span class="stringliteral">&quot;inyeccion&quot;</span>,</div>
+<div class="line"><span class="lineno">   11</span>    <span class="stringliteral">&quot;tomar&quot;</span>,</div>
+<div class="line"><span class="lineno">   12</span>    <span class="stringliteral">&quot;llamar&quot;</span></div>
+<div class="line"><span class="lineno">   13</span>]</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a7e1a15f9bae7880c6345dc2d7e0f3a57" name="a7e1a15f9bae7880c6345dc2d7e0f3a57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e1a15f9bae7880c6345dc2d7e0f3a57">&#9670;&nbsp;</a></span>PISTAS_TEMPORALES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">list app.core.assistant_engine.PISTAS_TEMPORALES</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line"><span class="lineno">    1</span>=  [</div>
+<div class="line"><span class="lineno">    2</span>    <span class="stringliteral">&quot;lunes&quot;</span>, <span class="stringliteral">&quot;martes&quot;</span>, <span class="stringliteral">&quot;miércoles&quot;</span>, <span class="stringliteral">&quot;miercoles&quot;</span>, <span class="stringliteral">&quot;jueves&quot;</span>,</div>
+<div class="line"><span class="lineno">    3</span>    <span class="stringliteral">&quot;viernes&quot;</span>, <span class="stringliteral">&quot;sábado&quot;</span>, <span class="stringliteral">&quot;sabado&quot;</span>, <span class="stringliteral">&quot;domingo&quot;</span>,</div>
+<div class="line"><span class="lineno">    4</span>    <span class="stringliteral">&quot;enero&quot;</span>, <span class="stringliteral">&quot;febrero&quot;</span>, <span class="stringliteral">&quot;marzo&quot;</span>, <span class="stringliteral">&quot;abril&quot;</span>, <span class="stringliteral">&quot;mayo&quot;</span>, <span class="stringliteral">&quot;junio&quot;</span>, <span class="stringliteral">&quot;julio&quot;</span>,</div>
+<div class="line"><span class="lineno">    5</span>    <span class="stringliteral">&quot;agosto&quot;</span>, <span class="stringliteral">&quot;septiembre&quot;</span>, <span class="stringliteral">&quot;octubre&quot;</span>, <span class="stringliteral">&quot;noviembre&quot;</span>, <span class="stringliteral">&quot;diciembre&quot;</span>,</div>
+<div class="line"><span class="lineno">    6</span>    <span class="stringliteral">&quot;hoy&quot;</span>, <span class="stringliteral">&quot;mañana&quot;</span>, <span class="stringliteral">&quot;pasado mañana&quot;</span>,</div>
+<div class="line"><span class="lineno">    7</span>    <span class="stringliteral">&quot;mediodía&quot;</span>, <span class="stringliteral">&quot;mediodia&quot;</span>, <span class="stringliteral">&quot;medianoche&quot;</span>,</div>
+<div class="line"><span class="lineno">    8</span>    <span class="stringliteral">&quot;que viene&quot;</span>, <span class="stringliteral">&quot;próximo&quot;</span>, <span class="stringliteral">&quot;proximo&quot;</span>, <span class="stringliteral">&quot;siguiente&quot;</span>,</div>
+<div class="line"><span class="lineno">    9</span>    <span class="stringliteral">&quot;esta semana&quot;</span>, <span class="stringliteral">&quot;este mes&quot;</span>, <span class="stringliteral">&quot;la semana que viene&quot;</span>,</div>
+<div class="line"><span class="lineno">   10</span>    <span class="stringliteral">&quot;a las&quot;</span>, <span class="stringliteral">&quot;a la una&quot;</span>, <span class="stringliteral">&quot;en punto&quot;</span>,</div>
+<div class="line"><span class="lineno">   11</span>    <span class="stringliteral">&quot;dentro de&quot;</span>, <span class="stringliteral">&quot;minutos&quot;</span>, <span class="stringliteral">&quot;horas&quot;</span>, <span class="stringliteral">&quot;media hora&quot;</span></div>
+<div class="line"><span class="lineno">   12</span>]</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="aefa0f3f077e8ee22c1c5dd31b73fc6e4" name="aefa0f3f077e8ee22c1c5dd31b73fc6e4"></a>

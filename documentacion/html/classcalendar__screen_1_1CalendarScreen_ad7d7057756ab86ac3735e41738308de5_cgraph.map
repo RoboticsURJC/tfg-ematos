@@ -1,6 +1,6 @@
 <map id="calendar_screen.CalendarScreen.refresh" name="calendar_screen.CalendarScreen.refresh">
-<area shape="rect" id="node1" title="Sincroniza la lista visual de tareas y repinta los días destacados." alt="" coords="5,31,196,73"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,31,196,73"/>
 <area shape="rect" id="node2" href="$namespaceroutes__dashboard.html#a8e1c87d3914c53c0d5ed6d8c3dafca9e" title="Vacía el historial de logs de un servicio." alt="" coords="252,5,427,32"/>
-<area shape="rect" id="node4" href="$classcalendar__screen_1_1CalendarScreen.html#a0f1a3545f3729b3b7f1ce049450dd3d5" title="Resalta visualmente las casillas del calendario que contienen recordatorios agendados." alt="" coords="244,56,435,112"/>
+<area shape="rect" id="node4" href="$classcalendar__screen_1_1CalendarScreen.html#a0f1a3545f3729b3b7f1ce049450dd3d5" title=" " alt="" coords="244,56,435,112"/>
 <area shape="rect" id="node3" href="$namespacelog__service.html#ae2983f6bea2c5025c60c12bb9e947d4c" title="Vacía por completo el historial de registros de un servicio específico." alt="" coords="483,5,649,32"/>
 </map>

@@ -14,5 +14,6 @@ var searchData=
   ['is_5flogged_11',['is_logged',['../classapp_1_1core_1_1session__manager_1_1SessionManager.html#a046b64256020a9ec86919a2506a0ae7d',1,'app::core::session_manager::SessionManager']]],
   ['is_5frunning_12',['is_running',['../classprocess__service_1_1ProcessService.html#a68c39806ab01a758c6e4d971d6783eba',1,'process_service::ProcessService']]],
   ['is_5fspeaking_13',['is_speaking',['../classapp_1_1ui_1_1state_1_1UIState.html#af6d936adceca21fcf4c04e7c3d78c45c',1,'app.ui.state.UIState.is_speaking()'],['../classapp_1_1voice_1_1tts_1_1TTS.html#a54be2ddf9c6bc524c157198e82f5ea6a',1,'app.voice.tts.TTS.is_speaking()']]],
-  ['is_5fstate_14',['is_state',['../classapp_1_1core_1_1state__machine_1_1StateMachine.html#a8d3c804dd43e7df26643eabc866fd92f',1,'app::core::state_machine::StateMachine']]]
+  ['is_5fstate_14',['is_state',['../classapp_1_1core_1_1state__machine_1_1StateMachine.html#a8d3c804dd43e7df26643eabc866fd92f',1,'app::core::state_machine::StateMachine']]],
+  ['is_5fui_5frunning_15',['is_ui_running',['../namespaceapp_1_1button.html#ac3ded0567cafb258581d1474df33f4cf',1,'app::button']]]
 ];
