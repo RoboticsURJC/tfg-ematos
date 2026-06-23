@@ -17,10 +17,10 @@ from app.core.logger import logger
 
 # Palabras que interrumpen el TTS aunque esté hablando
 STOP_WORDS = {"calla", "para", "silencio", "cállate", "callate", "basta", "stop"}
-WAKE_WORDS = {"eliot", "asistente", "rojazz", "hablame"}
+WAKE_WORDS = {"eliot", "asistente", "rojazz", "hablame", "oye"}
 
 # Segundos que el asistente permanece activo tras la wake word (o tras cada respuesta)
-AWAKE_TIMEOUT = 15
+AWAKE_TIMEOUT = 60
 
 
 class VoskSTT:
@@ -215,6 +215,15 @@ class VoskSTT:
 
             # --- Modo activo: procesar texto ---
             logger.info(f"[STT] reconocido: '{text}'")
-            callback(text)
+            
+
+            # Eliminar wake word si aparece en el texto
+            for ww in WAKE_WORDS:
+                if text.startswith(ww):
+                   text = text[len(ww):].strip()
+                   break
+
+            if text: # no llamar callback si solo era la wake word
+                callback(text)
 
         logger.info("[STT] bucle terminado")
