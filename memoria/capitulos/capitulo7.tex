@@ -1,0 +1,249 @@
+\chapter{Experimentos}
+\label{cap:capitulo6}
+
+\begin{flushright}
+\begin{minipage}[]{10cm}
+\emph{El verdadero método de conocimiento es el experimento.}\\
+\end{minipage}\\
+
+William Blake\\
+\end{flushright}
+
+\vspace{1cm}
+
+En este capítulo se tratarán los diferentes experimentos que se han realizado para lograr llevar a cabo la realización de este proyecto, y gracias a los cuales ha sido posible alcanzar los objetivos definidos en la Sección
+~\ref{sec:Requisitos}
+
+
+\section{Impresión 3D}
+\label{sec:Impresión 3D}
+
+Uno de los primeros pasos para la construcción física del robot consistió en el diseño e impresión de las piezas estructurales. En el diseño se intentó minimizar el número de piezas con el objetivo de simplificar el montaje y reducir posible problemas de ensamblaje.
+
+
+Sin embargo, durante la preparación de las piezas para su impresión se detectó un problema debido a las limitaciones  del tamaño máximo de fabricación de la impresora utilizada. Como se puede observar en (Figura \ref{fig:impresion_vis}), algunas piezas superaban las dimensiones máximas permitidas por el área de impresión disponible.
+
+\vspace{0.2cm}
+
+\begin{figure}[H]
+  \begin{center}
+    \subcapcentertrue
+    \subfigure[Pieza hacia arriba]{\includegraphics[width=0.48\textwidth, height=50mm, keepaspectratio=false]{figs/impresion}}
+    \hspace{3mm}
+    \subfigure[Pieza hacia abajo]{\includegraphics[width=0.48\textwidth, height=50mm, keepaspectratio=false]{figs/impresion2}}
+  \end{center}
+  \caption{Piezas 3D}
+  \label{fig:impresion_vis}
+\end{figure}
+
+Para solventar este contratiempo se modificó el diseño original, dividiendo las piezas de mayor tamaño en varias piezas.
+
+\vspace{0.2cm}
+
+Una vez realizados los cambios, se inició la impresión de las distintas piezas (Figura \ref{fig:piezas}) que componen la estructura del robot.
+
+\vspace{0.2cm}
+
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=12cm]{figs/piezas}
+  \end{center}
+  \caption{Piezas 3D impresas}
+  \label{fig:piezas}
+\end{figure}\
+
+
+Tras la impresión de las piezas y durante el montaje del robot, se detectaron dos problemas importantes. Por una parte, algunas dimensiones habían sido calculadas de forma incorrecta, por lo que no se disponía del espacio suficiente para integrar determinados componentes \textit{hardware} en el interior de la estructura.
+
+Por este motivo fue necesario realizar modificaciones sobre algunas piezas impresas, ampliando huecos mediante procesos de lijado y aplicación de color. La (Figura \ref{fig:sol}) muestra una de las piezas modificadas durante esta fase.
+
+\vspace{0.2cm}
+
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=9cm]{figs/sol}
+  \end{center}
+  \caption{Pieza modificada}
+  \label{fig:sol}
+\end{figure}\
+
+Por otra parte, el diseño CAD incorporaba una serie de salientes destinados a encajar en los huecos de las piezas adyacentes, facilitando así el montaje de la estructura.
+
+Sin embargo, durante la impresión se observó que dichos salientes presentaban una superficie de contacto insuficiente con la pieza principal. Como consecuencia, varios de ellos se desprendieron durante la impresión.
+
+Debido a este inconveniente, se descartó el sistema de encaje inicial y se optó por una solución alternativa basada en la utilización de adhesivo termofusible para el ensamblaje de las distintas piezas.
+
+
+Se realizaron entonces una serie de modificaciones sobre el diseño original con el objetivo de adaptar la estructura a los inconvenientes encontrados durante el proceso de impresión y ensamblaje. Estas modificaciones permitieron integrar correctamente los componentes \textit{hardware} y obtener una estructura funcional del robot.
+
+En la (Figura \ref{fig:estructura1}) se muestra el resultado final de la estructura.
+
+\vspace{0.2cm}
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=12cm]{figs/estructura}
+  \end{center}
+  \caption{Estructura final del robot}
+  \label{fig:estructura1}
+\end{figure}\
+
+
+
+\section{Alimentación del sistema}
+\label{sec:Alimentación del sistema}
+
+Durante la integración \textit{hardware} se observó que la Raspberry Pi era incapaz de alimentar correctamente todos los componentes electrónicos conectados al sistema. La incorporación de periféricos como la cámara o la pantalla táctil provocaban una elevada demanda energética, afectando al funcionamiento del robot.
+
+\vspace{0.2cm}
+
+Con el objetivo de identificar el origen del problema, se empleó un multímetro para comprobar la tensión suministrada por la fuente de alimentación utilizada inicialmente, obteniéndose un valor 4.9 V, inferior a los 5V recomendados para el correctamente funcionamiento de la Raspberry Pi.
+
+Para solucionar este inconveniente se sustituyó el cargador original por una nueva fuente de alimentación capaz que proporcionar una tensión estable de 5V.
+
+No obstante, el reemplazo de la fuente de alimentación no fue suficiente para resolver completamente el problema. Dado que la mayoría componentes continuaban conectados a la Raspberry Pi, esta no era capaz de funcionar correctamente debido a la elevada carga energética que soportaba.
+
+Como solución se incorporó un HUB USB con alimentación externa, al que se conectaron algunos periféricos del robot. De este modo, dichos dispositivos reciben la energía directamente del HUB, mientras que la Raspberry solo se encarga del intercambio de datos.
+
+\vspace{0.2cm}
+
+Gracias a estas modificaciones se consiguió estabilizar la alimentación del sistema, evitando caídas de tensión y garantizando un funcionamiento fiable del robot.
+
+
+\section{Detección facial}
+\label{sec:Detección facial}
+
+El sistema de autenticación anteriormente descrito se sustenta en el reconocimiento facial. Durante el desarrollo se realizaron diversas pruebas con el objetivo de evaluar el funcionamiento del sistema en diferentes condiciones de uso.
+
+\vspace{0.2cm}
+
+Las primeras pruebas se realizaron en condiciones favorables, donde el rostro del usuario se encontraba centrado frente a la cámara y disponía de una iluminación adecuada. En estas condiciones, la detección y reconocimiento facial se realizaron correctamente pudiendo identificar al usuario sin problemas.
+
+\vspace{0.2cm}
+
+Sin embargo, durante las pruebas se observó que determinadas condiciones afectaban al sistema.
+Cuando el rostro se encontraba excesivamente próximo a la cámara, no era posible identificar todos los rasgos faciales y el sistema no conseguía identificar al usuario. Del mismo modo, en situaciones de contraluz o baja intensidad lumínica, el sistema era incapaz de reconocer al usuario.
+
+\vspace{0.2cm}
+
+Estas limitaciones están asociadas principalmente a las características de la cámara USB empleada, ya que no disponía de mecanismos de compensación de iluminación o control automático de exposición.
+
+\vspace{0.2cm}
+
+Adicionalmente, se evaluó la capacidad de reconocimiento de los distintos rostros almacenados en la base de datos. Para ello se realizaron múltiples pruebas de autenticación utilizando diferentes usuarios previamente registrados. Los resultados obtenidos mostraron una elevada tasa de acierto en condiciones normales de uso, tal como recoger el Cuadro \ref{cuadro:rec}.
+
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Condiciones de iluminación} & \textbf{Intentos} & \textbf{Reconocimientos exitosos}\\
+\hline
+Iluminación adecuada & 20 & 18  \\
+\hline
+Baja iluminación & 	20 & 15 \\
+\hline
+Contraluz & 20 & 4 \\
+
+\hline
+\end{tabular}
+\caption{Resultados del reconocimiento facial en función de la iluminación}
+\label{cuadro:rec}
+\end{center}
+\end{table}
+
+
+Las (Figuras \ref{fig:logmal}, \ref{fig:logg} ) muestra un ejemplo del funcionamiento del sistema durante el proceso de detección e identificación facial.
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=15cm]{figs/logmal}
+  \end{center}
+  \caption{Pantalla de autenticación}
+  \label{fig:logmal}
+\end{figure}\
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=15cm]{figs/logg}
+  \end{center}
+  \caption{Página principal del usuario identificado}
+  \label{fig:logg}
+\end{figure}\
+
+Como resultado de las pruebas realizadas, se validó el uso de reconocimiento facial como mecanismo de autenticación del sistema, demostrando un funcionamiento estable en condiciones de  habituales de uso, aunque con limitaciones en situaciones de iluminación desfavorable.
+
+
+\section{Modelo de lenguaje}
+\label{sec:Modelo de lenguaje}
+
+Una parte fundamental del robot es el sistema conversacional, ya que permite una interacción con el usuario más fluida y natural. Por ello, se han realizado pruebas centradas en la calidad de las respuestas y tiempo de respuesta, con el objetivo de evaluar su funcionamiento.
+
+\vspace{0.2cm}
+
+El modelo de lenguaje no se ejecuta de forma local, sino que se ejecuta en un servidor externo. Esto implica que cada interacción con el usuario sigue un flujo que incluye la captura de audio, el envío de peticiones al servidor, la generación de la respuesta y su transmisión al robot, donde es procesada y reproducida mediante síntesis de voz. Este proceso introduce latencia en el tiempo de respuesta del sistema del sistema.
+
+\vspace{0.2cm}
+
+Con el objetivo de evaluar el rendimiento, se realizaron pruebas comparando distintos modelos de lenguaje bajo las mismas condiciones de uso. Durante estas pruebas se registraron las respuestas obtenidas por cada modelo, así como la latencia, entendida como el tiempo transcurrido desde el envío de la petición hasta la recepción de la respuesta.
+
+Los resultados obtenidos mostraron una gran diferencia entre modelos. En general, \textit{LLaMA 3} presentó un menor tiempo de respuesta y un comportamiento más estable, mientras que modelos como \textit{Gemini} presentaron mayor variabilidad en la latencia.
+
+
+En el Cuadro ~\ref{tab:llm_latency} se muestran los resultados obtenidos en cuanto a la latencia durante la evaluación.
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Modelo} & \textbf{Latencia} \\
+\hline
+LLaMA 3 (Groq) & 0.7 - 2.5 s \\
+\hline
+GPT-4 (Azure) & 4 - 9 s \\
+\hline
+Gemini & 3 - 60 s (variable) \\
+\hline
+\end{tabular}
+\caption{Comparativa de latencia entre modelos de lenguaje}
+\label{tab:llm_latency}
+\end{center}
+\end{table}
+
+Por otra parte, se evaluó la calidad de las respuestas generadas por el modelo con el objetivo de analizar su adecuación dentro del sistema conversacional. Para ello, se realizaron múltiples consultas en distintos ámbitos.
+
+En general, \textit{LLaMA 3} generó respuestas coherentes y adecuadas al contexto de las preguntas planteadas.
+
+\vspace{1cm}
+
+A continuación, se muestran algunos ejemplos de las respuestas obtenidas durante las pruebas:
+
+\vspace{0.2cm}
+
+\textbf{Ejemplo 1: Física (Relatividad)}
+
+\begin{quote}
+La teoría de la relatividad describe cómo el espacio y el tiempo no son absolutos, sino que dependen del observador. La velocidad de la luz es constante y el tiempo puede variar según la velocidad y la gravedad.
+\end{quote}
+
+\vspace{0.2cm}
+
+\textbf{Ejemplo 2: Cine}
+
+\begin{quote}
+Te recomiendo algunas opciones clásicas y modernas que son consideradas muy escalofriantes: como \textit{El Exorcista (1973)}, \textit{La noche de los muertos vivientes (1968)}, \textit{El silencio de los corderos (1991)}, \textit{Get Out (2017)} o \textit{A Quiet Place (2018)}, películas muy intensas y aterradoras.
+\end{quote}
+
+\vspace{0.2cm}
+
+\textbf{Ejemplo 3: Receta de cheesecake}
+\begin{quote}
+Ingredientes de cheesecake de fresa: galletas digestive molidas,  1/2 taza de azúcar,  1/4 taza de mantequilla derretida,  2 tazas de queso crema,  1/2 taza de azúcar, 2 huevos,  1 cucharadita de extracto de vainilla, 1 taza de puré de fresa,  1 taza de fresas frescas picadas.
+
+\end{quote}
+
+\vspace{0.2cm}
+
+Estos resultados demuestran la efectividad del modelo de lenguaje dentro del sistema conversacional del robot, tanto en términos de calidad como de tiempos de respuestas.
