@@ -42,6 +42,33 @@ QLabel#title {
     padding: 14px 40px;
 }
 
+QScrollBar:vertical {
+    width: 60px;              /*  más gruesa */
+    background: rgba(255,255,255,0.3);
+    border-radius: 14px;
+    margin: 6px 4px 6px 4px;
+}
+
+QScrollBar::handle:vertical {
+    background: #2a8abf;
+    border-radius: 14px;
+    min-height: 40px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: #1a6a9f;
+}
+
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical {
+    height: 0px;   /* elimina flechitas */
+}
+
+QScrollBar::add-page:vertical,
+QScrollBar::sub-page:vertical {
+    background: none;
+}
+
 QLabel#date_display {
     font-size: 28px;
     font-weight: 700;
@@ -309,7 +336,7 @@ class DateTimePickerDialog(QDialog):
 
         # Botones OK / Cancelar
         buttons = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
-        buttons.button(QDialogButtonBox.Ok).setText("✅  Confirmar")
+        buttons.button(QDialogButtonBox.Ok).setText("  Confirmar")
         buttons.button(QDialogButtonBox.Cancel).setText("Cancelar")
         buttons.accepted.connect(self.accept)
         buttons.rejected.connect(self.reject)
@@ -364,7 +391,7 @@ class ReminderScreen(QWidget):
         self.title = QLabel(" Recordatorios")
         self.title.setObjectName("title")
 
-        self.btn_back = QPushButton("⬅  Volver")
+        self.btn_back = QPushButton(" Volver")
         self.btn_back.setObjectName("btn_back")
         self.btn_back.setFixedWidth(220)
         self.btn_back.clicked.connect(self.go_back)
@@ -404,7 +431,7 @@ class ReminderScreen(QWidget):
         btn_row = QHBoxLayout()
         btn_row.setSpacing(16)
 
-        self.btn_add = QPushButton("➕  Añadir recordatorio")
+        self.btn_add = QPushButton("  Añadir recordatorio")
         self.btn_add.setObjectName("btn_add")
         self.btn_add.clicked.connect(self.add_reminder)
 
@@ -465,7 +492,7 @@ class ReminderScreen(QWidget):
         self.list.clear()
         for r in self.store.reminders:
             logger.info(f"[REMINDER SCREEN] Encontrado: {r}")
-            estado = "✅" if r.get("done") else "⏰"
+            estado = "O" if r.get("done") else "X"
             self.list.addItem(
                 QListWidgetItem(f"{estado}  {r['time']}  —  {r['title']}")
             )

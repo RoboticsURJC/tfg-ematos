@@ -232,7 +232,7 @@ class LoginScreen(QWidget):
     def on_error(self, msg):
         """@brief Lanzar error  al no recibir una respuesta exitosa del servidor."""
         logger.info("[LOGIN] Error de conexión")
-        self.status.setText("⚠️  Error de conexión")
+        self.status.setText("  Error de conexión")
 
 
     def go_register(self):

@@ -38,9 +38,9 @@ SIMON_BUTTONS = [
 
 ## Diccionario paramétrico de tiempos e hitos de victoria indexados por dificultad.
 DIFFICULTY = {
-    "facil":   {"max_len":  6, "show_ms": 650, "pause_ms": 300},
-    "medio":   {"max_len": 10, "show_ms": 480, "pause_ms": 220},
-    "dificil": {"max_len": 15, "show_ms": 320, "pause_ms": 150},
+    "facil":   {"max_len":  6, "show_ms": 400, "pause_ms": 200},
+    "medio":   {"max_len": 10, "show_ms": 300, "pause_ms": 150},
+    "dificil": {"max_len": 15, "show_ms": 200, "pause_ms": 100},
 }
 
 READY_PAUSE_SEC = 0.3  ##< Constante de tiempo de espera (segundos) antes de reproducir la secuencia.
@@ -103,7 +103,7 @@ class SimonSaysScreen(BasePygameQtScreen):
         self._show_timer = 0.0         ##< Acumulador temporal para sincronizar los tiempos de encendido y apagado de luces.
 
         self._feedback_timer = 0.0     ##< Temporizador residual para sostener las pantallas superpuestas (overlays) de acierto/error.
-        self.FEEDBACK_DUR    = 1.5     ##< Duración estática en segundos de las animaciones de retroalimentación.
+        self.FEEDBACK_DUR    = 0.3     ##< Duración estática en segundos de las animaciones de retroalimentación.
 
         self._pulse     = 0.0          ##< Factor normalizado de interpolación `[0.0, 1.0]` para la animación de pulsación de acierto.
         self._pulse_dir = 1            ##< Dirección matemática del pulso (1 ascendente, -1 descendente).
@@ -429,9 +429,9 @@ class SimonSaysScreen(BasePygameQtScreen):
             ("medio",   "MEDIO",   "hasta 10 pasos", (255, 210, 108), (200, 150,  40)),
             ("dificil", "DIFÍCIL", "hasta 15 pasos", (255, 145, 160), (205,  80, 100)),
         ]
-        BW  = min(W - 120, 440)
-        BH  = 72
-        GAP = 14
+        BW  = min(W - 80, 560)
+        BH  = 100
+        GAP = 20
         bx  = (W - BW) // 2
         by  = top_y + 8
 
@@ -456,7 +456,7 @@ class SimonSaysScreen(BasePygameQtScreen):
             by += BH + GAP
 
         # Botón volver al lanzador
-        EW, EH = 210, 54
+        EW, EH = 320, 90
         self.btn_exit = pygame.Rect((W-EW)//2, H-EH-20, EW, EH)
         pygame.draw.rect(self.surface, P_SHADOW,  self.btn_exit.move(3,3), border_radius=16)
         pygame.draw.rect(self.surface, P_BACK_BG, self.btn_exit,           border_radius=16)
@@ -603,7 +603,7 @@ class SimonSaysScreen(BasePygameQtScreen):
         self.surface.blit(bar, (0, fy))
         pygame.draw.line(self.surface, P_PANEL_BORDER, (0, fy), (W, fy), 2)
 
-        BW, BH = 160, 50
+        BW, BH = 300, 100
         self.btn_back = pygame.Rect(16, fy + (FH - BH) // 2, BW, BH)
         pygame.draw.rect(self.surface, P_SHADOW,  self.btn_back.move(3,3), border_radius=14)
         pygame.draw.rect(self.surface, P_BACK_BG, self.btn_back,           border_radius=14)
@@ -665,7 +665,7 @@ class SimonSaysScreen(BasePygameQtScreen):
         st  = f2.render(sub, True, P_SUBTITLE)
         self.surface.blit(st, (W // 2 - st.get_width() // 2, H // 2 - 20))
 
-        BW, BH = 290, 70
+        BW, BH = 300, 90
         self.btn_back = pygame.Rect((W - BW) // 2, H // 2 + 55, BW, BH)
         pygame.draw.rect(self.surface, P_SHADOW,  self.btn_back.move(4,4), border_radius=18)
         pygame.draw.rect(self.surface, P_BACK_BG, self.btn_back,           border_radius=18)

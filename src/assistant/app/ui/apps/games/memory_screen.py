@@ -58,10 +58,10 @@ class MemoryScreen(BasePygameQtScreen):
         self.level = 1                         ##< Escalón de dificultad activo (Rangos de 1 a 4).
         self.game_state = "menu"               ##< Máquina de estados del flujo visual ("menu" | "playing").
 
-        self.SQUARE = 140                      ##< Dimensión longitudinal en píxeles de cada tarjeta cuadrada.
-        self.INFO_H = 90                       ##< Altura en píxeles asignada a la barra de control inferior (HUD).
+        self.SQUARE = 200                      ##< Dimensión longitudinal en píxeles de cada tarjeta cuadrada.
+        self.INFO_H = 100                       ##< Altura en píxeles asignada a la barra de control inferior (HUD).
 
-        self.font = pygame.font.SysFont("Arial", 30, bold=True)
+        self.font = pygame.font.SysFont("Arial", 40, bold=True)
         self.title_font = pygame.font.SysFont("Arial", 58, bold=True)
 
         self.current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -83,9 +83,9 @@ class MemoryScreen(BasePygameQtScreen):
             self.sound_flip = self.sound_wrong = self.sound_win = None
 
         # Instanciación geométrica de botones en formato de rectángulos contenedores
-        self.btn_play = pygame.Rect(0, 0, 260, 70)
-        self.btn_exit = pygame.Rect(0, 0, 260, 70)
-        self.btn_ingame_exit = pygame.Rect(0, 0, 160, 50)
+        self.btn_play = pygame.Rect(0, 0, 340, 100)
+        self.btn_exit = pygame.Rect(0, 0, 340, 100)
+        self.btn_ingame_exit = pygame.Rect(0, 0, 300, 70)
 
         self.particles = []                    ##< Contenedor dinámico de vectores balísticos para las partículas de victoria.
         self.celebration = False               ##< Bandera lógica que activa el bucle de actualización del render de partículas.
@@ -346,13 +346,13 @@ class MemoryScreen(BasePygameQtScreen):
         self.surface.blit(title, (w // 2 - title.get_width() // 2, h // 2 - 180))
 
         # Centrado geométrico dinámico de las cajas de colisión de los botones
-        self.btn_play.center = (w // 2, h // 2 - 20)
-        self.btn_exit.center = (w // 2, h // 2 + 80)
+        self.btn_play.center = (w // 2, h // 2 - 40)
+        self.btn_exit.center = (w // 2, h // 2 + 90)
 
         pygame.draw.rect(self.surface, P_BTN, self.btn_play, border_radius=20)
         pygame.draw.rect(self.surface, P_BTN_EXIT, self.btn_exit, border_radius=20)
 
-        t1 = self.font.render("▶ JUGAR", True, P_BTN_TEXT)
+        t1 = self.font.render(" JUGAR", True, P_BTN_TEXT)
         t2 = self.font.render(" SALIR", True, P_BTN_TEXT)
 
         self.surface.blit(t1, t1.get_rect(center=self.btn_play.center))
@@ -385,7 +385,7 @@ class MemoryScreen(BasePygameQtScreen):
                     self.surface,
                     P_MATCHED if c["matched"] else P_BORDER,
                     (px, py, self.SQUARE, self.SQUARE),
-                    3
+                    4
                 )
 
         # ── RENDERIZADO DEL HUD INFERIOR ─────────────────────────
@@ -397,7 +397,7 @@ class MemoryScreen(BasePygameQtScreen):
         self.surface.blit(lvl, (20, self.game_height - self.INFO_H + 25))
 
         # Posicionamiento dinámico del botón de salida In-Game
-        self.btn_ingame_exit.topleft = (self.game_width - 190, self.game_height - self.INFO_H + 20)
+        self.btn_ingame_exit.topleft = (self.game_width - 240, self.game_height - self.INFO_H + 10)
         pygame.draw.rect(self.surface, P_BTN_EXIT, self.btn_ingame_exit, border_radius=12)
 
         txt = self.font.render("SALIR", True, P_BTN_TEXT)

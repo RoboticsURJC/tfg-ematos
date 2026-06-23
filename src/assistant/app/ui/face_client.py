@@ -435,7 +435,7 @@ class FaceClient(QWidget):
         if self.current_frame is None:
 
             self.status.setText(
-                "⚠ Cámara no lista"
+                "¡Cámara no lista!"
             )
 
             return
@@ -545,7 +545,7 @@ class FaceClient(QWidget):
         print("ERROR:", msg)
 
         self.status.setText(
-            "⚠ Sin conexión con servidor"
+            "¡Sin conexión con servidor!"
         )
 
         self.display.set_estado(

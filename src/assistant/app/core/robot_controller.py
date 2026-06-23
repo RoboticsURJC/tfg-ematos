@@ -25,7 +25,7 @@ from app.ui.apps.calendar.calendar_store import CalendarStore
 from app.ui.apps.reminder.reminder_store import ReminderStore
 from app.ui.apps.reminder.reminder_scheduler import ReminderScheduler
 from app.ui.apps.proactive.proactive_scheduler import ProactiveScheduler
-
+from PyQt5.QtCore import QMetaObject, Qt
 
 class RobotController:
     """
@@ -165,6 +165,20 @@ class RobotController:
         """
         self.ui = ui
         self.game_router = GameRouter(self)
+        
+        ui.refresh_reminders_signal.connect(ui.reminder_screen.refresh)
+        ui.refresh_calendar_signal.connect(ui.calendar_screen.refresh)
+        
+        def _refresh_reminders():
+            ui.refresh_reminders_signal.emit()
+
+
+        def _refresh_calendar():
+            ui.refresh_calendar_signal.emit()
+
+
+        self.assistant.on_reminder_created = _refresh_reminders
+        self.assistant.on_calendar_created = _refresh_calendar
 
     # =========================================================
     # ARRANQUE

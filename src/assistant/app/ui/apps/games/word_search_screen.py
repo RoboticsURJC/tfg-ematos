@@ -91,7 +91,7 @@ class WordSearchScreen(BasePygameQtScreen):
         # Fuentes fijas pre-instanciadas de tamaño masivo para maximizar la legibilidad
         self.m_f_title    = pygame.font.SysFont("Arial", 76, bold=True)
         self.m_f_subtitle = pygame.font.SysFont("Arial", 42, bold=True)
-        self.m_f_btn      = pygame.font.SysFont("Arial", 38, bold=True)
+        self.m_f_btn      = pygame.font.SysFont("Arial", 50, bold=True)
 
         # Cajas de colisión geométrica bidimensional iniciales (Se recalculan en caliente en el renderizado)
         self.btn_easy      = pygame.Rect(0, 0, 0, 0)
@@ -144,11 +144,11 @@ class WordSearchScreen(BasePygameQtScreen):
         """
         grid = generate.GRID_SIZE
 
-        LIST_W   = 250   
+        LIST_W   = 340   
         MARGIN   = 20    
         TOP_Y    = 80    
-        BTN_H    = 64    
-        BTN_GAP  = 12    
+        BTN_H    = 100    
+        BTN_GAP  = 16    
         BOTTOM_RESERVED = BTN_H + BTN_GAP * 2   
 
         # Espacio útil remanente restando paneles adyacentes fijados
@@ -173,7 +173,7 @@ class WordSearchScreen(BasePygameQtScreen):
         self.WORD_LIST_Y = TOP_Y
 
         btn_y = self.game_height - BTN_H - BTN_GAP
-        btn_w = 150
+        btn_w = 300
         self.btn_back = pygame.Rect(MARGIN, btn_y, btn_w, BTN_H)
         self.btn_hint = pygame.Rect(self.game_width - MARGIN - btn_w, btn_y, btn_w, BTN_H)
 
@@ -424,9 +424,9 @@ class WordSearchScreen(BasePygameQtScreen):
         self.surface.blit(ts_sub, ((W - ts_sub.get_width()) // 2, 145))
 
         # Parámetros geométricos para botones colosales de fácil pulsación táctil
-        BW = 360
-        BH = 82
-        GAP = 22
+        BW = 520
+        BH = 120
+        GAP = 30
         start_y = 220
         cx = (W - BW) // 2
 
@@ -438,7 +438,7 @@ class WordSearchScreen(BasePygameQtScreen):
         self._draw_menu_btn(self.btn_easy,   "FÁCIL",    M_BTN_EASY_BG, M_BTN_EASY_BRD)
         self._draw_menu_btn(self.btn_medium, "MEDIO",   M_BTN_MED_BG,  M_BTN_MED_BRD)
         self._draw_menu_btn(self.btn_hard,   "DIFÍCIL",  M_BTN_HARD_BG, M_BTN_HARD_BRD)
-        self._draw_menu_btn(self.btn_game_back, "VOLVER ⬅", M_BTN_BACK_BG, M_BTN_BACK_BRD)
+        self._draw_menu_btn(self.btn_game_back, "VOLVER", M_BTN_BACK_BG, M_BTN_BACK_BRD)
 
     def _draw_menu_btn(self, rect, text, bg_color, brd_color):
         """
@@ -504,8 +504,8 @@ class WordSearchScreen(BasePygameQtScreen):
         """
         @brief Renderiza el panel derecho que aloja el listado dinámico de palabras y su barra de scroll.
         """
-        LIST_W   = 230
-        LIST_H   = self.game_height - self.WORD_LIST_Y - 90
+        LIST_W   = 340
+        LIST_H   = self.game_height - self.WORD_LIST_Y - 120
         panel    = pygame.Rect(self.WORD_LIST_X - 10, self.WORD_LIST_Y - 10, LIST_W + 20, LIST_H + 20)
 
         shadow_r = panel.move(4, 4)
@@ -526,7 +526,7 @@ class WordSearchScreen(BasePygameQtScreen):
         old_clip = self.surface.get_clip()
         self.surface.set_clip(pygame.Rect(self.WORD_LIST_X, self.WORD_LIST_Y + 52, LIST_W, LIST_H - 52))
 
-        wf  = pygame.font.Font(None, 30)
+        wf  = pygame.font.Font(None, 54)
         yp  = self.WORD_LIST_Y + 56 - self.scroll_offset
 
         for word in generate.words_copy:
@@ -542,7 +542,7 @@ class WordSearchScreen(BasePygameQtScreen):
                     self.surface, P_WORD_STRIKE,
                     (self.WORD_LIST_X + 16, ly), (self.WORD_LIST_X + 16 + ws.get_width(), ly), 2
                 )
-            yp += 34
+            yp += 60
 
         self.surface.set_clip(old_clip)  # Desactiva la máscara de recorte
 
@@ -567,7 +567,7 @@ class WordSearchScreen(BasePygameQtScreen):
         pygame.draw.line(self.surface, P_PANEL_BORDER, (0, bar_y), (self.game_width, bar_y), 2)
 
         self._draw_button(self.btn_hint, " Pista",  P_BTN_HINT)
-        self._draw_button(self.btn_back, "⬅ Menú",  P_BTN_BACK)
+        self._draw_button(self.btn_back, " Menú",  P_BTN_BACK)
 
     def _draw_button(self, rect, text, color):
         """
@@ -577,7 +577,7 @@ class WordSearchScreen(BasePygameQtScreen):
         pygame.draw.rect(self.surface, P_SHADOW, sr, border_radius=18)
         pygame.draw.rect(self.surface, color, rect, border_radius=18)
         pygame.draw.rect(self.surface, (255, 255, 255), rect, 2, border_radius=18)
-        f  = pygame.font.Font(None, 34)
+        f  = pygame.font.Font(None, 48)
         ts = f.render(text, True, P_BTN_TEXT)
         self.surface.blit(ts, (rect.x + (rect.width - ts.get_width()) // 2, rect.y + (rect.height - ts.get_height()) // 2))
 

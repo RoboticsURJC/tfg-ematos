@@ -40,7 +40,7 @@ def generate_word_list():
     @return list Colección de cadenas de texto en mayúsculas listas para su inserción estructural.
     """
     try:
-        with open(r"/home/elisa/tfg-ematos/assistant/app/ui/apps/games/words.txt", "r", encoding="utf-8") as file:
+        with open(r"/home/elisa/tfg-ematos/src/assistant/app/ui/apps/games/words.txt", "r", encoding="utf-8") as file:
             words_list = []
             for line in file.readlines():
                 word = line.strip().upper()

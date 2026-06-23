@@ -440,7 +440,7 @@ class FindDifferencesScreen(BasePygameQtScreen):
         @details Reserva espacios proporcionales para barras de cabecera amplificadas (`HEADER_H`)
         y pie de página (`FOOTER_H`), dividiendo el espacio libre restante equitativamente en dos mitades.
         """
-        HEADER_H = 105
+        HEADER_H = 140
         FOOTER_H = 80
         GAP      = 16
         MARGIN   = 16
@@ -543,7 +543,7 @@ class FindDifferencesScreen(BasePygameQtScreen):
         
         @param pos Tupla `(x, y)` con el píxel de contacto absoluto en la ventana de juego.
         """
-        HIT_MARGIN = 30
+        HIT_MARGIN = 55
 
         in_a = self.canvas_rect_a.collidepoint(pos)
         in_b = self.canvas_rect_b.collidepoint(pos)
@@ -619,29 +619,29 @@ class FindDifferencesScreen(BasePygameQtScreen):
         h = self.surface.get_height()
         cx = w // 2
         
-        btn_w = 460
-        btn_h = 80
+        btn_w = 620
+        btn_h = 110
         
         self.btn_easy   = pygame.Rect(cx - (btn_w // 2), int(h * 0.32), btn_w, btn_h)
         self.btn_medium = pygame.Rect(cx - (btn_w // 2), int(h * 0.46), btn_w, btn_h)
         self.btn_hard   = pygame.Rect(cx - (btn_w // 2), int(h * 0.60), btn_w, btn_h)
-        self.btn_exit   = pygame.Rect(cx - (btn_w // 2), int(h * 0.76), btn_w, 64)
+        self.btn_exit   = pygame.Rect(cx - (btn_w // 2), int(h * 0.78), btn_w, 90)
 
-        tf = pygame.font.Font(None, 82)
+        tf = pygame.font.Font(None, 110)
         shadow = tf.render("ENCUENTRA LAS DIFERENCIAS", True, P_SHADOW)
         title  = tf.render("ENCUENTRA LAS DIFERENCIAS", True, P_TITLE)
         
         self.surface.blit(shadow, (cx - shadow.get_width() // 2 + 3, int(h * 0.10) + 3))
         self.surface.blit(title,  (cx - title.get_width()  // 2, int(h * 0.10)))
 
-        sf  = pygame.font.Font(None, 42)
+        sf  = pygame.font.Font(None, 60)
         sub = sf.render("Pulsa en las diferencias entre las dos imágenes", True, P_SUBTITLE)
         self.surface.blit(sub, (cx - sub.get_width() // 2, int(h * 0.22)))
 
-        self._draw_button(self.btn_easy,   "FÁCIL  —  3 diferencias",  P_BTN_EASY,   fontSize=46)
-        self._draw_button(self.btn_medium, "MEDIO  —  5 diferencias",  P_BTN_MEDIUM, fontSize=46)
-        self._draw_button(self.btn_hard,   "DIFÍCIL —  7 diferencias", P_BTN_HARD,   fontSize=46)
-        self._draw_button(self.btn_exit,   " Volver",                 P_BTN_EXIT,   fontSize=42)
+        self._draw_button(self.btn_easy,   "FÁCIL  —  3 diferencias",  P_BTN_EASY,   fontSize=60)
+        self._draw_button(self.btn_medium, "MEDIO  —  5 diferencias",  P_BTN_MEDIUM, fontSize=60)
+        self._draw_button(self.btn_hard,   "DIFÍCIL —  7 diferencias", P_BTN_HARD,   fontSize=60)
+        self._draw_button(self.btn_exit,   " Volver",                 P_BTN_EXIT,   fontSize=60)
 
     def _draw_game(self):
         """
@@ -658,21 +658,21 @@ class FindDifferencesScreen(BasePygameQtScreen):
         @brief Renderiza el panel translúcido superior, el progreso mediante esferas y el cronómetro.
         """
         w = self.surface.get_width()
-        HEADER_H = 105
+        HEADER_H = 140
         
         hbar = pygame.Surface((w, HEADER_H), pygame.SRCALPHA)
         hbar.fill((245, 235, 255, 200))
         self.surface.blit(hbar, (0, 0))
         pygame.draw.line(self.surface, P_PANEL_BORDER, (0, HEADER_H), (w, HEADER_H), 2)
 
-        tf = pygame.font.Font(None, 54)
+        tf = pygame.font.Font(None, 72)
         tit = tf.render(f"🔍  ESTILO: {self.theme_name.upper()}", True, P_TITLE)
         self.surface.blit(tit, (w // 2 - tit.get_width() // 2, 10))
 
         found = sum(1 for d in self.differences if d.found)
         total = len(self.differences)
 
-        cf = pygame.font.Font(None, 38)
+        cf = pygame.font.Font(None, 52)
         ct = cf.render(f"Progreso: {found} / {total}", True, P_SUBTITLE)
         self.surface.blit(ct, (w // 2 - ct.get_width() // 2, 54))
 
@@ -761,8 +761,8 @@ class FindDifferencesScreen(BasePygameQtScreen):
         self.surface.blit(bar, (0, bar_y))
         pygame.draw.line(self.surface, P_PANEL_BORDER, (0, bar_y), (w, bar_y), 2)
 
-        self.btn_back = pygame.Rect(20, bar_y + 12, 160, 56)
-        self._draw_button(self.btn_back, "⬅ Menú", P_BTN_BACK, fontSize=38)
+        self.btn_back = pygame.Rect(20, bar_y + 12, 260, 70)
+        self._draw_button(self.btn_back, " Menú", P_BTN_BACK, fontSize=48)
 
         hf  = pygame.font.Font(None, 30)
         ht  = hf.render("Tip: Las diferencias se pueden marcar en cualquiera de los dos lados", True, P_SUBTITLE)

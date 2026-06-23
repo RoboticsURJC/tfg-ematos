@@ -217,15 +217,15 @@ class KeyboardWidget(QWidget):
             btn.setObjectName("kb_space")
             span = 6  # Columnas centrales (de la 2 a la 7)
         elif key == "BORRAR":
-            btn.setText("Borrar ⌫")
+            btn.setText("Borrar")
             btn.setObjectName("kb_delete")
             span = 2  # Columnas 8 y 9 (Esquina inferior derecha)
         elif key == "LISTO":
-            btn.setText("Listo ✓")
+            btn.setText("Listo")
             btn.setObjectName("kb_confirm")
             span = 2  # Columnas 0 y 1 (Esquina inferior izquierda)
         elif key == "MAYÚS":
-            btn.setText("Mayús ⇧")
+            btn.setText("Mayús")
             btn.setObjectName("kb_shift_on" if self._upper else "kb_special")
             span = 2  # Ocupa 2 columnas en la fila 4
         else:

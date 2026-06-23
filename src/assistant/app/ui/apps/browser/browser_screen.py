@@ -159,7 +159,7 @@ class BrowserScreen(QWidget):
         bottom_layout = QHBoxLayout(bottom_bar)
         bottom_layout.setContentsMargins(16, 10, 16, 10)
 
-        self.btn_exit = QPushButton("✕ Salir")
+        self.btn_exit = QPushButton(" Salir")
         self.btn_exit.setObjectName("btn_exit")
         self.btn_exit.clicked.connect(self.go_back_to_launcher)
 

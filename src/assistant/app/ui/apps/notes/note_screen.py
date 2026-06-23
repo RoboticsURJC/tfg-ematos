@@ -30,6 +30,34 @@ QWidget {
     font-family: "Segoe UI", "Ubuntu", sans-serif;
 }
 
+QScrollBar:vertical {
+    width: 60px;              /*  más gruesa */
+    background: rgba(255,255,255,0.3);
+    border-radius: 14px;
+    margin: 6px 4px 6px 4px;
+}
+
+QScrollBar::handle:vertical {
+    background: #40c8b8;
+    border-radius: 14px;
+    min-height: 40px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: #20a898;
+}
+
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical {
+    height: 0px;   /* elimina flechitas */
+}
+
+QScrollBar::add-page:vertical,
+QScrollBar::sub-page:vertical {
+    background: none;
+}
+
+
 QLabel#title {
     font-size: 42px;
     font-weight: 900;
@@ -169,7 +197,7 @@ class NotesScreen(QWidget):
         title = QLabel("  Mis notas")
         title.setObjectName("title")
 
-        self.btn_back = QPushButton("⬅  Volver")
+        self.btn_back = QPushButton(" Volver")
         self.btn_back.setObjectName("btn_back")
         self.btn_back.setFixedWidth(240)
         self.btn_back.clicked.connect(self.go_back)
@@ -194,18 +222,18 @@ class NotesScreen(QWidget):
         self.title_input.mousePressEvent = lambda e: self._show_keyboard(self.title_input)
 
         self.content_input = QLineEdit()
-        self.content_input.setPlaceholderText("✏️  Escribe aquí tu nota...")
+        self.content_input.setPlaceholderText(" Escribe aquí tu nota...")
         self.content_input.mousePressEvent = lambda e: self._show_keyboard(self.content_input)
 
         # Botonera de Acciones Inferiores
         btn_row = QHBoxLayout()
         btn_row.setSpacing(16)
 
-        self.btn_add = QPushButton("➕  Crear nota")
+        self.btn_add = QPushButton(" Crear nota")
         self.btn_add.setObjectName("btn_add")
         self.btn_add.clicked.connect(self.add_note)
 
-        self.btn_delete = QPushButton("🗑️  Borrar nota")
+        self.btn_delete = QPushButton("️  Borrar nota")
         self.btn_delete.setObjectName("btn_delete")
         self.btn_delete.clicked.connect(self.delete_note)
 

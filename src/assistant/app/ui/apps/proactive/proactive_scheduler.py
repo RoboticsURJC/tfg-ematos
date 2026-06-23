@@ -17,19 +17,19 @@ MEMORY_SUGGESTIONS = [
     {
         "type": "memory", "title": "Ejercita tu memoria",
         "body": "Es un buen momento para jugar\na la Sopa de Letras. ¿Te apuntas?",
-        "icon": "🔤", "action": "wordsearch",
+        "icon": "", "action": "wordsearch",
         "tts": "Es un buen momento para ejercitar la memoria. ¿Jugamos a la sopa de letras?",
     },
     {
         "type": "memory", "title": "Entrena tu mente",
         "body": "Unas partiditas al Juego de Memoria\nson perfectas para el cerebro.",
-        "icon": "🃏", "action": "memory",
+        "icon": "", "action": "memory",
         "tts": "¿Qué te parece una partida al juego de memoria para mantener la mente ágil?",
     },
     {
         "type": "memory", "title": "Pequeño reto mental",
         "body": "Llevas un rato descansando.\n¡Un juego rápido te vendrá genial!",
-        "icon": "🧠", "action": "memory",
+        "icon": "", "action": "memory",
         "tts": "Un pequeño juego te ayudará a mantenerte activo mentalmente. ¿Empezamos?",
     },
 ]
@@ -39,31 +39,31 @@ MOBILITY_SUGGESTIONS = [
     {
         "type": "mobility", "title": "Hora de moverse",
         "body": "Haz 5 rotaciones de hombros\nhacia atrás y 5 hacia adelante.",
-        "icon": "🙆", "action": "mobility",
+        "icon": "", "action": "mobility",
         "tts": "Te propongo rotar los hombros cinco veces hacia atrás y cinco hacia adelante.",
     },
     {
         "type": "mobility", "title": "Estiramiento de cuello",
         "body": "Inclina la cabeza hacia la derecha\n5 segundos, luego hacia la izquierda.",
-        "icon": "🧘", "action": "mobility",
+        "icon": "", "action": "mobility",
         "tts": "Inclina la cabeza hacia la derecha cinco segundos y luego hacia la izquierda.",
     },
     {
         "type": "mobility", "title": "Respiración profunda",
         "body": "Inspira 4 segundos, aguanta 4,\nespira 4 segundos. Repite 3 veces.",
-        "icon": "💨", "action": "mobility",
+        "icon": "", "action": "mobility",
         "tts": "Inspira cuatro segundos, aguanta cuatro, y espira cuatro. Repítelo tres veces.",
     },
     {
         "type": "mobility", "title": "Ejercicio de manos",
         "body": "Abre y cierra las manos\n10 veces despacio.",
-        "icon": "🤲", "action": "mobility",
+        "icon": "", "action": "mobility",
         "tts": "Abre y cierra las manos despacio diez veces.",
     },
     {
         "type": "mobility", "title": "Levántate un momento",
         "body": "Da 10 pasos por la habitación.\n¡El movimiento es salud!",
-        "icon": "🚶", "action": "mobility",
+        "icon": "", "action": "mobility",
         "tts": "Levántate y da diez pasitos por la habitación.",
     },
 ]
@@ -145,10 +145,10 @@ class ProactiveScheduler:
 
         if self.get_stt_state and self.get_stt_state():
             self.display.set_estado(DISPLAY_AWAKE)
-            logger.info("[PROACTIVE] Display restaurado → Escuchando...")
+            logger.info("[PROACTIVE] Display restaurado -> Escuchando...")
         else:
             self.display.set_estado(DISPLAY_IDLE)
-            logger.info("[PROACTIVE] Display restaurado → Esperando activación...")
+            logger.info("[PROACTIVE] Display restaurado -> Esperando activación...")
 
     # ------------------------------------------------------------------
     # Ciclo de Control Adaptativo

@@ -1,14 +1,5 @@
 # app/ui/apps/calendar/calendar_screen.py
 
-"""
-@file calendar_screen.py
-@brief Interfaz gráfica de agenda y calendario táctil optimizada para pantallas integradas.
-@details Diseña un entorno visual basado en layouts asimétricos (Izquierda: QCalendarWidget, 
-Derecha: QListWidget + Entradas) bajo una estética coral/terracota pastel. Administra un canal de 
-comunicación directa con `CalendarStore` e integra controles de escalado dinámico para ocultar o 
-mostrar un teclado virtual PyQt5 embebido sin truncar los componentes de texto.
-"""
-
 from PyQt5.QtWidgets import (
     QWidget, QVBoxLayout, QHBoxLayout,
     QCalendarWidget, QListWidget,
@@ -19,12 +10,11 @@ from PyQt5.QtWidgets import (
 from PyQt5.QtGui import QFont, QTextCharFormat, QColor, QBrush
 from PyQt5.QtCore import Qt, QDate
 
-from app.ui.apps.calendar.calendar_store import CalendarStore
 from app.ui.widgets.keyboard_widget import KeyboardWidget
 from app.core.logger import logger
 
 
-## Hoja de estilos QSS global que unifica la paleta de colores terracota pastel, radios de borde y estados táctiles.
+# ── CALENDARIO — Coral / terracota pastel ────────────────────────────────────
 STYLE = """
 QWidget {
     background: qlineargradient(
@@ -44,6 +34,33 @@ QLabel#header {
     border: 3px solid #f0a090;
     border-radius: 24px;
     padding: 10px 32px;
+}
+
+QScrollBar:vertical {
+    width: 60px;              /*  más gruesa */
+    background: rgba(255,255,255,0.3);
+    border-radius: 14px;
+    margin: 6px 4px 6px 4px;
+}
+
+QScrollBar::handle:vertical {
+    background: #e8806a;
+    border-radius: 14px;
+    min-height: 40px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: #d86848;
+}
+
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical {
+    height: 0px;   /* elimina flechitas */
+}
+
+QScrollBar::add-page:vertical,
+QScrollBar::sub-page:vertical {
+    background: none;
 }
 
 QLabel#panel_title {
@@ -186,40 +203,24 @@ QPushButton#btn_back:pressed { background: #ffe4d8; padding-top: 20px; }
 
 
 class CalendarScreen(QWidget):
-    """
-    @brief Componento de pantalla unificado para la visualización de la agenda táctil del robot.
-    """
 
     def __init__(self, controller):
-        """
-        @brief Constructor de la pantalla CalendarScreen.
-        @details Instancia el motor de almacenamiento de eventos local, modela los layouts relacionales 
-        e inicializa las propiedades de los componentes gráficos del calendario y lista de recordatorios.
-        
-        @param controller Instancia del orquestador central que gestiona las transiciones de pantalla en la interfaz.
-        """
         super().__init__()
-        
-        ## Referencia al controlador de UI general de la aplicación.
         self.controller   = controller
-        
-        ## Gestor binario/JSON encargado del almacenamiento e indexación física de las tareas en disco.
-        self.store        = CalendarStore()
-        
-        ## Instancia de control de tiempo que almacena de forma activa el día seleccionado por el usuario.
+        self.store        = controller.calendar_store
         self.current_date = QDate.currentDate()
         logger.info("[CALENDAR] Iniciando ventana de Calendario")
 
         self.setAttribute(Qt.WA_StyledBackground, True)
         self.setStyleSheet(STYLE)
 
-        # ── Layout raíz: Contenedor vertical principal ───────────────────────
+        # ── Layout raíz: contenido arriba, teclado abajo ─────────────────────
         root = QVBoxLayout()
         root.setSpacing(0)
         root.setContentsMargins(0, 0, 0, 0)
         self.setLayout(root)
 
-        # Contenedor de contenido superior
+        # Zona de contenido
         content = QWidget()
         content.setAttribute(Qt.WA_StyledBackground, True)
         main = QHBoxLayout()
@@ -227,7 +228,7 @@ class CalendarScreen(QWidget):
         main.setContentsMargins(32, 32, 32, 32)
         content.setLayout(main)
 
-        # ── Bloque Izquierdo: Calendario de visualización y navegación ───────
+        # ── Izquierda: calendario ─────────────────────────────────────────────
         left = QVBoxLayout()
         left.setSpacing(18)
 
@@ -255,8 +256,6 @@ class CalendarScreen(QWidget):
         self.calendar.setMinimumHeight(420)
         self.calendar.clicked.connect(self.date_changed)
         self.calendar.setVerticalHeaderFormat(QCalendarWidget.NoVerticalHeader)
-        
-        # Sobrescritura de estilos inline complementaria para customizar sub-paneles del widget Qt nativo
         self.calendar.setStyleSheet("""
 QCalendarWidget {
     background-color: #f7f3ff;
@@ -298,7 +297,7 @@ QCalendarWidget QAbstractItemView {
         left.addLayout(nav)
         left.addWidget(self.calendar)
 
-        # ── Bloque Derecho: Gestión de eventos de la fecha e inputs ──────────
+        # ── Derecha: eventos + input ──────────────────────────────────────────
         right = QVBoxLayout()
         right.setSpacing(16)
 
@@ -317,7 +316,7 @@ QCalendarWidget QAbstractItemView {
         self.btn_add.setObjectName("btn_add")
         self.btn_add.clicked.connect(self.add_event)
 
-        self.btn_delete = QPushButton("  Eliminar evento")
+        self.btn_delete = QPushButton("🗑  Eliminar evento")
         self.btn_delete.setObjectName("btn_delete")
         self.btn_delete.clicked.connect(self.delete_event)
 
@@ -332,84 +331,53 @@ QCalendarWidget QAbstractItemView {
         right.addWidget(self.btn_delete)
         right.addWidget(self.btn_back)
 
-        # Distribución proporcional de pesos en el espacio horizontal (60% izquierda - 40% derecha)
         main.addLayout(left, 3)
         main.addLayout(right, 2)
 
-        # ── Teclado Virtual Embebido ─────────────────────────────────────────
+        # ── Teclado embebido ─────────────────────────────────────────────────
         self.keyboard = KeyboardWidget(self)
         self.keyboard.confirmed.connect(self._hide_keyboard)
 
         root.addWidget(content, 1)
         root.addWidget(self.keyboard)
 
-        # Inicialización de textos y renderizado de la cuadrícula
         self.update_header()
         self.refresh()
 
-    # ── Rutinas de Control del Teclado Táctil ─────────────────────────────────
+    # ── Teclado ───────────────────────────────────────────────────────────────
 
     def _show_keyboard(self, target: QLineEdit):
-        """
-        @brief Despliega el teclado táctil en pantalla y encoge proporcionalmente la lista de eventos.
-        @details Modifica dinámicamente los límites de altura de `QListWidget` para posibilitar la 
-        completitud visual del teclado en resoluciones limitadas de Raspberry Pi sin ocultar los campos de entrada.
-        
-        @param target Puntero al control de texto `QLineEdit` que recibirá los caracteres inyectados.
-        """
         self.keyboard.set_target(target)
         self.list.setMinimumHeight(60)
         self.list.setMaximumHeight(100)
 
     def _hide_keyboard(self):
-        """
-        @brief Oculta de la interfaz el teclado virtual y restaura las dimensiones originales de la lista de eventos.
-        """
         self.keyboard.detach()
         self.list.setMinimumHeight(300)
         self.list.setMaximumHeight(16777215)
 
-    # ── Orquestación de Navegación Temporal ────────────────────────────────────
+    # ── Navegación ────────────────────────────────────────────────────────────
 
     def update_header(self):
-        """
-        @brief Sincroniza el texto del encabezado principal con el mes y año bajo visualización.
-        """
         self.header.setText(self.current_date.toString("MMMM yyyy").capitalize())
         self.calendar.setCurrentPage(self.current_date.year(), self.current_date.month())
 
     def prev_month(self):
-        """
-        @brief Retrocede una página en el calendario correspondiente a un mes atrás de la fecha actual.
-        """
         self.current_date = self.current_date.addMonths(-1)
         self.update_header()
 
     def next_month(self):
-        """
-        @brief Avanza una página en el calendario correspondiente a un mes adelante de la fecha actual.
-        """
         self.current_date = self.current_date.addMonths(1)
         self.update_header()
 
     def date_changed(self, date):
-        """
-        @brief Slot asíncrono que se dispara cuando el usuario presiona un día en la cuadrícula.
-        
-        @param date Instancia de objeto `QDate` del día pulsado.
-        """
         self.current_date = date
         self.update_header()
         self.refresh()
 
-    # ── Gestión del Historial de Tareas y Marcadores ──────────────────────────
+    # ── Eventos ───────────────────────────────────────────────────────────────
 
     def refresh(self):
-        """
-        @brief Sincroniza la lista visual de tareas y repinta los días destacados.
-        @details Limpia la instancia de `QListWidget`, consulta las cadenas correspondientes en 
-        el `CalendarStore`, inyecta los nuevos registros físicos y actualiza las marcas estéticas del calendario.
-        """
         self.list.clear()
         date_str = self.current_date.toString("yyyy-MM-dd")
         for e in self.store.get_events(date_str):
@@ -418,11 +386,6 @@ QCalendarWidget QAbstractItemView {
         self.mark_events_on_calendar()
 
     def add_event(self):
-        """
-        @brief Da de alta un nuevo evento en el día en curso.
-        @details Sanea la cadena ingresada por el usuario. Si contiene caracteres válidos, confirma el registro 
-        en la persistencia del Store, oculta el teclado virtual táctil y refresca la vista.
-        """
         text = self.input.text().strip()
         if not text:
             return
@@ -433,12 +396,6 @@ QCalendarWidget QAbstractItemView {
         logger.info("[CALENDAR] Evento añadido")
 
     def delete_event(self):
-        """
-        @brief Remueve el evento seleccionado de la agenda bajo confirmación de diálogo.
-        @details Recupera el índice de fila activo en el widget gráfico. Si existe una selección válida, 
-        despliega un cuadro modal de advertencia (`QMessageBox`). Tras la aprobación, sincroniza el borrado 
-        con el Store utilizando un contador de offset.
-        """
         row = self.list.currentRow()
         if row < 0:
             return
@@ -457,11 +414,6 @@ QCalendarWidget QAbstractItemView {
             logger.info("[CALENDAR] Evento eliminado")
 
     def mark_events_on_calendar(self):
-        """
-        @brief Resalta visualmente las casillas del calendario que contienen recordatorios agendados.
-        @details Genera un pincel y formato de celda personalizado (`QTextCharFormat`) con fondo coral 
-        y texto blanco, barriendo el listado global para estampar el formato en las celdas del mes actual.
-        """
         fmt = QTextCharFormat()
         fmt.setBackground(QBrush(QColor("#e8806a")))
         fmt.setForeground(QBrush(QColor("#ffffff")))
@@ -469,17 +421,9 @@ QCalendarWidget QAbstractItemView {
             self.calendar.setDateTextFormat(QDate.fromString(e["date"], "yyyy-MM-dd"), fmt)
 
     def hideEvent(self, event):
-        """
-        @brief Intercepta la ocultación de la ventana para replegar el teclado de forma segura.
-        
-        @param event Objeto del evento nativo de tipo QHideEvent.
-        """
         self._hide_keyboard()
         super().hideEvent(event)
 
     def go_back(self):
-        """
-        @brief Cierra el módulo de agenda actual regresando la interfaz al menú principal (Launcher).
-        """
         if hasattr(self.controller, "ui"):
             self.controller.ui.show_launcher()

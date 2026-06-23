@@ -193,10 +193,10 @@ class RegisterScreen(QWidget):
         self.progress = QProgressBar()
         self.progress.setMaximum(3)
 
-        self.btn_capture = QPushButton("📸 Capturar")
+        self.btn_capture = QPushButton(" Capturar")
         self.btn_capture.setObjectName("btn_capture")
 
-        self.btn_back = QPushButton("⬅ Volver")
+        self.btn_back = QPushButton(" Volver")
         self.btn_back.setObjectName("btn_back")
 
         self.btn_capture.clicked.connect(self.capture)
@@ -255,7 +255,7 @@ class RegisterScreen(QWidget):
         if self.step < 3:
             self.step_label.setText(f"Paso {self.step+1}")
         else:
-            self.step_label.setText("✨ Registrando...")
+            self.step_label.setText(" Registrando...")
             logger.info("[REGISTER] Registrando")
             self.btn_capture.setEnabled(False)
             self.send(name)
@@ -278,7 +278,7 @@ class RegisterScreen(QWidget):
     def on_error(self, msg):
         """@brief Maneja el error del registro."""
         logger.info("[REGISTER] Error en registro")
-        self.step_label.setText("⚠ error")
+        self.step_label.setText(" error")
         self.btn_capture.setEnabled(True)
 
     def go_back(self):

@@ -45,6 +45,8 @@ class MainWindow(QWidget):
     """
 
     show_proactive_signal = pyqtSignal(object)
+    refresh_reminders_signal = pyqtSignal()
+    refresh_calendar_signal = pyqtSignal()
 
     def __init__(self, controller):
         
