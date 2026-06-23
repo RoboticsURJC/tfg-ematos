@@ -10,7 +10,7 @@
 <br>
 
 
-## 🎯 OBJETIVOS DEL TRABAJO 
+## 🚧 Objetivos del trabajo
 
 Este trabajo se centra en:
 
@@ -18,10 +18,33 @@ Este trabajo se centra en:
 - 🤖 Uso de un robot humanoide para la interacción humano-robot.
 - 🤔 Implementación de actividades cognitivas (memoria, atención, etc.).
 
-## 📚 DOCUMENTACIÓN 
+<br>
+
+
+## 📚 Documentación 
 Toda la documentación detallada (desarrollo, experimentos y resultados) está disponible en la Wiki:
 
 **[Ver wiki del proyecto](https://github.com/RoboticsURJC/tfg-ematos/wiki)**.
 
 
-Además la documentación del código se encuentra en formato pdf en **[Documentación código pdf](https://github.com/RoboticsURJC/tfg-ematos/blob/main/documentacion/latex/refman.pdf)**, y también se puede consultar en **[Documentación código web](https://rawcdn.githack.com/RoboticsURJC/tfg-ematos/fe2533c2c13020a1a856db6251947b0481ad50e4/documentacion/html/index.html)** 
+La documentación del código puede consultarse en:
+
+- **[Documentación pdf](https://github.com/RoboticsURJC/tfg-ematos/blob/main/documentacion/latex/refman.pdf)**
+- **[Documentación web](https://rawcdn.githack.com/RoboticsURJC/tfg-ematos/fe2533c2c13020a1a856db6251947b0481ad50e4/documentacion/html/index.html)** 
+
+<br>
+
+
+## 🎯 Ejecucción del sistema
+
+### Iniciar servidor backend
+
+``` bash
+uvicorn assistant.app.api_getway.main:app --reload --host 0.0.0.0 --port 3000
+```
+
+### Ejecutar la aplicación en la Raspberry Pi
+
+``` bash
+python -m app.main
+```
