@@ -1,116 +1,181 @@
-\chapter{Diseño}
-\label{cap:capitulo4}
+\chapter{Arquitectura hardware del sistema}
+\label{cap:capitulo5}
 
 \begin{flushright}
 \begin{minipage}[]{10cm}
-\emph{Quizás algún fragmento de libro inspirador...}\\
+\emph{Las grandes cosas se hacen por una serie de pequeñas cosas reunidas juntas.}\\
 \end{minipage}\\
 
-Autor, \textit{Título}\\
+Vincent van Gogh\\
 \end{flushright}
 
 \vspace{1cm}
 
-Escribe aquí un párrafo explicando brevemente lo que vas a contar en este capítulo. En este capítulo (y quizás alguno más) es donde, por fin, describes detalladamente qué has hecho y qué experimentos has llevado a cabo para validar tus desarrollos.
+Una vez presentadas las plataformas de desarrollo utilizadas, este capítulo describe la arquitectura \textit{hardware} del sistema desarrollado.
 
-\section{Snippets}
 
-Puede resultar interesante, para clarificar la descripción, mostrar fragmentos de código (o \textit{snippets}) ilustrativos. En el Código \ref{cod:codejemplo} vemos un ejemplo escrito en \texttt{C++}.
+\section{Diseño del robot}
+\label{sec:hardware}
 
-\begin{code}[h]
-\begin{lstlisting}[language=C++]
-void Memory::hypothesizeParallelograms () {
-  for(it1 = this->controller->segmentMemory.begin(); it1++) {
-    squareFound = false; it2 = it1; it2++;
-    while ((it2 != this->controller->segmentMemory.end()) && (!squareFound)) {
-      if (geometry::haveACommonVertex((*it1),(*it2),&square)) {
-        dist1 = geometry::distanceBetweenPoints3D ((*it1).start, (*it1).end);
-        dist2 = geometry::distanceBetweenPoints3D ((*it2).start, (*it2).end);
-      }
-    // [...]
-\end{lstlisting}
-\caption[Función para buscar elementos 3D en la imagen]{Función para buscar elementos 3D en la imagen}
-\label{cod:codejemplo}
-\end{code}
+Para el diseño de la forma física del robot se tomaron como referencia diversos robots asistenciales ya existentes. La mayoría de ellos presentan una arquitectura similar, compuesta por una pantalla táctil para la interacción con el usuario, una pantalla adicional destinada a la representación de expresiones faciales y una base móvil con ruedas.
 
-En el Código \ref{cod:codejemplo2} vemos un ejemplo escrito en \texttt{Python}.
+\vspace{0.2cm}
 
-\begin{code}[h]
-\begin{lstlisting}[language=Python]
-def mostrarValores():
-    print (w1.get(), w2.get())
+Entre los sistemas analizados destacan JUNO, un robot asistencial orientado a la prevención de caídas en personas mayores, y TEMI\footnote{https://intecrobots.com/producto/temi-robot-asistente-personal-recepcion/?srsltid=AfmBOoqfjMJItp1psGnledndvFqIcn8kBztA7HvcE6iInBlifHYQFKKc}, un robot asistente personal (Figura \ref{fig:asistencial}).
 
-master = Tk()
-w1 = Scale(master, from_=0, to=42)
-w1.pack()
-w2 = Scale(master, from_=0, to=200, orient=HORIZONTAL)
-w2.pack()
-Button(master, text='Show', command=mostrarValores).pack()
+\vspace{0.2cm}
 
-mainloop()
-\end{lstlisting}
-\caption[Cómo usar un Slider]{Cómo usar un Slider}
-\label{cod:codejemplo2}
-\end{code}
 
-\section{Verbatim}
+\begin{figure}[H]
+    \begin{center}
+      \subcapcentertrue
+      \subfigure[Robot JUNO]{\includegraphics[width=64mm]{figs/juno}}
+      \hspace{3mm}
+      \subfigure[Robot TEMI de intect robots]{\includegraphics[width=65mm]{figs/temi}}
+    \end{center}
+    \caption{Robots asistenciales}
+    \label{fig:asistencial}
+  \end{figure}
 
-Para mencionar identificadores usados en el código ---como nombres de funciones o variables--- en el texto, usa el entorno literal o verbatim \verb|hypothesizeParallelograms()|. También se puede usar este entorno para varias líneas, como se ve a continuación:
 
-\begin{verbatim}
-void Memory::hypothesizeParallelograms () {
-  // add your code here
-}
-\end{verbatim}
+\vspace{0.2cm}
 
-\section{Ecuaciones}
+En el diseño se consideraron aspectos relacionados con el ensamblaje y el mantenimiento del sistema, de forma que los distintos módulos se pudieran desmontar fácilmente para su reparación.
 
-Si necesitas insertar alguna ecuación, puedes hacerlo. Al igual que las figuras, no te olvides de referenciarlas. A continuación se exponen algunas ecuaciones de ejemplo: Ecuación \ref{ec:ec1} y Ecuación \ref{ec:ec2}.
+\vspace{0.2cm}
 
-\begin{myequation}[h]
-\begin{equation}
-H = 1 - \frac{\sum_{i=0}^{N}\frac{(\frac{d_{j_s} + d_{j_e}}{2})}{N}}{M}
-\nonumber
-\label{ec:ec1}
-\end{equation}
-\caption[Ejemplo de ecuación con fracciones]{Ejemplo de ecuación con fracciones}
-\end{myequation} 
+Se buscó garantizar la estabilidad del robot, por lo cual se optó por una configuración de tres ruedas en una disposición conocida como \textit{castor wheeled mobile robot} como se muestra en (Figura \ref{fig:castor})\footnote{https://robotechvision.com/caster/}, donde los puntos de apoyo forman un triángulo equilátero. Esta geometría maximiza el polígono de sustentación del sistema, asegurando que el centro de masas se mantenga de manera óptima dentro de los límites de soporte en condiciones operativas estándar, un principio fundamental en el análisis de estabilidad de robots móviles con ruedas \cite{pr11123302}.
 
-\begin{myequation}[h]
-\begin{equation}
-v(entrada)= \left\{
-	\begin{array}{lcc}
-		0 & \mbox{if} & \epsilon_t < 0.1\\
-		K_p\cdot{(T_{t}-T)} & \mbox{if}& 0.1 \leq \epsilon_t < M_t\\
-		K_p \cdot M_t & \mbox{if}& M_t < \epsilon_t
-	\end{array}
-\right.
-\label{ec:ec2}
-\end{equation}
-\caption[Ejemplo de ecuación con array y letras y símbolos especiales]{Ejemplo de ecuación con array y letras y símbolos especiales}
-\end{myequation}
 
-\section{Tablas o cuadros}
+\vspace{0.2cm}
 
-Si necesitas insertar una tabla, hazlo dígnamente usando las propias tablas de \LaTeX, no usando pantallazos e insertándolas como figuras... En el Cuadro \ref{cuadro:ejemplo} vemos un ejemplo.
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=9cm]{figs/castor}
+  \end{center}
+  \caption{Robot Caster de ROBO TECH}
+  \label{fig:castor}
+\end{figure}\
 
-\begin{table}[H]
-\begin{center}
-\begin{tabular}{|c|c|}
-\hline
-\textbf{Parámetros} & \textbf{Valores} \\
-\hline
-Tipo de sensor & Sony IMX219PQ[7] CMOS 8-Mpx \\
-Tamaño del sensor & 3.674 x 2.760 mm (1/4" format) \\
-Número de pixels & 3280 x 2464 (active pixels) \\
-Tamaño de pixel & 1.12 x 1.12 um \\
-Lente & f=3.04 mm, f/2.0 \\
-Ángulo de visión & 62.2 x 48.8 degrees \\
-Lente SLR equivalente & 29 mm \\
-\hline
-\end{tabular}
-\caption{Parámetros intrínsecos de la cámara}
-\label{cuadro:ejemplo}
-\end{center}
-\end{table}
 
+A partir de estas referencias, se elaboraron una serie de bocetos iniciales (Figura \ref{fig:boceto}) con el objetivo de explorar distintas alternativas de diseño. Estos bocetos sirvieron como punto de partida para el proceso de prototipado.
+
+\vspace{0.2cm}
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=14cm]{figs/boceto}
+  \end{center}
+  \caption{Boceto vistas}
+  \label{fig:boceto}
+\end{figure}\
+
+
+
+\vspace{0.2cm}
+
+Con el diseño el diseño preliminar definido, se construyó un prototipo físico utilizando cartón (Figuras \ref{fig:modelo_carton}, \ref{fig:ruedas_carton}) con el objetivo de validar las dimensiones generales del robot y analizar la disposición de los diferentes elementos. Esta fase permitió identificar posibles problemas de  diseño como la distribución de componentes, el espacio disponible y las dimensiones seleccionadas. Asimismo, permitió evaluar el volumen total del robot y su adecuación para operar en entornos reales.
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=10cm, angle=-90]{figs/modelo_carton}
+  \end{center}
+  \caption{Prototipo en cartón}
+  \label{fig:modelo_carton}
+\end{figure}\
+
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=13cm]{figs/ruedas_carton}
+  \end{center}
+  \caption{Prototipo en cartón de la base}
+  \label{fig:ruedas_carton}
+\end{figure}\
+
+
+Una vez validado el diseño preliminar mediante el prototipo de cartón, se procedió al desarrollo del modelo tridimensional del robot utilizando el software libre FreeCAD. Este modelo permitió definir con mayor precisión la geometría de la estructura, ajustar las dimensiones y verificar la integración de los componentes que conforman el sistema dentro del espacio disponible.
+
+Las (Figuras \ref{fig:3D}, \ref{fig:3D1}, \ref{fig:3D2}) muestran diferentes vistas del modelo tridimensional.
+
+\vspace{0.2cm}
+
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=10cm]{figs/3D2}
+  \end{center}
+  \caption{Vista frontal del modelo 3D en FreeCAD}
+  \label{fig:3D2}
+\end{figure}\
+
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=10cm]{figs/3D}
+  \end{center}
+  \caption{Vista lateral del modelo 3D en FreeCAD}
+  \label{fig:3D1}
+\end{figure}\
+
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=10cm]{figs/3D3}
+  \end{center}
+  \caption{Vista inferior del modelo 3D en FreeCAD}
+  \label{fig:3D}
+\end{figure}\
+
+Finalmente, a partir del modelo tridimensional desarrollado, se construyó la versión física del robot mediante piezas impresas en 3D de PLA (Ácido Poliláctico).
+
+El resultado final del robot se muestra en las (Figuras \ref{fig:estructura}, \ref{fig:montaje}), donde se presentan la estructura sin componentes electrónicos como el montaje del sistema.
+
+\vspace{0.2cm}
+
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=12cm]{figs/estructura}
+  \end{center}
+  \caption{Estructura robot}
+  \label{fig:estructura}
+\end{figure}\
+
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=12cm]{figs/montaje}
+  \end{center}
+  \caption{Sistema completo}
+  \label{fig:montaje}
+\end{figure}\
+
+
+Tras materializar el diseño del robot, se procedió a la integración de la arquitectura electrónica, encargada de dotar al sistema de capacidades de control, sensorización e interacción.
+
+\vspace{0.2cm}
+
+Con el objetivo de disponer de una estructura clara, se dividió en bloques funcionales según su finalidad:
+
+\begin{itemize}
+    \item \textbf{Unidad de Control Central:} Compuesta por la Raspberry Pi 4, encargada del procesamiento. A este módulo se conectan los principales periféricos del sistema como la cámara y el micrófono para tareas de captura, así como un monitor portátil para la visualización de la interfaz.
+    \item \textbf{Sistema de sensores:} Orientado a la obtención de la información del entorno. Incluye un sensor de ultrasonido para la detección de obstáculos, un pulsador para la activación del sistema, un LED RGB como indicador de estado y una pantalla LCD para mostrar mensajes informativos.
+\end{itemize}
+
+Para el diseño del circuito se utilizó la plataforma Cirkit Designer\footnote{https://app.cirkitdesigner.com/} mediante la cual se generó el esquema electrónico (Figuras \ref{fig:circuito}) del sistema.
+
+\vspace{0.2cm}
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=16cm]{figs/circuit_image}
+  \end{center}
+  \caption{Circuito electrónico}
+  \label{fig:circuito}
+\end{figure}\
+
+
+Con el esquema del circuito eléctrico se completa la fase de diseño e integración del  \textit{hardware} del sistema. La parte física del robot está compuesta por una estructura ligera fabricada en PLA, una base de tres ruedas que maximiza la estabilidad y la Raspberry Pi 4 como núcleo de control.
+
+No obstante, para que el conjunto de sensores y actuadores pueda funcionar de forma coordinada, es necesaria una capa de software que permita alcanzar los objetivo de este proyecto.
