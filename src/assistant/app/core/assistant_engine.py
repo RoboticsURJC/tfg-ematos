@@ -1,13 +1,13 @@
-# assistant_engine.py
-
 """
 @file assistant_engine.py
 @brief Motor principal del asistente: integra STT, TTS, LLM y herramientas.
 @details Replica fielmente la lógica del asistente_robotico.py original:
-- Detección de intenciones (hora, clima, calendario, recordatorios, LLM).
+- Detección de intenciones (hora, clima, calendario, recordatorios, deportes,
+  enciclopedia/Wikipedia, LLM).
 - Memoria conversacional persistente por usuario.
 - Llamadas al modelo LLM remoto.
-- Fallback a búsqueda web si el modelo falla.
+- Fallback a búsqueda web si el modelo falla, con aviso explícito al LLM para
+  que no invente datos cuando el contexto recuperado no los contiene.
 """
 
 import os
@@ -28,6 +28,8 @@ from app.voice.audio_stream import encontrar_micro
 from app.voice.tts import TTS
 from app.ui.apps.reminder.reminder_scheduler import ReminderScheduler
 from app.core.logger import logger
+from app.tools.sports import get_resultado_equipo
+from app.tools.wiki import get_resumen
 
 
 # =========================================================
@@ -46,6 +48,8 @@ Reglas importantes:
 - Sé paciente, cercano y respetuoso.
 - Si no entiendes algo, pide aclaración de forma amable.
 - Prioriza respuestas útiles y prácticas.
+- Si no tienes datos concretos y verificados para responder algo (una cifra,
+  un resultado, un hecho puntual), dilo claramente en vez de inventarlo.
 """
 
 # =========================================================
@@ -57,6 +61,24 @@ MEMORY_FILE = "memoria_usuarios.json"
 
 ## Tiempo máximo de espera por defecto (en segundos) para solicitudes de red.
 TIMEOUT = 90
+
+## Cabecera de User-Agent realista para evitar bloqueos al raspar DuckDuckGo.
+USER_AGENT_HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/124.0 Safari/537.36"
+    )
+}
+
+## Aviso que se antepone a cualquier contexto recuperado de la web antes de
+## pasarlo al LLM, para reducir el riesgo de que el modelo invente datos
+## (marcadores, cifras, hechos puntuales) que no estén presentes en el texto.
+AVISO_NO_INVENTAR = (
+    "A continuación tienes fragmentos de una búsqueda web. Si no encuentras "
+    "el dato exacto que se pide (por ejemplo un marcador, una cifra o un "
+    "hecho concreto), dilo claramente en vez de inventarlo:\n\n"
+)
 
 PALABRAS_EVENTO = [
     "médico", "medico",
@@ -271,7 +293,8 @@ class AssistantEngine:
         """
         @brief Clasifica y mapea el texto del usuario para identificar comandos conocidos o herramientas nativas.
         @param text Transcripción en texto limpio y minúsculas generada por el STT.
-        @return str Identificador de la intención ('time', 'weather', 'reminder', 'calendar', o 'llm').
+        @return str Identificador de la intención ('time', 'weather', 'reminder',
+        'calendar', 'sports', 'wiki' o 'llm').
         """
         
         text = text.lower().strip()
@@ -294,6 +317,25 @@ class AssistantEngine:
             "lluvia"
         ]):
             return "weather"
+
+        # Resultados deportivos (debe ir antes de "calendar"/"llm" genéricos,
+        # ya que frases como "cómo quedó el Madrid" no tienen verbo disparador
+        # de calendario ni de recordatorio).
+        if any(x in text for x in [
+            "resultado del",
+            "resultado de",
+            "cómo quedó",
+            "como quedo",
+            "cómo ha quedado",
+            "como ha quedado",
+            "ganó el",
+            "gano el",
+            "perdió el",
+            "perdio el",
+            "partido del",
+            "marcador"
+        ]):
+            return "sports"
 
         # Consultar recordatorios
         if any(x in text for x in [
@@ -362,6 +404,26 @@ class AssistantEngine:
         ]):
             return "reminder_add"
 
+        # Preguntas de tipo enciclopédico: personas, lugares, temas generales.
+        # Va al final, justo antes del fallback a "llm" puro, porque es una
+        # red de captura amplia y conviene que las intenciones más
+        # específicas (hora, clima, deportes, calendario...) se evalúen antes.
+        if any(x in text for x in [
+            "quién es",
+            "quien es",
+            "qué es",
+            "que es",
+            "dónde está",
+            "donde esta",
+            "cuéntame sobre",
+            "cuentame sobre",
+            "háblame de",
+            "hablame de",
+            "sabes quién es",
+            "sabes quien es"
+        ]):
+            return "wiki"
+
         return "llm"
 
     # =========================================================
@@ -382,15 +444,46 @@ class AssistantEngine:
     def _web_search(self, query):
         """
         @brief Realiza un escrapeo de emergencia via DuckDuckGo HTML ante caídas de la IA.
+        @details Usa un User-Agent de navegador real (sin esto DuckDuckGo suele
+        bloquear o devolver una página distinta, dejando los resultados
+        siempre vacíos) y captura también el snippet/descripción de cada
+        resultado, no solo el título, para dar más contexto útil al LLM.
         @param query Cadena de términos de búsqueda solicitados por el usuario.
         @return str Resumen de las primeras coincidencias textuales encontradas en la web.
         """
         try:
-            url = f"https://html.duckduckgo.com/html/?q={requests.utils.quote(query)}"
-            r = requests.get(url, timeout=10)
+            url = "https://html.duckduckgo.com/html/"
+            r = requests.post(
+                url,
+                data={"q": query},
+                headers=USER_AGENT_HEADERS,
+                timeout=10
+            )
+            logger.info(f"[WEB SEARCH] status={r.status_code} len={len(r.text)}")
+
             soup = BeautifulSoup(r.text, "html.parser")
-            results = [a.get_text() for a in soup.find_all("a", class_="result__a", limit=3)]
-            return "\n".join(results)
+            bloques = soup.find_all("div", class_="result", limit=5)
+
+            resultados = []
+            for b in bloques:
+                titulo_tag = b.find("a", class_="result__a")
+                snippet_tag = b.find("a", class_="result__snippet") or b.find(
+                    "div", class_="result__snippet"
+                )
+                titulo = titulo_tag.get_text(strip=True) if titulo_tag else ""
+                snippet = snippet_tag.get_text(strip=True) if snippet_tag else ""
+                if titulo or snippet:
+                    resultados.append(f"{titulo}: {snippet}".strip(": "))
+
+            if not resultados:
+                logger.warning(
+                    "[WEB SEARCH] sin resultados parseables "
+                    "(posible bloqueo o cambio de HTML)"
+                )
+                return ""
+
+            return "\n".join(resultados[:3])
+
         except Exception as e:
             logger.error(f"[WEB SEARCH] error: {e}")
             return ""
@@ -1001,13 +1094,56 @@ class AssistantEngine:
         try:
             with concurrent.futures.ThreadPoolExecutor(max_workers=1) as ex:
                 future = ex.submit(self.llm.ask, prompt)
-                return future.result(timeout=self.llm_timeout) or ""
+                resultado = future.result(timeout=self.llm_timeout)
+
+            # Algunos backends de LLMClient.ask devuelven (texto, metadata)
+            # en vez de un string plano. Si llega así, nos quedamos solo con
+            # el texto para no acabar narrando/registrando la tupla entera
+            # (p. ej. "['hola', {}]") como si fuera la respuesta.
+            if isinstance(resultado, (tuple, list)):
+                if resultado and isinstance(resultado[0], str):
+                    resultado = resultado[0]
+                else:
+                    logger.warning(f"[LLM] respuesta con formato inesperado: {resultado!r}")
+                    resultado = ""
+
+            return resultado or ""
         except concurrent.futures.TimeoutError:
             logger.error("[LLM] tiempo de espera agotado, sin respuesta")
             return ""
         except Exception as e:
             logger.error(f"[LLM] error: {e}")
             return ""
+
+    def _responder_con_llm_y_fallback_web(self, texto):
+        """
+        @brief Flujo común de "pregunta libre": intenta el LLM directamente y,
+        si falla o no hay respuesta, recurre a _web_search como contexto
+        adicional antes de reintentar con el LLM.
+        @details Centraliza la lógica que antes estaba duplicada entre el
+        intent "llm" y los fallbacks de "sports"/"wiki" cuando esas
+        herramientas específicas no encuentran nada. Siempre antepone
+        AVISO_NO_INVENTAR al contexto web para reducir el riesgo de que el
+        modelo rellene huecos con datos inventados.
+        @param texto Transcripción original del usuario.
+        @return str Respuesta generada, o mensaje de disculpa si todo falla.
+        """
+        prompt = self._construir_prompt(texto)
+        respuesta = ""
+
+        if self._hay_internet():
+            respuesta = self._ask_model(prompt)
+
+        if not respuesta:
+            logger.info("[ASSISTANT] fallback a búsqueda web")
+            web = self._web_search(texto)
+            if web:
+                respuesta = self._ask_model(AVISO_NO_INVENTAR + web + "\n\n" + prompt)
+
+        if not respuesta:
+            respuesta = "Lo siento, no tengo respuesta en este momento."
+
+        return respuesta
 
     # =========================================================
     # PROCESAMIENTO PRINCIPAL
@@ -1032,7 +1168,31 @@ class AssistantEngine:
                 self.display.set_estado("Consultando clima...")
                 logger.info("[ASSISTANT ENGINE] Consultado clima")
             respuesta = self._get_weather()
-            
+
+        elif intent == "sports":
+            if self.display:
+                self.display.set_estado("Consultando resultado...")
+                logger.info("[ASSISTANT ENGINE] Consultado resultado deportivo")
+
+            respuesta = get_resultado_equipo(texto.lower())
+            if not respuesta:
+                # No reconocemos el equipo o la API ha fallado: caemos al
+                # flujo normal de LLM + búsqueda web.
+                logger.info("[ASSISTANT ENGINE] Sports sin resultado, fallback a LLM/web")
+                respuesta = self._responder_con_llm_y_fallback_web(texto)
+
+        elif intent == "wiki":
+            if self.display:
+                self.display.set_estado("Buscando información...")
+                logger.info("[ASSISTANT ENGINE] Consultando Wikipedia")
+
+            respuesta = get_resumen(texto)
+            if not respuesta:
+                # Wikipedia no tiene artículo (p. ej. algo muy reciente/viral):
+                # caemos al flujo normal de LLM + búsqueda web.
+                logger.info("[ASSISTANT ENGINE] Wikipedia sin resultado, fallback a LLM/web")
+                respuesta = self._responder_con_llm_y_fallback_web(texto)
+
         elif intent == "calendar":
             if self.display:
                 self.display.set_estado("Consultando calendario...")
@@ -1065,21 +1225,7 @@ class AssistantEngine:
                 self.display.set_talking(False)
                 self.display.set_estado("Pensando...")
 
-            prompt = self._construir_prompt(texto)
-            respuesta = ""
-
-            if self._hay_internet():
-                respuesta = self._ask_model(prompt)
-
-            # Fallback activo si falla la red o el servicio de lenguaje inteligente
-            if not respuesta:
-                logger.info("[ASSISTANT] fallback a búsqueda web")
-                web = self._web_search(texto)
-                if web:
-                    respuesta = self._ask_model(web + "\n" + prompt)
-
-            if not respuesta:
-                respuesta = "Lo siento, no tengo respuesta en este momento."
+            respuesta = self._responder_con_llm_y_fallback_web(texto)
 
         # Registrar el turno actual en la estructura persistente
         self.memoria.setdefault(self.user, []).append({
@@ -1207,3 +1353,5 @@ class AssistantEngine:
         
         if self.reminder_scheduler:
             self.reminder_scheduler.stop()
+
+

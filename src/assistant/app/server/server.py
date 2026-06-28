@@ -28,7 +28,7 @@ import threading
 
 
 # ==========================================================
-# 🔧 CONFIGURACIÓN LOGGER
+#  CONFIGURACIÓN LOGGER
 # ==========================================================
 
 ## Directorio absoluto asignado para el almacenamiento físico de logs de auditoría.

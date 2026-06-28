@@ -84,7 +84,7 @@ class RobotController:
         llm_model   = server_cfg.get("model", "groq")
         llm_timeout = server_cfg.get("timeout", 90)
 
-        mic_name = voice_cfg.get("mic_name_keyword", "AB13X")
+        mic_name = voice_cfg.get("mic_name_keyword", "USB")
 
         logger.info(f"[CONTROLLER] LLM URL: {server_url} | modelo: {llm_model}")
         logger.info(f"[CONTROLLER] micrófono buscado: '{mic_name}'")

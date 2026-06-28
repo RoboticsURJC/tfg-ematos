@@ -1,43 +1,7 @@
 [
     {
-        "title": "tomar pastilla",
-        "time": "2026-06-18 04:00",
-        "type": "general",
-        "done": false
-    },
-    {
-        "title": "ir al gimnasio",
-        "time": "2026-06-17 21:00",
-        "type": "general",
-        "done": false
-    },
-    {
-        "title": "dirección",
-        "time": "2026-06-17 17:00",
-        "type": "general",
-        "done": false
-    },
-    {
         "title": "inyección",
         "time": "2026-06-17 18:00",
-        "type": "general",
-        "done": false
-    },
-    {
-        "title": "Recordatorio",
-        "time": "2026-06-17 17:00",
-        "type": "general",
-        "done": false
-    },
-    {
-        "title": "Recordatorio",
-        "time": "2026-06-17 20:00",
-        "type": "general",
-        "done": false
-    },
-    {
-        "title": "Tomar medicina",
-        "time": "2026-06-17 21:00",
         "type": "general",
         "done": false
     },
@@ -48,20 +12,26 @@
         "done": true
     },
     {
-        "title": "pastilla",
-        "time": "2026-06-17 17:00",
-        "type": "general",
-        "done": false
-    },
-    {
-        "title": "comprar pan",
-        "time": "2026-06-18 05:00",
-        "type": "general",
-        "done": false
-    },
-    {
         "title": "inyección tap",
         "time": "2026-06-18 07:00",
+        "type": "general",
+        "done": false
+    },
+    {
+        "title": "mi recordatorios",
+        "time": "2026-06-28 20:48",
+        "type": "general",
+        "done": false
+    },
+    {
+        "title": "pastillas",
+        "time": "2026-06-29 05:00",
+        "type": "general",
+        "done": false
+    },
+    {
+        "title": "coche",
+        "time": "2026-06-29 04:00",
         "type": "general",
         "done": false
     }
