@@ -1,9 +1,9 @@
-\chapter{Arquitectura software del sistema}
+\chapter{Plataforma software del sistema}
 \label{cap:capitulo6}
 
 \begin{flushright}
 \begin{minipage}[]{10cm}
-\emph{Un buen desarrollador es aquel que encuentra soluciones a los problemas antes de que surjan}\\
+\emph{Un buen desarrollador es aquel que encuentra soluciones a los problemas antes de que surjan.}\\
 \end{minipage}\\
 
 Bill Gates\\
@@ -11,11 +11,11 @@ Bill Gates\\
 
 \vspace{1cm}
 
-Una vez definida la arquitectura \textit{hardware} del sistema desarrollado, en este capítulo se presenta la arquitectura \textit{software}, encargada de dar soporte al robot.
+Una vez definida la arquitectura \textit{hardware} del sistema desarrollado, en este capítulo se presenta la plataforma \textit{software} encargada de dar soporte al robot.
 
 \vspace{0.2cm}
 
-La arquitectura se ha diseñado de forma modular con el objetivo de facilitar el desarrollado, mantenimiento, depuración y escalabilidad del sistema. Como se muestra en la (Figura \ref{fig:sistema}), el robot se compone de distintos módulos funcionales. A continuación se procede a definir los distintos módulos software definidos en este proyecto.
+El \textit{software} se ha diseñado de forma modular con el objetivo de facilitar el desarrollo, mantenimiento, depuración y escalabilidad del sistema. Como se muestra en la Figura \ref{fig:sistema}, el robot se compone de distintos módulos funcionales que serán descritos a continuación.
 
 \begin{figure} [h!]
   \begin{center}
@@ -29,9 +29,9 @@ La arquitectura se ha diseñado de forma modular con el objetivo de facilitar el
 \section{Diseño distribuido del sistema}
 \label{sec:Sistema de percepción}
 
-Debido a las limitaciones computacionales de la Raspberry Pi 4, no es posible ejecutar tareas de alto coste de computacional. Por ese motivo, se ha diseñado una arquitectura distribuida en la que las tareas más exigentes se delegan a un servidor local.
+Debido a las limitaciones computacionales de la Raspberry Pi 4, no es posible ejecutar tareas de alto coste computacional. Por ese motivo, se ha diseñado una arquitectura distribuida en la que las tareas más exigentes se delegan a un servidor local.
 
-La arquitectura del sistema se compone de dos elementos principales: la Raspberry Pi 4 integrada en el robot y un ordenador externo que actúa como servidor del sistema.
+La arquitectura del sistema se compone de dos elementos principales: la Raspberry Pi 4 integrada en el robot, y un ordenador externo que actúa como servidor del sistema.
 
 La Raspberry Pi se encarga de la  gestión de la interfaz gráfica, el control de los periféricos del robot y la coordinación de la interacción con el usuario. Por su parte, el servidor ejecuta los servicios de reconocimiento facial y el modelo de lenguaje conversacional.
 
@@ -39,14 +39,14 @@ La comunicación entre ambos dispositivos se realiza mediante peticiones HTTP a 
 
 De este modo, la Raspberry envía solicitudes al servidor para tareas como la identificación del usuario o la generación de respuestas, recibiendo los resultados procesados.
 
-En la (Figura \ref{fig:server}) se muestra la interfaz del servidor local implementado, que permite iniciar los servicios y monitorizar el funcionamiento del sistema en tiempo real.
+En la Figura \ref{fig:server} se muestra la interfaz del servidor local implementado, que permite iniciar los servicios y monitorizar el funcionamiento del sistema en tiempo real.
 
 
 \vspace{0.2cm}
 
 \begin{figure} [h!]
   \begin{center}
-    \includegraphics[width=15cm]{figs/server}
+    \includegraphics[width=16cm]{figs/server}
   \end{center}
   \caption{Servidor local del sistema}
   \label{fig:server}
@@ -56,28 +56,23 @@ En la (Figura \ref{fig:server}) se muestra la interfaz del servidor local implem
 \section{Redes y comunicaciones}
 \label{sec:Sistema de percepción}
 
-Para asegurar una comunicación estable entre la Raspberry Pi y el servidor, se ha utilizado un router propio configurado con una red local privada. De este modo, ambos dispositivos poseen direcciones IP fijas, evitando problemas cambios de direccione IP.
+Para asegurar una comunicación estable entre la Raspberry Pi y el servidor, se ha utilizado un router propio configurado con una red local privada. De este modo, ambos dispositivos poseen direcciones IP fijas, evitando problemas de cambios de direcciones IP.
 
 
 \section{Sistema de autenticación facial}
 \label{sec:Sistema de percepción}
 
-El sistema de autenticación facial compone el paso inicial para el arranque del sistema de asistencia personal. Este módulo se apoya en la arquitectura distribuida previamente descrita.
+El reconocimiento facial es el primer paso para arrancar el sistema. Este módulo se apoya en la arquitectura distribuida previamente descrita. El sistema se divide en dos fases principales: registro de usuarios e inicio de sesión.
 
 \vspace{0.2cm}
 
-El sistema se divide en dos fases principales: registro de usuarios e inicio de sesión.
+Durante la fase de registro, la Raspberry Pi captura varias imágenes del usuario a través de la cámara integrada en el robot. Estas imágenes se envían al servidor mediante peticiones HTTP, donde se realiza la detección facial y la extracción de características mediante vectores de representación (\textit{face embeddings}), utilizando la librería \verb|face_recognition|.
+
+Los \textit{embeddings} generados se almacenan junto con la etiqueta del usuario en un fichero \texttt{.pkl}, el cual permite la incorporación  de nuevos usuarios en el sistema de forma persistente.
 
 \vspace{0.2cm}
 
-Durante la fase de registro, la Raspberry Pi captura varias imágenes del usuario a través de la cámara integrada en el robot. Estas imágenes se envían al servidor mediante peticiones HTTP, donde se realiza la detección facial y la extracción de características mediante vectores de representación (\textit{face embeddings}) utilizando la librería \verb|face_recognition|.
-
-Los \textit{embeddings} generados se almacenan junto con la etiqueta del usuario un fichero \texttt{.pkl}, el cual permite la incorporación  de nuevos usuarios en el sistema de forma persistente.
-
-\vspace{0.2cm}
-
-
-En la fase de inicio de sesión, el sistema captura imágenes en tiempo real y las envía al servidor. Este calcula los \textit{embeddings} y las compara con los almacenadas en la base de datos de rostros conocidos, como se puede ver en el Código \ref{cod:codejemplo}. El reconocimiento facial se realiza mediante la distancia entre vectores, seleccionado el usuario más similar en el caso de superar el umbral de parecido establecido.
+En la fase de inicio de sesión el sistema captura imágenes en tiempo real y las envía al servidor. Este calcula los \textit{embeddings} y los compara con los almacenadas en la base de datos de rostros conocidos, como se puede ver en el Código \ref{cod:codejemplo}. El reconocimiento facial se realiza mediante la distancia entre vectores, seleccionado el usuario más similar en el caso de superar el umbral de parecido establecido.
 
 
 \begin{code}[h]
@@ -120,9 +115,9 @@ El sistema conversacional constituye el núcleo de interacción entre el usuario
 
 \vspace{0.2cm}
 
-La arquitectura del sistema conversacional está compuesta por una serie de etapas consecutivas: captura de audio, transcripción del audio, procesamiento mediante un modelo de lenguaje natural, y conversión del texto generado a voz.
+La arquitectura del sistema conversacional está compuesta por una serie de etapas consecutivas: captura de audio, transcripción, procesamiento mediante un modelo de lenguaje natural, y conversión del texto generado a voz.
 
-El sistema permanece en un estado de escucha continua y únicamente se activa cuando se detecta una palabra de activación predefinida. Este mecanismo evita respuestas no deseadas y agotar recursos del sistema.
+El sistema permanece en un estado de escucha continua y únicamente se activa cuando se detecta una palabra de activación predefinida. Este mecanismo evita generar respuestas no deseadas, así como agotar los recursos del sistema.
 
 \subsection{Captura de audio y transcripción del habla}
 
@@ -179,11 +174,11 @@ El módulo de síntesis incluye un proceso de limpieza del texto para aportar ma
 \section{Interfaz gráfica}
 \label{sec:Interfaz gráfica}
 
-Para permitir la interacción del usuario con las diferentes funcionalidades del robot, se ha desarrollado una interfaz gráfica encargada de proporcionar acceso a los distintos módulos del sistema.
+Para permitir la interacción del usuario con las diferentes funcionalidades del robot se ha desarrollado una interfaz gráfica encargada de proporcionar acceso a los distintos módulos del sistema.
 
 \vspace{0.2cm}
 
-La interfaz se ha implementado utilizando la biblioteca \verb|PyQt5| y se ejecuta en la Raspberry Pi. El diseño se ha basado en una arquitectura basada en estados, donde cada pantalla representa una funcionalidad distinta del sistema. La transición entre pantallas se realiza mediante eventos gestionados por un controlador central.
+La interfaz se ha implementado utilizando la biblioteca \verb|PyQt5| y se ejecuta en la Raspberry Pi. El diseño sigue una arquitectura basada en estados, donde cada pantalla representa una funcionalidad distinta del sistema. La transición entre pantallas se realiza mediante eventos gestionados por un controlador central.
 
 \vspace{0.2cm}
 
@@ -208,16 +203,16 @@ La pantalla de autenticación constituye el punto de entrada del sistema y permi
 
 \vspace{0.2cm}
 
-Durante el diseño de la interfaz se ha priorizado la accesibilidad, teniendo en cuenta que el sistema está orientado a personas mayores. Para ello se optado por la utilización de botones de gran tamaño, iconografía fácilmente reconocible y una navegación sencilla.
+Durante el diseño de la interfaz se ha priorizado la accesibilidad, teniendo en cuenta que el sistema está orientado a personas mayores. Para ello se ha optado por la utilización de botones de gran tamaño, iconografía fácilmente reconocible, y una navegación sencilla.
 
-Las (Figuras \ref{fig:login} y \ref{fig:launcher}) muestran las principales pantallas implementadas para la interacción con el usuario.
+Las Figuras \ref{fig:login} y \ref{fig:launcher} muestran las principales pantallas implementadas para la interacción con el usuario.
 
 
 \vspace{0.2cm}
 
 \begin{figure} [h!]
   \begin{center}
-    \includegraphics[width=15cm]{figs/login}
+    \includegraphics[width=9cm]{figs/login}
   \end{center}
   \caption{Pantalla del \textit{login}}
   \label{fig:login}
@@ -242,7 +237,7 @@ Su principal tarea consiste en gestionar el flujo de ejecución mediante un mode
 
 \vspace{0.2cm}
 
-Tal como se muestra en el Código \ref{cod:controller}, el controlador se encarga de inicializar los principales módulos del sistema, incluyendo el gestor de sesión de usuarios, el motor de asistente y el sistema de la visualización de estado del robot.
+Tal como se muestra en el Código \ref{cod:controller}, el controlador se encarga de inicializar los principales módulos del sistema, incluyendo el gestor de sesión de usuarios, el motor de asistente, y el sistema de la visualización de estado del robot.
 
 
 \begin{code}[h]
@@ -270,7 +265,7 @@ El controlador gestiona el arranque del sistema, el proceso de autenticación de
 Una vez autenticado el usuario, el controlador actualiza el estado del sistema y habilita el asistente conversacional. Del mismo modo, mantiene sincronizados el estado interno del sistema y la interfaz gráfica, coordinando la apertura y cierre de las aplicaciones.
 
 
-Este diseño modular facilita el mantenimiento del sistema, mejora su escalabilidad y permite la incorporación de nuevas funcionalidades sin afectar al sistema general.
+Este diseño modular facilita el mantenimiento del sistema, mejora su escalabilidad, y permite la incorporación de nuevas funcionalidades sin afectar al sistema general.
 
 
 \section{Sistema de asistencia proactiva}
@@ -282,9 +277,7 @@ Además de la interacción mediante interfaz gráfica y comunicación por voz, e
 
 Este módulo se encarga de generar sugerencias de forma periódica y autónoma. Dichas recomendaciones incluyen actividades físicas ligeras, así como la interacción con algunas aplicaciones disponibles.
 
-El comportamiento de este sistema se basa en eventos programados. Cuando se detecta que ha trascurrido un período de tiempo definido, el sistema genera una sugerencia de forma aleatoria, la cual se presenta en la interfaz gráfica y mediante síntesis de voz.
-
-En la siguiente (Figura \ref{fig:sugerencia}) se muestra un ejemplo de las sugerencias generadas por este módulo.
+El comportamiento de este sistema se basa en eventos programados. Cuando se detecta que ha trascurrido un período de tiempo definido, el sistema genera una sugerencia de forma aleatoria, la cual se presenta en la interfaz gráfica y mediante síntesis de voz. En la siguiente Figura \ref{fig:sugerencia} se muestra un ejemplo de las sugerencias generadas por este módulo.
 
 \begin{figure} [h!]
   \begin{center}
@@ -303,8 +296,8 @@ El sistema incluye una serie de aplicaciones internas diseñadas para evitar que
 
 \vspace{0.2cm}
 
-Entre las aplicaciones desarrolladas se incluyen el calendario, el sistema de recordatorios, el gestor de notas y un conjunto de juegos orientados el entrenamiento cognitivo. Todas las aplicaciones están desarrolladas sobre \textit{PyQt5} y se integran dentro del flujo de navegación gestionado por el \textit{launcher} principal.
-La aplicación de calendario (Figura \ref{fig:calen}) permite gestionar de forma visual los eventos del usuario y garantizando la persistencia de los datos entre sesiones.
+Entre las aplicaciones desarrolladas se incluyen el calendario, el sistema de recordatorios, el gestor de notas, y un conjunto de juegos orientados el entrenamiento cognitivo. Todas las aplicaciones están desarrolladas sobre \textit{PyQt5} y se integran dentro del flujo de navegación gestionado por el \textit{launcher} principal.
+La aplicación de calendario (Figura \ref{fig:calen}) permite gestionar de forma visual los eventos del usuario garantizando la persistencia de los datos entre sesiones.
 
 \begin{figure} [h!]
   \begin{center}
@@ -314,11 +307,7 @@ La aplicación de calendario (Figura \ref{fig:calen}) permite gestionar de forma
   \label{fig:calen}
 \end{figure}\
 
-La interacción con esta aplicación permite la creación, eliminación y visualización de eventos de forma intuitiva.
-
-\vspace{0.2cm}
-
-Por otro lado, el sistema de recordatorios permite al usuario gestionar avisos pendientes. Esta funcionalidad (Figura \ref{fig:rec}) sigue una estructura similar a la aplicación de calendario, compartiendo modelo de persistencia y visualización.
+La interacción con esta aplicación permite la creación, eliminación y visualización de eventos de forma intuitiva. Por otro lado, el sistema de recordatorios permite al usuario gestionar avisos pendientes. Esta funcionalidad (Figura \ref{fig:rec}) sigue una estructura similar a la aplicación de calendario, compartiendo modelo de persistencia y visualización.
 
 \begin{figure} [h!]
   \begin{center}
@@ -333,7 +322,7 @@ Además de la interacción táctil, estas aplicaciones pueden ser controladas me
 
 \vspace{0.2cm}
 
-Cuando se detecta una intención de este tipo, el sistema llama a la aplicación mediante el controlador, que actúa como intermediario entre el módulo conversacional y las aplicaciones.
+Cuando se detecta una intención de este tipo el sistema llama a la aplicación mediante el controlador, que actúa como intermediario entre el módulo conversacional y las aplicaciones.
 
 \vspace{0.2cm}
 
@@ -348,11 +337,9 @@ En las aplicaciones con campos de texto se incorpora un teclado virtual que se a
 
 Adicionalmente, el sistema cuenta con un conjunto de juegos orientados a fomentar la actividad cognitiva del usuario. Se incluyen actividades como sopa de letras, \textit{Simon Says}, juego de memoria y búsqueda de diferencias.
 
-Estos juegos ayudan a mantener capacidades cognitivas básicas como memoria visual, agilidad mental o atención, resultando de gran utilidad en el contexto de usuarios de edad avanzada.
+Estos juegos ayudan a mantener capacidades cognitivas básicas, como memoria visual, agilidad mental o atención, resultando de gran utilidad en el contexto de usuarios de edad avanzada.
 
-Estos juegos siguen el mismo enfoque sencillo que el resto de aplicaciones del sistema, con elementos visuales de gran tamaño y una interacción intuitiva.
-
-En la (Figura \ref{fig:mem}) se muestra el juego de memoria desarrollado.
+Estos juegos siguen el mismo enfoque sencillo que el resto de aplicaciones del sistema, con elementos visuales de gran tamaño y una interacción intuitiva. En la Figura \ref{fig:mem} se muestra el juego de memoria desarrollado.
 
 \vspace{0.2cm}
 
