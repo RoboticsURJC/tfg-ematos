@@ -21,7 +21,7 @@ Para el diseño de la forma física del robot se tomaron como referencia diverso
 
 \vspace{0.2cm}
 
-Entre los sistemas analizados destacan JUNO, un robot asistencial orientado a la prevención de caídas en personas mayores, y TEMI\footnote{https://intecrobots.com/producto/temi-robot-asistente-personal-recepcion/?srsltid=AfmBOoqfjMJItp1psGnledndvFqIcn8kBztA7HvcE6iInBlifHYQFKKc}, un robot asistente personal (Figura \ref{fig:asistencial}).
+Entre los sistemas analizados destacan JUNO, un robot asistencial orientado a la prevención de caídas en personas mayores (Figura \ref{fig:asistencial} izda), y TEMI\footnote{https://intecrobots.com/producto/temi-robot-asistente-personal-recepcion/?srsltid=AfmBOoqfjMJItp1psGnledndvFqIcn8kBztA7HvcE6iInBlifHYQFKKc}, un robot asistente personal (Figura \ref{fig:asistencial} dcha).
 
 \vspace{0.2cm}
 
@@ -44,7 +44,7 @@ En el diseño se consideraron aspectos relacionados con el ensamblaje y el mante
 
 \vspace{0.2cm}
 
-Se buscó garantizar la estabilidad del robot, por lo cual se optó por una configuración de tres ruedas en una disposición conocida como \textit{castor wheeled mobile robot} como se muestra en (Figura \ref{fig:castor})\footnote{https://robotechvision.com/caster/}, donde los puntos de apoyo forman un triángulo equilátero. Esta geometría maximiza el polígono de sustentación del sistema, asegurando que el centro de masas se mantenga de manera óptima dentro de los límites de soporte en condiciones operativas estándar, un principio fundamental en el análisis de estabilidad de robots móviles con ruedas \cite{pr11123302}.
+Se buscó garantizar la estabilidad del robot, por lo cual se optó por una configuración de tres ruedas en una disposición conocida como \textit{castor wheeled mobile robot}\footnote{https://robotechvision.com/caster/} como se muestra en la Figura \ref{fig:castor}, donde los puntos de apoyo forman un triángulo equilátero. Esta geometría maximiza el polígono de sustentación del sistema, asegurando que el centro de masas se mantenga de manera óptima dentro de los límites de soporte en condiciones operativas estándar, un principio fundamental en el análisis de estabilidad de robots móviles con ruedas \cite{pr11123302}.
 
 
 \vspace{0.2cm}
@@ -58,7 +58,7 @@ Se buscó garantizar la estabilidad del robot, por lo cual se optó por una conf
 \end{figure}\
 
 
-A partir de estas referencias, se elaboraron una serie de bocetos iniciales (Figura \ref{fig:boceto}) con el objetivo de explorar distintas alternativas de diseño. Estos bocetos sirvieron como punto de partida para el proceso de prototipado.
+A partir de estas referencias se elaboraron una serie de bocetos iniciales (Figura \ref{fig:boceto}) con el objetivo de explorar distintas alternativas de diseño. Estos bocetos sirvieron como punto de partida para el proceso de prototipado.
 
 \vspace{0.2cm}
 
@@ -74,32 +74,29 @@ A partir de estas referencias, se elaboraron una serie de bocetos iniciales (Fig
 
 \vspace{0.2cm}
 
-Con el diseño el diseño preliminar definido, se construyó un prototipo físico utilizando cartón (Figuras \ref{fig:modelo_carton}, \ref{fig:ruedas_carton}) con el objetivo de validar las dimensiones generales del robot y analizar la disposición de los diferentes elementos. Esta fase permitió identificar posibles problemas de  diseño como la distribución de componentes, el espacio disponible y las dimensiones seleccionadas. Asimismo, permitió evaluar el volumen total del robot y su adecuación para operar en entornos reales.
+Con el diseño preliminar definido, se construyó un prototipo físico utilizando cartón con el objetivo de validar las dimensiones generales del robot y analizar la disposición de los diferentes elementos. Esta fase permitió identificar posibles problemas de  diseño como la distribución de componentes, el espacio disponible y las dimensiones seleccionadas. Asimismo, permitió evaluar el volumen total del robot y su adecuación para operar en entornos reales.
+En la Figura \ref{fig:modelo} se muestra el prototipado en cartón.
 
-\begin{figure} [h!]
+\vspace{0.2cm}
+
+
+\begin{figure}[H]
   \begin{center}
-    \includegraphics[width=10cm, angle=-90]{figs/modelo_carton}
+    \subcapcentertrue
+    \subfigure[Modelo del robot a cartón]{\includegraphics[width=0.48\textwidth, height=56mm, keepaspectratio=false]{figs/modelo_carton}}
+    \hspace{3mm}
+    \subfigure[Pieza de cartón base]{\includegraphics[width=0.48\textwidth, height=56mm, keepaspectratio=false]{figs/ruedas_carton}}
   \end{center}
-  \caption{Prototipo en cartón}
-  \label{fig:modelo_carton}
-\end{figure}\
-
-
-\begin{figure} [h!]
-  \begin{center}
-    \includegraphics[width=13cm]{figs/ruedas_carton}
-  \end{center}
-  \caption{Prototipo en cartón de la base}
-  \label{fig:ruedas_carton}
-\end{figure}\
+  \caption{Prototipo a cartón}
+  \label{fig:modelo}
+\end{figure}
 
 
 Una vez validado el diseño preliminar mediante el prototipo de cartón, se procedió al desarrollo del modelo tridimensional del robot utilizando el software libre FreeCAD. Este modelo permitió definir con mayor precisión la geometría de la estructura, ajustar las dimensiones y verificar la integración de los componentes que conforman el sistema dentro del espacio disponible.
 
-Las (Figuras \ref{fig:3D}, \ref{fig:3D1}, \ref{fig:3D2}) muestran diferentes vistas del modelo tridimensional.
+Las Figuras \ref{fig:3D}, \ref{fig:3D1} y \ref{fig:3D2} muestran diferentes vistas del modelo tridimensional.
 
 \vspace{0.2cm}
-
 
 \begin{figure} [h!]
   \begin{center}
@@ -129,27 +126,20 @@ Las (Figuras \ref{fig:3D}, \ref{fig:3D1}, \ref{fig:3D2}) muestran diferentes vis
 
 Finalmente, a partir del modelo tridimensional desarrollado, se construyó la versión física del robot mediante piezas impresas en 3D de PLA (Ácido Poliláctico).
 
-El resultado final del robot se muestra en las (Figuras \ref{fig:estructura}, \ref{fig:montaje}), donde se presentan la estructura sin componentes electrónicos como el montaje del sistema.
+El resultado final del robot se muestra en la Figura \ref{fig:robot}, donde se presentan la estructura sin componentes electrónicos y el sistema completo montado.
 
 \vspace{0.2cm}
 
-
-\begin{figure} [h!]
+\begin{figure}[H]
   \begin{center}
-    \includegraphics[width=12cm]{figs/estructura}
+    \subcapcentertrue
+    \subfigure[Estructura robot]{\includegraphics[width=0.48\textwidth, height=60mm, keepaspectratio=false]{figs/estructura1}}
+    \hspace{3mm}
+    \subfigure[Sistema completo]{\includegraphics[width=0.48\textwidth, height=60mm, keepaspectratio=false]{figs/montaje1}}
   \end{center}
-  \caption{Estructura robot}
-  \label{fig:estructura}
-\end{figure}\
-
-
-\begin{figure} [h!]
-  \begin{center}
-    \includegraphics[width=12cm]{figs/montaje}
-  \end{center}
-  \caption{Sistema completo}
-  \label{fig:montaje}
-\end{figure}\
+  \caption{Prototipo a cartón}
+  \label{fig:robot}
+\end{figure}
 
 
 Tras materializar el diseño del robot, se procedió a la integración de la arquitectura electrónica, encargada de dotar al sistema de capacidades de control, sensorización e interacción.
@@ -163,9 +153,7 @@ Con el objetivo de disponer de una estructura clara, se dividió en bloques func
     \item \textbf{Sistema de sensores:} Orientado a la obtención de la información del entorno. Incluye un sensor de ultrasonido para la detección de obstáculos, un pulsador para la activación del sistema, un LED RGB como indicador de estado y una pantalla LCD para mostrar mensajes informativos.
 \end{itemize}
 
-Para el diseño del circuito se utilizó la plataforma Cirkit Designer\footnote{https://app.cirkitdesigner.com/} mediante la cual se generó el esquema electrónico (Figuras \ref{fig:circuito}) del sistema.
-
-\vspace{0.2cm}
+Para el diseño del circuito se utilizó la plataforma Cirkit Designer\footnote{https://app.cirkitdesigner.com/}, mediante la cual se generó el esquema electrónico del sistema (Figuras \ref{fig:circuito}).
 
 \begin{figure} [h!]
   \begin{center}
@@ -176,6 +164,6 @@ Para el diseño del circuito se utilizó la plataforma Cirkit Designer\footnote{
 \end{figure}\
 
 
-Con el esquema del circuito eléctrico se completa la fase de diseño e integración del  \textit{hardware} del sistema. La parte física del robot está compuesta por una estructura ligera fabricada en PLA, una base de tres ruedas que maximiza la estabilidad y la Raspberry Pi 4 como núcleo de control.
+Con el esquema del circuito eléctrico se completa la fase de diseño e integración del  \textit{hardware} del sistema. La parte física del robot está compuesta por una estructura ligera fabricada en PLA, una base de tres ruedas que maximiza la estabilidad, y la Raspberry Pi 4 como núcleo de control.
 
-No obstante, para que el conjunto de sensores y actuadores pueda funcionar de forma coordinada, es necesaria una capa de software que permita alcanzar los objetivo de este proyecto.
+No obstante, para que el conjunto de sensores y actuadores pueda funcionar de forma coordinada es necesaria una capa de software que permita alcanzar los objetivo de este proyecto.
