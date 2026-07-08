@@ -56,4 +56,4 @@ class RemoteHandler(logging.Handler):
             # Salvaguarda en caso de caída de la infraestructura de red o servidor offline.
             # Se imprime en el canal stdout estándar de la consola del sistema para evitar
             # recursividad infinita del propio manejador de logging.
-            print("[REMOTE LOG ERROR]", e)
+            print("[LOG TO SERVER ]", e)
