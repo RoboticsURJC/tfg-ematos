@@ -11,8 +11,7 @@ William Blake\\
 
 \vspace{1cm}
 
-En este capítulo se tratarán los diferentes experimentos que se han realizado para lograr llevar a cabo la realización de este proyecto, y gracias a los cuales ha sido posible alcanzar los objetivos definidos en la Sección
-~\ref{sec:Requisitos}
+En este capítulo se tratarán los diferentes experimentos que se han realizado para depurar las distintas funcionalidades del sistema, gracias a los cuales ha sido posible alcanzar los objetivos definidos en la Sección~\ref{sec:Requisitos}.
 
 
 \section{Impresión 3D}
@@ -21,7 +20,7 @@ En este capítulo se tratarán los diferentes experimentos que se han realizado 
 Uno de los primeros pasos para la construcción física del robot consistió en el diseño e impresión de las piezas estructurales. En el diseño se intentó minimizar el número de piezas con el objetivo de simplificar el montaje y reducir posible problemas de ensamblaje.
 
 
-Sin embargo, durante la preparación de las piezas para su impresión se detectó un problema debido a las limitaciones  del tamaño máximo de fabricación de la impresora utilizada. Como se puede observar en (Figura \ref{fig:impresion_vis}), algunas piezas superaban las dimensiones máximas permitidas por el área de impresión disponible.
+Sin embargo, durante la preparación de las piezas para su impresión se detectó un problema debido a las limitaciones  del tamaño máximo de fabricación de la impresora utilizada. Como se puede observar en la Figura \ref{fig:impresion_vis}, algunas piezas superaban las dimensiones máximas permitidas por el área de impresión disponible.
 
 \vspace{0.2cm}
 
@@ -40,7 +39,7 @@ Para solventar este contratiempo se modificó el diseño original, dividiendo la
 
 \vspace{0.2cm}
 
-Una vez realizados los cambios, se inició la impresión de las distintas piezas (Figura \ref{fig:piezas}) que componen la estructura del robot.
+Una vez realizados los cambios, se inició la impresión de las distintas piezas  que componen la estructura del robot (Figura \ref{fig:piezas}).
 
 \vspace{0.2cm}
 
@@ -54,31 +53,27 @@ Una vez realizados los cambios, se inició la impresión de las distintas piezas
 \end{figure}\
 
 
-Tras la impresión de las piezas y durante el montaje del robot, se detectaron dos problemas importantes. Por una parte, algunas dimensiones habían sido calculadas de forma incorrecta, por lo que no se disponía del espacio suficiente para integrar determinados componentes \textit{hardware} en el interior de la estructura.
+Tras la impresión de las piezas, y durante el montaje del robot, se detectaron dos problemas importantes. Por una parte, algunas dimensiones habían sido calculadas de forma incorrecta, por lo que no se disponía del espacio suficiente para integrar determinados componentes \textit{hardware} en el interior de la estructura.
 
-Por este motivo fue necesario realizar modificaciones sobre algunas piezas impresas, ampliando huecos mediante procesos de lijado y aplicación de color. La (Figura \ref{fig:sol}) muestra una de las piezas modificadas durante esta fase.
+Por este motivo fue necesario realizar modificaciones sobre algunas piezas impresas, ampliando huecos mediante procesos de lijado y aplicación de color. La Figura \ref{fig:sol} muestra una de las piezas modificadas durante esta fase.
 
 \vspace{0.2cm}
 
 
 \begin{figure} [h!]
   \begin{center}
-    \includegraphics[width=9cm]{figs/sol}
+    \includegraphics[width=8cm]{figs/sol}
   \end{center}
   \caption{Pieza modificada}
   \label{fig:sol}
 \end{figure}\
 
-Por otra parte, el diseño CAD incorporaba una serie de salientes destinados a encajar en los huecos de las piezas adyacentes, facilitando así el montaje de la estructura.
-
-Sin embargo, durante la impresión se observó que dichos salientes presentaban una superficie de contacto insuficiente con la pieza principal. Como consecuencia, varios de ellos se desprendieron durante la impresión.
+Por otra parte, el diseño CAD incorporaba una serie de salientes destinados a encajar en los huecos de las piezas adyacentes, facilitando así el montaje de la estructura. Sin embargo, durante la impresión se observó que dichos salientes presentaban una superficie de contacto insuficiente con la pieza principal. Como consecuencia, varios de ellos se desprendieron durante la impresión.
 
 Debido a este inconveniente, se descartó el sistema de encaje inicial y se optó por una solución alternativa basada en la utilización de adhesivo termofusible para el ensamblaje de las distintas piezas.
 
 
-Se realizaron entonces una serie de modificaciones sobre el diseño original con el objetivo de adaptar la estructura a los inconvenientes encontrados durante el proceso de impresión y ensamblaje. Estas modificaciones permitieron integrar correctamente los componentes \textit{hardware} y obtener una estructura funcional del robot.
-
-En la (Figura \ref{fig:estructura1}) se muestra el resultado final de la estructura.
+Se realizaron entonces una serie de modificaciones sobre el diseño original con el objetivo de adaptar la estructura a los inconvenientes encontrados durante el proceso de impresión y ensamblaje. Estas modificaciones permitieron integrar correctamente los componentes \textit{hardware} y obtener una estructura funcional del robot. En la Figura \ref{fig:estructura1} se muestra el resultado final de la estructura.
 
 \vspace{0.2cm}
 
@@ -99,13 +94,9 @@ Durante la integración \textit{hardware} se observó que la Raspberry Pi era in
 
 \vspace{0.2cm}
 
-Con el objetivo de identificar el origen del problema, se empleó un multímetro para comprobar la tensión suministrada por la fuente de alimentación utilizada inicialmente, obteniéndose un valor 4.9 V, inferior a los 5V recomendados para el correctamente funcionamiento de la Raspberry Pi.
+Con el objetivo de identificar el origen del problema, se empleó un multímetro para comprobar la tensión suministrada por la fuente de alimentación utilizada inicialmente, obteniéndose un valor 4.9 V, inferior a los 5V recomendados para el correctamente funcionamiento de la Raspberry Pi. Así que hubo que sustituir el cargador original por una nueva fuente de alimentación capaz que proporcionar una tensión estable de 5V.
 
-Para solucionar este inconveniente se sustituyó el cargador original por una nueva fuente de alimentación capaz que proporcionar una tensión estable de 5V.
-
-No obstante, el reemplazo de la fuente de alimentación no fue suficiente para resolver completamente el problema. Dado que la mayoría componentes continuaban conectados a la Raspberry Pi, esta no era capaz de funcionar correctamente debido a la elevada carga energética que soportaba.
-
-Como solución se incorporó un HUB USB con alimentación externa, al que se conectaron algunos periféricos del robot. De este modo, dichos dispositivos reciben la energía directamente del HUB, mientras que la Raspberry solo se encarga del intercambio de datos.
+No obstante, el reemplazo de la fuente de alimentación no fue suficiente para resolver completamente el problema. Dado que la mayoría de componentes continuaban conectados a la Raspberry Pi, esta no era capaz de funcionar correctamente debido a la elevada carga energética que soportaba. Como solución, se incorporó un HUB USB con alimentación externa, al que se conectaron algunos periféricos del robot. De este modo, dichos dispositivos reciben la energía directamente del HUB, mientras que la Raspberry solo se encarga del intercambio de datos.
 
 \vspace{0.2cm}
 
@@ -115,11 +106,11 @@ Gracias a estas modificaciones se consiguió estabilizar la alimentación del si
 \section{Detección facial}
 \label{sec:Detección facial}
 
-El sistema de autenticación anteriormente descrito se sustenta en el reconocimiento facial. Durante el desarrollo se realizaron diversas pruebas con el objetivo de evaluar el funcionamiento del sistema en diferentes condiciones de uso.
+El sistema de autenticación anteriormente descrito se sustenta en el reconocimiento facial. Durante el desarrollo de este módulo se realizaron diversas pruebas con el objetivo de evaluar el funcionamiento del sistema en diferentes condiciones de uso.
 
 \vspace{0.2cm}
 
-Las primeras pruebas se realizaron en condiciones favorables, donde el rostro del usuario se encontraba centrado frente a la cámara y disponía de una iluminación adecuada. En estas condiciones, la detección y reconocimiento facial se realizaron correctamente pudiendo identificar al usuario sin problemas.
+Las primeras pruebas se realizaron en condiciones favorables, donde el rostro del usuario se encontraba centrado frente a la cámara y disponía de una iluminación adecuada. En estas condiciones, la detección y reconocimiento facial se realizaron correctamente, pudiendo identificar al usuario sin problemas.
 
 \vspace{0.2cm}
 
@@ -154,8 +145,12 @@ Contraluz & 20 & 4 \\
 \end{center}
 \end{table}
 
+Las Figuras \ref{fig:logmal} y \ref{fig:logg} muestra un ejemplo del funcionamiento del sistema durante el proceso de detección e identificación facial.
 
-Las (Figuras \ref{fig:logmal}, \ref{fig:logg} ) muestra un ejemplo del funcionamiento del sistema durante el proceso de detección e identificación facial.
+\vspace{0.2cm}
+
+
+Como resultado de las pruebas realizadas, se validó el uso de reconocimiento facial como mecanismo de autenticación del sistema, demostrando un funcionamiento estable en condiciones  habituales de uso, aunque con limitaciones en situaciones de iluminación desfavorable.
 
 \begin{figure} [h!]
   \begin{center}
@@ -173,13 +168,11 @@ Las (Figuras \ref{fig:logmal}, \ref{fig:logg} ) muestra un ejemplo del funcionam
   \label{fig:logg}
 \end{figure}\
 
-Como resultado de las pruebas realizadas, se validó el uso de reconocimiento facial como mecanismo de autenticación del sistema, demostrando un funcionamiento estable en condiciones de  habituales de uso, aunque con limitaciones en situaciones de iluminación desfavorable.
-
 
 \section{Modelo de lenguaje}
 \label{sec:Modelo de lenguaje}
 
-Una parte fundamental del robot es el sistema conversacional, ya que permite una interacción con el usuario más fluida y natural. Por ello, se han realizado pruebas centradas en la calidad de las respuestas y tiempo de respuesta, con el objetivo de evaluar su funcionamiento.
+Una parte fundamental del robot es el sistema conversacional, ya que permite una interacción  más fluida y natural con el usuario. Por ello se han realizado pruebas centradas en la calidad de las respuestas y tiempo de respuesta, con el objetivo de evaluar su funcionamiento.
 
 \vspace{0.2cm}
 
@@ -192,7 +185,7 @@ Con el objetivo de evaluar el rendimiento, se realizaron pruebas comparando dist
 Los resultados obtenidos mostraron una gran diferencia entre modelos. En general, \textit{LLaMA 3} presentó un menor tiempo de respuesta y un comportamiento más estable, mientras que modelos como \textit{Gemini} presentaron mayor variabilidad en la latencia.
 
 
-En el Cuadro ~\ref{tab:llm_latency} se muestran los resultados obtenidos en cuanto a la latencia durante la evaluación.
+En el Cuadro~\ref{tab:llm_latency} se muestran los resultados obtenidos durante la evaluación en cuanto a la latencia.
 
 \begin{table}[H]
 \begin{center}
@@ -216,9 +209,7 @@ Por otra parte, se evaluó la calidad de las respuestas generadas por el modelo 
 
 En general, \textit{LLaMA 3} generó respuestas coherentes y adecuadas al contexto de las preguntas planteadas.
 
-\vspace{1cm}
-
-A continuación, se muestran algunos ejemplos de las respuestas obtenidas durante las pruebas:
+A continuación se muestran algunos ejemplos de las respuestas obtenidas durante las pruebas:
 
 \vspace{0.2cm}
 
@@ -247,3 +238,179 @@ Ingredientes de cheesecake de fresa: galletas digestive molidas,  1/2 taza de az
 \vspace{0.2cm}
 
 Estos resultados demuestran la efectividad del modelo de lenguaje dentro del sistema conversacional del robot, tanto en términos de calidad como de tiempos de respuestas.
+
+
+\section{Sistema completo}
+\label{sec:Sistema completo}
+
+Finalmente, tras evaluar el funcionamiento de cada uno de los módulos de forma individual, se procedió a realizar pruebas del sistema completo.
+
+\vspace{0.2cm}
+
+\subsection{Arranque del sistema}
+
+Durante el inicio del sistema, el robot intenta establecer conexión con el servidor. Cuando el servidor no se encuentra en ejecución, aparece  un error como el mostrado en el Código \ref{cod:inicio}.
+
+\begin{code}[h]
+\begin{lstlisting}[language=bash]
+
+python -m app.main
+
+pygame 2.1.2 (SDL 2.26.5, Python 3.11.2)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+2026-06-26 13:21:07,911 - INFO - [MAIN] Iniciando sistema
+[REMOTE LOG ERROR] HTTPConnectionPool(host='192.168.1.96', port=3000): Max retries exceeded with url: /client-log (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7fa05367d0>, 'Connection to 192.168.1.96 timed out. (connect timeout=1)'))
+
+\end{lstlisting}
+
+\caption[Mensaje de error de conexión]{Mensaje de error de conexión}
+\label{cod:inicio}
+\end{code}
+
+
+\subsection{Autenticación facial}
+
+Tras el arranque, el sistema activa la cámara para realizar la autenticación facial del usuario. En la mayoría de las ejecuciones la cámara se inicializó correctamente y el sistema continuó sin incidentes. Sin embargo, en algunas ocasiones la cámara no se inicializó, provocando el bloqueo temporal del sistema. En estos casos fue suficiente con reiniciar la cámara y relanzar la aplicación.
+
+Asimismo, se realizaron pruebas con distintos usuarios y con varias imágenes de una misma persona. El comportamiento fue satisfactorio en condiciones normales de iluminación (Figura \ref{fig:shaq}), exceptuando situaciones de baja intensidad lumínica (Figura \ref{fig:no_shaq}).
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=8cm]{figs/shaq}
+  \end{center}
+  \caption{Condiciones del luz normales}
+  \label{fig:shaq}
+\end{figure}\
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=8cm]{figs/no_shaq}
+  \end{center}
+  \caption{Baja luz}
+  \label{fig:no_shaq}
+\end{figure}\
+
+
+\subsection{Activación mediante voz}
+
+Una vez autenticado el usuario se habilita el acceso a las aplicaciones disponibles y el robot entra en modo de escucha, esperando la palabra de activación.
+
+Durante el desarrollo se probaron diferentes palabras de activación debido a problemas de reconocimiento. Inicialmente se emplearon términos como ``Rojazz'' o ``Eliot'', pero fueron sustituidas por palabras más comunes y más reconocibles como ``asistente'', ``háblame'' u ``oye''.
+
+
+\subsection{Sistema conversacional}
+
+Una vez activado, el robot permite mantener conversaciones con el usuario.
+Las primeras pruebas se centraron en consultas relacionadas con acontecimientos actuales, comprobando que el modelo de lenguaje era incapaz de responder debido a que no dispone de información posterior a su fecha de entrenamiento.
+
+A continuación se presentan ejemplos que muestran algunas de las respuestas obtenidas ante consultas realizadas por el usuario:
+
+\vspace{0.2cm}
+
+\textbf{Ejemplo 1: Pregunta fútbol}
+
+\begin{Verbatim}[breaklines=true]
+USER:Elisa me puedes decir como quedó el partido españa uruguay
+
+ROJAZZ: Lo siento, pero no tengo información en tiempo real sobre resultados de partidos. Mi conocimiento se basa en datos disponibles hasta mi última actualización, y no puedo proporcionarte el resultado del partido entre España y Uruguay. Sin embargo, puedo sugerirte algunas opciones para que puedas encontrar la información que buscas: Puedes intentar buscar en línea en sitios web de noticias deportivas o en la página oficial de la FIFA o de la selección de fútbol de España o Uruguay. También puedes intentar buscar en redes sociales como Twitter o Facebook, donde a menudo se comparten resultados y resúmenes de partidos. Si tienes una televisión o una tableta con acceso a internet, también puedes intentar buscar en canales de deportes o en aplicaciones de noticias deportivas para ver si tienen la información que buscas. ¿Quieres que te ayude a buscar en línea o te sugiera algún sitio web en particular donde puedas encontrar la información? Estoy aquí para ayudarte.
+\end{Verbatim}
+
+
+\textbf{Ejemplo 2: Pregunta fútbol}
+\begin{Verbatim}[breaklines=true]
+USER:Elisa cuento a mí como quedó alemania en el mundial hoy
+
+ROJAZZ: Lo siento, pero no tengo información actualizada sobre el Mundial de fútbol o cualquier otro evento deportivo en tiempo real. Mi capacidad para proporcionar resultados o clasificaciones específicas de eventos deportivos es limitada, ya que no tengo acceso a información en tiempo real.Sin embargo, puedo sugerirte algunas opciones para que puedas enterarte de cómo quedó Alemania en el Mundial hoy: 1. Ver la televisión: Puedes intentar sintonizar un canal de noticias o deportes que esté cubriendo el Mundial. 2. Internet: Puedes buscar en internet en sitios web de noticias deportivas o en las páginas oficiales de la FIFA para obtener actualizaciones sobre el Mundial. 3. Aplicaciones móviles: Existen muchas aplicaciones móviles dedicadas a deportes que ofrecen resultados en tiempo real y noticias sobre eventos deportivos importantes.Espero que esta información te sea útil. ¿Hay algo más en lo que pueda ayudarte?
+\end{Verbatim}
+
+\vspace{0.2cm}
+
+Con el objetivo de ampliar la funcionalidad, se incorporó un mecanismo de búsqueda de información en internet para determinadas consultas como conceptos generales o relacionada con personas. Sin embargo, consultas específicas como resultados deportivos, lo que requería el uso de técnicas de \textit{web scraping} o el uso de servicios de pago, por lo que se decidió no incorporar esta funcionalidad.
+
+\vspace{0.2cm}
+
+\textbf{Ejemplo 3: Consulta a internet}
+
+\begin{Verbatim}[breaklines=true]
+USER:Elisa quién es Napoleon
+
+ROJAZZ: Napoleón Bonaparte (nacido Napoleone Buonaparte; Ajaccio, 15 de agosto de 1769-Santa Elena, 5 de mayo de 1821), más tarde conocido por su nombre regnal Napoleón I, fue un militar y político francés nacido en Córcega que saltó a la fama durante la Revolución francesa y dirigió exitosas campañas durante las guerras revolucionarias. Fue el líder de facto de la República francesa como primer cónsul desde 1799 hasta 1804, y después emperador de los franceses desde 1804 hasta 1814 y, de nuevo, en 1815. El legado político y cultural de Napoleón perdura, en tanto líder tan célebre como controvertido. Inició muchas reformas liberales que han perdurado en la sociedad, y se le considera uno de los más grandes comandantes militares de la historia. Sus campañas se estudian en las academias militares del mundo. Entre tres y seis millones de civiles y soldados murieron en lo que se conoció como las guerras napoleónicas. Espero que esta información te sea útil. ¿Hay algo más en lo que pueda ayudarte?
+\end{Verbatim}
+
+
+\subsection{Gestión de recordatorios y eventos}
+
+Otra de las funcionalidades evaluadas fue el uso de la escucha activa para gestionar recordatorios y eventos por voz. Se realizaron pruebas tanto de creación como de consulta de recordatorios y eventos.
+
+En la mayoría de los casos se interpretó correctamente las órdenes del usuario, aunque ocasionalmente se malinterpretaron las órdenes dando lugar a un resultado diferente al esperado.
+
+Los siguientes ejemplos muestran algunos de los casos:
+
+\vspace{0.2cm}
+
+\textbf{Ejemplo 4: Consultar recordatorio}
+
+\begin{Verbatim}[breaklines=true]
+USER:Elisa tengo un recordatorio pendiente
+
+ROJAZZ: Añadiendo a recordatorios
+[REMINDER] 'un pendiente' → 20:47 28/06
+\end{Verbatim}
+
+\vspace{0.2cm}
+
+\textbf{Ejemplo 5: Consultar recordatorio}
+
+\begin{Verbatim}[breaklines=true]
+USER:Elisa que alarmas tengo
+
+ROJAZZ: Tienes 3 recordatorios pendientes: inyección a las 18:00, inyección tap a las 07:00, mi recordatorios a las 20:48.
+\end{Verbatim}
+
+\vspace{0.2cm}
+
+\textbf{Ejemplo 6: Consultar recordatorio}
+
+\begin{Verbatim}[breaklines=true]
+
+USER:Elisa tengo recordatorios pendientes
+
+ROJAZZ: Tienes 3 recordatorios pendientes: inyección a las 18:00, inyección tap a las 07:00, mi recordatorios a las 20:48.
+\end{Verbatim}
+
+\vspace{0.2cm}
+
+\textbf{Ejemplo 7: Añadir evento}
+
+\begin{Verbatim}[breaklines=true]
+USER:Elisa recuérdame a las cinco pastillas
+
+ROJAZZ: Recordatorio 'pastillas' añadido para las 05:00 del 29/06.
+\end{Verbatim}
+
+\vspace{0.2cm}
+
+\textbf{Ejemplo 8: Añadir evento}
+
+\begin{Verbatim}[breaklines=true]
+USER:Elisa avísame a las cuatro de coche
+
+ROJAZZ: Recordatorio 'coche' añadido para las 04:00 del 29/06.
+\end{Verbatim}
+
+\vspace{0.2cm}
+
+\textbf{Ejemplo 9: Consultar eventos}
+
+\begin{Verbatim}[breaklines=true]
+USER:Elisa que tengo pendiente
+
+(ROJAZZ) No tienes eventos el 28/06/2026.
+\end{Verbatim}
+
+
+\subsection{Evaluación global}
+
+En conjunto, las pruebas realizadas permitieron validar el correcto funcionamiento del sistema integrado. El robot fue capaz de realizar el flujo completo, incluyendo el arranque de la aplicación, la autenticación facial, la activación del sistema conversacional, la gestión de eventos y recordatorios y el uso de las aplicaciones.
+
+

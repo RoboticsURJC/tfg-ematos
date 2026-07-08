@@ -1,9 +1,9 @@
 \chapter{Plataforma de desarrollo}
-\label{cap:capitulo3}
+\label{cap:capitulo4}
 
 \begin{flushright}
 \begin{minipage}[]{10cm}
-\emph{El mundo no es sino un lienzo para nuestra imaginación}\\
+\emph{El mundo no es sino un lienzo para nuestra imaginación.}\\
 \end{minipage}\\
 
 Henry David Thoreau\\
@@ -252,8 +252,6 @@ Potencia & 25W \\
 \end{table}
 
 
-
-
 \subsection{Motores}
 
 Para el movimiento del robot se han utilizado dos motores corriente continua (CC)   compatibles con el controlador L298N. Estos motores funcionan con un rango de tensión de 6 a 12V  y permiten el control de velocidad y sentido de giro mediante señales PWM generadas por la Raspberry Pi.
@@ -394,7 +392,6 @@ Para indicar de forma visual el estado del robot (encendido, apagado o reinician
 En el desarrollo de este proyecto ha sido necesario utilizar un ordenador principal para poder usar algoritmos más complejos que la Raspberry no puede soportar; como por ejemplo, un reconocimiento facial óptimo o el uso de LLM (\textit{Large Language Models}) fluido.
 Se ha utilizado un Victus 16-e0xxx (Figura \ref{fig:pc}) cuyas especificaciones se describen en el Cuadro \ref{cuadro:pc}.
 
-
 \vspace{0.2cm}
 
 \begin{figure} [h!]
@@ -435,6 +432,20 @@ Sistema operativo & Windows 11 y Ubunto 22.4 \\
 \end{center}
 \end{table}
 
+
+\subsection{Impresora 3D Creality}
+
+Para la fabricación de los piezas diseñadas en 3D se ha utilizado la impresora \textit{Creality CR-6 SE} (Figura \ref{fig:impresora}). Esta impresora ofrece una calidad de impresión suficiente para fabricar con precisión piezas que componen la estructura del robot.
+
+\vspace{0.2cm}
+
+\begin{figure} [h!]
+  \begin{center}
+    \includegraphics[width=8cm]{figs/impresora}
+  \end{center}
+  \caption{Impresora Creality CR6 SE}
+  \label{fig:impresora}
+\end{figure}\
 
 
 
