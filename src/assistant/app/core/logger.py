@@ -26,10 +26,10 @@ config_path = os.path.join(
 with open(config_path, "r", encoding="utf-8") as f:
     config = json.load(f)
 
-# ~ SERVER_URL = config["server"]["log"]
+SERVER_URL = config["server"]["log"]
 
 ## URL completa y absoluta del endpoint HTTP del Dashboard donde se transmitirán las trazas en tiempo real.
-SERVER_URL = "http://192.168.1.96:3000/client-log" 
+#SERVER_URL = "http://10.42.0.1:3000/client-log" 
 
 
 # ==========================================================
