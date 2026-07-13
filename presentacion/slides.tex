@@ -36,9 +36,9 @@
   {\endtabularx\par\vspace{\belowdisplayskip}}
   
 % USO DE NOTAS
-\setbeameroption{hide notes} % Para mostrar u ocultar (hide/show)
-%\setbeameroption{show only notes} % Mostrar solo las notas
-%\setbeameroption{show notes on second screen=right} % Mostrar notas en otra pantalla
+% \setbeameroption{hide notes} % Para mostrar u ocultar (hide/show)
+% \setbeameroption{show only notes} % Mostrar solo las notas
+\setbeameroption{show notes on second screen=right} % Mostrar notas en otra pantalla
 \setbeamertemplate{note page}{ % asi solo muestro el texto de las notas
   \insertnote%
 }
@@ -68,7 +68,7 @@
 \vspace{1cm}
 Trabajo Fin de Grado
 }
-\date{6 de Julio de 2026}
+\date{16 de julio de 2026}
 %=========
 
 %========= COMIENZO DEL DOCUMENTO
@@ -77,8 +77,7 @@ Trabajo Fin de Grado
 %========= Portada inicial con notas
 \begin{frame}[plain] % plain: quita header y footer
 \large{\titlepage}
-\note[item]{En esta presentación voy a hablar sobre...}
-\note[item]{En primer lugar...}
+\note[item]{En esta presentación voy a hablar sobre mi trabajo}
 \end{frame}
 
 %========= Licencia
@@ -92,7 +91,14 @@ Trabajo Fin de Grado
 %\begin{multicols}{2} % si tengo muchas secciones, lo parte en dos columnas
   \tableofcontents[hideallsubsections] % no muestra subsecciones
 %\end{multicols}
-\note[item]{La presentaci\'on esta dividida en cuatro partes.}
+\note[item]{La presentaci\'on esta dividida en 8 partes.}
+\note[item]{Contexto enmarcado el proyecto}
+\note[item]{Objetivos y requisitos establecidos}
+\note[item]{Plataforma de desarrollo tanto Hardware como software}
+\note[item]{Arquitectura del trabajo, tanto stf como hadw}
+\note[item]{Experimentos realizados}
+\note[item]{Conclusiones obtenidas}
+
 \end{frame}
 
 %========= Diapositiva "vacía" de comienzo de sección:
@@ -101,11 +107,16 @@ Trabajo Fin de Grado
   \centering \Huge
   \emph{Introducción}
 \note[item]{Comencemos con la introducción.}
+\note[item]{Robot asistencial}
+\note[item]{Interfaz amigable y sencilla}
 \end{frame}
 
 \section{Introducción}
+
 % \subsection{Contexto general}
 %========= Diapositiva con imágenes:
+
+
 \begin{frame}
 \frametitle{Robótica de servicio}
 \begin{figure}
@@ -115,6 +126,15 @@ Trabajo Fin de Grado
 		\includegraphics[width=0.3\textwidth, valign=m]{figs/roomba} & \includegraphics[width=0.3\textwidth, valign=m]{figs/rosa} \\
 		\includegraphics[width=0.3\textwidth, valign=m]{figs/Robot-Medicina} & \includegraphics[width=0.3\textwidth, valign=m]{figs/log}
 	\end{tabular}
+
+\note{
+    contexto del trabajo
+}
+
+\note[item]{crecimiento últimos años}
+\note[item]{encontrar en hospitales, ...}
+\note[item]{ayudando tareas cotidianas}
+
 \end{table}
 \end{figure}
 \end{frame}
@@ -128,14 +148,79 @@ Trabajo Fin de Grado
 \includegraphics[height=4.5cm]{figs/nao}
 \hspace{0.8cm}
 \includegraphics[height=4.5cm]{figs/pepper}
+
+\note{dentro de la robotica de servicio encontramos la r asistencial}
+\note[item]{envejecimiento de la población}
+\note[item]{dificultad asistencia personaliza}
+\note[item]{herramienta necesaria}
+
 \end{figure}
 \end{frame}
 
 \section*{}
 \begin{frame}{}
   \centering \Huge
+  \emph{Estado del arte}
+\end{frame}
+
+\section{Estado del arte}
+
+\begin{frame}
+\frametitle{Arquitectura de asistencia inteligente}
+\begin{figure}
+\centering
+\begin{block}{Características}
+\begin{itemize}
+
+\note[item]{el trabajo responder 2 problemas principales.}
+\note[item]{Multimodal: se interactua con el sistema de diferentes formas.}
+\note[item]{Por voz, por gestos o mediente una interfaz gráfica.}
+
+\item Sistema IoT.
+\item Interacción multimodal.
+
+\end{itemize}
+\end{block}
+
+\vspace{0.5cm}
+
+\includegraphics[height=3.6cm]{figs/assist}
+
+\end{figure}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{EmoGame}
+\begin{figure}
+\centering
+\begin{block}{Características}
+\begin{itemize}
+
+\note[item]{el trabajo responder 2 problemas principales.}
+
+\item Ayuda para las personas con demencia precoz.
+\item Incorpora juegos digitales.
+
+\end{itemize}
+\end{block}
+
+\vspace{0.5cm}
+
+\includegraphics[height=3.6cm]{figs/emo}
+
+\end{figure}
+\end{frame}
+
+
+
+
+\section*{}
+\begin{frame}{}
+  \centering \Huge
   \emph{Objetivos}
-\note[item]{Pasemos ahora a comentar los objetivos que nos hemos con este trabajo.}
+\note[item]{Pasemos ahora a comentar los objetivos que nos hemos propuesto con este trabajo.}
 \end{frame}
 
 \section{Objetivos}
@@ -146,6 +231,8 @@ Trabajo Fin de Grado
 \centering
 \begin{block}{Problemas}
 \begin{itemize}
+
+\note[item]{el trabajo responder 2 problemas principales.}
 
 \item Soledad en personas mayores.
 \item Escasez de personal asistencial.
@@ -158,6 +245,32 @@ Trabajo Fin de Grado
 \includegraphics[height=3.6cm]{figs/sol}
 \hspace{0.4cm}
 \includegraphics[height=3.6cm]{figs/mano}
+
+\end{figure}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Objetivos}
+\begin{figure}
+\centering
+\begin{block}{Objetivos}
+\begin{itemize}
+
+\item Interfaz amigable y sencilla.
+\item Interección personalizada.
+\item Autenticación facial.
+\item Uso de modelos de leguaje.
+
+\end{itemize}
+\end{block}
+
+\vspace{0.5cm}
+
+\includegraphics[height=3.6cm]{figs/bee}
+\hspace{0.4cm}
+\includegraphics[height=3.6cm]{figs/nuka}
 
 \end{figure}
 \end{frame}
@@ -211,6 +324,8 @@ Trabajo Fin de Grado
 \item Diario de desarrollo mediante \href{https://github.com/RoboticsURJC/tfg-ematos/wiki}{Wiki}.
 \item Reuniones semanales de seguimiento.
 
+\note[item]{Incremental: subojetivos y prueba y Validación}
+
 \end{itemize}
 \end{block}
 
@@ -227,7 +342,7 @@ Trabajo Fin de Grado
 \begin{frame}{}
   \centering \Huge
   \emph{Plataforma de desarrollo}
-\note[item]{Pasemos ahora a comentar los objetivos que nos hemos con este trabajo.}
+\note[item]{Una vez descrito el contexto y objetivos pasemos a las plataformas de desarrollo utilizadas}
 \end{frame}
 
 \section{Plataforma de desarrollo}
@@ -332,6 +447,22 @@ Trabajo Fin de Grado
 \end{frame}
 
 
+\begin{frame}
+\frametitle{Modelo 3D}
+\begin{figure}
+\centering
+
+\vspace{0.5cm}
+
+
+\includegraphics[height=3.6cm]{figs/3D2}
+\hspace{0.4cm}
+\includegraphics[height=3.6cm]{figs/3D3}
+
+\end{figure}
+\end{frame}
+
+
 
 \begin{frame}
 \frametitle{Estructura final del robot}
@@ -350,11 +481,35 @@ Trabajo Fin de Grado
 \section*{}
 \begin{frame}{}
   \centering \Huge
-  \emph{Plataforma software del sistema}
+  \emph{Arquitectura software del sistema}
 \note[item]{Pasemos ahora a comentar los objetivos que nos hemos con este trabajo.}
 \end{frame}
 
-\section{Plataforma software del sistema}
+\section{Arquitectura software del sistema}
+
+\begin{frame}
+\frametitle{Tipología software}
+\begin{figure}
+\centering
+\begin{block}{Características}
+\begin{itemize}
+
+\note[item]{el código está dividido en diferentes modulos}
+\note[item]{cada módulo se encarga de una funcialidad diferente}
+\note[item]{facilitando el mantenimiento del código}
+
+
+\item \alert{Modularización} del código.
+
+\end{itemize}
+\end{block}
+
+\includegraphics[height=5cm]{figs/mod}
+
+\end{figure}
+\end{frame}
+
+
 
 \begin{frame}
 \frametitle{Tipología software}
@@ -364,14 +519,11 @@ Trabajo Fin de Grado
 \begin{itemize}
 
 \item Diseño \alert{distribuido}.
-\item \alert{Modularización} del código.
 
 \end{itemize}
 \end{block}
 
-\vspace{0.1cm}
-
-\includegraphics[height=5.5cm]{figs/sistema}
+\includegraphics[height=4.8cm]{figs/wifi}
 
 \end{figure}
 \end{frame}
@@ -399,7 +551,19 @@ Trabajo Fin de Grado
 
 \includegraphics[width=0.45\textwidth]{figs/launch}
 \hspace{0.02\textwidth}
+\includegraphics[width=0.45\textwidth]{figs/cap}
+
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Interacción con el robot}
+\begin{figure}
+\centering
+
 \includegraphics[width=0.45\textwidth]{figs/notas}
+\hspace{0.02\textwidth}
+\includegraphics[width=0.45\textwidth]{figs/cal}
 
 \end{figure}
 \end{frame}
@@ -412,12 +576,20 @@ Trabajo Fin de Grado
 
 \includegraphics[width=0.45\textwidth]{figs/mem}
 \hspace{0.02\textwidth}
-\includegraphics[width=0.45\textwidth]{figs/sugerencia}
+\includegraphics[width=0.45\textwidth]{figs/dif}
 
 \end{figure}
 \end{frame}
 
+\begin{frame}
+\frametitle{Interfaz de usuario}
+\begin{figure}
+\centering
 
+\includegraphics[width=1\textwidth]{figs/sugerencia}
+
+\end{figure}
+\end{frame}
 
 \begin{frame}
 \frametitle{Interacción con el robot}
@@ -436,25 +608,9 @@ Trabajo Fin de Grado
 \begin{frame}{}
   \centering \Huge
   \emph{Experimentos}
-\note[item]{Para acabar esta presentación, vamos a repasar lo hecho, unas breves conclusiones y las líneas futuras.}
 \end{frame}
 
 \section{Experimentos}
-
-\begin{frame}
-\frametitle{Validación del sistema}
-\begin{figure}
-\centering
-
-\begin{itemize}
-\item Diseño y ensamblaje del robot.
-\item Evaluación del reconocimiento facial.
-\item Comparativa de modelos de lenguaje.
-\item Validación del sistema completo.
-\end{itemize}
-\end{figure}
-\end{frame}
-
 
 \begin{frame}
 \frametitle{Diseño y ensamblaje del robot}
@@ -483,7 +639,10 @@ Trabajo Fin de Grado
 
 \vspace{0.5cm}
 
-\includegraphics[height=5cm]{figs/logmal}
+\begin{tabular}{cc}
+		\includegraphics[width=0.3\textwidth, valign=m]{figs/logmal} & \includegraphics[width=0.3\textwidth, valign=m]{figs/idris} \\
+		\includegraphics[width=0.3\textwidth, valign=m]{figs/juanes} & \includegraphics[width=0.3\textwidth, valign=m]{figs/sh}
+\end{tabular}
 
 \end{figure}
 
@@ -520,9 +679,13 @@ Gemini & 3--60 s \\
 
 \section{Conclusiones}
 
+
 \begin{frame}
 \begin{block}{Objetivos cumplidos}
 \begin{itemize}
+
+\note[item]{Para acabar esta presentación, vamos a repasar lo hecho, unas breves conclusiones y las líneas futuras.}
+
 \item \alert{Robot asistencial} diseñado y fabricado.
 \item Sistema  \alert{funcional} e \alert{integrado}.
 \item Autenticación facial e IA conversacional.
@@ -534,10 +697,11 @@ Gemini & 3--60 s \\
 
 \begin{block}{Líneas futuras}
 \begin{itemize}
+\note[item]{(Mejoras): (seguimiento del usuario y reconocimiento de emociones)}
 \item Incorporar modelos de \alert{IA} más \alert{avanzados}.
 \item Mejorar la interfaz y la experiencia de usuario.
 \item Integrar todo el procesamiento en un \alert{único hardware}.
-\item \alert{Ampliar las funcionalidades} (seguimiento del usuario y reconocimiento de emociones).
+\item \alert{Ampliar las funcionalidades}.
 \end{itemize}
 \end{block}
 \end{frame}
