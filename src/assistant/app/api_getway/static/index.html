@@ -1,120 +1,167 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="es">
 <head>
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="/static/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robot Dashboard</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.11.0/dist/tabler-icons.min.css">
+  <link rel="stylesheet" href="/static/style.css">
 </head>
-
 <body>
-
 <div class="container">
 
-    <!-- BANNER -->
-    <div class="banner">
+  <!-- HEADER -->
+  <div class="banner">
+    <img src="/static/logo.png" class="banner-img" alt="logo">
+    <div class="banner-center">
+      <h1 class="title">Ejecuciones en Tiempo real</h1>
+      <p class="subtitle">ROBOT ROJAZZ API</p>
+    </div>
+    <div class="live-pill">
+      <span class="pulse"></span> live
+    </div>
+  </div>
 
-        <img src="/static/logo.png" class="banner-img">
-
-        <h1 class="title">Dashboard</h1>
-
-        <div class="banner-spacer"></div>
-
+  <!-- SERVICES -->
+  <div class="services-bar">
+    <div class="svc-card svc-llm">
+      <div class="svc-icon"><i class="ti ti-messages"></i></div>
+      <div class="svc-meta">
+        <div class="svc-name">LLM</div>
+        <div class="svc-state" id="state-llm">offline</div>
+      </div>
+      <div class="led" id="led-llm"></div>
+      <div class="svc-btns">
+        <button class="btn-start" onclick="startService('llm')">
+          <i class="ti ti-player-play"></i> Start
+        </button>
+        <button class="btn-stop" onclick="stopService('llm')">
+          <i class="ti ti-player-stop"></i> Stop
+        </button>
+      </div>
     </div>
 
-    <!-- LAYOUT -->
-    <div class="layout">
-
-        <!-- LOGS -->
-        <div class="logs-panel">
-
-            <div class="card">
-                <div class="section-header">
-                    <h2>🤖 LLM</h2>
-                </div>
-                <div id="logs-llm" class="log-box"></div>
-            </div>
-
-            <div class="card">
-                <div class="section-header">
-                    <h2>📷 Reconocimiento facial</h2>
-                </div>
-                <div id="logs-recognition" class="log-box"></div>
-            </div>
-
-        </div>
-
-        <!-- CONTROLES -->
-        <div class="controls-panel">
-
-            <div class="card">
-                <div class="section-header">
-                    <h2>🎤 Control LLM</h2>
-
-                    <div class="controls">
-                        <div id="led-llm" class="led"></div>
-                        <button onclick="startService('llm')">Start</button>
-                        <button onclick="stopService('llm')">Stop</button>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="section-header">
-                    <h2>📷 Control Cámara</h2>
-
-                    <div class="controls">
-                        <div id="led-recognition" class="led"></div>
-                        <button onclick="startService('recognition')">Start</button>
-                        <button onclick="stopService('recognition')">Stop</button>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-
+    <div class="svc-card svc-cam">
+      <div class="svc-icon"><i class="ti ti-camera"></i></div>
+      <div class="svc-meta">
+        <div class="svc-name">Camera</div>
+        <div class="svc-state" id="state-recognition">offline</div>
+      </div>
+      <div class="led" id="led-recognition"></div>
+      <div class="svc-btns">
+        <button class="btn-start" onclick="startService('recognition')">
+          <i class="ti ti-player-play"></i> Start
+        </button>
+        <button class="btn-stop" onclick="stopService('recognition')">
+          <i class="ti ti-player-stop"></i> Stop
+        </button>
+      </div>
     </div>
+  </div>
+
+  <!-- LOGS -->
+  <div class="logs-grid">
+
+    <div class="log-card card-llm">
+      <div class="log-head">
+        <span class="log-title">
+          <i class="ti ti-messages log-title-icon"></i> Ejecución LLM en directo
+        </span>
+        <span class="log-count" id="cnt-llm">0 msgs</span>
+      </div>
+      <div class="log-stream" id="box-llm">
+        <div class="empty">sin logs aún</div>
+      </div>
+    </div>
+
+    <div class="log-card card-vision">
+      <div class="log-head">
+        <span class="log-title">
+          <i class="ti ti-camera log-title-icon"></i> Ejecución cámara en directo
+        </span>
+        <span class="log-count" id="cnt-vision">0 msgs</span>
+      </div>
+      <div class="log-stream" id="box-vision">
+        <div class="empty">sin logs aún</div>
+      </div>
+    </div>
+
+    <div class="log-card card-client">
+      <div class="log-head">
+        <span class="log-title">
+          <i class="ti ti-user log-title-icon"></i> Cliente en tiempo real
+        </span>
+        <span class="log-count" id="cnt-client">0 msgs</span>
+      </div>
+      <div class="log-stream" id="box-client">
+        <div class="empty">sin logs aún</div>
+      </div>
+    </div>
+
+  </div>
 </div>
 
 <script>
+  const svcs = {
+    llm:         { box:'box-llm',    cnt:'cnt-llm',    led:'led-llm',         state:'state-llm',         cls:'llm',    ep:'llm' },
+    recognition: { box:'box-vision', cnt:'cnt-vision',  led:'led-recognition', state:'state-recognition', cls:'vision', ep:'recognition' },
+    client:      { box:'box-client', cnt:'cnt-client',  led:null,              state:null,                cls:'client', ep:'client' }
+  };
 
-async function startService(service){
-    await fetch(`/start/${service}`, { method: 'POST' });
-    setLed(service, true);
-}
+  const lastSeen = {};
 
-async function stopService(service){
-    await fetch(`/stop/${service}`, { method: 'POST' });
-    setLed(service, false);
-}
+  async function startService(id) {
+    try { await fetch('/start/'+id, {method:'POST'}); } catch(e){}
+    const s = svcs[id]; if (!s) return;
+    if (s.led)   document.getElementById(s.led)?.classList.add('on');
+    if (s.state) { const el = document.getElementById(s.state); if(el) el.textContent = 'running'; }
+  }
 
-function setLed(service, state){
-    const led = document.getElementById(`led-${service}`);
-    if(!led) return;
-    led.classList.toggle("on", state);
-}
+  async function stopService(id) {
+    try { await fetch('/stop/'+id, {method:'POST'}); } catch(e){}
+    const s = svcs[id]; if (!s) return;
+    if (s.led)   document.getElementById(s.led)?.classList.remove('on');
+    if (s.state) { const el = document.getElementById(s.state); if(el) el.textContent = 'offline'; }
+  }
 
-async function loadLogs(service){
+  async function loadLogs(id) {
+    const s = svcs[id]; if (!s) return;
+    try {
+      const res  = await fetch('/logs/'+s.ep);
+      const data = await res.json();
+      const logs = data.logs || [];
+      const box  = document.getElementById(s.box);
+      const cnt  = document.getElementById(s.cnt);
+      if (!box) return;
+      if (cnt) cnt.textContent = logs.length + ' msgs';
 
-    const res = await fetch(`/logs/${service}`);
-    const data = await res.json();
+      const prev = lastSeen[id] || 0;
+      const newLogs = logs.slice(prev);
+      if (!newLogs.length) return;
 
-    const box = document.getElementById(`logs-${service}`);
+      const empty = box.querySelector('.empty');
+      if (empty) empty.remove();
 
-    box.innerHTML = data.logs
-        .map(l => `<div>${l.text}</div>`)
-        .join("");
+      const atBottom = box.scrollHeight - box.scrollTop - box.clientHeight < 40;
 
-    box.scrollTop = box.scrollHeight;
-}
+      newLogs.forEach(l => {
+        const el = document.createElement('div');
+        el.className = 'entry ' + s.cls;
+        el.innerHTML =
+          '<span class="entry-time">' + l.time + '</span>' +
+          '<span class="entry-text">' + l.text + '</span>';
+        box.appendChild(el);
+      });
 
-setInterval(() => {
-    loadLogs("llm");
-    loadLogs("recognition");
-}, 1000);
+      lastSeen[id] = logs.length;
 
+      while (box.children.length > 80) box.removeChild(box.firstChild);
+
+      if (atBottom) box.scrollTop = box.scrollHeight;
+    } catch(e){}
+  }
+
+  setInterval(() => Object.keys(svcs).forEach(loadLogs), 800);
 </script>
-
 </body>
 </html>

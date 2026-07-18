@@ -36,9 +36,9 @@
   {\endtabularx\par\vspace{\belowdisplayskip}}
   
 % USO DE NOTAS
-% \setbeameroption{hide notes} % Para mostrar u ocultar (hide/show)
+\setbeameroption{hide notes} % Para mostrar u ocultar (hide/show)
 % \setbeameroption{show only notes} % Mostrar solo las notas
-\setbeameroption{show notes on second screen=right} % Mostrar notas en otra pantalla
+% \setbeameroption{show notes on second screen=right} % Mostrar notas en otra pantalla
 \setbeamertemplate{note page}{ % asi solo muestro el texto de las notas
   \insertnote%
 }
@@ -161,9 +161,12 @@ Trabajo Fin de Grado
 \begin{frame}{}
   \centering \Huge
   \emph{Estado del arte}
+  \note[item]{Busqué información sobre trabajos de acompañamiento y apoyo a personas mayores.}
+
 \end{frame}
 
 \section{Estado del arte}
+
 
 \begin{frame}
 \frametitle{Arquitectura de asistencia inteligente}
@@ -232,10 +235,9 @@ Trabajo Fin de Grado
 \begin{block}{Problemas}
 \begin{itemize}
 
-\note[item]{el trabajo responder 2 problemas principales.}
-
 \item Soledad en personas mayores.
 \item Escasez de personal asistencial.
+
 
 \end{itemize}
 \end{block}
@@ -245,6 +247,9 @@ Trabajo Fin de Grado
 \includegraphics[height=3.6cm]{figs/sol}
 \hspace{0.4cm}
 \includegraphics[height=3.6cm]{figs/mano}
+
+\note[item]{no busca susituir la asistencia profesional.}
+\note[item]{herramienta complementaria.}
 
 \end{figure}
 \end{frame}
@@ -364,6 +369,9 @@ Trabajo Fin de Grado
 \includegraphics[width=0.25\textwidth]{figs/rueda}
 \hfill
 \includegraphics[width=0.25\textwidth]{figs/pantalla}
+
+\note[item]{Priorizar coste sin perder funcionalidad}
+\note[item]{reproducible y asequible}
 
 \end{frame}
 
@@ -497,6 +505,8 @@ Trabajo Fin de Grado
 \note[item]{el código está dividido en diferentes modulos}
 \note[item]{cada módulo se encarga de una funcialidad diferente}
 \note[item]{facilitando el mantenimiento del código}
+\note[item]{explicar voz y activación}
+
 
 
 \item \alert{Modularización} del código.
@@ -505,6 +515,8 @@ Trabajo Fin de Grado
 \end{block}
 
 \includegraphics[height=5cm]{figs/mod}
+
+
 
 \end{figure}
 \end{frame}
@@ -519,6 +531,12 @@ Trabajo Fin de Grado
 \begin{itemize}
 
 \item Diseño \alert{distribuido}.
+
+\note[item]{Ip fijas.}
+\note[item]{funcionamiento por peticiones http.}
+\note[item]{depende de la ip del pc.}
+
+
 
 \end{itemize}
 \end{block}
